@@ -473,6 +473,7 @@ function logo(i){
 function stars(v){ const full=Math.round(v); return "★".repeat(full)+"☆".repeat(5-full); }
 function fmtN(n){ return n>=1000 ? (n/1000).toFixed(n>=10000?0:1)+"k" : String(n); }
 function fmtDate(d){ try { return new Date(d).toLocaleDateString('en-GB',{month:'short',year:'numeric'}); } catch { return d; } }
+function fmtDay(d){ try { return new Date(d).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}); } catch { return d; } }
 function fmtIsbn(s){ return s.length===13 ? `${s.slice(0,3)}-${s.slice(3,4)}-${s.slice(4,9)}-${s.slice(9,12)}-${s.slice(12)}` : s; }
 function isbnOk(raw){ const s=String(raw).replace(/[-\s]/g,"").toUpperCase();
   if (/^\d{13}$/.test(s)) return [...s].reduce((t,d,k)=>t+(+d)*(k%2?3:1),0)%10===0 ? s : null;
@@ -651,7 +652,8 @@ function showCover(){
   $("#cvTags").innerHTML = i.domains.map(d=>`<span class="tag" style="cursor:default">${esc(DOM[d]?.label||d)}</span>`).join("");
   const rows = i.type==="book"
     ? [["Publisher", i.publisher], ["Published", i.published], ["ISBN", i.isbn && fmtIsbn(i.isbn)], ["Other ISBN", (i.isbnAlt||[]).map(fmtIsbn).join(", ")], ["Rating", i.rating && `${i.rating.v.toFixed(1)} (${fmtN(i.rating.n)})`]]
-    : [["Cadence", FREQ[i.freq]?.label], ["Since", year(i.launched)], ["Rating", i.rating && `${i.rating.v.toFixed(1)} (${fmtN(i.rating.n)})`]];
+    : [["Cadence", FREQ[i.freq]?.label], ["Since", year(i.launched)], ["Episodes", i.episodes && (i.episodes>=2000 ? "2,000+" : i.episodes.toLocaleString("en-GB"))],
+       [i.lastEpisode > new Date().toISOString().slice(0,10) ? "Next episode" : "Latest", i.lastEpisode && fmtDay(i.lastEpisode)], ["Rating", i.rating && `${i.rating.v.toFixed(1)} (${fmtN(i.rating.n)})`]];
   $("#cvMeta").innerHTML = rows.filter(r=>r[1]).map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join("");
   $("#cvLinks").innerHTML = platLinks(i);
   $("#cvPos").textContent = `${cvIdx+1} of ${cvList.length}`;
