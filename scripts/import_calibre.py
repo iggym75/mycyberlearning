@@ -41,10 +41,20 @@ def canon_publisher(name):
 
 def norm(s):
     s = unicodedata.normalize("NFKD", str(s or "")).lower()
-    s = re.sub(r"\(.*?\)", "", s).split(":")[0].split(" - ")[0]
-    s = re.sub(r"^(the|a)\s+", "", s.strip())
+    s = re.sub(r"\(.*?\)|\.(mobi|epub|pdf|azw3?)$", "", s)
+    s = re.split(r":|;|/|\s[-\u2013\u2014]\s|,\s*(second|third|fourth|\d+(st|nd|rd|th))\s+edition", s)[0]
     s = re.sub(r"\b(\d+(st|nd|rd|th)|second|third|fourth|fifth)\s+edition\b|\bedition\b", "", s)
+    s = re.sub(r"[\u00ae\u2122]", "", s)
+    s = re.sub(r"^(the|a)\s+", "", s.strip())
     return re.sub(r"[^a-z0-9]+", " ", s).strip()
+
+def find(item_key, by_key):
+    """Exact normalised title, else a prefix match of at least three words (handles subtitles glued on without a colon)."""
+    if item_key in by_key: return by_key[item_key]
+    if len(item_key.split()) < 3: return None
+    for k, c in by_key.items():
+        if len(k.split()) >= 3 and (k.startswith(item_key + " ") or item_key.startswith(k + " ")): return c
+    return None
 
 def isbn13(raw):
     s = re.sub(r"[-\s]", "", str(raw or "")).upper()
@@ -98,18 +108,23 @@ def main():
     cal = read_calibre(lib)
     by_isbn = {c["isbn"]: c for c in cal if c["isbn"]}
     by_key = {}
-    for c in cal: by_key.setdefault(c["key"], c)
+    for c in sorted(cal, key=lambda c: (bool(c["isbn"]), c["year"] or ""), reverse=True):
+        by_key.setdefault(c["key"], c)
 
     cat = json.loads(CAT.read_text(encoding="utf-8"))
     used, report = set(), {"matched": 0, "isbn_added": 0, "isbn_changed": [], "publisher_set": 0, "covers": 0, "unmatched": []}
     for item in (i for i in cat["items"] if i["type"] == "book"):
-        c = by_isbn.get(item.get("isbn")) or by_key.get(norm(item["name"]))
+        c = by_isbn.get(item.get("isbn"))
+        # Title matching is skipped for bundle entries (a specific edition you may not own in Calibre).
+        if not c and not item.get("bundle"): c = find(norm(item["name"]), by_key)
         if not c:
             report["unmatched"].append(item["name"]); continue
         used.add(id(c)); report["matched"] += 1
         if c["isbn"]:
             if not item.get("isbn"): report["isbn_added"] += 1
             elif item["isbn"] != c["isbn"]: report["isbn_changed"].append(f'{item["name"]}: {item["isbn"]} -> {c["isbn"]} (your edition)')
+            if item.get("isbn") and item["isbn"] != c["isbn"]:
+                item["isbnAlt"] = sorted(set(item.get("isbnAlt", [])) | {item["isbn"]})  # e.g. the print ISBN; still searchable
             item["isbn"], item["isbnVerified"] = c["isbn"], True
         if c["publisher"] and item.get("publisher") != c["publisher"]:
             item["publisher"] = c["publisher"]; report["publisher_set"] += 1
