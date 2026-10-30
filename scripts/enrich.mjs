@@ -62,15 +62,22 @@ export async function lookupBook(item) {
       };
     }
   }
-  const author = (item.by || "").split(/&|,| and /)[0].trim();
-  const url = `https://openlibrary.org/search.json?limit=5&fields=key,title,first_publish_year,ratings_average,ratings_count,cover_i&title=${encodeURIComponent(item.name.split(":")[0])}${author ? "&author=" + encodeURIComponent(author) : ""}`;
+  // No ISBN yet: search by title (+ first author), and only accept a confident title match.
+  const author = (item.by || "").split(/&|,| and /)[0].replace(/\bet al\.?/, "").trim();
+  const title = item.name.replace(/\(.*?\)/g, "").split(":")[0].trim();
+  const fields = "key,title,first_publish_year,ratings_average,ratings_count,cover_i,editions,editions.isbn,editions.publisher,editions.publish_date";
+  const url = `https://openlibrary.org/search.json?limit=5&fields=${fields}&title=${encodeURIComponent(title)}${author ? "&author=" + encodeURIComponent(author) : ""}`;
   const docs = (await getJson(url)).docs || [];
-  const d = bestMatch(item.name.split(":")[0], docs, "title") || docs[0];
+  const d = docs.find(x => titlesMatch(item.name, x.title));
   if (!d) return null;
+  const ed = d.editions?.docs?.[0] || {};
+  const foundIsbn = (ed.isbn || []).map(normaliseIsbn).find(x => x?.length === 13);
   return {
     logo: d.cover_i ? `https://covers.openlibrary.org/b/id/${d.cover_i}-M.jpg` : undefined,
     openlibrary: `https://openlibrary.org${d.key}`,
-    rating: d.ratings_count >= 5 ? { v: Math.round(d.ratings_average * 10) / 10, n: d.ratings_count, src: "Open Library" } : null
+    rating: d.ratings_count >= 5 ? { v: Math.round(d.ratings_average * 10) / 10, n: d.ratings_count, src: "Open Library" } : null,
+    // Suggested from the best-matching edition; flagged unverified so an admin can confirm the edition.
+    suggestedIsbn: foundIsbn, publisher: ed.publisher?.[0], year: (ed.publish_date?.match(/\d{4}/) || [])[0] || (d.first_publish_year ? String(d.first_publish_year) : undefined)
   };
 }
 

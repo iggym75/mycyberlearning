@@ -61,6 +61,9 @@ for (const { item, row } of rows) {
           next.isbnVerified = b.isbnVerified;
           if (!b.isbnVerified) report.notes.push(`${item.id}: ISBN ${item.isbn} is registered to "${b.isbnTitle}" — check the edition`);
           next.publisher ??= b.publisher; if (!next.published && b.year) next.published = b.year;
+        } else {
+          if (b.suggestedIsbn && !next.isbn) { next.isbn = b.suggestedIsbn; next.isbnVerified = false; report.notes.push(`${item.id}: ISBN ${b.suggestedIsbn} added from Open Library — confirm the edition`); }
+          next.publisher ??= b.publisher; if (!next.published && b.year) next.published = b.year;
         }
       } else if (item.isbn) report.notes.push(`${item.id}: ISBN ${item.isbn} not found on Open Library`);
     }
