@@ -45,6 +45,10 @@
     "humble-library": {
       "label": "MCL curator's Humble Bundle library",
       "url": null
+    },
+    "calibre": {
+      "label": "MCL curator's Calibre library",
+      "url": null
     }
   },
   "items": [
@@ -2012,8 +2016,12 @@
       ],
       "verified": true,
       "publisher": "Wiley",
-      "isbn": "9781118809990",
-      "isbnVerified": false
+      "isbn": "9781118810057",
+      "isbnVerified": true,
+      "isbnAlt": [
+        "9781118809990"
+      ],
+      "logo": "covers/book-threat-modeling.jpg"
     },
     {
       "id": "book-sandworm",
@@ -2182,8 +2190,12 @@
       ],
       "verified": true,
       "publisher": "No Starch Press",
-      "isbn": "9781593272906",
-      "isbnVerified": false
+      "isbn": "9781593274306",
+      "isbnVerified": true,
+      "isbnAlt": [
+        "9781593272906"
+      ],
+      "logo": "covers/book-practical-malware.jpg"
     },
     {
       "id": "book-practical-vm",
@@ -2238,7 +2250,9 @@
       ],
       "verified": true,
       "publisher": "MIT Press",
-      "isbnVerified": false
+      "isbnVerified": true,
+      "isbn": "9781119883999",
+      "logo": "covers/book-not-with-a-bug.jpg"
     },
     {
       "id": "book-tribe-of-hackers",
@@ -2265,7 +2279,8 @@
       "verified": true,
       "publisher": "Wiley",
       "isbn": "9781119643371",
-      "isbnVerified": false
+      "isbnVerified": false,
+      "logo": "covers/book-tribe-of-hackers.jpg"
     },
     {
       "id": "book-hacking-exposed-ics",
@@ -2979,7 +2994,7 @@
         "intermediate"
       ],
       "published": "2020",
-      "publisher": "Pearson",
+      "publisher": "Pearson IT Certification",
       "format": [
         "ebook"
       ],
@@ -2988,8 +3003,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9780134892948",
+      "logo": "covers/book-a-practical-guide-to-digital-forensics-investigations.jpg"
     },
     {
       "id": "book-adversarial-tradecraft-in-cybersecurity",
@@ -3017,7 +3034,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-adversarial-tradecraft-in-cybersecurity.jpg"
     },
     {
       "id": "book-alice-and-bob-learn-application-security",
@@ -3042,9 +3060,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781119687351",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781119687405",
+      "rating": null,
+      "isbnAlt": [
+        "9781119687351"
+      ],
+      "logo": "covers/book-alice-and-bob-learn-application-security.jpg"
     },
     {
       "id": "book-aligning-security-operations-with-the-mitre-att-ck-framework",
@@ -3071,7 +3093,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-aligning-security-operations-with-the-mitre-att-ck-framework.jpg"
     },
     {
       "id": "book-antivirus-bypass-techniques",
@@ -3097,7 +3120,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-antivirus-bypass-techniques.jpg"
     },
     {
       "id": "book-applied-cryptography",
@@ -3121,9 +3145,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781119096726",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781119439028",
+      "rating": null,
+      "isbnAlt": [
+        "9781119096726"
+      ],
+      "logo": "covers/book-applied-cryptography.jpg"
     },
     {
       "id": "book-attacking-network-protocols",
@@ -3148,9 +3176,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781593277505",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781593278441",
+      "rating": null,
+      "isbnAlt": [
+        "9781593277505"
+      ],
+      "logo": "covers/book-attacking-network-protocols.jpg"
     },
     {
       "id": "book-automating-security-detection-engineering",
@@ -3178,7 +3210,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-automating-security-detection-engineering.jpg"
     },
     {
       "id": "book-beyond-the-algorithm",
@@ -3205,8 +3238,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9780138268398",
+      "logo": "covers/book-beyond-the-algorithm.jpg"
     },
     {
       "id": "book-black-hat-go",
@@ -3231,9 +3266,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781593278656",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781593278663",
+      "rating": null,
+      "isbnAlt": [
+        "9781593278656"
+      ],
+      "logo": "covers/book-black-hat-go.jpg"
     },
     {
       "id": "book-black-hat-python",
@@ -3257,9 +3296,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781718501126",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781718501133",
+      "rating": null,
+      "isbnAlt": [
+        "9781718501126"
+      ],
+      "logo": "covers/book-black-hat-python.jpg"
     },
     {
       "id": "book-blockchain-security-from-the-bottom-up",
@@ -3284,8 +3327,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119898634",
+      "logo": "covers/book-blockchain-security-from-the-bottom-up.jpg"
     },
     {
       "id": "book-building-a-career-in-cybersecurity",
@@ -3310,7 +3355,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-building-a-career-in-cybersecurity.jpg"
     },
     {
       "id": "book-building-a-cyber-resilient-business",
@@ -3336,7 +3382,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-building-a-cyber-resilient-business.jpg"
     },
     {
       "id": "book-certified-ethical-hacker-v12-312-50-exam-guide",
@@ -3363,12 +3410,13 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-certified-ethical-hacker-v12-312-50-exam-guide.jpg"
     },
     {
       "id": "book-cism-exam-prep-guide",
       "type": "book",
-      "name": "CISM Exam Prep Guide (2nd ed.)",
+      "name": "Certified Information Security Manager (CISM) Exam Prep Guide (2nd ed.)",
       "by": "Hemang Doshi",
       "desc": "Preparation for the ISACA CISM exam: governance, risk, programme management and incident management.",
       "domains": [
@@ -3390,7 +3438,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-cism-exam-prep-guide.jpg"
     },
     {
       "id": "book-chatgpt-for-cybersecurity-cookbook",
@@ -3417,7 +3466,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-chatgpt-for-cybersecurity-cookbook.jpg"
     },
     {
       "id": "book-cisa-certified-information-systems-auditor-study-guide",
@@ -3443,12 +3493,13 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-cisa-certified-information-systems-auditor-study-guide.jpg"
     },
     {
       "id": "book-comptia-security-certification-guide",
       "type": "book",
-      "name": "CompTIA Security+ Certification Guide",
+      "name": "CompTIA Security+ SY0-601 Certification Guide (2nd ed.)",
       "by": "Ian Neil",
       "desc": "Exam preparation for CompTIA Security+, covering core security concepts with mock exams.",
       "domains": [
@@ -3468,7 +3519,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "published": "2020"
     },
     {
       "id": "book-comptia-security-sy0-701-cert-guide",
@@ -3494,7 +3546,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-comptia-security-sy0-701-cert-guide.jpg"
     },
     {
       "id": "book-crypto-dictionary",
@@ -3519,9 +3572,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781718501409",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781718501416",
+      "rating": null,
+      "isbnAlt": [
+        "9781718501409"
+      ],
+      "logo": "covers/book-crypto-dictionary.jpg"
     },
     {
       "id": "book-cryptography-algorithms",
@@ -3546,7 +3603,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-cryptography-algorithms.jpg"
     },
     {
       "id": "book-cryptography-apocalypse",
@@ -3571,8 +3629,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119618225",
+      "logo": "covers/book-cryptography-apocalypse.jpg"
     },
     {
       "id": "book-cryptography-engineering",
@@ -3597,9 +3657,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9780470474242",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781118080917",
+      "rating": null,
+      "isbnAlt": [
+        "9780470474242"
+      ],
+      "logo": "covers/book-cryptography-engineering.jpg"
     },
     {
       "id": "book-cyber-warfare",
@@ -3625,7 +3689,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-cyber-warfare.jpg"
     },
     {
       "id": "book-cyberjutsu",
@@ -3650,9 +3715,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781718500549",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781718500556",
+      "rating": null,
+      "isbnAlt": [
+        "9781718500549"
+      ],
+      "logo": "covers/book-cyberjutsu.jpg"
     },
     {
       "id": "book-cybersecurity-attack-and-defense-strategies",
@@ -3678,7 +3747,9 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "published": "2019",
+      "logo": "covers/book-cybersecurity-attack-and-defense-strategies.jpg"
     },
     {
       "id": "book-cybersecurity-and-privacy-law-handbook",
@@ -3705,7 +3776,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-cybersecurity-and-privacy-law-handbook.jpg"
     },
     {
       "id": "book-cybersecurity-and-third-party-risk",
@@ -3730,8 +3802,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119809562",
+      "logo": "covers/book-cybersecurity-and-third-party-risk.jpg"
     },
     {
       "id": "book-cybersecurity-blue-team-strategies",
@@ -3758,7 +3832,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-cybersecurity-blue-team-strategies.jpg"
     },
     {
       "id": "book-cybersecurity-blue-team-toolkit",
@@ -3783,8 +3858,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119552949",
+      "logo": "covers/book-cybersecurity-blue-team-toolkit.jpg"
     },
     {
       "id": "book-cybersecurity-career-master-plan",
@@ -3809,7 +3886,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-cybersecurity-career-master-plan.jpg"
     },
     {
       "id": "book-cybersecurity-myths-and-misconceptions",
@@ -3836,7 +3914,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-cybersecurity-myths-and-misconceptions.jpg"
     },
     {
       "id": "book-cybersecurity-threats-malware-trends-and-strategies",
@@ -3863,7 +3942,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-cybersecurity-threats-malware-trends-and-strategies.jpg"
     },
     {
       "id": "book-data-breaches",
@@ -3890,7 +3970,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-data-breaches.jpg"
     },
     {
       "id": "book-database-and-application-security",
@@ -3916,7 +3997,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-database-and-application-security.jpg"
     },
     {
       "id": "book-designing-and-developing-secure-azure-solutions",
@@ -3943,7 +4025,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-designing-and-developing-secure-azure-solutions.jpg"
     },
     {
       "id": "book-developing-cybersecurity-programs-and-policies-in-an-ai-driv",
@@ -3969,8 +4052,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9780138074067",
+      "logo": "covers/book-developing-cybersecurity-programs-and-policies-in-an-ai-driv.jpg"
     },
     {
       "id": "book-digital-forensics-and-incident-response",
@@ -3996,7 +4081,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-digital-forensics-and-incident-response.jpg"
     },
     {
       "id": "book-effective-cybersecurity",
@@ -4023,7 +4109,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-effective-cybersecurity.jpg"
     },
     {
       "id": "book-effective-threat-investigation-for-soc-analysts",
@@ -4050,7 +4137,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-effective-threat-investigation-for-soc-analysts.jpg"
     },
     {
       "id": "book-engineering-ai-systems",
@@ -4076,8 +4164,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9780138261450",
+      "logo": "covers/book-engineering-ai-systems.jpg"
     },
     {
       "id": "book-foundations-of-information-security",
@@ -4102,9 +4192,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781718500044",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781718500051",
+      "rating": null,
+      "isbnAlt": [
+        "9781718500044"
+      ],
+      "logo": "covers/book-foundations-of-information-security.jpg"
     },
     {
       "id": "book-ghidra-software-reverse-engineering-for-beginners",
@@ -4131,13 +4225,14 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-ghidra-software-reverse-engineering-for-beginners.jpg"
     },
     {
       "id": "book-gray-hat-hacking",
       "type": "book",
-      "name": "Gray Hat Hacking: The Ethical Hacker's Handbook",
-      "by": "Allen Harper et al.",
+      "name": "Gray Hat Hacking: The Ethical Hacker's Handbook (5th ed.)",
+      "by": "Allen Harper, Daniel Regalado, Ryan Linn, Stephen Sims, Branko Spasojevic, Linda Martinez, Michael Baucom, Chris Eagle & Shon Harris",
       "desc": "Advanced ethical hacking: exploit development, red teaming, cloud and IoT attacks.",
       "domains": [
         "offensive"
@@ -4145,7 +4240,7 @@
       "level": [
         "advanced"
       ],
-      "published": "2022",
+      "published": "2018",
       "publisher": "McGraw Hill",
       "format": [
         "ebook"
@@ -4155,8 +4250,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781260108422",
+      "logo": "covers/book-gray-hat-hacking.jpg"
     },
     {
       "id": "book-hack-the-cybersecurity-interview",
@@ -4181,7 +4278,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-hack-the-cybersecurity-interview.jpg"
     },
     {
       "id": "book-hacking-multifactor-authentication",
@@ -4207,8 +4305,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119650805",
+      "logo": "covers/book-hacking-multifactor-authentication.jpg"
     },
     {
       "id": "book-how-i-rob-banks",
@@ -4234,8 +4334,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119911517",
+      "logo": "covers/book-how-i-rob-banks.jpg"
     },
     {
       "id": "book-how-to-hack-like-a-ghost",
@@ -4260,9 +4362,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
+      "isbnVerified": true,
       "isbn": "9781718501263",
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-how-to-hack-like-a-ghost.jpg"
     },
     {
       "id": "book-if-it-s-smart-it-s-vulnerable",
@@ -4287,8 +4390,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119895206",
+      "logo": "covers/book-if-it-s-smart-it-s-vulnerable.jpg"
     },
     {
       "id": "book-in-zero-trust-we-trust",
@@ -4313,7 +4418,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-in-zero-trust-we-trust.jpg"
     },
     {
       "id": "book-incident-response-with-threat-intelligence",
@@ -4339,7 +4445,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-incident-response-with-threat-intelligence.jpg"
     },
     {
       "id": "book-industrial-cybersecurity",
@@ -4366,7 +4473,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-industrial-cybersecurity.jpg"
     },
     {
       "id": "book-information-privacy-engineering-and-privacy-by-design",
@@ -4392,7 +4500,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-information-privacy-engineering-and-privacy-by-design.jpg"
     },
     {
       "id": "book-investigating-cryptocurrencies",
@@ -4417,8 +4526,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119480563",
+      "logo": "covers/book-investigating-cryptocurrencies.jpg"
     },
     {
       "id": "book-kali-linux-penetration-testing-bible",
@@ -4443,8 +4554,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119719076",
+      "logo": "covers/book-kali-linux-penetration-testing-bible.jpg"
     },
     {
       "id": "book-keycloak",
@@ -4469,7 +4582,9 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "published": "2023",
+      "logo": "covers/book-keycloak.jpg"
     },
     {
       "id": "book-learn-computer-forensics",
@@ -4495,7 +4610,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-learn-computer-forensics.jpg"
     },
     {
       "id": "book-learn-wireshark",
@@ -4520,7 +4636,9 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "published": "2019",
+      "logo": "covers/book-learn-wireshark.jpg"
     },
     {
       "id": "book-liars-and-outliers",
@@ -4545,9 +4663,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781118143308",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781118239018",
+      "rating": null,
+      "isbnAlt": [
+        "9781118143308"
+      ],
+      "logo": "covers/book-liars-and-outliers.jpg"
     },
     {
       "id": "book-machine-learning-security-principles",
@@ -4573,7 +4695,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-machine-learning-security-principles.jpg"
     },
     {
       "id": "book-malware-analysis-techniques",
@@ -4599,7 +4722,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-malware-analysis-techniques.jpg"
     },
     {
       "id": "book-malware-analyst-s-cookbook-and-dvd",
@@ -4625,9 +4749,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9780470613030",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781118008294",
+      "rating": null,
+      "isbnAlt": [
+        "9780470613030"
+      ],
+      "logo": "covers/book-malware-analyst-s-cookbook-and-dvd.jpg"
     },
     {
       "id": "book-malware-data-science",
@@ -4653,9 +4781,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781593278595",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781593278601",
+      "rating": null,
+      "isbnAlt": [
+        "9781593278595"
+      ],
+      "logo": "covers/book-malware-data-science.jpg"
     },
     {
       "id": "book-mastering-cloud-security-posture-management",
@@ -4681,7 +4813,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-mastering-cloud-security-posture-management.jpg"
     },
     {
       "id": "book-mastering-cyber-intelligence",
@@ -4707,7 +4840,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-mastering-cyber-intelligence.jpg"
     },
     {
       "id": "book-mastering-defensive-security",
@@ -4732,7 +4866,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-mastering-defensive-security.jpg"
     },
     {
       "id": "book-mastering-kali-linux-for-advanced-penetration-testing",
@@ -4757,7 +4892,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-mastering-kali-linux-for-advanced-penetration-testing.jpg"
     },
     {
       "id": "book-mastering-malware-analysis",
@@ -4783,7 +4919,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-mastering-malware-analysis.jpg"
     },
     {
       "id": "book-mastering-microsoft-endpoint-manager",
@@ -4809,7 +4946,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-mastering-microsoft-endpoint-manager.jpg"
     },
     {
       "id": "book-mastering-palo-alto-networks",
@@ -4834,7 +4972,9 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "published": "2020",
+      "logo": "covers/book-mastering-palo-alto-networks.jpg"
     },
     {
       "id": "book-mastering-windows-security-and-hardening",
@@ -4859,7 +4999,9 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "published": "2020",
+      "logo": "covers/book-mastering-windows-security-and-hardening.jpg"
     },
     {
       "id": "book-microsoft-365-security-administration",
@@ -4885,7 +5027,9 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "published": "2021",
+      "logo": "covers/book-microsoft-365-security-administration.jpg"
     },
     {
       "id": "book-microsoft-azure-network-security",
@@ -4911,7 +5055,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-microsoft-azure-network-security.jpg"
     },
     {
       "id": "book-microsoft-azure-security-technologies-certification-and-beyo",
@@ -4937,7 +5082,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-microsoft-azure-security-technologies-certification-and-beyo.jpg"
     },
     {
       "id": "book-microsoft-defender-for-cloud",
@@ -4964,7 +5110,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-microsoft-defender-for-cloud.jpg"
     },
     {
       "id": "book-microsoft-sentinel",
@@ -4990,12 +5137,14 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "published": "2022",
+      "logo": "covers/book-microsoft-sentinel.jpg"
     },
     {
       "id": "book-mitre-att-ck-for-dummies",
       "type": "book",
-      "name": "MITRE ATT&CK for Dummies",
+      "name": "MITRE ATT&CK for Dummies (AttackIQ Special Edition)",
       "desc": "Short primer on the ATT&CK framework and how security teams use it.",
       "domains": [
         "cti",
@@ -5014,7 +5163,10 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "published": "2020",
+      "by": "Jonathan Reiber & Carl Wright",
+      "logo": "covers/book-mitre-att-ck-for-dummies.jpg"
     },
     {
       "id": "book-net-zeros-and-ones",
@@ -5039,8 +5191,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119866183",
+      "logo": "covers/book-net-zeros-and-ones.jpg"
     },
     {
       "id": "book-network-protocols-for-security-professionals",
@@ -5067,7 +5221,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-network-protocols-for-security-professionals.jpg"
     },
     {
       "id": "book-operationalizing-threat-intelligence",
@@ -5092,7 +5247,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-operationalizing-threat-intelligence.jpg"
     },
     {
       "id": "book-penetration-testing-azure-for-ethical-hackers",
@@ -5118,7 +5274,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-penetration-testing-azure-for-ethical-hackers.jpg"
     },
     {
       "id": "book-pentesting-azure-applications",
@@ -5143,9 +5300,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781593278632",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781593278649",
+      "rating": null,
+      "isbnAlt": [
+        "9781593278632"
+      ],
+      "logo": "covers/book-pentesting-azure-applications.jpg"
     },
     {
       "id": "book-pentesting-industrial-control-systems",
@@ -5172,7 +5333,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-pentesting-industrial-control-systems.jpg"
     },
     {
       "id": "book-powershell-automation-and-scripting-for-cybersecurity",
@@ -5199,7 +5361,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-powershell-automation-and-scripting-for-cybersecurity.jpg"
     },
     {
       "id": "book-practical-cybersecurity-architecture",
@@ -5224,7 +5387,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-practical-cybersecurity-architecture.jpg"
     },
     {
       "id": "book-practical-forensic-imaging",
@@ -5248,9 +5412,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
+      "isbnVerified": true,
       "isbn": "9781593277932",
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-practical-forensic-imaging.jpg"
     },
     {
       "id": "book-practical-hardware-pentesting",
@@ -5276,7 +5441,9 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "published": "2021",
+      "logo": "covers/book-practical-hardware-pentesting.jpg"
     },
     {
       "id": "book-practical-industrial-cybersecurity",
@@ -5301,8 +5468,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119883043",
+      "logo": "covers/book-practical-industrial-cybersecurity.jpg"
     },
     {
       "id": "book-practical-iot-hacking",
@@ -5327,9 +5496,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781718500907",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781718500914",
+      "rating": null,
+      "isbnAlt": [
+        "9781718500907"
+      ],
+      "logo": "covers/book-practical-iot-hacking.jpg"
     },
     {
       "id": "book-practical-reverse-engineering",
@@ -5354,9 +5527,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781118787311",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781118787397",
+      "rating": null,
+      "isbnAlt": [
+        "9781118787311"
+      ],
+      "logo": "covers/book-practical-reverse-engineering.jpg"
     },
     {
       "id": "book-practical-threat-detection-engineering",
@@ -5382,7 +5559,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-practical-threat-detection-engineering.jpg"
     },
     {
       "id": "book-practical-threat-intelligence-and-data-driven-threat-hunting",
@@ -5408,7 +5586,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-practical-threat-intelligence-and-data-driven-threat-hunting.jpg"
     },
     {
       "id": "book-privilege-escalation-techniques",
@@ -5433,7 +5612,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-privilege-escalation-techniques.jpg"
     },
     {
       "id": "book-purple-team-strategies",
@@ -5460,7 +5640,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-purple-team-strategies.jpg"
     },
     {
       "id": "book-python-for-cybersecurity",
@@ -5486,8 +5667,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119850656",
+      "logo": "covers/book-python-for-cybersecurity.jpg"
     },
     {
       "id": "book-python-for-security-and-networking",
@@ -5513,7 +5696,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-python-for-security-and-networking.jpg"
     },
     {
       "id": "book-quick-start-guide-to-large-language-models",
@@ -5539,7 +5723,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-quick-start-guide-to-large-language-models.jpg"
     },
     {
       "id": "book-ransomware-and-cyber-extortion",
@@ -5566,7 +5751,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-ransomware-and-cyber-extortion.jpg"
     },
     {
       "id": "book-real-world-bug-hunting",
@@ -5592,9 +5778,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781593278618",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781593278625",
+      "rating": null,
+      "isbnAlt": [
+        "9781593278618"
+      ],
+      "logo": "covers/book-real-world-bug-hunting.jpg"
     },
     {
       "id": "book-redefining-hacking",
@@ -5620,7 +5810,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-redefining-hacking.jpg"
     },
     {
       "id": "book-responsible-ai",
@@ -5645,8 +5836,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9780138073886",
+      "logo": "covers/book-responsible-ai.jpg"
     },
     {
       "id": "book-rootkits-and-bootkits",
@@ -5671,9 +5864,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781593277161",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781593278830",
+      "rating": null,
+      "isbnAlt": [
+        "9781593277161"
+      ],
+      "logo": "covers/book-rootkits-and-bootkits.jpg"
     },
     {
       "id": "book-secrets-and-lies",
@@ -5725,7 +5922,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-securing-5g-and-evolving-architectures.jpg"
     },
     {
       "id": "book-serious-cryptography",
@@ -5749,9 +5947,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781593278267",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781593278823",
+      "rating": null,
+      "isbnAlt": [
+        "9781593278267"
+      ],
+      "logo": "covers/book-serious-cryptography.jpg"
     },
     {
       "id": "book-social-engineering",
@@ -5777,9 +5979,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781119433385",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781119433750",
+      "rating": null,
+      "isbnAlt": [
+        "9781119433385"
+      ],
+      "logo": "covers/book-social-engineering.jpg"
     },
     {
       "id": "book-software-transparency",
@@ -5804,8 +6010,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781394158492",
+      "logo": "covers/book-software-transparency.jpg"
     },
     {
       "id": "book-the-tangled-web",
@@ -5830,9 +6038,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781593273880",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781593274177",
+      "rating": null,
+      "isbnAlt": [
+        "9781593273880"
+      ],
+      "logo": "covers/book-the-tangled-web.jpg"
     },
     {
       "id": "book-tcp-ip-illustrated-volume-1",
@@ -5859,7 +6071,8 @@
       "verified": false,
       "isbnVerified": false,
       "isbn": "9780321336316",
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-tcp-ip-illustrated-volume-1.jpg"
     },
     {
       "id": "book-the-active-defender",
@@ -5884,8 +6097,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119895237",
+      "logo": "covers/book-the-active-defender.jpg"
     },
     {
       "id": "book-the-ai-revolution-in-networking-cybersecurity-and-emerging-t",
@@ -5911,8 +6126,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9780138293635",
+      "logo": "covers/book-the-ai-revolution-in-networking-cybersecurity-and-emerging-t.jpg"
     },
     {
       "id": "book-the-art-of-attack",
@@ -5938,7 +6155,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-the-art-of-attack.jpg"
     },
     {
       "id": "book-the-art-of-deception",
@@ -5963,9 +6181,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9780471237129",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9780764538391",
+      "rating": null,
+      "isbnAlt": [
+        "9780471237129"
+      ],
+      "logo": "covers/book-the-art-of-deception.jpg"
     },
     {
       "id": "book-the-art-of-intrusion",
@@ -5990,8 +6212,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9780470503829",
+      "logo": "covers/book-the-art-of-intrusion.jpg"
     },
     {
       "id": "book-the-art-of-memory-forensics",
@@ -6016,15 +6240,19 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781118825099",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781118824993",
+      "rating": null,
+      "isbnAlt": [
+        "9781118825099"
+      ],
+      "logo": "covers/book-the-art-of-memory-forensics.jpg"
     },
     {
       "id": "book-the-battle-for-your-computer",
       "type": "book",
       "name": "The Battle for Your Computer",
-      "by": "Alan D. Smith",
+      "by": "Alon Arvatz",
       "desc": "How Israel's security ecosystem grew into a global force in the cyber industry.",
       "domains": [
         "stories",
@@ -6041,8 +6269,11 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781394174164",
+      "published": "2023",
+      "logo": "covers/book-the-battle-for-your-computer.jpg"
     },
     {
       "id": "book-the-foundations-of-threat-hunting",
@@ -6069,7 +6300,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-the-foundations-of-threat-hunting.jpg"
     },
     {
       "id": "book-the-hacker-playbook-3",
@@ -6095,7 +6327,8 @@
       "verified": false,
       "isbnVerified": false,
       "isbn": "9781980901754",
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-the-hacker-playbook-3.jpg"
     },
     {
       "id": "book-the-modern-security-operations-center",
@@ -6121,7 +6354,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-the-modern-security-operations-center.jpg"
     },
     {
       "id": "book-the-pentester-blueprint",
@@ -6146,8 +6380,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119684374",
+      "logo": "covers/book-the-pentester-blueprint.jpg"
     },
     {
       "id": "book-the-rise-of-ai-agents",
@@ -6168,8 +6404,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9780135352922",
+      "publisher": "Addison-Wesley",
+      "published": "2024",
+      "by": "Petar Radanliev",
+      "logo": "covers/book-the-rise-of-ai-agents.jpg"
     },
     {
       "id": "book-the-security-culture-playbook",
@@ -6194,8 +6435,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119875246",
+      "logo": "covers/book-the-security-culture-playbook.jpg"
     },
     {
       "id": "book-the-shellcoder-s-handbook",
@@ -6219,9 +6462,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9780470080238",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781118079126",
+      "rating": null,
+      "isbnAlt": [
+        "9780470080238"
+      ],
+      "logo": "covers/book-the-shellcoder-s-handbook.jpg"
     },
     {
       "id": "book-the-ultimate-kali-linux-book",
@@ -6247,7 +6494,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-the-ultimate-kali-linux-book.jpg"
     },
     {
       "id": "book-the-vulnerability-researcher-s-handbook",
@@ -6273,7 +6521,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-the-vulnerability-researcher-s-handbook.jpg"
     },
     {
       "id": "book-the-web-application-hacker-s-handbook",
@@ -6299,9 +6548,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781118026472",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781118175248",
+      "rating": null,
+      "isbnAlt": [
+        "9781118026472"
+      ],
+      "logo": "covers/book-the-web-application-hacker-s-handbook.jpg"
     },
     {
       "id": "book-threat-hunting-in-the-cloud",
@@ -6326,8 +6579,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119804109",
+      "logo": "covers/book-threat-hunting-in-the-cloud.jpg"
     },
     {
       "id": "book-threat-hunting-with-elastic-stack",
@@ -6353,7 +6608,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-threat-hunting-with-elastic-stack.jpg"
     },
     {
       "id": "book-threats",
@@ -6379,9 +6635,13 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "isbn": "9781119895169",
-      "rating": null
+      "isbnVerified": true,
+      "isbn": "9781119897699",
+      "rating": null,
+      "isbnAlt": [
+        "9781119895169"
+      ],
+      "logo": "covers/book-threats.jpg"
     },
     {
       "id": "book-transformational-security-awareness",
@@ -6406,8 +6666,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119566359",
+      "logo": "covers/book-transformational-security-awareness.jpg"
     },
     {
       "id": "book-tribe-of-hackers-blue-team",
@@ -6433,7 +6695,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-tribe-of-hackers-blue-team.jpg"
     },
     {
       "id": "book-tribe-of-hackers-red-team",
@@ -6459,7 +6722,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-tribe-of-hackers-red-team.jpg"
     },
     {
       "id": "book-tribe-of-hackers-security-leaders",
@@ -6484,8 +6748,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119643760",
+      "logo": "covers/book-tribe-of-hackers-security-leaders.jpg"
     },
     {
       "id": "book-trust-in-computer-systems-and-the-cloud",
@@ -6512,8 +6778,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119692317",
+      "logo": "covers/book-trust-in-computer-systems-and-the-cloud.jpg"
     },
     {
       "id": "book-unauthorised-access",
@@ -6538,8 +6806,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9780470970027",
+      "logo": "covers/book-unauthorised-access.jpg"
     },
     {
       "id": "book-we-have-root",
@@ -6565,7 +6835,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-we-have-root.jpg"
     },
     {
       "id": "book-wireless-security-architecture",
@@ -6590,8 +6861,10 @@
         "humble-library"
       ],
       "verified": false,
-      "isbnVerified": false,
-      "rating": null
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119883074",
+      "logo": "covers/book-wireless-security-architecture.jpg"
     },
     {
       "id": "book-wireshark-for-security-professionals",
@@ -6617,7 +6890,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-wireshark-for-security-professionals.jpg"
     },
     {
       "id": "book-zero-trust-architecture",
@@ -6642,7 +6916,8 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-zero-trust-architecture.jpg"
     },
     {
       "id": "book-zero-trust-overview-and-playbook-introduction",
@@ -6668,7 +6943,37 @@
       ],
       "verified": false,
       "isbnVerified": false,
-      "rating": null
+      "rating": null,
+      "logo": "covers/book-zero-trust-overview-and-playbook-introduction.jpg"
+    },
+    {
+      "id": "book-network-security-private-communications",
+      "type": "book",
+      "name": "Network Security: Private Communications in a Public World (3rd ed.)",
+      "by": "Charlie Kaufman, Radia Perlman, Mike Speciner & Ray Perlner",
+      "desc": "Rigorous, readable textbook on cryptography and network security protocols, from authentication to IPsec and TLS.",
+      "domains": [
+        "engineering",
+        "architecture"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2022",
+      "publisher": "Addison-Wesley",
+      "format": [
+        "ebook"
+      ],
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-library",
+        "calibre"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "logo": "covers/book-network-security-private-communications.jpg"
     }
   ]
 }
