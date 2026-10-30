@@ -1,0 +1,644 @@
+<title>My Cyber Learning</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="My Cyber Learning: a curated, filterable library of cybersecurity podcasts and books, rated by listeners and the community.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a listening-room library. Sticky signal bar on top, filter rail left (drawer on phone), dense card grid right. */
+:root{
+  --paper:#f2f4f7; --surface:#ffffff; --sunk:#e7ebf0; --line:#d3d9e1;
+  --ink:#0f1c2e; --ink-2:#4a5668; --ink-3:#6c7789;
+  --signal:#0b7a75; --signal-ink:#ffffff; --signal-soft:#d5ecea;
+  --pick:#b4690e; --pick-soft:#f6e6cf;
+  --up:#1f7a3a; --down:#b3321f;
+  --shadow:0 1px 2px rgba(15,28,46,.06),0 6px 20px -12px rgba(15,28,46,.25);
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0c131d; --surface:#131c28; --sunk:#1a2533; --line:#283546;
+  --ink:#e6ebf2; --ink-2:#a7b2c2; --ink-3:#7f8b9c;
+  --signal:#3cc0b6; --signal-ink:#06201e; --signal-soft:#123533;
+  --pick:#e5a24a; --pick-soft:#3a2a14;
+  --up:#5fcf7f; --down:#ff8a75;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -14px rgba(0,0,0,.6);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0c131d; --surface:#131c28; --sunk:#1a2533; --line:#283546;
+  --ink:#e6ebf2; --ink-2:#a7b2c2; --ink-3:#7f8b9c;
+  --signal:#3cc0b6; --signal-ink:#06201e; --signal-soft:#123533;
+  --pick:#e5a24a; --pick-soft:#3a2a14;
+  --up:#5fcf7f; --down:#ff8a75;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -14px rgba(0,0,0,.6);
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--surface)}
+a{color:var(--signal)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+.wrap{max-width:1320px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* Top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand svg{flex:none}
+.brand b{font-family:var(--f-display);font-weight:800;font-size:19px;letter-spacing:-.01em}
+.brand small{display:block;font-family:var(--f-mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;margin-top:-2px}
+.search{flex:1 1 260px;min-width:0;position:relative}
+.search input{width:100%;padding:9px 12px 9px 34px;border:1px solid var(--line);border-radius:999px;background:var(--sunk)}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--ink-3)}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 12px;cursor:pointer;font-weight:500;white-space:nowrap}
+.btn:hover{border-color:var(--ink-3)}
+.btn.primary{background:var(--signal);border-color:var(--signal);color:var(--signal-ink)}
+.btn.ghost{border-color:transparent;background:transparent}
+.btn.sm{padding:5px 9px;font-size:13px}
+.btn.danger{color:var(--down)}
+.filters-toggle{display:none}
+
+/* Intro */
+.intro{padding-block:28px 8px}
+.intro h1{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,4.2vw,44px);line-height:1.05;letter-spacing:-.02em;margin:0 0 10px;text-wrap:balance;max-width:22ch}
+.intro p{color:var(--ink-2);max-width:64ch;margin:0}
+.stats{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-family:var(--f-mono);font-size:12.5px;color:var(--ink-3)}
+.stats b{color:var(--ink);font-weight:500}
+
+/* Main grid */
+.main{display:grid;grid-template-columns:272px minmax(0,1fr);gap:28px;padding-block:18px 64px}
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px);align-self:start;max-height:calc(100vh - 96px);overflow:auto;padding-right:4px}
+.rail h3{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:18px 0 8px;display:flex;justify-content:space-between;align-items:center}
+.rail h3:first-child{margin-top:0}
+.seg{display:flex;background:var(--sunk);border-radius:8px;padding:3px;gap:3px}
+.seg button{flex:1;border:0;background:transparent;border-radius:6px;padding:6px 8px;cursor:pointer;font-size:13.5px;color:var(--ink-2)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 10px;font-size:13px;cursor:pointer;color:var(--ink-2);display:inline-flex;align-items:center;gap:6px}
+.chip .n{font-family:var(--f-mono);font-size:11px;color:var(--ink-3)}
+.chip[aria-pressed="true"]{background:var(--signal);border-color:var(--signal);color:var(--signal-ink)}
+.chip[aria-pressed="true"] .n{color:var(--signal-ink);opacity:.8}
+.mini{font-size:12px;color:var(--ink-3);font-family:var(--f-body);text-transform:none;letter-spacing:0;background:none;border:0;cursor:pointer;padding:0;text-decoration:underline}
+.switch{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+.switch input{accent-color:var(--pick);width:16px;height:16px}
+
+/* Toolbar */
+.toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.toolbar .count{font-family:var(--f-mono);font-size:12.5px;color:var(--ink-3);margin-right:auto}
+.toolbar select{border:1px solid var(--line);border-radius:8px;padding:7px 10px;background:var(--surface)}
+.active-filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.active-filters .chip{background:var(--signal-soft);border-color:transparent;color:var(--ink)}
+
+/* Cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.card.hidden-item{opacity:.55;border-style:dashed}
+.head{display:grid;grid-template-columns:60px minmax(0,1fr);gap:12px;align-items:start}
+.logo{width:60px;height:60px;border-radius:8px;overflow:hidden;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:22px;color:#fff;letter-spacing:-.02em;position:relative}
+.logo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.logo.book{border-radius:3px 6px 6px 3px;box-shadow:inset 5px 0 0 rgba(0,0,0,.18)}
+.title{font-family:var(--f-display);font-weight:600;font-size:17px;line-height:1.2;margin:0;text-wrap:balance}
+.by{font-size:13px;color:var(--ink-2);margin-top:2px}
+.badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.badge{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:4px;background:var(--sunk);color:var(--ink-2)}
+.badge.pick{background:var(--pick-soft);color:var(--pick)}
+.badge.ended{background:transparent;border:1px solid var(--line)}
+.desc{font-size:14px;color:var(--ink-2);margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--signal-soft);color:var(--ink);cursor:pointer;border:0}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 0;border-block:1px solid var(--line);font-size:12.5px}
+.meta dt{font-family:var(--f-mono);font-size:10.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.07em}
+.meta dd{margin:2px 0 0;display:flex;align-items:center;gap:6px;font-variant-numeric:tabular-nums}
+.cadence{display:inline-flex;gap:2px;align-items:flex-end;height:12px}
+.cadence i{width:3px;background:var(--line);border-radius:1px}
+.cadence i.on{background:var(--signal)}
+.stars{color:var(--pick);letter-spacing:1px;font-size:13px}
+.muted{color:var(--ink-3)}
+.foot{display:flex;align-items:center;gap:10px;justify-content:space-between;flex-wrap:wrap}
+.vote{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.vote button{border:0;background:transparent;padding:5px 10px;cursor:pointer;color:var(--ink-3);display:grid;place-items:center}
+.vote button:hover{background:var(--sunk)}
+.vote button[aria-pressed="true"].up{color:var(--up)}
+.vote button[aria-pressed="true"].down{color:var(--down)}
+.vote output{font-family:var(--f-mono);font-size:13px;min-width:3ch;text-align:center;font-variant-numeric:tabular-nums}
+.links{display:flex;gap:4px;flex-wrap:nowrap;margin-left:auto}
+.plat{flex:none;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;border:1px solid var(--line);color:var(--ink-2);text-decoration:none;position:relative}
+.plat:hover{border-color:var(--ink-3);color:var(--ink)}
+.plat.search{border-style:dashed;opacity:.75}
+.plat svg{width:16px;height:16px}
+.admin-row{display:flex;gap:6px;flex-wrap:wrap;padding-top:8px;border-top:1px dashed var(--line)}
+.empty{padding:48px 16px;text-align:center;color:var(--ink-2);border:1px dashed var(--line);border-radius:var(--r);grid-column:1/-1}
+
+/* Modal */
+dialog{border:0;border-radius:14px;padding:0;width:min(680px,calc(100vw - 32px));max-height:calc(100vh - 48px);background:var(--surface);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
+dialog::backdrop{background:rgba(8,14,22,.55)}
+.dlg-h{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--surface);z-index:1}
+.dlg-h h2{font-family:var(--f-display);font-weight:800;font-size:21px;margin:0}
+.dlg-b{padding:18px 20px;display:grid;gap:14px}
+.dlg-f{padding:14px 20px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:8px;position:sticky;bottom:0;background:var(--surface)}
+.field{display:grid;gap:5px;min-width:0}
+.field label,.field .lbl{font-size:13px;font-weight:600}
+.field .help{font-size:12px;color:var(--ink-3)}
+.field input,.field textarea,.field select{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--paper);width:100%}
+.field textarea{min-height:84px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.err{color:var(--down);font-size:13px}
+.note{font-size:13px;background:var(--sunk);border-radius:8px;padding:10px 12px;color:var(--ink-2)}
+.queue{display:grid;gap:10px}
+.qitem{border:1px solid var(--line);border-radius:10px;padding:12px;display:grid;gap:6px}
+.qitem h4{margin:0;font-family:var(--f-display);font-size:16px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:999px;font-size:14px;z-index:50;box-shadow:var(--shadow)}
+.mode-pill{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--ink-3)}
+footer{border-top:1px solid var(--line);padding-block:24px;color:var(--ink-3);font-size:13px}
+footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
+
+@media (max-width:860px){
+  .toolbar .count{flex-basis:100%}
+  .main{grid-template-columns:minmax(0,1fr)}
+  .rail{position:fixed;inset:0 auto 0 0;width:min(320px,88vw);max-height:none;background:var(--surface);z-index:40;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));transform:translateX(-105%);transition:transform .2s ease;box-shadow:var(--shadow);border-right:1px solid var(--line)}
+  .rail.open{transform:none}
+  .filters-toggle{display:inline-flex}
+  .grid{grid-template-columns:minmax(0,1fr)}
+  .row2{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="My Cyber Learning home">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="var(--signal)"/><path d="M17 7l8 3.2v6.3c0 5-3.4 8.6-8 10.5-4.6-1.9-8-5.5-8-10.5v-6.3z" fill="none" stroke="var(--signal-ink)" stroke-width="2"/><path d="M13 17.5h1.6M15.8 15v5M18.2 13v9M20.6 15.5v4" stroke="var(--signal-ink)" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span><b>My Cyber Learning</b><small>mycyberlearning.co.uk</small></span>
+    </a>
+    <div class="search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search podcasts, books, hosts, topics…" aria-label="Search">
+    </div>
+    <button class="btn filters-toggle" id="openFilters" type="button">Filters</button>
+    <button class="btn primary" id="openSubmit" type="button">+ Suggest a resource</button>
+    <button class="btn ghost" id="adminBtn" type="button" hidden>Admin</button>
+  </div>
+</header>
+
+<section class="wrap intro">
+  <h1>Podcasts and books to keep your cyber skills current</h1>
+  <p>A curated library for people starting out in security and practitioners staying sharp. Filter by the domains you work in, see listener ratings from the podcast platforms, and add your own vote — community scores sit alongside the official ratings, never mixed with them.</p>
+  <div class="stats" id="stats"></div>
+</section>
+
+<main class="wrap main">
+  <aside class="rail" id="rail" aria-label="Filters">
+    <h3>Show</h3>
+    <div class="seg" role="group" aria-label="Resource type">
+      <button type="button" data-type="all" aria-pressed="true">All</button>
+      <button type="button" data-type="podcast" aria-pressed="false">Podcasts</button>
+      <button type="button" data-type="book" aria-pressed="false">Books</button>
+    </div>
+
+    <h3 style="margin-top:16px">Curation</h3>
+    <label class="switch"><input type="checkbox" id="picksOnly"> Ian's picks only</label>
+
+    <h3>Security domains <button class="mini" id="clearDomains" type="button">clear</button></h3>
+    <div class="seg" role="group" aria-label="Domain match mode" style="margin-bottom:8px">
+      <button type="button" data-match="any" aria-pressed="true">Match any</button>
+      <button type="button" data-match="all" aria-pressed="false">Match all</button>
+    </div>
+    <div class="chips" id="domainChips"></div>
+
+    <h3>Release frequency <button class="mini" id="clearFreq" type="button">clear</button></h3>
+    <div class="chips" id="freqChips"></div>
+
+    <h3>Level</h3>
+    <div class="chips" id="levelChips"></div>
+    <div style="margin-top:18px"><button class="btn sm filters-toggle" id="closeFilters" type="button">Done</button></div>
+  </aside>
+
+  <section aria-label="Results" style="min-width:0">
+    <div class="toolbar">
+      <span class="count" id="count"></span>
+      <label for="sort" class="muted" style="font-size:13px">Sort</label>
+      <select id="sort">
+        <option value="official">Official rating</option>
+        <option value="community">Community votes</option>
+        <option value="popular">Most rated (platform)</option>
+        <option value="newest">Newest launch</option>
+        <option value="oldest">Longest running</option>
+        <option value="az">A–Z</option>
+      </select>
+    </div>
+    <div class="active-filters" id="activeFilters"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <span>My Cyber Learning · curated by Ian Moore · Official ratings aggregated from Apple Podcasts, Spotify, Podchaser and Podcast Addict via Podnews/Rephonic.</span>
+  <span><span class="mode-pill" id="modePill">demo</span></span>
+</div></footer>
+
+<!-- Submit dialog -->
+<dialog id="submitDlg" aria-labelledby="submitTitle">
+  <form id="submitForm" novalidate>
+    <div class="dlg-h"><h2 id="submitTitle">Suggest a resource</h2><button class="btn ghost sm" type="button" data-close>Close</button></div>
+    <div class="dlg-b">
+      <p class="note" style="margin:0">Suggestions are reviewed before they appear. Give at least the official website and one listening platform for podcasts. We'll suggest domain tags from your description; adjust them if they're off.</p>
+      <div class="row2">
+        <div class="field"><label for="s_type">Type</label><select id="s_type"><option value="podcast">Podcast</option><option value="book">Book</option></select></div>
+        <div class="field"><label for="s_freq">Release frequency</label><select id="s_freq"></select></div>
+      </div>
+      <div class="field"><label for="s_name">Name</label><input id="s_name" required maxlength="120"></div>
+      <div class="field"><label for="s_by">Host(s) or author(s)</label><input id="s_by" maxlength="160"></div>
+      <div class="field"><label for="s_desc">Description</label><textarea id="s_desc" required maxlength="800" placeholder="What is it about, who is it for, why is it worth someone's time?"></textarea><span class="help"><span id="descCount">0</span>/800 · at least 40 characters</span></div>
+      <div class="field"><span class="lbl">Security domains</span><span class="help">Suggested from your description. Tap to change.</span><div class="chips" id="s_domains"></div></div>
+      <div class="row2">
+        <div class="field"><label for="s_web">Official website</label><input id="s_web" type="url" placeholder="https://"></div>
+        <div class="field"><label for="s_apple">Apple Podcasts</label><input id="s_apple" type="url" placeholder="https://podcasts.apple.com/…"></div>
+        <div class="field"><label for="s_spotify">Spotify</label><input id="s_spotify" type="url" placeholder="https://open.spotify.com/show/…"></div>
+        <div class="field"><label for="s_youtube">YouTube / YouTube Music</label><input id="s_youtube" type="url" placeholder="https://youtube.com/…"></div>
+        <div class="field"><label for="s_rss">RSS feed (optional)</label><input id="s_rss" type="url" placeholder="https://…/feed.xml"></div>
+        <div class="field"><label for="s_email">Your email (optional, never shown)</label><input id="s_email" type="email"></div>
+      </div>
+      <p class="err" id="submitErr" hidden></p>
+    </div>
+    <div class="dlg-f"><button class="btn" type="button" data-close>Cancel</button><button class="btn primary" type="submit">Send for review</button></div>
+  </form>
+</dialog>
+
+<!-- Admin dialog -->
+<dialog id="adminDlg" aria-labelledby="adminTitle">
+  <div class="dlg-h"><h2 id="adminTitle">Review queue</h2><button class="btn ghost sm" type="button" data-close>Close</button></div>
+  <div class="dlg-b"><div class="queue" id="queue"></div></div>
+</dialog>
+
+<!-- Edit dialog -->
+<dialog id="editDlg" aria-labelledby="editTitle">
+  <form id="editForm">
+    <div class="dlg-h"><h2 id="editTitle">Edit entry</h2><button class="btn ghost sm" type="button" data-close>Close</button></div>
+    <div class="dlg-b">
+      <div class="field"><label for="e_name">Name</label><input id="e_name"></div>
+      <div class="field"><label for="e_by">Host(s) / author(s)</label><input id="e_by"></div>
+      <div class="field"><label for="e_desc">Description</label><textarea id="e_desc"></textarea></div>
+      <div class="field"><span class="lbl">Domains</span><div class="chips" id="e_domains"></div></div>
+      <div class="row2">
+        <div class="field"><label for="e_freq">Frequency</label><select id="e_freq"></select></div>
+        <div class="field"><label for="e_launched">Launched (YYYY or YYYY-MM)</label><input id="e_launched"></div>
+        <div class="field"><label for="e_web">Website</label><input id="e_web" type="url"></div>
+        <div class="field"><label for="e_apple">Apple</label><input id="e_apple" type="url"></div>
+        <div class="field"><label for="e_spotify">Spotify</label><input id="e_spotify" type="url"></div>
+        <div class="field"><label for="e_youtube">YouTube</label><input id="e_youtube" type="url"></div>
+      </div>
+      <label class="switch"><input type="checkbox" id="e_curator"> Ian's pick</label>
+    </div>
+    <div class="dlg-f"><button class="btn" type="button" data-close>Cancel</button><button class="btn primary" type="submit">Save changes</button></div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+/* Seed data, injected at build time. On the live site the API is the source of truth and this is only a fallback. */
+const SEED = /*__SEED__*/null;
+
+(() => {
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const store = {
+  get(k, d){ try { const v = localStorage.getItem("mcl:"+k); return v ? JSON.parse(v) : d; } catch { return d; } },
+  set(k, v){ try { localStorage.setItem("mcl:"+k, JSON.stringify(v)); } catch {} }
+};
+const TAX = SEED.taxonomy;
+const DOM = Object.fromEntries(TAX.domains.map(d => [d.key, d]));
+const FREQ = Object.fromEntries(TAX.frequencies.map(f => [f.key, f]));
+const CADENCE = {daily:5, multiweekly:4, weekly:3, biweekly:2, monthly:1, irregular:0, ended:0};
+
+/* ---------- Data layer: remote API when deployed, local demo otherwise ---------- */
+let voterId = store.get("voter", null);
+if (!voterId){ voterId = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)); store.set("voter", voterId); }
+
+const api = {
+  remote:false, isAdmin:false,
+  async init(){
+    try {
+      const r = await fetch("/api/items", {headers:{accept:"application/json"}});
+      if (!r.ok) throw 0;
+      const j = await r.json(); this.remote = true;
+      try { const me = await (await fetch("/.auth/me")).json(); this.isAdmin = (me.clientPrincipal?.userRoles||[]).includes("admin"); } catch {}
+      return j.items;
+    } catch {
+      this.remote = false;
+      this.isAdmin = true; /* demo: admin tools visible so the workflow can be tried */
+      const edits = store.get("edits", {}), removed = store.get("removed", []), added = store.get("added", []);
+      return SEED.items.concat(added).filter(i => !removed.includes(i.id)).map(i => ({...i, ...(edits[i.id]||{})}))
+        .map(i => ({...i, community: {up:0, down:0, ...(store.get("tally",{})[i.id]||{})}}));
+    }
+  },
+  async vote(id, dir){
+    if (this.remote){
+      const r = await fetch("/api/vote", {method:"POST", headers:{"content-type":"application/json"}, body:JSON.stringify({id, dir, voterId})});
+      if (!r.ok) throw new Error("vote failed"); return (await r.json()).community;
+    }
+    const mine = store.get("myVotes", {}), tally = store.get("tally", {}); const t = tally[id] || {up:0, down:0};
+    const prev = mine[id] || 0; if (prev === 1) t.up--; if (prev === -1) t.down--;
+    if (dir === 1) t.up++; if (dir === -1) t.down++;
+    tally[id] = t; store.set("tally", tally); return t;
+  },
+  async submit(payload){
+    if (this.remote){
+      const r = await fetch("/api/submissions", {method:"POST", headers:{"content-type":"application/json"}, body:JSON.stringify(payload)});
+      if (!r.ok) throw new Error((await r.json().catch(()=>({}))).error || "Submission failed. Please check the links and try again.");
+      return;
+    }
+    const q = store.get("queue", []); q.push({...payload, id:"sub-"+Date.now(), submitted:new Date().toISOString()}); store.set("queue", q);
+  },
+  async queue(){ return this.remote ? (await (await fetch("/api/admin/submissions")).json()).items : store.get("queue", []); },
+  async decide(sub, approve){
+    if (this.remote){ await fetch(`/api/admin/submissions/${encodeURIComponent(sub.id)}`, {method:"POST", headers:{"content-type":"application/json"}, body:JSON.stringify({approve})}); return; }
+    store.set("queue", store.get("queue", []).filter(s => s.id !== sub.id));
+    if (approve){ const added = store.get("added", []); added.push(toItem(sub)); store.set("added", added); }
+  },
+  async save(id, patch){
+    if (this.remote){ await fetch(`/api/admin/items/${encodeURIComponent(id)}`, {method:"PATCH", headers:{"content-type":"application/json"}, body:JSON.stringify(patch)}); return; }
+    const e = store.get("edits", {}); e[id] = {...(e[id]||{}), ...patch}; store.set("edits", e);
+  },
+  async remove(id){
+    if (this.remote){ await fetch(`/api/admin/items/${encodeURIComponent(id)}`, {method:"DELETE"}); return; }
+    const r = store.get("removed", []); r.push(id); store.set("removed", r);
+  }
+};
+function toItem(s){
+  return {id:(s.name||"item").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")+"-"+Date.now().toString(36),
+    type:s.type, name:s.name, by:s.by, desc:s.desc, domains:s.domains, level:["intermediate"], freq:s.type==="podcast"?s.freq:undefined,
+    launched:null, status:"active", web:s.web||undefined, apple:s.apple||undefined, spotify:s.spotify||undefined, youtube:s.youtube||undefined,
+    rating:null, curator:false, sources:["community"], verified:false, community:{up:0,down:0}};
+}
+
+/* ---------- Auto-tagging (client hint; the server re-tags with Claude) ---------- */
+const KEYWORDS = {
+  engineering:["engineering","crypto","protocol","hardening","platform","pki","encryption"],
+  operations:["soc","incident response","detection","siem","security operations","dfir","triage"],
+  architecture:["architecture","zero trust","design","reference","post-quantum","pqc","sabsa"],
+  cti:["threat intel","intelligence","apt","threat actor","osint","nation-state","campaign"],
+  tvm:["vulnerab","cve","patch","exposure","exploit"],
+  defensive:["defen","blue team","hardening","protect"],
+  offensive:["red team","pentest","penetration","bug bounty","offensive","hacking","exploit"],
+  hunting:["hunt","hypothesis","telemetry"],
+  news:["news","daily","weekly round","headlines","briefing"],
+  leadership:["ciso","leader","board","executive","strategy","management"],
+  ai:[" ai ","ai ","artificial intelligence","llm","machine learning","agentic","genai","model"],
+  icsot:["ics","ot ","scada","industrial","critical infrastructure","plc"],
+  cloud:["cloud","aws","azure","gcp","kubernetes"],
+  appsec:["appsec","devsecops","application security","supply chain","sbom","code"],
+  grc:["governance","risk","compliance","regulat","audit","insurance"],
+  privacy:["privacy","gdpr","surveillance","personal data"],
+  human:["social engineering","phishing","scam","awareness","human"],
+  career:["career","getting into","mentor","community","diversity","job"],
+  stories:["story","stories","true crime","history","narrative","documentary"]
+};
+function suggestDomains(text){
+  const t = " "+text.toLowerCase()+" ";
+  return Object.entries(KEYWORDS).map(([k, ws]) => [k, ws.reduce((n,w)=>n+(t.includes(w)?1:0),0)]).filter(([,n])=>n>0).sort((a,b)=>b[1]-a[1]).slice(0,4).map(([k])=>k);
+}
+
+/* ---------- State ---------- */
+const state = Object.assign({type:"all", match:"any", domains:[], freqs:[], levels:[], picks:false, q:"", sort:"official"}, store.get("filters", {}));
+let ITEMS = [];
+let myVotes = store.get("myVotes", {});
+
+/* ---------- Rendering helpers ---------- */
+const ICONS = {
+  apple:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg>',
+  spotify:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M7 9.5c3.5-1 7-.6 10 1M7.5 12.8c2.8-.7 5.6-.4 8 .9M8 16c2.2-.5 4.3-.3 6.2.7"/></svg>',
+  youtube:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg>',
+  web:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.7 5.7 3.7 9s-1.2 6.3-3.7 9c-2.5-2.7-3.7-5.7-3.7-9S9.5 5.7 12 3z"/></svg>',
+  book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/></svg>',
+  up:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>',
+  down:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>'
+};
+function hue(s){ let h=0; for (const c of s) h=(h*31+c.charCodeAt(0))>>>0; return h%360; }
+function initials(n){ return n.replace(/^(the|a)\s+/i,"").split(/[\s\-:.]+/).filter(w=>/[A-Za-z0-9]/.test(w)).slice(0,2).map(w=>w[0].toUpperCase()).join(""); }
+function logo(i){
+  const h = hue(i.id), bg = `linear-gradient(140deg,hsl(${h} 55% 38%),hsl(${(h+40)%360} 60% 26%))`;
+  const img = i.logo ? `<img src="${esc(i.logo)}" alt="" loading="lazy" onerror="this.remove()">` : "";
+  return `<div class="logo${i.type==="book"?" book":""}" style="background:${bg}" aria-hidden="true">${esc(initials(i.name))}${img}</div>`;
+}
+function stars(v){ const full=Math.round(v); return "★".repeat(full)+"☆".repeat(5-full); }
+function fmtN(n){ return n>=1000 ? (n/1000).toFixed(n>=10000?0:1)+"k" : String(n); }
+function fmtDate(d){ try { return new Date(d).toLocaleDateString('en-GB',{month:'short',year:'numeric'}); } catch { return d; } }
+function score(c){ return (c?.up||0)-(c?.down||0); }
+function year(l){ return l ? String(l).slice(0,4) : null; }
+function searchUrl(platform, i){
+  const q = encodeURIComponent(i.name + (i.type==="book" ? " " + (i.by||"") : " podcast"));
+  return {apple:`https://podcasts.apple.com/search?term=${encodeURIComponent(i.name)}`, spotify:`https://open.spotify.com/search/${encodeURIComponent(i.name)}/podcasts`,
+    youtube:`https://www.youtube.com/results?search_query=${q}`, goodreads:`https://www.goodreads.com/search?q=${q}`, openlibrary:`https://openlibrary.org/search?q=${q}`}[platform];
+}
+function platLinks(i){
+  const L = [];
+  const add = (href, icon, label, isSearch) => L.push(`<a class="plat${isSearch?" search":""}" href="${esc(href)}" target="_blank" rel="noopener" title="${esc(label)}" aria-label="${esc(label)}">${ICONS[icon]}</a>`);
+  if (i.type === "podcast"){
+    i.apple ? add(i.apple,"apple","Apple Podcasts") : add(searchUrl("apple",i),"apple","Search Apple Podcasts",1);
+    i.spotify ? add(i.spotify,"spotify","Spotify") : add(searchUrl("spotify",i),"spotify","Search Spotify",1);
+    i.youtube ? add(i.youtube,"youtube","YouTube") : add(searchUrl("youtube",i),"youtube","Search YouTube",1);
+  } else {
+    add(searchUrl("goodreads",i),"book","Find on Goodreads",1);
+    add(searchUrl("openlibrary",i),"book","Find on Open Library",1);
+  }
+  if (i.web) add(i.web,"web","Official website");
+  return L.join("");
+}
+function card(i){
+  const tags = i.domains.map(d => `<button class="tag" type="button" data-tag="${d}">${esc(DOM[d]?.label||d)}</button>`).join("");
+  const c = i.community||{up:0,down:0}, mv = myVotes[i.id]||0;
+  const rating = i.rating ? `<span class="stars" aria-hidden="true">${stars(i.rating.v)}</span><b>${i.rating.v.toFixed(1)}</b><span class="muted">(${fmtN(i.rating.n)})</span>`
+                          : `<span class="muted">Awaiting refresh</span>`;
+  const isPod = i.type==="podcast";
+  const cad = isPod ? `<span class="cadence" aria-hidden="true">${[1,2,3,4,5].map(k=>`<i class="${k<=CADENCE[i.freq]?"on":""}" style="height:${2+k*2}px"></i>`).join("")}</span>${esc(FREQ[i.freq]?.label||"—")}` : esc(i.format?.join(", ")||"Book");
+  const since = isPod ? (year(i.launched) ? `Since ${year(i.launched)}${i.status==="ended"?" · ended":""}` : `<span class="muted">Launch date pending</span>`) : esc(i.published||"—");
+  return `<article class="card${i.hidden?" hidden-item":""}" data-id="${esc(i.id)}">
+    <div class="head">${logo(i)}<div style="min-width:0">
+      <h2 class="title">${esc(i.name)}</h2><div class="by">${esc(i.by||"")}</div>
+      <div class="badges">${i.curator?'<span class="badge pick">Ian\'s pick</span>':""}<span class="badge">${isPod?"Podcast":"Book"}</span>${i.status==="ended"?'<span class="badge ended">Archive</span>':""}${(i.level||[]).map(l=>`<span class="badge">${esc(l)}</span>`).join("")}</div>
+    </div></div>
+    <p class="desc">${esc(i.desc)}</p>
+    <div class="tags">${tags}</div>
+    <dl class="meta">
+      <div><dt>${isPod?"Cadence":"Format"}</dt><dd>${cad}</dd></div>
+      <div><dt>${isPod?"On air":"Published"}</dt><dd>${since}</dd></div>
+      <div style="grid-column:1/-1"><dt>Official rating ${i.rating?`<span class="muted" style="text-transform:none;letter-spacing:0">· platforms combined, ${esc(fmtDate(i.rating.asOf))}</span>`:""}</dt><dd>${rating}</dd></div>
+    </dl>
+    <div class="foot">
+      <div class="vote" role="group" aria-label="Community vote for ${esc(i.name)}">
+        <button type="button" class="up" data-vote="1" aria-pressed="${mv===1}" aria-label="Upvote">${ICONS.up}</button>
+        <output aria-label="Community score">${score(c)}</output>
+        <button type="button" class="down" data-vote="-1" aria-pressed="${mv===-1}" aria-label="Downvote">${ICONS.down}</button>
+      </div>
+      <div class="links">${platLinks(i)}</div>
+    </div>
+    ${api.isAdmin?`<div class="admin-row"><button class="btn sm" type="button" data-edit>Edit</button><button class="btn sm" type="button" data-hide>${i.hidden?"Unhide":"Hide"}</button><button class="btn sm danger" type="button" data-del>Delete</button></div>`:""}
+  </article>`;
+}
+
+/* ---------- Filtering ---------- */
+function filtered(){
+  const q = state.q.trim().toLowerCase();
+  return ITEMS.filter(i => {
+    if (i.hidden && !api.isAdmin) return false;
+    if (state.type!=="all" && i.type!==state.type) return false;
+    if (state.picks && !i.curator) return false;
+    if (state.domains.length){
+      const has = d => i.domains.includes(d);
+      if (state.match==="all" ? !state.domains.every(has) : !state.domains.some(has)) return false;
+    }
+    if (state.freqs.length && (i.type!=="podcast" || !state.freqs.includes(i.freq))) return false;
+    if (state.levels.length && !(i.level||[]).some(l=>state.levels.includes(l))) return false;
+    if (q && !(i.name+" "+(i.by||"")+" "+i.desc+" "+i.domains.map(d=>DOM[d]?.label).join(" ")).toLowerCase().includes(q)) return false;
+    return true;
+  }).sort((a,b) => {
+    const tie = a.name.localeCompare(b.name);
+    switch(state.sort){
+      case "official": return ((b.rating?.v??-1)-(a.rating?.v??-1)) || ((b.rating?.n??0)-(a.rating?.n??0)) || (b.curator-a.curator) || tie;
+      case "popular": return ((b.rating?.n??-1)-(a.rating?.n??-1)) || tie;
+      case "community": return (score(b.community)-score(a.community)) || ((b.community?.up||0)-(a.community?.up||0)) || tie;
+      case "newest": return (String(b.launched||b.published||"0")).localeCompare(String(a.launched||a.published||"0")) || tie;
+      case "oldest": return (String(a.launched||a.published||"9999")).localeCompare(String(b.launched||b.published||"9999")) || tie;
+      default: return tie;
+    }
+  });
+}
+function countBy(key){
+  const base = {...state}; const out = {};
+  for (const i of ITEMS){ if (i.hidden && !api.isAdmin) continue; if (base.type!=="all" && i.type!==base.type) continue;
+    const vals = key==="domains" ? i.domains : key==="freq" ? (i.type==="podcast"?[i.freq]:[]) : (i.level||[]);
+    for (const v of vals) out[v]=(out[v]||0)+1; }
+  return out;
+}
+
+function renderChips(){
+  const dc = countBy("domains"), fc = countBy("freq"), lc = countBy("levels");
+  $("#domainChips").innerHTML = TAX.domains.map(d => `<button class="chip" type="button" data-domain="${d.key}" aria-pressed="${state.domains.includes(d.key)}" title="${esc(d.hint)}">${esc(d.label)} <span class="n">${dc[d.key]||0}</span></button>`).join("");
+  $("#freqChips").innerHTML = TAX.frequencies.map(f => `<button class="chip" type="button" data-freq="${f.key}" aria-pressed="${state.freqs.includes(f.key)}">${esc(f.label)} <span class="n">${fc[f.key]||0}</span></button>`).join("");
+  $("#levelChips").innerHTML = TAX.levels.map(l => `<button class="chip" type="button" data-level="${l.key}" aria-pressed="${state.levels.includes(l.key)}">${esc(l.label)} <span class="n">${lc[l.key]||0}</span></button>`).join("");
+  $$("[data-type]").forEach(b => b.setAttribute("aria-pressed", b.dataset.type===state.type));
+  $$("[data-match]").forEach(b => b.setAttribute("aria-pressed", b.dataset.match===state.match));
+  $("#picksOnly").checked = state.picks; $("#sort").value = state.sort; $("#q").value = state.q;
+}
+function render(){
+  store.set("filters", {type:state.type, match:state.match, domains:state.domains, freqs:state.freqs, levels:state.levels, picks:state.picks, sort:state.sort});
+  renderChips();
+  const list = filtered();
+  $("#count").textContent = `${list.length} of ${ITEMS.filter(i=>!i.hidden||api.isAdmin).length} resources`;
+  const act = [...state.domains.map(d=>["domain",d,DOM[d]?.label]), ...state.freqs.map(f=>["freq",f,FREQ[f]?.label]), ...state.levels.map(l=>["level",l,l])];
+  $("#activeFilters").innerHTML = act.length ? act.map(([k,v,l]) => `<button class="chip" type="button" data-remove="${k}:${v}">${esc(l)} ✕</button>`).join("") + (state.domains.length>1?`<span class="muted" style="font-size:12.5px;align-self:center">matching ${state.match==="all"?"all":"any"} selected domains</span>`:"") : "";
+  $("#grid").innerHTML = list.length ? list.map(card).join("") : `<div class="empty"><p style="margin:0 0 10px"><b>Nothing matches those filters.</b></p><p style="margin:0">Try “Match any” instead of “Match all”, or clear a frequency filter.</p></div>`;
+  const pods = ITEMS.filter(i=>i.type==="podcast"&&!i.hidden).length, books = ITEMS.filter(i=>i.type==="book"&&!i.hidden).length;
+  $("#stats").innerHTML = `<span><b>${pods}</b> podcasts</span><span><b>${books}</b> books</span><span><b>${TAX.domains.length}</b> security domains</span><span><b>${ITEMS.filter(i=>i.curator).length}</b> Ian's picks</span>`;
+}
+
+function toggle(arr, v){ const k = arr.indexOf(v); k<0 ? arr.push(v) : arr.splice(k,1); }
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.hidden=false; clearTimeout(toast._t); toast._t=setTimeout(()=>t.hidden=true, 2600); }
+
+/* ---------- Events ---------- */
+document.addEventListener("click", async e => {
+  const b = e.target.closest("button, [data-close]"); if (!b) return;
+  if (b.dataset.type){ state.type=b.dataset.type; render(); }
+  else if (b.dataset.match){ state.match=b.dataset.match; render(); }
+  else if (b.dataset.domain && b.closest("#domainChips")){ toggle(state.domains,b.dataset.domain); render(); }
+  else if (b.dataset.freq){ toggle(state.freqs,b.dataset.freq); render(); }
+  else if (b.dataset.level){ toggle(state.levels,b.dataset.level); render(); }
+  else if (b.dataset.tag){ if(!state.domains.includes(b.dataset.tag)) state.domains.push(b.dataset.tag); render(); window.scrollTo({top:$("#count").getBoundingClientRect().top+scrollY-90,behavior:"smooth"}); }
+  else if (b.dataset.remove){ const [k,v]=b.dataset.remove.split(":"); toggle(k==="domain"?state.domains:k==="freq"?state.freqs:state.levels,v); render(); }
+  else if (b.id==="clearDomains"){ state.domains=[]; render(); }
+  else if (b.id==="clearFreq"){ state.freqs=[]; render(); }
+  else if (b.dataset.vote){
+    const id = b.closest(".card").dataset.id, dir = +b.dataset.vote, next = (myVotes[id]===dir)?0:dir;
+    try { const c = await api.vote(id, next); const it = ITEMS.find(x=>x.id===id); it.community = c; myVotes[id]=next; store.set("myVotes", myVotes);
+      const card = b.closest(".card"); card.querySelector("output").textContent = score(c);
+      card.querySelectorAll("[data-vote]").forEach(x=>x.setAttribute("aria-pressed", +x.dataset.vote===next));
+      if (state.sort==="community") render();
+    } catch { toast("Your vote didn't save. Check your connection and try again."); }
+  }
+  else if (b.hasAttribute("data-close")){ b.closest("dialog").close(); }
+  else if (b.hasAttribute("data-edit")){ openEdit(b.closest(".card").dataset.id); }
+  else if (b.hasAttribute("data-hide")){ const id=b.closest(".card").dataset.id, it=ITEMS.find(x=>x.id===id); it.hidden=!it.hidden; await api.save(id,{hidden:it.hidden}); render(); toast(it.hidden?"Hidden from visitors":"Visible to visitors"); }
+  else if (b.hasAttribute("data-del")){
+    if (b.dataset.confirm){ const id=b.closest(".card").dataset.id; await api.remove(id); ITEMS=ITEMS.filter(x=>x.id!==id); render(); toast("Deleted"); }
+    else { b.dataset.confirm="1"; b.textContent="Confirm delete"; setTimeout(()=>{ if(b.isConnected){ delete b.dataset.confirm; b.textContent="Delete"; } }, 4000); }
+  }
+});
+$("#q").addEventListener("input", e => { state.q=e.target.value; render(); });
+$("#sort").addEventListener("change", e => { state.sort=e.target.value; render(); });
+$("#picksOnly").addEventListener("change", e => { state.picks=e.target.checked; render(); });
+$("#openFilters").addEventListener("click", () => $("#rail").classList.add("open"));
+$("#closeFilters").addEventListener("click", () => $("#rail").classList.remove("open"));
+
+/* ---------- Submit ---------- */
+let subDomains = [], userTouchedDomains = false;
+function renderDomainPicker(el, sel){ el.innerHTML = TAX.domains.map(d=>`<button class="chip" type="button" data-pick="${d.key}" aria-pressed="${sel.includes(d.key)}">${esc(d.label)}</button>`).join(""); }
+$("#s_freq").innerHTML = $("#e_freq").innerHTML = TAX.frequencies.map(f=>`<option value="${f.key}">${esc(f.label)}</option>`).join("");
+$("#s_freq").value = "weekly";
+$("#openSubmit").addEventListener("click", () => { subDomains=[]; userTouchedDomains=false; $("#submitForm").reset(); $("#s_freq").value="weekly"; renderDomainPicker($("#s_domains"),subDomains); $("#submitErr").hidden=true; $("#submitDlg").showModal(); });
+$("#s_desc").addEventListener("input", e => { $("#descCount").textContent=e.target.value.length; if(!userTouchedDomains){ subDomains=suggestDomains($("#s_name").value+" "+e.target.value); renderDomainPicker($("#s_domains"),subDomains);} });
+$("#s_domains").addEventListener("click", e => { const b=e.target.closest("[data-pick]"); if(!b) return; userTouchedDomains=true; toggle(subDomains,b.dataset.pick); renderDomainPicker($("#s_domains"),subDomains); });
+$("#s_type").addEventListener("change", e => { $("#s_freq").disabled = e.target.value==="book"; });
+const isUrl = v => { try { const u=new URL(v); return u.protocol==="https:"||u.protocol==="http:"; } catch { return false; } };
+$("#submitForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const v = id => $("#"+id).value.trim();
+  const p = {type:v("s_type"), name:v("s_name"), by:v("s_by"), desc:v("s_desc"), freq:v("s_freq"), domains:subDomains, web:v("s_web"), apple:v("s_apple"), spotify:v("s_spotify"), youtube:v("s_youtube"), rss:v("s_rss"), email:v("s_email")};
+  const errs = [];
+  if (p.name.length<2) errs.push("Add the name.");
+  if (p.desc.length<40) errs.push("Write a description of at least 40 characters.");
+  if (!p.domains.length) errs.push("Choose at least one security domain.");
+  for (const k of ["web","apple","spotify","youtube","rss"]) if (p[k] && !isUrl(p[k])) errs.push(`The ${k==="web"?"website":k} link isn't a valid web address.`);
+  if (p.apple && !/podcasts\.apple\.com/.test(p.apple)) errs.push("The Apple link should be a podcasts.apple.com address.");
+  if (p.spotify && !/open\.spotify\.com/.test(p.spotify)) errs.push("The Spotify link should be an open.spotify.com address.");
+  if (p.type==="podcast" && !p.web) errs.push("Add the podcast's official website.");
+  if (p.type==="podcast" && !(p.apple||p.spotify||p.youtube)) errs.push("Add at least one of Apple Podcasts, Spotify or YouTube.");
+  if (errs.length){ $("#submitErr").innerHTML = errs.map(esc).join("<br>"); $("#submitErr").hidden=false; return; }
+  try { await api.submit(p); $("#submitDlg").close(); toast("Thanks — sent for review"); refreshAdminBadge(); }
+  catch(err){ $("#submitErr").textContent = err.message; $("#submitErr").hidden=false; }
+});
+
+/* ---------- Admin ---------- */
+async function refreshAdminBadge(){ if(!api.isAdmin) return; const q = await api.queue(); $("#adminBtn").hidden=false; $("#adminBtn").textContent = `Admin · ${q.length} pending`; }
+$("#adminBtn").addEventListener("click", async () => {
+  const q = await api.queue();
+  $("#queue").innerHTML = (api.remote?"":`<p class="note" style="margin:0">Demo mode: the review queue and edits are stored in this browser only. On the live site this panel appears only for accounts with the admin role.</p>`) +
+    (q.length ? q.map(s=>`<div class="qitem" data-sid="${esc(s.id)}"><h4>${esc(s.name)} <span class="badge">${esc(s.type)}</span></h4><div class="by">${esc(s.by||"")}</div><p class="desc" style="margin:0">${esc(s.desc)}</p>
+      <div class="tags">${(s.domains||[]).map(d=>`<span class="tag">${esc(DOM[d]?.label||d)}</span>`).join("")}</div>
+      <div class="muted" style="font-size:12.5px;word-break:break-all">${["web","apple","spotify","youtube","rss"].filter(k=>s[k]).map(k=>`${k}: ${esc(s[k])}`).join(" · ")}</div>
+      ${s.review?`<div class="note">Automated check: ${esc(s.review)}</div>`:""}
+      <div style="display:flex;gap:8px"><button class="btn sm primary" type="button" data-approve>Approve</button><button class="btn sm danger" type="button" data-reject>Reject</button></div></div>`).join("")
+     : `<p class="muted" style="margin:0">No suggestions waiting. New submissions from visitors will appear here.</p>`);
+  $("#adminDlg").showModal();
+});
+$("#queue").addEventListener("click", async e => {
+  const b = e.target.closest("[data-approve],[data-reject]"); if(!b) return;
+  const sid = b.closest(".qitem").dataset.sid, q = await api.queue(), sub = q.find(s=>s.id===sid);
+  await api.decide(sub, b.hasAttribute("data-approve"));
+  ITEMS = await api.init(); render(); refreshAdminBadge(); b.closest(".qitem").remove(); toast(b.hasAttribute("data-approve")?"Approved and published":"Rejected");
+});
+let editing=null, editDomains=[];
+function openEdit(id){
+  editing = ITEMS.find(x=>x.id===id); editDomains=[...editing.domains];
+  for (const k of ["name","by","desc","web","apple","spotify","youtube","launched"]) $("#e_"+k).value = editing[k]||"";
+  $("#e_freq").value = editing.freq||"irregular"; $("#e_freq").disabled = editing.type==="book"; $("#e_curator").checked=!!editing.curator;
+  renderDomainPicker($("#e_domains"), editDomains); $("#editDlg").showModal();
+}
+$("#e_domains").addEventListener("click", e => { const b=e.target.closest("[data-pick]"); if(!b) return; toggle(editDomains,b.dataset.pick); renderDomainPicker($("#e_domains"),editDomains); });
+$("#editForm").addEventListener("submit", async e => {
+  e.preventDefault(); const patch = {domains:editDomains, curator:$("#e_curator").checked};
+  for (const k of ["name","by","desc","web","apple","spotify","youtube","launched"]) patch[k] = $("#e_"+k).value.trim()||undefined;
+  if (editing.type==="podcast") patch.freq=$("#e_freq").value;
+  await api.save(editing.id, patch); Object.assign(editing, patch); $("#editDlg").close(); render(); toast("Saved");
+});
+
+/* ---------- Boot ---------- */
+(async () => {
+  ITEMS = await api.init();
+  $("#modePill").textContent = api.remote ? "live" : "demo · votes saved in this browser";
+  render(); refreshAdminBadge();
+})();
+})();
+</script>

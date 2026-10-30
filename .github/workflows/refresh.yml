@@ -1,0 +1,42 @@
+name: Weekly catalogue refresh
+
+on:
+  schedule:
+    - cron: "17 5 * * 1"   # Mondays 05:17 UTC
+  workflow_dispatch:
+    inputs:
+      retag:
+        description: "Re-run Claude tagging on every unlocked entry"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency: { group: refresh, cancel-in-progress: false }
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      STORAGE_CONNECTION_STRING: ${{ secrets.STORAGE_CONNECTION_STRING }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL || 'claude-haiku-5-5' }}
+      RATINGS_SOURCE: ${{ vars.RATINGS_SOURCE || 'podnews' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }   # add `cache: npm` once package-lock.json is committed
+      - run: npm install --no-audit --no-fund   # switch to `npm ci` once package-lock.json is committed
+      - name: Refresh metadata, ratings and tags
+        run: node scripts/refresh.mjs ${{ inputs.retag && '--retag' || '' }}
+      - name: Snapshot catalogue to the repo
+        run: npm run export
+      - name: Commit snapshot (version-controlled backup; the live site reads the API directly)
+        run: |
+          git config user.name "catalogue-bot"
+          git config user.email "catalogue-bot@users.noreply.github.com"
+          git add data/catalogue.json
+          git diff --cached --quiet || git commit -m "chore: weekly catalogue refresh $(date -u +%F)"
+          git push
