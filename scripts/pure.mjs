@@ -71,3 +71,10 @@ export function canonPublisher(name) {
   for (const [re, label] of PUBLISHERS) if (re.test(name)) return label;
   return String(name).trim().replace(/,?\s+(inc|ltd|llc|limited|publishing|publishers)\.?$/i, "");
 }
+
+/** Apple artwork URLs end in e.g. /600x600bb.jpg; ask for a specific square size instead. */
+export function appleArtworkUrl(url, size = 300) {
+  return url ? String(url).replace(/\/\d+x\d+(bb|cc|sr)?\.(jpg|png|webp)$/i, `/${size}x${size}bb.jpg`) : null;
+}
+/** True when an item already uses an image stored with the site (not a remote URL). */
+export const hasLocalImage = item => typeof item.logo === "string" && item.logo.startsWith("covers/");
