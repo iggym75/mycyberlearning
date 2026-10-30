@@ -1,0 +1,106 @@
+name: Daily news briefing
+
+# Runs at 05:07 and 06:07 UTC. Exactly one of these starts between 06:00 and 06:59 London time
+# (06:07 in winter/GMT, 05:07 in summer/BST); the other run exits straight away.
+on:
+  schedule:
+    - cron: "7 5 * * *"
+    - cron: "7 6 * * *"
+  workflow_dispatch:
+    inputs:
+      send:
+        description: "Email subscribers after building (once per day at most)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency: { group: news, cancel-in-progress: false }
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      go: ${{ steps.check.outputs.go }}
+    steps:
+      - id: check
+        run: |
+          hour=$(TZ=Europe/London date +%H)
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$hour" = "06" ]; then echo "go=true" >> "$GITHUB_OUTPUT"; else echo "go=false" >> "$GITHUB_OUTPUT"; echo "London hour is $hour; skipping."; fi
+
+  build:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      # --ignore-scripts: dependency install scripts never run, and no secrets are in the environment yet.
+      - run: npm install --no-audit --no-fund --ignore-scripts   # switch to `npm ci --ignore-scripts` once package-lock.json is committed
+      - name: Build today's briefing
+        env:
+          STORAGE_CONNECTION_STRING: ${{ secrets.STORAGE_CONNECTION_STRING }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL || 'claude-haiku-5-5' }}
+        run: node scripts/news.mjs
+      - name: Commit the briefing
+        run: |
+          git config user.name "news-bot"
+          git config user.email "news-bot@users.noreply.github.com"
+          git add frontend/news
+          git diff --cached --quiet && exit 0
+          git commit -m "news: daily briefing $(TZ=Europe/London date +%F)"
+          for i in 1 2 3; do git pull --rebase origin main && git push && exit 0; sleep 5; done; exit 1
+
+  deploy:
+    needs: build
+    permissions: { contents: read, pull-requests: write }   # a called workflow can't have more than its caller grants
+    uses: ./.github/workflows/deploy.yml
+    secrets:
+      AZURE_STATIC_WEB_APPS_API_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+
+  email:
+    needs: [gate, build]
+    if: needs.gate.outputs.go == 'true' && (github.event_name == 'schedule' || inputs.send)
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    environment: production   # optional: add required reviewers or restrict secrets to this environment
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, persist-credentials: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm install --no-audit --no-fund --ignore-scripts
+      - name: Email subscribers
+        env:
+          STORAGE_CONNECTION_STRING: ${{ secrets.STORAGE_CONNECTION_STRING }}
+          ACS_CONNECTION_STRING: ${{ secrets.ACS_CONNECTION_STRING }}
+          TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
+          MAIL_FROM: ${{ vars.MAIL_FROM || 'briefing@mycyberlearning.co.uk' }}
+          SITE_URL: ${{ vars.SITE_URL || 'https://mycyberlearning.co.uk' }}
+          MAIL_RATE_PER_MINUTE: ${{ vars.MAIL_RATE_PER_MINUTE || '25' }}
+        # The gate job already checked the London hour; --force stops a late-starting run skipping the day.
+        run: node scripts/send-digest.mjs --force
+
+  retention:
+    # Runs every day whatever happened above, so the 7-day deletion promised in the privacy notice never lapses.
+    needs: gate
+    if: always() && needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, persist-credentials: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm install --no-audit --no-fund --ignore-scripts
+      - name: Apply data retention
+        env:
+          STORAGE_CONNECTION_STRING: ${{ secrets.STORAGE_CONNECTION_STRING }}
+        run: node scripts/cleanup.mjs

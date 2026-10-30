@@ -11,11 +11,16 @@
     "refresh:dry": "node scripts/refresh.mjs --dry-run --limit 5",
     "export": "node scripts/export.mjs",
     "test": "node --test scripts/test/*.test.mjs",
-    "import:books": "node scripts/import-books.mjs"
+    "import:books": "node scripts/import-books.mjs",
+    "news": "node scripts/news.mjs",
+    "news:dry": "node scripts/news.mjs --dry-run --local",
+    "send": "node scripts/send-digest.mjs",
+    "send:preview": "node scripts/send-digest.mjs --preview"
   },
   "dependencies": {
     "@azure/data-tables": "^13.3.0",
-    "fast-xml-parser": "^4.5.0"
+    "fast-xml-parser": "^4.5.0",
+    "@azure/communication-email": "^1.0.0"
   },
   "engines": {
     "node": ">=20"

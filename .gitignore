@@ -4,3 +4,4 @@ api/local.settings.json
 .env
 *.log
 .DS_Store
+email-preview.html

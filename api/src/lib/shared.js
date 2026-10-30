@@ -21,7 +21,7 @@ export async function table(name) {
   return clients[name];
 }
 // Table names
-export const T = { items: "items", votes: "votes", submissions: "submissions" };
+export const T = { items: "items", votes: "votes", submissions: "submissions", subscribers: "subscribers", stats: "stats", digestlog: "digestlog" };
 
 // Items are stored as { partitionKey:"item", rowKey:id, data:JSON, hidden, up, down }
 export function rowToItem(r) {
@@ -43,15 +43,25 @@ export const isAdmin = req => (principal(req)?.userRoles || []).includes("admin"
 
 export const json = (status, body, headers = {}) => ({ status, jsonBody: body, headers: { "cache-control": "no-store", ...headers } });
 export const sha = s => createHash("sha256").update(s).digest("hex");
-export const clientIp = req => (req.headers.get("x-forwarded-for") || "").split(",")[0].trim().replace(/:\d+$/, "");
+// Client IP for rate limiting only (never stored). Prefer the platform-set header; otherwise take the
+// right-most X-Forwarded-For entry, which is added by Azure's front end, because the left-most entries
+// can be supplied by the client and spoofed.
+export function clientIp(req) {
+  const direct = req.headers.get("x-azure-clientip"); // set by Azure's front end; client-supplied x-client-ip is ignored
+  const xff = (req.headers.get("x-forwarded-for") || "").split(",").map(s => s.trim()).filter(Boolean);
+  let ip = String(direct || xff[xff.length - 1] || "unknown").slice(0, 64);
+  if (/^\d{1,3}(\.\d{1,3}){3}:\d+$/.test(ip)) ip = ip.replace(/:\d+$/, "");     // IPv4:port
+  else if (/^\[.+\](:\d+)?$/.test(ip)) ip = ip.replace(/^\[(.+)\](:\d+)?$/, "$1"); // [IPv6]:port
+  return ip;
+}
 
 // Very small in-memory rate limiter (per instance; good enough to blunt casual abuse).
 const hits = new Map();
 export function rateLimited(key, limit, windowMs) {
   const now = Date.now();
   const arr = (hits.get(key) || []).filter(t => now - t < windowMs);
-  arr.push(now); hits.set(key, arr);
-  if (hits.size > 5000) hits.clear();
+  arr.push(now); hits.delete(key); hits.set(key, arr);          // re-insert so Map order = least recently used first
+  while (hits.size > 10000) hits.delete(hits.keys().next().value); // evict oldest keys; never reset everyone's limits
   return arr.length > limit;
 }
 

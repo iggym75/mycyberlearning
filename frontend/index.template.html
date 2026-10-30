@@ -168,10 +168,76 @@ dialog::backdrop{background:rgba(8,14,22,.55)}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:999px;font-size:14px;z-index:50;box-shadow:var(--shadow)}
 .mode-pill{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--ink-3)}
 footer{border-top:1px solid var(--line);padding-block:24px;color:var(--ink-3);font-size:13px}
+footer .linkish{background:none;border:0;padding:0;color:var(--signal);cursor:pointer;font:inherit;text-decoration:underline}
+
+/* Section switch */
+.views{display:flex;gap:2px;background:var(--sunk);border-radius:9px;padding:3px}
+.views a{padding:6px 12px;border-radius:7px;text-decoration:none;color:var(--ink-2);font-weight:500;font-size:14px;white-space:nowrap}
+.views a[aria-current="page"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow);font-weight:600}
+.views .live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--signal);margin-right:6px;vertical-align:1px}
+body[data-view="news"] .library-only{display:none!important}
+
+/* Daily briefing */
+.news-wrap{padding-block:28px 64px}
+.news-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:36px;align-items:start}
+.eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.news-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.news-head h1{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;line-height:1.05;margin:6px 0 6px}
+.news-meta{font-family:var(--f-mono);font-size:12.5px;color:var(--ink-3)}
+.news-nav{display:flex;gap:6px;flex-wrap:wrap}
+.sub-jump{display:none}
+.news-headline{font-family:var(--f-display);font-weight:600;font-size:clamp(20px,2.4vw,26px);line-height:1.2;margin:22px 0 8px;text-wrap:balance}
+.news-overview{color:var(--ink-2);font-size:16px;line-height:1.6;max-width:68ch;margin:0}
+.section-label{font-family:var(--f-mono);font-size:11.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:30px 0 12px}
+.stories{list-style:none;margin:0;padding:0;display:grid;gap:4px;counter-reset:story}
+.stories li{counter-increment:story;display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:14px 0;border-top:1px solid var(--line)}
+.stories li::before{content:counter(story);font-family:var(--f-display);font-weight:800;font-size:22px;line-height:1;color:var(--signal)}
+.stories h4{font-family:var(--f-display);font-weight:600;font-size:17px;margin:0 0 4px;line-height:1.25}
+.stories p{margin:0 0 8px;color:var(--ink-2);font-size:14.5px}
+.via{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink-3)}
+.via a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink-2);border:1px solid var(--line);border-radius:999px;padding:2px 9px 2px 3px;background:var(--surface)}
+.via a:hover{border-color:var(--ink-3)}
+.via img{width:18px;height:18px;border-radius:4px}
+.episodes{display:grid;gap:10px}
+.ep{display:grid;grid-template-columns:56px minmax(0,1fr);gap:14px;padding:14px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.ep .art{width:56px;height:56px;border-radius:8px;object-fit:cover;background:var(--sunk)}
+.ep .show{font-size:12.5px;color:var(--ink-3);display:flex;gap:8px;flex-wrap:wrap}
+.ep h4{font-family:var(--f-display);font-weight:600;font-size:16px;line-height:1.25;margin:2px 0 6px}
+.ep h4 a{color:var(--ink);text-decoration:none}
+.ep h4 a:hover{text-decoration:underline}
+.ep p{margin:0 0 8px;font-size:14px;color:var(--ink-2)}
+.ep .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ep.highlight{outline:2px solid var(--signal);outline-offset:2px}
+.news-empty{padding:28px;border:1px dashed var(--line);border-radius:var(--r);color:var(--ink-2);margin-top:20px}
+.news-side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 80px);display:grid;gap:14px}
+.sub-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:12px}
+.sub-card h2{font-family:var(--f-display);font-weight:800;font-size:20px;line-height:1.15;margin:0}
+.sub-card p{margin:0;font-size:14px;color:var(--ink-2)}
+.sub-card .field input,.sub-card .field select{background:var(--paper)}
+.consent{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:13px;color:var(--ink-2);align-items:start}
+.consent input{margin-top:3px;accent-color:var(--signal);width:16px;height:16px}
+.hp{position:absolute!important;left:-10000px!important;width:1px;height:1px;overflow:hidden}
+.sub-done{background:var(--signal-soft);border-radius:8px;padding:12px;font-size:14px}
+.side-note{font-size:12.5px;color:var(--ink-3);line-height:1.5}
+.privacy h3{font-family:var(--f-display);font-size:16px;margin:8px 0 4px}
+.privacy p,.privacy li{font-size:14px;color:var(--ink-2)}
+.privacy ul{margin:4px 0 8px;padding-left:20px}
+.ins-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.ins-tile{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.ins-tile b{display:block;font-family:var(--f-display);font-size:24px;font-variant-numeric:tabular-nums}
+.ins-tile span{font-size:12px;color:var(--ink-3)}
+.bars{display:grid;gap:4px;font-size:13px}
+.bars div{display:grid;grid-template-columns:minmax(0,150px) 1fr 44px;gap:8px;align-items:center}
+.bars i{display:block;height:8px;border-radius:4px;background:var(--signal)}
+.bars em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.bars span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 
 @media (max-width:860px){
   .toolbar .count{flex-basis:100%}
+  .news-grid{grid-template-columns:minmax(0,1fr)}
+  .news-side{position:static}
+  .sub-jump{display:inline-flex}
   .main{grid-template-columns:minmax(0,1fr)}
   .rail{position:fixed;inset:0 auto 0 0;width:min(320px,88vw);max-height:none;background:var(--surface);z-index:40;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));transform:translateX(-105%);transition:transform .2s ease;box-shadow:var(--shadow);border-right:1px solid var(--line)}
   .rail.open{transform:none}
@@ -184,27 +250,31 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="#" aria-label="My Cyber Learning home">
+    <a class="brand" href="#library" aria-label="My Cyber Learning home">
       <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="var(--signal)"/><path d="M17 7l8 3.2v6.3c0 5-3.4 8.6-8 10.5-4.6-1.9-8-5.5-8-10.5v-6.3z" fill="none" stroke="var(--signal-ink)" stroke-width="2"/><path d="M13 17.5h1.6M15.8 15v5M18.2 13v9M20.6 15.5v4" stroke="var(--signal-ink)" stroke-width="1.8" stroke-linecap="round"/></svg>
       <span><b>My Cyber Learning</b><small>mycyberlearning.co.uk</small></span>
     </a>
-    <div class="search">
+    <nav class="views" aria-label="Sections">
+      <a href="#library" data-view="library">Library</a>
+      <a href="#news" data-view="news"><span class="live-dot" aria-hidden="true"></span>Daily briefing</a>
+    </nav>
+    <div class="search library-only">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="q" type="search" placeholder="Search podcasts, books, hosts, topics…" aria-label="Search">
     </div>
-    <button class="btn filters-toggle" id="openFilters" type="button">Filters</button>
-    <button class="btn primary" id="openSubmit" type="button">+ Suggest a resource</button>
+    <button class="btn filters-toggle library-only" id="openFilters" type="button">Filters</button>
+    <button class="btn primary library-only" id="openSubmit" type="button">+ Suggest a resource</button>
     <button class="btn ghost" id="adminBtn" type="button" hidden>Admin</button>
   </div>
 </header>
 
-<section class="wrap intro">
+<section class="wrap intro library-only">
   <h1>Podcasts and books to keep your cyber skills current</h1>
   <p>A curated library for people starting out in security and practitioners staying sharp. Filter by the domains you work in, see listener ratings from the podcast platforms, and add your own vote — community scores sit alongside the official ratings, never mixed with them.</p>
   <div class="stats" id="stats"></div>
 </section>
 
-<main class="wrap main">
+<main class="wrap main library-only" id="libraryView">
   <aside class="rail" id="rail" aria-label="Filters">
     <h3>Show</h3>
     <div class="seg" role="group" aria-label="Resource type">
@@ -252,9 +322,51 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
   </section>
 </main>
 
+<section class="wrap news-wrap" id="newsView" hidden aria-labelledby="newsTitle">
+  <div class="news-grid">
+    <div style="min-width:0">
+      <div class="news-head">
+        <div>
+          <div class="eyebrow">Daily briefing · news podcasts, last 24 hours</div>
+          <h1 id="newsTitle">Today's briefing</h1>
+          <div class="news-meta" id="newsMeta"></div>
+        </div>
+        <div class="news-nav">
+          <button class="btn sm" type="button" id="newsPrev">← Earlier</button>
+          <button class="btn sm" type="button" id="newsNext">Later →</button>
+          <button class="btn sm primary sub-jump" type="button" id="subJump">Subscribe</button>
+        </div>
+      </div>
+      <div id="newsBody"></div>
+    </div>
+
+    <aside class="news-side" aria-label="Subscribe">
+      <div class="sub-card" id="subCard">
+        <div class="eyebrow">Free · every morning at 06:00 UK</div>
+        <h2>Get the briefing in your inbox</h2>
+        <p>The top stories and every new episode from the news podcasts, summarised. Ready before breakfast.</p>
+        <form id="subForm" novalidate>
+          <div style="display:grid;gap:10px">
+            <div class="field"><label for="sub_email">Email address</label><input id="sub_email" type="email" autocomplete="email" required maxlength="254"></div>
+            <div class="field"><label for="sub_name">First name <span class="muted" style="font-weight:400">(optional)</span></label><input id="sub_name" autocomplete="given-name" maxlength="40"></div>
+            <div class="field"><label for="sub_country">Country <span class="muted" style="font-weight:400">(optional)</span></label><select id="sub_country"></select></div>
+            <div class="field"><span class="lbl">Put these first <span class="muted" style="font-weight:400">(optional)</span></span><div class="chips" id="sub_interests"></div></div>
+            <div class="hp" aria-hidden="true"><label for="sub_website">Website</label><input id="sub_website" tabindex="-1" autocomplete="off"></div>
+            <label class="consent"><input type="checkbox" id="sub_consent"> <span>Email me the My Cyber Learning daily briefing. I can unsubscribe at any time. See the <button type="button" class="linkish" data-privacy style="background:none;border:0;padding:0;color:var(--signal);cursor:pointer;font:inherit;text-decoration:underline">privacy notice</button>.</span></label>
+            <p class="err" id="subErr" hidden></p>
+            <button class="btn primary" type="submit" id="subBtn">Subscribe</button>
+          </div>
+        </form>
+        <div class="sub-done" id="subDone" hidden role="status"></div>
+      </div>
+      <p class="side-note">Summaries are written by My Cyber Learning, with help from Claude, from each show's public episode notes. Listen to the shows for the full story. No tracking pixels or link tracking in our emails.</p>
+    </aside>
+  </div>
+</section>
+
 <footer><div class="wrap">
   <span>My Cyber Learning · MCL Picks are hand-chosen by the site's curator · Official ratings aggregated from Apple Podcasts, Spotify, Podchaser and Podcast Addict via Podnews/Rephonic.</span>
-  <span><span class="mode-pill" id="modePill">demo</span></span>
+  <span style="display:flex;gap:14px;align-items:center"><button type="button" class="linkish" data-privacy>Privacy</button><span class="mode-pill" id="modePill">demo</span></span>
 </div></footer>
 
 <!-- Submit dialog -->
@@ -338,6 +450,39 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
     <span class="muted" id="cvPos" style="font-family:var(--f-mono);font-size:12px"></span>
     <button class="btn sm" type="button" id="cvNext">Next →</button>
   </div>
+</dialog>
+
+<!-- Privacy notice -->
+<dialog id="privacyDlg" aria-labelledby="privTitle">
+  <div class="dlg-h"><h2 id="privTitle">Privacy notice</h2><button class="btn ghost sm" type="button" data-close>Close</button></div>
+  <div class="dlg-b privacy">
+    <p>My Cyber Learning (mycyberlearning.co.uk) is run by Ian Moore, who is the data controller. Version 2026-10-30.</p>
+    <h3>Daily briefing subscribers</h3>
+    <ul>
+      <li><b>What we keep:</b> your email address, and if you give them, your first name, country and topic preferences, plus when and how you agreed.</li>
+      <li><b>Why:</b> only to send you the briefing you asked for. Lawful basis: your consent. We never sell or share your details, and never use them for advertising.</li>
+      <li><b>Confirmation:</b> we send one confirmation email, and nothing else until you confirm. If you don't, your address is deleted after 7 days.</li>
+      <li><b>Unsubscribing:</b> one click in any email. Your details are deleted straight away; we keep only a one-way hash of your address as a record that you opted out. You can subscribe again at any time.</li>
+      <li><b>No tracking:</b> our emails contain no tracking pixels and no tracked links.</li>
+    </ul>
+    <h3>Visitors</h3>
+    <ul>
+      <li>We count page views by day, section, time-zone region (for example Europe/London), language, device type and referring website. We don't use cookies, we don't store IP addresses or any identifier, and we can't tell individual visitors apart.</li>
+      <li>If your browser sends Global Privacy Control or Do Not Track, we don't count you at all.</li>
+      <li>Votes are remembered with a random number stored in your browser; on our servers it is kept only as a one-way hash.</li>
+      <li>If you suggest a resource, we keep a one-way hash of your IP address to stop spam, and any email you add is used only to ask about that suggestion. Both are deleted once the suggestion is reviewed, or after 90 days.</li>
+    </ul>
+    <h3>Who processes data for us</h3>
+    <p>Microsoft Azure (hosting, database and email delivery, UK/EU regions) and GitHub (building the site). Anthropic's Claude writes the briefing summaries from public podcast notes; no subscriber or visitor data is ever sent to it.</p>
+    <h3>Your rights</h3>
+    <p>You can ask for a copy of your data, a correction or deletion, or withdraw consent at any time. Contact privacy@mycyberlearning.co.uk. You can also complain to the Information Commissioner's Office (ico.org.uk).</p>
+  </div>
+</dialog>
+
+<!-- Admin insights -->
+<dialog id="insightsDlg" aria-labelledby="insTitle">
+  <div class="dlg-h"><h2 id="insTitle">Subscribers &amp; visitors</h2><button class="btn ghost sm" type="button" data-close>Close</button></div>
+  <div class="dlg-b" id="insBody"></div>
 </dialog>
 
 <div class="toast" id="toast" role="status" hidden></div>
@@ -489,7 +634,7 @@ function searchUrl(platform, i){
 }
 function platLinks(i){
   const L = [];
-  const add = (href, icon, label, isSearch) => L.push(`<a class="plat${isSearch?" search":""}" href="${esc(href)}" target="_blank" rel="noopener" title="${esc(label)}" aria-label="${esc(label)}">${ICONS[icon]}</a>`);
+  const add = (href, icon, label, isSearch) => /^https?:\/\//i.test(href||"") && L.push(`<a class="plat${isSearch?" search":""}" href="${esc(href)}" target="_blank" rel="noopener" title="${esc(label)}" aria-label="${esc(label)}">${ICONS[icon]}</a>`);
   if (i.type === "podcast"){
     i.apple ? add(i.apple,"apple","Apple Podcasts") : add(searchUrl("apple",i),"apple","Search Apple Podcasts",1);
     i.spotify ? add(i.spotify,"spotify","Spotify") : add(searchUrl("spotify",i),"spotify","Search Spotify",1);
@@ -503,7 +648,7 @@ function platLinks(i){
   return L.join("");
 }
 function card(i){
-  const tags = i.domains.map(d => `<button class="tag" type="button" data-tag="${d}">${esc(DOM[d]?.label||d)}</button>`).join("");
+  const tags = i.domains.map(d => `<button class="tag" type="button" data-tag="${esc(d)}">${esc(DOM[d]?.label||d)}</button>`).join("");
   const c = i.community||{up:0,down:0}, mv = myVotes[i.id]||0;
   const rating = i.rating ? `<span class="stars" aria-hidden="true">${stars(i.rating.v)}</span><b>${i.rating.v.toFixed(1)}</b><span class="muted">(${fmtN(i.rating.n)})</span>`
                           : `<span class="muted">Awaiting refresh</span>`;
@@ -705,7 +850,7 @@ $("#submitForm").addEventListener("submit", async e => {
 async function refreshAdminBadge(){ if(!api.isAdmin) return; const q = await api.queue(); $("#adminBtn").hidden=false; $("#adminBtn").textContent = `Admin · ${q.length} pending`; }
 $("#adminBtn").addEventListener("click", async () => {
   const q = await api.queue();
-  $("#queue").innerHTML = (api.remote?"":`<p class="note" style="margin:0">Demo mode: the review queue and edits are stored in this browser only. On the live site this panel appears only for accounts with the admin role.</p>`) +
+  $("#queue").innerHTML = `<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" type="button" id="openInsights">Subscribers &amp; visitors</button></div>` + (api.remote?"":`<p class="note" style="margin:0">Demo mode: the review queue and edits are stored in this browser only. On the live site this panel appears only for accounts with the admin role.</p>`) +
     (q.length ? q.map(s=>`<div class="qitem" data-sid="${esc(s.id)}"><h4>${esc(s.name)} <span class="badge">${esc(s.type)}</span></h4><div class="by">${esc(s.by||"")}</div><p class="desc" style="margin:0">${esc(s.desc)}</p>
       <div class="tags">${(s.domains||[]).map(d=>`<span class="tag">${esc(DOM[d]?.label||d)}</span>`).join("")}</div>
       <div class="muted" style="font-size:12.5px;word-break:break-all">${["web","apple","spotify","youtube","rss","isbn","publisher"].filter(k=>s[k]).map(k=>`${k}: ${esc(s[k])}`).join(" · ")}</div>
@@ -736,11 +881,135 @@ $("#editForm").addEventListener("submit", async e => {
   await api.save(editing.id, patch); Object.assign(editing, patch); $("#editDlg").close(); render(); toast("Saved");
 });
 
+/* ---------- Daily briefing ---------- */
+const COUNTRY_LIST = [["","Prefer not to say"],["GB","United Kingdom"],["IE","Ireland"],["US","United States"],["CA","Canada"],["AU","Australia"],["NZ","New Zealand"],["IN","India"],["DE","Germany"],["FR","France"],["NL","Netherlands"],["BE","Belgium"],["ES","Spain"],["IT","Italy"],["PT","Portugal"],["SE","Sweden"],["NO","Norway"],["DK","Denmark"],["FI","Finland"],["PL","Poland"],["CH","Switzerland"],["AT","Austria"],["IL","Israel"],["AE","United Arab Emirates"],["SG","Singapore"],["ZA","South Africa"],["NG","Nigeria"],["KE","Kenya"],["BR","Brazil"],["MX","Mexico"],["JP","Japan"],["OTHER","Somewhere else"]];
+const SHOW_BY_ID = () => Object.fromEntries(ITEMS.map(i=>[i.id,i]));
+let NEWS = { index: [], cur: null };
+async function getJsonSafe(url){ try { const r = await fetch(url, {cache:"no-cache"}); if (!r.ok) throw 0; return await r.json(); } catch { return null; } }
+async function loadNews(date){
+  if (!NEWS.index.length) NEWS.index = (await getJsonSafe("news/index.json"))?.dates || SEED.news?.index || [];
+  const want = date || NEWS.index[0];
+  NEWS.cur = (want && await getJsonSafe(`news/${want}.json`)) || (!date || date===SEED.news?.latest?.date ? SEED.news?.latest : null) || NEWS.cur;
+  renderNews();
+}
+function fmtLong(d){ return new Date(d+"T12:00:00Z").toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long",year:"numeric",timeZone:"UTC"}); }
+function fmtTime(iso){ return new Date(iso).toLocaleString("en-GB",{weekday:"short",hour:"2-digit",minute:"2-digit",timeZone:"Europe/London"}); }
+function renderNews(){
+  const d = NEWS.cur, shows = SHOW_BY_ID();
+  const idx = d ? NEWS.index.indexOf(d.date) : -1;
+  $("#newsPrev").disabled = idx < 0 || idx >= NEWS.index.length-1;
+  $("#newsNext").disabled = idx <= 0;
+  if (!d){ $("#newsTitle").textContent="Daily briefing"; $("#newsMeta").textContent=""; $("#newsBody").innerHTML = `<div class="news-empty">The first briefing will appear here after the next morning run at 06:00 UK time.</div>`; return; }
+  $("#newsTitle").textContent = fmtLong(d.date);
+  const nShows = new Set(d.episodes.map(e=>e.show)).size;
+  $("#newsMeta").textContent = `${d.episodes.length} episode${d.episodes.length===1?"":"s"} from ${nShows} show${nShows===1?"":"s"} · 24 hours to ${new Date(d.generatedAt).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",timeZone:"Europe/London"})} UK`;
+  const byRef = Object.fromEntries(d.episodes.map(e=>[e.ref,e]));
+  const art = id => shows[id]?.logo ? `<img src="${esc(shows[id].logo)}" alt="" loading="lazy">` : "";
+  const name = id => shows[id]?.name || id;
+  const stories = (d.topStories||[]).map(s=>`<li><div style="min-width:0"><h4>${esc(s.title)}</h4><p>${esc(s.summary)}</p>
+    <div class="via">Covered by ${(s.refs||[]).map(r=>byRef[r]).filter(Boolean).map(e=>`<a href="#ep-${esc(e.ref)}" data-jump="${esc(e.ref)}">${art(e.show)}${esc(name(e.show))}</a>`).join("")}</div></div></li>`).join("");
+  const eps = d.episodes.map(e=>{ const sh = shows[e.show]; const u = /^https?:\/\//.test(e.url||"") ? e.url : null;
+    return `<article class="ep" id="ep-${esc(e.ref)}">${sh?.logo?`<img class="art" src="${esc(sh.logo)}" alt="" loading="lazy">`:`<div class="art"></div>`}
+    <div style="min-width:0"><div class="show"><b style="color:var(--ink-2)">${esc(name(e.show))}</b><span>${esc(fmtTime(e.publishedAt))}</span>${e.minutes?`<span>${e.minutes} min</span>`:""}</div>
+    <h4>${u?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(e.title)}</a>`:esc(e.title)}</h4><p>${esc(e.summary)}</p>
+    <div class="row"><div class="tags">${(e.domains||[]).filter(x=>DOM[x]).map(x=>`<span class="tag" style="cursor:default">${esc(DOM[x].label)}</span>`).join("")}</div>
+    <div class="links" style="margin-left:auto">${u?`<a class="plat" href="${esc(u)}" target="_blank" rel="noopener" title="Listen to this episode" aria-label="Listen to ${esc(e.title)}">${ICONS.apple}</a>`:""}${sh?.spotify?`<a class="plat" href="${esc(sh.spotify)}" target="_blank" rel="noopener" title="Show on Spotify" aria-label="${esc(name(e.show))} on Spotify">${ICONS.spotify}</a>`:""}</div></div></div></article>`; }).join("");
+  $("#newsBody").innerHTML = `<h2 class="news-headline">${esc(d.headline)}</h2><p class="news-overview">${esc(d.overview)}</p>
+    ${stories?`<h3 class="section-label">Top stories</h3><ol class="stories">${stories}</ol>`:""}
+    <h3 class="section-label">Every episode</h3>${eps?`<div class="episodes">${eps}</div>`:`<div class="news-empty">No new episodes from the news podcasts in these 24 hours.</div>`}`;
+}
+$("#subJump").addEventListener("click", () => { $("#subCard").scrollIntoView({behavior:"smooth"}); setTimeout(()=>$("#sub_email").focus({preventScroll:true}), 400); });
+$("#newsPrev").addEventListener("click", () => { const i = NEWS.index.indexOf(NEWS.cur?.date); if (i>=0 && i<NEWS.index.length-1) loadNews(NEWS.index[i+1]); });
+$("#newsNext").addEventListener("click", () => { const i = NEWS.index.indexOf(NEWS.cur?.date); if (i>0) loadNews(NEWS.index[i-1]); });
+$("#newsBody").addEventListener("click", e => { const a = e.target.closest("[data-jump]"); if (!a) return; e.preventDefault();
+  const el = document.getElementById("ep-"+a.dataset.jump); if (!el) return; el.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth", block:"center"});
+  el.classList.add("highlight"); setTimeout(()=>el.classList.remove("highlight"),1600); });
+
+/* Subscribe */
+let subInterests = [];
+$("#sub_country").innerHTML = COUNTRY_LIST.map(([v,l])=>`<option value="${v}">${esc(l)}</option>`).join("");
+function renderSubInterests(){ $("#sub_interests").innerHTML = ["ai","cti","tvm","operations","leadership","icsot","cloud","appsec"].map(k=>`<button class="chip" type="button" data-sub-int="${k}" aria-pressed="${subInterests.includes(k)}">${esc(DOM[k].label)}</button>`).join(""); }
+renderSubInterests();
+$("#sub_interests").addEventListener("click", e => { const b=e.target.closest("[data-sub-int]"); if(!b) return; toggle(subInterests,b.dataset.subInt); renderSubInterests(); });
+const emailOk = v => /^[^\s@<>]+@[^\s@<>]+\.[a-z]{2,}$/i.test(v) && v.length <= 254;
+$("#subForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const body = { email: $("#sub_email").value.trim(), name: $("#sub_name").value.trim(), country: $("#sub_country").value, interests: subInterests, consent: $("#sub_consent").checked, website: $("#sub_website").value };
+  const err = !emailOk(body.email) ? "Enter a valid email address." : !body.consent ? "Tick the box to agree to receive the briefing." : "";
+  if (err){ $("#subErr").textContent = err; $("#subErr").hidden = false; return; }
+  $("#subErr").hidden = true; $("#subBtn").disabled = true; $("#subBtn").textContent = "Sending…";
+  let msg;
+  if (api.remote){
+    try { const r = await fetch("/api/subscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)}); const j = await r.json().catch(()=>({}));
+      if (!r.ok) throw new Error(j.error || "Something went wrong. Please try again."); msg = j.message; }
+    catch(x){ $("#subErr").textContent = x.message; $("#subErr").hidden = false; $("#subBtn").disabled=false; $("#subBtn").textContent="Subscribe"; return; }
+  } else msg = "Demo: on the live site we'd now email a confirmation link to that address. Nothing has been stored or sent.";
+  $("#subForm").hidden = true; $("#subDone").hidden = false; $("#subDone").innerHTML = `<b>Nearly there.</b> ${esc(msg)}`;
+});
+document.addEventListener("click", e => { if (e.target.closest("[data-privacy]")) $("#privacyDlg").showModal(); });
+for (const id of ["privacyDlg","insightsDlg"]) $("#"+id).addEventListener("click", e => { if (e.target === e.currentTarget) e.currentTarget.close(); });
+
+/* Privacy-first analytics: aggregate counts only, no cookies or identifiers; honours GPC and Do Not Track */
+const counted = new Set();
+function track(page){
+  if (!api.remote || counted.has(page) || navigator.globalPrivacyControl || navigator.doNotTrack === "1" || window.doNotTrack === "1") return;
+  counted.add(page);
+  let ref = ""; try { const h = new URL(document.referrer).hostname; if (h && h !== location.hostname) ref = h; } catch {}
+  const w = innerWidth, d = w < 640 ? "mobile" : w < 1024 ? "tablet" : "desktop";
+  const payload = JSON.stringify({ p: page, tz: Intl.DateTimeFormat().resolvedOptions().timeZone || "", l: (navigator.language||"").slice(0,5), d, r: ref });
+  try { navigator.sendBeacon ? navigator.sendBeacon("/api/t", payload) : fetch("/api/t",{method:"POST",body:payload,keepalive:true}); } catch {}
+}
+
+/* Admin insights */
+document.addEventListener("click", async e => {
+  if (!e.target.closest("#openInsights")) return;
+  const body = $("#insBody");
+  if (!api.remote){ body.innerHTML = `<p class="note" style="margin:0">Demo mode. On the live site this shows subscriber numbers (active, pending, unsubscribed), sign-ups by day, self-declared countries and topic interests, and visits by day, section, time-zone region, language, device and referring site, plus subscriber export and erasure.</p>`; $("#insightsDlg").showModal(); return; }
+  body.innerHTML = `<p class="muted">Loading…</p>`; $("#insightsDlg").showModal();
+  try {
+    const j = await (await fetch("/api/admin/insights?days=30")).json(); const S = j.subscribers, V = j.visits;
+    const sum = o => Object.values(o).reduce((a,b)=>a+b,0);
+    const bars = (o, label = k => k, n = 8) => { const e = Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,n), m = Math.max(1,...e.map(x=>x[1]));
+      return e.length ? `<div class="bars">${e.map(([k,v])=>`<div><span title="${esc(label(k))}">${esc(label(k))}</span><i style="width:${Math.max(4,v/m*100)}%"></i><em>${v}</em></div>`).join("")}</div>` : `<p class="muted" style="margin:0">No data yet.</p>`; };
+    const cname = Object.fromEntries(COUNTRY_LIST); 
+    body.innerHTML = `<div class="ins-grid"><div class="ins-tile"><b>${S.active}</b><span>Active subscribers</span></div><div class="ins-tile"><b>${S.pending}</b><span>Awaiting confirmation</span></div><div class="ins-tile"><b>${S.unsubscribed}</b><span>Unsubscribed</span></div><div class="ins-tile"><b>${sum(V.byDay)}</b><span>Page views, ${j.days} days</span></div></div>
+      <h3 class="section-label" style="margin-top:14px">Subscribers by country (self-declared)</h3>${bars(S.byCountry, k => cname[k] || k)}
+      <h3 class="section-label">Topic interests</h3>${bars(S.byInterest, k => DOM[k]?.label || k)}
+      <h3 class="section-label">Visits by time-zone region</h3>${bars(V.region)}
+      <h3 class="section-label">Sections</h3>${bars(V.page)}
+      <h3 class="section-label">Referring sites</h3>${bars(V.ref)}
+      <h3 class="section-label">Devices</h3>${bars(V.device)}
+      <h3 class="section-label">Subscriber data</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:end"><a class="btn sm" href="/api/admin/subscribers/export">Export subscribers (CSV)</a>
+        <form id="eraseForm" style="display:flex;gap:6px;align-items:end"><div class="field"><label for="erase_email">Erase an address</label><input id="erase_email" type="email" required></div><button class="btn sm danger" type="submit">Erase</button></form></div>
+      <p class="side-note">Exports contain personal data: store them securely and delete them when no longer needed.</p>`;
+  } catch { body.innerHTML = `<p class="err">Couldn't load insights. Check you're signed in as admin.</p>`; }
+});
+document.addEventListener("submit", async e => {
+  if (e.target.id !== "eraseForm") return; e.preventDefault();
+  const email = $("#erase_email").value.trim(); if (!emailOk(email)) return toast("Enter a valid email address.");
+  const r = await fetch("/api/admin/subscribers/erase",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email})}); const j = await r.json().catch(()=>({}));
+  toast(j.message || "Done"); $("#erase_email").value = "";
+});
+
+/* ---------- Views (#library, #news) ---------- */
+function showView(){
+  const v = location.hash === "#news" ? "news" : "library";
+  document.body.dataset.view = v; $("#newsView").hidden = v !== "news";
+  $$(".views a").forEach(a => a.dataset.view === v ? a.setAttribute("aria-current","page") : a.removeAttribute("aria-current"));
+  if (v === "news" && !NEWS.cur) loadNews();
+  track(v);
+}
+addEventListener("hashchange", () => { showView(); scrollTo(0,0); });
+
 /* ---------- Boot ---------- */
 (async () => {
   ITEMS = await api.init();
   $("#modePill").textContent = api.remote ? "live" : "demo · votes saved in this browser";
-  render(); refreshAdminBadge();
+  render(); refreshAdminBadge(); showView();
+  const q = new URLSearchParams(location.search).get("subscribe");
+  if (q){ toast({confirmed:"You're subscribed. The briefing arrives at 06:00 UK time.", expired:"That confirmation link has expired. Please subscribe again.", invalid:"That confirmation link isn't valid. Please subscribe again."}[q] || "");
+    history.replaceState(null, "", location.pathname + location.hash); }
 })();
 })();
 </script>

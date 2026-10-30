@@ -6,20 +6,37 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches: [main]
+  # Called by the refresh and news workflows after they commit. Pushes made with GITHUB_TOKEN
+  # deliberately don't trigger other workflows, so those jobs call this one directly.
+  workflow_call:
+    secrets:
+      AZURE_STATIC_WEB_APPS_API_TOKEN:
+        required: true
 
 permissions:
   contents: read
   pull-requests: write
 
+concurrency:
+  group: deploy-${{ github.event_name == 'pull_request' && github.event.number || 'main' }}
+  cancel-in-progress: false
+
 jobs:
   build_and_deploy:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    if: github.event_name != 'pull_request' || github.event.action != 'closed'
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          # When called after a commit, deploy the latest main rather than the commit that started the run.
+          ref: ${{ github.event_name == 'pull_request' && github.sha || 'main' }}
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with: { node-version: 20 }   # add `cache: npm` once package-lock.json is committed
-      - run: npm install --no-audit --no-fund   # switch to `npm ci` once package-lock.json is committed
+      - run: npm install --no-audit --no-fund --ignore-scripts   # switch to `npm ci --ignore-scripts` once package-lock.json is committed
+      - run: npm audit --omit=dev --audit-level=high
+        continue-on-error: true   # reported in the log; Dependabot raises the fix PRs
       - run: npm test
       - run: npm run build
       - name: Deploy to Azure Static Web Apps

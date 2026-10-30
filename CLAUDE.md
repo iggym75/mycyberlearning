@@ -22,6 +22,8 @@ A curated library of cybersecurity podcasts and books. Visitors filter by securi
 - Official ratings and community votes are never combined into one number.
 - Admin endpoints must check `isAdmin(req)` in the handler as well as relying on the SWA route rule.
 - Claude prompts treat resource text as data inside `<resource>` tags and use forced tool output constrained to the taxonomy enum.
+- Daily briefing: `scripts/news.mjs` writes `frontend/news/<date>.json`; `scripts/send-digest.mjs` emails it; shared email/token code is in `api/src/lib/mail.js`. Never republish show notes verbatim; only our summaries.
+- Personal data rules (see SECURITY.md): consent-only, minimum fields, no IPs or identifiers stored, escape everything in emails, GET never changes state, keep the privacy notice in the page in step with any change.
 
 ## Commands
 - `npm test` — unit tests (must pass before deploy)
