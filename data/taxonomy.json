@@ -1,0 +1,37 @@
+{
+  "domains": [
+    { "key": "engineering",  "label": "Security Engineering",   "hint": "Building and hardening systems, protocols, crypto, platform security" },
+    { "key": "operations",   "label": "Security Operations",    "hint": "SOC, detection engineering, incident response, SIEM" },
+    { "key": "architecture", "label": "Security Architecture",  "hint": "Zero trust, reference architectures, design patterns, PQC migration" },
+    { "key": "cti",          "label": "Threat Intelligence",    "hint": "CTI, APT tracking, adversary tradecraft, OSINT" },
+    { "key": "tvm",          "label": "Threat & Vuln Mgmt",     "hint": "Vulnerability management, patching, CVEs, exposure management" },
+    { "key": "defensive",    "label": "Defensive / Blue Team",  "hint": "Hardening, monitoring, defensive controls" },
+    { "key": "offensive",    "label": "Offensive / Red Team",   "hint": "Pentesting, red teaming, bug bounty, exploitation" },
+    { "key": "hunting",      "label": "Threat Hunting",         "hint": "Hypothesis-driven hunting, telemetry, behavioural analytics" },
+    { "key": "news",         "label": "News & Briefings",       "hint": "Daily and weekly news round-ups" },
+    { "key": "leadership",   "label": "CISO / Leadership",      "hint": "Strategy, board communication, budgets, team building" },
+    { "key": "ai",           "label": "AI Security",            "hint": "Securing AI systems, AI-enabled attacks and defence, agentic AI" },
+    { "key": "icsot",        "label": "ICS / OT",               "hint": "Industrial control systems, operational technology, critical infrastructure" },
+    { "key": "cloud",        "label": "Cloud Security",         "hint": "AWS, Azure, GCP, cloud-native and identity" },
+    { "key": "appsec",       "label": "AppSec / DevSecOps",     "hint": "Secure SDLC, supply chain, code security" },
+    { "key": "grc",          "label": "GRC & Risk",             "hint": "Governance, risk, compliance, regulation, cyber insurance" },
+    { "key": "privacy",      "label": "Privacy",                "hint": "Data protection, personal privacy, OSINT hygiene" },
+    { "key": "human",        "label": "Human Factor",           "hint": "Social engineering, awareness, scams" },
+    { "key": "career",       "label": "Careers & Community",    "hint": "Getting into cyber, career growth, diversity" },
+    { "key": "stories",      "label": "Stories & History",      "hint": "Narrative, true-crime style accounts of real incidents" }
+  ],
+  "frequencies": [
+    { "key": "daily",       "label": "Daily" },
+    { "key": "multiweekly", "label": "Several per week" },
+    { "key": "weekly",      "label": "Weekly" },
+    { "key": "biweekly",    "label": "Fortnightly" },
+    { "key": "monthly",     "label": "Monthly" },
+    { "key": "irregular",   "label": "Irregular" },
+    { "key": "ended",       "label": "Ended / archive" }
+  ],
+  "levels": [
+    { "key": "beginner",     "label": "Beginner" },
+    { "key": "intermediate", "label": "Intermediate" },
+    { "key": "advanced",     "label": "Advanced" }
+  ]
+}

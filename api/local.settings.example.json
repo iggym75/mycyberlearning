@@ -1,0 +1,11 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "STORAGE_CONNECTION_STRING": "UseDevelopmentStorage=true",
+    "VOTE_SALT": "change-me-to-a-long-random-string",
+    "ANTHROPIC_API_KEY": "",
+    "CLAUDE_MODEL": "claude-haiku-5-5"
+  }
+}
