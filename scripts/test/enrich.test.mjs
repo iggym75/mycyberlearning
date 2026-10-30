@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { inferCadence, parsePodnewsRating, bestMatch, appleId, normaliseIsbn, titlesMatch, canonPublisher } from "../pure.mjs";
+import { inferCadence, parsePodnewsRating, bestMatch, appleId, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, hasLocalImage } from "../pure.mjs";
 
 const NOW = Date.parse("2026-10-30T12:00:00Z");
 const series = (n, everyDays, endDaysAgo = 1) => Array.from({ length: n }, (_, i) => new Date(NOW - (endDaysAgo + i * everyDays) * 86_400_000).toUTCString());
@@ -67,4 +67,13 @@ test("publisher names are normalised", () => {
   assert.equal(canonPublisher("Addison-Wesley Professional"), "Addison-Wesley");
   assert.equal(canonPublisher("Bloomsbury Publishing"), "Bloomsbury");
   assert.equal(canonPublisher(undefined), undefined);
+});
+
+test("artwork helpers", () => {
+  assert.equal(appleArtworkUrl("https://is1-ssl.mzstatic.com/image/thumb/Podcasts1/v4/a/b/c/x.jpg/600x600bb.jpg"),
+    "https://is1-ssl.mzstatic.com/image/thumb/Podcasts1/v4/a/b/c/x.jpg/300x300bb.jpg");
+  assert.equal(appleArtworkUrl(null), null);
+  assert.ok(hasLocalImage({ logo: "covers/podcast-x.jpg" }));
+  assert.ok(!hasLocalImage({ logo: "https://example.com/x.jpg" }));
+  assert.ok(!hasLocalImage({}));
 });

@@ -7,7 +7,7 @@ import { getText, getJson, sleep } from "./lib.mjs";
 const taxonomy = JSON.parse(readFileSync(new URL("../data/taxonomy.json", import.meta.url), "utf8"));
 const DOMAIN_KEYS = taxonomy.domains.map(d => d.key);
 export { inferCadence, parsePodnewsRating, bestMatch, appleId } from "./pure.mjs";
-import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher } from "./pure.mjs";
+import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl } from "./pure.mjs";
 
 /** Apple Podcasts directory (free, no key): artwork, feed URL, canonical link, episode count. */
 export async function lookupApple(item) {
@@ -20,7 +20,7 @@ export async function lookupApple(item) {
   }
   if (!r) return null;
   return {
-    apple: r.collectionViewUrl?.split("?")[0], logo: r.artworkUrl600 || r.artworkUrl100,
+    apple: r.collectionViewUrl?.split("?")[0], artwork: appleArtworkUrl(r.artworkUrl600 || r.artworkUrl100, 300),
     rss: r.feedUrl, trackCount: r.trackCount, appleId: String(r.collectionId)
   };
 }

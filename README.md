@@ -70,6 +70,20 @@ A fully agentic pipeline that publishes without review is not recommended: the v
 
 ---
 
+### Where the weekly refresh runs (no PC needed)
+
+The refresh is a scheduled **GitHub Action** (`.github/workflows/refresh.yml`, Mondays 05:17 UTC). It runs on GitHub's servers, which have normal internet access, so it calls the Apple Podcasts directory, the shows' RSS feeds, Podnews, Open Library and Claude directly. Each run:
+
+1. updates cadence, latest episode, episode count, active/ended status, ratings and (for unlocked items) Claude tags in Azure Table storage;
+2. downloads artwork or covers **only for items that don't yet have a stored image** (`frontend/covers/`), so curated images such as your Calibre covers are never overwritten (`--reimage` forces a refresh);
+3. commits `data/catalogue.json` and any new images, and that push redeploys the site.
+
+You can also start it any time from GitHub → Actions → *Weekly catalogue refresh* → *Run workflow*. The run summary lists anything that needs a human: unmatched shows, ISBNs to confirm, failed downloads.
+
+**Why not an Azure Function timer?** The Static Web Apps Free plan only supports HTTP-triggered managed functions. A timer would need a separate Function App (Consumption plan, effectively free at this volume), plus somewhere to publish new images (Blob Storage) and a second set of secrets to manage. GitHub Actions does the same job with no extra Azure resources, keeps every change in Git history (easy to review or roll back), and is free for public repos. If you'd rather keep everything inside the resource group, `scripts/refresh.mjs` runs unchanged in an Azure Function or Container Apps job; only the image publishing step would change to Blob Storage.
+
+**What still involves you:** approving visitor suggestions (admin panel, any device) and importing new books from your Calibre library, which lives on your Mac (`scripts/import_calibre.py`, or ask Claude with the folder connected).
+
 ## Setup (about an hour)
 
 Prerequisites: an Azure subscription, a GitHub account, Node 20+, the Azure CLI (`az`), and optionally an Anthropic API key for auto-tagging.
