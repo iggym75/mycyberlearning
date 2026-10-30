@@ -2,7 +2,7 @@
 
 **mycyberlearning.co.uk** — a curated, filterable library of cybersecurity podcasts and books for people starting out in security and practitioners keeping their skills current.
 
-- Filter by one or more security domains (match any / match all), release frequency, level, and Ian's picks
+- Filter by one or more security domains (match any / match all), release frequency, level, book publisher, and MCL Picks
 - Official ratings (aggregated from Apple Podcasts, Spotify, Podchaser and Podcast Addict) shown separately from community up/down votes
 - Sort by official rating, community votes, most-rated, newest or longest-running
 - Links to Apple Podcasts, Spotify, YouTube and the official site; logos, cadence and launch date for every show
@@ -148,11 +148,19 @@ swa start frontend/dist --api-location api
 - **Approve suggestions**: sign in → Admin → Approve/Reject. Approved items are live immediately and get logos, ratings and cadence on the next Monday refresh.
 - **Edit or remove anything**: Edit / Hide / Delete buttons on each card when signed in as admin. Editing tags locks them so automation won't overwrite your choice.
 - **Add your own picks in bulk**: edit `data/catalogue.json`, then `npm run seed` (adds new items; `--overwrite` also updates existing ones but keeps votes and locked tags).
+- **Import books in bulk (e.g. your Humble Bundle library)**: open humblebundle.com/home/library, filter to ebooks, copy the titles into `books.txt` (one per line; `Title | Author` or an ISBN also work), then:
+  ```bash
+  ANTHROPIC_API_KEY=... npm run import:books -- books.txt            # preview → data/import-preview.json
+  ANTHROPIC_API_KEY=... npm run import:books -- books.txt --apply    # add to catalogue as MCL Picks
+  STORAGE_CONNECTION_STRING=... npm run seed                          # publish
+  ```
+  Open Library supplies ISBN, publisher and year; Claude writes a short description, assigns domains and level, and drops non-security titles. Duplicates are skipped.
 - **Change the domain list**: edit `data/taxonomy.json`, run `npm run build`, push, then run the refresh workflow with **retag** ticked.
 - **With Claude Code**: open the repo and ask, e.g. "add a 'Digital Forensics' domain and retag", "add a books tab sorted by Goodreads rating", "show the last episode date on cards". `CLAUDE.md` gives it the context.
 
 ## Data sources and notes
-- Seed list: Ian Moore's 2026 recommendations plus NordLayer, Global Cyber Security Network, Cycode, Splunk and Deepak Gupta lists, with a few editor gap-fillers for ICS/OT, offensive and books (marked `sources: ["editor"]`).
+- Books carry ISBN and publisher; the refresh job checks each ISBN against Open Library and flags any that belong to a different edition.
+- Seed list: MCL Picks (the curator's 2026 recommendations) plus NordLayer, Global Cyber Security Network, Cycode, Splunk and Deepak Gupta lists, with a few editor gap-fillers for ICS/OT, offensive and books (marked `sources: ["editor"]`).
 - Official ratings: Podnews (aggregate from Rephonic). Review Podnews' terms before relying on it at scale; set `RATINGS_SOURCE=none` to switch it off, or swap in the Podchaser API (has ratings, needs a free key) in `scripts/enrich.mjs`.
 - Spotify's API does not expose show ratings; Apple's public directory API does not either, which is why an aggregator is used.
 - Google Podcasts closed in 2024; YouTube and YouTube Music replace it in the platform links.

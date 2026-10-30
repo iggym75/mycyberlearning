@@ -6,101 +6,2955 @@
     "notes": "Items with verified:false have metadata from list articles or editorial knowledge; the weekly refresh job confirms links, artwork, frequency, launch date and ratings."
   },
   "sourceLists": {
-    "ian": { "label": "Ian Moore's 2026 picks", "url": null },
-    "nordlayer": { "label": "NordLayer", "url": "https://nordlayer.com/blog/cybersecurity-podcasts-to-check-out/" },
-    "gcs": { "label": "Global Cyber Security Network", "url": "https://globalcybersecuritynetwork.com/blog/top-cyber-security-podcasts-to-follow/" },
-    "cycode": { "label": "Cycode (CISO list)", "url": "https://cycode.com/blog/best-cybersecurity-podcasts-for-cisos/" },
-    "splunk": { "label": "Splunk", "url": "https://www.splunk.com/en_us/blog/learn/cybersecurity-podcasts.html" },
-    "gupta": { "label": "Deepak Gupta (AI & cyber)", "url": "https://guptadeepak.com/top-ai-technology-cybersecurity-podcasts-to-follow-in-2026/" },
-    "goodpods": { "label": "Goodpods Security leaderboard", "url": "https://goodpods.com/leaderboard/top-100-shows-by-category/technology/security" },
-    "editor": { "label": "Editor's suggestion (gap-filler)", "url": null }
+    "nordlayer": {
+      "label": "NordLayer",
+      "url": "https://nordlayer.com/blog/cybersecurity-podcasts-to-check-out/"
+    },
+    "gcs": {
+      "label": "Global Cyber Security Network",
+      "url": "https://globalcybersecuritynetwork.com/blog/top-cyber-security-podcasts-to-follow/"
+    },
+    "cycode": {
+      "label": "Cycode (CISO list)",
+      "url": "https://cycode.com/blog/best-cybersecurity-podcasts-for-cisos/"
+    },
+    "splunk": {
+      "label": "Splunk",
+      "url": "https://www.splunk.com/en_us/blog/learn/cybersecurity-podcasts.html"
+    },
+    "gupta": {
+      "label": "Deepak Gupta (AI & cyber)",
+      "url": "https://guptadeepak.com/top-ai-technology-cybersecurity-podcasts-to-follow-in-2026/"
+    },
+    "goodpods": {
+      "label": "Goodpods Security leaderboard",
+      "url": "https://goodpods.com/leaderboard/top-100-shows-by-category/technology/security"
+    },
+    "editor": {
+      "label": "Editor's suggestion (gap-filler)",
+      "url": null
+    },
+    "mcl": {
+      "label": "MCL Picks (My Cyber Learning)",
+      "url": null
+    },
+    "humble-oreilly-2026": {
+      "label": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+      "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+    }
   },
   "items": [
-    {"id":"cyberwire-daily","type":"podcast","name":"CyberWire Daily","by":"Dave Bittner · N2K Networks","desc":"Weekday briefing of around 20–30 minutes covering breaches, policy, vulnerabilities and research, with expert interviews and recurring segments such as Research Saturday.","domains":["news","cti"],"level":["beginner","intermediate"],"freq":"daily","launched":"2015-12","status":"active","web":"https://thecyberwire.com/podcasts/daily-podcast","apple":"https://podcasts.apple.com/podcast/id1071831261","spotify":"https://open.spotify.com/show/0CnYnxrAcfRjh0YSQINAwe","rating":{"v":4.8,"n":1852,"asOf":"2026-10-30"},"curator":true,"sources":["ian","nordlayer","gcs","cycode","splunk","gupta"],"verified":true},
-    {"id":"risky-business","type":"podcast","name":"Risky Business","by":"Patrick Gray & Adam Boileau","desc":"Long-running weekly news analysis and interviews, known for sharp judgement and minimal hype. Includes Soap Box and Snake Oilers spin-off segments.","domains":["news","cti","leadership"],"level":["intermediate","advanced"],"freq":"weekly","launched":"2007-02","status":"active","web":"https://risky.biz/podcasts/","apple":"https://podcasts.apple.com/podcast/id216478078","spotify":"https://open.spotify.com/show/0BdExoUZqbGsBYjt6QMMmc","rating":{"v":4.7,"n":1220,"asOf":"2026-10-30"},"curator":true,"sources":["ian","nordlayer","gcs","cycode","splunk","gupta"],"verified":true},
-    {"id":"sans-stormcast","type":"podcast","name":"SANS Internet Stormcenter StormCast","by":"Johannes Ullrich · SANS ISC","desc":"A five-to-ten-minute daily briefing on new vulnerabilities, active exploitation and attack trends seen by the SANS Internet Storm Center.","domains":["news","tvm","operations"],"level":["intermediate","advanced"],"freq":"daily","launched":null,"status":"active","web":"https://isc.sans.edu/podcast.html","rating":null,"curator":true,"sources":["ian"],"verified":false},
-    {"id":"cyber-security-headlines","type":"podcast","name":"Cyber Security Headlines","by":"CISO Series","desc":"Bite-size weekday news bulletin under ten minutes, with a Friday weekly review that puts the week's stories in context.","domains":["news"],"level":["beginner","intermediate"],"freq":"daily","launched":"2020","status":"active","web":"https://cisoseries.com/category/podcast/","apple":"https://podcasts.apple.com/podcast/id1527478719","rating":null,"curator":true,"sources":["ian","gcs","splunk"],"verified":false},
-    {"id":"smashing-security","type":"podcast","name":"Smashing Security","by":"Graham Cluley & guests","desc":"Entertaining weekly round-up of security stories, scams and tech blunders, delivered with British wit. Multiple-time Best Security Podcast winner at the European Security Blogger Awards.","domains":["news","human"],"level":["beginner","intermediate"],"freq":"weekly","launched":"2016-12","status":"active","web":"https://www.smashingsecurity.com","apple":"https://podcasts.apple.com/podcast/id1195001633","spotify":"https://open.spotify.com/show/3F6vfKfyMjJQWvvMXJeKTM","rating":{"v":4.8,"n":1141,"asOf":"2026-10-30"},"curator":true,"sources":["ian","nordlayer","gcs","cycode","gupta"],"verified":true},
-    {"id":"shadowtalk","type":"podcast","name":"ShadowTalk","by":"ReliaQuest","desc":"Weekly threat intelligence discussion from ReliaQuest's research team covering active campaigns, threat actors and practical defensive takeaways.","domains":["cti","news","defensive"],"level":["intermediate"],"freq":"weekly","launched":null,"status":"active","web":"https://www.reliaquest.com/resources/podcast","rating":null,"curator":true,"sources":["ian"],"verified":false},
-    {"id":"defensive-security","type":"podcast","name":"Defensive Security Podcast","by":"Jerry Bell & Andrew Kalat","desc":"Practitioner-led look at recent breaches and what defenders should learn from them. Releases have become less frequent, but the archive is rich for SOC and IR teams.","domains":["defensive","operations"],"level":["intermediate","advanced"],"freq":"irregular","launched":null,"status":"active","web":"https://defensivesecurity.org","rating":null,"curator":true,"sources":["ian","gcs"],"verified":false},
-    {"id":"sans-blueprint","type":"podcast","name":"Blueprint Podcast (SANS)","by":"John Hubbard · SANS","desc":"Hands-on blue-team show about building and running SOCs: detection engineering, log analysis, tooling and analyst workflow.","domains":["operations","defensive","hunting"],"level":["intermediate","advanced"],"freq":"irregular","launched":null,"status":"active","web":"https://www.sans.org/podcasts/blueprint","rating":null,"curator":true,"sources":["ian","gcs"],"verified":false},
-    {"id":"beers-with-talos","type":"podcast","name":"Beers with Talos","by":"Cisco Talos","desc":"Relaxed conversations with Cisco Talos researchers about threat research, malware campaigns and life in an intelligence team.","domains":["cti","defensive"],"level":["intermediate"],"freq":"irregular","launched":null,"status":"active","web":"https://talosintelligence.com/podcasts","rating":null,"curator":true,"sources":["ian"],"verified":false},
-    {"id":"talos-takes","type":"podcast","name":"Talos Takes","by":"Cisco Talos","desc":"Five-to-ten-minute weekly explainers on a single security topic, emerging threat or attacker trend from the Talos team.","domains":["cti","news"],"level":["beginner","intermediate"],"freq":"weekly","launched":"2020","status":"active","web":"https://talosintelligence.com/podcasts","apple":"https://podcasts.apple.com/podcast/id1497572268","rating":null,"curator":false,"sources":["splunk"],"verified":false},
-    {"id":"unsupervised-learning","type":"podcast","name":"Unsupervised Learning","by":"Daniel Miessler","desc":"Weekly synthesis of security, AI and technology trends with commentary on what they mean for practitioners and society.","domains":["ai","news","leadership"],"level":["intermediate","advanced"],"freq":"weekly","launched":"2015","status":"active","web":"https://danielmiessler.com/podcast","spotify":"https://open.spotify.com/show/0cIzWAEYacLz7Ag1n1YhUJ","rating":null,"curator":true,"sources":["ian","gcs","gupta"],"verified":false},
-    {"id":"future-of-ti","type":"podcast","name":"Future of Threat Intelligence","by":"Team Cymru","desc":"Interviews with CTI leaders on building intelligence programmes, threat hunting and turning intelligence into action.","domains":["cti","hunting","leadership"],"level":["intermediate","advanced"],"freq":"weekly","launched":null,"status":"active","web":"https://www.team-cymru.com/future-of-threat-intelligence-podcast","rating":null,"curator":true,"sources":["ian"],"verified":false},
-    {"id":"discarded","type":"podcast","name":"DISCARDED: Tales from the Threat Research Trenches","by":"Proofpoint","desc":"Proofpoint threat researchers discuss real campaigns, actor tradecraft and the craft of threat research.","domains":["cti","hunting"],"level":["intermediate","advanced"],"freq":"irregular","launched":null,"status":"active","web":"https://www.proofpoint.com/us/podcasts","rating":null,"curator":true,"sources":["ian"],"verified":false},
-    {"id":"defenders-advantage","type":"podcast","name":"The Defender's Advantage","by":"Mandiant (Google Cloud)","desc":"Mandiant experts on incident response, threat intelligence and frontline findings from investigations.","domains":["cti","operations","defensive"],"level":["intermediate","advanced"],"freq":"irregular","launched":null,"status":"active","web":"https://youtube.com/playlist?list=PLjiTz6DAEpuINUjE8zp5bAFAKtyGJvnew","youtube":"https://youtube.com/playlist?list=PLjiTz6DAEpuINUjE8zp5bAFAKtyGJvnew","rating":null,"curator":true,"sources":["ian"],"verified":false},
-    {"id":"ai-security-podcast","type":"podcast","name":"AI Security Podcast","by":"Ashish Rajan & Caleb Sima","desc":"Two former CISOs on securing AI systems and using AI in security: prompt injection, agent risks, build-vs-buy and real implementations.","domains":["ai","architecture","leadership"],"level":["intermediate","advanced"],"freq":"biweekly","launched":"2023","status":"active","web":"https://www.aisecuritypodcast.com/","apple":"https://podcasts.apple.com/podcast/id1711183470","spotify":"https://open.spotify.com/show/4c7JpVBbCLhYBGUHKdNpWx","rating":null,"curator":true,"sources":["ian","gupta"],"verified":false},
-    {"id":"cloud-security-podcast","type":"podcast","name":"Cloud Security Podcast","by":"Ashish Rajan","desc":"Vendor-neutral interviews on securing AWS, Azure, GCP and Kubernetes, from identity and posture to cloud detection and response.","domains":["cloud","architecture","engineering"],"level":["intermediate","advanced"],"freq":"weekly","launched":null,"status":"active","web":"https://cloudsecuritypodcast.tv","rating":null,"curator":true,"sources":["ian"],"verified":false},
-    {"id":"google-cloud-security-podcast","type":"podcast","name":"Cloud Security Podcast by Google","by":"Anton Chuvakin & Tim Peacock","desc":"Google Cloud's security team on cloud-native defence, detection, SecOps and AI, with internal and external guests.","domains":["cloud","operations","ai"],"level":["intermediate","advanced"],"freq":"weekly","launched":"2021","status":"active","web":"https://cloud.google.com/blog/topics/google-cloud-security-podcast","rating":null,"curator":true,"sources":["ian","gcs"],"verified":false},
-    {"id":"hacked","type":"podcast","name":"Hacked","by":"Jordan Bloemen & Scott Francis Winder","desc":"Alternates long-form story episodes about strange corners of tech crime with lighter monthly news chats.","domains":["stories","news"],"level":["beginner"],"freq":"biweekly","launched":"2015-10","status":"active","web":"https://www.hackedpodcast.com","apple":"https://podcasts.apple.com/podcast/id1049420219","spotify":"https://open.spotify.com/show/21zZfOy7VCSIIWlJ64DElv","rating":null,"curator":true,"sources":["ian","nordlayer","gcs","splunk","gupta"],"verified":false},
-    {"id":"cyber-bytes","type":"podcast","name":"Cyber Bytes","by":"Aspiron Search","desc":"Conversations with UK cyber leaders and practitioners on careers, hiring and the people side of the industry.","domains":["career","leadership"],"level":["beginner","intermediate"],"freq":"irregular","launched":null,"status":"active","web":"https://www.aspironsearch.com/cyberbytes","rating":null,"curator":true,"sources":["ian"],"verified":false},
-    {"id":"hacker-valley-studio","type":"podcast","name":"Hacker Valley Studio","by":"Ron Eddings & Chris Cochran","desc":"People-first stories from across security: career journeys, burnout, imposter syndrome and leadership growth.","domains":["career","leadership"],"level":["beginner","intermediate"],"freq":"weekly","launched":null,"status":"active","web":"https://hackervalley.com/podcast","rating":null,"curator":true,"sources":["ian","gcs"],"verified":false},
-    {"id":"5bytes","type":"podcast","name":"5bytes Podcast","by":"Rory Monaghan","desc":"Short episodes covering end-user computing, Microsoft tech and security news in five quick bytes.","domains":["news","cloud"],"level":["beginner","intermediate"],"freq":"weekly","launched":null,"status":"active","web":"https://www.rorymon.com/blog/5-bytes-podcast-episode-guide/","rating":null,"curator":true,"sources":["ian"],"verified":false},
-    {"id":"world-of-intelligence","type":"podcast","name":"The World of Intelligence","by":"Janes","desc":"Defence and open-source intelligence analysts discuss geopolitics, OSINT tradecraft and the intelligence cycle.","domains":["cti"],"level":["intermediate","advanced"],"freq":"irregular","launched":null,"status":"active","web":"https://www.janes.com/defence-intelligence-insights/intelligence-podcasts","rating":null,"curator":true,"sources":["ian"],"verified":false},
-    {"id":"darknet-diaries","type":"podcast","name":"Darknet Diaries","by":"Jack Rhysider","desc":"Investigative, highly produced true stories of hacks, cybercrime and espionage, often told by the people involved. A great gateway into the field.","domains":["stories","offensive","cti"],"level":["beginner","intermediate"],"freq":"monthly","launched":"2017-09","status":"active","web":"https://darknetdiaries.com","apple":"https://podcasts.apple.com/podcast/id1296350485","spotify":"https://open.spotify.com/show/4XPl3uEEL9hvqMkoZrzbx5","rating":{"v":4.9,"n":43443,"asOf":"2026-10-30"},"curator":true,"sources":["ian","nordlayer","gcs","cycode","splunk","gupta"],"verified":true},
-    {"id":"hacking-humans","type":"podcast","name":"Hacking Humans","by":"Dave Bittner, Joe Carrigan & Maria Varmazis · N2K","desc":"Social engineering, phishing and scam stories broken down with practical prevention lessons. Ideal for awareness teams.","domains":["human","defensive"],"level":["beginner"],"freq":"weekly","launched":"2018-05","status":"active","web":"https://thecyberwire.com/podcasts/hacking-humans","apple":"https://podcasts.apple.com/podcast/id1391915810","rating":{"v":4.7,"n":526,"asOf":"2026-10-30"},"curator":true,"sources":["ian","gcs"],"verified":true},
-    {"id":"hacker-and-the-fed","type":"podcast","name":"Hacker and the Fed","by":"Chris Tarbell & Hector Monsegur","desc":"A former FBI agent and the hacker he once arrested discuss cybercrime cases, news and the ethics of law enforcement.","domains":["offensive","stories","news"],"level":["beginner","intermediate"],"freq":"weekly","launched":null,"status":"active","web":"https://hackerandthefed.com/","rating":null,"curator":true,"sources":["ian","gcs"],"verified":false},
-    {"id":"troy-hunt-weekly","type":"podcast","name":"Troy Hunt's Weekly Update","by":"Troy Hunt","desc":"Weekly video/audio update from the creator of Have I Been Pwned on data breaches, web security and running a breach-notification service.","domains":["news","privacy","appsec"],"level":["beginner","intermediate"],"freq":"weekly","launched":null,"status":"active","web":"https://www.troyhunt.com/tag/weekly-update/","rating":null,"curator":true,"sources":["ian"],"verified":false},
-    {"id":"bbc-cyber-hack","type":"podcast","name":"Cyber Hack","by":"BBC World Service","desc":"BBC investigative series telling the stories behind major cyber attacks and the people who carried them out.","domains":["stories","cti"],"level":["beginner"],"freq":"irregular","launched":null,"status":"active","web":"https://www.bbc.co.uk/programmes/w13xtvg9","rating":null,"curator":true,"sources":["ian"],"verified":false},
-    {"id":"security-now","type":"podcast","name":"Security Now","by":"Steve Gibson & Leo Laporte · TWiT","desc":"Two-hour weekly deep dive into vulnerabilities, crypto and protocols. One of the oldest security podcasts, with full transcripts and show notes.","domains":["engineering","news","tvm"],"level":["intermediate","advanced"],"freq":"weekly","launched":"2005-08","status":"active","web":"https://twit.tv/shows/security-now","apple":"https://podcasts.apple.com/podcast/id79016499","spotify":"https://open.spotify.com/show/7vAbYigR3zs8GYJP3EoVWw","rating":{"v":4.7,"n":3363,"asOf":"2026-10-30"},"curator":false,"sources":["nordlayer","gcs","cycode","splunk","gupta"],"verified":true},
-    {"id":"cybersecurity-simplified","type":"podcast","name":"Cybersecurity Simplified","by":"David Barton & Susanna Song · Highwire Networks","desc":"Under-30-minute episodes making online safety and security news understandable for non-specialists.","domains":["news","defensive"],"level":["beginner"],"freq":"monthly","launched":"2021-01","status":"active","web":"https://www.highwirenetworks.com/cybersecurity-podcasts/","rating":null,"curator":false,"sources":["nordlayer"],"verified":false},
-    {"id":"no-such-podcast","type":"podcast","name":"No Such Podcast","by":"US National Security Agency","desc":"Six-episode limited series from the NSA revealing declassified stories of signals intelligence and cyber missions.","domains":["cti","stories"],"level":["beginner"],"freq":"ended","launched":null,"status":"ended","web":"https://www.nsa.gov/Podcast/","rating":null,"curator":false,"sources":["nordlayer"],"verified":false},
-    {"id":"shielded","type":"podcast","name":"Shielded: The Last Line of Cyber Defense","by":"PQShield","desc":"Post-quantum cryptography migration in practice: standards, hardware readiness, crypto agility and real migration stories.","domains":["architecture","engineering"],"level":["intermediate","advanced"],"freq":"irregular","launched":"2025","status":"active","web":"https://shieldedpodcast.com/","apple":"https://podcasts.apple.com/podcast/id1801522285","spotify":"https://open.spotify.com/show/3z88i6u9zC6NSKQWXeQ7iv","youtube":"https://www.youtube.com/@PQShield/podcasts","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"osint-show","type":"podcast","name":"The Privacy, Security & OSINT Show","by":"Michael Bazzell","desc":"Methodical, practical guidance on personal privacy, OPSEC and open-source intelligence from a former FBI investigator. Slower release schedule but a dense archive.","domains":["privacy","cti"],"level":["intermediate"],"freq":"irregular","launched":null,"status":"active","web":"https://inteltechniques.com/podcast.html","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"host-unknown","type":"podcast","name":"Host Unknown","by":"Javvad Malik, Thom Langford & Andy Agnês","desc":"Irreverent infosec news and opinion from industry veterans — a pub chat with decades of experience behind it.","domains":["news","leadership"],"level":["intermediate"],"freq":"weekly","launched":null,"status":"active","web":"http://podcast.hostunknown.tv","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"defense-in-depth","type":"podcast","name":"Defense in Depth","by":"David Spark & co-hosts · CISO Series","desc":"One contested security question per episode, worked through with CISOs and community input in about 25 minutes.","domains":["leadership","architecture"],"level":["intermediate","advanced"],"freq":"weekly","launched":null,"status":"active","web":"https://cisoseries.com/category/podcast/defense-in-depth","rating":null,"curator":false,"sources":["gcs","cycode"],"verified":false},
-    {"id":"ciso-series","type":"podcast","name":"CISO Series Podcast","by":"David Spark, Mike Johnson & guests","desc":"Candid peer discussion on how security leaders communicate risk, manage vendors and make hard calls.","domains":["leadership","grc"],"level":["advanced"],"freq":"weekly","launched":null,"status":"active","web":"https://cisoseries.com/category/podcast/ciso-series-podcast/","rating":null,"curator":false,"sources":["gcs","cycode"],"verified":false},
-    {"id":"capture-the-ciso","type":"podcast","name":"Capture the CISO","by":"David Spark · CISO Series","desc":"Vendors pitch to a panel of CISOs — a rare view of how security buyers evaluate tools.","domains":["leadership"],"level":["intermediate","advanced"],"freq":"irregular","launched":null,"status":"active","spotify":"https://open.spotify.com/show/1ksTUVKV0wGr0LvoksPTem","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"malicious-life","type":"podcast","name":"Malicious Life","by":"Ran Levi · Cybereason","desc":"Finished archive of 260+ narrated histories of cyber attacks and the people behind them, from early viruses to Stuxnet.","domains":["stories","cti"],"level":["beginner","intermediate"],"freq":"ended","launched":"2017-06","status":"ended","web":"http://malicious.life","apple":"https://podcasts.apple.com/podcast/id1252417787","rating":null,"curator":false,"sources":["gcs","splunk"],"verified":true},
-    {"id":"cybersecurity-today","type":"podcast","name":"Cybersecurity Today","by":"IT World Canada","desc":"Short news updates several times a week on breaches, patches and regulation for busy practitioners.","domains":["news","tvm"],"level":["beginner","intermediate"],"freq":"multiweekly","launched":null,"status":"active","web":"https://www.cybersecuritytoday.org/","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"social-engineer-podcast","type":"podcast","name":"The Social-Engineer Podcast","by":"Social-Engineer, LLC","desc":"Influence, persuasion and human hacking with psychologists, investigators and red-teamers.","domains":["human","offensive"],"level":["intermediate"],"freq":"irregular","launched":null,"status":"active","web":"http://social-engineer.com/podcast","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"401-access-denied","type":"podcast","name":"401 Access Denied","by":"Joseph Carson · Delinea","desc":"Conversational show spanning red teaming, identity, zero trust and insider threat with frontline guests.","domains":["offensive","defensive","architecture"],"level":["intermediate"],"freq":"biweekly","launched":null,"status":"active","web":"https://delinea.com/events/podcasts","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"human-factor-security","type":"podcast","name":"Human Factor Security","by":"Jenny Radcliffe","desc":"The 'People Hacker' interviews hackers, psychologists and criminologists about manipulation, scams and human-centric security.","domains":["human","offensive"],"level":["beginner","intermediate"],"freq":"irregular","launched":null,"status":"active","web":"https://humanfactorsecurity.co.uk/podcast-2/","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"cyber-queens","type":"podcast","name":"The Cyber Queens Podcast","by":"Women in cyber leadership","desc":"Career paths, leadership and community advocacy from women working across cybersecurity.","domains":["career","leadership"],"level":["beginner","intermediate"],"freq":"irregular","launched":null,"status":"active","web":"https://www.thecyberqueens.com/","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"7-minute-security","type":"podcast","name":"7 Minute Security","by":"Brian Johnson","desc":"Short, tactical episodes on pentesting, vulnerability management and practical defence for busy practitioners.","domains":["offensive","defensive","tvm"],"level":["beginner","intermediate"],"freq":"weekly","launched":null,"status":"active","web":"https://7minsec.com/","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"getting-into-infosec","type":"podcast","name":"Getting Into Infosec","by":"Ayman Elsawah","desc":"Candid interviews about how people broke into security and what they wish they had known.","domains":["career"],"level":["beginner"],"freq":"irregular","launched":null,"status":"active","web":"https://gettingintoinfosec.com/","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"redefining-cybersecurity","type":"podcast","name":"Redefining CyberSecurity","by":"Sean Martin · ITSPmagazine","desc":"Big-picture view of security in business and society: ethics, resilience, policy and leadership.","domains":["leadership","grc"],"level":["intermediate"],"freq":"weekly","launched":null,"status":"active","web":"https://redefining-cybersecurity.simplecast.com/","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"mnemonic","type":"podcast","name":"mnemonic Security Podcast","by":"mnemonic (Oslo)","desc":"Calm, European-perspective conversations on threat intelligence, detection engineering, incident response and architecture.","domains":["cti","operations","hunting","architecture"],"level":["intermediate","advanced"],"freq":"biweekly","launched":null,"status":"active","web":"https://mnemonic.no/en/security-podcast","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"scw","type":"podcast","name":"Security. Cryptography. Whatever.","by":"Deirdre Connolly, Thomas Ptacek & David Adrian","desc":"Freeform, deeply technical talk on cryptography, secure protocols, post-quantum and systems security.","domains":["engineering","architecture"],"level":["advanced"],"freq":"irregular","launched":null,"status":"active","web":"https://securitycryptographywhatever.com/","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"ciso-tradecraft","type":"podcast","name":"CISO Tradecraft","by":"G Mark Hardy & Ross Young","desc":"Structured, practical frameworks for security leadership: risk, governance, board communication and career growth.","domains":["leadership","grc"],"level":["intermediate","advanced"],"freq":"weekly","launched":null,"status":"active","web":"https://cisotradecraft.com/","rating":null,"curator":false,"sources":["gcs","cycode"],"verified":false},
-    {"id":"resilient-cyber","type":"podcast","name":"Resilient Cyber","by":"Chris Hughes","desc":"Software supply chain, secure development, cloud and public-sector cyber policy, bridging engineering and leadership.","domains":["appsec","architecture","grc"],"level":["intermediate","advanced"],"freq":"weekly","launched":null,"status":"active","web":"https://resilientcyber.com/","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"cyber-security-sauna","type":"podcast","name":"Cyber Security Sauna","by":"WithSecure","desc":"Relaxed, well-produced conversations with researchers and CISOs about threats, careers and offensive security ethics.","domains":["cti","career"],"level":["beginner","intermediate"],"freq":"irregular","launched":null,"status":"active","web":"https://withsecure.com/podcast","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"risk-management-show","type":"podcast","name":"Risk Management Show","by":"Boris Agranovich","desc":"GRC, business continuity, risk quantification and cyber insurance from a business perspective.","domains":["grc","leadership"],"level":["intermediate"],"freq":"weekly","launched":null,"status":"active","web":"https://riskmanagementshow.com/","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"women-in-the-middle","type":"podcast","name":"Women in the Middle (WiCyS)","by":"Jackie McGuire · Women in CyberSecurity","desc":"Mentorship, community building and career stories from leaders and emerging professionals.","domains":["career"],"level":["beginner"],"freq":"irregular","launched":"2026","status":"active","spotify":"https://open.spotify.com/show/6fbLgmg7YZPav7d0bo2axW","rating":null,"curator":false,"sources":["gcs"],"verified":false},
-    {"id":"shift-to-ai","type":"podcast","name":"Shift to AI","by":"Roland Cloutier · Cycode","desc":"Working CISOs on what agentic and AI-driven development means for security programmes and board conversations.","domains":["ai","leadership","appsec"],"level":["advanced"],"freq":"irregular","launched":"2026","status":"active","web":"https://cycode.com/shift-to-ai-podcast/","rating":null,"curator":false,"sources":["cycode"],"verified":false},
-    {"id":"sans-cyber-leaders","type":"podcast","name":"SANS Cyber Leaders Podcast","by":"James Lyne & Ciaran Martin · SANS","desc":"Strategic, hype-free conversations between senior public- and private-sector security leaders.","domains":["leadership"],"level":["advanced"],"freq":"irregular","launched":null,"status":"active","rating":null,"curator":false,"sources":["cycode"],"verified":false},
-    {"id":"security-detail","type":"podcast","name":"The Security Detail","by":"Audra Streetman · Splunk SURGe","desc":"Industry-by-industry look at the threat landscape, including coverage of NATO's Cyber Coalition exercise.","domains":["cti","grc"],"level":["intermediate"],"freq":"irregular","launched":"2023","status":"active","apple":"https://podcasts.apple.com/podcast/id1694608506","rating":null,"curator":false,"sources":["splunk"],"verified":false},
-    {"id":"ms-ti-podcast","type":"podcast","name":"Microsoft Threat Intelligence Podcast","by":"Sherrod DeGrippo · Microsoft","desc":"Microsoft researchers on nation-state actors, malware, threat hunting and the stories behind investigations.","domains":["cti","hunting"],"level":["intermediate","advanced"],"freq":"biweekly","launched":"2023","status":"active","web":"https://thecyberwire.com/podcasts/microsoft-threat-intelligence","apple":"https://podcasts.apple.com/podcast/id1710656242","rating":null,"curator":false,"sources":["splunk"],"verified":false},
-    {"id":"click-here","type":"podcast","name":"Click Here","by":"Recorded Future News","desc":"NPR-style reporting on cyber and intelligence stories with geopolitical stakes, in tight 30-minute episodes.","domains":["stories","cti","news"],"level":["beginner","intermediate"],"freq":"weekly","launched":null,"status":"active","web":"https://therecord.media/podcast","apple":"https://podcasts.apple.com/podcast/id1225077306","rating":null,"curator":false,"sources":["splunk"],"verified":false},
-    {"id":"latent-space","type":"podcast","name":"Latent Space","by":"swyx & Alessio Fanelli","desc":"AI engineering at depth: foundation models, agents, MCP and production architecture. Context for anyone securing AI systems.","domains":["ai","engineering"],"level":["advanced"],"freq":"weekly","launched":"2023","status":"active","web":"https://www.latent.space/podcast","apple":"https://podcasts.apple.com/podcast/id1674008350","spotify":"https://open.spotify.com/show/3yVumBnNDK5FMLvmG5i55Q","rating":null,"curator":false,"sources":["gupta"],"verified":false},
-    {"id":"practical-ai","type":"podcast","name":"Practical AI","by":"Chris Benson & Daniel Whitenack · Changelog","desc":"Grounded advice on deploying, scaling, securing and maintaining AI and ML in production.","domains":["ai","engineering"],"level":["intermediate"],"freq":"weekly","launched":"2018","status":"active","web":"https://changelog.com/practicalai","apple":"https://podcasts.apple.com/podcast/id1406537385","spotify":"https://open.spotify.com/show/1LaCr5TFAgYPK5qHjP3XDp","rating":null,"curator":false,"sources":["gupta"],"verified":false},
-    {"id":"ai-daily-brief","type":"podcast","name":"The AI Daily Brief","by":"Nathaniel Whittemore","desc":"15–20 minute daily analysis of the most significant AI developments.","domains":["ai","news"],"level":["beginner","intermediate"],"freq":"daily","launched":"2023","status":"active","web":"https://www.aidailybrief.com/","apple":"https://podcasts.apple.com/podcast/id1680633614","spotify":"https://open.spotify.com/show/6VDKiNqiPCGGLZFXnQMDDz","rating":null,"curator":false,"sources":["gupta"],"verified":false},
-    {"id":"twiml","type":"podcast","name":"The TWIML AI Podcast","by":"Sam Charrington","desc":"900+ interviews with ML researchers and practitioners on models, deployment, fairness and enterprise adoption.","domains":["ai"],"level":["intermediate","advanced"],"freq":"weekly","launched":"2016","status":"active","web":"https://twimlai.com/","apple":"https://podcasts.apple.com/podcast/id1116303051","spotify":"https://open.spotify.com/show/2sp5EL7s7EqxttxwGKUdKp","rating":null,"curator":false,"sources":["gupta"],"verified":false},
-    {"id":"industrial-security-podcast","type":"podcast","name":"Industrial Security Podcast","by":"Andrew Ginter · Waterfall Security","desc":"Interviews with OT and ICS practitioners on protecting industrial operations and critical infrastructure.","domains":["icsot","architecture"],"level":["intermediate","advanced"],"freq":"biweekly","launched":null,"status":"active","rating":null,"curator":false,"sources":["editor"],"verified":false},
-    {"id":"unsolicited-response","type":"podcast","name":"Unsolicited Response","by":"Dale Peterson · S4 Events","desc":"Opinionated discussion of ICS/OT security strategy, research and the industry from the founder of the S4 conference.","domains":["icsot","leadership"],"level":["advanced"],"freq":"weekly","launched":null,"status":"active","rating":null,"curator":false,"sources":["editor"],"verified":false},
-    {"id":"critical-thinking-bb","type":"podcast","name":"Critical Thinking – Bug Bounty Podcast","by":"Justin Gardner & Joel Margolis","desc":"Deeply technical weekly show on web hacking techniques, bug bounty methodology and recent findings.","domains":["offensive","appsec","tvm"],"level":["advanced"],"freq":"weekly","launched":"2023","status":"active","rating":null,"curator":false,"sources":["editor"],"verified":false},
-    {"id":"security-weekly","type":"podcast","name":"Paul's Security Weekly","by":"Security Weekly · CyberRisk Alliance","desc":"Long-running technical show with news, interviews and tool talk across offensive and defensive security.","domains":["offensive","defensive","news"],"level":["intermediate","advanced"],"freq":"weekly","launched":null,"status":"active","rating":null,"curator":false,"sources":["editor"],"verified":false},
-
-    {"id":"book-measure-anything","type":"book","name":"How to Measure Anything in Cybersecurity Risk","by":"Douglas W. Hubbard & Richard Seiersen","desc":"Replaces risk heat maps with quantitative, probabilistic methods security leaders can defend to a board.","domains":["grc","leadership"],"level":["intermediate","advanced"],"published":"2016 (2nd ed. 2023)","format":["book","audiobook"],"rating":null,"curator":true,"sources":["ian"],"verified":true},
-    {"id":"book-supremacy","type":"book","name":"Supremacy: AI, ChatGPT and the Race That Will Change the World","by":"Parmy Olson","desc":"The race between OpenAI and DeepMind and what concentrated AI power means — useful context for AI security and governance.","domains":["ai","leadership"],"level":["beginner"],"published":"2024","format":["book","audiobook"],"rating":null,"curator":true,"sources":["ian"],"verified":true},
-    {"id":"book-privacy-is-power","type":"book","name":"Privacy Is Power","by":"Carissa Véliz","desc":"A philosopher's case for why personal data is power and how individuals and societies can take it back.","domains":["privacy","grc"],"level":["beginner"],"published":"2020","format":["book","audiobook"],"rating":null,"curator":true,"sources":["ian"],"verified":true},
-    {"id":"book-ransomware-hunting-team","type":"book","name":"The Ransomware Hunting Team","by":"Renee Dudley & Daniel Golden","desc":"The true story of volunteer researchers who crack ransomware strains and help victims recover for free.","domains":["stories","cti","defensive"],"level":["beginner"],"published":"2022","format":["book","audiobook"],"rating":null,"curator":true,"sources":["ian"],"verified":true},
-    {"id":"book-permanent-record","type":"book","name":"Permanent Record","by":"Edward Snowden","desc":"Snowden's account of mass-surveillance programmes and his decision to disclose them.","domains":["privacy","stories"],"level":["beginner"],"published":"2019","format":["book","audiobook"],"rating":null,"curator":true,"sources":["ian"],"verified":true},
-    {"id":"book-psychology-intel-analysis","type":"book","name":"Psychology of Intelligence Analysis","by":"Richards J. Heuer Jr.","desc":"Classic CIA text on cognitive bias and structured analytic techniques — essential for CTI analysts. Freely available from the CIA.","domains":["cti","hunting"],"level":["intermediate","advanced"],"published":"1999","format":["book","free"],"rating":null,"curator":true,"sources":["ian"],"verified":true},
-    {"id":"book-humble-bundle","type":"book","name":"Humble Bundle eBook bundles","by":"Humble Bundle","desc":"Rotating, pay-what-you-want bundles that frequently include security titles from No Starch, Wiley, O'Reilly and Packt.","domains":["career","offensive","defensive"],"level":["beginner","intermediate","advanced"],"published":"Ongoing","format":["ebook bundle"],"web":"https://www.humblebundle.com/books","rating":null,"curator":true,"sources":["ian"],"verified":true},
-    {"id":"book-security-engineering","type":"book","name":"Security Engineering (3rd ed.)","by":"Ross Anderson","desc":"The definitive guide to building dependable distributed systems; much of the text is free online from the author.","domains":["engineering","architecture"],"level":["intermediate","advanced"],"published":"2020","format":["book"],"rating":null,"curator":false,"sources":["editor"],"verified":true},
-    {"id":"book-threat-modeling","type":"book","name":"Threat Modeling: Designing for Security","by":"Adam Shostack","desc":"Practical approach to finding design flaws early using STRIDE and related methods.","domains":["architecture","appsec"],"level":["intermediate"],"published":"2014","format":["book"],"rating":null,"curator":false,"sources":["editor"],"verified":true},
-    {"id":"book-sandworm","type":"book","name":"Sandworm","by":"Andy Greenberg","desc":"Narrative of Russia's GRU hackers behind NotPetya and the Ukrainian grid attacks.","domains":["stories","cti","icsot"],"level":["beginner"],"published":"2019","format":["book","audiobook"],"rating":null,"curator":false,"sources":["editor"],"verified":true},
-    {"id":"book-countdown-zero-day","type":"book","name":"Countdown to Zero Day","by":"Kim Zetter","desc":"The definitive account of Stuxnet and the dawn of cyber-physical warfare.","domains":["stories","icsot","cti"],"level":["beginner"],"published":"2014","format":["book","audiobook"],"rating":null,"curator":false,"sources":["editor"],"verified":true},
-    {"id":"book-cuckoos-egg","type":"book","name":"The Cuckoo's Egg","by":"Clifford Stoll","desc":"The original hacker hunt — an astronomer tracks a KGB-linked intruder through 1980s networks. Still a masterclass in investigation.","domains":["stories","hunting"],"level":["beginner"],"published":"1989","format":["book","audiobook"],"rating":null,"curator":false,"sources":["editor"],"verified":true},
-    {"id":"book-intel-driven-ir","type":"book","name":"Intelligence-Driven Incident Response (2nd ed.)","by":"Rebekah Brown & Scott J. Roberts","desc":"How to integrate threat intelligence into IR using the F3EAD cycle.","domains":["cti","operations"],"level":["intermediate"],"published":"2023","format":["book"],"rating":null,"curator":false,"sources":["editor"],"verified":true},
-    {"id":"book-practice-nsm","type":"book","name":"The Practice of Network Security Monitoring","by":"Richard Bejtlich","desc":"Foundational guide to collecting, analysing and escalating on network evidence.","domains":["operations","hunting","defensive"],"level":["intermediate"],"published":"2013","format":["book"],"rating":null,"curator":false,"sources":["editor"],"verified":true},
-    {"id":"book-practical-malware","type":"book","name":"Practical Malware Analysis","by":"Michael Sikorski & Andrew Honig","desc":"Hands-on, lab-based introduction to static and dynamic malware analysis.","domains":["cti","defensive"],"level":["intermediate","advanced"],"published":"2012","format":["book"],"rating":null,"curator":false,"sources":["editor"],"verified":true},
-    {"id":"book-practical-vm","type":"book","name":"Practical Vulnerability Management","by":"Andrew Magnusson","desc":"Building a low-cost vulnerability management programme with open-source tools.","domains":["tvm","defensive"],"level":["beginner","intermediate"],"published":"2020","format":["book"],"rating":null,"curator":false,"sources":["editor"],"verified":true},
-    {"id":"book-not-with-a-bug","type":"book","name":"Not with a Bug, But with a Sticker","by":"Ram Shankar Siva Kumar & Hyrum Anderson","desc":"Accessible tour of adversarial machine learning and why AI systems are uniquely attackable.","domains":["ai"],"level":["beginner","intermediate"],"published":"2023","format":["book"],"rating":null,"curator":false,"sources":["editor"],"verified":true},
-    {"id":"book-tribe-of-hackers","type":"book","name":"Tribe of Hackers","by":"Marcus J. Carey & Jennifer Jin","desc":"Career advice from 70 security practitioners, answering the same questions — great for newcomers.","domains":["career"],"level":["beginner"],"published":"2019","format":["book"],"rating":null,"curator":false,"sources":["editor"],"verified":true},
-    {"id":"book-hacking-exposed-ics","type":"book","name":"Hacking Exposed Industrial Control Systems","by":"Clint Bodungen et al.","desc":"Attack-and-defend walkthrough of ICS/SCADA environments and their protocols.","domains":["icsot","offensive"],"level":["intermediate","advanced"],"published":"2016","format":["book"],"rating":null,"curator":false,"sources":["editor"],"verified":true},
-    {"id":"book-this-is-how","type":"book","name":"This Is How They Tell Me the World Ends","by":"Nicole Perlroth","desc":"Investigation into the zero-day market and the cyber arms race.","domains":["stories","tvm","offensive"],"level":["beginner"],"published":"2021","format":["book","audiobook"],"rating":null,"curator":false,"sources":["editor"],"verified":true}
+    {
+      "id": "cyberwire-daily",
+      "type": "podcast",
+      "name": "CyberWire Daily",
+      "by": "Dave Bittner · N2K Networks",
+      "desc": "Weekday briefing of around 20–30 minutes covering breaches, policy, vulnerabilities and research, with expert interviews and recurring segments such as Research Saturday.",
+      "domains": [
+        "news",
+        "cti"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "daily",
+      "launched": "2015-12",
+      "status": "active",
+      "web": "https://thecyberwire.com/podcasts/daily-podcast",
+      "apple": "https://podcasts.apple.com/podcast/id1071831261",
+      "spotify": "https://open.spotify.com/show/0CnYnxrAcfRjh0YSQINAwe",
+      "rating": {
+        "v": 4.8,
+        "n": 1852,
+        "asOf": "2026-10-30"
+      },
+      "curator": true,
+      "sources": [
+        "mcl",
+        "nordlayer",
+        "gcs",
+        "cycode",
+        "splunk",
+        "gupta"
+      ],
+      "verified": true
+    },
+    {
+      "id": "risky-business",
+      "type": "podcast",
+      "name": "Risky Business",
+      "by": "Patrick Gray & Adam Boileau",
+      "desc": "Long-running weekly news analysis and interviews, known for sharp judgement and minimal hype. Includes Soap Box and Snake Oilers spin-off segments.",
+      "domains": [
+        "news",
+        "cti",
+        "leadership"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "launched": "2007-02",
+      "status": "active",
+      "web": "https://risky.biz/podcasts/",
+      "apple": "https://podcasts.apple.com/podcast/id216478078",
+      "spotify": "https://open.spotify.com/show/0BdExoUZqbGsBYjt6QMMmc",
+      "rating": {
+        "v": 4.7,
+        "n": 1220,
+        "asOf": "2026-10-30"
+      },
+      "curator": true,
+      "sources": [
+        "mcl",
+        "nordlayer",
+        "gcs",
+        "cycode",
+        "splunk",
+        "gupta"
+      ],
+      "verified": true
+    },
+    {
+      "id": "sans-stormcast",
+      "type": "podcast",
+      "name": "SANS Internet Stormcenter StormCast",
+      "by": "Johannes Ullrich · SANS ISC",
+      "desc": "A five-to-ten-minute daily briefing on new vulnerabilities, active exploitation and attack trends seen by the SANS Internet Storm Center.",
+      "domains": [
+        "news",
+        "tvm",
+        "operations"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "daily",
+      "launched": null,
+      "status": "active",
+      "web": "https://isc.sans.edu/podcast.html",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": false
+    },
+    {
+      "id": "cyber-security-headlines",
+      "type": "podcast",
+      "name": "Cyber Security Headlines",
+      "by": "CISO Series",
+      "desc": "Bite-size weekday news bulletin under ten minutes, with a Friday weekly review that puts the week's stories in context.",
+      "domains": [
+        "news"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "daily",
+      "launched": "2020",
+      "status": "active",
+      "web": "https://cisoseries.com/category/podcast/",
+      "apple": "https://podcasts.apple.com/podcast/id1527478719",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl",
+        "gcs",
+        "splunk"
+      ],
+      "verified": false
+    },
+    {
+      "id": "smashing-security",
+      "type": "podcast",
+      "name": "Smashing Security",
+      "by": "Graham Cluley & guests",
+      "desc": "Entertaining weekly round-up of security stories, scams and tech blunders, delivered with British wit. Multiple-time Best Security Podcast winner at the European Security Blogger Awards.",
+      "domains": [
+        "news",
+        "human"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "launched": "2016-12",
+      "status": "active",
+      "web": "https://www.smashingsecurity.com",
+      "apple": "https://podcasts.apple.com/podcast/id1195001633",
+      "spotify": "https://open.spotify.com/show/3F6vfKfyMjJQWvvMXJeKTM",
+      "rating": {
+        "v": 4.8,
+        "n": 1141,
+        "asOf": "2026-10-30"
+      },
+      "curator": true,
+      "sources": [
+        "mcl",
+        "nordlayer",
+        "gcs",
+        "cycode",
+        "gupta"
+      ],
+      "verified": true
+    },
+    {
+      "id": "shadowtalk",
+      "type": "podcast",
+      "name": "ShadowTalk",
+      "by": "ReliaQuest",
+      "desc": "Weekly threat intelligence discussion from ReliaQuest's research team covering active campaigns, threat actors and practical defensive takeaways.",
+      "domains": [
+        "cti",
+        "news",
+        "defensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://www.reliaquest.com/resources/podcast",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": false
+    },
+    {
+      "id": "defensive-security",
+      "type": "podcast",
+      "name": "Defensive Security Podcast",
+      "by": "Jerry Bell & Andrew Kalat",
+      "desc": "Practitioner-led look at recent breaches and what defenders should learn from them. Releases have become less frequent, but the archive is rich for SOC and IR teams.",
+      "domains": [
+        "defensive",
+        "operations"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "web": "https://defensivesecurity.org",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl",
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "sans-blueprint",
+      "type": "podcast",
+      "name": "Blueprint Podcast (SANS)",
+      "by": "John Hubbard · SANS",
+      "desc": "Hands-on blue-team show about building and running SOCs: detection engineering, log analysis, tooling and analyst workflow.",
+      "domains": [
+        "operations",
+        "defensive",
+        "hunting"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "web": "https://www.sans.org/podcasts/blueprint",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl",
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "beers-with-talos",
+      "type": "podcast",
+      "name": "Beers with Talos",
+      "by": "Cisco Talos",
+      "desc": "Relaxed conversations with Cisco Talos researchers about threat research, malware campaigns and life in an intelligence team.",
+      "domains": [
+        "cti",
+        "defensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "web": "https://talosintelligence.com/podcasts",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": false
+    },
+    {
+      "id": "talos-takes",
+      "type": "podcast",
+      "name": "Talos Takes",
+      "by": "Cisco Talos",
+      "desc": "Five-to-ten-minute weekly explainers on a single security topic, emerging threat or attacker trend from the Talos team.",
+      "domains": [
+        "cti",
+        "news"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "launched": "2020",
+      "status": "active",
+      "web": "https://talosintelligence.com/podcasts",
+      "apple": "https://podcasts.apple.com/podcast/id1497572268",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "splunk"
+      ],
+      "verified": false
+    },
+    {
+      "id": "unsupervised-learning",
+      "type": "podcast",
+      "name": "Unsupervised Learning",
+      "by": "Daniel Miessler",
+      "desc": "Weekly synthesis of security, AI and technology trends with commentary on what they mean for practitioners and society.",
+      "domains": [
+        "ai",
+        "news",
+        "leadership"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "launched": "2015",
+      "status": "active",
+      "web": "https://danielmiessler.com/podcast",
+      "spotify": "https://open.spotify.com/show/0cIzWAEYacLz7Ag1n1YhUJ",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl",
+        "gcs",
+        "gupta"
+      ],
+      "verified": false
+    },
+    {
+      "id": "future-of-ti",
+      "type": "podcast",
+      "name": "Future of Threat Intelligence",
+      "by": "Team Cymru",
+      "desc": "Interviews with CTI leaders on building intelligence programmes, threat hunting and turning intelligence into action.",
+      "domains": [
+        "cti",
+        "hunting",
+        "leadership"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://www.team-cymru.com/future-of-threat-intelligence-podcast",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": false
+    },
+    {
+      "id": "discarded",
+      "type": "podcast",
+      "name": "DISCARDED: Tales from the Threat Research Trenches",
+      "by": "Proofpoint",
+      "desc": "Proofpoint threat researchers discuss real campaigns, actor tradecraft and the craft of threat research.",
+      "domains": [
+        "cti",
+        "hunting"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "web": "https://www.proofpoint.com/us/podcasts",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": false
+    },
+    {
+      "id": "defenders-advantage",
+      "type": "podcast",
+      "name": "The Defender's Advantage",
+      "by": "Mandiant (Google Cloud)",
+      "desc": "Mandiant experts on incident response, threat intelligence and frontline findings from investigations.",
+      "domains": [
+        "cti",
+        "operations",
+        "defensive"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "web": "https://youtube.com/playlist?list=PLjiTz6DAEpuINUjE8zp5bAFAKtyGJvnew",
+      "youtube": "https://youtube.com/playlist?list=PLjiTz6DAEpuINUjE8zp5bAFAKtyGJvnew",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": false
+    },
+    {
+      "id": "ai-security-podcast",
+      "type": "podcast",
+      "name": "AI Security Podcast",
+      "by": "Ashish Rajan & Caleb Sima",
+      "desc": "Two former CISOs on securing AI systems and using AI in security: prompt injection, agent risks, build-vs-buy and real implementations.",
+      "domains": [
+        "ai",
+        "architecture",
+        "leadership"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "biweekly",
+      "launched": "2023",
+      "status": "active",
+      "web": "https://www.aisecuritypodcast.com/",
+      "apple": "https://podcasts.apple.com/podcast/id1711183470",
+      "spotify": "https://open.spotify.com/show/4c7JpVBbCLhYBGUHKdNpWx",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl",
+        "gupta"
+      ],
+      "verified": false
+    },
+    {
+      "id": "cloud-security-podcast",
+      "type": "podcast",
+      "name": "Cloud Security Podcast",
+      "by": "Ashish Rajan",
+      "desc": "Vendor-neutral interviews on securing AWS, Azure, GCP and Kubernetes, from identity and posture to cloud detection and response.",
+      "domains": [
+        "cloud",
+        "architecture",
+        "engineering"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://cloudsecuritypodcast.tv",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": false
+    },
+    {
+      "id": "google-cloud-security-podcast",
+      "type": "podcast",
+      "name": "Cloud Security Podcast by Google",
+      "by": "Anton Chuvakin & Tim Peacock",
+      "desc": "Google Cloud's security team on cloud-native defence, detection, SecOps and AI, with internal and external guests.",
+      "domains": [
+        "cloud",
+        "operations",
+        "ai"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "launched": "2021",
+      "status": "active",
+      "web": "https://cloud.google.com/blog/topics/google-cloud-security-podcast",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl",
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "hacked",
+      "type": "podcast",
+      "name": "Hacked",
+      "by": "Jordan Bloemen & Scott Francis Winder",
+      "desc": "Alternates long-form story episodes about strange corners of tech crime with lighter monthly news chats.",
+      "domains": [
+        "stories",
+        "news"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "biweekly",
+      "launched": "2015-10",
+      "status": "active",
+      "web": "https://www.hackedpodcast.com",
+      "apple": "https://podcasts.apple.com/podcast/id1049420219",
+      "spotify": "https://open.spotify.com/show/21zZfOy7VCSIIWlJ64DElv",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl",
+        "nordlayer",
+        "gcs",
+        "splunk",
+        "gupta"
+      ],
+      "verified": false
+    },
+    {
+      "id": "cyber-bytes",
+      "type": "podcast",
+      "name": "Cyber Bytes",
+      "by": "Aspiron Search",
+      "desc": "Conversations with UK cyber leaders and practitioners on careers, hiring and the people side of the industry.",
+      "domains": [
+        "career",
+        "leadership"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "web": "https://www.aspironsearch.com/cyberbytes",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": false
+    },
+    {
+      "id": "hacker-valley-studio",
+      "type": "podcast",
+      "name": "Hacker Valley Studio",
+      "by": "Ron Eddings & Chris Cochran",
+      "desc": "People-first stories from across security: career journeys, burnout, imposter syndrome and leadership growth.",
+      "domains": [
+        "career",
+        "leadership"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://hackervalley.com/podcast",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl",
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "5bytes",
+      "type": "podcast",
+      "name": "5bytes Podcast",
+      "by": "Rory Monaghan",
+      "desc": "Short episodes covering end-user computing, Microsoft tech and security news in five quick bytes.",
+      "domains": [
+        "news",
+        "cloud"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://www.rorymon.com/blog/5-bytes-podcast-episode-guide/",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": false
+    },
+    {
+      "id": "world-of-intelligence",
+      "type": "podcast",
+      "name": "The World of Intelligence",
+      "by": "Janes",
+      "desc": "Defence and open-source intelligence analysts discuss geopolitics, OSINT tradecraft and the intelligence cycle.",
+      "domains": [
+        "cti"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "web": "https://www.janes.com/defence-intelligence-insights/intelligence-podcasts",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": false
+    },
+    {
+      "id": "darknet-diaries",
+      "type": "podcast",
+      "name": "Darknet Diaries",
+      "by": "Jack Rhysider",
+      "desc": "Investigative, highly produced true stories of hacks, cybercrime and espionage, often told by the people involved. A great gateway into the field.",
+      "domains": [
+        "stories",
+        "offensive",
+        "cti"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "monthly",
+      "launched": "2017-09",
+      "status": "active",
+      "web": "https://darknetdiaries.com",
+      "apple": "https://podcasts.apple.com/podcast/id1296350485",
+      "spotify": "https://open.spotify.com/show/4XPl3uEEL9hvqMkoZrzbx5",
+      "rating": {
+        "v": 4.9,
+        "n": 43443,
+        "asOf": "2026-10-30"
+      },
+      "curator": true,
+      "sources": [
+        "mcl",
+        "nordlayer",
+        "gcs",
+        "cycode",
+        "splunk",
+        "gupta"
+      ],
+      "verified": true
+    },
+    {
+      "id": "hacking-humans",
+      "type": "podcast",
+      "name": "Hacking Humans",
+      "by": "Dave Bittner, Joe Carrigan & Maria Varmazis · N2K",
+      "desc": "Social engineering, phishing and scam stories broken down with practical prevention lessons. Ideal for awareness teams.",
+      "domains": [
+        "human",
+        "defensive"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "weekly",
+      "launched": "2018-05",
+      "status": "active",
+      "web": "https://thecyberwire.com/podcasts/hacking-humans",
+      "apple": "https://podcasts.apple.com/podcast/id1391915810",
+      "rating": {
+        "v": 4.7,
+        "n": 526,
+        "asOf": "2026-10-30"
+      },
+      "curator": true,
+      "sources": [
+        "mcl",
+        "gcs"
+      ],
+      "verified": true
+    },
+    {
+      "id": "hacker-and-the-fed",
+      "type": "podcast",
+      "name": "Hacker and the Fed",
+      "by": "Chris Tarbell & Hector Monsegur",
+      "desc": "A former FBI agent and the hacker he once arrested discuss cybercrime cases, news and the ethics of law enforcement.",
+      "domains": [
+        "offensive",
+        "stories",
+        "news"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://hackerandthefed.com/",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl",
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "troy-hunt-weekly",
+      "type": "podcast",
+      "name": "Troy Hunt's Weekly Update",
+      "by": "Troy Hunt",
+      "desc": "Weekly video/audio update from the creator of Have I Been Pwned on data breaches, web security and running a breach-notification service.",
+      "domains": [
+        "news",
+        "privacy",
+        "appsec"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://www.troyhunt.com/tag/weekly-update/",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": false
+    },
+    {
+      "id": "bbc-cyber-hack",
+      "type": "podcast",
+      "name": "Cyber Hack",
+      "by": "BBC World Service",
+      "desc": "BBC investigative series telling the stories behind major cyber attacks and the people who carried them out.",
+      "domains": [
+        "stories",
+        "cti"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "web": "https://www.bbc.co.uk/programmes/w13xtvg9",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": false
+    },
+    {
+      "id": "security-now",
+      "type": "podcast",
+      "name": "Security Now",
+      "by": "Steve Gibson & Leo Laporte · TWiT",
+      "desc": "Two-hour weekly deep dive into vulnerabilities, crypto and protocols. One of the oldest security podcasts, with full transcripts and show notes.",
+      "domains": [
+        "engineering",
+        "news",
+        "tvm"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "launched": "2005-08",
+      "status": "active",
+      "web": "https://twit.tv/shows/security-now",
+      "apple": "https://podcasts.apple.com/podcast/id79016499",
+      "spotify": "https://open.spotify.com/show/7vAbYigR3zs8GYJP3EoVWw",
+      "rating": {
+        "v": 4.7,
+        "n": 3363,
+        "asOf": "2026-10-30"
+      },
+      "curator": false,
+      "sources": [
+        "nordlayer",
+        "gcs",
+        "cycode",
+        "splunk",
+        "gupta"
+      ],
+      "verified": true
+    },
+    {
+      "id": "cybersecurity-simplified",
+      "type": "podcast",
+      "name": "Cybersecurity Simplified",
+      "by": "David Barton & Susanna Song · Highwire Networks",
+      "desc": "Under-30-minute episodes making online safety and security news understandable for non-specialists.",
+      "domains": [
+        "news",
+        "defensive"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "monthly",
+      "launched": "2021-01",
+      "status": "active",
+      "web": "https://www.highwirenetworks.com/cybersecurity-podcasts/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "nordlayer"
+      ],
+      "verified": false
+    },
+    {
+      "id": "no-such-podcast",
+      "type": "podcast",
+      "name": "No Such Podcast",
+      "by": "US National Security Agency",
+      "desc": "Six-episode limited series from the NSA revealing declassified stories of signals intelligence and cyber missions.",
+      "domains": [
+        "cti",
+        "stories"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "ended",
+      "launched": null,
+      "status": "ended",
+      "web": "https://www.nsa.gov/Podcast/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "nordlayer"
+      ],
+      "verified": false
+    },
+    {
+      "id": "shielded",
+      "type": "podcast",
+      "name": "Shielded: The Last Line of Cyber Defense",
+      "by": "PQShield",
+      "desc": "Post-quantum cryptography migration in practice: standards, hardware readiness, crypto agility and real migration stories.",
+      "domains": [
+        "architecture",
+        "engineering"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "irregular",
+      "launched": "2025",
+      "status": "active",
+      "web": "https://shieldedpodcast.com/",
+      "apple": "https://podcasts.apple.com/podcast/id1801522285",
+      "spotify": "https://open.spotify.com/show/3z88i6u9zC6NSKQWXeQ7iv",
+      "youtube": "https://www.youtube.com/@PQShield/podcasts",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "osint-show",
+      "type": "podcast",
+      "name": "The Privacy, Security & OSINT Show",
+      "by": "Michael Bazzell",
+      "desc": "Methodical, practical guidance on personal privacy, OPSEC and open-source intelligence from a former FBI investigator. Slower release schedule but a dense archive.",
+      "domains": [
+        "privacy",
+        "cti"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "web": "https://inteltechniques.com/podcast.html",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "host-unknown",
+      "type": "podcast",
+      "name": "Host Unknown",
+      "by": "Javvad Malik, Thom Langford & Andy Agnês",
+      "desc": "Irreverent infosec news and opinion from industry veterans — a pub chat with decades of experience behind it.",
+      "domains": [
+        "news",
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "web": "http://podcast.hostunknown.tv",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "defense-in-depth",
+      "type": "podcast",
+      "name": "Defense in Depth",
+      "by": "David Spark & co-hosts · CISO Series",
+      "desc": "One contested security question per episode, worked through with CISOs and community input in about 25 minutes.",
+      "domains": [
+        "leadership",
+        "architecture"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://cisoseries.com/category/podcast/defense-in-depth",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs",
+        "cycode"
+      ],
+      "verified": false
+    },
+    {
+      "id": "ciso-series",
+      "type": "podcast",
+      "name": "CISO Series Podcast",
+      "by": "David Spark, Mike Johnson & guests",
+      "desc": "Candid peer discussion on how security leaders communicate risk, manage vendors and make hard calls.",
+      "domains": [
+        "leadership",
+        "grc"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://cisoseries.com/category/podcast/ciso-series-podcast/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs",
+        "cycode"
+      ],
+      "verified": false
+    },
+    {
+      "id": "capture-the-ciso",
+      "type": "podcast",
+      "name": "Capture the CISO",
+      "by": "David Spark · CISO Series",
+      "desc": "Vendors pitch to a panel of CISOs — a rare view of how security buyers evaluate tools.",
+      "domains": [
+        "leadership"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "spotify": "https://open.spotify.com/show/1ksTUVKV0wGr0LvoksPTem",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "malicious-life",
+      "type": "podcast",
+      "name": "Malicious Life",
+      "by": "Ran Levi · Cybereason",
+      "desc": "Finished archive of 260+ narrated histories of cyber attacks and the people behind them, from early viruses to Stuxnet.",
+      "domains": [
+        "stories",
+        "cti"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "ended",
+      "launched": "2017-06",
+      "status": "ended",
+      "web": "http://malicious.life",
+      "apple": "https://podcasts.apple.com/podcast/id1252417787",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs",
+        "splunk"
+      ],
+      "verified": true
+    },
+    {
+      "id": "cybersecurity-today",
+      "type": "podcast",
+      "name": "Cybersecurity Today",
+      "by": "IT World Canada",
+      "desc": "Short news updates several times a week on breaches, patches and regulation for busy practitioners.",
+      "domains": [
+        "news",
+        "tvm"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "multiweekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://www.cybersecuritytoday.org/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "social-engineer-podcast",
+      "type": "podcast",
+      "name": "The Social-Engineer Podcast",
+      "by": "Social-Engineer, LLC",
+      "desc": "Influence, persuasion and human hacking with psychologists, investigators and red-teamers.",
+      "domains": [
+        "human",
+        "offensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "web": "http://social-engineer.com/podcast",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "401-access-denied",
+      "type": "podcast",
+      "name": "401 Access Denied",
+      "by": "Joseph Carson · Delinea",
+      "desc": "Conversational show spanning red teaming, identity, zero trust and insider threat with frontline guests.",
+      "domains": [
+        "offensive",
+        "defensive",
+        "architecture"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "biweekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://delinea.com/events/podcasts",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "human-factor-security",
+      "type": "podcast",
+      "name": "Human Factor Security",
+      "by": "Jenny Radcliffe",
+      "desc": "The 'People Hacker' interviews hackers, psychologists and criminologists about manipulation, scams and human-centric security.",
+      "domains": [
+        "human",
+        "offensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "web": "https://humanfactorsecurity.co.uk/podcast-2/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "cyber-queens",
+      "type": "podcast",
+      "name": "The Cyber Queens Podcast",
+      "by": "Women in cyber leadership",
+      "desc": "Career paths, leadership and community advocacy from women working across cybersecurity.",
+      "domains": [
+        "career",
+        "leadership"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "web": "https://www.thecyberqueens.com/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "7-minute-security",
+      "type": "podcast",
+      "name": "7 Minute Security",
+      "by": "Brian Johnson",
+      "desc": "Short, tactical episodes on pentesting, vulnerability management and practical defence for busy practitioners.",
+      "domains": [
+        "offensive",
+        "defensive",
+        "tvm"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://7minsec.com/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "getting-into-infosec",
+      "type": "podcast",
+      "name": "Getting Into Infosec",
+      "by": "Ayman Elsawah",
+      "desc": "Candid interviews about how people broke into security and what they wish they had known.",
+      "domains": [
+        "career"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "web": "https://gettingintoinfosec.com/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "redefining-cybersecurity",
+      "type": "podcast",
+      "name": "Redefining CyberSecurity",
+      "by": "Sean Martin · ITSPmagazine",
+      "desc": "Big-picture view of security in business and society: ethics, resilience, policy and leadership.",
+      "domains": [
+        "leadership",
+        "grc"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://redefining-cybersecurity.simplecast.com/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "mnemonic",
+      "type": "podcast",
+      "name": "mnemonic Security Podcast",
+      "by": "mnemonic (Oslo)",
+      "desc": "Calm, European-perspective conversations on threat intelligence, detection engineering, incident response and architecture.",
+      "domains": [
+        "cti",
+        "operations",
+        "hunting",
+        "architecture"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "biweekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://mnemonic.no/en/security-podcast",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "scw",
+      "type": "podcast",
+      "name": "Security. Cryptography. Whatever.",
+      "by": "Deirdre Connolly, Thomas Ptacek & David Adrian",
+      "desc": "Freeform, deeply technical talk on cryptography, secure protocols, post-quantum and systems security.",
+      "domains": [
+        "engineering",
+        "architecture"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "web": "https://securitycryptographywhatever.com/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "ciso-tradecraft",
+      "type": "podcast",
+      "name": "CISO Tradecraft",
+      "by": "G Mark Hardy & Ross Young",
+      "desc": "Structured, practical frameworks for security leadership: risk, governance, board communication and career growth.",
+      "domains": [
+        "leadership",
+        "grc"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://cisotradecraft.com/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs",
+        "cycode"
+      ],
+      "verified": false
+    },
+    {
+      "id": "resilient-cyber",
+      "type": "podcast",
+      "name": "Resilient Cyber",
+      "by": "Chris Hughes",
+      "desc": "Software supply chain, secure development, cloud and public-sector cyber policy, bridging engineering and leadership.",
+      "domains": [
+        "appsec",
+        "architecture",
+        "grc"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://resilientcyber.com/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "cyber-security-sauna",
+      "type": "podcast",
+      "name": "Cyber Security Sauna",
+      "by": "WithSecure",
+      "desc": "Relaxed, well-produced conversations with researchers and CISOs about threats, careers and offensive security ethics.",
+      "domains": [
+        "cti",
+        "career"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "web": "https://withsecure.com/podcast",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "risk-management-show",
+      "type": "podcast",
+      "name": "Risk Management Show",
+      "by": "Boris Agranovich",
+      "desc": "GRC, business continuity, risk quantification and cyber insurance from a business perspective.",
+      "domains": [
+        "grc",
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://riskmanagementshow.com/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "women-in-the-middle",
+      "type": "podcast",
+      "name": "Women in the Middle (WiCyS)",
+      "by": "Jackie McGuire · Women in CyberSecurity",
+      "desc": "Mentorship, community building and career stories from leaders and emerging professionals.",
+      "domains": [
+        "career"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "irregular",
+      "launched": "2026",
+      "status": "active",
+      "spotify": "https://open.spotify.com/show/6fbLgmg7YZPav7d0bo2axW",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gcs"
+      ],
+      "verified": false
+    },
+    {
+      "id": "shift-to-ai",
+      "type": "podcast",
+      "name": "Shift to AI",
+      "by": "Roland Cloutier · Cycode",
+      "desc": "Working CISOs on what agentic and AI-driven development means for security programmes and board conversations.",
+      "domains": [
+        "ai",
+        "leadership",
+        "appsec"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "freq": "irregular",
+      "launched": "2026",
+      "status": "active",
+      "web": "https://cycode.com/shift-to-ai-podcast/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "cycode"
+      ],
+      "verified": false
+    },
+    {
+      "id": "sans-cyber-leaders",
+      "type": "podcast",
+      "name": "SANS Cyber Leaders Podcast",
+      "by": "James Lyne & Ciaran Martin · SANS",
+      "desc": "Strategic, hype-free conversations between senior public- and private-sector security leaders.",
+      "domains": [
+        "leadership"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "freq": "irregular",
+      "launched": null,
+      "status": "active",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "cycode"
+      ],
+      "verified": false
+    },
+    {
+      "id": "security-detail",
+      "type": "podcast",
+      "name": "The Security Detail",
+      "by": "Audra Streetman · Splunk SURGe",
+      "desc": "Industry-by-industry look at the threat landscape, including coverage of NATO's Cyber Coalition exercise.",
+      "domains": [
+        "cti",
+        "grc"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "launched": "2023",
+      "status": "active",
+      "apple": "https://podcasts.apple.com/podcast/id1694608506",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "splunk"
+      ],
+      "verified": false
+    },
+    {
+      "id": "ms-ti-podcast",
+      "type": "podcast",
+      "name": "Microsoft Threat Intelligence Podcast",
+      "by": "Sherrod DeGrippo · Microsoft",
+      "desc": "Microsoft researchers on nation-state actors, malware, threat hunting and the stories behind investigations.",
+      "domains": [
+        "cti",
+        "hunting"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "biweekly",
+      "launched": "2023",
+      "status": "active",
+      "web": "https://thecyberwire.com/podcasts/microsoft-threat-intelligence",
+      "apple": "https://podcasts.apple.com/podcast/id1710656242",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "splunk"
+      ],
+      "verified": false
+    },
+    {
+      "id": "click-here",
+      "type": "podcast",
+      "name": "Click Here",
+      "by": "Recorded Future News",
+      "desc": "NPR-style reporting on cyber and intelligence stories with geopolitical stakes, in tight 30-minute episodes.",
+      "domains": [
+        "stories",
+        "cti",
+        "news"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "web": "https://therecord.media/podcast",
+      "apple": "https://podcasts.apple.com/podcast/id1225077306",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "splunk"
+      ],
+      "verified": false
+    },
+    {
+      "id": "latent-space",
+      "type": "podcast",
+      "name": "Latent Space",
+      "by": "swyx & Alessio Fanelli",
+      "desc": "AI engineering at depth: foundation models, agents, MCP and production architecture. Context for anyone securing AI systems.",
+      "domains": [
+        "ai",
+        "engineering"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "freq": "weekly",
+      "launched": "2023",
+      "status": "active",
+      "web": "https://www.latent.space/podcast",
+      "apple": "https://podcasts.apple.com/podcast/id1674008350",
+      "spotify": "https://open.spotify.com/show/3yVumBnNDK5FMLvmG5i55Q",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gupta"
+      ],
+      "verified": false
+    },
+    {
+      "id": "practical-ai",
+      "type": "podcast",
+      "name": "Practical AI",
+      "by": "Chris Benson & Daniel Whitenack · Changelog",
+      "desc": "Grounded advice on deploying, scaling, securing and maintaining AI and ML in production.",
+      "domains": [
+        "ai",
+        "engineering"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "launched": "2018",
+      "status": "active",
+      "web": "https://changelog.com/practicalai",
+      "apple": "https://podcasts.apple.com/podcast/id1406537385",
+      "spotify": "https://open.spotify.com/show/1LaCr5TFAgYPK5qHjP3XDp",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gupta"
+      ],
+      "verified": false
+    },
+    {
+      "id": "ai-daily-brief",
+      "type": "podcast",
+      "name": "The AI Daily Brief",
+      "by": "Nathaniel Whittemore",
+      "desc": "15–20 minute daily analysis of the most significant AI developments.",
+      "domains": [
+        "ai",
+        "news"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "daily",
+      "launched": "2023",
+      "status": "active",
+      "web": "https://www.aidailybrief.com/",
+      "apple": "https://podcasts.apple.com/podcast/id1680633614",
+      "spotify": "https://open.spotify.com/show/6VDKiNqiPCGGLZFXnQMDDz",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gupta"
+      ],
+      "verified": false
+    },
+    {
+      "id": "twiml",
+      "type": "podcast",
+      "name": "The TWIML AI Podcast",
+      "by": "Sam Charrington",
+      "desc": "900+ interviews with ML researchers and practitioners on models, deployment, fairness and enterprise adoption.",
+      "domains": [
+        "ai"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "launched": "2016",
+      "status": "active",
+      "web": "https://twimlai.com/",
+      "apple": "https://podcasts.apple.com/podcast/id1116303051",
+      "spotify": "https://open.spotify.com/show/2sp5EL7s7EqxttxwGKUdKp",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "gupta"
+      ],
+      "verified": false
+    },
+    {
+      "id": "industrial-security-podcast",
+      "type": "podcast",
+      "name": "Industrial Security Podcast",
+      "by": "Andrew Ginter · Waterfall Security",
+      "desc": "Interviews with OT and ICS practitioners on protecting industrial operations and critical infrastructure.",
+      "domains": [
+        "icsot",
+        "architecture"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "biweekly",
+      "launched": null,
+      "status": "active",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": false
+    },
+    {
+      "id": "unsolicited-response",
+      "type": "podcast",
+      "name": "Unsolicited Response",
+      "by": "Dale Peterson · S4 Events",
+      "desc": "Opinionated discussion of ICS/OT security strategy, research and the industry from the founder of the S4 conference.",
+      "domains": [
+        "icsot",
+        "leadership"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": false
+    },
+    {
+      "id": "critical-thinking-bb",
+      "type": "podcast",
+      "name": "Critical Thinking – Bug Bounty Podcast",
+      "by": "Justin Gardner & Joel Margolis",
+      "desc": "Deeply technical weekly show on web hacking techniques, bug bounty methodology and recent findings.",
+      "domains": [
+        "offensive",
+        "appsec",
+        "tvm"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "freq": "weekly",
+      "launched": "2023",
+      "status": "active",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": false
+    },
+    {
+      "id": "security-weekly",
+      "type": "podcast",
+      "name": "Paul's Security Weekly",
+      "by": "Security Weekly · CyberRisk Alliance",
+      "desc": "Long-running technical show with news, interviews and tool talk across offensive and defensive security.",
+      "domains": [
+        "offensive",
+        "defensive",
+        "news"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "launched": null,
+      "status": "active",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-measure-anything",
+      "type": "book",
+      "name": "How to Measure Anything in Cybersecurity Risk",
+      "by": "Douglas W. Hubbard & Richard Seiersen",
+      "desc": "Replaces risk heat maps with quantitative, probabilistic methods security leaders can defend to a board.",
+      "domains": [
+        "grc",
+        "leadership"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2016 (2nd ed. 2023)",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "publisher": "Wiley",
+      "isbn": "9781119892304",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-supremacy",
+      "type": "book",
+      "name": "Supremacy: AI, ChatGPT and the Race That Will Change the World",
+      "by": "Parmy Olson",
+      "desc": "The race between OpenAI and DeepMind and what concentrated AI power means — useful context for AI security and governance.",
+      "domains": [
+        "ai",
+        "leadership"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2024",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "publisher": "Macmillan Business",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-privacy-is-power",
+      "type": "book",
+      "name": "Privacy Is Power",
+      "by": "Carissa Véliz",
+      "desc": "A philosopher's case for why personal data is power and how individuals and societies can take it back.",
+      "domains": [
+        "privacy",
+        "grc"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2020",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "publisher": "Bantam Press",
+      "isbn": "9781787634046",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-ransomware-hunting-team",
+      "type": "book",
+      "name": "The Ransomware Hunting Team",
+      "by": "Renee Dudley & Daniel Golden",
+      "desc": "The true story of volunteer researchers who crack ransomware strains and help victims recover for free.",
+      "domains": [
+        "stories",
+        "cti",
+        "defensive"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2022",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "publisher": "Farrar, Straus and Giroux",
+      "isbn": "9780374603304",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-permanent-record",
+      "type": "book",
+      "name": "Permanent Record",
+      "by": "Edward Snowden",
+      "desc": "Snowden's account of mass-surveillance programmes and his decision to disclose them.",
+      "domains": [
+        "privacy",
+        "stories"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2019",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "publisher": "Macmillan",
+      "isbn": "9781529035650",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-psychology-intel-analysis",
+      "type": "book",
+      "name": "Psychology of Intelligence Analysis",
+      "by": "Richards J. Heuer Jr.",
+      "desc": "Classic CIA text on cognitive bias and structured analytic techniques — essential for CTI analysts. Freely available from the CIA.",
+      "domains": [
+        "cti",
+        "hunting"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "1999",
+      "format": [
+        "book",
+        "free"
+      ],
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "publisher": "Center for the Study of Intelligence (CIA)",
+      "isbn": "9781929667000",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-humble-bundle",
+      "type": "book",
+      "name": "Humble Bundle eBook bundles",
+      "by": "Humble Bundle",
+      "desc": "Rotating, pay-what-you-want bundles that frequently include security titles from No Starch, Wiley, O'Reilly and Packt.",
+      "domains": [
+        "career",
+        "offensive",
+        "defensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "published": "Ongoing",
+      "format": [
+        "ebook bundle"
+      ],
+      "web": "https://www.humblebundle.com/books",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "publisher": "Various",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-security-engineering",
+      "type": "book",
+      "name": "Security Engineering (3rd ed.)",
+      "by": "Ross Anderson",
+      "desc": "The definitive guide to building dependable distributed systems; much of the text is free online from the author.",
+      "domains": [
+        "engineering",
+        "architecture"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2020",
+      "format": [
+        "book"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "Wiley",
+      "isbn": "9781119642787",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-threat-modeling",
+      "type": "book",
+      "name": "Threat Modeling: Designing for Security",
+      "by": "Adam Shostack",
+      "desc": "Practical approach to finding design flaws early using STRIDE and related methods.",
+      "domains": [
+        "architecture",
+        "appsec"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2014",
+      "format": [
+        "book"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "Wiley",
+      "isbn": "9781118809990",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-sandworm",
+      "type": "book",
+      "name": "Sandworm",
+      "by": "Andy Greenberg",
+      "desc": "Narrative of Russia's GRU hackers behind NotPetya and the Ukrainian grid attacks.",
+      "domains": [
+        "stories",
+        "cti",
+        "icsot"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2019",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "Doubleday",
+      "isbn": "9780385544405",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-countdown-zero-day",
+      "type": "book",
+      "name": "Countdown to Zero Day",
+      "by": "Kim Zetter",
+      "desc": "The definitive account of Stuxnet and the dawn of cyber-physical warfare.",
+      "domains": [
+        "stories",
+        "icsot",
+        "cti"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2014",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "Crown",
+      "isbn": "9780770436179",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-cuckoos-egg",
+      "type": "book",
+      "name": "The Cuckoo's Egg",
+      "by": "Clifford Stoll",
+      "desc": "The original hacker hunt — an astronomer tracks a KGB-linked intruder through 1980s networks. Still a masterclass in investigation.",
+      "domains": [
+        "stories",
+        "hunting"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "1989",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "Doubleday",
+      "isbn": "9780385249461",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-intel-driven-ir",
+      "type": "book",
+      "name": "Intelligence-Driven Incident Response (2nd ed.)",
+      "by": "Rebekah Brown & Scott J. Roberts",
+      "desc": "How to integrate threat intelligence into IR using the F3EAD cycle.",
+      "domains": [
+        "cti",
+        "operations"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2023",
+      "format": [
+        "book"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "O'Reilly Media",
+      "isbn": "9781098120689",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-practice-nsm",
+      "type": "book",
+      "name": "The Practice of Network Security Monitoring",
+      "by": "Richard Bejtlich",
+      "desc": "Foundational guide to collecting, analysing and escalating on network evidence.",
+      "domains": [
+        "operations",
+        "hunting",
+        "defensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2013",
+      "format": [
+        "book"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "No Starch Press",
+      "isbn": "9781593275099",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-practical-malware",
+      "type": "book",
+      "name": "Practical Malware Analysis",
+      "by": "Michael Sikorski & Andrew Honig",
+      "desc": "Hands-on, lab-based introduction to static and dynamic malware analysis.",
+      "domains": [
+        "cti",
+        "defensive"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2012",
+      "format": [
+        "book"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "No Starch Press",
+      "isbn": "9781593272906",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-practical-vm",
+      "type": "book",
+      "name": "Practical Vulnerability Management",
+      "by": "Andrew Magnusson",
+      "desc": "Building a low-cost vulnerability management programme with open-source tools.",
+      "domains": [
+        "tvm",
+        "defensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2020",
+      "format": [
+        "book"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "No Starch Press",
+      "isbn": "9781593279882",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-not-with-a-bug",
+      "type": "book",
+      "name": "Not with a Bug, But with a Sticker",
+      "by": "Ram Shankar Siva Kumar & Hyrum Anderson",
+      "desc": "Accessible tour of adversarial machine learning and why AI systems are uniquely attackable.",
+      "domains": [
+        "ai"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2023",
+      "format": [
+        "book"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "MIT Press",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-tribe-of-hackers",
+      "type": "book",
+      "name": "Tribe of Hackers",
+      "by": "Marcus J. Carey & Jennifer Jin",
+      "desc": "Career advice from 70 security practitioners, answering the same questions — great for newcomers.",
+      "domains": [
+        "career"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2019",
+      "format": [
+        "book"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "Wiley",
+      "isbn": "9781119643371",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-hacking-exposed-ics",
+      "type": "book",
+      "name": "Hacking Exposed Industrial Control Systems",
+      "by": "Clint Bodungen et al.",
+      "desc": "Attack-and-defend walkthrough of ICS/SCADA environments and their protocols.",
+      "domains": [
+        "icsot",
+        "offensive"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2016",
+      "format": [
+        "book"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "McGraw-Hill Education",
+      "isbn": "9781259589713",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-this-is-how",
+      "type": "book",
+      "name": "This Is How They Tell Me the World Ends",
+      "by": "Nicole Perlroth",
+      "desc": "Investigation into the zero-day market and the cyber arms race.",
+      "domains": [
+        "stories",
+        "tvm",
+        "offensive"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2021",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "Bloomsbury",
+      "isbn": "9781635576054",
+      "isbnVerified": false
+    },
+    {
+      "id": "book-cybersecurity-managers-guide",
+      "type": "book",
+      "name": "The Cybersecurity Manager's Guide",
+      "by": "Todd Barnum",
+      "desc": "How to build and lead a security function people actually want to work with, from aligning with the business to running the team.",
+      "domains": [
+        "leadership",
+        "grc"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "O'Reilly Media",
+      "isbn": "9781492076216",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-practical-cloud-security",
+      "type": "book",
+      "name": "Practical Cloud Security (2nd ed.)",
+      "by": "Chris Dotson",
+      "desc": "Vendor-neutral guide to securing cloud workloads across AWS, Azure and GCP: identity, data protection, vulnerability management and incident response.",
+      "domains": [
+        "cloud",
+        "architecture",
+        "defensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "O'Reilly Media",
+      "isbn": "9781492037460",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-cybersecurity-ops-bash",
+      "type": "book",
+      "name": "Cybersecurity Ops with bash",
+      "by": "Paul Troncone & Carl Albing",
+      "desc": "Using the Linux command line and bash scripting for data collection, analysis, monitoring and light offensive tasks.",
+      "domains": [
+        "operations",
+        "defensive",
+        "offensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2019",
+      "publisher": "O'Reilly Media",
+      "isbn": "9781492041283",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-privacy-security-llms",
+      "type": "book",
+      "name": "Privacy and Security for Large Language Models",
+      "by": "Baihan Lin",
+      "desc": "Threats to LLM-based systems and the privacy-preserving and security techniques to counter them.",
+      "domains": [
+        "ai",
+        "privacy"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": null,
+      "publisher": "O'Reilly Media",
+      "isbn": "9781098160814",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-blue-team-handbook-ir",
+      "type": "book",
+      "name": "Blue Team Handbook: Incident Response",
+      "by": "Don Murdoch",
+      "desc": "Condensed field guide to incident response: process, checklists and the questions to ask during an investigation.",
+      "domains": [
+        "operations",
+        "defensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": null,
+      "publisher": "O'Reilly Media",
+      "isbn": "9798341661295",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-k8s-security-observability",
+      "type": "book",
+      "name": "Kubernetes Security and Observability",
+      "by": "Brendan Creane & Amit Gupta",
+      "desc": "A holistic approach to securing containers and cloud-native applications, pairing controls with observability.",
+      "domains": [
+        "cloud",
+        "defensive",
+        "appsec"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2021",
+      "publisher": "O'Reilly Media",
+      "isbn": "9781098107079",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-intelligent-continuous-security",
+      "type": "book",
+      "name": "Intelligent Continuous Security",
+      "by": "Marc Hornbeek",
+      "desc": "Applying AI and automation to embed security continuously across the software lifecycle.",
+      "domains": [
+        "appsec",
+        "ai"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": null,
+      "publisher": "O'Reilly Media",
+      "isbn": "9798341615892",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-inside-cyber-warfare",
+      "type": "book",
+      "name": "Inside Cyber Warfare (3rd ed.)",
+      "by": "Jeffrey Caruso",
+      "desc": "How states, proxies and criminal groups use cyber operations, and the legal and geopolitical issues around them.",
+      "domains": [
+        "cti",
+        "stories"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2024",
+      "publisher": "O'Reilly Media",
+      "isbn": "9781449382995",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-defensive-security-handbook",
+      "type": "book",
+      "name": "Defensive Security Handbook (2nd ed.)",
+      "by": "Lee Brotherston, Amanda Berlin & William F. Reyor",
+      "desc": "Practical, low-budget guide to building a security programme: asset management, hardening, logging, IR and awareness.",
+      "domains": [
+        "defensive",
+        "operations",
+        "architecture"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2024",
+      "publisher": "O'Reilly Media",
+      "isbn": "9781491960332",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-security-architecture-hybrid-cloud",
+      "type": "book",
+      "name": "Security Architecture for Hybrid Cloud",
+      "by": "Mark Buckwell, Stefaan Van daele & Carsten Horst",
+      "desc": "A method for designing security architecture for hybrid cloud, from context and requirements through to components and operations.",
+      "domains": [
+        "architecture",
+        "cloud"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2024",
+      "publisher": "O'Reilly Media",
+      "isbn": "9781098157739",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-dev-playbook-llm-security",
+      "type": "book",
+      "name": "The Developer's Playbook for Large Language Model Security",
+      "by": "Steve Wilson",
+      "desc": "From the OWASP Top 10 for LLM Applications lead: the main risks in LLM apps and how to build defences into them.",
+      "domains": [
+        "ai",
+        "appsec"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2024",
+      "publisher": "O'Reilly Media",
+      "isbn": "9781098162177",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-security-as-code",
+      "type": "book",
+      "name": "Security as Code",
+      "by": "BK Sarthak Das & Virginia Chu",
+      "desc": "Building security into DevOps pipelines with infrastructure-as-code, policy-as-code and automated controls.",
+      "domains": [
+        "appsec",
+        "cloud",
+        "engineering"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "O'Reilly Media",
+      "isbn": "9781098127435",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-cloud-native-security-cookbook",
+      "type": "book",
+      "name": "Cloud Native Security Cookbook",
+      "by": "Josh Armitage",
+      "desc": "Recipe-style solutions for securing workloads on AWS, Azure and Google Cloud.",
+      "domains": [
+        "cloud",
+        "engineering"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "O'Reilly Media",
+      "isbn": "9781098106270",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-learning-serverless-security",
+      "type": "book",
+      "name": "Learning Serverless Security",
+      "by": "Joshua Arvin Lat",
+      "desc": "Attacking and defending serverless applications across the major cloud platforms.",
+      "domains": [
+        "cloud",
+        "appsec",
+        "offensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": null,
+      "publisher": "O'Reilly Media",
+      "isbn": "9781098148980",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-zero-trust-networks",
+      "type": "book",
+      "name": "Zero Trust Networks (2nd ed.)",
+      "by": "Razi Rais, Christina Morillo, Evan Gilman & Doug Barth",
+      "desc": "The principles and practical design of zero trust: identity, device trust, network agents and migration.",
+      "domains": [
+        "architecture",
+        "engineering"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2024",
+      "publisher": "O'Reilly Media",
+      "isbn": "9781492096566",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-cyber-risk-mgmt-program",
+      "type": "book",
+      "name": "Building a Cyber Risk Management Program",
+      "by": "Brian Allen, Brandon Bapst & Terry Allan Hicks",
+      "desc": "Designing and running an enterprise cyber risk programme aligned with governance and business objectives.",
+      "domains": [
+        "grc",
+        "leadership"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2023",
+      "publisher": "O'Reilly Media",
+      "isbn": "9781098147785",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-learning-cloud-security",
+      "type": "book",
+      "name": "Learning Cloud Security",
+      "by": "Ric Messier",
+      "desc": "Introduction to cloud security concepts and controls across the major providers, for people new to cloud.",
+      "domains": [
+        "cloud",
+        "defensive"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": null,
+      "publisher": "O'Reilly Media",
+      "isbn": "9781098179397",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-web-application-security",
+      "type": "book",
+      "name": "Web Application Security (2nd ed.)",
+      "by": "Andrew Hoffman",
+      "desc": "Exploitation and countermeasures for modern web apps, covering recon, offence and defence.",
+      "domains": [
+        "appsec",
+        "offensive",
+        "defensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2024",
+      "publisher": "O'Reilly Media",
+      "isbn": "9781098143930",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-identity-security-software-dev",
+      "type": "book",
+      "name": "Identity Security for Software Development",
+      "by": "John Walsh, Uzi Ailon & Matt Barker",
+      "desc": "Managing secrets, machine identities and access for developers and pipelines.",
+      "domains": [
+        "appsec",
+        "engineering",
+        "cloud"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": null,
+      "publisher": "O'Reilly Media",
+      "isbn": "9781098157999",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-software-supply-chain-security",
+      "type": "book",
+      "name": "Software Supply Chain Security",
+      "by": "Cassie Crossley",
+      "desc": "End-to-end view of securing the software supply chain, from development and build to delivery and suppliers.",
+      "domains": [
+        "appsec",
+        "grc",
+        "architecture"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2024",
+      "publisher": "O'Reilly Media",
+      "isbn": "9781098133672",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false
+    }
   ]
 }

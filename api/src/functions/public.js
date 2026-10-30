@@ -1,6 +1,6 @@
 // Public endpoints: list items, vote, submit a suggestion.
 import { app } from "@azure/functions";
-import { table, T, odata, rowToItem, json, sha, clientIp, rateLimited, isHttpUrl, clean, slug, claudeReview, DOMAIN_KEYS, FREQ_KEYS, isAdmin } from "../lib/shared.js";
+import { table, T, odata, rowToItem, json, sha, clientIp, rateLimited, isHttpUrl, normaliseIsbn, clean, slug, claudeReview, DOMAIN_KEYS, FREQ_KEYS, isAdmin } from "../lib/shared.js";
 
 // GET /api/items — the full catalogue with community tallies. Hidden items only for admins.
 app.http("items", {
@@ -72,7 +72,7 @@ app.http("submit", {
       freq: FREQ_KEYS.includes(b.freq) ? b.freq : "irregular",
       domains: (Array.isArray(b.domains) ? b.domains : []).filter(d => DOMAIN_KEYS.includes(d)).slice(0, 6),
       web: clean(b.web, 400), apple: clean(b.apple, 400), spotify: clean(b.spotify, 400), youtube: clean(b.youtube, 400), rss: clean(b.rss, 400),
-      email: clean(b.email, 200)
+      email: clean(b.email, 200), isbn: clean(b.isbn, 20), publisher: clean(b.publisher, 120)
     };
     const errs = [];
     if (s.name.length < 2) errs.push("Add the name.");
@@ -81,6 +81,10 @@ app.http("submit", {
     if (s.apple && !/^https:\/\/podcasts\.apple\.com\//.test(s.apple)) errs.push("The Apple link should start with https://podcasts.apple.com/.");
     if (s.spotify && !/^https:\/\/open\.spotify\.com\//.test(s.spotify)) errs.push("The Spotify link should start with https://open.spotify.com/.");
     if (s.youtube && !/^https:\/\/(www\.|music\.)?youtube\.com\/|^https:\/\/youtu\.be\//.test(s.youtube)) errs.push("The YouTube link should be a youtube.com address.");
+    if (s.type === "book") {
+      if (s.isbn) { const n = normaliseIsbn(s.isbn); if (!n) errs.push("That ISBN doesn't look right. Check the digits."); else s.isbn = n; }
+      if (!s.publisher) errs.push("Add the publisher.");
+    } else { s.isbn = ""; s.publisher = ""; }
     if (s.type === "podcast" && !s.web) errs.push("Add the podcast's official website.");
     if (s.type === "podcast" && !(s.apple || s.spotify || s.youtube)) errs.push("Add at least one of Apple Podcasts, Spotify or YouTube.");
     if (errs.length) return json(400, { error: errs.join(" ") });

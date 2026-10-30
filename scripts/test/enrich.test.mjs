@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { inferCadence, parsePodnewsRating, bestMatch, appleId } from "../pure.mjs";
+import { inferCadence, parsePodnewsRating, bestMatch, appleId, normaliseIsbn, titlesMatch } from "../pure.mjs";
 
 const NOW = Date.parse("2026-10-30T12:00:00Z");
 const series = (n, everyDays, endDaysAgo = 1) => Array.from({ length: n }, (_, i) => new Date(NOW - (endDaysAgo + i * everyDays) * 86_400_000).toUTCString());
@@ -43,4 +43,18 @@ test("bestMatch prefers exact, then prefix", () => {
 test("appleId", () => {
   assert.equal(appleId("https://podcasts.apple.com/podcast/id1296350485"), "1296350485");
   assert.equal(appleId(undefined), null);
+});
+
+test("ISBN validation", () => {
+  assert.equal(normaliseIsbn("978-1-4920-7621-6"), "9781492076216");
+  assert.equal(normaliseIsbn("9781492076217"), null);
+  assert.equal(normaliseIsbn("0-306-40615-2"), "0306406152");
+  assert.equal(normaliseIsbn("123"), null);
+  assert.equal(normaliseIsbn(undefined), null);
+});
+
+test("titlesMatch ignores subtitles, editions and leading 'The'", () => {
+  assert.ok(titlesMatch("Zero Trust Networks (2nd ed.)", "Zero trust networks: building secure systems in untrusted networks"));
+  assert.ok(titlesMatch("The Cybersecurity Manager's Guide", "Cybersecurity Manager's Guide"));
+  assert.ok(!titlesMatch("Security as Code", "Learning Cloud Security"));
 });

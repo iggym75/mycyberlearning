@@ -55,6 +55,12 @@ export function rateLimited(key, limit, windowMs) {
   return arr.length > limit;
 }
 
+export function normaliseIsbn(raw) {
+  const s = String(raw ?? "").replace(/[-\s]/g, "").toUpperCase();
+  if (/^\d{13}$/.test(s)) return [...s].reduce((t, d, k) => t + Number(d) * (k % 2 ? 3 : 1), 0) % 10 === 0 ? s : null;
+  if (/^\d{9}[\dX]$/.test(s)) return [...s].reduce((t, d, k) => t + (d === "X" ? 10 : Number(d)) * (10 - k), 0) % 11 === 0 ? s : null;
+  return null;
+}
 export function isHttpUrl(v) { try { const u = new URL(v); return ["http:", "https:"].includes(u.protocol); } catch { return false; } }
 export const slug = s => s.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60);
 export const clean = (s, max) => String(s ?? "").replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, max);

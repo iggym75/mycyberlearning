@@ -3,18 +3,21 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "My Cyber Learning — curated cybersecurity podcasts and books (mycyberlearning.co.uk)",
+  "description": "My Cyber Learning \u2014 curated cybersecurity podcasts and books (mycyberlearning.co.uk)",
   "scripts": {
     "build": "node scripts/build-frontend.mjs",
     "seed": "node scripts/seed.mjs",
     "refresh": "node scripts/refresh.mjs",
     "refresh:dry": "node scripts/refresh.mjs --dry-run --limit 5",
     "export": "node scripts/export.mjs",
-    "test": "node --test scripts/test/*.test.mjs"
+    "test": "node --test scripts/test/*.test.mjs",
+    "import:books": "node scripts/import-books.mjs"
   },
   "dependencies": {
     "@azure/data-tables": "^13.3.0",
     "fast-xml-parser": "^4.5.0"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  }
 }
