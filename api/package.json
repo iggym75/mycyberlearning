@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "@azure/data-tables": "^13.3.0",
-    "@azure/functions": "^4.6.0"
+    "@azure/functions": "^4.6.0",
+    "@azure/communication-email": "^1.0.0"
   },
   "engines": {
     "node": ">=20"

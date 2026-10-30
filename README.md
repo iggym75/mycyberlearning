@@ -8,6 +8,8 @@
 - Links to Apple Podcasts, Spotify, YouTube and the official site; logos, cadence and launch date for every show
 - Visitors suggest podcasts and books; Claude pre-tags and sanity-checks each suggestion; an admin approves, edits, hides or deletes anything
 - A weekly automated job keeps logos, links, cadence, launch dates, ratings and tags current
+- **Daily briefing**: every morning at 06:00 UK time, the news podcasts' episodes from the last 24 hours are summarised into top stories and an episode list on the site (`#news`, 30-day archive) and emailed to confirmed subscribers
+- Privacy-first: double opt-in, one-click unsubscribe, no tracking pixels, cookieless aggregate analytics that honour Global Privacy Control / Do Not Track. See [SECURITY.md](SECURITY.md)
 
 ---
 
@@ -76,7 +78,7 @@ The refresh is a scheduled **GitHub Action** (`.github/workflows/refresh.yml`, M
 
 1. updates cadence, latest episode, episode count, active/ended status, ratings and (for unlocked items) Claude tags in Azure Table storage;
 2. downloads artwork or covers **only for items that don't yet have a stored image** (`frontend/covers/`), so curated images such as your Calibre covers are never overwritten (`--reimage` forces a refresh);
-3. commits `data/catalogue.json` and any new images, and that push redeploys the site.
+3. commits `data/catalogue.json` and any new images, then calls the deploy workflow to publish them (pushes made by a workflow don't trigger other workflows on their own).
 
 You can also start it any time from GitHub → Actions → *Weekly catalogue refresh* → *Run workflow*. The run summary lists anything that needs a human: unmatched shows, ISBNs to confirm, failed downloads.
 
@@ -98,14 +100,12 @@ gh repo create mycyberlearning --public --source . --push     # public = free Ac
 ```bash
 az login
 az group create -n rg-mycyberlearning -l uksouth
-az deployment group create -g rg-mycyberlearning -f infra/main.bicep
+az deployment group create -g rg-mycyberlearning -f infra/main.bicep \
+  -p tokenSecret="<value>" voteSalt="<value>" anthropicApiKey="<your key>"
 ```
+Generate `tokenSecret` and `voteSalt` once each with `openssl rand -hex 32` and save all three in a password manager. Every redeploy must pass the same values (a redeploy replaces all app settings), and the GitHub secret `TOKEN_SECRET` must equal `tokenSecret` exactly, otherwise unsubscribe links stop working.
 Note the `siteName`, `defaultHostname` and `storageAccount` outputs.
 
-Add your Anthropic key to the site (keeps it out of deployment history):
-```bash
-az staticwebapp appsettings set -n mycyberlearn-site --setting-names ANTHROPIC_API_KEY=sk-ant-...
-```
 
 ### 3. Connect GitHub to Azure
 ```bash
@@ -135,7 +135,23 @@ Then run **Actions → Weekly catalogue refresh → Run workflow** once to pull 
 ### 5. Make yourself admin
 Azure portal → your Static Web App → **Role management** → **Invite** → provider GitHub, your GitHub username, role `admin`, domain `mycyberlearning.co.uk`. Open the invite link and sign in. Visit `/admin` to sign in later; the Admin button then appears in the header.
 
-### 6. Point mycyberlearning.co.uk at the site
+### 6. Daily briefing email
+1. Deploy the Bicep (step 2) with the two secrets, then in the portal open **Email Communication Service → Provision domains → mycyberlearning.co.uk** and add the TXT, SPF and two DKIM records it shows at your DNS host. Add a DMARC record too, e.g. `_dmarc  TXT  "v=DMARC1; p=quarantine; rua=mailto:dmarc@mycyberlearning.co.uk"`.
+2. When the domain shows **Verified**, redeploy with `-p linkEmailDomain=true` (same secrets) to connect it to Communication Services.
+3. Add these GitHub secrets / variables:
+
+| Name | Type | Value |
+|---|---|---|
+| `ACS_CONNECTION_STRING` | secret | `az communication list-key -n mycyberlearn-acs -g rg-mycyberlearning --query primaryConnectionString -o tsv` |
+| `TOKEN_SECRET` | secret | the same value you passed to Bicep |
+| `MAIL_FROM` | variable | `briefing@mycyberlearning.co.uk` |
+| `SITE_URL` | variable | `https://mycyberlearning.co.uk` |
+| `MAIL_RATE_PER_MINUTE` | variable (optional) | default 25 |
+
+4. New Communication Services resources have low sending limits. Before you pass about 100 subscribers, ask Azure support to raise the limits for your domain. Cost is roughly $0.25 per 1,000 emails.
+5. Test: Actions → *Daily news briefing* → *Run workflow* (leave **send** unticked to build only). `npm run send:preview` writes an email preview to `email-preview.html`.
+
+### 7. Point mycyberlearning.co.uk at the site
 1. Register the domain (any UK registrar; .co.uk is typically £5–10 a year).
 2. **www**: Azure portal → Custom domains → Add → `www.mycyberlearning.co.uk`, type CNAME → at your registrar create `CNAME www → <defaultHostname>`.
 3. **Apex** (`mycyberlearning.co.uk`): add it in Custom domains with TXT validation, then either

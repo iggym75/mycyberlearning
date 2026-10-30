@@ -14,9 +14,13 @@ const taxonomy = JSON.parse(await readFile(join(root, "data/taxonomy.json"), "ut
 // Keep the API's copy of the taxonomy in sync (the API is deployed on its own).
 await copyFile(join(root, "data/taxonomy.json"), join(root, "api/src/lib/taxonomy.json"));
 
-const seed = { taxonomy, items: catalogue.items, sourceLists: catalogue.sourceLists };
-// Escape "</" so catalogue text can never close the script tag.
-const json = JSON.stringify(seed).replace(/<\//g, "<\\/");
+// Embed the latest briefing as an offline fallback (the live page fetches news/*.json).
+const readJson = async f => JSON.parse(await readFile(join(root, f), "utf8"));
+const news = await Promise.all([readJson("frontend/news/latest.json"), readJson("frontend/news/index.json")])
+  .then(([latest, idx]) => ({ latest, index: idx.dates }), () => null);
+const seed = { taxonomy, items: catalogue.items, sourceLists: catalogue.sourceLists, news };
+// Escape every "<" (and U+2028/2029) so catalogue or news text can never close or confuse the script block.
+const json = JSON.stringify(seed).replace(/</g, "\\u003c").replace(/\u2028/g, "\\u2028").replace(/\u2029/g, "\\u2029");
 const body = tpl.replace("/*__SEED__*/null", json);
 
 const bareIdx = process.argv.indexOf("--bare");
@@ -33,5 +37,7 @@ if (bareIdx > -1) {
   const { cp, access } = await import("node:fs/promises");
   if (await access(join(root, "frontend/covers")).then(() => true, () => false))
     await cp(join(root, "frontend/covers"), join(root, "frontend/dist/covers"), { recursive: true });
+  if (await access(join(root, "frontend/news")).then(() => true, () => false))
+    await cp(join(root, "frontend/news"), join(root, "frontend/dist/news"), { recursive: true, filter: src => !src.endsWith("preview.html") });
   console.log("wrote frontend/dist/index.html");
 }
