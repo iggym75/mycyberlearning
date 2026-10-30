@@ -60,3 +60,14 @@ export function titlesMatch(a, b) {
   const x = n(a), y = n(b);
   return !!x && !!y && (x === y || x.startsWith(y) || y.startsWith(x));
 }
+
+const PUBLISHERS = [[/packt/i, "Packt"], [/no starch/i, "No Starch Press"], [/wiley|sybex/i, "Wiley"], [/o.?reilly/i, "O'Reilly Media"],
+  [/addison/i, "Addison-Wesley"], [/pearson it cert/i, "Pearson IT Certification"], [/cisco press/i, "Cisco Press"], [/^pearson/i, "Pearson"],
+  [/microsoft press/i, "Microsoft Press"], [/mcgraw/i, "McGraw Hill"], [/apress/i, "Apress"], [/manning/i, "Manning"],
+  [/crc press|taylor/i, "CRC Press"], [/mit press/i, "MIT Press"], [/bpb/i, "BPB Publications"]];
+/** One label per publisher so the publisher filter doesn't split ("Packt Publishing" -> "Packt"). */
+export function canonPublisher(name) {
+  if (!name) return undefined;
+  for (const [re, label] of PUBLISHERS) if (re.test(name)) return label;
+  return String(name).trim().replace(/,?\s+(inc|ltd|llc|limited|publishing|publishers)\.?$/i, "");
+}
