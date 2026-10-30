@@ -5,7 +5,7 @@ Enrich catalogue books from a Calibre library (metadata.db + cover.jpg per book)
 What it does, for each book in data/catalogue.json that matches a Calibre book (by ISBN, else by title):
   - fills/corrects ISBN, publisher, publication year and authors from Calibre
   - marks isbnVerified = true when the ISBN came from your own library metadata
-  - optionally copies the cover as a small JPEG thumbnail to frontend/covers/<id>.jpg and sets "logo"
+  - optionally copies the cover as a resized JPEG to frontend/covers/<id>.jpg and sets "logo"
 It never copies Calibre's "comments" (publisher blurbs) into the site - descriptions stay in our own words.
 It opens metadata.db read-only and never modifies your Calibre library.
 
@@ -15,7 +15,7 @@ Usage:
   python3 scripts/import_calibre.py "/path/to/Calibre Library" --apply --covers   # also copy cover thumbnails
   python3 scripts/import_calibre.py "/path/to/Calibre Library" --apply --add-missing  # also add Calibre books not yet listed (tagged later by the refresh job)
 
-Covers: thumbnails are resized to 240px wide if Pillow is installed (pip install pillow); otherwise copied as-is.
+Covers: images are resized to at most 560x840 (sharp as a card thumbnail and when enlarged) if Pillow is installed (pip install pillow); otherwise copied as-is.
 Book covers belong to their publishers; small thumbnails used to identify a book are common practice, but
 it's your call - without --covers the site uses Open Library's cover images keyed by ISBN instead.
 """
@@ -95,8 +95,8 @@ def save_cover(src, dest):
     try:
         from PIL import Image
         with Image.open(src) as im:
-            im = im.convert("RGB"); im.thumbnail((240, 360))
-            im.save(dest, "JPEG", quality=78, optimize=True, progressive=True)
+            im = im.convert("RGB"); im.thumbnail((560, 840))
+            im.save(dest, "JPEG", quality=80, optimize=True, progressive=True)
     except ImportError:
         shutil.copyfile(src, dest)
 
