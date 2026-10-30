@@ -54,7 +54,15 @@ for (const { item, row } of rows) {
       } else report.notes.push(`${item.id}: not found in Apple directory — check the name or add the Apple link`);
     } else {
       const b = await lookupBook(item).catch(() => null);
-      if (b) { if (b.logo) next.logo = b.logo; next.openlibrary = b.openlibrary; if (b.rating) next.rating = { ...b.rating, asOf: today }; }
+      if (b) {
+        if (b.logo) next.logo = b.logo; next.openlibrary = b.openlibrary;
+        if (b.rating) next.rating = { ...b.rating, asOf: today };
+        if ("isbnVerified" in b) {
+          next.isbnVerified = b.isbnVerified;
+          if (!b.isbnVerified) report.notes.push(`${item.id}: ISBN ${item.isbn} is registered to "${b.isbnTitle}" — check the edition`);
+          next.publisher ??= b.publisher; if (!next.published && b.year) next.published = b.year;
+        }
+      } else if (item.isbn) report.notes.push(`${item.id}: ISBN ${item.isbn} not found on Open Library`);
     }
 
     const needsTags = !item.tagsLocked && (retag || !item.domains?.length || item.sources?.includes("community") && !item.autoTagged);

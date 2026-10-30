@@ -7,7 +7,7 @@ import { getText, getJson, sleep } from "./lib.mjs";
 const taxonomy = JSON.parse(readFileSync(new URL("../data/taxonomy.json", import.meta.url), "utf8"));
 const DOMAIN_KEYS = taxonomy.domains.map(d => d.key);
 export { inferCadence, parsePodnewsRating, bestMatch, appleId } from "./pure.mjs";
-import { bestMatch, appleId, inferCadence, parsePodnewsRating } from "./pure.mjs";
+import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch } from "./pure.mjs";
 
 /** Apple Podcasts directory (free, no key): artwork, feed URL, canonical link, episode count. */
 export async function lookupApple(item) {
@@ -45,6 +45,23 @@ export async function lookupRating(appleIdValue) {
 
 /** Open Library (free, no key) for book covers, first publication year and reader ratings. */
 export async function lookupBook(item) {
+  // Prefer the ISBN: confirms the edition and gives the right cover.
+  const isbn = normaliseIsbn(item.isbn);
+  if (isbn) {
+    const ed = await getJson(`https://openlibrary.org/isbn/${isbn}.json`).catch(() => null);
+    if (ed) {
+      const matches = titlesMatch(item.name, ed.title);
+      const work = ed.works?.[0]?.key;
+      const ratings = work ? await getJson(`https://openlibrary.org${work}/ratings.json`).catch(() => null) : null;
+      const year = (ed.publish_date || "").match(/\d{4}/)?.[0];
+      return {
+        isbnVerified: matches, isbnTitle: ed.title,
+        logo: ed.covers?.[0] > 0 ? `https://covers.openlibrary.org/b/id/${ed.covers[0]}-M.jpg` : undefined,
+        openlibrary: `https://openlibrary.org/isbn/${isbn}`, publisher: ed.publishers?.[0], year,
+        rating: ratings?.summary?.count >= 5 ? { v: Math.round(ratings.summary.average * 10) / 10, n: ratings.summary.count, src: "Open Library" } : null
+      };
+    }
+  }
   const author = (item.by || "").split(/&|,| and /)[0].trim();
   const url = `https://openlibrary.org/search.json?limit=5&fields=key,title,first_publish_year,ratings_average,ratings_count,cover_i&title=${encodeURIComponent(item.name.split(":")[0])}${author ? "&author=" + encodeURIComponent(author) : ""}`;
   const docs = (await getJson(url)).docs || [];

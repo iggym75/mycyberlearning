@@ -46,3 +46,17 @@ export function bestMatch(name, results, key = "collectionName") {
 }
 export const appleId = url => url?.match(/id(\d{5,})/)?.[1] || null;
 
+
+/** Returns the ISBN without hyphens/spaces if its check digit is valid, otherwise null. */
+export function normaliseIsbn(raw) {
+  const s = String(raw ?? "").replace(/[-\s]/g, "").toUpperCase();
+  if (/^\d{13}$/.test(s)) return [...s].reduce((t, d, k) => t + Number(d) * (k % 2 ? 3 : 1), 0) % 10 === 0 ? s : null;
+  if (/^\d{9}[\dX]$/.test(s)) return [...s].reduce((t, d, k) => t + (d === "X" ? 10 : Number(d)) * (10 - k), 0) % 11 === 0 ? s : null;
+  return null;
+}
+/** Loose title comparison used to confirm an ISBN belongs to the book we think it does. */
+export function titlesMatch(a, b) {
+  const n = s => String(s ?? "").toLowerCase().split(":")[0].replace(/\(.*?\)/g, "").replace(/^the\s+/, "").replace(/[^a-z0-9]+/g, " ").trim();
+  const x = n(a), y = n(b);
+  return !!x && !!y && (x === y || x.startsWith(y) || y.startsWith(x));
+}

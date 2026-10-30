@@ -1,7 +1,7 @@
 // Admin endpoints. Protected twice: staticwebapp.config.json restricts /api/admin/* to the "admin"
 // role, and every handler re-checks the role from the client-principal header.
 import { app } from "@azure/functions";
-import { table, T, odata, rowToItem, itemToRow, json, isAdmin, slug, DOMAIN_KEYS, FREQ_KEYS } from "../lib/shared.js";
+import { table, T, odata, rowToItem, itemToRow, json, isAdmin, slug, normaliseIsbn, DOMAIN_KEYS, FREQ_KEYS } from "../lib/shared.js";
 
 const guard = fn => async (req, ctx) => isAdmin(req) ? fn(req, ctx) : json(403, { error: "Admins only." });
 
@@ -35,7 +35,7 @@ app.http("adminDecide", {
         domains: (overrides.domains || [...new Set([...suggested, ...s.domains])]).filter(d => DOMAIN_KEYS.includes(d)).slice(0, 5),
         level: level.length ? level : ["intermediate"], freq: s.type === "podcast" ? s.freq : undefined,
         launched: null, status: "active", web: s.web || undefined, apple: s.apple || undefined, spotify: s.spotify || undefined,
-        youtube: s.youtube || undefined, rss: s.rss || undefined, rating: null, curator: false, sources: ["community"], verified: false,
+        youtube: s.youtube || undefined, rss: s.rss || undefined, isbn: s.isbn || undefined, publisher: s.publisher || undefined, isbnVerified: false, rating: null, curator: false, sources: ["community"], verified: false,
         addedAt: new Date().toISOString(), ...overrides
       };
       await (await table(T.items)).upsertEntity(itemToRow(item), "Replace");
@@ -61,9 +61,10 @@ app.http("adminItem", {
     }
     const patch = await req.json().catch(() => ({}));
     const item = rowToItem(r);
-    const allowed = ["name", "by", "desc", "domains", "level", "freq", "launched", "status", "web", "apple", "spotify", "youtube", "rss", "logo", "curator", "hidden", "published", "tagsLocked"];
+    const allowed = ["name", "by", "desc", "domains", "level", "freq", "launched", "status", "web", "apple", "spotify", "youtube", "rss", "logo", "curator", "hidden", "published", "tagsLocked", "isbn", "publisher", "format"];
     for (const k of allowed) if (k in patch) item[k] = patch[k] === "" ? undefined : patch[k];
     if (item.domains) item.domains = item.domains.filter(d => DOMAIN_KEYS.includes(d));
+    if ("isbn" in patch && item.isbn) { const n = normaliseIsbn(item.isbn); if (!n) return json(400, { error: "That ISBN doesn't look right." }); if (n !== r.isbn) item.isbnVerified = false; item.isbn = n; }
     if (item.freq && !FREQ_KEYS.includes(item.freq)) return json(400, { error: "Unknown frequency." });
     if ("domains" in patch) item.tagsLocked = true; // a human edited the tags; the refresh job leaves them alone
     await items.updateEntity({ ...itemToRow(item, r) }, "Replace", { etag: r.etag });
