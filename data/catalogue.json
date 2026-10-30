@@ -41,6 +41,10 @@
     "humble-oreilly-2026": {
       "label": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
       "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+    },
+    "humble-library": {
+      "label": "MCL curator's Humble Bundle library",
+      "url": null
     }
   },
   "items": [
@@ -2001,9 +2005,10 @@
         "book"
       ],
       "rating": null,
-      "curator": false,
+      "curator": true,
       "sources": [
-        "editor"
+        "editor",
+        "humble-library"
       ],
       "verified": true,
       "publisher": "Wiley",
@@ -2170,9 +2175,10 @@
         "book"
       ],
       "rating": null,
-      "curator": false,
+      "curator": true,
       "sources": [
-        "editor"
+        "editor",
+        "humble-library"
       ],
       "verified": true,
       "publisher": "No Starch Press",
@@ -2225,9 +2231,10 @@
         "book"
       ],
       "rating": null,
-      "curator": false,
+      "curator": true,
       "sources": [
-        "editor"
+        "editor",
+        "humble-library"
       ],
       "verified": true,
       "publisher": "MIT Press",
@@ -2250,9 +2257,10 @@
         "book"
       ],
       "rating": null,
-      "curator": false,
+      "curator": true,
       "sources": [
-        "editor"
+        "editor",
+        "humble-library"
       ],
       "verified": true,
       "publisher": "Wiley",
@@ -2955,6 +2963,3712 @@
         "humble-oreilly-2026"
       ],
       "verified": false
+    },
+    {
+      "id": "book-a-practical-guide-to-digital-forensics-investigations",
+      "type": "book",
+      "name": "A Practical Guide to Digital Forensics Investigations (2nd ed.)",
+      "by": "Darren R. Hayes",
+      "desc": "Comprehensive introduction to digital forensics: evidence handling, devices, networks, mobile and the legal process.",
+      "domains": [
+        "operations",
+        "defensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2020",
+      "publisher": "Pearson",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-adversarial-tradecraft-in-cybersecurity",
+      "type": "book",
+      "name": "Adversarial Tradecraft in Cybersecurity",
+      "by": "Dan Borges",
+      "desc": "Attacker and defender techniques for live cyber competitions and real conflicts, from deception to persistence.",
+      "domains": [
+        "offensive",
+        "defensive",
+        "operations"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2021",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-alice-and-bob-learn-application-security",
+      "type": "book",
+      "name": "Alice and Bob Learn Application Security",
+      "by": "Tanya Janca",
+      "desc": "Friendly, practical grounding in secure design, coding and testing for developers and AppSec newcomers.",
+      "domains": [
+        "appsec"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2020",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781119687351",
+      "rating": null
+    },
+    {
+      "id": "book-aligning-security-operations-with-the-mitre-att-ck-framework",
+      "type": "book",
+      "name": "Aligning Security Operations with the MITRE ATT&CK Framework",
+      "by": "Rebecca Blair",
+      "desc": "Using ATT&CK to assess SOC coverage, map detections and prioritise improvements.",
+      "domains": [
+        "operations",
+        "cti",
+        "hunting"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-antivirus-bypass-techniques",
+      "type": "book",
+      "name": "Antivirus Bypass Techniques",
+      "by": "Nir Yehoshua & Uriel Kosayev",
+      "desc": "How antivirus engines detect malware and how attackers evade them, to help defenders test and tune controls.",
+      "domains": [
+        "offensive",
+        "defensive"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "published": "2021",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-applied-cryptography",
+      "type": "book",
+      "name": "Applied Cryptography (20th anniversary ed.)",
+      "by": "Bruce Schneier",
+      "desc": "The classic reference on cryptographic protocols, algorithms and their implementation.",
+      "domains": [
+        "engineering"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "published": "2015",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781119096726",
+      "rating": null
+    },
+    {
+      "id": "book-attacking-network-protocols",
+      "type": "book",
+      "name": "Attacking Network Protocols",
+      "by": "James Forshaw",
+      "desc": "Capturing, analysing and exploiting network protocols to find vulnerabilities.",
+      "domains": [
+        "offensive",
+        "engineering"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "published": "2017",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781593277505",
+      "rating": null
+    },
+    {
+      "id": "book-automating-security-detection-engineering",
+      "type": "book",
+      "name": "Automating Security Detection Engineering",
+      "by": "Dennis Chow",
+      "desc": "Detection-as-code: building, testing and deploying detections with CI/CD pipelines.",
+      "domains": [
+        "operations",
+        "hunting",
+        "engineering"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2024",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-beyond-the-algorithm",
+      "type": "book",
+      "name": "Beyond the Algorithm: AI, Security, Privacy, and Ethics",
+      "by": "Omar Santos & Petar Radanliev",
+      "desc": "Security, privacy and ethical risks of AI systems and how to govern them.",
+      "domains": [
+        "ai",
+        "privacy",
+        "grc"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2024",
+      "publisher": "Addison-Wesley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-black-hat-go",
+      "type": "book",
+      "name": "Black Hat Go",
+      "by": "Tom Steele, Chris Patten & Dan Kottmann",
+      "desc": "Writing offensive security tools in Go: scanners, proxies, exploits and C2.",
+      "domains": [
+        "offensive",
+        "engineering"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2020",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781593278656",
+      "rating": null
+    },
+    {
+      "id": "book-black-hat-python",
+      "type": "book",
+      "name": "Black Hat Python (2nd ed.)",
+      "by": "Justin Seitz & Tim Arnold",
+      "desc": "Python 3 for hackers and pentesters: sniffers, trojans, web attacks and forensics tooling.",
+      "domains": [
+        "offensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781718501126",
+      "rating": null
+    },
+    {
+      "id": "book-blockchain-security-from-the-bottom-up",
+      "type": "book",
+      "name": "Blockchain Security from the Bottom Up",
+      "by": "Howard E. Poston III",
+      "desc": "Securing cryptocurrencies, smart contracts, dApps and NFTs, and how they get attacked.",
+      "domains": [
+        "engineering",
+        "appsec"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-building-a-career-in-cybersecurity",
+      "type": "book",
+      "name": "Building a Career in Cybersecurity",
+      "by": "Yuri Diogenes",
+      "desc": "Practical guidance on breaking into security, choosing a path and growing a career.",
+      "domains": [
+        "career"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2023",
+      "publisher": "Addison-Wesley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-building-a-cyber-resilient-business",
+      "type": "book",
+      "name": "Building a Cyber Resilient Business",
+      "by": "Magda Lilia Chelly, Shamane Tan & Hai Tran",
+      "desc": "A guide for executives on building cyber resilience into strategy, governance and culture.",
+      "domains": [
+        "leadership",
+        "grc"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-certified-ethical-hacker-v12-312-50-exam-guide",
+      "type": "book",
+      "name": "Certified Ethical Hacker (CEH) v12 312-50 Exam Guide",
+      "by": "Dale Meredith",
+      "desc": "Exam preparation for CEH v12, covering reconnaissance through exploitation with practice questions.",
+      "domains": [
+        "offensive",
+        "career"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-cism-exam-prep-guide",
+      "type": "book",
+      "name": "CISM Exam Prep Guide (2nd ed.)",
+      "by": "Hemang Doshi",
+      "desc": "Preparation for the ISACA CISM exam: governance, risk, programme management and incident management.",
+      "domains": [
+        "leadership",
+        "grc",
+        "career"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2024",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-chatgpt-for-cybersecurity-cookbook",
+      "type": "book",
+      "name": "ChatGPT for Cybersecurity Cookbook",
+      "by": "Clint Bodungen",
+      "desc": "Recipes for using GPT models to automate pentesting, threat intel, GRC and SOC tasks.",
+      "domains": [
+        "ai",
+        "operations",
+        "offensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2024",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-cisa-certified-information-systems-auditor-study-guide",
+      "type": "book",
+      "name": "CISA – Certified Information Systems Auditor Study Guide (2nd ed.)",
+      "by": "Hemang Doshi",
+      "desc": "Preparation for the ISACA CISA exam covering audit, governance and controls.",
+      "domains": [
+        "grc",
+        "career"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2024",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-comptia-security-certification-guide",
+      "type": "book",
+      "name": "CompTIA Security+ Certification Guide",
+      "by": "Ian Neil",
+      "desc": "Exam preparation for CompTIA Security+, covering core security concepts with mock exams.",
+      "domains": [
+        "career",
+        "defensive"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-comptia-security-sy0-701-cert-guide",
+      "type": "book",
+      "name": "CompTIA Security+ SY0-701 Cert Guide",
+      "by": "Lewis Heuermann",
+      "desc": "Official-style study guide for the SY0-701 exam with review exercises and practice tests.",
+      "domains": [
+        "career",
+        "defensive"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2024",
+      "publisher": "Pearson IT Certification",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-crypto-dictionary",
+      "type": "book",
+      "name": "Crypto Dictionary",
+      "by": "Jean-Philippe Aumasson",
+      "desc": "An A–Z of cryptographic terms and concepts, with history and wit.",
+      "domains": [
+        "engineering"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781718501409",
+      "rating": null
+    },
+    {
+      "id": "book-cryptography-algorithms",
+      "type": "book",
+      "name": "Cryptography Algorithms",
+      "by": "Massimo Bertaccini",
+      "desc": "Classical, modern and emerging cryptographic algorithms, including quantum and homomorphic schemes.",
+      "domains": [
+        "engineering"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-cryptography-apocalypse",
+      "type": "book",
+      "name": "Cryptography Apocalypse",
+      "by": "Roger A. Grimes",
+      "desc": "Preparing for quantum computers breaking today's public-key cryptography.",
+      "domains": [
+        "architecture",
+        "engineering"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2019",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-cryptography-engineering",
+      "type": "book",
+      "name": "Cryptography Engineering",
+      "by": "Niels Ferguson, Bruce Schneier & Tadayoshi Kohno",
+      "desc": "Design principles for building real cryptographic systems that hold up.",
+      "domains": [
+        "engineering"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2010",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9780470474242",
+      "rating": null
+    },
+    {
+      "id": "book-cyber-warfare",
+      "type": "book",
+      "name": "Cyber Warfare: Truth, Tactics, and Strategies",
+      "by": "Chase Cunningham",
+      "desc": "Strategies and tactics of modern cyber conflict and what organisations should do about them.",
+      "domains": [
+        "cti",
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2020",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-cyberjutsu",
+      "type": "book",
+      "name": "Cyberjutsu",
+      "by": "Ben McCarty",
+      "desc": "Applying the tactics of historical ninja manuals to modern cyber defence.",
+      "domains": [
+        "defensive",
+        "architecture"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781718500549",
+      "rating": null
+    },
+    {
+      "id": "book-cybersecurity-attack-and-defense-strategies",
+      "type": "book",
+      "name": "Cybersecurity – Attack and Defense Strategies",
+      "by": "Yuri Diogenes & Erdal Ozkaya",
+      "desc": "The attack lifecycle from both sides, with defensive strategies for each stage.",
+      "domains": [
+        "defensive",
+        "offensive",
+        "operations"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-cybersecurity-and-privacy-law-handbook",
+      "type": "book",
+      "name": "Cybersecurity and Privacy Law Handbook",
+      "by": "Walter Rocchi",
+      "desc": "Plain-language guide to the laws and standards that shape security and privacy work.",
+      "domains": [
+        "grc",
+        "privacy"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-cybersecurity-and-third-party-risk",
+      "type": "book",
+      "name": "Cybersecurity and Third-Party Risk",
+      "by": "Gregory C. Rasner",
+      "desc": "Building a third-party risk programme: due diligence, contracts, monitoring and offboarding.",
+      "domains": [
+        "grc",
+        "appsec"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-cybersecurity-blue-team-strategies",
+      "type": "book",
+      "name": "Cybersecurity Blue Team Strategies",
+      "by": "Kunal Sehgal & Nikolaos Thymianis",
+      "desc": "Building and running an effective blue team, from controls to incident response.",
+      "domains": [
+        "defensive",
+        "operations"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-cybersecurity-blue-team-toolkit",
+      "type": "book",
+      "name": "Cybersecurity Blue Team Toolkit",
+      "by": "Nadean H. Tanner",
+      "desc": "Hands-on introduction to the open-source tools defenders use day to day.",
+      "domains": [
+        "defensive",
+        "operations"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2019",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-cybersecurity-career-master-plan",
+      "type": "book",
+      "name": "Cybersecurity Career Master Plan",
+      "by": "Gerald Auger, Jaclyn Scott & Jonathan Helmus",
+      "desc": "Planning a security career: roles, certifications, skills and job hunting.",
+      "domains": [
+        "career"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2021",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-cybersecurity-myths-and-misconceptions",
+      "type": "book",
+      "name": "Cybersecurity Myths and Misconceptions",
+      "by": "Eugene H. Spafford, Leigh Metcalf & Josiah Dykstra",
+      "desc": "Common false beliefs in security practice and how they lead people astray.",
+      "domains": [
+        "leadership",
+        "defensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Addison-Wesley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-cybersecurity-threats-malware-trends-and-strategies",
+      "type": "book",
+      "name": "Cybersecurity Threats, Malware Trends, and Strategies (2nd ed.)",
+      "by": "Tim Rains",
+      "desc": "Data-driven view of the threat landscape and how to choose an effective security strategy.",
+      "domains": [
+        "cti",
+        "leadership",
+        "architecture"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-data-breaches",
+      "type": "book",
+      "name": "Data Breaches",
+      "by": "Sherri Davidoff",
+      "desc": "How breaches unfold and how to manage the response, from detection to public disclosure.",
+      "domains": [
+        "operations",
+        "grc",
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2019",
+      "publisher": "Addison-Wesley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-database-and-application-security",
+      "type": "book",
+      "name": "Database and Application Security: A Practitioner's Guide",
+      "by": "R. Sarma Danturthi",
+      "desc": "Securing databases and the applications that use them.",
+      "domains": [
+        "appsec",
+        "defensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2024",
+      "publisher": "Addison-Wesley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-designing-and-developing-secure-azure-solutions",
+      "type": "book",
+      "name": "Designing and Developing Secure Azure Solutions",
+      "by": "Michael Howard, Simone Curzi & Heinrich Gantenbein",
+      "desc": "Secure design, threat modelling and development practices for Azure applications.",
+      "domains": [
+        "cloud",
+        "appsec",
+        "architecture"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Microsoft Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-developing-cybersecurity-programs-and-policies-in-an-ai-driv",
+      "type": "book",
+      "name": "Developing Cybersecurity Programs and Policies in an AI-Driven World (4th ed.)",
+      "by": "Omar Santos",
+      "desc": "Building security programmes and policies aligned with frameworks, updated for AI.",
+      "domains": [
+        "grc",
+        "leadership",
+        "ai"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2024",
+      "publisher": "Pearson IT Certification",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-digital-forensics-and-incident-response",
+      "type": "book",
+      "name": "Digital Forensics and Incident Response (2nd ed.)",
+      "by": "Gerard Johansen",
+      "desc": "Practical DFIR: evidence acquisition, analysis and building an IR capability.",
+      "domains": [
+        "operations",
+        "defensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2020",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-effective-cybersecurity",
+      "type": "book",
+      "name": "Effective Cybersecurity",
+      "by": "William Stallings",
+      "desc": "Implementing security best practice using standards such as ISO 27002 and NIST.",
+      "domains": [
+        "grc",
+        "architecture",
+        "defensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2018",
+      "publisher": "Addison-Wesley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-effective-threat-investigation-for-soc-analysts",
+      "type": "book",
+      "name": "Effective Threat Investigation for SOC Analysts",
+      "by": "Mostafa Yahia",
+      "desc": "Investigating attacks through log analysis across endpoints, networks and email.",
+      "domains": [
+        "operations",
+        "hunting"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-engineering-ai-systems",
+      "type": "book",
+      "name": "Engineering AI Systems: Architecture and DevOps Essentials",
+      "by": "Len Bass et al.",
+      "desc": "Architecture and operations practices for building dependable, secure AI-based systems.",
+      "domains": [
+        "ai",
+        "engineering",
+        "architecture"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2025",
+      "publisher": "Addison-Wesley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-foundations-of-information-security",
+      "type": "book",
+      "name": "Foundations of Information Security",
+      "by": "Jason Andress",
+      "desc": "Clear introduction to core security concepts for newcomers.",
+      "domains": [
+        "defensive",
+        "career"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2019",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781718500044",
+      "rating": null
+    },
+    {
+      "id": "book-ghidra-software-reverse-engineering-for-beginners",
+      "type": "book",
+      "name": "Ghidra Software Reverse Engineering for Beginners",
+      "by": "A. P. David",
+      "desc": "Getting started with reverse engineering binaries and malware using Ghidra.",
+      "domains": [
+        "cti",
+        "defensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-gray-hat-hacking",
+      "type": "book",
+      "name": "Gray Hat Hacking: The Ethical Hacker's Handbook",
+      "by": "Allen Harper et al.",
+      "desc": "Advanced ethical hacking: exploit development, red teaming, cloud and IoT attacks.",
+      "domains": [
+        "offensive"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "published": "2022",
+      "publisher": "McGraw Hill",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-hack-the-cybersecurity-interview",
+      "type": "book",
+      "name": "Hack the Cybersecurity Interview",
+      "by": "Ken Underhill, Christophe Foulon & Tia Hopkins",
+      "desc": "Preparing for security job interviews across common roles.",
+      "domains": [
+        "career"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-hacking-multifactor-authentication",
+      "type": "book",
+      "name": "Hacking Multifactor Authentication",
+      "by": "Roger A. Grimes",
+      "desc": "The many ways MFA can be bypassed, and how to choose and deploy it well.",
+      "domains": [
+        "offensive",
+        "defensive",
+        "architecture"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2020",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-how-i-rob-banks",
+      "type": "book",
+      "name": "How I Rob Banks: And Other Such Places",
+      "by": "FC (Freaky Clown)",
+      "desc": "Stories from a career of physical and social-engineering penetration testing.",
+      "domains": [
+        "offensive",
+        "human",
+        "stories"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2023",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-how-to-hack-like-a-ghost",
+      "type": "book",
+      "name": "How to Hack Like a Ghost",
+      "by": "Sparc Flow",
+      "desc": "A narrative walkthrough of a stealthy cloud-era intrusion, step by step.",
+      "domains": [
+        "offensive",
+        "cloud"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781718501263",
+      "rating": null
+    },
+    {
+      "id": "book-if-it-s-smart-it-s-vulnerable",
+      "type": "book",
+      "name": "If It's Smart, It's Vulnerable",
+      "by": "Mikko Hyppönen",
+      "desc": "Reflections on the internet's history and the security risks of connecting everything.",
+      "domains": [
+        "stories",
+        "defensive"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2022",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-in-zero-trust-we-trust",
+      "type": "book",
+      "name": "In Zero Trust We Trust",
+      "by": "Avinash Naduvath",
+      "desc": "Concepts and practical steps for adopting zero trust.",
+      "domains": [
+        "architecture"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2024",
+      "publisher": "Pearson",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-incident-response-with-threat-intelligence",
+      "type": "book",
+      "name": "Incident Response with Threat Intelligence",
+      "by": "Roberto Martinez",
+      "desc": "Integrating threat intelligence into incident response and threat hunting.",
+      "domains": [
+        "operations",
+        "cti"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-industrial-cybersecurity",
+      "type": "book",
+      "name": "Industrial Cybersecurity (2nd ed.)",
+      "by": "Pascal Ackerman",
+      "desc": "Monitoring, threat hunting and defending industrial control system environments.",
+      "domains": [
+        "icsot",
+        "defensive",
+        "operations"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-information-privacy-engineering-and-privacy-by-design",
+      "type": "book",
+      "name": "Information Privacy Engineering and Privacy by Design",
+      "by": "William Stallings",
+      "desc": "Engineering privacy into systems, aligned with GDPR and standards.",
+      "domains": [
+        "privacy",
+        "engineering"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2019",
+      "publisher": "Addison-Wesley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-investigating-cryptocurrencies",
+      "type": "book",
+      "name": "Investigating Cryptocurrencies",
+      "by": "Nick Furneaux",
+      "desc": "Finding, extracting and analysing blockchain evidence in investigations.",
+      "domains": [
+        "cti",
+        "operations"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2018",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-kali-linux-penetration-testing-bible",
+      "type": "book",
+      "name": "Kali Linux Penetration Testing Bible",
+      "by": "Gus Khawaja",
+      "desc": "Comprehensive guide to pentesting with Kali, from recon to exploitation and reporting.",
+      "domains": [
+        "offensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-keycloak",
+      "type": "book",
+      "name": "Keycloak: Identity and Access Management for Modern Applications",
+      "by": "Stian Thorgersen & Pedro Igor Silva",
+      "desc": "Securing applications with Keycloak, OpenID Connect and OAuth 2.0.",
+      "domains": [
+        "engineering",
+        "appsec"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-learn-computer-forensics",
+      "type": "book",
+      "name": "Learn Computer Forensics (2nd ed.)",
+      "by": "William Oettinger",
+      "desc": "Hands-on computer forensics: acquisition, analysis and reporting.",
+      "domains": [
+        "operations"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-learn-wireshark",
+      "type": "book",
+      "name": "Learn Wireshark",
+      "by": "Lisa Bock",
+      "desc": "Packet capture and analysis with Wireshark, from basics to troubleshooting and security.",
+      "domains": [
+        "operations",
+        "defensive"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-liars-and-outliers",
+      "type": "book",
+      "name": "Liars and Outliers",
+      "by": "Bruce Schneier",
+      "desc": "How societies build trust and why security is a social problem as much as a technical one.",
+      "domains": [
+        "human",
+        "leadership"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2012",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781118143308",
+      "rating": null
+    },
+    {
+      "id": "book-machine-learning-security-principles",
+      "type": "book",
+      "name": "Machine Learning Security Principles",
+      "by": "John Paul Mueller",
+      "desc": "Threats to ML systems and how to protect data, models and pipelines.",
+      "domains": [
+        "ai",
+        "defensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-malware-analysis-techniques",
+      "type": "book",
+      "name": "Malware Analysis Techniques",
+      "by": "Dylan Barker",
+      "desc": "Practical static and dynamic malware analysis and turning findings into defences.",
+      "domains": [
+        "cti",
+        "defensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-malware-analyst-s-cookbook-and-dvd",
+      "type": "book",
+      "name": "Malware Analyst's Cookbook and DVD",
+      "by": "Michael Ligh, Steven Adair, Blake Hartstein & Matthew Richard",
+      "desc": "Recipes and tools for analysing malicious code.",
+      "domains": [
+        "cti",
+        "defensive"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2010",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9780470613030",
+      "rating": null
+    },
+    {
+      "id": "book-malware-data-science",
+      "type": "book",
+      "name": "Malware Data Science",
+      "by": "Joshua Saxe & Hillary Sanders",
+      "desc": "Applying data science and machine learning to malware detection and analysis.",
+      "domains": [
+        "cti",
+        "ai",
+        "hunting"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2018",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781593278595",
+      "rating": null
+    },
+    {
+      "id": "book-mastering-cloud-security-posture-management",
+      "type": "book",
+      "name": "Mastering Cloud Security Posture Management (CSPM)",
+      "by": "Qamar Nomani",
+      "desc": "Using CSPM tools to find and fix misconfigurations across multi-cloud estates.",
+      "domains": [
+        "cloud",
+        "tvm"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2024",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-mastering-cyber-intelligence",
+      "type": "book",
+      "name": "Mastering Cyber Intelligence",
+      "by": "Jean Nestor M. Dahj",
+      "desc": "Building a threat intelligence capability and using it for detection and response.",
+      "domains": [
+        "cti",
+        "hunting"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-mastering-defensive-security",
+      "type": "book",
+      "name": "Mastering Defensive Security",
+      "by": "Cesar Bravo",
+      "desc": "Wide-ranging practical defence across Windows, Linux, cloud, IoT and networks.",
+      "domains": [
+        "defensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-mastering-kali-linux-for-advanced-penetration-testing",
+      "type": "book",
+      "name": "Mastering Kali Linux for Advanced Penetration Testing (3rd ed.)",
+      "by": "Vijay Kumar Velu",
+      "desc": "Advanced pentesting and red-team techniques with Kali.",
+      "domains": [
+        "offensive"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "published": "2019",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-mastering-malware-analysis",
+      "type": "book",
+      "name": "Mastering Malware Analysis (2nd ed.)",
+      "by": "Alexey Kleymenov & Amr Thabet",
+      "desc": "Reverse engineering malware across Windows, Linux, macOS, mobile and IoT.",
+      "domains": [
+        "cti",
+        "defensive"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-mastering-microsoft-endpoint-manager",
+      "type": "book",
+      "name": "Mastering Microsoft Endpoint Manager",
+      "by": "Christiaan Brinkhoff & Per Larsen",
+      "desc": "Deploying and securing endpoints with Intune and Configuration Manager.",
+      "domains": [
+        "defensive",
+        "cloud"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-mastering-palo-alto-networks",
+      "type": "book",
+      "name": "Mastering Palo Alto Networks",
+      "by": "Tom Piens",
+      "desc": "Configuring and running Palo Alto Networks firewalls.",
+      "domains": [
+        "defensive",
+        "engineering"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-mastering-windows-security-and-hardening",
+      "type": "book",
+      "name": "Mastering Windows Security and Hardening",
+      "by": "Mark Dunkerley & Matt Tumbarello",
+      "desc": "Securing and hardening Windows environments and identities.",
+      "domains": [
+        "defensive",
+        "engineering"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-microsoft-365-security-administration",
+      "type": "book",
+      "name": "Microsoft 365 Security Administration: MS-500 Exam Guide",
+      "by": "Peter Rising",
+      "desc": "Exam guide covering Microsoft 365 identity, threat protection and compliance.",
+      "domains": [
+        "cloud",
+        "defensive",
+        "career"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-microsoft-azure-network-security",
+      "type": "book",
+      "name": "Microsoft Azure Network Security",
+      "by": "Nicholas DiCola & Anthony Roman",
+      "desc": "Designing and implementing network security controls in Azure.",
+      "domains": [
+        "cloud",
+        "architecture"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Microsoft Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-microsoft-azure-security-technologies-certification-and-beyo",
+      "type": "book",
+      "name": "Microsoft Azure Security Technologies Certification and Beyond",
+      "by": "David Okeyode",
+      "desc": "AZ-500 exam preparation with practical Azure security implementation.",
+      "domains": [
+        "cloud",
+        "career"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-microsoft-defender-for-cloud",
+      "type": "book",
+      "name": "Microsoft Defender for Cloud",
+      "by": "Yuri Diogenes & Tom Janetscheck",
+      "desc": "Using Defender for Cloud for posture management and workload protection.",
+      "domains": [
+        "cloud",
+        "defensive",
+        "tvm"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Microsoft Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-microsoft-sentinel",
+      "type": "book",
+      "name": "Microsoft Sentinel",
+      "by": "Yuri Diogenes, Nicholas DiCola & Tiander Turpijn",
+      "desc": "Deploying and operating Microsoft Sentinel for SIEM, SOAR and threat hunting.",
+      "domains": [
+        "operations",
+        "cloud",
+        "hunting"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "publisher": "Microsoft Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-mitre-att-ck-for-dummies",
+      "type": "book",
+      "name": "MITRE ATT&CK for Dummies",
+      "desc": "Short primer on the ATT&CK framework and how security teams use it.",
+      "domains": [
+        "cti",
+        "operations"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-net-zeros-and-ones",
+      "type": "book",
+      "name": "Net Zeros and Ones",
+      "by": "Richard Stiennon et al.",
+      "desc": "How proper data erasure supports privacy, security and sustainability.",
+      "domains": [
+        "privacy",
+        "grc"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2022",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-network-protocols-for-security-professionals",
+      "type": "book",
+      "name": "Network Protocols for Security Professionals",
+      "by": "Yoram Orzach & Deepanshu Khanna",
+      "desc": "How network protocols work, how they are attacked and how to protect them.",
+      "domains": [
+        "engineering",
+        "offensive",
+        "defensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-operationalizing-threat-intelligence",
+      "type": "book",
+      "name": "Operationalizing Threat Intelligence",
+      "by": "Kyle Wilhoit & Joseph Opacki",
+      "desc": "Building a CTI programme and making intelligence actionable.",
+      "domains": [
+        "cti"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-penetration-testing-azure-for-ethical-hackers",
+      "type": "book",
+      "name": "Penetration Testing Azure for Ethical Hackers",
+      "by": "David Okeyode & Karl Fosaaen",
+      "desc": "Attacking Azure environments to find and fix weaknesses.",
+      "domains": [
+        "offensive",
+        "cloud"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-pentesting-azure-applications",
+      "type": "book",
+      "name": "Pentesting Azure Applications",
+      "by": "Matt Burrough",
+      "desc": "Penetration testing applications and services hosted in Azure.",
+      "domains": [
+        "offensive",
+        "cloud"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2018",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781593278632",
+      "rating": null
+    },
+    {
+      "id": "book-pentesting-industrial-control-systems",
+      "type": "book",
+      "name": "Pentesting Industrial Control Systems",
+      "by": "Paul Smith",
+      "desc": "Hands-on attacks against ICS environments in a lab, and what they teach defenders.",
+      "domains": [
+        "icsot",
+        "offensive"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2021",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-powershell-automation-and-scripting-for-cybersecurity",
+      "type": "book",
+      "name": "PowerShell Automation and Scripting for Cybersecurity",
+      "by": "Miriam C. Wiesner",
+      "desc": "Using and securing PowerShell for blue and red team work.",
+      "domains": [
+        "defensive",
+        "offensive",
+        "operations"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-practical-cybersecurity-architecture",
+      "type": "book",
+      "name": "Practical Cybersecurity Architecture (2nd ed.)",
+      "by": "Ed Moyle & Diana Kelley",
+      "desc": "Designing security architecture for enterprises and applications.",
+      "domains": [
+        "architecture"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-practical-forensic-imaging",
+      "type": "book",
+      "name": "Practical Forensic Imaging",
+      "by": "Bruce Nikkel",
+      "desc": "Acquiring forensic images of drives and media with Linux tools.",
+      "domains": [
+        "operations"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2016",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781593277932",
+      "rating": null
+    },
+    {
+      "id": "book-practical-hardware-pentesting",
+      "type": "book",
+      "name": "Practical Hardware Pentesting (2nd ed.)",
+      "by": "Jean-Georges Valle",
+      "desc": "Attacking embedded and hardware devices: interfaces, firmware and side channels.",
+      "domains": [
+        "offensive",
+        "icsot"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-practical-industrial-cybersecurity",
+      "type": "book",
+      "name": "Practical Industrial Cybersecurity: ICS, Industry 4.0, and IIoT",
+      "by": "Charles J. Brooks & Philip A. Craig Jr.",
+      "desc": "Industrial security fundamentals, aligned with the GICSP certification.",
+      "domains": [
+        "icsot"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-practical-iot-hacking",
+      "type": "book",
+      "name": "Practical IoT Hacking",
+      "by": "Fotios Chantzis et al.",
+      "desc": "Testing IoT devices: hardware, radio, firmware and network attacks.",
+      "domains": [
+        "offensive",
+        "icsot"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781718500907",
+      "rating": null
+    },
+    {
+      "id": "book-practical-reverse-engineering",
+      "type": "book",
+      "name": "Practical Reverse Engineering",
+      "by": "Bruce Dang, Alexandre Gazet & Elias Bachaalany",
+      "desc": "Reverse engineering x86, x64, ARM and Windows kernel code.",
+      "domains": [
+        "cti",
+        "offensive"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "published": "2014",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781118787311",
+      "rating": null
+    },
+    {
+      "id": "book-practical-threat-detection-engineering",
+      "type": "book",
+      "name": "Practical Threat Detection Engineering",
+      "by": "Megan Roddie, Jason Deyalsingh & Gary J. Katz",
+      "desc": "The detection engineering lifecycle: requirements, development, testing and maintenance.",
+      "domains": [
+        "operations",
+        "hunting"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-practical-threat-intelligence-and-data-driven-threat-hunting",
+      "type": "book",
+      "name": "Practical Threat Intelligence and Data-Driven Threat Hunting",
+      "by": "Valentina Costa-Gazcón",
+      "desc": "Hands-on threat hunting with ATT&CK, open-source tools and data.",
+      "domains": [
+        "hunting",
+        "cti"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-privilege-escalation-techniques",
+      "type": "book",
+      "name": "Privilege Escalation Techniques",
+      "by": "Alexis Ahmed",
+      "desc": "Windows and Linux privilege escalation for pentesters.",
+      "domains": [
+        "offensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-purple-team-strategies",
+      "type": "book",
+      "name": "Purple Team Strategies",
+      "by": "David Routin, Simon Thoores & Samuel Rossier",
+      "desc": "Combining red and blue teams to measure and improve detection.",
+      "domains": [
+        "defensive",
+        "offensive",
+        "operations"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-python-for-cybersecurity",
+      "type": "book",
+      "name": "Python for Cybersecurity",
+      "by": "Howard E. Poston III",
+      "desc": "Using Python to automate attack and defence techniques mapped to ATT&CK.",
+      "domains": [
+        "offensive",
+        "defensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-python-for-security-and-networking",
+      "type": "book",
+      "name": "Python for Security and Networking (3rd ed.)",
+      "by": "José Manuel Ortega",
+      "desc": "Python scripting for network scanning, forensics and security automation.",
+      "domains": [
+        "engineering",
+        "offensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-quick-start-guide-to-large-language-models",
+      "type": "book",
+      "name": "Quick Start Guide to Large Language Models",
+      "by": "Sinan Ozdemir",
+      "desc": "Practical introduction to building with LLMs, useful background for AI security work.",
+      "domains": [
+        "ai"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Addison-Wesley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-ransomware-and-cyber-extortion",
+      "type": "book",
+      "name": "Ransomware and Cyber Extortion",
+      "by": "Sherri Davidoff, Matt Durrin & Karen E. Sprenger",
+      "desc": "Preparing for and responding to ransomware and extortion incidents.",
+      "domains": [
+        "operations",
+        "defensive",
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Addison-Wesley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-real-world-bug-hunting",
+      "type": "book",
+      "name": "Real-World Bug Hunting",
+      "by": "Peter Yaworski",
+      "desc": "Web vulnerability classes explained through real bug bounty reports.",
+      "domains": [
+        "offensive",
+        "appsec"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2019",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781593278618",
+      "rating": null
+    },
+    {
+      "id": "book-redefining-hacking",
+      "type": "book",
+      "name": "Redefining Hacking",
+      "by": "Omar Santos, Savannah Lazzara & Wesley Thurner",
+      "desc": "Red teaming and bug bounty hunting in an AI-driven world.",
+      "domains": [
+        "offensive",
+        "ai"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2025",
+      "publisher": "Pearson",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-responsible-ai",
+      "type": "book",
+      "name": "Responsible AI: Best Practices for Creating Trustworthy AI Systems",
+      "by": "Qinghua Lu et al.",
+      "desc": "Patterns and practices for building AI systems that are safe, fair and accountable.",
+      "domains": [
+        "ai",
+        "grc"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Addison-Wesley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-rootkits-and-bootkits",
+      "type": "book",
+      "name": "Rootkits and Bootkits",
+      "by": "Alex Matrosov, Eugene Rodionov & Sergey Bratus",
+      "desc": "Reversing modern malware and next-generation threats at boot and firmware level.",
+      "domains": [
+        "cti",
+        "defensive"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "published": "2019",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781593277161",
+      "rating": null
+    },
+    {
+      "id": "book-secrets-and-lies",
+      "type": "book",
+      "name": "Secrets and Lies: Digital Security in a Networked World",
+      "by": "Bruce Schneier",
+      "desc": "Why technology alone cannot deliver security, and how to think about risk.",
+      "domains": [
+        "leadership",
+        "architecture"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2015",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-securing-5g-and-evolving-architectures",
+      "type": "book",
+      "name": "Securing 5G and Evolving Architectures",
+      "by": "Pramod Nair",
+      "desc": "Security architecture for 5G networks and their evolving deployment models.",
+      "domains": [
+        "architecture",
+        "engineering"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "published": "2021",
+      "publisher": "Addison-Wesley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-serious-cryptography",
+      "type": "book",
+      "name": "Serious Cryptography",
+      "by": "Jean-Philippe Aumasson",
+      "desc": "Practical introduction to modern encryption and how it fails.",
+      "domains": [
+        "engineering"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2017",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781593278267",
+      "rating": null
+    },
+    {
+      "id": "book-social-engineering",
+      "type": "book",
+      "name": "Social Engineering: The Science of Human Hacking (2nd ed.)",
+      "by": "Christopher Hadnagy",
+      "desc": "How social engineers manipulate people, and how to defend against it.",
+      "domains": [
+        "human",
+        "offensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2018",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781119433385",
+      "rating": null
+    },
+    {
+      "id": "book-software-transparency",
+      "type": "book",
+      "name": "Software Transparency",
+      "by": "Chris Hughes & Tony Turner",
+      "desc": "Software supply chain security, SBOMs and transparency in a software-driven society.",
+      "domains": [
+        "appsec",
+        "grc"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-the-tangled-web",
+      "type": "book",
+      "name": "The Tangled Web",
+      "by": "Michal Zalewski",
+      "desc": "How web browsers and their security models really work, and where they break.",
+      "domains": [
+        "appsec",
+        "engineering"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "published": "2011",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781593273880",
+      "rating": null
+    },
+    {
+      "id": "book-tcp-ip-illustrated-volume-1",
+      "type": "book",
+      "name": "TCP/IP Illustrated, Volume 1 (2nd ed.)",
+      "by": "Kevin R. Fall & W. Richard Stevens",
+      "desc": "The definitive guide to how the TCP/IP protocols behave on the wire.",
+      "domains": [
+        "engineering"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2011",
+      "publisher": "Addison-Wesley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9780321336316",
+      "rating": null
+    },
+    {
+      "id": "book-the-active-defender",
+      "type": "book",
+      "name": "The Active Defender",
+      "by": "Catherine J. Ullman",
+      "desc": "Why defenders should adopt an offensive mindset and how to build it.",
+      "domains": [
+        "defensive",
+        "offensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-the-ai-revolution-in-networking-cybersecurity-and-emerging-t",
+      "type": "book",
+      "name": "The AI Revolution in Networking, Cybersecurity, and Emerging Technologies",
+      "by": "Omar Santos, Samer Salam & Hazim Dahir",
+      "desc": "How AI is changing networking, security operations and emerging technologies.",
+      "domains": [
+        "ai",
+        "engineering"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2024",
+      "publisher": "Addison-Wesley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-the-art-of-attack",
+      "type": "book",
+      "name": "The Art of Attack",
+      "by": "Maxie Reynolds",
+      "desc": "Developing the attacker mindset and applying it to security work.",
+      "domains": [
+        "offensive",
+        "human"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-the-art-of-deception",
+      "type": "book",
+      "name": "The Art of Deception",
+      "by": "Kevin D. Mitnick & William L. Simon",
+      "desc": "Classic account of social engineering and the human side of security.",
+      "domains": [
+        "human",
+        "stories"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2002",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9780471237129",
+      "rating": null
+    },
+    {
+      "id": "book-the-art-of-intrusion",
+      "type": "book",
+      "name": "The Art of Intrusion",
+      "by": "Kevin D. Mitnick & William L. Simon",
+      "desc": "True stories of real intrusions and the hackers behind them.",
+      "domains": [
+        "stories",
+        "offensive"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2005",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-the-art-of-memory-forensics",
+      "type": "book",
+      "name": "The Art of Memory Forensics",
+      "by": "Michael Hale Ligh, Andrew Case, Jamie Levy & AAron Walters",
+      "desc": "Detecting malware and threats in Windows, Linux and Mac memory with Volatility.",
+      "domains": [
+        "operations",
+        "hunting"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "published": "2014",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781118825099",
+      "rating": null
+    },
+    {
+      "id": "book-the-battle-for-your-computer",
+      "type": "book",
+      "name": "The Battle for Your Computer",
+      "by": "Alan D. Smith",
+      "desc": "How Israel's security ecosystem grew into a global force in the cyber industry.",
+      "domains": [
+        "stories",
+        "leadership"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-the-foundations-of-threat-hunting",
+      "type": "book",
+      "name": "The Foundations of Threat Hunting",
+      "by": "Chad Maurice, Jeremy Thompson & William Copeland",
+      "desc": "Building a threat hunting programme from first principles.",
+      "domains": [
+        "hunting",
+        "operations"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-the-hacker-playbook-3",
+      "type": "book",
+      "name": "The Hacker Playbook 3",
+      "by": "Peter Kim",
+      "desc": "Red team playbook covering modern attack paths and evasion.",
+      "domains": [
+        "offensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2018",
+      "publisher": "Secure Planet",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781980901754",
+      "rating": null
+    },
+    {
+      "id": "book-the-modern-security-operations-center",
+      "type": "book",
+      "name": "The Modern Security Operations Center",
+      "by": "Joseph Muniz",
+      "desc": "Designing, staffing and running a SOC.",
+      "domains": [
+        "operations",
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Addison-Wesley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-the-pentester-blueprint",
+      "type": "book",
+      "name": "The Pentester BluePrint",
+      "by": "Phillip L. Wylie & Kim Crawley",
+      "desc": "How to start a career as an ethical hacker.",
+      "domains": [
+        "career",
+        "offensive"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2020",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-the-rise-of-ai-agents",
+      "type": "book",
+      "name": "The Rise of AI Agents",
+      "desc": "How AI agents combine with blockchain and quantum computing, and what that means for security.",
+      "domains": [
+        "ai"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-the-security-culture-playbook",
+      "type": "book",
+      "name": "The Security Culture Playbook",
+      "by": "Perry Carpenter & Kai Roer",
+      "desc": "An executive guide to building a strong security culture.",
+      "domains": [
+        "human",
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-the-shellcoder-s-handbook",
+      "type": "book",
+      "name": "The Shellcoder's Handbook (2nd ed.)",
+      "by": "Chris Anley et al.",
+      "desc": "Discovering and exploiting security holes, from stack overflows to kernel bugs.",
+      "domains": [
+        "offensive"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "published": "2007",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9780470080238",
+      "rating": null
+    },
+    {
+      "id": "book-the-ultimate-kali-linux-book",
+      "type": "book",
+      "name": "The Ultimate Kali Linux Book (2nd ed.)",
+      "by": "Glen D. Singh",
+      "desc": "Hands-on penetration testing with Kali Linux, from lab setup to exploitation.",
+      "domains": [
+        "offensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-the-vulnerability-researcher-s-handbook",
+      "type": "book",
+      "name": "The Vulnerability Researcher's Handbook",
+      "by": "Benjamin Strout",
+      "desc": "Discovering, reporting and publishing vulnerabilities responsibly.",
+      "domains": [
+        "tvm",
+        "offensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-the-web-application-hacker-s-handbook",
+      "type": "book",
+      "name": "The Web Application Hacker's Handbook (2nd ed.)",
+      "by": "Dafydd Stuttard & Marcus Pinto",
+      "desc": "The classic methodology for finding and exploiting web application flaws.",
+      "domains": [
+        "appsec",
+        "offensive"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2011",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781118026472",
+      "rating": null
+    },
+    {
+      "id": "book-threat-hunting-in-the-cloud",
+      "type": "book",
+      "name": "Threat Hunting in the Cloud",
+      "by": "Chris Peiris, Binil Pillai & Abbas Kudrati",
+      "desc": "Hunting threats across AWS, Azure and other cloud platforms.",
+      "domains": [
+        "hunting",
+        "cloud"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-threat-hunting-with-elastic-stack",
+      "type": "book",
+      "name": "Threat Hunting with Elastic Stack",
+      "by": "Andrew Pease",
+      "desc": "Using Elastic Security to collect data and hunt for threats.",
+      "domains": [
+        "hunting",
+        "operations"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-threats",
+      "type": "book",
+      "name": "Threats: What Every Engineer Should Learn From Star Wars",
+      "by": "Adam Shostack",
+      "desc": "Threat modelling concepts explained through Star Wars for engineers.",
+      "domains": [
+        "architecture",
+        "appsec"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "isbn": "9781119895169",
+      "rating": null
+    },
+    {
+      "id": "book-transformational-security-awareness",
+      "type": "book",
+      "name": "Transformational Security Awareness",
+      "by": "Perry Carpenter",
+      "desc": "Driving secure behaviour with lessons from neuroscience, storytelling and marketing.",
+      "domains": [
+        "human",
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2019",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-tribe-of-hackers-blue-team",
+      "type": "book",
+      "name": "Tribe of Hackers Blue Team",
+      "by": "Marcus J. Carey & Jennifer Jin",
+      "desc": "Advice from experienced defenders on blue team work and careers.",
+      "domains": [
+        "defensive",
+        "career"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2020",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-tribe-of-hackers-red-team",
+      "type": "book",
+      "name": "Tribe of Hackers Red Team",
+      "by": "Marcus J. Carey & Jennifer Jin",
+      "desc": "Advice from experienced red teamers on offensive work and careers.",
+      "domains": [
+        "offensive",
+        "career"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2019",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-tribe-of-hackers-security-leaders",
+      "type": "book",
+      "name": "Tribe of Hackers Security Leaders",
+      "by": "Marcus J. Carey & Jennifer Jin",
+      "desc": "Advice from CISOs and security leaders on leading teams and programmes.",
+      "domains": [
+        "leadership",
+        "career"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2020",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-trust-in-computer-systems-and-the-cloud",
+      "type": "book",
+      "name": "Trust in Computer Systems and the Cloud",
+      "by": "Mike Bursell",
+      "desc": "What trust means in computing, and how to reason about it in cloud and confidential computing.",
+      "domains": [
+        "architecture",
+        "cloud",
+        "engineering"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2021",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-unauthorised-access",
+      "type": "book",
+      "name": "Unauthorised Access: Physical Penetration Testing for IT Security Teams",
+      "by": "Wil Allsopp",
+      "desc": "Planning and running physical penetration tests.",
+      "domains": [
+        "offensive",
+        "human"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2009",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-we-have-root",
+      "type": "book",
+      "name": "We Have Root",
+      "by": "Bruce Schneier",
+      "desc": "Essays on security, privacy and technology policy.",
+      "domains": [
+        "leadership",
+        "privacy"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2019",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-wireless-security-architecture",
+      "type": "book",
+      "name": "Wireless Security Architecture",
+      "by": "Jennifer Minella",
+      "desc": "Designing and maintaining secure enterprise wireless networks.",
+      "domains": [
+        "architecture",
+        "engineering"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-wireshark-for-security-professionals",
+      "type": "book",
+      "name": "Wireshark for Security Professionals",
+      "by": "Jessey Bullock & Jeff T. Parker",
+      "desc": "Using Wireshark with Metasploit for security analysis and testing.",
+      "domains": [
+        "operations",
+        "offensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2017",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-zero-trust-architecture",
+      "type": "book",
+      "name": "Zero Trust Architecture",
+      "by": "Cindy Green-Ortiz, Brandon Fowler, David Houck, Hank Hensel, Patrick Lloyd, Andrew McDonald & Jason Frazier",
+      "desc": "Designing and implementing zero trust with Cisco's framework.",
+      "domains": [
+        "architecture"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Cisco Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
+    },
+    {
+      "id": "book-zero-trust-overview-and-playbook-introduction",
+      "type": "book",
+      "name": "Zero Trust Overview and Playbook Introduction",
+      "by": "Mark Simos & Nikhil Kumar",
+      "desc": "Introduction to the Zero Trust Playbook series: strategy, roles and adoption.",
+      "domains": [
+        "architecture",
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null
     }
   ]
 }
