@@ -7,7 +7,7 @@ import { getText, getJson, sleep } from "./lib.mjs";
 const taxonomy = JSON.parse(readFileSync(new URL("../data/taxonomy.json", import.meta.url), "utf8"));
 const DOMAIN_KEYS = taxonomy.domains.map(d => d.key);
 export { inferCadence, parsePodnewsRating, bestMatch, appleId } from "./pure.mjs";
-import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch } from "./pure.mjs";
+import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher } from "./pure.mjs";
 
 /** Apple Podcasts directory (free, no key): artwork, feed URL, canonical link, episode count. */
 export async function lookupApple(item) {
@@ -57,7 +57,7 @@ export async function lookupBook(item) {
       return {
         isbnVerified: matches, isbnTitle: ed.title,
         logo: ed.covers?.[0] > 0 ? `https://covers.openlibrary.org/b/id/${ed.covers[0]}-M.jpg` : undefined,
-        openlibrary: `https://openlibrary.org/isbn/${isbn}`, publisher: ed.publishers?.[0], year,
+        openlibrary: `https://openlibrary.org/isbn/${isbn}`, publisher: canonPublisher(ed.publishers?.[0]), year,
         rating: ratings?.summary?.count >= 5 ? { v: Math.round(ratings.summary.average * 10) / 10, n: ratings.summary.count, src: "Open Library" } : null
       };
     }
@@ -77,7 +77,7 @@ export async function lookupBook(item) {
     openlibrary: `https://openlibrary.org${d.key}`,
     rating: d.ratings_count >= 5 ? { v: Math.round(d.ratings_average * 10) / 10, n: d.ratings_count, src: "Open Library" } : null,
     // Suggested from the best-matching edition; flagged unverified so an admin can confirm the edition.
-    suggestedIsbn: foundIsbn, publisher: ed.publisher?.[0], year: (ed.publish_date?.match(/\d{4}/) || [])[0] || (d.first_publish_year ? String(d.first_publish_year) : undefined)
+    suggestedIsbn: foundIsbn, publisher: canonPublisher(ed.publisher?.[0]), year: (ed.publish_date?.match(/\d{4}/) || [])[0] || (d.first_publish_year ? String(d.first_publish_year) : undefined)
   };
 }
 

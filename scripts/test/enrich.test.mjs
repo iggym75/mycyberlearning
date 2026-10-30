@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { inferCadence, parsePodnewsRating, bestMatch, appleId, normaliseIsbn, titlesMatch } from "../pure.mjs";
+import { inferCadence, parsePodnewsRating, bestMatch, appleId, normaliseIsbn, titlesMatch, canonPublisher } from "../pure.mjs";
 
 const NOW = Date.parse("2026-10-30T12:00:00Z");
 const series = (n, everyDays, endDaysAgo = 1) => Array.from({ length: n }, (_, i) => new Date(NOW - (endDaysAgo + i * everyDays) * 86_400_000).toUTCString());
@@ -57,4 +57,14 @@ test("titlesMatch ignores subtitles, editions and leading 'The'", () => {
   assert.ok(titlesMatch("Zero Trust Networks (2nd ed.)", "Zero trust networks: building secure systems in untrusted networks"));
   assert.ok(titlesMatch("The Cybersecurity Manager's Guide", "Cybersecurity Manager's Guide"));
   assert.ok(!titlesMatch("Security as Code", "Learning Cloud Security"));
+});
+
+test("publisher names are normalised", () => {
+  assert.equal(canonPublisher("Packt Publishing"), "Packt");
+  assert.equal(canonPublisher("No Starch Press, Inc."), "No Starch Press");
+  assert.equal(canonPublisher("John Wiley & Sons"), "Wiley");
+  assert.equal(canonPublisher("O'Reilly Media, Inc."), "O'Reilly Media");
+  assert.equal(canonPublisher("Addison-Wesley Professional"), "Addison-Wesley");
+  assert.equal(canonPublisher("Bloomsbury Publishing"), "Bloomsbury");
+  assert.equal(canonPublisher(undefined), undefined);
 });

@@ -155,6 +155,13 @@ swa start frontend/dist --api-location api
   STORAGE_CONNECTION_STRING=... npm run seed                          # publish
   ```
   Open Library supplies ISBN, publisher and year; Claude writes a short description, assigns domains and level, and drops non-security titles. Duplicates are skipped.
+- **Enrich books from your Calibre library**: fills exact ISBNs (your editions), publishers, years and optionally cover thumbnails. Read-only on your library.
+  ```bash
+  python3 scripts/import_calibre.py "/path/to/Calibre Library"                    # preview
+  python3 scripts/import_calibre.py "/path/to/Calibre Library" --apply --covers   # write changes + thumbnails (pip install pillow to resize)
+  npm run build && STORAGE_CONNECTION_STRING=... npm run seed -- --overwrite
+  ```
+  Add `--add-missing` to also list Calibre books not yet in the catalogue (the refresh job then tags them with Claude).
 - **Change the domain list**: edit `data/taxonomy.json`, run `npm run build`, push, then run the refresh workflow with **retag** ticked.
 - **With Claude Code**: open the repo and ask, e.g. "add a 'Digital Forensics' domain and retag", "add a books tab sorted by Goodreads rating", "show the last episode date on cards". `CLAUDE.md` gives it the context.
 

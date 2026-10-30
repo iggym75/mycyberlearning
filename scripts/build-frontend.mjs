@@ -29,5 +29,9 @@ if (bareIdx > -1) {
   await mkdir(join(root, "frontend/dist"), { recursive: true });
   await writeFile(join(root, "frontend/dist/index.html"), doc);
   await copyFile(join(root, "frontend/staticwebapp.config.json"), join(root, "frontend/dist/staticwebapp.config.json"));
+  // Book cover thumbnails imported from Calibre (optional).
+  const { cp, access } = await import("node:fs/promises");
+  if (await access(join(root, "frontend/covers")).then(() => true, () => false))
+    await cp(join(root, "frontend/covers"), join(root, "frontend/dist/covers"), { recursive: true });
   console.log("wrote frontend/dist/index.html");
 }
