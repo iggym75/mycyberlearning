@@ -1,5 +1,6 @@
 <title>My Cyber Learning</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
 <meta name="description" content="My Cyber Learning: a curated, filterable library of cybersecurity podcasts and books, rated by listeners and the community.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +48,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .bar .wrap{display:flex;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
 .brand svg{flex:none}
+.brand .brand-hl{color:var(--signal)}
 .brand b{font-family:var(--f-display);font-weight:800;font-size:19px;letter-spacing:-.01em}
 .brand small{display:block;font-family:var(--f-mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;margin-top:-2px}
 .search{flex:1 1 260px;min-width:0;position:relative}
@@ -138,6 +140,7 @@ button.logo:hover .zoom-hint,button.logo:focus-visible .zoom-hint{opacity:1}
 .vote button:hover{background:var(--sunk)}
 .vote button[aria-pressed="true"].up{color:var(--up)}
 .vote button[aria-pressed="true"].down{color:var(--down)}
+.vote button[aria-pressed="true"] svg :is(path,rect){fill:currentColor;fill-opacity:.22}
 .vote output{font-family:var(--f-mono);font-size:13px;min-width:3ch;text-align:center;font-variant-numeric:tabular-nums}
 /* Platform links: coloured, labelled chips. Colours are darkened for contrast on white and lightened for dark mode.
    Search fallbacks (no direct link stored) stay grey with a dotted border. Phones show icons only. */
@@ -261,8 +264,8 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 <header class="bar">
   <div class="wrap">
     <a class="brand" href="#library" aria-label="My Cyber Learning home">
-      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="var(--signal)"/><path d="M17 7l8 3.2v6.3c0 5-3.4 8.6-8 10.5-4.6-1.9-8-5.5-8-10.5v-6.3z" fill="none" stroke="var(--signal-ink)" stroke-width="2"/><path d="M13 17.5h1.6M15.8 15v5M18.2 13v9M20.6 15.5v4" stroke="var(--signal-ink)" stroke-width="1.8" stroke-linecap="round"/></svg>
-      <span><b>My Cyber Learning</b><small>mycyberlearning.co.uk</small></span>
+      <svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="var(--signal)"/><g fill="none" stroke="var(--signal-ink)" stroke-linecap="round" stroke-width="3.2"><path d="M17.5 30a14.5 14.5 0 0 1 29 0"/><path d="M11 30a21 21 0 0 1 42 0" opacity=".55"/></g><g fill="var(--signal-ink)"><circle cx="32" cy="27" r="5"/><path d="M29.4 29.5h5.2l1.6 10.5h-8.4z"/><path d="M9 44.5c8-3.6 16-3.6 22 .9v8.6c-6-4.1-14-4.1-22-.6zM55 44.5c-8-3.6-16-3.6-22 .9v8.6c6-4.1 14-4.1 22-.6z"/></g></svg>
+      <span><b>My <span class="brand-hl">Cyber</span> Learning</b><small>mycyberlearning.co.uk</small></span>
     </a>
     <nav class="views" aria-label="Sections">
       <a href="#library" data-view="library">Library</a>
@@ -620,8 +623,8 @@ const ICONS = {
   goodreads:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6.5 3.5h11v17l-5.5-4-5.5 4z"/></svg>',
   book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/></svg>',
   bundle:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M3 12h18M12 8v13M12 8c-1.5-3-5-4-5-1.5S10 8 12 8zm0 0c1.5-3 5-4 5-1.5S14 8 12 8z"/></svg>',
-  up:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>',
-  down:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>'
+  up:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10.5v10"/><path d="M7 10.5 11.2 3c1.6.1 2.7 1.6 2.3 3.2L12.8 9.5h5.7a2 2 0 0 1 2 2.4l-1.4 6.8a2 2 0 0 1-2 1.8H7"/><rect x="3" y="10.5" width="4" height="10" rx="1"/></svg>',
+  down:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="rotate(180 12 12)"><path d="M7 10.5v10"/><path d="M7 10.5 11.2 3c1.6.1 2.7 1.6 2.3 3.2L12.8 9.5h5.7a2 2 0 0 1 2 2.4l-1.4 6.8a2 2 0 0 1-2 1.8H7"/><rect x="3" y="10.5" width="4" height="10" rx="1"/></g></svg>'
 };
 function hue(s){ let h=0; for (const c of s) h=(h*31+c.charCodeAt(0))>>>0; return h%360; }
 function initials(n){ return n.replace(/^(the|a)\s+/i,"").split(/[\s\-:.]+/).filter(w=>/[A-Za-z0-9]/.test(w)).slice(0,2).map(w=>w[0].toUpperCase()).join(""); }
@@ -693,9 +696,9 @@ function card(i){
     </dl>
     <div class="foot">
       <div class="vote" role="group" aria-label="Community vote for ${esc(i.name)}">
-        <button type="button" class="up" data-vote="1" aria-pressed="${mv===1}" aria-label="Upvote">${ICONS.up}</button>
+        <button type="button" class="up" data-vote="1" aria-pressed="${mv===1}" aria-label="Thumbs up">${ICONS.up}</button>
         <output aria-label="Community score">${score(c)}</output>
-        <button type="button" class="down" data-vote="-1" aria-pressed="${mv===-1}" aria-label="Downvote">${ICONS.down}</button>
+        <button type="button" class="down" data-vote="-1" aria-pressed="${mv===-1}" aria-label="Thumbs down">${ICONS.down}</button>
       </div>
       <div class="links">${platLinks(i)}</div>
     </div>
