@@ -3,12 +3,12 @@
 //             -> aggregated rating -> Claude tags (only where tags aren't locked by an admin)
 //   Books:    Open Library (cover, rating)
 // Usage:
-//   STORAGE_CONNECTION_STRING=... ANTHROPIC_API_KEY=... node scripts/refresh.mjs
+//   CLOUDFLARE_ACCOUNT_ID=... D1_DATABASE_ID=... CLOUDFLARE_API_TOKEN=... ANTHROPIC_API_KEY=... node scripts/refresh.mjs
 //   node scripts/refresh.mjs --dry-run [--limit 5] [--only darknet-diaries]   (reads data/catalogue.json, writes nothing)
 //   --retag   re-run Claude tagging on all unlocked items, not just untagged/community ones
 //   --reimage re-download artwork/covers even for items that already have a stored image
 import { readFile, writeFile } from "node:fs/promises";
-import { itemsTable, listItems, itemToRow, sleep, saveImage } from "./lib.mjs";
+import { openD1, listItems, upsertItem, sleep, saveImage } from "./lib.mjs";
 import { hasLocalImage } from "./pure.mjs";
 import { lookupApple, readFeed, lookupRating, lookupBook, claudeTag } from "./enrich.mjs";
 
@@ -21,15 +21,15 @@ const today = new Date().toISOString().slice(0, 10);
 let rows;
 if (dry) {
   const { items } = JSON.parse(await readFile(new URL("../data/catalogue.json", import.meta.url), "utf8"));
-  rows = items.map(item => ({ item, row: {} }));
-} else rows = await listItems(await itemsTable());
+  rows = items.map(item => ({ item }));
+} else rows = (await listItems(await openD1())).map(item => ({ item }));
 if (only) rows = rows.filter(r => r.item.id === only);
 rows = rows.slice(0, limit);
 
-const t = dry ? null : await itemsTable();
+const db = dry ? null : await openD1();
 const report = { checked: 0, changed: 0, tagged: 0, images: 0, failed: [], notes: [] };
 
-for (const { item, row } of rows) {
+for (const { item } of rows) {
   report.checked++;
   const before = JSON.stringify(item);
   const next = { ...item };
@@ -89,7 +89,7 @@ for (const { item, row } of rows) {
 
     if (JSON.stringify(next) !== before) {
       report.changed++;
-      if (!dry) await t.updateEntity(itemToRow(next, row), "Replace", { etag: row.etag });
+      if (!dry) await upsertItem(db, next); // content only: vote tallies are never touched
       else console.log(`\n${item.id}`, JSON.stringify({ freq: next.freq, launched: next.launched, status: next.status, rating: next.rating, logo: !!next.logo, domains: next.domains }));
     }
   } catch (e) {

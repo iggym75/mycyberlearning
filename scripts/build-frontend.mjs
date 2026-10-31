@@ -1,8 +1,8 @@
 // Builds the static site: injects the seed catalogue into the page template.
 // Usage: node scripts/build-frontend.mjs [--bare <outfile>]
-//   default  -> frontend/dist/index.html (full HTML document for Azure Static Web Apps)
+//   default  -> frontend/dist/index.html (full HTML document served by the Cloudflare Worker)
 //   --bare   -> page body only (used for previews)
-import { readFile, writeFile, mkdir, copyFile } from "node:fs/promises";
+import { readFile, writeFile, mkdir, copyFile, rm } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -11,8 +11,8 @@ const tpl = await readFile(join(root, "frontend/index.template.html"), "utf8");
 const catalogue = JSON.parse(await readFile(join(root, "data/catalogue.json"), "utf8"));
 const taxonomy = JSON.parse(await readFile(join(root, "data/taxonomy.json"), "utf8"));
 
-// Keep the API's copy of the taxonomy in sync (the API is deployed on its own).
-await copyFile(join(root, "data/taxonomy.json"), join(root, "api/src/lib/taxonomy.json"));
+// Keep the Worker's copy of the taxonomy in sync.
+await copyFile(join(root, "data/taxonomy.json"), join(root, "worker/src/lib/taxonomy.json"));
 
 // Embed the latest briefing as an offline fallback (the live page fetches news/*.json).
 const readJson = async f => JSON.parse(await readFile(join(root, f), "utf8"));
@@ -30,9 +30,10 @@ if (bareIdx > -1) {
   console.log("wrote", out);
 } else {
   const doc = `<!doctype html>\n<html lang="en-GB">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n${body.slice(0, body.indexOf("</style>") + 8)}\n</head>\n<body>\n${body.slice(body.indexOf("</style>") + 8)}\n</body>\n</html>\n`;
+  await rm(join(root, "frontend/dist"), { recursive: true, force: true }); // start clean so removed files are never deployed
   await mkdir(join(root, "frontend/dist"), { recursive: true });
   await writeFile(join(root, "frontend/dist/index.html"), doc);
-  await copyFile(join(root, "frontend/staticwebapp.config.json"), join(root, "frontend/dist/staticwebapp.config.json"));
+  await copyFile(join(root, "frontend/_headers"), join(root, "frontend/dist/_headers"));
   await copyFile(join(root, "frontend/logo.svg"), join(root, "frontend/dist/logo.svg"));
   // Book cover thumbnails imported from Calibre (optional).
   const { cp, access } = await import("node:fs/promises");

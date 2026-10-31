@@ -36,6 +36,7 @@
   --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -14px rgba(0,0,0,.6);
   color-scheme:dark}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;margin:0}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--surface)}
 a{color:var(--signal)}
@@ -471,7 +472,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 <dialog id="privacyDlg" aria-labelledby="privTitle">
   <div class="dlg-h"><h2 id="privTitle">Privacy notice</h2><button class="btn ghost sm" type="button" data-close>Close</button></div>
   <div class="dlg-b privacy">
-    <p>My Cyber Learning (mycyberlearning.co.uk) is run by Ian Moore, who is the data controller. Version 2026-10-30.</p>
+    <p>My Cyber Learning (mycyberlearning.co.uk) is run by Ian Moore, who is the data controller. Version 2026-10-31.</p>
     <h3>Daily briefing subscribers</h3>
     <ul>
       <li><b>What we keep:</b> your email address, and if you give them, your first name, country and topic preferences, plus when and how you agreed.</li>
@@ -484,11 +485,12 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
     <ul>
       <li>We count page views by day, section, time-zone region (for example Europe/London), language, device type and referring website. We don't use cookies, we don't store IP addresses or any identifier, and we can't tell individual visitors apart.</li>
       <li>If your browser sends Global Privacy Control or Do Not Track, we don't count you at all.</li>
+      <li>Visitors never receive a cookie. The site's administrator signs in with one essential session cookie.</li>
       <li>Votes are remembered with a random number stored in your browser; on our servers it is kept only as a one-way hash.</li>
       <li>If you suggest a resource, we keep a one-way hash of your IP address to stop spam, and any email you add is used only to ask about that suggestion. Both are deleted once the suggestion is reviewed, or after 90 days.</li>
     </ul>
     <h3>Who processes data for us</h3>
-    <p>Microsoft Azure (hosting, database and email delivery, UK/EU regions) and GitHub (building the site). Anthropic's Claude writes the briefing summaries from public podcast notes; no subscriber or visitor data is ever sent to it.</p>
+    <p>Cloudflare (hosting and database; the database is stored in the EU), Resend (delivering the briefing emails) and GitHub (building the site). Some of these companies are based in the US; we rely on their data protection terms for any transfer. Anthropic's Claude writes the briefing summaries from public podcast notes; no subscriber or visitor data is ever sent to it.</p>
     <h3>Your rights</h3>
     <p>You can ask for a copy of your data, a correction or deletion, or withdraw consent at any time. Contact privacy@mycyberlearning.co.uk. You can also complain to the Information Commissioner's Office (ico.org.uk).</p>
   </div>
@@ -529,7 +531,7 @@ const api = {
       const r = await fetch("/api/items", {headers:{accept:"application/json"}});
       if (!r.ok) throw 0;
       const j = await r.json(); this.remote = true;
-      try { const me = await (await fetch("/.auth/me")).json(); this.isAdmin = (me.clientPrincipal?.userRoles||[]).includes("admin"); } catch {}
+      try { const me = await (await fetch("/api/me", {headers:{accept:"application/json"}})).json(); this.isAdmin = me.admin === true; } catch {}
       return j.items;
     } catch {
       this.remote = false;
@@ -875,7 +877,7 @@ $("#submitForm").addEventListener("submit", async e => {
 async function refreshAdminBadge(){ if(!api.isAdmin) return; const q = await api.queue(); $("#adminBtn").hidden=false; $("#adminBtn").textContent = `Admin · ${q.length} pending`; }
 $("#adminBtn").addEventListener("click", async () => {
   const q = await api.queue();
-  $("#queue").innerHTML = `<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" type="button" id="openInsights">Subscribers &amp; visitors</button></div>` + (api.remote?"":`<p class="note" style="margin:0">Demo mode: the review queue and edits are stored in this browser only. On the live site this panel appears only for accounts with the admin role.</p>`) +
+  $("#queue").innerHTML = `<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" type="button" id="openInsights">Subscribers &amp; visitors</button>${api.remote?`<a class="btn sm ghost" href="/auth/logout" style="margin-left:auto">Sign out</a>`:""}</div>` + (api.remote?"":`<p class="note" style="margin:0">Demo mode: the review queue and edits are stored in this browser only. On the live site this panel appears only for accounts with the admin role.</p>`) +
     (q.length ? q.map(s=>`<div class="qitem" data-sid="${esc(s.id)}"><h4>${esc(s.name)} <span class="badge">${esc(s.type)}</span></h4><div class="by">${esc(s.by||"")}</div><p class="desc" style="margin:0">${esc(s.desc)}</p>
       <div class="tags">${(s.domains||[]).map(d=>`<span class="tag">${esc(DOM[d]?.label||d)}</span>`).join("")}</div>
       <div class="muted" style="font-size:12.5px;word-break:break-all">${["web","apple","spotify","amazon","youtube","rss","isbn","publisher"].filter(k=>s[k]).map(k=>`${k}: ${esc(s[k])}`).join(" · ")}</div>

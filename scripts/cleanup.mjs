@@ -2,34 +2,19 @@
 //  - unconfirmed sign-ups are deleted after 7 days
 //  - aggregate visit counters older than 13 months are deleted
 //  - suggestions pending over 90 days lose the submitter's email and IP hash
-import { TableClient, odata } from "@azure/data-tables";
+import { openD1 } from "./d1.mjs";
 
-const conn = process.env.STORAGE_CONNECTION_STRING;
-if (!conn) throw new Error("STORAGE_CONNECTION_STRING is not set");
-const now = Date.now();
-const subs = TableClient.fromConnectionString(conn, "subscribers");
-let pending = 0;
-try {
-  for await (const r of subs.listEntities({ queryOptions: { filter: odata`PartitionKey eq 'sub' and status eq 'pending'` } })) {
-    if (r.status === "pending" && Date.parse(r.requestedAt || 0) < now - 7 * 864e5) { await subs.deleteEntity("sub", r.rowKey); pending++; }
-  }
-} catch (e) { if (e.statusCode !== 404) throw e; }
-
-const stats = TableClient.fromConnectionString(conn, "stats");
-const cutoff = new Date(now - 395 * 864e5).toISOString().slice(0, 10);
-let old = 0;
-try {
-  for await (const r of stats.listEntities({ queryOptions: { filter: odata`PartitionKey lt ${cutoff}` } })) { await stats.deleteEntity(r.partitionKey, r.rowKey); old++; }
-} catch (e) { if (e.statusCode !== 404) throw e; }
-// Suggestions waiting more than 90 days: drop the submitter's email and IP hash, keep the suggestion itself.
-const subsT = TableClient.fromConnectionString(conn, "submissions");
+const db = await openD1();
+const now = Date.now(), iso = ms => new Date(ms).toISOString();
+const pending = await db.prepare("DELETE FROM subscribers WHERE status = 'pending' AND (requested_at IS NULL OR requested_at < ?)").bind(iso(now - 7 * 864e5)).run();
+const old = await db.prepare("DELETE FROM stats WHERE day < ?").bind(iso(now - 395 * 864e5).slice(0, 10)).run();
+const { results } = await db.prepare("SELECT id, data, ip_hash FROM submissions WHERE status = 'pending' AND submitted < ?").bind(iso(now - 90 * 864e5)).all();
 let scrubbed = 0;
-try {
-  for await (const r of subsT.listEntities({ queryOptions: { filter: odata`PartitionKey eq 'pending'` } })) {
-    if (Date.parse(r.submitted || 0) >= now - 90 * 864e5) continue;
-    const { email, ...rest } = JSON.parse(r.data || "{}");
-    if (!email && !r.ipHash) continue;
-    await subsT.updateEntity({ partitionKey: r.partitionKey, rowKey: r.rowKey, data: JSON.stringify(rest), ipHash: "" }, "Merge"); scrubbed++;
-  }
-} catch (e) { if (e.statusCode !== 404) throw e; }
-console.log(`Retention: deleted ${pending} unconfirmed sign-ups and ${old} old visit counters; removed contact details from ${scrubbed} old suggestions.`);
+for (const r of results) {
+  let data = {}; try { data = JSON.parse(r.data || "{}"); } catch {}
+  if (!data.email && !r.ip_hash) continue;
+  const { email, ...rest } = data;
+  await db.prepare("UPDATE submissions SET data = ?, ip_hash = NULL WHERE id = ?").bind(JSON.stringify(rest), r.id).run();
+  scrubbed++;
+}
+console.log(`Retention: deleted ${pending.meta.changes ?? 0} unconfirmed sign-ups and ${old.meta.changes ?? 0} old visit counters; removed contact details from ${scrubbed} old suggestions.`);

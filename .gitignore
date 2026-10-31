@@ -1,6 +1,8 @@
 node_modules/
 frontend/dist/
-api/local.settings.json
+.wrangler/
+.dev.vars
+*.sqlite
 .env
 *.log
 .DS_Store

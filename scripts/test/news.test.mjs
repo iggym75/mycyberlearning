@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { stripHtml, durationMinutes, inWindow, fallbackSummary, validateDigest, pruneDates, scrubContacts } from "../news-pure.mjs";
-import { escapeHtml, safeUrl, normaliseEmail, signToken, verifyToken, newOneTimeToken, sha256, hashesMatch, londonHour, londonDate, renderDigestEmail, renderConfirmEmail, sendMail } from "../../api/src/lib/mail.js";
+import { escapeHtml, safeUrl, normaliseEmail, signToken, verifyToken, newOneTimeToken, sha256, hashesMatch, londonHour, londonDate, renderDigestEmail, renderConfirmEmail, sendMail } from "../../worker/src/lib/mail.js";
 
 process.env.TOKEN_SECRET = "test-secret-0123456789-abcdefghijklmnopqrstuvwxyz";
 const NOW = Date.parse("2026-10-30T06:10:00Z");
@@ -93,10 +93,30 @@ test("digest email escapes content, keeps only safe links, includes unsubscribe"
 test("confirmation email and sending guard rails", async () => {
   const m = renderConfirmEmail({ confirmUrl: "https://mycyberlearning.co.uk/api/subscribe/confirm?s=a&t=b", siteUrl: "https://mycyberlearning.co.uk" });
   assert.ok(m.html.includes("confirm?s=a&amp;t=b"));
+  process.env.MAIL_FROM = "My Cyber Learning <briefing@mycyberlearning.co.uk>";
   let sent; await sendMail({ to: "a@b.co", subject: "s", html: "h", text: "t", headers: { "List-Unsubscribe": "<x>" } }, { transport: async m => (sent = m) });
-  assert.equal(sent.recipients.to[0].address, "a@b.co");
-  assert.equal(sent.userEngagementTrackingDisabled, true);
+  assert.equal(sent.to, "a@b.co");
+  assert.deepEqual(sent.from, { name: "My Cyber Learning", email: "briefing@mycyberlearning.co.uk" });
   await assert.rejects(sendMail({ to: "bad\r\nBcc: evil@x.com", subject: "s" }, { transport: async () => {} }));
+});
+
+test("email providers: Resend and Brevo payloads, key in a header, errors don't echo the response", async () => {
+  const real = globalThis.fetch, calls = [];
+  globalThis.fetch = async (url, init) => { calls.push({ url, init }); return new Response("{}", { status: calls.length === 3 ? 422 : 200 }); };
+  try {
+    Object.assign(process.env, { MAIL_FROM: "My Cyber Learning <briefing@mycyberlearning.co.uk>", MAIL_API_KEY: "key123", MAIL_PROVIDER: "resend" });
+    await sendMail({ to: "a@b.co", subject: "s", html: "h", text: "t", headers: { "List-Unsubscribe": "<x>" } });
+    assert.equal(calls[0].url, "https://api.resend.com/emails");
+    assert.equal(calls[0].init.headers.authorization, "Bearer key123");
+    const r = JSON.parse(calls[0].init.body);
+    assert.deepEqual(r.to, ["a@b.co"]); assert.equal(r.from, "My Cyber Learning <briefing@mycyberlearning.co.uk>"); assert.equal(r.headers["List-Unsubscribe"], "<x>");
+    process.env.MAIL_PROVIDER = "brevo";
+    await sendMail({ to: "a@b.co", subject: "s", html: "h", text: "t" });
+    assert.equal(calls[1].url, "https://api.brevo.com/v3/smtp/email");
+    assert.equal(calls[1].init.headers["api-key"], "key123");
+    assert.deepEqual(JSON.parse(calls[1].init.body).to, [{ email: "a@b.co" }]);
+    await assert.rejects(sendMail({ to: "a@b.co", subject: "s", html: "h", text: "t" }), /returned 422$/);
+  } finally { globalThis.fetch = real; process.env.MAIL_PROVIDER = "resend"; }
 });
 
 test("encoded markup can't become tags or delimiters", () => {

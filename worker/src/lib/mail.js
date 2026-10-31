@@ -1,4 +1,4 @@
-// Email, token and subscriber helpers shared by the API (confirmation emails, unsubscribe)
+// Email, token and subscriber helpers shared by the Worker (confirmation emails, unsubscribe)
 // and scripts/send-digest.mjs (the morning briefing). No third-party code runs on untrusted input here:
 // every value placed in an email is escaped, and every link is checked to be http(s).
 import { createHmac, randomBytes, createHash, timingSafeEqual } from "node:crypto";
@@ -140,25 +140,46 @@ You're receiving this because you subscribed at ${escapeHtml(site)}. <a href="${
   return { subject: `Cyber briefing: ${digest.headline || dateLabel}`.slice(0, 140), html, text };
 }
 
-/* ---------- Sending (Azure Communication Services Email) ---------- */
-let clientPromise = null;
-async function acsClient() {
-  const conn = process.env.ACS_CONNECTION_STRING;
-  if (!conn) throw new Error("ACS_CONNECTION_STRING is not set");
-  clientPromise ??= import("@azure/communication-email").then(({ EmailClient }) => new EmailClient(conn));
-  return clientPromise;
+/* ---------- Sending (Resend or Brevo HTTP API; no SDK) ---------- */
+/** "My Cyber Learning <briefing@example.com>" -> { name, email } */
+export function parseFrom(from) {
+  const m = String(from || "").match(/^\s*(?:"?([^"<]*?)"?\s*)?<([^>]+)>\s*$/);
+  const email = normaliseEmail(m ? m[2] : from);
+  return email ? { name: (m?.[1] || "").trim() || "My Cyber Learning", email } : null;
 }
+const PROVIDERS = {
+  // Resend: open and click tracking are off unless you enable them on the domain; keep them off.
+  resend: (m, key) => ({
+    url: "https://api.resend.com/emails",
+    init: { headers: { authorization: `Bearer ${key}` },
+      body: { from: `${m.from.name} <${m.from.email}>`, to: [m.to], subject: m.subject, html: m.html, text: m.text, headers: m.headers } }
+  }),
+  // Brevo: turn off open/click tracking in Brevo's transactional settings before using it here.
+  brevo: (m, key) => ({
+    url: "https://api.brevo.com/v3/smtp/email",
+    init: { headers: { "api-key": key },
+      body: { sender: m.from, to: [{ email: m.to }], subject: m.subject, htmlContent: m.html, textContent: m.text, headers: m.headers } }
+  })
+};
 /**
  * Sends one message. `headers` lets digests carry List-Unsubscribe / List-Unsubscribe-Post (RFC 8058).
- * Pass `transport` in tests to avoid network calls.
+ * Pass `transport` in tests to avoid network calls. Throws on any non-2xx response.
  */
-export async function sendMail({ to, subject, html, text, headers = {} }, { transport, wait = true } = {}) {
+export async function sendMail({ to, subject, html, text, headers = {} }, { transport } = {}) {
   if (!normaliseEmail(to)) throw new Error("Invalid recipient");
-  const from = process.env.MAIL_FROM;
-  if (!from && !transport) throw new Error("MAIL_FROM is not set");
-  const message = { senderAddress: from, content: { subject, html, plainText: text }, recipients: { to: [{ address: to }] }, headers, userEngagementTrackingDisabled: true };
+  const from = parseFrom(process.env.MAIL_FROM);
+  if (!from) throw new Error("MAIL_FROM is not set to a valid address");
+  const message = { from, to, subject, html, text, headers };
   if (transport) return transport(message);
-  const client = await acsClient();
-  const poller = await client.beginSend(message);
-  return wait ? poller.pollUntilDone() : poller.getOperationState();
+  const provider = PROVIDERS[(process.env.MAIL_PROVIDER || "resend").toLowerCase()];
+  const key = process.env.MAIL_API_KEY;
+  if (!provider) throw new Error("MAIL_PROVIDER must be resend or brevo");
+  if (!key) throw new Error("MAIL_API_KEY is not set");
+  const { url, init } = provider(message, key);
+  const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 15000);
+  try {
+    const r = await fetch(url, { method: "POST", signal: ctrl.signal, headers: { "content-type": "application/json", accept: "application/json", ...init.headers }, body: JSON.stringify(init.body) });
+    if (!r.ok) throw new Error(`mail provider returned ${r.status}`); // never include the response body: it can echo addresses
+    return { ok: true };
+  } finally { clearTimeout(t); }
 }

@@ -40,12 +40,14 @@ jobs:
       - uses: actions/checkout@v4
         with: { ref: main }
       - uses: actions/setup-node@v4
-        with: { node-version: 20 }
+        with: { node-version: 22 }
       # --ignore-scripts: dependency install scripts never run, and no secrets are in the environment yet.
-      - run: npm install --no-audit --no-fund --ignore-scripts   # switch to `npm ci --ignore-scripts` once package-lock.json is committed
+      - run: npm install --no-audit --no-fund --ignore-scripts --omit=dev   # switch to `npm ci --ignore-scripts` once package-lock.json is committed
       - name: Build today's briefing
         env:
-          STORAGE_CONNECTION_STRING: ${{ secrets.STORAGE_CONNECTION_STRING }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_DATABASE_ID: ${{ vars.D1_DATABASE_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_D1_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL || 'claude-haiku-5-5' }}
         run: node scripts/news.mjs
@@ -60,10 +62,11 @@ jobs:
 
   deploy:
     needs: build
-    permissions: { contents: read, pull-requests: write }   # a called workflow can't have more than its caller grants
+    permissions: { contents: read }
     uses: ./.github/workflows/deploy.yml
     secrets:
-      AZURE_STATIC_WEB_APPS_API_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
   email:
     needs: [gate, build]
@@ -75,16 +78,20 @@ jobs:
       - uses: actions/checkout@v4
         with: { ref: main, persist-credentials: false }
       - uses: actions/setup-node@v4
-        with: { node-version: 20 }
-      - run: npm install --no-audit --no-fund --ignore-scripts
+        with: { node-version: 22 }
+      - run: npm install --no-audit --no-fund --ignore-scripts --omit=dev
       - name: Email subscribers
         env:
-          STORAGE_CONNECTION_STRING: ${{ secrets.STORAGE_CONNECTION_STRING }}
-          ACS_CONNECTION_STRING: ${{ secrets.ACS_CONNECTION_STRING }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_DATABASE_ID: ${{ vars.D1_DATABASE_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_D1_TOKEN }}
+          MAIL_PROVIDER: ${{ vars.MAIL_PROVIDER || 'resend' }}
+          MAIL_API_KEY: ${{ secrets.MAIL_API_KEY }}
           TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
-          MAIL_FROM: ${{ vars.MAIL_FROM || 'briefing@mycyberlearning.co.uk' }}
+          MAIL_FROM: ${{ vars.MAIL_FROM || 'My Cyber Learning <briefing@mycyberlearning.co.uk>' }}
           SITE_URL: ${{ vars.SITE_URL || 'https://mycyberlearning.co.uk' }}
           MAIL_RATE_PER_MINUTE: ${{ vars.MAIL_RATE_PER_MINUTE || '25' }}
+          MAIL_DAILY_LIMIT: ${{ vars.MAIL_DAILY_LIMIT || '' }}
         # The gate job already checked the London hour; --force stops a late-starting run skipping the day.
         run: node scripts/send-digest.mjs --force
 
@@ -98,9 +105,11 @@ jobs:
       - uses: actions/checkout@v4
         with: { ref: main, persist-credentials: false }
       - uses: actions/setup-node@v4
-        with: { node-version: 20 }
-      - run: npm install --no-audit --no-fund --ignore-scripts
+        with: { node-version: 22 }
+      - run: npm install --no-audit --no-fund --ignore-scripts --omit=dev
       - name: Apply data retention
         env:
-          STORAGE_CONNECTION_STRING: ${{ secrets.STORAGE_CONNECTION_STRING }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_DATABASE_ID: ${{ vars.D1_DATABASE_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_D1_TOKEN }}
         run: node scripts/cleanup.mjs
