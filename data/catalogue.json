@@ -91,7 +91,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.pdrl.fm/85df76/feeds.megaphone.fm/cyberwire-daily-podcast",
       "lastEpisode": "2026-10-29",
-      "episodes": 2000
+      "episodes": 2000,
+      "amazon": "https://music.amazon.co.uk/podcasts/76b35ca4-3e15-4c65-ba48-89588bead1fd/cyberwire-daily"
     },
     {
       "id": "risky-business",
@@ -133,7 +134,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://risky.biz/feeds/risky-business/",
       "lastEpisode": "2026-10-28",
-      "episodes": 102
+      "episodes": 102,
+      "amazon": "https://music.amazon.co.uk/podcasts/43b404f9-791f-4e4c-a18b-fa17fd64db11/risky-business"
     },
     {
       "id": "sans-stormcast",
@@ -165,7 +167,8 @@
       "apple": "https://podcasts.apple.com/podcast/id304863991",
       "rss": "https://www.dshield.org/dailypodcast.xml",
       "lastEpisode": "2026-10-29",
-      "episodes": 2000
+      "episodes": 2000,
+      "amazon": "https://music.amazon.co.uk/podcasts/43784207-1ec2-465d-8d86-ebc9b450ebb7/sans-internet-stormcenter-daily-cyber-security-podcast-stormcast"
     },
     {
       "id": "cyber-security-headlines",
@@ -197,7 +200,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.libsyn.com/shows/289580/destinations/2260670.xml",
       "lastEpisode": "2026-10-29",
-      "episodes": 1879
+      "episodes": 1879,
+      "amazon": "https://music.amazon.co.uk/podcasts/45477283-d157-4ea1-9782-fd29dab41f3d/cybersecurity-headlines"
     },
     {
       "id": "smashing-security",
@@ -237,7 +241,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.redcircle.com/c478d684-038f-4b13-8507-bc32af486a2c",
       "lastEpisode": "2026-10-29",
-      "episodes": 502
+      "episodes": 502,
+      "amazon": "https://music.amazon.co.uk/podcasts/f15f40ff-2a63-45f1-88c8-010646f08d9f/smashing-security"
     },
     {
       "id": "shadowtalk",
@@ -268,7 +273,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1326304686",
       "rss": "https://rss.buzzsprout.com/2154459.rss",
       "lastEpisode": "2026-10-21",
-      "episodes": 497
+      "episodes": 497,
+      "amazon": "https://music.amazon.co.uk/podcasts/4ff37197-9a8a-415f-8383-9e27161b2c8e/shadowtalk-powered-by-reliaquest"
     },
     {
       "id": "defensive-security",
@@ -300,7 +306,8 @@
       "apple": "https://podcasts.apple.com/podcast/id585914973",
       "rss": "https://defensivesecurity.org/feed/podcast/",
       "lastEpisode": "2026-10-21",
-      "episodes": 200
+      "episodes": 200,
+      "amazon": "https://music.amazon.co.uk/podcasts/3a6018ab-0b9a-4395-9f33-0175f1101132/defensive-security-podcast"
     },
     {
       "id": "sans-blueprint",
@@ -333,7 +340,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1517113911",
       "rss": "https://rss.buzzsprout.com/1142720.rss",
       "lastEpisode": "2026-07-02",
-      "episodes": 66
+      "episodes": 66,
+      "amazon": "https://music.amazon.co.uk/podcasts/b0e973aa-f9b4-4917-98f3-4d1ef948167d/blueprint-build-the-best-in-cyber-defense"
     },
     {
       "id": "beers-with-talos",
@@ -363,7 +371,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1236329410",
       "rss": "https://rss.buzzsprout.com/2033817.rss",
       "lastEpisode": "2026-10-23",
-      "episodes": 166
+      "episodes": 166,
+      "amazon": "https://music.amazon.co.uk/podcasts/0806030d-3834-40be-b06d-10b15651f54d/beers-with-talos-podcast"
     },
     {
       "id": "talos-takes",
@@ -394,7 +403,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.buzzsprout.com/2018149.rss",
       "lastEpisode": "2026-10-07",
-      "episodes": 242
+      "episodes": 242,
+      "amazon": "https://music.amazon.co.uk/podcasts/ba71c5ff-8b36-4597-8fb5-e0f8c5d88ca0/talos-takes"
     },
     {
       "id": "unsupervised-learning",
@@ -429,7 +439,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1099711235",
       "rss": "https://www.omnycontent.com/d/playlist/070af456-729b-4a0f-9c09-a6c100397b59/3b159371-276d-429e-ae86-a6c1003b01c4/7b61d4e1-bd3d-4d3f-97c2-a6c1003b01c9/podcast.rss",
       "lastEpisode": "2026-09-17",
-      "episodes": 548
+      "episodes": 548,
+      "amazon": "https://music.amazon.co.uk/podcasts/01eaab8a-49bb-4763-974e-8378248ef1b0/unsupervised-learning"
     },
     {
       "id": "future-of-ti",
@@ -525,7 +536,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1073779629",
       "rss": "https://rss.buzzsprout.com/1762840.rss",
       "lastEpisode": "2026-10-28",
-      "episodes": 306
+      "episodes": 306,
+      "amazon": "https://music.amazon.co.uk/podcasts/af9f20f2-aa77-4e29-995e-da8dd47bd2fe/the-defender's-advantage-podcast"
     },
     {
       "id": "ai-security-podcast",
@@ -559,7 +571,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://anchor.fm/s/eaa0671c/podcast/rss",
       "lastEpisode": "2026-10-28",
-      "episodes": 66
+      "episodes": 66,
+      "amazon": "https://music.amazon.co.uk/podcasts/7569a2bd-5a8f-446f-9c15-eb51fb90cff4/ai-security-podcast"
     },
     {
       "id": "cloud-security-podcast",
@@ -591,7 +604,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1489678590",
       "rss": "https://anchor.fm/s/10fb9928/podcast/rss",
       "lastEpisode": "2026-10-27",
-      "episodes": 364
+      "episodes": 364,
+      "amazon": "https://music.amazon.co.uk/podcasts/3c1aac47-1095-4c03-bdfe-819ddbd4221c/cloud-security-podcast"
     },
     {
       "id": "google-cloud-security-podcast",
@@ -624,7 +638,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1554145026",
       "rss": "https://rss.libsyn.com/shows/324875/destinations/2641814.xml",
       "lastEpisode": "2026-08-25",
-      "episodes": 294
+      "episodes": 294,
+      "amazon": "https://music.amazon.co.uk/podcasts/4920975f-351f-4cb7-a733-9a479e62c0da/cloud-security-podcast-by-google"
     },
     {
       "id": "hacked",
@@ -659,7 +674,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.megaphone.fm/hackedpodcast",
       "lastEpisode": "2026-10-02",
-      "episodes": 161
+      "episodes": 161,
+      "amazon": "https://music.amazon.co.uk/podcasts/429df7b4-95c5-40c6-a615-6361be140c7b/hacked"
     },
     {
       "id": "cyber-bytes",
@@ -722,7 +738,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1471881997",
       "rss": "https://feed.podbean.com/hackervalleystudio/feed.xml",
       "lastEpisode": "2026-10-26",
-      "episodes": 446
+      "episodes": 446,
+      "amazon": "https://music.amazon.co.uk/podcasts/5e5f4b00-0675-48ea-8040-3f3b24a2d9d8/hacker-valley-studio"
     },
     {
       "id": "5bytes",
@@ -753,7 +770,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1332947921",
       "rss": "https://feeds.soundcloud.com/users/soundcloud:users:376833845/sounds.rss",
       "lastEpisode": "2026-10-27",
-      "episodes": 462
+      "episodes": 462,
+      "amazon": "https://music.amazon.co.uk/podcasts/8d3ef16b-d055-452e-8f60-bc4e71316232/5bytespodcast"
     },
     {
       "id": "world-of-intelligence",
@@ -783,7 +801,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1477524651",
       "rss": "https://i.janes.com/podcasts/202036442208/rss.xml",
       "lastEpisode": "2026-09-02",
-      "episodes": 136
+      "episodes": 136,
+      "amazon": "https://music.amazon.co.uk/podcasts/3a3a89c9-2182-4538-abd8-d1974070200e/the-world-of-intelligence"
     },
     {
       "id": "darknet-diaries",
@@ -825,7 +844,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://podcast.darknetdiaries.com",
       "lastEpisode": "2026-11-03",
-      "episodes": 196
+      "episodes": 196,
+      "amazon": "https://music.amazon.co.uk/podcasts/546b4228-33c2-4b6a-b769-284c7428f29b/darknet-diaries"
     },
     {
       "id": "hacking-humans",
@@ -860,7 +880,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.pdrl.fm/7d51b0/feeds.megaphone.fm/hacking-humans",
       "lastEpisode": "2026-10-27",
-      "episodes": 823
+      "episodes": 823,
+      "amazon": "https://music.amazon.co.uk/podcasts/a3fb35f8-2a0b-46cd-b63a-954b5f518617/hacking-humans"
     },
     {
       "id": "hacker-and-the-fed",
@@ -893,7 +914,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1649541362",
       "rss": "https://feeds.megaphone.fm/CON9079456418",
       "lastEpisode": "2026-10-22",
-      "episodes": 156
+      "episodes": 156,
+      "amazon": "https://music.amazon.co.uk/podcasts/4f7abfb1-93f7-4ffd-a0d3-dc306c4a8836/hacker-and-the-fed"
     },
     {
       "id": "troy-hunt-weekly",
@@ -925,7 +947,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1176454699",
       "rss": "https://www.omnycontent.com/d/playlist/1439345f-6152-486d-a9c2-a6bf0067f2b7/3ba9af7f-3bfb-48fd-aae7-a6bf00689c10/fde26e49-9fb8-457d-8f16-a6bf00696676/podcast.rss",
       "lastEpisode": "2026-10-27",
-      "episodes": 100
+      "episodes": 100,
+      "amazon": "https://music.amazon.co.uk/podcasts/ac9a5321-fd6e-4d0e-981b-66b61428fafa/troy-hunt's-weekly-update-podcast"
     },
     {
       "id": "bbc-cyber-hack",
@@ -955,7 +978,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1561990291",
       "rss": "https://podcasts.files.bbci.co.uk/w13xtvg9.rss",
       "lastEpisode": "2026-10-13",
-      "episodes": 44
+      "episodes": 44,
+      "amazon": "https://music.amazon.co.uk/podcasts/2f0a0514-27b9-4242-b409-0eacd7f3ee37/cyber-hack"
     },
     {
       "id": "security-now",
@@ -996,7 +1020,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.twit.tv/sn.xml",
       "lastEpisode": "2026-10-28",
-      "episodes": 232
+      "episodes": 232,
+      "amazon": "https://music.amazon.co.uk/podcasts/3c251d39-3b4a-4e5c-ac5a-b1d7f6ddc2ce/security-now-audio"
     },
     {
       "id": "cybersecurity-simplified",
@@ -1083,7 +1108,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.fame.so/shielded-the-last-line-of-cyber-defense",
       "lastEpisode": "2026-09-10",
-      "episodes": 41
+      "episodes": 41,
+      "amazon": "https://music.amazon.co.uk/podcasts/294b2a38-a1fe-4cba-8db9-bbd7f674b304/shielded-the-last-line-of-cyber-defense"
     },
     {
       "id": "osint-show",
@@ -1137,7 +1163,8 @@
       "apple": "https://podcasts.apple.com/podcast/id995744952",
       "rss": "https://feeds.simplecast.com/_hSKbGFl",
       "lastEpisode": "2026-03-04",
-      "episodes": 231
+      "episodes": 231,
+      "amazon": "https://music.amazon.co.uk/podcasts/dec8ef5a-867d-4824-b64b-2521a9a05612/the-host-unknown-podcast"
     },
     {
       "id": "defense-in-depth",
@@ -1169,7 +1196,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1450197741",
       "rss": "https://rss.libsyn.com/shows/156524/destinations/1020683.xml",
       "lastEpisode": "2026-10-22",
-      "episodes": 383
+      "episodes": 383,
+      "amazon": "https://music.amazon.co.uk/podcasts/6391c752-85cf-4aa7-bac9-0af5390ec05d/defense-in-depth"
     },
     {
       "id": "ciso-series",
@@ -1200,7 +1228,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1391337832",
       "rss": "https://rss.libsyn.com/shows/24425/destinations/37324.xml",
       "lastEpisode": "2026-10-20",
-      "episodes": 430
+      "episodes": 430,
+      "amazon": "https://music.amazon.co.uk/podcasts/cb4e51d9-5d85-40f7-9ad6-42a58cfa2c0a/ciso-series-podcast"
     },
     {
       "id": "capture-the-ciso",
@@ -1230,7 +1259,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1622466485",
       "rss": "https://feed.podbean.com/infoc7js/feed.xml",
       "lastEpisode": "2024-05-18",
-      "episodes": 10
+      "episodes": 10,
+      "amazon": "https://music.amazon.co.uk/podcasts/549b1d81-7dda-4264-b6b6-e073751669b8/capture-the-ciso"
     },
     {
       "id": "malicious-life",
@@ -1262,7 +1292,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.redcircle.com/597cfd00-b29a-49c6-9622-03c8decfc35f",
       "lastEpisode": "2024-12-10",
-      "episodes": 265
+      "episodes": 265,
+      "amazon": "https://music.amazon.co.uk/podcasts/c105d0a9-5d42-4a85-9219-dd57e5588a0c/malicious-life"
     },
     {
       "id": "cybersecurity-today",
@@ -1293,7 +1324,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1363182054",
       "rss": "https://cybersecuritytoday.libsyn.com/rss",
       "lastEpisode": "2026-10-29",
-      "episodes": 105
+      "episodes": 105,
+      "amazon": "https://music.amazon.co.uk/podcasts/4fecadbb-cd07-4d0c-9edc-a2a4441111ce/cybersecurity-today"
     },
     {
       "id": "social-engineer-podcast",
@@ -1323,7 +1355,8 @@
       "apple": "https://podcasts.apple.com/podcast/id334648685",
       "rss": "https://rss.libsyn.com/shows/45985/destinations/151766.xml",
       "lastEpisode": "2026-03-16",
-      "episodes": 200
+      "episodes": 200,
+      "amazon": "https://music.amazon.co.uk/podcasts/7f6c726b-fcda-40b5-bd4e-fc97583570cd/the-social-engineer-podcast"
     },
     {
       "id": "401-access-denied",
@@ -1354,7 +1387,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1485295700",
       "rss": "https://feeds.captivate.fm/401-access-denied/",
       "lastEpisode": "2025-02-19",
-      "episodes": 263
+      "episodes": 263,
+      "amazon": "https://music.amazon.co.uk/podcasts/f827d544-9c8b-4693-9f67-67d0dc0a2190/401-access-denied"
     },
     {
       "id": "human-factor-security",
@@ -1410,7 +1444,8 @@
       "sources": [
         "gcs"
       ],
-      "verified": false
+      "verified": false,
+      "amazon": "https://music.amazon.co.uk/podcasts/3ced8532-3b05-437d-83c5-016ccaf35731/the-cyber-queens-podcast"
     },
     {
       "id": "7-minute-security",
@@ -1442,7 +1477,8 @@
       "apple": "https://podcasts.apple.com/podcast/id797742806",
       "rss": "https://rss.libsyn.com/shows/254153/destinations/1921835.xml",
       "lastEpisode": "2026-10-30",
-      "episodes": 745
+      "episodes": 745,
+      "amazon": "https://music.amazon.co.uk/podcasts/2346624e-5abe-4817-9739-4ef691ba18c9/7-minute-security"
     },
     {
       "id": "getting-into-infosec",
@@ -1471,7 +1507,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1437669665",
       "rss": "https://feeds.captivate.fm/getting-into-infosec/",
       "lastEpisode": "2023-08-03",
-      "episodes": 62
+      "episodes": 62,
+      "amazon": "https://music.amazon.co.uk/podcasts/c8b4debb-b5bb-43bb-8836-9c845f6a3b37/getting-into-infosec"
     },
     {
       "id": "redefining-cybersecurity",
@@ -1501,7 +1538,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1610842092",
       "rss": "https://feeds.simplecast.com/GzAtTpW2",
       "lastEpisode": "2026-10-16",
-      "episodes": 622
+      "episodes": 622,
+      "amazon": "https://music.amazon.co.uk/podcasts/fd96b7f9-88d8-4baa-9f36-4a37fee38816/redefining-cybersecurity"
     },
     {
       "id": "mnemonic",
@@ -1534,7 +1572,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1482626821",
       "rss": "https://rss.buzzsprout.com/652378.rss",
       "lastEpisode": "2026-09-28",
-      "episodes": 169
+      "episodes": 169,
+      "amazon": "https://music.amazon.co.uk/podcasts/904c0c88-6ef4-4ed6-bbf1-d630fd1fe337/mnemonic-security-podcast"
     },
     {
       "id": "scw",
@@ -1564,7 +1603,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1578405214",
       "rss": "https://rss.buzzsprout.com/1822302.rss",
       "lastEpisode": "2026-10-27",
-      "episodes": 68
+      "episodes": 68,
+      "amazon": "https://music.amazon.co.uk/podcasts/cca43784-85d9-4ad2-9fd4-53c81d784053/security-cryptography-whatever"
     },
     {
       "id": "ciso-tradecraft",
@@ -1596,7 +1636,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1538132658",
       "rss": "https://media.rss.com/ciso-tradecraft/feed.xml",
       "lastEpisode": "2026-10-14",
-      "episodes": 305
+      "episodes": 305,
+      "amazon": "https://music.amazon.co.uk/podcasts/3f6c5b6f-526a-48f8-be1f-4469b7721acc/ciso-tradecraft%C2%AE"
     },
     {
       "id": "resilient-cyber",
@@ -1628,7 +1669,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1555928024",
       "rss": "https://rss.buzzsprout.com/1693027.rss",
       "lastEpisode": "2026-10-19",
-      "episodes": 232
+      "episodes": 232,
+      "amazon": "https://music.amazon.co.uk/podcasts/4a90178a-e18b-4922-a750-deeb878adbf5/resilient-cyber"
     },
     {
       "id": "cyber-security-sauna",
@@ -1689,7 +1731,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1523098985",
       "rss": "https://rss.pdrl.fm/5af9bb/feeds.libsyn.com/284192/rss/?redirect=false",
       "lastEpisode": "2026-10-25",
-      "episodes": 106
+      "episodes": 106,
+      "amazon": "https://music.amazon.co.uk/podcasts/462a5a81-82f6-4b4a-bfba-dd3bd2cb7c31/risk-management-show"
     },
     {
       "id": "women-in-the-middle",
@@ -1806,7 +1849,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feed.podbean.com/thesecuritydetail/feed.xml",
       "lastEpisode": "2024-10-02",
-      "episodes": 28
+      "episodes": 28,
+      "amazon": "https://music.amazon.co.uk/podcasts/eacfcc55-3e56-4be0-908f-db49f1811fcf/the-security-detail"
     },
     {
       "id": "ms-ti-podcast",
@@ -1837,7 +1881,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.megaphone.fm/microsoft-threat-intelligence",
       "lastEpisode": "2026-10-07",
-      "episodes": 81
+      "episodes": 81,
+      "amazon": "https://music.amazon.co.uk/podcasts/dfcad747-afb2-49d3-8c81-b230d32327c3/microsoft-threat-intelligence-podcast"
     },
     {
       "id": "click-here",
@@ -1869,7 +1914,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://publicfeeds.net/f/8376/clickhere",
       "lastEpisode": "2026-10-30",
-      "episodes": 388
+      "episodes": 388,
+      "amazon": "https://music.amazon.co.uk/podcasts/1ddc446b-b5eb-4546-bf8f-e2642285495b/click-here"
     },
     {
       "id": "latent-space",
@@ -1900,7 +1946,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://podcast.latent.space/feed.xml",
       "lastEpisode": "2026-10-27",
-      "episodes": 287
+      "episodes": 287,
+      "amazon": "https://music.amazon.co.uk/podcasts/abff303e-e4f1-447c-9823-b35bfc6e8da8/latent-space-the-ai-engineer-podcast"
     },
     {
       "id": "practical-ai",
@@ -1931,7 +1978,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.transistor.fm/practical-ai-machine-learning-data-science-llm",
       "lastEpisode": "2026-10-22",
-      "episodes": 380
+      "episodes": 380,
+      "amazon": "https://music.amazon.co.uk/podcasts/37dd7ab4-89dc-40a6-ad68-1062902bdaa5/practical-ai"
     },
     {
       "id": "ai-daily-brief",
@@ -1963,7 +2011,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://anchor.fm/s/f7cac464/podcast/rss",
       "lastEpisode": "2026-10-29",
-      "episodes": 1126
+      "episodes": 1126,
+      "amazon": "https://music.amazon.co.uk/podcasts/2b3e5988-907e-4702-96f5-7eb33adc729e/the-ai-daily-brief-artificial-intelligence-news-and-analysis"
     },
     {
       "id": "twiml",
@@ -1994,7 +2043,8 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.megaphone.fm/MLN2155636147",
       "lastEpisode": "2026-10-21",
-      "episodes": 800
+      "episodes": 800,
+      "amazon": "https://music.amazon.co.uk/podcasts/786d7a2f-a556-4b36-b6cc-4db135c95ae1/the-twiml-ai-podcast-formerly-this-week-in-machine-learning-artificial-intelligence"
     },
     {
       "id": "industrial-security-podcast",
@@ -2024,7 +2074,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1441395559",
       "rss": "https://www.spreaker.com/show/4956891/episodes/feed",
       "lastEpisode": "2025-12-13",
-      "episodes": 148
+      "episodes": 148,
+      "amazon": "https://music.amazon.co.uk/podcasts/d7058c2e-f13b-4c93-840f-899ef47e586c/the-industrial-security-podcast"
     },
     {
       "id": "unsolicited-response",
@@ -2053,7 +2104,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1240062226",
       "rss": "https://rss.libsyn.com/shows/99465/destinations/520793.xml",
       "lastEpisode": "2026-05-27",
-      "episodes": 52
+      "episodes": 52,
+      "amazon": "https://music.amazon.co.uk/podcasts/2fb48111-48bf-4cf6-89c2-c15da0b77031/unsolicited-response-podcast"
     },
     {
       "id": "critical-thinking-bb",
@@ -2083,7 +2135,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1663945029",
       "rss": "https://feeds.cohostpodcasting.com/y3zHW5ae",
       "lastEpisode": "2026-10-22",
-      "episodes": 197
+      "episodes": 197,
+      "amazon": "https://music.amazon.co.uk/podcasts/840ce716-cbab-4245-97b7-9eee56adb2ae/critical-thinking---bug-bounty-podcast"
     },
     {
       "id": "security-weekly",
@@ -2114,7 +2167,8 @@
       "apple": "https://podcasts.apple.com/podcast/id1149992167",
       "rss": "https://rss.libsyn.com/shows/82835/destinations/388575.xml",
       "lastEpisode": "2026-10-29",
-      "episodes": 655
+      "episodes": 655,
+      "amazon": "https://music.amazon.co.uk/podcasts/12848f0b-1aa5-49e0-bdcb-8e0a41fdedd1/paul's-security-weekly-audio"
     },
     {
       "id": "book-measure-anything",
