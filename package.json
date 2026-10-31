@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "My Cyber Learning \u2014 curated cybersecurity podcasts and books (mycyberlearning.co.uk)",
+  "description": "My Cyber Learning: curated cybersecurity podcasts and books (mycyberlearning.co.uk)",
   "scripts": {
     "build": "node scripts/build-frontend.mjs",
+    "dev": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "db:migrate": "wrangler d1 migrations apply mycyberlearning --remote",
     "seed": "node scripts/seed.mjs",
     "refresh": "node scripts/refresh.mjs",
     "refresh:dry": "node scripts/refresh.mjs --dry-run --limit 5",
     "export": "node scripts/export.mjs",
-    "test": "node --test scripts/test/*.test.mjs",
+    "test": "node --no-warnings --test scripts/test/*.test.mjs",
     "import:books": "node scripts/import-books.mjs",
     "news": "node scripts/news.mjs",
     "news:dry": "node scripts/news.mjs --dry-run --local",
@@ -18,11 +21,12 @@
     "send:preview": "node scripts/send-digest.mjs --preview"
   },
   "dependencies": {
-    "@azure/data-tables": "^13.3.0",
-    "fast-xml-parser": "^4.5.0",
-    "@azure/communication-email": "^1.0.0"
+    "fast-xml-parser": "^4.5.0"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22.5"
+  },
+  "devDependencies": {
+    "wrangler": "^4.40.0"
   }
 }

@@ -7,29 +7,30 @@ A curated library of cybersecurity podcasts and books. Visitors filter by securi
 
 ## Layout
 - `frontend/index.template.html` — the whole UI (vanilla HTML/CSS/JS, no framework). `/*__SEED__*/` is replaced at build time with the catalogue for offline/demo fallback.
-- `scripts/build-frontend.mjs` — builds `frontend/dist/` (and syncs `data/taxonomy.json` into `api/src/lib/`).
-- `api/` — Azure Functions v4 (Node 20, ESM), deployed as the Static Web App's managed API. `src/lib/shared.js` has storage, auth, validation, Claude tagging.
+- `scripts/build-frontend.mjs` — builds `frontend/dist/` (and syncs `data/taxonomy.json` into `worker/src/lib/`). `scripts/d1.mjs` — D1 over HTTPS for scripts, or local SQLite (`D1_LOCAL_FILE`) for tests.
+- `worker/` — Cloudflare Worker (ESM, no runtime npm deps): `src/index.js` routes `/api/*`, `/auth/*`, `/admin`; everything else is static assets from `frontend/dist`. `src/lib/` has D1 helpers, email/tokens, validation and Claude tagging. Schema in `worker/migrations/`; config in `wrangler.jsonc`.
 - `data/taxonomy.json` — the domain, frequency and level lists. Single source of truth; never hard-code domains elsewhere.
-- `data/catalogue.json` — seed + weekly snapshot of the live catalogue (the live source of truth is Azure Table `items`).
+- `data/catalogue.json` — seed + weekly snapshot of the live catalogue (the live source of truth is the D1 `items` table).
 - `scripts/refresh.mjs` + `enrich.mjs` — weekly enrichment; pure helpers in `scripts/pure.mjs` with tests in `scripts/test/`.
-- `infra/main.bicep` — Azure resources. `.github/workflows/` — deploy on push, weekly refresh.
+- `.github/workflows/` — deploy on push (wrangler), weekly refresh, daily briefing.
 
 ## Conventions
-- Keep it cheap: no new paid Azure services without asking. Static Web Apps Free + Table Storage only.
+- Keep it free and card-free: Cloudflare Workers Free + D1, Resend free, GitHub Actions. Never add a service that needs a payment method without asking. Watch the free limits (10 ms CPU per request, D1 daily reads/writes).
 - No frontend framework or build toolchain; keep the page a single file. Fonts from Google Fonts only.
 - Item schema: `id, type (podcast|book), name, by, desc, domains[], level[], freq, launched (YYYY or YYYY-MM), status, web, apple, spotify, amazon (Amazon Music podcast page; optional, hand-entered, host-checked), youtube, rss, logo, rating {v,n,asOf}, curator (shown as "MCL Pick"), isbn (13 digits, no hyphens), isbnVerified, publisher, published, bundle {name,url}, sources[], verified, hidden, tagsLocked`.
 - Descriptions are written in our own words (never copied from the show's or a list article's text).
 - Official ratings and community votes are never combined into one number.
-- Admin endpoints must check `isAdmin(req)` in the handler as well as relying on the SWA route rule.
+- Admin endpoints must be wrapped in `guard()` (worker/src/auth.js): signed session cookie + allow-listed GitHub id + same-origin JSON for writes. All SQL uses bound parameters.
 - Claude prompts treat resource text as data inside `<resource>` tags and use forced tool output constrained to the taxonomy enum.
-- Daily briefing: `scripts/news.mjs` writes `frontend/news/<date>.json`; `scripts/send-digest.mjs` emails it; shared email/token code is in `api/src/lib/mail.js`. Never republish show notes verbatim; only our summaries.
+- Daily briefing: `scripts/news.mjs` writes `frontend/news/<date>.json`; `scripts/send-digest.mjs` emails it; shared email/token code is in `worker/src/lib/mail.js`. Never republish show notes verbatim; only our summaries.
 - Personal data rules (see SECURITY.md): consent-only, minimum fields, no IPs or identifiers stored, escape everything in emails, GET never changes state, keep the privacy notice in the page in step with any change.
 
 ## Commands
 - `npm test` — unit tests (must pass before deploy)
 - `npm run build` — build the site
 - `npm run refresh:dry` — preview enrichment without writing
-- `npm run seed` / `npm run export` — push catalogue to / pull it from Azure Table storage (need `STORAGE_CONNECTION_STRING`)
+- `npm run seed` / `npm run export` — push catalogue to / pull it from D1 (need `CLOUDFLARE_ACCOUNT_ID`, `D1_DATABASE_ID`, `CLOUDFLARE_API_TOKEN`, or `D1_LOCAL_FILE`)
+- `npm run dev` — local site + Worker with wrangler; `npm run deploy` — manual deploy
 
 ## Workflow for changes
-Make changes on a branch and open a PR; the Deploy workflow creates a preview environment for each PR. Run `npm test` and `npm run build` before proposing changes.
+Make changes on a branch and open a PR; the Deploy workflow tests every PR but only deploys `main`. Run `npm test` and `npm run build` before proposing changes.

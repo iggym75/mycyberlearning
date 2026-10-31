@@ -1,0 +1,37 @@
+// My Cyber Learning: Cloudflare Worker configuration (Workers Free plan; no payment method needed).
+// Deploy:  npx wrangler deploy   (GitHub Actions does this on every push to main)
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mycyberlearning",
+  "main": "worker/src/index.js",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // Static site built by `npm run build`. The Worker only runs for the dynamic paths below.
+  "assets": {
+    "directory": "frontend/dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*", "/auth/*", "/admin"]
+  },
+
+  // Create once with:  npx wrangler d1 create mycyberlearning --jurisdiction eu
+  // then paste the database_id it prints here (it's an identifier, not a secret).
+  "d1_databases": [
+    { "binding": "DB", "database_name": "mycyberlearning", "database_id": "REPLACE_WITH_D1_DATABASE_ID", "migrations_dir": "worker/migrations" }
+  ],
+
+  // Non-secret settings. Secrets are set with `npx wrangler secret put NAME` (see the runbook):
+  //   TOKEN_SECRET, VOTE_SALT, MAIL_API_KEY, GITHUB_OAUTH_CLIENT_SECRET, ANTHROPIC_API_KEY (optional)
+  "vars": {
+    "SITE_URL": "https://mycyberlearning.co.uk",
+    "MAIL_FROM": "My Cyber Learning <briefing@mycyberlearning.co.uk>",
+    "MAIL_PROVIDER": "resend",
+    "CLAUDE_MODEL": "claude-haiku-5-5",
+    "GITHUB_OAUTH_CLIENT_ID": "REPLACE_WITH_GITHUB_OAUTH_CLIENT_ID",
+    "ADMIN_GITHUB_IDS": "REPLACE_WITH_YOUR_NUMERIC_GITHUB_USER_ID"
+  },
+
+  "observability": { "enabled": true },
+  "workers_dev": true,
+  "preview_urls": false
+}

@@ -1,59 +1,24 @@
-// Shared helpers for the API: storage, auth, validation, taxonomy and Claude tagging.
-import { TableClient, odata } from "@azure/data-tables";
+// Shared helpers for the Worker: env, responses, validation, taxonomy and Claude tagging.
 import { createHash } from "node:crypto";
 import taxonomy from "./taxonomy.json" with { type: "json" };
 
-export { odata, taxonomy };
+export { taxonomy };
 export const DOMAIN_KEYS = taxonomy.domains.map(d => d.key);
 export const FREQ_KEYS = taxonomy.frequencies.map(f => f.key);
 
-const conn = () => {
-  const c = process.env.STORAGE_CONNECTION_STRING;
-  if (!c) throw new Error("STORAGE_CONNECTION_STRING is not set");
-  return c;
-};
-const clients = {};
-export async function table(name) {
-  if (!clients[name]) {
-    clients[name] = TableClient.fromConnectionString(conn(), name);
-    try { await clients[name].createTable(); } catch (e) { if (e.statusCode !== 409) throw e; }
-  }
-  return clients[name];
-}
-// Table names
-export const T = { items: "items", votes: "votes", submissions: "submissions", subscribers: "subscribers", stats: "stats", digestlog: "digestlog" };
-
-// Items are stored as { partitionKey:"item", rowKey:id, data:JSON, hidden, up, down }
-export function rowToItem(r) {
-  const item = JSON.parse(r.data);
-  return { ...item, id: r.rowKey, hidden: !!r.hidden, community: { up: r.up || 0, down: r.down || 0 } };
-}
-export function itemToRow(item, existing = {}) {
-  const { community, hidden, id, ...data } = item;
-  return { partitionKey: "item", rowKey: id, data: JSON.stringify(data), hidden: !!hidden, up: existing.up ?? community?.up ?? 0, down: existing.down ?? community?.down ?? 0 };
+/** Copies the Worker's string bindings (vars and secrets) into process.env, so shared code reads one place. */
+export function initEnv(env = {}) {
+  globalThis.process ??= { env: {} };
+  process.env ??= {};
+  for (const [k, v] of Object.entries(env)) if (typeof v === "string") process.env[k] = v;
 }
 
-// Static Web Apps passes the signed-in user in this header (base64 JSON).
-export function principal(req) {
-  const h = req.headers.get("x-ms-client-principal");
-  if (!h) return null;
-  try { return JSON.parse(Buffer.from(h, "base64").toString("utf8")); } catch { return null; }
-}
-export const isAdmin = req => (principal(req)?.userRoles || []).includes("admin");
-
-export const json = (status, body, headers = {}) => ({ status, jsonBody: body, headers: { "cache-control": "no-store", ...headers } });
+const BASE_HEADERS = { "cache-control": "no-store", "x-content-type-options": "nosniff", "referrer-policy": "strict-origin-when-cross-origin" };
+export const json = (status, body, headers = {}) =>
+  new Response(JSON.stringify(body), { status, headers: { ...BASE_HEADERS, "content-type": "application/json; charset=utf-8", ...headers } });
 export const sha = s => createHash("sha256").update(s).digest("hex");
-// Client IP for rate limiting only (never stored). Prefer the platform-set header; otherwise take the
-// right-most X-Forwarded-For entry, which is added by Azure's front end, because the left-most entries
-// can be supplied by the client and spoofed.
-export function clientIp(req) {
-  const direct = req.headers.get("x-azure-clientip"); // set by Azure's front end; client-supplied x-client-ip is ignored
-  const xff = (req.headers.get("x-forwarded-for") || "").split(",").map(s => s.trim()).filter(Boolean);
-  let ip = String(direct || xff[xff.length - 1] || "unknown").slice(0, 64);
-  if (/^\d{1,3}(\.\d{1,3}){3}:\d+$/.test(ip)) ip = ip.replace(/:\d+$/, "");     // IPv4:port
-  else if (/^\[.+\](:\d+)?$/.test(ip)) ip = ip.replace(/^\[(.+)\](:\d+)?$/, "$1"); // [IPv6]:port
-  return ip;
-}
+/** Client IP for rate limiting only (never stored). Cloudflare sets cf-connecting-ip at its edge; clients can't forge it. */
+export const clientIp = req => String(req.headers.get("cf-connecting-ip") || "unknown").slice(0, 64);
 
 // Very small in-memory rate limiter (per instance; good enough to blunt casual abuse).
 const hits = new Map();
