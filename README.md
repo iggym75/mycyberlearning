@@ -63,7 +63,7 @@ Follow the deployment runbook (Cloudflare edition). In short:
 1. **Accounts**: Cloudflare (free, no card), GitHub (public repo), Resend (free), Anthropic (prepaid credits). Two-factor on all of them.
 2. **Database**: `npx wrangler login`, `npx wrangler d1 create mycyberlearning --jurisdiction eu`, paste the id into `wrangler.jsonc`, then `npm run db:migrate`.
 3. **Admin sign-in**: create a GitHub OAuth app (callback `https://<your host>/auth/callback`), put its client id and your numeric GitHub user id in `wrangler.jsonc`.
-4. **Worker secrets** (each prompts with hidden input): `npx wrangler secret put TOKEN_SECRET` (and `VOTE_SALT`, `MAIL_API_KEY`, `GITHUB_OAUTH_CLIENT_SECRET`, `ANTHROPIC_API_KEY`). Generate the first two with `openssl rand -hex 32`.
+4. **Worker secrets** (each prompts with hidden input): `npx wrangler secret put TOKEN_SECRET` (and `SESSION_SECRET`, `VOTE_SALT`, `MAIL_API_KEY`, `GITHUB_OAUTH_CLIENT_SECRET`, `ANTHROPIC_API_KEY`). Generate the first three with `openssl rand -hex 32`; `SESSION_SECRET` must never be given to GitHub.
 5. **GitHub secrets**: `CLOUDFLARE_API_TOKEN` (Workers Scripts + D1 edit), `CLOUDFLARE_D1_TOKEN` (D1 edit only), `CLOUDFLARE_ACCOUNT_ID`, `TOKEN_SECRET` (same value as the Worker's), `MAIL_API_KEY`, `ANTHROPIC_API_KEY`; variable `D1_DATABASE_ID`.
 6. **Load and deploy**: `npm run seed` with the D1 settings in your shell, then push to `main`.
 7. **Domain and email**: add the domain to Cloudflare, attach it to the Worker as a custom domain, verify the sending domain in Resend (SPF, DKIM, DMARC).

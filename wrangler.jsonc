@@ -21,7 +21,7 @@
   ],
 
   // Non-secret settings. Secrets are set with `npx wrangler secret put NAME` (see the runbook):
-  //   TOKEN_SECRET, VOTE_SALT, MAIL_API_KEY, GITHUB_OAUTH_CLIENT_SECRET, ANTHROPIC_API_KEY (optional)
+  //   TOKEN_SECRET, SESSION_SECRET, VOTE_SALT, MAIL_API_KEY, GITHUB_OAUTH_CLIENT_SECRET, ANTHROPIC_API_KEY (optional)
   "vars": {
     "SITE_URL": "https://mycyberlearning.co.uk",
     "MAIL_FROM": "My Cyber Learning <briefing@mycyberlearning.co.uk>",
@@ -31,7 +31,11 @@
     "ADMIN_GITHUB_IDS": "REPLACE_WITH_YOUR_NUMERIC_GITHUB_USER_ID"
   },
 
-  "observability": { "enabled": true },
-  "workers_dev": true,
+  // Our own console messages only: request URLs (which carry unsubscribe tokens) and IP metadata aren't logged.
+  "observability": { "enabled": true, "logs": { "invocation_logs": false } },
+
+  // Shared per-IP limit for briefing sign-ups (free; works across Cloudflare's isolates). Period must be 10 or 60 s.
+  "ratelimits": [ { "name": "SUBSCRIBE_LIMITER", "namespace_id": "1001", "simple": { "limit": 3, "period": 60 } } ],
+  "workers_dev": true,   // set to false once mycyberlearning.co.uk is attached (runbook Phase 6)
   "preview_urls": false
 }

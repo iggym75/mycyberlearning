@@ -1,7 +1,7 @@
 // Admin sign-in with GitHub (OAuth app), replacing Static Web Apps' built-in auth.
 //
 // - Only GitHub user ids listed in ADMIN_GITHUB_IDS become admins (ids, not logins: logins can be renamed).
-// - The session is a signed, expiring cookie (HMAC-SHA256 with TOKEN_SECRET): __Host- prefix, Secure, HttpOnly,
+// - The session is a signed, expiring cookie (HMAC-SHA256 with SESSION_SECRET, which only the Worker holds): __Host- prefix, Secure, HttpOnly,
 //   SameSite=Strict, 8 hours. Nothing about the session is stored server-side.
 // - The OAuth `state` is a random value held in a short-lived cookie and compared in constant time.
 // - The GitHub access token is used once to read the user id, then revoked.
@@ -12,9 +12,11 @@ const SESSION_COOKIE = "__Host-mcl_admin";
 const STATE_COOKIE = "__Host-mcl_oauth";
 const SESSION_TTL_S = 8 * 3600;
 const b64u = s => Buffer.from(s).toString("base64url");
+// Deliberately not TOKEN_SECRET: that one is also held by GitHub Actions (for unsubscribe links),
+// and a CI compromise must not be able to mint admin sessions.
 const secret = () => {
-  const s = process.env.TOKEN_SECRET;
-  if (!s || s.length < 32) throw new Error("TOKEN_SECRET must be set");
+  const s = process.env.SESSION_SECRET;
+  if (!s || s.length < 32) throw new Error("SESSION_SECRET must be set");
   return s;
 };
 const mac = v => createHmac("sha256", secret()).update("session:" + v).digest("base64url");
@@ -69,7 +71,7 @@ export function login(req) {
 }
 
 // GET /auth/callback?code&state ← GitHub
-export async function callback(req) {
+export async function callback(req, env, ctx) {
   const url = new URL(req.url), code = url.searchParams.get("code") || "", state = url.searchParams.get("state") || "";
   const expected = cookies(req)[STATE_COOKIE];
   const clear = setCookie(STATE_COOKIE, "", 0);
@@ -83,11 +85,12 @@ export async function callback(req) {
   if (!tok) return page("Sign-in failed", "GitHub didn't accept the sign-in. Try again.", 400);
   const ur = await fetch("https://api.github.com/user", { headers: { authorization: `Bearer ${tok}`, accept: "application/vnd.github+json", "user-agent": "mycyberlearning" } });
   const user = await ur.json().catch(() => ({}));
-  // Revoke the token: we only needed it to read the user id.
-  fetch(`https://api.github.com/applications/${clientId}/token`, {
+  // Revoke the token: we only needed it to read the user id. waitUntil keeps the call alive after we respond.
+  const revoke = fetch(`https://api.github.com/applications/${clientId}/token`, {
     method: "DELETE", headers: { authorization: "Basic " + btoa(`${clientId}:${clientSecret}`), accept: "application/vnd.github+json", "user-agent": "mycyberlearning", "content-type": "application/json" },
     body: JSON.stringify({ access_token: tok })
   }).catch(() => {});
+  if (ctx?.waitUntil) ctx.waitUntil(revoke); else await revoke;
   if (!user?.id || !adminIds().includes(String(user.id))) return page("Not an admin", "This GitHub account isn't on the admin list for this site.", 403);
   const payload = b64u(JSON.stringify({ uid: user.id, login: String(user.login || "").slice(0, 60), exp: Math.floor(Date.now() / 1000) + SESSION_TTL_S }));
   return redirect("/", [clear, setCookie(SESSION_COOKIE, `${payload}.${mac(payload)}`, SESSION_TTL_S)]);
