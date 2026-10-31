@@ -5,7 +5,7 @@
 - Filter by one or more security domains (match any / match all), release frequency, level, book publisher, and MCL Picks
 - Official ratings (aggregated from Apple Podcasts, Spotify, Podchaser and Podcast Addict) shown separately from community up/down votes
 - Sort by official rating, community votes, most-rated, newest or longest-running
-- Links to Apple Podcasts, Spotify, YouTube and the official site; logos, cadence and launch date for every show
+- Links to Apple Podcasts, Spotify, YouTube and the official site, plus Amazon Music where a link has been added by hand (there is no Amazon lookup API, so the refresh doesn't fill it); logos, cadence and launch date for every show
 - Visitors suggest podcasts and books; Claude pre-tags and sanity-checks each suggestion; an admin approves, edits, hides or deletes anything
 - A weekly automated job keeps logos, links, cadence, launch dates, ratings and tags current
 - **Daily briefing**: every morning at 06:00 UK time, the news podcasts' episodes from the last 24 hours are summarised into top stories and an episode list on the site (`#news`, 30-day archive) and emailed to confirmed subscribers
