@@ -90,6 +90,18 @@ You can also start it any time from GitHub → Actions → *Weekly catalogue ref
 
 Prerequisites: an Azure subscription, a GitHub account, Node 20+, the Azure CLI (`az`), and optionally an Anthropic API key for auto-tagging.
 
+### Quick setup (recommended)
+`scripts/deploy/setup.sh` does steps 1–5 below in one go from your own computer (macOS or Linux; on Windows use WSL or Git Bash):
+
+```bash
+brew install git node@20 azure-cli gh openssl     # macOS; once
+./scripts/deploy/setup.sh                          # repo, Azure resources, secrets, catalogue, first deploy, admin invite
+./scripts/deploy/setup.sh domain                   # later: DNS records for the website and email, connect the domain
+./scripts/deploy/setup.sh link-email               # after the email domain shows Verified
+```
+
+You sign in to Azure and GitHub in your browser. Secrets are generated locally into `~/.mycyberlearning/secrets.env` (mode 600), sent to Azure via a temporary parameters file that is deleted straight away, and to GitHub via stdin, so they never appear in command lines, shell history or the terminal. Back that file up in your password manager. The manual steps below do the same thing by hand.
+
 ### 1. Create the GitHub repository
 ```bash
 git init && git add . && git commit -m "Initial commit"
