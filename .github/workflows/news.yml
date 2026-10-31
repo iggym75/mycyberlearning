@@ -38,27 +38,27 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-        with: { ref: main }
+        with: { ref: main, persist-credentials: false }   # no git token on disk while untrusted feeds are parsed
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       # --ignore-scripts: dependency install scripts never run, and no secrets are in the environment yet.
       - run: npm install --no-audit --no-fund --ignore-scripts --omit=dev   # switch to `npm ci --ignore-scripts` once package-lock.json is committed
       - name: Build today's briefing
         env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          D1_DATABASE_ID: ${{ vars.D1_DATABASE_ID }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_D1_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL || 'claude-haiku-5-5' }}
-        run: node scripts/news.mjs
+        run: node scripts/news.mjs --local   # shows come from the catalogue snapshot, so this job holds no database token
       - name: Commit the briefing
+        env:
+          GH_TOKEN: ${{ github.token }}   # only this step can push
         run: |
           git config user.name "news-bot"
           git config user.email "news-bot@users.noreply.github.com"
           git add frontend/news
           git diff --cached --quiet && exit 0
           git commit -m "news: daily briefing $(TZ=Europe/London date +%F)"
-          for i in 1 2 3; do git pull --rebase origin main && git push && exit 0; sleep 5; done; exit 1
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep 5; done; exit 1
 
   deploy:
     needs: build

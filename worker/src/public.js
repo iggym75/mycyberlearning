@@ -4,17 +4,23 @@ import { listItems, getItemRow } from "./lib/db.js";
 import { isAdmin } from "./auth.js";
 
 // GET /api/items: the full catalogue with community tallies. Hidden items only for admins.
+// The public list is cached for 60 s in this isolate's memory and at the edge, to stay well inside the
+// free plan's 10 ms CPU and daily D1 read limits (votes show within a minute).
+let memo = { at: 0, body: null };
 export async function items(req, env, ctx) {
-  const admin = isAdmin(req);
-  if (admin) return json(200, { items: await listItems(env.DB, { includeHidden: true }) });
-  // Public list: cached at the edge for 60 s to save CPU and database reads (votes show within a minute).
+  if (isAdmin(req)) return json(200, { items: await listItems(env.DB, { includeHidden: true }) });
+  const headers = { "cache-control": "public, max-age=60", vary: "cookie" };
+  if (memo.body && Date.now() - memo.at < 60_000) return new Response(memo.body, { status: 200, headers: { ...JSON_HEADERS, ...headers } });
   const cache = globalThis.caches?.default, key = new Request(new URL("/api/items", req.url).href);
   const hit = cache && await cache.match(key).catch(() => null);
   if (hit) return hit;
-  const res = json(200, { items: await listItems(env.DB, { includeHidden: false }) }, { "cache-control": "public, max-age=60", vary: "cookie" });
+  const body = JSON.stringify({ items: await listItems(env.DB, { includeHidden: false }) });
+  memo = { at: Date.now(), body };
+  const res = new Response(body, { status: 200, headers: { ...JSON_HEADERS, ...headers } });
   if (cache) ctx.waitUntil(cache.put(key, res.clone()).catch(() => {}));
   return res;
 }
+const JSON_HEADERS = { "content-type": "application/json; charset=utf-8", "x-content-type-options": "nosniff", "referrer-policy": "strict-origin-when-cross-origin" };
 
 // POST /api/vote { id, dir: 1 | 0 | -1, voterId }
 // One vote per item per browser. The voter id is salted and hashed; IPs are only used for rate limiting.
@@ -27,18 +33,16 @@ export async function vote(req, env) {
   const db = env.DB, voterHash = sha((process.env.VOTE_SALT || "") + voter);
   const row = await getItemRow(db, id);
   if (!row || row.hidden) return json(404, { error: "That resource no longer exists." });
-  const prev = (await db.prepare("SELECT dir FROM votes WHERE item_id = ? AND voter = ?").bind(id, voterHash).first())?.dir || 0;
-  if (prev !== dir) {
-    const dUp = (dir === 1 ? 1 : 0) - (prev === 1 ? 1 : 0), dDown = (dir === -1 ? 1 : 0) - (prev === -1 ? 1 : 0);
-    // One batch = one transaction: the tally and the vote record change together.
-    await db.batch([
-      db.prepare("UPDATE items SET up = MAX(0, up + ?), down = MAX(0, down + ?) WHERE id = ?").bind(dUp, dDown, id),
-      dir === 0
-        ? db.prepare("DELETE FROM votes WHERE item_id = ? AND voter = ?").bind(id, voterHash)
-        : db.prepare("INSERT INTO votes (item_id, voter, dir, at) VALUES (?, ?, ?, ?) ON CONFLICT(item_id, voter) DO UPDATE SET dir = excluded.dir, at = excluded.at")
-            .bind(id, voterHash, dir, new Date().toISOString())
-    ]);
-  }
+  // One batch = one transaction: record the vote, then recount the tallies from the votes table, so
+  // parallel or repeated requests can never inflate them.
+  await db.batch([
+    dir === 0
+      ? db.prepare("DELETE FROM votes WHERE item_id = ? AND voter = ?").bind(id, voterHash)
+      : db.prepare("INSERT INTO votes (item_id, voter, dir, at) VALUES (?, ?, ?, ?) ON CONFLICT(item_id, voter) DO UPDATE SET dir = excluded.dir, at = excluded.at")
+          .bind(id, voterHash, dir, new Date().toISOString()),
+    db.prepare(`UPDATE items SET up = (SELECT COUNT(*) FROM votes WHERE item_id = ?1 AND dir = 1),
+      down = (SELECT COUNT(*) FROM votes WHERE item_id = ?1 AND dir = -1) WHERE id = ?1`).bind(id)
+  ]);
   const r = await db.prepare("SELECT up, down FROM items WHERE id = ?").bind(id).first();
   return json(200, { community: { up: r?.up || 0, down: r?.down || 0 } });
 }
@@ -60,6 +64,7 @@ export async function submit(req, env) {
   };
   const errs = [];
   if (s.name.length < 2) errs.push("Add the name.");
+  else if (!slug(s.name)) errs.push("Include some letters or numbers (A–Z, 0–9) in the name.");
   if (s.desc.length < 40) errs.push("Write a description of at least 40 characters.");
   for (const k of ["web", "apple", "spotify", "amazon", "youtube", "rss"]) if (s[k] && !isHttpUrl(s[k])) errs.push(`The ${k} link isn't a valid web address.`);
   if (s.amazon && !isAmazonMusicUrl(s.amazon)) errs.push("The Amazon Music link should be a podcast page, e.g. https://music.amazon.co.uk/podcasts/….");

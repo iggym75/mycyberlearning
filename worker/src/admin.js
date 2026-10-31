@@ -113,7 +113,7 @@ export const eraseSubscriber = guard(async (req, env) => {
   const e = normaliseEmail(email); if (!e) return json(400, { error: "Enter a valid email address." });
   const id = subscriberId(e);
   const found = !!(await env.DB.prepare("SELECT 1 FROM subscribers WHERE id = ? AND status != 'suppressed'").bind(id).first());
-  await suppress(env.DB, id, "erasure-request");
+  if (found) await suppress(env.DB, id, "erasure-request"); // unknown addresses leave no trace
   console.log(`erasure request processed (found=${found})`);
   return json(200, { ok: true, found, message: found ? "Deleted. They won't receive any more briefings unless they subscribe and confirm again." : "No subscriber with that address was found." });
 });

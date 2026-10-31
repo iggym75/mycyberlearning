@@ -9,7 +9,7 @@ import { insertItem } from "../../worker/src/lib/db.js";
 import { signToken, subscriberId } from "../../worker/src/lib/mail.js";
 
 const SITE = "https://mycyberlearning.co.uk";
-const TOKEN_SECRET = "t".repeat(48);
+const TOKEN_SECRET = "t".repeat(48), SESSION_SECRET = "z".repeat(48);
 let db, env, outbox, ghUser;
 const ctx = { waitUntil: p => p };
 
@@ -17,7 +17,7 @@ before(async () => {
   db = await localD1(":memory:");
   env = {
     DB: db, ASSETS: { fetch: () => new Response("static", { status: 200 }) },
-    SITE_URL: SITE, TOKEN_SECRET, VOTE_SALT: "s".repeat(40), MAIL_FROM: "My Cyber Learning <briefing@mycyberlearning.co.uk>",
+    SITE_URL: SITE, TOKEN_SECRET, SESSION_SECRET, VOTE_SALT: "s".repeat(40), MAIL_FROM: "My Cyber Learning <briefing@mycyberlearning.co.uk>",
     MAIL_PROVIDER: "resend", MAIL_API_KEY: "re_test", GITHUB_OAUTH_CLIENT_ID: "cid", GITHUB_OAUTH_CLIENT_SECRET: "csecret", ADMIN_GITHUB_IDS: "1001"
   };
   outbox = []; ghUser = { id: 1001, login: "ianm" };
@@ -137,7 +137,7 @@ test("telemetry: aggregate counters only, DNT honoured, unknown values ignored",
   assert.equal((await t({ p: "library", tz: "Europe/London", l: "en-GB", d: "desktop", r: "www.google.com" })).status, 204);
   await t({ p: "library" }, { dnt: "1" });
   await t({ p: "evil", tz: "Mars/Base", r: "<script>" });
-  const { results } = await db.prepare("SELECT dim, val, n FROM stats ORDER BY dim").all();
+  const { results } = await db.prepare("SELECT dim, val, n FROM stats WHERE dim != 'mail' ORDER BY dim").all();
   assert.deepEqual(results.map(r => `${r.dim}:${r.val}:${r.n}`), ["device:desktop:1", "lang:en-GB:1", "page:library:1", "ref:google:1", "region:Europe/London:1", "total:views:1"]);
 });
 
@@ -161,8 +161,35 @@ test("admin: forged or expired session cookies are refused", async () => {
   const forged = `__Host-mcl_admin=${payload}.AAAA`;
   assert.equal((await call("/api/admin/submissions", { headers: { cookie: forged } })).status, 403);
   const old = Buffer.from(JSON.stringify({ uid: 1001, login: "ianm", exp: 1 })).toString("base64url");
-  const sig = createHmac("sha256", TOKEN_SECRET).update("session:" + old).digest("base64url");
+  const sig = createHmac("sha256", SESSION_SECRET).update("session:" + old).digest("base64url");
   assert.equal((await call("/api/admin/submissions", { headers: { cookie: `__Host-mcl_admin=${old}.${sig}` } })).status, 403);
+  // A cookie signed with TOKEN_SECRET (which CI also holds) must not work: sessions use SESSION_SECRET only.
+  const ciSig = createHmac("sha256", TOKEN_SECRET).update("session:" + payload).digest("base64url");
+  assert.equal((await call("/api/admin/submissions", { headers: { cookie: `__Host-mcl_admin=${payload}.${ciSig}` } })).status, 403);
+  const goodSig = createHmac("sha256", SESSION_SECRET).update("session:" + payload).digest("base64url");
+  assert.equal((await call("/api/admin/submissions", { headers: { cookie: `__Host-mcl_admin=${payload}.${goodSig}` } })).status, 200);
+});
+
+test("votes: parallel duplicate requests can't inflate the tally", async () => {
+  await Promise.all(Array.from({ length: 10 }, () => call("/api/vote", { method: "POST", body: { id: "darknet-diaries", dir: 1, voterId: "racer-123456" } })));
+  const r = await db.prepare("SELECT up FROM items WHERE id = 'darknet-diaries'").first();
+  assert.equal(r.up, 1);
+  await call("/api/vote", { method: "POST", body: { id: "darknet-diaries", dir: 0, voterId: "racer-123456" } });
+});
+
+test("submissions: a name with no letters or digits is refused (it would have no id)", async () => {
+  const r = await call("/api/submissions", { method: "POST", ip: "192.0.2.77", body: { name: "日本語", desc: "A security podcast in Japanese about many things.", web: "https://jp.example", apple: "https://podcasts.apple.com/x" } });
+  assert.equal(r.status, 400);
+});
+
+test("subscribe: site-wide daily cap on confirmation emails", async () => {
+  env.CONFIRM_DAILY_CAP = "1";
+  const day = new Date().toISOString().slice(0, 10);
+  await db.prepare("INSERT INTO stats (day, dim, val, n) VALUES (?, 'mail', 'confirm', 5) ON CONFLICT(day, dim, val) DO UPDATE SET n = 5").bind(day).run();
+  const n = outbox.length;
+  const r = await call("/api/subscribe", { method: "POST", ip: "192.0.2.88", body: { email: "capped@example.com", consent: true } });
+  assert.equal(r.status, 503); assert.equal(outbox.length, n);
+  env.CONFIRM_DAILY_CAP = "40";
 });
 
 test("admin: queue, approve, edit (URL sanitising), CSRF checks, insights, export, erase, delete", async () => {
@@ -194,6 +221,10 @@ test("admin: queue, approve, edit (URL sanitising), CSRF checks, insights, expor
   // Erasure
   const er = await (await call("/api/admin/subscribers/erase", { method: "POST", body: { email: "reader@example.com" }, headers: h })).json();
   assert.equal(er.ok, true);
+  const before = (await db.prepare("SELECT COUNT(*) n FROM subscribers").first()).n;
+  const unknown = await (await call("/api/admin/subscribers/erase", { method: "POST", body: { email: "never@example.com" }, headers: h })).json();
+  assert.equal(unknown.found, false);
+  assert.equal((await db.prepare("SELECT COUNT(*) n FROM subscribers").first()).n, before); // no trace of unknown addresses
   // Delete removes the item and its votes
   await call("/api/vote", { method: "POST", body: { id: "darknet-diaries", dir: 1, voterId: "browser-999999" } });
   assert.equal((await call("/api/admin/items/darknet-diaries", { method: "DELETE", headers: h })).status, 200);

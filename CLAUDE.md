@@ -20,7 +20,7 @@ A curated library of cybersecurity podcasts and books. Visitors filter by securi
 - Item schema: `id, type (podcast|book), name, by, desc, domains[], level[], freq, launched (YYYY or YYYY-MM), status, web, apple, spotify, amazon (Amazon Music podcast page; optional, hand-entered, host-checked), youtube, rss, logo, rating {v,n,asOf}, curator (shown as "MCL Pick"), isbn (13 digits, no hyphens), isbnVerified, publisher, published, bundle {name,url}, sources[], verified, hidden, tagsLocked`.
 - Descriptions are written in our own words (never copied from the show's or a list article's text).
 - Official ratings and community votes are never combined into one number.
-- Admin endpoints must be wrapped in `guard()` (worker/src/auth.js): signed session cookie + allow-listed GitHub id + same-origin JSON for writes. All SQL uses bound parameters.
+- Admin endpoints must be wrapped in `guard()` (worker/src/auth.js): signed session cookie (SESSION_SECRET, Worker-only) + allow-listed GitHub id + same-origin JSON for writes. All SQL uses bound parameters.
 - Claude prompts treat resource text as data inside `<resource>` tags and use forced tool output constrained to the taxonomy enum.
 - Daily briefing: `scripts/news.mjs` writes `frontend/news/<date>.json`; `scripts/send-digest.mjs` emails it; shared email/token code is in `worker/src/lib/mail.js`. Never republish show notes verbatim; only our summaries.
 - Personal data rules (see SECURITY.md): consent-only, minimum fields, no IPs or identifiers stored, escape everything in emails, GET never changes state, keep the privacy notice in the page in step with any change.

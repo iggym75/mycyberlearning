@@ -18,8 +18,13 @@ const redirect = to => new Response(null, { status: 303, headers: { location: to
 const jitter = () => new Promise(r => setTimeout(r, 250 + Math.floor(Math.random() * 400))); // similar timing for every outcome
 
 // POST /api/subscribe { email, name?, country?, interests?, consent: true, website (honeypot) }
+const CONFIRM_DAILY_CAP = () => Number(process.env.CONFIRM_DAILY_CAP) || 40; // keep well below the email plan's daily quota
 export async function subscribe(req, env) {
-  if (rateLimited("subip:" + clientIp(req), 5, 3600e3)) return json(429, { error: "Too many attempts. Please try again later." });
+  const ip = clientIp(req);
+  if (rateLimited("subip:" + ip, 5, 3600e3)) return json(429, { error: "Too many attempts. Please try again later." });
+  // Cloudflare's rate-limiting binding is shared across isolates (the in-memory limit above is per isolate).
+  if (env.SUBSCRIBE_LIMITER && !(await env.SUBSCRIBE_LIMITER.limit({ key: ip }).catch(() => ({ success: true }))).success)
+    return json(429, { error: "Too many attempts. Please try again later." });
   let b; try { b = await req.json(); } catch { return json(400, { error: "Invalid request." }); }
   if (b.website) { await jitter(); return json(202, GENERIC_OK); } // bots fill hidden fields; pretend success
   const email = normaliseEmail(b.email);
@@ -37,6 +42,12 @@ export async function subscribe(req, env) {
   const sendsToday = sameWindow ? (existing.sends || 0) : 0;
   if (existing?.status === "pending" && (now - last < 10 * 60e3 || sendsToday >= 3)) { await jitter(); return json(202, GENERIC_OK); }
 
+  // Site-wide daily cap on confirmation emails, so a flood of fake sign-ups can't use up the email quota
+  // (which would also stop the morning briefing) or send mail to lots of strangers from our domain.
+  const day = new Date(now).toISOString().slice(0, 10);
+  const sentToday = (await db.prepare("SELECT n FROM stats WHERE day = ? AND dim = 'mail' AND val = 'confirm'").bind(day).first())?.n || 0;
+  if (sentToday >= CONFIRM_DAILY_CAP()) { console.warn("confirmation email daily cap reached"); return json(503, { error: "Sign-ups are paused for the rest of today. Please try again tomorrow." }); }
+
   const { token, hash } = newOneTimeToken();
   const country = COUNTRIES.has(String(b.country || "").toUpperCase()) ? String(b.country).toUpperCase() : "";
   const interests = (Array.isArray(b.interests) ? b.interests : []).filter(d => DOMAIN_KEYS.includes(d)).slice(0, 8);
@@ -51,6 +62,7 @@ export async function subscribe(req, env) {
   ).run();
 
   const confirmUrl = `${SITE()}/api/subscribe/confirm?s=${id}&t=${encodeURIComponent(token)}`;
+  await db.prepare("INSERT INTO stats (day, dim, val, n) VALUES (?, 'mail', 'confirm', 1) ON CONFLICT(day, dim, val) DO UPDATE SET n = n + 1").bind(day).run();
   try { await sendMail({ to: email, ...renderConfirmEmail({ confirmUrl, siteUrl: SITE() }) }); }
   catch (e) { console.error("confirmation email failed:", e.message); return json(503, { error: "We couldn't send the confirmation email just now. Please try again later." }); }
   return json(202, GENERIC_OK);
