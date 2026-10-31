@@ -387,6 +387,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
         <div class="field"><label for="s_web">Official website</label><input id="s_web" type="url" placeholder="https://"></div>
         <div class="field"><label for="s_apple">Apple Podcasts</label><input id="s_apple" type="url" placeholder="https://podcasts.apple.com/…"></div>
         <div class="field"><label for="s_spotify">Spotify</label><input id="s_spotify" type="url" placeholder="https://open.spotify.com/show/…"></div>
+        <div class="field podcast-only"><label for="s_amazon">Amazon Music (optional)</label><input id="s_amazon" type="url" placeholder="https://music.amazon.co.uk/podcasts/…"></div>
         <div class="field"><label for="s_youtube">YouTube / YouTube Music</label><input id="s_youtube" type="url" placeholder="https://youtube.com/…"></div>
         <div class="field book-only"><label for="s_isbn">ISBN (10 or 13 digits)</label><input id="s_isbn" inputmode="numeric" placeholder="978-…"></div>
         <div class="field book-only"><label for="s_publisher">Publisher</label><input id="s_publisher" maxlength="120" list="pubList"><datalist id="pubList"></datalist></div>
@@ -420,6 +421,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
         <div class="field"><label for="e_web">Website</label><input id="e_web" type="url"></div>
         <div class="field"><label for="e_apple">Apple</label><input id="e_apple" type="url"></div>
         <div class="field"><label for="e_spotify">Spotify</label><input id="e_spotify" type="url"></div>
+        <div class="field"><label for="e_amazon">Amazon Music (podcasts)</label><input id="e_amazon" type="url" placeholder="https://music.amazon.co.uk/podcasts/…"></div>
         <div class="field"><label for="e_youtube">YouTube</label><input id="e_youtube" type="url"></div>
         <div class="field"><label for="e_isbn">ISBN (books)</label><input id="e_isbn"></div>
         <div class="field"><label for="e_publisher">Publisher (books)</label><input id="e_publisher"></div>
@@ -560,7 +562,7 @@ const api = {
 function toItem(s){
   return {id:(s.name||"item").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")+"-"+Date.now().toString(36),
     type:s.type, name:s.name, by:s.by, desc:s.desc, domains:s.domains, level:["intermediate"], freq:s.type==="podcast"?s.freq:undefined,
-    launched:null, status:"active", web:s.web||undefined, apple:s.apple||undefined, spotify:s.spotify||undefined, youtube:s.youtube||undefined,
+    launched:null, status:"active", web:s.web||undefined, apple:s.apple||undefined, spotify:s.spotify||undefined, amazon:s.amazon||undefined, youtube:s.youtube||undefined,
     rating:null, curator:false, sources:["community"], verified:false, community:{up:0,down:0}, isbn:s.isbn||undefined, publisher:s.publisher||undefined};
 }
 
@@ -600,6 +602,7 @@ let myVotes = store.get("myVotes", {});
 const ICONS = {
   apple:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg>',
   spotify:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M7 9.5c3.5-1 7-.6 10 1M7.5 12.8c2.8-.7 5.6-.4 8 .9M8 16c2.2-.5 4.3-.3 6.2.7"/></svg>',
+  amazon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg>',
   youtube:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg>',
   web:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.7 5.7 3.7 9s-1.2 6.3-3.7 9c-2.5-2.7-3.7-5.7-3.7-9S9.5 5.7 12 3z"/></svg>',
   book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/></svg>',
@@ -632,6 +635,8 @@ function searchUrl(platform, i){
   return {apple:`https://podcasts.apple.com/search?term=${encodeURIComponent(i.name)}`, spotify:`https://open.spotify.com/search/${encodeURIComponent(i.name)}/podcasts`,
     youtube:`https://www.youtube.com/results?search_query=${q}`, goodreads:`https://www.goodreads.com/search?q=${q}`, openlibrary:`https://openlibrary.org/search?q=${q}`}[platform];
 }
+const AMAZON_MUSIC_HOSTS = ["music.amazon.co.uk","music.amazon.com","music.amazon.ca","music.amazon.com.au","music.amazon.de","music.amazon.fr","music.amazon.it","music.amazon.es","music.amazon.in","music.amazon.co.jp","music.amazon.com.br","music.amazon.com.mx"];
+function isAmazonMusic(v){ try { const u=new URL(v); return u.protocol==="https:" && AMAZON_MUSIC_HOSTS.includes(u.hostname) && u.pathname.startsWith("/podcasts/"); } catch { return false; } }
 function platLinks(i){
   const L = [];
   const add = (href, icon, label, isSearch) => /^https?:\/\//i.test(href||"") && L.push(`<a class="plat${isSearch?" search":""}" href="${esc(href)}" target="_blank" rel="noopener" title="${esc(label)}" aria-label="${esc(label)}">${ICONS[icon]}</a>`);
@@ -639,6 +644,7 @@ function platLinks(i){
     i.apple ? add(i.apple,"apple","Apple Podcasts") : add(searchUrl("apple",i),"apple","Search Apple Podcasts",1);
     i.spotify ? add(i.spotify,"spotify","Spotify") : add(searchUrl("spotify",i),"spotify","Search Spotify",1);
     i.youtube ? add(i.youtube,"youtube","YouTube") : add(searchUrl("youtube",i),"youtube","Search YouTube",1);
+    if (isAmazonMusic(i.amazon)) add(i.amazon,"amazon","Amazon Music"); // only when a real link is stored; no search fallback
   } else {
     if (i.isbn){ add(`https://openlibrary.org/isbn/${i.isbn}`,"book","Open Library (ISBN)"); add(`https://www.goodreads.com/search?q=${i.isbn}`,"web","Goodreads (ISBN)"); }
     else { add(searchUrl("goodreads",i),"book","Find on Goodreads",1); add(searchUrl("openlibrary",i),"book","Find on Open Library",1); }
@@ -823,24 +829,26 @@ $("#s_freq").value = "weekly";
 $("#openSubmit").addEventListener("click", () => { subDomains=[]; userTouchedDomains=false; $("#submitForm").reset(); $("#s_freq").value="weekly"; renderDomainPicker($("#s_domains"),subDomains); $("#submitErr").hidden=true; syncType(); $("#submitDlg").showModal(); });
 $("#s_desc").addEventListener("input", e => { $("#descCount").textContent=e.target.value.length; if(!userTouchedDomains){ subDomains=suggestDomains($("#s_name").value+" "+e.target.value); renderDomainPicker($("#s_domains"),subDomains);} });
 $("#s_domains").addEventListener("click", e => { const b=e.target.closest("[data-pick]"); if(!b) return; userTouchedDomains=true; toggle(subDomains,b.dataset.pick); renderDomainPicker($("#s_domains"),subDomains); });
-function syncType(){ const book=$("#s_type").value==="book"; $("#s_freq").disabled=book; $$(".book-only").forEach(x=>x.hidden=!book);
+function syncType(){ const book=$("#s_type").value==="book"; $("#s_freq").disabled=book; $$(".book-only").forEach(x=>x.hidden=!book); $$(".podcast-only").forEach(x=>x.hidden=book);
   $("#pubList").innerHTML=[...new Set(ITEMS.map(i=>i.publisher).filter(Boolean))].sort().map(p=>`<option value="${esc(p)}">`).join(""); }
 $("#s_type").addEventListener("change", syncType);
 const isUrl = v => { try { const u=new URL(v); return u.protocol==="https:"||u.protocol==="http:"; } catch { return false; } };
 $("#submitForm").addEventListener("submit", async e => {
   e.preventDefault();
   const v = id => $("#"+id).value.trim();
-  const p = {type:v("s_type"), name:v("s_name"), by:v("s_by"), desc:v("s_desc"), freq:v("s_freq"), domains:subDomains, web:v("s_web"), apple:v("s_apple"), spotify:v("s_spotify"), youtube:v("s_youtube"), rss:v("s_rss"), email:v("s_email"), isbn:v("s_isbn"), publisher:v("s_publisher")};
+  const p = {type:v("s_type"), name:v("s_name"), by:v("s_by"), desc:v("s_desc"), freq:v("s_freq"), domains:subDomains, web:v("s_web"), apple:v("s_apple"), spotify:v("s_spotify"), amazon:v("s_amazon"), youtube:v("s_youtube"), rss:v("s_rss"), email:v("s_email"), isbn:v("s_isbn"), publisher:v("s_publisher")};
   const errs = [];
   if (p.name.length<2) errs.push("Add the name.");
   if (p.desc.length<40) errs.push("Write a description of at least 40 characters.");
   if (!p.domains.length) errs.push("Choose at least one security domain.");
-  for (const k of ["web","apple","spotify","youtube","rss"]) if (p[k] && !isUrl(p[k])) errs.push(`The ${k==="web"?"website":k} link isn't a valid web address.`);
+  if (p.type==="book") delete p.amazon;
+  for (const k of ["web","apple","spotify","amazon","youtube","rss"]) if (p[k] && !isUrl(p[k])) errs.push(`The ${k==="web"?"website":k} link isn't a valid web address.`);
+  if (p.amazon && isUrl(p.amazon) && !isAmazonMusic(p.amazon)) errs.push("The Amazon Music link should be a podcast page, e.g. https://music.amazon.co.uk/podcasts/….");
   if (p.apple && !/podcasts\.apple\.com/.test(p.apple)) errs.push("The Apple link should be a podcasts.apple.com address.");
   if (p.spotify && !/open\.spotify\.com/.test(p.spotify)) errs.push("The Spotify link should be an open.spotify.com address.");
   if (p.type==="book"){ if (p.isbn){ const ok=isbnOk(p.isbn); if(!ok) errs.push("That ISBN doesn't look right. Check the digits (10 or 13, hyphens are fine)."); else p.isbn=ok; } if (!p.publisher) errs.push("Add the publisher."); } else { delete p.isbn; delete p.publisher; }
   if (p.type==="podcast" && !p.web) errs.push("Add the podcast's official website.");
-  if (p.type==="podcast" && !(p.apple||p.spotify||p.youtube)) errs.push("Add at least one of Apple Podcasts, Spotify or YouTube.");
+  if (p.type==="podcast" && !(p.apple||p.spotify||p.youtube||p.amazon)) errs.push("Add at least one of Apple Podcasts, Spotify, YouTube or Amazon Music.");
   if (errs.length){ $("#submitErr").innerHTML = errs.map(esc).join("<br>"); $("#submitErr").hidden=false; return; }
   try { await api.submit(p); $("#submitDlg").close(); toast("Thanks — sent for review"); refreshAdminBadge(); }
   catch(err){ $("#submitErr").textContent = err.message; $("#submitErr").hidden=false; }
@@ -853,7 +861,7 @@ $("#adminBtn").addEventListener("click", async () => {
   $("#queue").innerHTML = `<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" type="button" id="openInsights">Subscribers &amp; visitors</button></div>` + (api.remote?"":`<p class="note" style="margin:0">Demo mode: the review queue and edits are stored in this browser only. On the live site this panel appears only for accounts with the admin role.</p>`) +
     (q.length ? q.map(s=>`<div class="qitem" data-sid="${esc(s.id)}"><h4>${esc(s.name)} <span class="badge">${esc(s.type)}</span></h4><div class="by">${esc(s.by||"")}</div><p class="desc" style="margin:0">${esc(s.desc)}</p>
       <div class="tags">${(s.domains||[]).map(d=>`<span class="tag">${esc(DOM[d]?.label||d)}</span>`).join("")}</div>
-      <div class="muted" style="font-size:12.5px;word-break:break-all">${["web","apple","spotify","youtube","rss","isbn","publisher"].filter(k=>s[k]).map(k=>`${k}: ${esc(s[k])}`).join(" · ")}</div>
+      <div class="muted" style="font-size:12.5px;word-break:break-all">${["web","apple","spotify","amazon","youtube","rss","isbn","publisher"].filter(k=>s[k]).map(k=>`${k}: ${esc(s[k])}`).join(" · ")}</div>
       ${s.review?`<div class="note">Automated check: ${esc(s.review)}</div>`:""}
       <div style="display:flex;gap:8px"><button class="btn sm primary" type="button" data-approve>Approve</button><button class="btn sm danger" type="button" data-reject>Reject</button></div></div>`).join("")
      : `<p class="muted" style="margin:0">No suggestions waiting. New submissions from visitors will appear here.</p>`);
@@ -868,14 +876,15 @@ $("#queue").addEventListener("click", async e => {
 let editing=null, editDomains=[];
 function openEdit(id){
   editing = ITEMS.find(x=>x.id===id); editDomains=[...editing.domains];
-  for (const k of ["name","by","desc","web","apple","spotify","youtube","launched","isbn","publisher"]) $("#e_"+k).value = editing[k]||"";
+  for (const k of ["name","by","desc","web","apple","spotify","amazon","youtube","launched","isbn","publisher"]) $("#e_"+k).value = editing[k]||"";
   $("#e_freq").value = editing.freq||"irregular"; $("#e_freq").disabled = editing.type==="book"; $("#e_curator").checked=!!editing.curator;
   renderDomainPicker($("#e_domains"), editDomains); $("#editDlg").showModal();
 }
 $("#e_domains").addEventListener("click", e => { const b=e.target.closest("[data-pick]"); if(!b) return; toggle(editDomains,b.dataset.pick); renderDomainPicker($("#e_domains"),editDomains); });
 $("#editForm").addEventListener("submit", async e => {
   e.preventDefault(); const patch = {domains:editDomains, curator:$("#e_curator").checked};
-  for (const k of ["name","by","desc","web","apple","spotify","youtube","launched","isbn","publisher"]) patch[k] = $("#e_"+k).value.trim()||undefined;
+  for (const k of ["name","by","desc","web","apple","spotify","amazon","youtube","launched","isbn","publisher"]) patch[k] = $("#e_"+k).value.trim()||undefined;
+  if (patch.amazon && !isAmazonMusic(patch.amazon)){ toast("The Amazon Music link should be a music.amazon… /podcasts/ page."); return; }
   if (editing.type==="podcast") patch.freq=$("#e_freq").value;
   if (patch.isbn){ const ok=isbnOk(patch.isbn); if(!ok){ toast("That ISBN doesn't look right. Check the digits."); return; } patch.isbn=ok; }
   await api.save(editing.id, patch); Object.assign(editing, patch); $("#editDlg").close(); render(); toast("Saved");

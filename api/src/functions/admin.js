@@ -2,7 +2,7 @@
 // role, and every handler re-checks the role from the client-principal header.
 import { app } from "@azure/functions";
 import { normaliseEmail, subscriberId } from "../lib/mail.js";
-import { table, T, odata, rowToItem, itemToRow, json, isAdmin, slug, normaliseIsbn, isHttpUrl, DOMAIN_KEYS, FREQ_KEYS } from "../lib/shared.js";
+import { table, T, odata, rowToItem, itemToRow, json, isAdmin, slug, normaliseIsbn, isHttpUrl, isAmazonMusicUrl, DOMAIN_KEYS, FREQ_KEYS } from "../lib/shared.js";
 
 // Admins only, and state-changing calls must be same-origin JSON (blocks cross-site form CSRF).
 const SITE_ORIGIN = () => new URL(process.env.SITE_URL || "https://mycyberlearning.co.uk").origin;
@@ -19,9 +19,10 @@ const guard = fn => async (req, ctx) => {
   }
   return fn(req, ctx);
 };
-const URL_FIELDS = ["web", "apple", "spotify", "youtube", "rss"];
+const URL_FIELDS = ["web", "apple", "spotify", "amazon", "youtube", "rss"];
 function sanitiseItem(item) {
   for (const k of URL_FIELDS) if (item[k] != null) item[k] = isHttpUrl(item[k]) ? String(item[k]).slice(0, 500) : undefined;
+  if (item.amazon && !isAmazonMusicUrl(item.amazon)) item.amazon = undefined;
   if (item.logo != null && !(/^covers\/[a-z0-9-]+\.jpg$/.test(item.logo) || isHttpUrl(item.logo))) item.logo = undefined;
   if (item.bundle && !isHttpUrl(item.bundle.url)) item.bundle = undefined;
   item.domains = (Array.isArray(item.domains) ? item.domains : []).filter(d => DOMAIN_KEYS.includes(d)).slice(0, 5);
@@ -58,7 +59,7 @@ app.http("adminDecide", {
         domains: (overrides.domains || [...new Set([...suggested, ...s.domains])]).filter(d => DOMAIN_KEYS.includes(d)).slice(0, 5),
         level: level.length ? level : ["intermediate"], freq: s.type === "podcast" ? s.freq : undefined,
         launched: null, status: "active", web: s.web || undefined, apple: s.apple || undefined, spotify: s.spotify || undefined,
-        youtube: s.youtube || undefined, rss: s.rss || undefined, isbn: s.isbn || undefined, publisher: s.publisher || undefined, isbnVerified: false, rating: null, curator: false, sources: ["community"], verified: false,
+        amazon: s.amazon || undefined, youtube: s.youtube || undefined, rss: s.rss || undefined, isbn: s.isbn || undefined, publisher: s.publisher || undefined, isbnVerified: false, rating: null, curator: false, sources: ["community"], verified: false,
         addedAt: new Date().toISOString(), ...overrides
       };
       await (await table(T.items)).upsertEntity(itemToRow(sanitiseItem(item)), "Replace");
@@ -86,7 +87,7 @@ app.http("adminItem", {
     }
     const patch = await req.json().catch(() => ({}));
     const item = rowToItem(r);
-    const allowed = ["name", "by", "desc", "domains", "level", "freq", "launched", "status", "web", "apple", "spotify", "youtube", "rss", "logo", "curator", "hidden", "published", "tagsLocked", "isbn", "publisher", "format"];
+    const allowed = ["name", "by", "desc", "domains", "level", "freq", "launched", "status", "web", "apple", "spotify", "amazon", "youtube", "rss", "logo", "curator", "hidden", "published", "tagsLocked", "isbn", "publisher", "format"];
     for (const k of allowed) if (k in patch) item[k] = patch[k] === "" ? undefined : patch[k];
     sanitiseItem(item);
     if ("isbn" in patch && item.isbn) { const n = normaliseIsbn(item.isbn); if (!n) return json(400, { error: "That ISBN doesn't look right." }); if (n !== r.isbn) item.isbnVerified = false; item.isbn = n; }

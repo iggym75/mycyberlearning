@@ -17,7 +17,7 @@ A curated library of cybersecurity podcasts and books. Visitors filter by securi
 ## Conventions
 - Keep it cheap: no new paid Azure services without asking. Static Web Apps Free + Table Storage only.
 - No frontend framework or build toolchain; keep the page a single file. Fonts from Google Fonts only.
-- Item schema: `id, type (podcast|book), name, by, desc, domains[], level[], freq, launched (YYYY or YYYY-MM), status, web, apple, spotify, youtube, rss, logo, rating {v,n,asOf}, curator (shown as "MCL Pick"), isbn (13 digits, no hyphens), isbnVerified, publisher, published, bundle {name,url}, sources[], verified, hidden, tagsLocked`.
+- Item schema: `id, type (podcast|book), name, by, desc, domains[], level[], freq, launched (YYYY or YYYY-MM), status, web, apple, spotify, amazon (Amazon Music podcast page; optional, hand-entered, host-checked), youtube, rss, logo, rating {v,n,asOf}, curator (shown as "MCL Pick"), isbn (13 digits, no hyphens), isbnVerified, publisher, published, bundle {name,url}, sources[], verified, hidden, tagsLocked`.
 - Descriptions are written in our own words (never copied from the show's or a list article's text).
 - Official ratings and community votes are never combined into one number.
 - Admin endpoints must check `isAdmin(req)` in the handler as well as relying on the SWA route rule.

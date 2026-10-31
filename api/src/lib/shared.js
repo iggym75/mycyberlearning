@@ -72,6 +72,11 @@ export function normaliseIsbn(raw) {
   return null;
 }
 export function isHttpUrl(v) { try { const u = new URL(v); return ["http:", "https:"].includes(u.protocol); } catch { return false; } }
+// Amazon Music podcast pages, on the storefronts that carry podcasts. Exact host match, so look-alike domains fail.
+export const AMAZON_MUSIC_HOSTS = ["music.amazon.co.uk", "music.amazon.com", "music.amazon.ca", "music.amazon.com.au", "music.amazon.de", "music.amazon.fr", "music.amazon.it", "music.amazon.es", "music.amazon.in", "music.amazon.co.jp", "music.amazon.com.br", "music.amazon.com.mx"];
+export function isAmazonMusicUrl(v) {
+  try { const u = new URL(v); return u.protocol === "https:" && AMAZON_MUSIC_HOSTS.includes(u.hostname) && /^\/podcasts\//.test(u.pathname); } catch { return false; }
+}
 export const slug = s => s.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60);
 export const clean = (s, max) => String(s ?? "").replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, max);
 
