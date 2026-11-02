@@ -21,7 +21,7 @@
     "send:preview": "node scripts/send-digest.mjs --preview"
   },
   "dependencies": {
-    "fast-xml-parser": "^4.5.0"
+    "fast-xml-parser": "^5.11.2"
   },
   "engines": {
     "node": ">=22.5"
