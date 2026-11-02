@@ -1,0 +1,82 @@
+{
+  "date": "2026-11-02",
+  "generatedAt": "2026-11-02T22:38:27.007Z",
+  "windowHours": 24,
+  "headline": "Today's cyber security podcasts",
+  "overview": "6 new episodes from 6 news shows in the last 24 hours.",
+  "topStories": [],
+  "episodes": [
+    {
+      "show": "cyberwire-daily",
+      "title": "A TraderTraitor's guide to getting away with billions.",
+      "publishedAt": "2026-11-02T21:30:00.000Z",
+      "minutes": 28,
+      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2669/notes",
+      "ref": "cyberwire-daily-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "The FBI blames North Korea for a record-breaking crypto heist. Hackers hijack air raid alerts in Ukraine and Russia. European supermarket freezers come under attack again."
+    },
+    {
+      "show": "ai-daily-brief",
+      "title": "How to Deslopify Your AI",
+      "publishedAt": "2026-11-02T17:00:00Z",
+      "minutes": 43,
+      "url": "https://podcasts.apple.com/gb/podcast/how-to-deslopify-your-ai/id1680633614",
+      "ref": "ai-daily-brief-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "AI slop shifts the burden of thinking from the person producing the work to whoever receives it."
+    },
+    {
+      "show": "cyber-security-headlines",
+      "title": "DHS data leak, Northflank suffers breach, Russian Poryadok cyberattack",
+      "publishedAt": "2026-11-02T07:00:00.000Z",
+      "minutes": 8,
+      "url": "https://cisoseries.libsyn.com/dhs-data-leak-northflank-suffers-breach-russian-poryadok-cyberattack",
+      "ref": "cyber-security-headlines-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "NetamLoader malware targets government Windows systems in Asia Northflank warns of security breach Russian home goods chain Poryadok suffers cyberattack Android SMS of Death zero-click warning Data of more than 41,000…"
+    },
+    {
+      "show": "sans-stormcast",
+      "title": "SANS Stormcast Monday, November 2nd, 2026: OneNote Bulk Extraction; Trojanized Claude Code Extension in Cursor Marketplace; Ivanti Connect Secure Zero-Days (CVE-2026-111357); Android SMS of Death",
+      "publishedAt": "2026-11-02T02:00:02.000Z",
+      "minutes": 6,
+      "url": "https://isc.sans.edu/podcastdetail/10160",
+      "ref": "sans-stormcast-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "Didier Stevens adds bulk JSON extraction to his OneNote analysis tool, a trojanized Anthropic Claude Code extension in the Cursor VS Code Extension Marketplace installs an SSH backdoor, Ivanti patches two more…"
+    },
+    {
+      "show": "cybersecurity-today",
+      "title": "FBI ties North Korea to $6.3B Binance heist, Cybercriminals breach four top Canadian law firms, Chinese spies use AI agent to hit 140 targets",
+      "publishedAt": "2026-11-02T00:30:00.000Z",
+      "minutes": 14,
+      "url": "https://cybersecuritytoday.libsyn.com/fbi-ties-north-korea-to-63b-binance-heist-cybercriminals-breach-four-top-canadian-law-firms-chinese-spies-use-ai-agent-to-hit-140-targets",
+      "ref": "cybersecurity-today-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "Vishing Breaches Top Canadian Law Firms, FBI Pins Record Binance Heist on North Korea, and GM Pays $220M Privacy Settlement David Shipley covers major cybersecurity headlines for Nov."
+    },
+    {
+      "show": "hacked",
+      "title": "The Weaponization of Food — The European Supermarket Hack",
+      "publishedAt": "2026-11-01T23:00:00.000Z",
+      "minutes": 38,
+      "url": "https://www.hackedpodcast.com",
+      "ref": "hacked-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "Early Monday, managers at hundreds of French supermarkets opened their freezers to a wave of hot air. Overnight, hackers had taken over the Danfoss software that controls the stores’ refrigeration and told it to heat up."
+    }
+  ]
+}
