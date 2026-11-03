@@ -33,6 +33,8 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL || 'claude-haiku-5-5' }}
           RATINGS_SOURCE: ${{ vars.RATINGS_SOURCE || 'podnews' }}
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}   # optional: fills missing Spotify links from Spotify's catalogue
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
         run: node scripts/refresh.mjs ${{ inputs.retag && '--retag' || '' }}
       - name: Snapshot catalogue to the repo
         env:

@@ -10,7 +10,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { openD1, listItems, upsertItem, sleep, saveImage } from "./lib.mjs";
 import { hasLocalImage } from "./pure.mjs";
-import { lookupApple, readFeed, lookupPodnews, lookupBook, claudeTag } from "./enrich.mjs";
+import { lookupApple, readFeed, lookupPodnews, searchSpotify, lookupBook, claudeTag } from "./enrich.mjs";
 
 const args = process.argv.slice(2);
 const flag = f => args.includes(f);
@@ -59,7 +59,12 @@ for (const { item } of rows) {
         // Only fills a missing Spotify link: a stored (e.g. hand-entered) one is never replaced.
         const pn = await lookupPodnews(a.appleId, item.spotify ? null : item.name);
         if (pn.rating) next.rating = { ...pn.rating, asOf: today };
-        if (pn.spotify && !item.spotify) { next.spotify = pn.spotify; report.notes.push(`${item.id}: Spotify link added (${pn.spotify})`); }
+        if (pn.spotify && !item.spotify) { next.spotify = pn.spotify; report.notes.push(`${item.id}: Spotify link added from Podnews (${pn.spotify})`); }
+        if (!item.spotify && !next.spotify) {
+          const sp = await searchSpotify(item, { author: a.author, episodes: a.trackCount }).catch(e => { report.notes.push(`${item.id}: ${e.message}`); return null; });
+          if (sp?.url) { next.spotify = sp.url; report.notes.push(`${item.id}: Spotify link added from Spotify search (${sp.url})`); }
+          else if (sp?.near) report.notes.push(`${item.id}: Spotify has a show with this name but publisher and episode count don't match, so it was not linked: ${sp.near}`);
+        }
         next.verified = true;
       } else report.notes.push(`${item.id}: not found in Apple directory — check the name or add the Apple link`);
     } else {

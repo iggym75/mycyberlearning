@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { XMLParser } from "fast-xml-parser";
-import { inferCadence, parsePodnewsRating, bestMatch, appleId, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, hasLocalImage, FEED_XML, parsePodnewsSpotify, ogTitle } from "../pure.mjs";
+import { inferCadence, parsePodnewsRating, bestMatch, appleId, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, hasLocalImage, FEED_XML, parsePodnewsSpotify, ogTitle, pickSpotifyShow, sameOrg } from "../pure.mjs";
 
 const NOW = Date.parse("2026-10-30T12:00:00Z");
 const series = (n, everyDays, endDaysAgo = 1) => Array.from({ length: n }, (_, i) => new Date(NOW - (endDaysAgo + i * everyDays) * 86_400_000).toUTCString());
@@ -100,6 +100,26 @@ test("Spotify link from a Podnews page, and og:title", () => {
   assert.equal(parsePodnewsSpotify(`<a href="${show}">Spotify</a> <a href="${show}?si=x">again</a>`), show);
   assert.equal(parsePodnewsSpotify(`<a href="${show}"></a><a href="https://open.spotify.com/show/5ve91nafP42YdcVy2pYUuy"></a>`), null); // two shows: ambiguous
   assert.equal(parsePodnewsSpotify("<p>no links</p>"), null);
+  assert.equal(parsePodnewsSpotify(`<a href="https://evil.example/?u=${show}">x</a>`), null);   // embedded in another URL
   assert.equal(ogTitle('<meta property="og:title" content="Beers with Talos Podcast"><title>x</title>'), "Beers with Talos Podcast");
   assert.equal(ogTitle("<title>none</title>"), null);
+});
+
+test("Spotify search: name plus publisher or episode count, and look-alikes are told apart", () => {
+  const show = (name, publisher, total_episodes, id) => ({ name, publisher, total_episodes, external_urls: { spotify: `https://open.spotify.com/show/${id}?si=abc` } });
+  const results = [
+    show("Cloud Security Podcast by Google", "Google Cloud", 290, "G"),
+    show("Cloud Security Podcast", "Cloud Security Podcast", 330, "C"),
+    show("Cloud Security Weekly", "Someone Else", 12, "X")
+  ];
+  // Two shows start with the name; the exact name with matching episode count wins.
+  assert.deepEqual(pickSpotifyShow({ name: "Cloud Security Podcast", by: "Ashish Rajan" }, results, { episodes: 320 }), { url: "https://open.spotify.com/show/C" });
+  assert.deepEqual(pickSpotifyShow({ name: "Cloud Security Podcast by Google", by: "Anton Chuvakin · Google Cloud" }, results, {}), { url: "https://open.spotify.com/show/G" });
+  // Same name, but neither publisher nor episode count agree: not linked, reported instead.
+  const r = pickSpotifyShow({ name: "Beers with Talos", by: "Cisco Talos" }, [show("Beers With Talos", "Some Fan Page", 4, "F")], { episodes: 160, author: "Cisco Talos" });
+  assert.ok(!r.url && /Some Fan Page/.test(r.near));
+  assert.deepEqual(pickSpotifyShow({ name: "Beers with Talos", by: "Cisco Talos" }, [show("Beers with Talos Podcast", "Cisco Talos Intelligence Group", 158, "T")], {}), { url: "https://open.spotify.com/show/T" });
+  assert.equal(pickSpotifyShow({ name: "Darknet Diaries" }, [show("Other", "x", 1, "O")], {}), null);
+  assert.ok(sameOrg("N2K Networks", "Dave Bittner · N2K Networks"));
+  assert.ok(!sameOrg("Security Weekly Media", "Cyber Security Media"));   // only generic words in common
 });

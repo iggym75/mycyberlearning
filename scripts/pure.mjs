@@ -46,8 +46,31 @@ export function bestMatch(name, results, key = "collectionName") {
 }
 /** The show's Spotify link from a Podnews page: only when the page names exactly one show, so it can't be another show's. */
 export function parsePodnewsSpotify(html) {
-  const links = [...new Set(String(html).match(/https:\/\/open\.spotify\.com\/show\/[A-Za-z0-9]{22}/g) || [])];
+  // Only links that start an attribute value (href="https://open.spotify.com/show/…"), never one embedded in another URL.
+  const links = [...new Set([...String(html).matchAll(/["'](https:\/\/open\.spotify\.com\/show\/[A-Za-z0-9]{22})/g)].map(m => m[1]))];
   return links.length === 1 ? links[0] : null;
+}
+// Words that don't identify a publisher on their own ("Cyber Security Media" vs "Security Weekly Media").
+const ORG_STOP = new Set(["the", "and", "with", "podcast", "podcasts", "security", "cyber", "cybersecurity", "media", "network", "networks", "inc", "llc", "ltd", "show", "radio", "studio", "studios", "team"]);
+const orgWords = s => new Set(String(s ?? "").toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, " ").split(" ").filter(w => w.length >= 3 && !ORG_STOP.has(w)));
+/** True when two publisher/host strings share a distinctive word (e.g. "N2K Networks" and "Dave Bittner · N2K Networks"). */
+export function sameOrg(a, b) {
+  const x = orgWords(a); for (const w of orgWords(b)) if (x.has(w)) return true;
+  return false;
+}
+/**
+ * Pick the Spotify show for a catalogue podcast from Spotify search results. The name must match, plus either the
+ * publisher (against Apple's author or our "by") or the episode count (within 15%, or 3). Returns
+ * { url } for a confident single match, { near } describing a name-only match that was not used, or null.
+ */
+export function pickSpotifyShow(item, shows, { author, episodes } = {}) {
+  const named = (shows || []).filter(s => s?.name && s.external_urls?.spotify && titlesMatch(item.name, s.name));
+  const epsOk = s => episodes > 0 && s.total_episodes > 0 && Math.abs(s.total_episodes - episodes) <= Math.max(3, episodes * 0.15);
+  let ok = named.filter(s => sameOrg(s.publisher, author) || sameOrg(s.publisher, item.by) || epsOk(s));
+  if (ok.length > 1) { const exact = ok.filter(s => norm(s.name) === norm(item.name)); if (exact.length) ok = exact; }
+  if (ok.length === 1) return { url: ok[0].external_urls.spotify.split("?")[0] };
+  if (named.length) return { near: named.slice(0, 2).map(s => `"${s.name}" by ${s.publisher} (${s.total_episodes} eps)`).join("; ") };
+  return null;
 }
 /** og:title from a page (Spotify's show pages carry the show name there; its oEmbed title is the latest episode). */
 export const ogTitle = html => String(html).match(/<meta property="og:title" content="([^"]*)"/)?.[1] || null;
