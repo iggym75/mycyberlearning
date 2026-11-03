@@ -207,7 +207,7 @@
         "advanced"
       ],
       "freq": "weekly",
-      "launched": null,
+      "launched": "2019-11",
       "status": "active",
       "web": "https://cloudsecuritypodcast.tv",
       "rating": {
@@ -276,8 +276,8 @@
         "beginner",
         "intermediate"
       ],
-      "freq": "irregular",
-      "launched": null,
+      "freq": "multiweekly",
+      "launched": "2023-02",
       "status": "active",
       "web": "https://www.aspironsearch.com/cyberbytes",
       "rating": {
@@ -294,7 +294,7 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1763243770",
       "rss": "https://anchor.fm/s/f9ff5de4/podcast/rss",
-      "lastEpisode": "2026-10-20",
+      "lastEpisode": "2026-11-03",
       "episodes": 266,
       "id": "cyber-bytes"
     },
@@ -534,7 +534,7 @@
         "advanced"
       ],
       "freq": "weekly",
-      "launched": null,
+      "launched": "2023-01",
       "status": "active",
       "web": "https://www.team-cymru.com/future-of-threat-intelligence-podcast",
       "rating": {
@@ -1121,7 +1121,7 @@
       "apple": "https://podcasts.apple.com/podcast/id1391337832",
       "rss": "https://rss.libsyn.com/shows/24425/destinations/37324.xml",
       "lastEpisode": "2026-11-03",
-      "episodes": 431,
+      "episodes": 430,
       "amazon": "https://music.amazon.co.uk/podcasts/cb4e51d9-5d85-40f7-9ad6-42a58cfa2c0a/ciso-series-podcast",
       "id": "ciso-series"
     },
@@ -1195,7 +1195,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://publicfeeds.net/f/8376/clickhere",
       "lastEpisode": "2026-11-03",
-      "episodes": 389,
+      "episodes": 388,
       "amazon": "https://music.amazon.co.uk/podcasts/1ddc446b-b5eb-4546-bf8f-e2642285495b/click-here",
       "id": "click-here"
     },
@@ -1501,7 +1501,7 @@
       "level": [
         "advanced"
       ],
-      "freq": "weekly",
+      "freq": "multiweekly",
       "launched": "2023",
       "status": "active",
       "web": "https://www.latent.space/podcast",
@@ -1516,7 +1516,7 @@
       "logo": "covers/podcast-latent-space.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://podcast.latent.space/feed.xml",
-      "lastEpisode": "2026-10-27",
+      "lastEpisode": "2026-11-02",
       "episodes": 290,
       "amazon": "https://music.amazon.co.uk/podcasts/abff303e-e4f1-447c-9823-b35bfc6e8da8/latent-space-the-ai-engineer-podcast",
       "id": "latent-space"
@@ -2039,7 +2039,7 @@
       "logo": "covers/podcast-ai-daily-brief.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://anchor.fm/s/f7cac464/podcast/rss",
-      "lastEpisode": "2026-10-29",
+      "lastEpisode": "2026-11-03",
       "episodes": 1129,
       "amazon": "https://music.amazon.co.uk/podcasts/2b3e5988-907e-4702-96f5-7eb33adc729e/the-ai-daily-brief-artificial-intelligence-news-and-analysis",
       "id": "ai-daily-brief"
