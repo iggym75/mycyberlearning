@@ -10,7 +10,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { openD1, listItems, upsertItem, sleep, saveImage } from "./lib.mjs";
 import { hasLocalImage } from "./pure.mjs";
-import { lookupApple, readFeed, lookupRating, lookupBook, claudeTag } from "./enrich.mjs";
+import { lookupApple, readFeed, lookupPodnews, lookupBook, claudeTag } from "./enrich.mjs";
 
 const args = process.argv.slice(2);
 const flag = f => args.includes(f);
@@ -56,8 +56,10 @@ for (const { item } of rows) {
             titles = f.titles;
           }
         }
-        const rating = await lookupRating(a.appleId);
-        if (rating) next.rating = { ...rating, asOf: today };
+        // Only fills a missing Spotify link: a stored (e.g. hand-entered) one is never replaced.
+        const pn = await lookupPodnews(a.appleId, item.spotify ? null : item.name);
+        if (pn.rating) next.rating = { ...pn.rating, asOf: today };
+        if (pn.spotify && !item.spotify) { next.spotify = pn.spotify; report.notes.push(`${item.id}: Spotify link added (${pn.spotify})`); }
         next.verified = true;
       } else report.notes.push(`${item.id}: not found in Apple directory — check the name or add the Apple link`);
     } else {

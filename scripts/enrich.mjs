@@ -7,7 +7,7 @@ import { getText, getJson, sleep } from "./lib.mjs";
 const taxonomy = JSON.parse(readFileSync(new URL("../data/taxonomy.json", import.meta.url), "utf8"));
 const DOMAIN_KEYS = taxonomy.domains.map(d => d.key);
 export { inferCadence, parsePodnewsRating, bestMatch, appleId } from "./pure.mjs";
-import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, FEED_XML } from "./pure.mjs";
+import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, FEED_XML, parsePodnewsSpotify, ogTitle } from "./pure.mjs";
 
 /** Apple Podcasts directory (free, no key): artwork, feed URL, canonical link, episode count. */
 export async function lookupApple(item) {
@@ -39,8 +39,24 @@ export async function readFeed(rssUrl, trackCount) {
 
 /** Aggregated listener rating. Podnews is used by default; check its terms before running at scale. */
 export async function lookupRating(appleIdValue) {
-  if (!appleIdValue || process.env.RATINGS_SOURCE === "none") return null;
-  try { return parsePodnewsRating(await getText(`https://podnews.net/podcast/${appleIdValue}`)); } catch { return null; }
+  return (await lookupPodnews(appleIdValue)).rating;
+}
+
+/**
+ * One Podnews request per show gives both the rating and, where Podnews knows it, the Spotify link. The link is
+ * only returned when Spotify's own page title matches the show's name, so a wrong link never reaches the site.
+ */
+export async function lookupPodnews(appleIdValue, name) {
+  if (!appleIdValue || process.env.RATINGS_SOURCE === "none") return { rating: null, spotify: null };
+  let html = "";
+  try { html = await getText(`https://podnews.net/podcast/${appleIdValue}`); } catch { return { rating: null, spotify: null }; }
+  const candidate = name ? parsePodnewsSpotify(html) : null;
+  let spotify = null;
+  if (candidate) {
+    const title = ogTitle(await getText(candidate).catch(() => ""));
+    if (title && titlesMatch(name, title)) spotify = candidate;
+  }
+  return { rating: parsePodnewsRating(html), spotify };
 }
 
 /** Open Library (free, no key) for book covers, first publication year and reader ratings. */

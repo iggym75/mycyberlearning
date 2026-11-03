@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { XMLParser } from "fast-xml-parser";
-import { inferCadence, parsePodnewsRating, bestMatch, appleId, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, hasLocalImage, FEED_XML } from "../pure.mjs";
+import { inferCadence, parsePodnewsRating, bestMatch, appleId, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, hasLocalImage, FEED_XML, parsePodnewsSpotify, ogTitle } from "../pure.mjs";
 
 const NOW = Date.parse("2026-10-30T12:00:00Z");
 const series = (n, everyDays, endDaysAgo = 1) => Array.from({ length: n }, (_, i) => new Date(NOW - (endDaysAgo + i * everyDays) * 86_400_000).toUTCString());
@@ -93,4 +93,13 @@ test("feed parser: long HTML show notes parse, entity bombs are still refused", 
   assert.equal(parse(`<!DOCTYPE rss [<!ENTITY l0 "lol">${lol}]><rss><channel><title>&l6;</title></channel></rss>`).rss.channel.title, "&l6;");
   const wide = `<!DOCTYPE rss [<!ENTITY x "${"A".repeat(9000)}">]><rss><channel><title>${"&x;".repeat(50)}</title></channel></rss>`;
   assert.throws(() => parse(wide), /expanded content size/);
+});
+
+test("Spotify link from a Podnews page, and og:title", () => {
+  const show = "https://open.spotify.com/show/0KUi5HIbOUJNRD3LTpkWUV";
+  assert.equal(parsePodnewsSpotify(`<a href="${show}">Spotify</a> <a href="${show}?si=x">again</a>`), show);
+  assert.equal(parsePodnewsSpotify(`<a href="${show}"></a><a href="https://open.spotify.com/show/5ve91nafP42YdcVy2pYUuy"></a>`), null); // two shows: ambiguous
+  assert.equal(parsePodnewsSpotify("<p>no links</p>"), null);
+  assert.equal(ogTitle('<meta property="og:title" content="Beers with Talos Podcast"><title>x</title>'), "Beers with Talos Podcast");
+  assert.equal(ogTitle("<title>none</title>"), null);
 });

@@ -44,6 +44,13 @@ export function bestMatch(name, results, key = "collectionName") {
   const n = norm(name);
   return results.find(r => norm(r[key]) === n) || results.find(r => norm(r[key]).startsWith(n) || n.startsWith(norm(r[key]))) || null;
 }
+/** The show's Spotify link from a Podnews page: only when the page names exactly one show, so it can't be another show's. */
+export function parsePodnewsSpotify(html) {
+  const links = [...new Set(String(html).match(/https:\/\/open\.spotify\.com\/show\/[A-Za-z0-9]{22}/g) || [])];
+  return links.length === 1 ? links[0] : null;
+}
+/** og:title from a page (Spotify's show pages carry the show name there; its oEmbed title is the latest episode). */
+export const ogTitle = html => String(html).match(/<meta property="og:title" content="([^"]*)"/)?.[1] || null;
 export const appleId = url => url?.match(/id(\d{5,})/)?.[1] || null;
 
 
