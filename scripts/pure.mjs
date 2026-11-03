@@ -78,3 +78,16 @@ export function appleArtworkUrl(url, size = 300) {
 }
 /** True when an item already uses an image stored with the site (not a remote URL). */
 export const hasLocalImage = item => typeof item.logo === "string" && item.logo.startsWith("covers/");
+
+/**
+ * fast-xml-parser settings for podcast feeds (untrusted input).
+ * - htmlEntities: decode numeric and HTML character references. Some hosts write the "+" in pubDate as &#43;,
+ *   which otherwise leaves every date unreadable (no cadence for that show).
+ * - This parser version counts every built-in escape (&amp;, &lt; …) towards maxTotalExpansions, so its default of
+ *   1000 rejects ordinary feeds with long HTML show notes. Those escapes never make text longer, so that count is
+ *   raised; the limits that stop entity-expansion attacks (custom DOCTYPE entities) stay at the library defaults.
+ */
+export const FEED_XML = {
+  htmlEntities: true,
+  processEntities: { enabled: true, maxEntitySize: 10000, maxExpansionDepth: 10, maxTotalExpansions: 1_000_000, maxExpandedLength: 100000 }
+};

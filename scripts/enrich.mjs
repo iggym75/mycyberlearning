@@ -7,7 +7,7 @@ import { getText, getJson, sleep } from "./lib.mjs";
 const taxonomy = JSON.parse(readFileSync(new URL("../data/taxonomy.json", import.meta.url), "utf8"));
 const DOMAIN_KEYS = taxonomy.domains.map(d => d.key);
 export { inferCadence, parsePodnewsRating, bestMatch, appleId } from "./pure.mjs";
-import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl } from "./pure.mjs";
+import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, FEED_XML } from "./pure.mjs";
 
 /** Apple Podcasts directory (free, no key): artwork, feed URL, canonical link, episode count. */
 export async function lookupApple(item) {
@@ -28,7 +28,7 @@ export async function lookupApple(item) {
 /** Reads the RSS feed for publish dates and recent titles (titles help the tagger). */
 export async function readFeed(rssUrl, trackCount) {
   const xml = await getText(rssUrl, { timeoutMs: 25000 });
-  const doc = new XMLParser({ ignoreAttributes: true }).parse(xml);
+  const doc = new XMLParser({ ignoreAttributes: true, ...FEED_XML }).parse(xml);
   let items = doc?.rss?.channel?.item || [];
   if (!Array.isArray(items)) items = [items];
   const dates = items.map(i => i.pubDate).filter(Boolean);

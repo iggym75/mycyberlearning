@@ -9,6 +9,7 @@ import { XMLParser } from "fast-xml-parser";
 import { getText, getJson, sleep, listItems } from "./lib.mjs";
 import { stripHtml, durationMinutes, inWindow, fallbackSummary, validateDigest, pruneDates, scrubContacts } from "./news-pure.mjs";
 import { londonDate } from "../worker/src/lib/mail.js";
+import { FEED_XML } from "./pure.mjs";
 
 const args = process.argv.slice(2);
 const dry = args.includes("--dry-run"), local = args.includes("--local");
@@ -25,7 +26,7 @@ const shows = all.filter(i => i.type === "podcast" && i.domains?.includes("news"
 console.log(`Checking ${shows.length} news podcasts for episodes in the last ${hours} hours`);
 
 // 2. Episodes: RSS first, Apple directory as a fallback
-const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: "@" });
+const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: "@", ...FEED_XML });
 async function fromRss(show) {
   const doc = parser.parse(await getText(show.rss, { timeoutMs: 25000 }));
   let items = doc?.rss?.channel?.item || []; if (!Array.isArray(items)) items = [items];
