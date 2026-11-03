@@ -1,11 +1,15 @@
 name: Daily news briefing
 
-# Runs at 05:07 and 06:07 UTC. Exactly one of these starts between 06:00 and 06:59 London time
-# (06:07 in winter/GMT, 05:07 in summer/BST); the other run exits straight away.
+# Aims for 06:07 London time (05:07 UTC in summer/BST, 06:07 UTC in winter/GMT). GitHub often starts
+# scheduled runs hours late, so later runs are fallbacks: the first run at or after 06:00 London builds
+# and sends the day's briefing, and every later run that day finds it built and only retries the email
+# (send-digest.mjs sends at most once per day, resuming an interrupted send).
 on:
   schedule:
     - cron: "7 5 * * *"
     - cron: "7 6 * * *"
+    - cron: "37 7 * * *"
+    - cron: "7 10 * * *"
   workflow_dispatch:
     inputs:
       send:
@@ -23,15 +27,22 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       go: ${{ steps.check.outputs.go }}
+      build: ${{ steps.check.outputs.build }}
     steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, persist-credentials: false, sparse-checkout: frontend/news }
       - id: check
         run: |
-          hour=$(TZ=Europe/London date +%H)
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$hour" = "06" ]; then echo "go=true" >> "$GITHUB_OUTPUT"; else echo "go=false" >> "$GITHUB_OUTPUT"; echo "London hour is $hour; skipping."; fi
+          hour=$(TZ=Europe/London date +%-H); today=$(TZ=Europe/London date +%F)
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then echo "go=true" >> "$GITHUB_OUTPUT"; echo "build=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          if [ "$hour" -lt 6 ]; then echo "go=false" >> "$GITHUB_OUTPUT"; echo "London hour is $hour, before 06:00; skipping."; exit 0; fi
+          echo "go=true" >> "$GITHUB_OUTPUT"
+          if [ -f "frontend/news/$today.json" ]; then echo "build=false" >> "$GITHUB_OUTPUT"; echo "Briefing for $today already built; checking the email only."
+          else echo "build=true" >> "$GITHUB_OUTPUT"; fi
 
   build:
     needs: gate
-    if: needs.gate.outputs.go == 'true'
+    if: needs.gate.outputs.go == 'true' && needs.gate.outputs.build == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -70,7 +81,8 @@ jobs:
 
   email:
     needs: [gate, build]
-    if: needs.gate.outputs.go == 'true' && (github.event_name == 'schedule' || inputs.send)
+    # Runs after a fresh build, or (build skipped) when a later fallback run finds today's briefing already built.
+    if: always() && needs.gate.outputs.go == 'true' && contains(fromJSON('["success","skipped"]'), needs.build.result) && (github.event_name == 'schedule' || inputs.send)
     runs-on: ubuntu-latest
     timeout-minutes: 120
     environment: production   # optional: add required reviewers or restrict secrets to this environment
@@ -92,7 +104,7 @@ jobs:
           SITE_URL: ${{ vars.SITE_URL || 'https://mycyberlearning.co.uk' }}
           MAIL_RATE_PER_MINUTE: ${{ vars.MAIL_RATE_PER_MINUTE || '25' }}
           MAIL_DAILY_LIMIT: ${{ vars.MAIL_DAILY_LIMIT || '' }}
-        # The gate job already checked the London hour; --force stops a late-starting run skipping the day.
+        # The gate job already checked it's 06:00 or later in London; --force lets a late-starting run still send that day.
         run: node scripts/send-digest.mjs --force
 
   retention:

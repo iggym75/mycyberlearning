@@ -173,12 +173,14 @@ if ! git diff --quiet -- wrangler.jsonc; then
 else
   npm run --silent build >/dev/null && wr deploy >/dev/null && info "Redeployed from this Mac"
 fi
-N="$(curl -s "$SITE/api/items" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(JSON.parse(s).items.length)}catch{console.log(0)}})')"
+# These checks only warn: a new workers.dev name can take a while to resolve, and with pipefail a failed curl
+# (or grep -c counting 0) would otherwise end the script before the refresh below is started.
+N="$( (curl -s "$SITE/api/items" || true) | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(JSON.parse(s).items.length)}catch{console.log(0)}})')"
 [ "$N" -gt 0 ] && ok "API answers: $N items live" || warn "API returned no items yet; try again in a minute."
-H="$(curl -sI "$SITE/" | grep -ciE '^(content-security-policy|strict-transport-security|x-frame-options):')"
+H="$( (curl -sI "$SITE/" || true) | grep -ciE '^(content-security-policy|strict-transport-security|x-frame-options):' || true)"
 [ "$H" -ge 3 ] && ok "Security headers present" || warn "Only $H of 3 security headers seen."
-[ "$(curl -s -o /dev/null -w '%{http_code}' "$SITE/api/admin/submissions")" = "403" ] && ok "Admin API refuses signed-out requests"
-gh workflow run refresh.yml -R "$REPO" >/dev/null 2>&1 && info "Started the catalogue refresh (logos, ratings, episodes) in GitHub Actions"
+[ "$(curl -s -o /dev/null -w '%{http_code}' "$SITE/api/admin/submissions" || true)" = "403" ] && ok "Admin API refuses signed-out requests" || warn "Couldn't confirm the admin API refuses signed-out requests."
+gh workflow run refresh.yml -R "$REPO" >/dev/null 2>&1 && info "Started the catalogue refresh (logos, ratings, episodes) in GitHub Actions" || warn "Couldn't start the refresh; run it from the Actions tab (Weekly catalogue refresh → Run workflow)."
 
 printf '\n\033[1;32mDone.\033[0m Site: %s\n' "$SITE"
 printf 'Now: open %s/admin and sign in with GitHub; you should see "Admin · 0 pending".\n' "$SITE"
