@@ -209,6 +209,10 @@ test("admin: queue, approve, edit (URL sanitising), CSRF checks, insights, expor
   const patch = await call("/api/admin/items/new-show", { method: "PATCH", body: { web: "javascript:alert(1)", amazon: "https://music.amazon.evil.com/podcasts/x", domains: ["ai", "nope"], hidden: true }, headers: h });
   const { item } = await patch.json();
   assert.equal(item.web, undefined); assert.equal(item.amazon, undefined); assert.deepEqual(item.domains, ["ai"]); assert.equal(item.tagsLocked, true); assert.equal(item.hidden, true);
+  // Look-alike listening-platform hosts are dropped on edit; real ones are kept
+  const p2 = await call("/api/admin/items/new-show", { method: "PATCH", body: { spotify: "https://open.spotify.com.evil.example/show/x", apple: "https://evil.example/podcasts.apple.com/id1", youtube: "https://www.youtube.com/@realshow" }, headers: h });
+  const { item: item2 } = await p2.json();
+  assert.equal(item2.spotify, undefined); assert.equal(item2.apple, undefined); assert.equal(item2.youtube, "https://www.youtube.com/@realshow");
   // Admin list includes hidden items
   const all = await (await call("/api/items", { headers: { cookie } })).json();
   assert.ok(all.items.some(i => i.id === "secret-show"));
