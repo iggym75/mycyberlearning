@@ -7,7 +7,7 @@ import { getText, getJson, sleep } from "./lib.mjs";
 const taxonomy = JSON.parse(readFileSync(new URL("../data/taxonomy.json", import.meta.url), "utf8"));
 const DOMAIN_KEYS = taxonomy.domains.map(d => d.key);
 export { inferCadence, parsePodnewsRating, bestMatch, appleId } from "./pure.mjs";
-import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, FEED_XML } from "./pure.mjs";
+import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, FEED_XML, parsePodnewsSpotify, ogTitle, pickSpotifyShow } from "./pure.mjs";
 
 /** Apple Podcasts directory (free, no key): artwork, feed URL, canonical link, episode count. */
 export async function lookupApple(item) {
@@ -21,7 +21,7 @@ export async function lookupApple(item) {
   if (!r) return null;
   return {
     apple: r.collectionViewUrl?.split("?")[0], artwork: appleArtworkUrl(r.artworkUrl600 || r.artworkUrl100, 300),
-    rss: r.feedUrl, trackCount: r.trackCount, appleId: String(r.collectionId)
+    rss: r.feedUrl, trackCount: r.trackCount, appleId: String(r.collectionId), author: r.artistName
   };
 }
 
@@ -37,10 +37,57 @@ export async function readFeed(rssUrl, trackCount) {
   return { cadence: inferCadence(dates, { complete }), titles };
 }
 
+/**
+ * Spotify's catalogue search (Web API, client-credentials app; free). Needs SPOTIFY_CLIENT_ID / SPOTIFY_CLIENT_SECRET;
+ * returns null without them. Only show metadata is read: no user data, no sign-in.
+ */
+let spotifyToken = null;
+async function spotifyAuth() {
+  const id = process.env.SPOTIFY_CLIENT_ID, secret = process.env.SPOTIFY_CLIENT_SECRET;
+  if (!id || !secret) return null;
+  if (spotifyToken && spotifyToken.exp > Date.now() + 60_000) return spotifyToken.value;
+  const r = await fetch("https://accounts.spotify.com/api/token", {
+    method: "POST", body: "grant_type=client_credentials",
+    headers: { authorization: "Basic " + Buffer.from(`${id}:${secret}`).toString("base64"), "content-type": "application/x-www-form-urlencoded" }
+  });
+  if (!r.ok) throw new Error(`Spotify sign-in failed (${r.status})`);   // never echo the body: it can quote the request
+  const j = await r.json();
+  spotifyToken = { value: j.access_token, exp: Date.now() + j.expires_in * 1000 };
+  return spotifyToken.value;
+}
+export async function searchSpotify(item, hints) {
+  const token = await spotifyAuth();
+  if (!token) return null;
+  const url = `https://api.spotify.com/v1/search?type=show&market=GB&limit=10&q=${encodeURIComponent(item.name)}`;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const r = await fetch(url, { headers: { authorization: `Bearer ${token}` } });
+    if (r.status === 429 && attempt === 0) { await sleep(1000 * Math.min(30, Number(r.headers.get("retry-after")) || 5)); continue; }
+    if (!r.ok) throw new Error(`Spotify search ${r.status}`);
+    return pickSpotifyShow(item, (await r.json()).shows?.items, hints);
+  }
+  return null;
+}
+
 /** Aggregated listener rating. Podnews is used by default; check its terms before running at scale. */
 export async function lookupRating(appleIdValue) {
-  if (!appleIdValue || process.env.RATINGS_SOURCE === "none") return null;
-  try { return parsePodnewsRating(await getText(`https://podnews.net/podcast/${appleIdValue}`)); } catch { return null; }
+  return (await lookupPodnews(appleIdValue)).rating;
+}
+
+/**
+ * One Podnews request per show gives both the rating and, where Podnews knows it, the Spotify link. The link is
+ * only returned when Spotify's own page title matches the show's name, so a wrong link never reaches the site.
+ */
+export async function lookupPodnews(appleIdValue, name) {
+  if (!appleIdValue || process.env.RATINGS_SOURCE === "none") return { rating: null, spotify: null };
+  let html = "";
+  try { html = await getText(`https://podnews.net/podcast/${appleIdValue}`); } catch { return { rating: null, spotify: null }; }
+  const candidate = name ? parsePodnewsSpotify(html) : null;
+  let spotify = null;
+  if (candidate) {
+    const title = ogTitle(await getText(candidate).catch(() => ""));
+    if (title && titlesMatch(name, title)) spotify = candidate;
+  }
+  return { rating: parsePodnewsRating(html), spotify };
 }
 
 /** Open Library (free, no key) for book covers, first publication year and reader ratings. */
