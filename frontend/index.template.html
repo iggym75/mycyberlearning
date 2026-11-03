@@ -67,6 +67,15 @@ button,input,select,textarea{font:inherit;color:inherit}
 .intro{padding-block:28px 8px}
 .intro h1{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,4.2vw,44px);line-height:1.05;letter-spacing:-.02em;margin:0 0 10px;text-wrap:balance;max-width:22ch}
 .intro p{color:var(--ink-2);max-width:64ch;margin:0}
+/* Big Podcasts / Books switch under the intro, so the two halves of the library are obvious on any screen. */
+.type-pick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px;max-width:620px}
+.type-pick button{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);color:var(--ink);cursor:pointer;text-align:left;min-width:0}
+.type-pick button:hover{border-color:var(--ink-3)}
+.type-pick button[aria-pressed="true"]{border-color:var(--signal);background:var(--signal-soft);box-shadow:inset 0 0 0 1px var(--signal)}
+.type-pick svg{width:26px;height:26px;flex:none;color:var(--signal)}
+.type-pick b{display:block;font-family:var(--f-display);font-weight:800;font-size:18px;line-height:1.1}
+.type-pick small{display:block;font-family:var(--f-mono);font-size:12px;color:var(--ink-2)}
+@media (max-width:480px){.type-pick{gap:8px}.type-pick button{flex-direction:column;align-items:flex-start;gap:6px;padding:10px 11px}.type-pick b{font-size:16px}}
 .stats{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-family:var(--f-mono);font-size:12.5px;color:var(--ink-3)}
 .stats b{color:var(--ink);font-weight:500}
 
@@ -299,6 +308,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 <section class="wrap intro library-only">
   <h1>Podcasts and books to keep your cyber skills current</h1>
   <p>A curated library for people starting out in security and practitioners staying sharp. Filter by the domains you work in, see listener ratings from the podcast platforms, and add your own vote — community scores sit alongside the official ratings, never mixed with them.</p>
+  <div class="type-pick" id="typePick" role="group" aria-label="Show podcasts, books or both"></div>
   <div class="stats" id="stats"></div>
 </section>
 
@@ -639,6 +649,7 @@ const ICONS = {
   listen:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/></svg>',
   openlibrary:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 5.5c3-1.5 6-1.5 9 .5 3-2 6-2 9-.5V19c-3-1.5-6-1.5-9 .5-3-2-6-2-9-.5z"/><path d="M12 6v13.5"/></svg>',
   goodreads:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6.5 3.5h11v17l-5.5-4-5.5 4z"/></svg>',
+  grid:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>',
   book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/></svg>',
   bundle:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M3 12h18M12 8v13M12 8c-1.5-3-5-4-5-1.5S10 8 12 8zm0 0c1.5-3 5-4 5-1.5S14 8 12 8z"/></svg>',
   up:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10.5v10"/><path d="M7 10.5 11.2 3c1.6.1 2.7 1.6 2.3 3.2L12.8 9.5h5.7a2 2 0 0 1 2 2.4l-1.4 6.8a2 2 0 0 1-2 1.8H7"/><rect x="3" y="10.5" width="4" height="10" rx="1"/></svg>',
@@ -790,7 +801,9 @@ function render(){
   $("#activeFilters").innerHTML = act.length ? act.map(([k,v,l]) => `<button class="chip" type="button" data-remove="${k}:${v}">${esc(l)} ✕</button>`).join("") + (state.domains.length>1?`<span class="muted" style="font-size:12.5px;align-self:center">matching ${state.match==="all"?"all":"any"} selected domains</span>`:"") : "";
   $("#grid").innerHTML = list.length ? list.map(card).join("") : `<div class="empty"><p style="margin:0 0 10px"><b>Nothing matches those filters.</b></p><p style="margin:0">Try “Match any” instead of “Match all”, or clear a frequency filter.</p></div>`;
   const pods = ITEMS.filter(i=>i.type==="podcast"&&!i.hidden).length, books = ITEMS.filter(i=>i.type==="book"&&!i.hidden).length;
-  $("#stats").innerHTML = `<span><b>${pods}</b> podcasts</span><span><b>${books}</b> books</span><span><b>${TAX.domains.length}</b> security domains</span><span><b>${ITEMS.filter(i=>i.curator).length}</b> MCL Picks</span>`;
+  $("#typePick").innerHTML = [["all","All",pods+books,ICONS.grid],["podcast","Podcasts",pods,ICONS.listen],["book","Books",books,ICONS.book]]
+    .map(([t,l,n,ic]) => `<button type="button" data-pick="${t}" aria-pressed="${state.type===t}">${ic}<span><b>${l}</b><small>${n} ${t==="all"?"total":l.toLowerCase()}</small></span></button>`).join("");
+  $("#stats").innerHTML = `<span><b>${TAX.domains.length}</b> security domains</span><span><b>${ITEMS.filter(i=>i.curator).length}</b> MCL Picks</span>`;
 }
 
 function toggle(arr, v){ const k = arr.indexOf(v); k<0 ? arr.push(v) : arr.splice(k,1); }
@@ -799,7 +812,7 @@ function toast(msg){ const t=$("#toast"); t.textContent=msg; t.hidden=false; cle
 /* ---------- Events ---------- */
 document.addEventListener("click", async e => {
   const b = e.target.closest("button, [data-close]"); if (!b) return;
-  if (b.dataset.type){ state.type=b.dataset.type; render(); history.replaceState(null, "", TYPE_HASH[state.type]); }
+  if (b.dataset.type || b.dataset.pick){ state.type=b.dataset.type||b.dataset.pick; render(); history.replaceState(null, "", TYPE_HASH[state.type]); }
   else if (b.dataset.match){ state.match=b.dataset.match; render(); }
   else if (b.dataset.domain && b.closest("#domainChips")){ toggle(state.domains,b.dataset.domain); render(); }
   else if (b.dataset.freq){ toggle(state.freqs,b.dataset.freq); render(); }
