@@ -61,7 +61,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .btn.ghost{border-color:transparent;background:transparent}
 .btn.sm{padding:5px 9px;font-size:13px}
 .btn.danger{color:var(--down)}
-.filters-toggle{display:none}
+.filters-toggle,.rail-mobile,.rail-backdrop{display:none}
 
 /* Intro */
 .intro{padding-block:28px 8px}
@@ -144,7 +144,8 @@ button.logo:hover .zoom-hint,button.logo:focus-visible .zoom-hint{opacity:1}
 .vote button[aria-pressed="true"] svg :is(path,rect){fill:currentColor;fill-opacity:.22}
 .vote output{font-family:var(--f-mono);font-size:13px;min-width:3ch;text-align:center;font-variant-numeric:tabular-nums}
 /* Platform links: coloured, labelled chips. Colours are darkened for contrast on white and lightened for dark mode.
-   Search fallbacks (no direct link stored) stay grey with a dotted border. Phones show icons only. */
+   Search fallbacks (no direct link stored) stay grey with a dotted border. Phones keep the labels (the icons alone
+   aren't recognisable enough) and start the row on the left so wrapped chips line up. */
 :root{--c-apple:#7f35bd;--c-spotify:#157a3a;--c-youtube:#c62828;--c-amazon:#0a727b;--c-openlibrary:#2c5aa0;--c-goodreads:#7a5230;--c-bundle:#a35c0a;--c-listen:var(--signal)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-apple:#c9a2ee;--c-spotify:#5dd98d;--c-youtube:#ff8f87;--c-amazon:#5fd6de;--c-openlibrary:#93b9f2;--c-goodreads:#ddb98f;--c-bundle:#e8a75a}}
 :root[data-theme="dark"]{--c-apple:#c9a2ee;--c-spotify:#5dd98d;--c-youtube:#ff8f87;--c-amazon:#5fd6de;--c-openlibrary:#93b9f2;--c-goodreads:#ddb98f;--c-bundle:#e8a75a}
@@ -157,7 +158,7 @@ button.logo:hover .zoom-hint,button.logo:focus-visible .zoom-hint{opacity:1}
 .plat.k-openlibrary{--c:var(--c-openlibrary)}.plat.k-goodreads{--c:var(--c-goodreads)}.plat.k-bundle{--c:var(--c-bundle)}.plat.k-listen{--c:var(--c-listen)}
 .plat.k-web{--c:var(--ink-2);background:transparent;border-color:var(--line)}
 .plat.srch{--c:var(--ink-3);background:transparent;border:1px dotted var(--ink-3);font-weight:500}
-@media (max-width:640px){.plat{width:34px;height:34px;padding:0;justify-content:center}.plat .pl{display:none}.plat svg{width:17px;height:17px}}
+@media (max-width:640px){.links{justify-content:flex-start;margin-left:0;flex-basis:100%}.plat{height:34px}}
 .admin-row{display:flex;gap:6px;flex-wrap:wrap;padding-top:8px;border-top:1px dashed var(--line)}
 .empty{padding:48px 16px;text-align:center;color:var(--ink-2);border:1px dashed var(--line);border-radius:var(--r);grid-column:1/-1}
 
@@ -185,10 +186,26 @@ footer{border-top:1px solid var(--line);padding-block:24px;color:var(--ink-3);fo
 footer .linkish{background:none;border:0;padding:0;color:var(--signal);cursor:pointer;font:inherit;text-decoration:underline}
 
 /* Section switch */
-.views{display:flex;gap:2px;background:var(--sunk);border-radius:9px;padding:3px}
-.views a{padding:6px 12px;border-radius:7px;text-decoration:none;color:var(--ink-2);font-weight:500;font-size:14px;white-space:nowrap}
-.views a[aria-current="page"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow);font-weight:600}
-.views .live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--signal);margin-right:6px;vertical-align:1px}
+/* Section tabs: Library / Podcasts / Books / Daily briefing, each with an icon; the current one takes the signal colour.
+   Phones: a full-width row of equal tabs, icon over label. */
+.views{display:flex;gap:4px;background:var(--sunk);border-radius:11px;padding:4px}
+.views a{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:8px;text-decoration:none;color:var(--ink-2);font-weight:600;font-size:15px;white-space:nowrap}
+.views a:hover{color:var(--ink);background:color-mix(in srgb,var(--surface) 60%,transparent)}
+.views a[aria-current="page"]{background:var(--signal-soft);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--signal)}
+.views svg{width:18px;height:18px;flex:none}
+.views a[aria-current="page"] svg{color:var(--signal)}
+.views .nc{font-style:normal;font-family:var(--f-mono);font-size:11.5px;font-weight:500;color:var(--ink-3);margin-left:2px}
+.views .nc:empty{display:none}
+.views .nl-short{display:none}
+.views .live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--signal);margin:0 5px;flex:none}
+@media (max-width:640px){
+  .views{flex:1 1 100%}
+  .views a{flex:1;flex-direction:column;gap:3px;padding:7px 4px;font-size:12.5px;justify-content:center}
+  .views svg{width:20px;height:20px}
+  .views .nc{display:none}
+  .views .nl-long{display:none}.views .nl-short{display:inline}
+  .views .live-dot{width:9px;height:9px;margin:5px 0 6px}
+}
 body[data-view="news"] .library-only{display:none!important}
 
 /* Daily briefing */
@@ -253,8 +270,18 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
   .news-side{position:static}
   .sub-jump{display:inline-flex}
   .main{grid-template-columns:minmax(0,1fr)}
-  .rail{position:fixed;inset:0 auto 0 0;width:min(320px,88vw);max-height:none;background:var(--surface);z-index:40;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));transform:translateX(-105%);transition:transform .2s ease;box-shadow:var(--shadow);border-right:1px solid var(--line)}
-  .rail.open{transform:none}
+  /* Filter drawer. align-self:stretch undoes the desktop rail's `start`, which would size the fixed panel to its
+     content (taller than the screen, so it couldn't scroll). Header and "Show results" stay pinned while it scrolls. */
+  .rail{position:fixed;inset:0 auto 0 0;align-self:stretch;width:min(340px,90vw);max-height:none;overflow-y:auto;overscroll-behavior:contain;background:var(--surface);z-index:40;padding:0 16px 0 max(16px,env(safe-area-inset-left,0px));transform:translateX(-105%);visibility:hidden;transition:transform .2s ease,visibility 0s .2s;box-shadow:var(--shadow);border-right:1px solid var(--line)}
+  .rail.open{transform:none;visibility:visible;transition:transform .2s ease}
+  .rail-mobile{display:flex}
+  .rail-head{position:sticky;top:0;z-index:1;align-items:center;justify-content:space-between;background:var(--surface);margin:0 -16px 6px;padding:calc(10px + env(safe-area-inset-top,0px)) 8px 10px 16px;border-bottom:1px solid var(--line)}
+  .rail-head h2{font-family:var(--f-display);font-size:20px;margin:0}
+  .rail-head .btn{font-size:20px;line-height:1;padding:8px 12px}
+  .rail-foot{position:sticky;bottom:0;background:var(--surface);margin:18px -16px 0;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+  .rail-foot .btn{flex:1;justify-content:center;padding:11px 12px}
+  .rail-backdrop:not([hidden]){display:block;position:fixed;inset:0;z-index:39;background:rgba(8,14,22,.55)}
+  body.filters-open{overflow:hidden}
   .filters-toggle{display:inline-flex}
   .grid{grid-template-columns:minmax(0,1fr)}
   .row2{grid-template-columns:1fr}
@@ -269,14 +296,16 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
       <span><b>My <span class="brand-hl">Cyber</span> Learning</b><small>mycyberlearning.co.uk</small></span>
     </a>
     <nav class="views" aria-label="Sections">
-      <a href="#library" data-view="library">Library</a>
-      <a href="#news" data-view="news"><span class="live-dot" aria-hidden="true"></span>Daily briefing</a>
+      <a href="#library" data-view="library" data-navtype="all"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Library</span></a>
+      <a href="#podcasts" data-view="library" data-navtype="podcast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/></svg><span>Podcasts <i class="nc" id="navPods"></i></span></a>
+      <a href="#books" data-view="library" data-navtype="book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/></svg><span>Books <i class="nc" id="navBooks"></i></span></a>
+      <a href="#news" data-view="news"><span class="live-dot" aria-hidden="true"></span><span><span class="nl-long">Daily briefing</span><span class="nl-short">Briefing</span></span></a>
     </nav>
     <div class="search library-only">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="q" type="search" placeholder="Search podcasts, books, hosts, topics…" aria-label="Search">
     </div>
-    <button class="btn filters-toggle library-only" id="openFilters" type="button">Filters</button>
+    <button class="btn filters-toggle library-only" id="openFilters" type="button" aria-controls="rail" aria-expanded="false">Filters</button>
     <button class="btn primary library-only" id="openSubmit" type="button">+ Suggest a resource</button>
     <button class="btn ghost" id="adminBtn" type="button" hidden>Admin</button>
   </div>
@@ -290,6 +319,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 
 <main class="wrap main library-only" id="libraryView">
   <aside class="rail" id="rail" aria-label="Filters">
+    <div class="rail-head rail-mobile"><h2>Filters</h2><button class="btn ghost" id="closeFiltersX" type="button" aria-label="Close filters">✕</button></div>
     <h3>Show</h3>
     <div class="seg" role="group" aria-label="Resource type">
       <button type="button" data-type="all" aria-pressed="true">All</button>
@@ -315,8 +345,9 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 
     <h3>Level</h3>
     <div class="chips" id="levelChips"></div>
-    <div style="margin-top:18px"><button class="btn sm filters-toggle" id="closeFilters" type="button">Done</button></div>
+    <div class="rail-foot rail-mobile"><button class="btn primary" id="closeFilters" type="button">Show results</button></div>
   </aside>
+  <div class="rail-backdrop" id="railBackdrop" hidden></div>
 
   <section aria-label="Results" style="min-width:0">
     <div class="toolbar">
@@ -757,15 +788,24 @@ function renderChips(){
   $$("[data-match]").forEach(b => b.setAttribute("aria-pressed", b.dataset.match===state.match));
   $("#picksOnly").checked = state.picks; $("#sort").value = state.sort; $("#q").value = state.q;
 }
+const TYPE_HASH = {all:"#library", podcast:"#podcasts", book:"#books"};
+// Highlights Daily briefing in the news view, otherwise whichever of Library / Podcasts / Books matches the type filter.
+function syncNav(){
+  const news = document.body.dataset.view === "news";
+  $$(".views a").forEach(a => (news ? a.dataset.view === "news" : a.dataset.navtype === state.type) ? a.setAttribute("aria-current","page") : a.removeAttribute("aria-current"));
+}
 function render(){
   store.set("filters", {type:state.type, match:state.match, domains:state.domains, freqs:state.freqs, levels:state.levels, publishers:state.publishers, picks:state.picks, sort:state.sort});
   renderChips();
   const list = filtered();
   $("#count").textContent = `${list.length} of ${ITEMS.filter(i=>!i.hidden||api.isAdmin).length} resources`;
+  $("#closeFilters").textContent = list.length ? `Show ${list.length} result${list.length===1?"":"s"}` : "No matches: close";
+  syncNav();
   const act = [...state.domains.map(d=>["domain",d,DOM[d]?.label]), ...state.freqs.map(f=>["freq",f,FREQ[f]?.label]), ...state.levels.map(l=>["level",l,l]), ...state.publishers.map(p=>["pub",p,p])];
   $("#activeFilters").innerHTML = act.length ? act.map(([k,v,l]) => `<button class="chip" type="button" data-remove="${k}:${v}">${esc(l)} ✕</button>`).join("") + (state.domains.length>1?`<span class="muted" style="font-size:12.5px;align-self:center">matching ${state.match==="all"?"all":"any"} selected domains</span>`:"") : "";
   $("#grid").innerHTML = list.length ? list.map(card).join("") : `<div class="empty"><p style="margin:0 0 10px"><b>Nothing matches those filters.</b></p><p style="margin:0">Try “Match any” instead of “Match all”, or clear a frequency filter.</p></div>`;
   const pods = ITEMS.filter(i=>i.type==="podcast"&&!i.hidden).length, books = ITEMS.filter(i=>i.type==="book"&&!i.hidden).length;
+  $("#navPods").textContent = pods; $("#navBooks").textContent = books;
   $("#stats").innerHTML = `<span><b>${pods}</b> podcasts</span><span><b>${books}</b> books</span><span><b>${TAX.domains.length}</b> security domains</span><span><b>${ITEMS.filter(i=>i.curator).length}</b> MCL Picks</span>`;
 }
 
@@ -775,7 +815,7 @@ function toast(msg){ const t=$("#toast"); t.textContent=msg; t.hidden=false; cle
 /* ---------- Events ---------- */
 document.addEventListener("click", async e => {
   const b = e.target.closest("button, [data-close]"); if (!b) return;
-  if (b.dataset.type){ state.type=b.dataset.type; render(); }
+  if (b.dataset.type){ state.type=b.dataset.type; render(); history.replaceState(null, "", TYPE_HASH[state.type]); }
   else if (b.dataset.match){ state.match=b.dataset.match; render(); }
   else if (b.dataset.domain && b.closest("#domainChips")){ toggle(state.domains,b.dataset.domain); render(); }
   else if (b.dataset.freq){ toggle(state.freqs,b.dataset.freq); render(); }
@@ -806,8 +846,17 @@ document.addEventListener("click", async e => {
 $("#q").addEventListener("input", e => { state.q=e.target.value; render(); });
 $("#sort").addEventListener("change", e => { state.sort=e.target.value; render(); });
 $("#picksOnly").addEventListener("change", e => { state.picks=e.target.checked; render(); });
-$("#openFilters").addEventListener("click", () => $("#rail").classList.add("open"));
-$("#closeFilters").addEventListener("click", () => $("#rail").classList.remove("open"));
+/* Filter drawer (phones and narrow windows): closes with ✕, "Show results", a tap outside, or Escape. */
+function setFilters(open){
+  $("#rail").classList.toggle("open", open); $("#railBackdrop").hidden = !open;
+  document.body.classList.toggle("filters-open", open); $("#openFilters").setAttribute("aria-expanded", open);
+  (open ? $("#closeFiltersX") : $("#openFilters")).focus({preventScroll:true});
+}
+$("#openFilters").addEventListener("click", () => setFilters(true));
+for (const id of ["#closeFilters","#closeFiltersX","#railBackdrop"]) $(id).addEventListener("click", () => setFilters(false));
+addEventListener("keydown", e => { if (e.key === "Escape" && $("#rail").classList.contains("open")) setFilters(false); });
+// Top-nav Library / Podcasts / Books set the type filter, so a tap on the current tab still applies it.
+$$(".views a[data-navtype]").forEach(a => a.addEventListener("click", () => { state.type = a.dataset.navtype; render(); }));
 
 /* ---------- Cover viewer: steps through covers in the current filtered order ---------- */
 let cvList = [], cvIdx = 0;
@@ -1020,11 +1069,14 @@ document.addEventListener("submit", async e => {
   toast(j.message || "Done"); $("#erase_email").value = "";
 });
 
-/* ---------- Views (#library, #news) ---------- */
+/* ---------- Views (#library, #podcasts, #books, #news) ---------- */
+// #podcasts and #books are the library view with the type filter set, so they can be linked to directly.
 function showView(){
   const v = location.hash === "#news" ? "news" : "library";
+  const t = {"#podcasts":"podcast", "#books":"book"}[location.hash];
+  if (t && state.type !== t){ state.type = t; render(); }
   document.body.dataset.view = v; $("#newsView").hidden = v !== "news";
-  $$(".views a").forEach(a => a.dataset.view === v ? a.setAttribute("aria-current","page") : a.removeAttribute("aria-current"));
+  syncNav();
   if (v === "news" && !NEWS.cur) loadNews();
   track(v);
 }
