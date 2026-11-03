@@ -1,0 +1,82 @@
+{
+  "date": "2026-11-03",
+  "generatedAt": "2026-11-03T20:38:55.856Z",
+  "windowHours": 24,
+  "headline": "Today's cyber security podcasts",
+  "overview": "6 new episodes from 6 news shows in the last 24 hours.",
+  "topStories": [],
+  "episodes": [
+    {
+      "show": "ai-daily-brief",
+      "title": "AI Lurches Toward Recursive Self-Improvement",
+      "publishedAt": "2026-11-03T20:15:43Z",
+      "minutes": 27,
+      "url": "https://podcasts.apple.com/gb/podcast/ai-lurches-toward-recursive-self-improvement/id1680633614",
+      "ref": "ai-daily-brief-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "Check out How We Got Here Ep."
+    },
+    {
+      "show": "cyber-security-headlines",
+      "title": "European freezer hacks, BTCPay wallet thefts, GDPx tests AI agents",
+      "publishedAt": "2026-11-03T08:00:00.000Z",
+      "minutes": 7,
+      "url": "https://cisoseries.libsyn.com/european-freezer-hacks-btcpay-wallet-thefts-gdpx-tests-ai-agents",
+      "ref": "cyber-security-headlines-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "European supermarkets report freezer hacks BTCPay warns of hot wallet thefts GDPx puts AI agents through harder tests Hackers send false emergency alerts DarkBlinders targets Israel and Iraqi Kurdistan Chinese hackers…"
+    },
+    {
+      "show": "click-here",
+      "title": "Open-source voting machine aims to restore trust in U.S. elections",
+      "publishedAt": "2026-11-03T08:00:00.000Z",
+      "minutes": 21,
+      "url": "https://play.prx.org/listen?ge=prx_8376_71895135-68a4-4624-a8bc-4f91373ddf81&uf=https%3A%2F%2Fpublicfeeds.net%2Ff%2F8376%2Fclickhere",
+      "ref": "click-here-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "Voting machines have long been at the center of conspiracy theories about U.S. elections."
+    },
+    {
+      "show": "sans-stormcast",
+      "title": "SANS Stormcast Tuesday, November 3rd, 2026: Multipath TCP (MPTCP) Detection; BTCPay Server 2.4.1 Hot Wallet Thefts; Barracuda ESG Flaws (CVE-2026-116606, CVE-2026-111560); Synology DSM Ransomware",
+      "publishedAt": "2026-11-03T02:00:02.000Z",
+      "minutes": 6,
+      "url": "https://isc.sans.edu/podcastdetail/10162",
+      "ref": "sans-stormcast-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "Today's episode covers how to detect multipath TCP in your network, attacks stealing Bitcoin and Litecoin from outdated BTCPay Server installs, Barracuda patches for an authorization bypass and command injection in…"
+    },
+    {
+      "show": "5bytes",
+      "title": "Talkin Tech with: Jon Dore",
+      "publishedAt": "2026-11-03T00:00:00.000Z",
+      "minutes": 37,
+      "url": "https://soundcloud.com/5bytespodcast/talkin-tech-with-jon-dore",
+      "ref": "5bytes-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "In this special episode of 5Bytes Podcast, I'm joined by comedian, actor, and writer Jon Dore in the very first Talkin' Tech with Rorymon episode."
+    },
+    {
+      "show": "cyberwire-daily",
+      "title": "A TraderTraitor's guide to getting away with billions.",
+      "publishedAt": "2026-11-02T21:30:00.000Z",
+      "minutes": 28,
+      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2669/notes",
+      "ref": "cyberwire-daily-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "The FBI blames North Korea for a record-breaking crypto heist. Hackers hijack air raid alerts in Ukraine and Russia. European supermarket freezers come under attack again."
+    }
+  ]
+}
