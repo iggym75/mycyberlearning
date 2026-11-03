@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { inferCadence, parsePodnewsRating, bestMatch, appleId, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, hasLocalImage } from "../pure.mjs";
+import { XMLParser } from "fast-xml-parser";
+import { inferCadence, parsePodnewsRating, bestMatch, appleId, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, hasLocalImage, FEED_XML } from "../pure.mjs";
 
 const NOW = Date.parse("2026-10-30T12:00:00Z");
 const series = (n, everyDays, endDaysAgo = 1) => Array.from({ length: n }, (_, i) => new Date(NOW - (endDaysAgo + i * everyDays) * 86_400_000).toUTCString());
@@ -76,4 +77,20 @@ test("artwork helpers", () => {
   assert.ok(hasLocalImage({ logo: "covers/podcast-x.jpg" }));
   assert.ok(!hasLocalImage({ logo: "https://example.com/x.jpg" }));
   assert.ok(!hasLocalImage({}));
+});
+
+test("feed parser: long HTML show notes parse, entity bombs are still refused", () => {
+  const parse = xml => new XMLParser({ ignoreAttributes: true, ...FEED_XML }).parse(xml);
+  const notes = "&lt;p&gt;Hacks &amp; leaks&lt;/p&gt;".repeat(800);   // 4000 built-in escapes, like a big real feed
+  const doc = parse(`<rss><channel><item><title>Ep 1</title><description>${notes}</description></item></channel></rss>`);
+  assert.equal(doc.rss.channel.item.title, "Ep 1");
+  assert.ok(doc.rss.channel.item.description.startsWith("<p>Hacks & leaks</p>"));
+  // Numeric references are decoded, so a pubDate written with &#43; still parses.
+  const d = parse("<rss><channel><item><pubDate>Thu, 29 Oct 2026 00:00:39 &#43;0000</pubDate></item></channel></rss>").rss.channel.item.pubDate;
+  assert.equal(new Date(d).toISOString(), "2026-10-29T00:00:39.000Z");
+  // Nested "billion laughs" entities are never expanded, and a wide custom entity hits the size limit we keep.
+  const lol = Array.from({ length: 6 }, (_, i) => `<!ENTITY l${i + 1} "${`&l${i};`.repeat(10)}">`).join("");
+  assert.equal(parse(`<!DOCTYPE rss [<!ENTITY l0 "lol">${lol}]><rss><channel><title>&l6;</title></channel></rss>`).rss.channel.title, "&l6;");
+  const wide = `<!DOCTYPE rss [<!ENTITY x "${"A".repeat(9000)}">]><rss><channel><title>${"&x;".repeat(50)}</title></channel></rss>`;
+  assert.throws(() => parse(wide), /expanded content size/);
 });
