@@ -84,8 +84,9 @@
       "apple": "https://podcasts.apple.com/podcast/id1332947921",
       "rss": "https://feeds.soundcloud.com/users/soundcloud:users:376833845/sounds.rss",
       "lastEpisode": "2026-11-03",
-      "episodes": 463,
+      "episodes": 462,
       "amazon": "https://music.amazon.co.uk/podcasts/8d3ef16b-d055-452e-8f60-bc4e71316232/5bytespodcast",
+      "spotify": "https://open.spotify.com/show/5HlR3ywunSAUnZ6NAtPWXA",
       "id": "5bytes"
     },
     {
@@ -264,6 +265,7 @@
       "lastEpisode": "2026-08-31",
       "episodes": 294,
       "amazon": "https://music.amazon.co.uk/podcasts/4920975f-351f-4cb7-a733-9a479e62c0da/cloud-security-podcast-by-google",
+      "spotify": "https://open.spotify.com/show/12WPC7aW5kd0kKSyrpgnHI",
       "id": "google-cloud-security-podcast"
     },
     {
@@ -299,6 +301,7 @@
       "rss": "https://anchor.fm/s/f9ff5de4/podcast/rss",
       "lastEpisode": "2026-11-03",
       "episodes": 266,
+      "spotify": "https://open.spotify.com/show/3H4WRBF0yZRQe2m5p1AXku",
       "id": "cyber-bytes"
     },
     {
@@ -366,8 +369,9 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.libsyn.com/shows/289580/destinations/2260670.xml",
       "lastEpisode": "2026-11-03",
-      "episodes": 1882,
+      "episodes": 1881,
       "amazon": "https://music.amazon.co.uk/podcasts/45477283-d157-4ea1-9782-fd29dab41f3d/cybersecurity-headlines",
+      "spotify": "https://open.spotify.com/show/5ylaiuoDj7YOVSdyVJMDR7",
       "id": "cyber-security-headlines"
     },
     {
@@ -699,8 +703,9 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.pdrl.fm/7d51b0/feeds.megaphone.fm/hacking-humans",
       "lastEpisode": "2026-11-03",
-      "episodes": 825,
+      "episodes": 823,
       "amazon": "https://music.amazon.co.uk/podcasts/a3fb35f8-2a0b-46cd-b63a-954b5f518617/hacking-humans",
+      "spotify": "https://open.spotify.com/show/0EhUctIPJiKrxPjzqIAuDc",
       "id": "hacking-humans"
     },
     {
@@ -777,6 +782,7 @@
       "lastEpisode": "2026-11-03",
       "episodes": 2000,
       "amazon": "https://music.amazon.co.uk/podcasts/43784207-1ec2-465d-8d86-ebc9b450ebb7/sans-internet-stormcenter-daily-cyber-security-podcast-stormcast",
+      "spotify": "https://open.spotify.com/show/6oeUmMwv1AQpdYNHmOE4A0",
       "id": "sans-stormcast"
     },
     {
@@ -855,6 +861,39 @@
     },
     {
       "type": "podcast",
+      "name": "The 443 – Security Simplified",
+      "by": "Secplicity · WatchGuard Threat Lab",
+      "desc": "Weekly run-through of the biggest security stories and fresh research from WatchGuard's Threat Lab, explained in plain terms with a dry sense of humour.",
+      "domains": [
+        "news",
+        "cti",
+        "tvm"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "launched": "2018-06",
+      "status": "active",
+      "web": "https://the443.podbean.com",
+      "apple": "https://podcasts.apple.com/podcast/id1399962220",
+      "spotify": "https://open.spotify.com/show/1um4vj5lRCeFjaaT6KyAJC",
+      "rss": "https://feed.podbean.com/the443/feed.xml",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "curator"
+      ],
+      "verified": true,
+      "episodes": 396,
+      "lastEpisode": "2026-11-02",
+      "logo": "covers/podcast-the-443.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "id": "the-443"
+    },
+    {
+      "type": "podcast",
       "name": "The Defender's Advantage",
       "by": "Mandiant (Google Cloud)",
       "desc": "Mandiant experts on incident response, threat intelligence and frontline findings from investigations.",
@@ -889,6 +928,7 @@
       "lastEpisode": "2026-10-28",
       "episodes": 306,
       "amazon": "https://music.amazon.co.uk/podcasts/af9f20f2-aa77-4e29-995e-da8dd47bd2fe/the-defender's-advantage-podcast",
+      "spotify": "https://open.spotify.com/show/7CFsvR9lOLZiNoVDUltL9X",
       "id": "defenders-advantage"
     },
     {
@@ -1211,7 +1251,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://publicfeeds.net/f/8376/clickhere",
       "lastEpisode": "2026-11-03",
-      "episodes": 388,
+      "episodes": 389,
       "amazon": "https://music.amazon.co.uk/podcasts/1ddc446b-b5eb-4546-bf8f-e2642285495b/click-here",
       "spotify": "https://open.spotify.com/show/2kxOETGvN32D6hZu0wPntG",
       "id": "click-here"
@@ -1541,7 +1581,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://podcast.latent.space/feed.xml",
       "lastEpisode": "2026-11-03",
-      "episodes": 290,
+      "episodes": 291,
       "amazon": "https://music.amazon.co.uk/podcasts/abff303e-e4f1-447c-9823-b35bfc6e8da8/latent-space-the-ai-engineer-podcast",
       "id": "latent-space"
     },
@@ -1837,6 +1877,7 @@
       "lastEpisode": "2026-10-25",
       "episodes": 106,
       "amazon": "https://music.amazon.co.uk/podcasts/462a5a81-82f6-4b4a-bfba-dd3bd2cb7c31/risk-management-show",
+      "spotify": "https://open.spotify.com/show/1IynksT6tH80Nw9LTyI7bt",
       "id": "risk-management-show"
     },
     {
@@ -2072,7 +2113,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://anchor.fm/s/f7cac464/podcast/rss",
       "lastEpisode": "2026-11-03",
-      "episodes": 1130,
+      "episodes": 1129,
       "amazon": "https://music.amazon.co.uk/podcasts/2b3e5988-907e-4702-96f5-7eb33adc729e/the-ai-daily-brief-artificial-intelligence-news-and-analysis",
       "id": "ai-daily-brief"
     },
@@ -2217,7 +2258,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.megaphone.fm/MLN2155636147",
       "lastEpisode": "2026-11-03",
-      "episodes": 800,
+      "episodes": 801,
       "amazon": "https://music.amazon.co.uk/podcasts/786d7a2f-a556-4b36-b6cc-4db135c95ae1/the-twiml-ai-podcast-formerly-this-week-in-machine-learning-artificial-intelligence",
       "id": "twiml"
     },
@@ -2249,6 +2290,7 @@
       "lastEpisode": "2026-05-27",
       "episodes": 52,
       "amazon": "https://music.amazon.co.uk/podcasts/2fb48111-48bf-4cf6-89c2-c15da0b77031/unsolicited-response-podcast",
+      "spotify": "https://open.spotify.com/show/3IBQ9z2x01JAkJQczBOXam",
       "id": "unsolicited-response"
     },
     {
