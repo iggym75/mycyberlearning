@@ -84,7 +84,7 @@
       "apple": "https://podcasts.apple.com/podcast/id1332947921",
       "rss": "https://feeds.soundcloud.com/users/soundcloud:users:376833845/sounds.rss",
       "lastEpisode": "2026-11-03",
-      "episodes": 462,
+      "episodes": 463,
       "amazon": "https://music.amazon.co.uk/podcasts/8d3ef16b-d055-452e-8f60-bc4e71316232/5bytespodcast",
       "spotify": "https://open.spotify.com/show/5HlR3ywunSAUnZ6NAtPWXA",
       "id": "5bytes"
@@ -369,7 +369,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.libsyn.com/shows/289580/destinations/2260670.xml",
       "lastEpisode": "2026-11-03",
-      "episodes": 1881,
+      "episodes": 1882,
       "amazon": "https://music.amazon.co.uk/podcasts/45477283-d157-4ea1-9782-fd29dab41f3d/cybersecurity-headlines",
       "spotify": "https://open.spotify.com/show/5ylaiuoDj7YOVSdyVJMDR7",
       "id": "cyber-security-headlines"
@@ -703,7 +703,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.pdrl.fm/7d51b0/feeds.megaphone.fm/hacking-humans",
       "lastEpisode": "2026-11-03",
-      "episodes": 823,
+      "episodes": 825,
       "amazon": "https://music.amazon.co.uk/podcasts/a3fb35f8-2a0b-46cd-b63a-954b5f518617/hacking-humans",
       "spotify": "https://open.spotify.com/show/0EhUctIPJiKrxPjzqIAuDc",
       "id": "hacking-humans"
@@ -930,6 +930,70 @@
       "amazon": "https://music.amazon.co.uk/podcasts/af9f20f2-aa77-4e29-995e-da8dd47bd2fe/the-defender's-advantage-podcast",
       "spotify": "https://open.spotify.com/show/7CFsvR9lOLZiNoVDUltL9X",
       "id": "defenders-advantage"
+    },
+    {
+      "type": "podcast",
+      "name": "The OPSEC Podcast",
+      "by": "Allen Pace",
+      "desc": "Practical personal privacy and operational security: how data brokers, surveillance and AI-driven fraud reach ordinary people, and the habits and tools that push back.",
+      "domains": [
+        "privacy",
+        "human"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "biweekly",
+      "launched": "2025-07",
+      "status": "active",
+      "web": "https://opsecpodcast.com/",
+      "apple": "https://podcasts.apple.com/podcast/id1832928172",
+      "spotify": "https://open.spotify.com/show/4FP7QYrlhj92eTRwcoe8Fy",
+      "rss": "https://api.riverside.com/hosting/stOFSh0O.rss",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "curator"
+      ],
+      "verified": true,
+      "episodes": 32,
+      "lastEpisode": "2026-11-02",
+      "logo": "covers/podcast-opsec-podcast.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "id": "opsec-podcast"
+    },
+    {
+      "type": "podcast",
+      "name": "The OSINT Podcast",
+      "by": "Jake Creps",
+      "desc": "Open-source intelligence tradecraft from the OSINT Newsletter: new tools, search tricks and real investigation techniques, from tracking ships and aircraft to mining forums and messaging apps.",
+      "domains": [
+        "cti",
+        "offensive"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "monthly",
+      "launched": "2025-08",
+      "status": "active",
+      "web": "https://osintnewsletter.com/podcast",
+      "apple": "https://podcasts.apple.com/podcast/id1832762403",
+      "spotify": "https://open.spotify.com/show/5CJC7POdSGf4i1AlJCVZOF",
+      "rss": "https://api.substack.com/feed/podcast/1442182.rss",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "curator"
+      ],
+      "verified": true,
+      "episodes": 26,
+      "lastEpisode": "2026-10-30",
+      "logo": "covers/podcast-osint-podcast.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "id": "osint-podcast"
     },
     {
       "type": "podcast",
@@ -1442,7 +1506,11 @@
       "launched": "2018-09",
       "status": "ended",
       "web": "https://gettingintoinfosec.com/",
-      "rating": null,
+      "rating": {
+        "v": 4.4,
+        "n": 76,
+        "asOf": "2026-11-03"
+      },
       "curator": false,
       "sources": [
         "gcs"
@@ -1487,6 +1555,7 @@
       "lastEpisode": "2026-07-02",
       "episodes": 231,
       "amazon": "https://music.amazon.co.uk/podcasts/dec8ef5a-867d-4824-b64b-2521a9a05612/the-host-unknown-podcast",
+      "spotify": "https://open.spotify.com/show/4RoWtLtWzkwPbHCcRR0jvq",
       "id": "host-unknown"
     },
     {
@@ -1581,7 +1650,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://podcast.latent.space/feed.xml",
       "lastEpisode": "2026-11-03",
-      "episodes": 291,
+      "episodes": 290,
       "amazon": "https://music.amazon.co.uk/podcasts/abff303e-e4f1-447c-9823-b35bfc6e8da8/latent-space-the-ai-engineer-podcast",
       "id": "latent-space"
     },
@@ -1906,6 +1975,7 @@
       "rss": "https://rss.buzzsprout.com/2407084.rss",
       "lastEpisode": "2026-10-23",
       "episodes": 41,
+      "spotify": "https://open.spotify.com/show/6ag1Lo9QHB8rCy4DuCTWqN",
       "id": "sans-cyber-leaders"
     },
     {
@@ -2045,6 +2115,7 @@
       "rss": "https://rss.buzzsprout.com/2626376.rss",
       "lastEpisode": "2026-09-14",
       "episodes": 5,
+      "spotify": "https://open.spotify.com/show/033J9nqBHPDlSqX7tJHd8O",
       "id": "shift-to-ai"
     },
     {
@@ -2258,7 +2329,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.megaphone.fm/MLN2155636147",
       "lastEpisode": "2026-11-03",
-      "episodes": 801,
+      "episodes": 800,
       "amazon": "https://music.amazon.co.uk/podcasts/786d7a2f-a556-4b36-b6cc-4db135c95ae1/the-twiml-ai-podcast-formerly-this-week-in-machine-learning-artificial-intelligence",
       "id": "twiml"
     },
