@@ -1243,6 +1243,71 @@
     },
     {
       "type": "podcast",
+      "name": "Ahead of the Threat: The FBI Cyber Podcast",
+      "by": "FBI",
+      "desc": "The FBI's cyber podcast, with agents and leaders explaining current threats and how organisations can work with law enforcement.",
+      "domains": [
+        "cti",
+        "leadership"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "monthly",
+      "status": "active",
+      "apple": "https://podcasts.apple.com/podcast/id1774312272",
+      "rss": "https://www.fbi.gov/feeds/ahead-of-the-threat-itunes/itunes.xml/?7",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 21,
+      "lastEpisode": "2026-10-29",
+      "logo": "covers/podcast-ahead-of-the-threat.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "spotify": "https://open.spotify.com/show/7nV7uYsEK4nH87ADpooAyA",
+      "id": "ahead-of-the-threat"
+    },
+    {
+      "type": "podcast",
+      "name": "Bite Sized Cyber Crime",
+      "by": "Chloe Thonus",
+      "desc": "Short, jargon-light episodes on cybercrime cases, security failures and infamous malware.",
+      "domains": [
+        "stories",
+        "news"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://bitesizedcybercrime.podbean.com",
+      "apple": "https://podcasts.apple.com/podcast/id1610054474",
+      "rss": "https://feed.podbean.com/bitesizedcybercrime/feed.xml",
+      "rating": {
+        "v": 5,
+        "n": 10,
+        "asOf": "2026-11-03"
+      },
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 100,
+      "lastEpisode": "2026-11-02",
+      "logo": "covers/podcast-bite-sized-cyber-crime.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2024-10",
+      "spotify": "https://open.spotify.com/show/2aQ69Rhdcp06nrUCm1MXvW",
+      "id": "bite-sized-cyber-crime"
+    },
+    {
+      "type": "podcast",
       "name": "BrakeSec Education Podcast",
       "by": "Bryan Brake, Amanda Berlin & Brian Boettcher",
       "desc": "Teaching-focused show on security, privacy and compliance topics, aimed at people entering the field and those who want a refresher, mixed with news and quizzes.",
@@ -1499,6 +1564,139 @@
     },
     {
       "type": "podcast",
+      "name": "Cyber Bites",
+      "by": "Edwin Kwan",
+      "desc": "A short weekly digest of security news and trends with personal takeaways from an Australian practitioner.",
+      "domains": [
+        "news"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://edwinkwan.substack.com/podcast",
+      "apple": "https://podcasts.apple.com/podcast/id1756244582",
+      "rss": "https://api.substack.com/feed/podcast/2754198.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 120,
+      "lastEpisode": "2026-10-22",
+      "logo": "covers/podcast-cyber-bites.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "spotify": "https://open.spotify.com/show/74JEWWL7h2DXvGMxvcCWhm",
+      "id": "cyber-bites"
+    },
+    {
+      "type": "podcast",
+      "name": "Cyber Crime Junkies",
+      "by": "David Mauro",
+      "desc": "Lively, sarcastic retellings of cybercrime stories with practical lessons for people and organisations.",
+      "domains": [
+        "stories",
+        "human"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "multiweekly",
+      "status": "active",
+      "web": "https://cybercrimejunkies.com",
+      "apple": "https://podcasts.apple.com/podcast/id1633932941",
+      "rss": "https://rss.buzzsprout.com/2014652.rss",
+      "rating": {
+        "v": 4.7,
+        "n": 34,
+        "asOf": "2026-11-03"
+      },
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 335,
+      "lastEpisode": "2026-11-01",
+      "logo": "covers/podcast-cyber-crime-junkies.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2022-08",
+      "spotify": "https://open.spotify.com/show/5y4U2v51gztlenr8TJ2LJs",
+      "id": "cyber-crime-junkies"
+    },
+    {
+      "type": "podcast",
+      "name": "Cyber Crime Podcast",
+      "by": "Circle Of Insight Productions",
+      "desc": "Narrated investigations into real cybercrime cases, from government data exposures to abuse of everyday platforms.",
+      "domains": [
+        "stories",
+        "news"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "multiweekly",
+      "status": "active",
+      "web": "https://www.spreaker.com/podcast/cyber-crime-podcast--4685806",
+      "apple": "https://podcasts.apple.com/podcast/id1542377238",
+      "rss": "https://www.spreaker.com/show/4685806/episodes/feed",
+      "rating": {
+        "v": 3.7,
+        "n": 12,
+        "asOf": "2026-11-03"
+      },
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 202,
+      "lastEpisode": "2026-10-28",
+      "logo": "covers/podcast-cyber-crime-podcast.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2020-11",
+      "spotify": "https://open.spotify.com/show/1oxG0bAhh0HSU6uUvd9Sw1",
+      "id": "cyber-crime-podcast"
+    },
+    {
+      "type": "podcast",
+      "name": "Cyber Defense Radio",
+      "by": "Gary Miliefsky · Cyber Defense Magazine",
+      "desc": "Short interviews with founders and executives of security companies about the problems their products and research target.",
+      "domains": [
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "multiweekly",
+      "status": "active",
+      "web": "https://podcast.ausha.co/cyber-defense-radio",
+      "apple": "https://podcasts.apple.com/podcast/id1690839634",
+      "rss": "https://feed.ausha.co/4AJzRTnjPYzW",
+      "rating": {
+        "v": 3,
+        "n": 3,
+        "asOf": "2026-11-03"
+      },
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 171,
+      "lastEpisode": "2026-09-06",
+      "logo": "covers/podcast-cyber-defense-radio.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2023-05",
+      "spotify": "https://open.spotify.com/show/0hYiCORGC7ZSQ6vL3Aopxl",
+      "id": "cyber-defense-radio"
+    },
+    {
+      "type": "podcast",
       "name": "Cyber Investigations",
       "by": "Cyber Investigations Media",
       "desc": "Breakdowns of major breaches, ransomware attacks and the investigations behind them, from an Australian perspective.",
@@ -1590,6 +1788,35 @@
       "launched": "2023-01",
       "spotify": "https://open.spotify.com/show/3wmyUbe1TY5hNl96Q8UFFI",
       "id": "cyber-security-america"
+    },
+    {
+      "type": "podcast",
+      "name": "Cyber Security Business",
+      "by": "Kevin Pouche · K logix",
+      "desc": "Interviews with CISOs on the business side of security, from SOC strategy to AI governance; no new episodes since May 2026.",
+      "domains": [
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "status": "active",
+      "web": "https://www.klogixsecurity.com/podcast",
+      "apple": "https://podcasts.apple.com/podcast/id1676975535",
+      "rss": "https://media.rss.com/k-logix-cybersecurity-business/feed.xml",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 39,
+      "lastEpisode": "2026-09-23",
+      "logo": "covers/podcast-cyber-security-business.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2023-03",
+      "id": "cyber-security-business"
     },
     {
       "type": "podcast",
@@ -1723,6 +1950,69 @@
     },
     {
       "type": "podcast",
+      "name": "CYBERCRIME: From the Frontline",
+      "by": "Bruce Sussman · Bitdefender",
+      "desc": "Real-world cases of fraud, deepfakes, ransomware and insider attacks, and how defenders respond.",
+      "domains": [
+        "cti",
+        "defensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "biweekly",
+      "status": "active",
+      "web": "https://cybercrimefromthefrontline.buzzsprout.com",
+      "apple": "https://podcasts.apple.com/podcast/id1802214239",
+      "rss": "https://rss.buzzsprout.com/2460909.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 35,
+      "lastEpisode": "2026-10-30",
+      "logo": "covers/podcast-cybercrime-from-the-frontline.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2025-03",
+      "spotify": "https://open.spotify.com/show/5YRK5Gq5LWr5Yn9mekKAPq",
+      "id": "cybercrime-from-the-frontline"
+    },
+    {
+      "type": "podcast",
+      "name": "Cybercrimeology",
+      "by": "Michael Joyce",
+      "desc": "Interviews with academic researchers about cybercrime theory, offender behaviour, attribution and what the evidence shows.",
+      "domains": [
+        "cti",
+        "human"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "monthly",
+      "status": "active",
+      "web": "https://cybercrimeology.com",
+      "apple": "https://podcasts.apple.com/podcast/id1485830871",
+      "rss": "https://feeds.simplecast.com/u7LQgEZL",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 135,
+      "lastEpisode": "2026-11-01",
+      "logo": "covers/podcast-cybercrimeology.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2019-11",
+      "spotify": "https://open.spotify.com/show/6Tawwm8arNoCaYyxBpcgtX",
+      "id": "cybercrimeology"
+    },
+    {
+      "type": "podcast",
       "name": "CyberHub Podcast",
       "by": "James Azar",
       "desc": "Weekday headlines for practitioners from a working CISO, framed around risk, impact and mitigation without the hype.",
@@ -1750,6 +2040,38 @@
       "launched": "2025-04",
       "spotify": "https://open.spotify.com/show/6qp4IQ7fIqfIESJkFmrBvk",
       "id": "cyberhub"
+    },
+    {
+      "type": "podcast",
+      "name": "Cybermidnight Club– Hackers, Cyber Security and Cyber Crime",
+      "by": "Alberto Daniel Hill",
+      "desc": "Conversations with hackers and defenders from a researcher who was the first person jailed in Uruguay for a computer crime.",
+      "domains": [
+        "stories",
+        "career"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "daily",
+      "status": "active",
+      "web": "https://cybermidnight.club",
+      "apple": "https://podcasts.apple.com/podcast/id1446317273",
+      "rss": "https://anchor.fm/s/81430a4/podcast/rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 1035,
+      "lastEpisode": "2026-10-07",
+      "logo": "covers/podcast-cybermidnight-club.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2019-10",
+      "spotify": "https://open.spotify.com/show/3XmolWa59mJtPWQsVyrKb9",
+      "id": "cybermidnight-club"
     },
     {
       "type": "podcast",
@@ -1845,6 +2167,69 @@
     },
     {
       "type": "podcast",
+      "name": "Cybersecurity Under Pressure. Real Attacks, Real Lessons",
+      "by": "Antonio González",
+      "desc": "Real incidents and research in industrial systems, railways and connected vehicles, tying attack mechanics to engineering constraints.",
+      "domains": [
+        "icsot",
+        "tvm"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "multiweekly",
+      "status": "active",
+      "web": "https://cybersecurityunderpressure.com/",
+      "apple": "https://podcasts.apple.com/podcast/id1878633095",
+      "rss": "https://anchor.fm/s/10e805c14/podcast/rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 146,
+      "lastEpisode": "2026-11-03",
+      "logo": "covers/podcast-cybersecurity-under-pressure.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2026-02",
+      "spotify": "https://open.spotify.com/show/5JJig2qjSKXoPRGSWDIRlz",
+      "id": "cybersecurity-under-pressure"
+    },
+    {
+      "type": "podcast",
+      "name": "Cybersecurity Where You Are",
+      "by": "Center for Internet Security",
+      "desc": "The Center for Internet Security's weekly show on practical defence, the CIS Controls, SOC work and the year's notable malware.",
+      "domains": [
+        "defensive",
+        "grc"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "apple": "https://podcasts.apple.com/podcast/id1556737248",
+      "rss": "https://fast.wistia.com/channels/0l9fss300m/rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 211,
+      "lastEpisode": "2026-10-28",
+      "logo": "covers/podcast-cybersecurity-where-you-are.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2021-01",
+      "spotify": "https://open.spotify.com/show/2ouJN5QQTQck4bRzTZbXTt",
+      "id": "cybersecurity-where-you-are"
+    },
+    {
+      "type": "podcast",
       "name": "Cyberside Chats: Cybersecurity Insights from the Experts",
       "by": "Chatcyberside",
       "desc": "Weekly briefings on emerging threats and incidents, with practical advice for security teams and executives.",
@@ -1873,6 +2258,38 @@
       "launched": "2024-12",
       "spotify": "https://open.spotify.com/show/5H9BpeHlewjzAsxbCJk9rj",
       "id": "cyberside-chats"
+    },
+    {
+      "type": "podcast",
+      "name": "CyberVersed",
+      "by": "Mandy Haeburn-Little · NCRCG",
+      "desc": "Strategic conversations from the UK's National Cyber Resilience Centre Group on helping smaller organisations become resilient.",
+      "domains": [
+        "leadership",
+        "human"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "monthly",
+      "status": "active",
+      "web": "https://sites.libsyn.com/410003",
+      "apple": "https://podcasts.apple.com/podcast/id1618586725",
+      "rss": "https://rss.libsyn.com/shows/410003/destinations/3395687.xml",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 56,
+      "lastEpisode": "2026-10-12",
+      "logo": "covers/podcast-cyberversed.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2022-04",
+      "spotify": "https://open.spotify.com/show/3wQWm5hCROAuXff4ARKFQa",
+      "id": "cyberversed"
     },
     {
       "type": "podcast",
@@ -1968,6 +2385,37 @@
       "launched": "2019-11",
       "spotify": "https://open.spotify.com/show/6A9MyVF2CEXsZCm2zPmNh3",
       "id": "dailycyber"
+    },
+    {
+      "type": "podcast",
+      "name": "Dark Reading Confidential",
+      "by": "Dark Reading",
+      "desc": "The Dark Reading editors and guests on the stories behind major attacks and the pressures facing security leaders.",
+      "domains": [
+        "news",
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "monthly",
+      "status": "active",
+      "web": "https://darkreadingconfidential.podbean.com",
+      "apple": "https://podcasts.apple.com/podcast/id1744422932",
+      "rss": "https://feed.podbean.com/darkreadingconfidential/feed.xml",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 22,
+      "lastEpisode": "2026-09-16",
+      "logo": "covers/podcast-dark-reading-confidential.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2024-05",
+      "spotify": "https://open.spotify.com/show/2NShEX369DjZcOm5ODmQWn",
+      "id": "dark-reading-confidential"
     },
     {
       "type": "podcast",
@@ -2075,6 +2523,69 @@
     },
     {
       "type": "podcast",
+      "name": "Easy Prey",
+      "by": "Chris Parker",
+      "desc": "Interviews and real stories about scams, fraud and everyday privacy traps, from protecting children online to hidden phone tracking.",
+      "domains": [
+        "human",
+        "privacy"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://www.easyprey.com",
+      "apple": "https://podcasts.apple.com/podcast/id1488678905",
+      "rss": "https://rss.libsyn.com/shows/225614/destinations/1655398.xml",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 344,
+      "lastEpisode": "2026-10-21",
+      "logo": "covers/podcast-easy-prey.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2020-03",
+      "spotify": "https://open.spotify.com/show/45IRgx8rZbWw1zYFNxYuDQ",
+      "id": "easy-prey"
+    },
+    {
+      "type": "podcast",
+      "name": "ElasticNinja's Cybersecurity Briefing",
+      "by": "ElasticNinja",
+      "desc": "Few-minute explainers on a single vulnerability class or security concept, such as request smuggling, eBPF or MFA fatigue.",
+      "domains": [
+        "engineering",
+        "appsec"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://cybersecurity-news.castos.com",
+      "apple": "https://podcasts.apple.com/podcast/id1693833707",
+      "rss": "https://feeds.castos.com/735pj",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 100,
+      "lastEpisode": "2026-08-20",
+      "logo": "covers/podcast-elasticninja-briefing.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2025-05",
+      "spotify": "https://open.spotify.com/show/0SBuKBe1aFIsdRnVZzDQc3",
+      "id": "elasticninja-briefing"
+    },
+    {
+      "type": "podcast",
       "name": "Exploring Information Security",
       "by": "Timothy De Block",
       "desc": "Weekly interviews with a different security professional each time, exploring disciplines across the field; currently only rereleases since spring 2026.",
@@ -2137,6 +2648,37 @@
     },
     {
       "type": "podcast",
+      "name": "Fraudology Podcast with Karisse Hendrick",
+      "by": "Karisse Hendrick",
+      "desc": "For people working in online fraud prevention: how fraud operations work, from scam compounds to AI-driven attacks.",
+      "domains": [
+        "human",
+        "cti"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://fraudology-podcast.captivate.fm",
+      "apple": "https://podcasts.apple.com/podcast/id1530461089",
+      "rss": "https://feeds.captivate.fm/fraudology-podcast/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 423,
+      "lastEpisode": "2026-10-29",
+      "logo": "covers/podcast-fraudology.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2020-09",
+      "spotify": "https://open.spotify.com/show/6atqSzy0Gea4596ZBrtZfo",
+      "id": "fraudology"
+    },
+    {
+      "type": "podcast",
       "name": "Getting Into Infosec",
       "by": "Ayman Elsawah",
       "desc": "Candid interviews about how people broke into security and what they wish they had known.",
@@ -2172,6 +2714,37 @@
     },
     {
       "type": "podcast",
+      "name": "HEAL Security - Cybersecurity Intelligence & News for Healthcare",
+      "by": "HEAL Security",
+      "desc": "Daily healthcare-sector security news and threat intelligence; the daily dispatch stopped in April 2026.",
+      "domains": [
+        "news",
+        "cti"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "status": "active",
+      "web": "https://healsecurity.com/",
+      "apple": "https://podcasts.apple.com/podcast/id1719387674",
+      "rss": "https://feeds.soundcloud.com/users/soundcloud:users:1326963765/sounds.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 500,
+      "lastEpisode": "2026-04-07",
+      "logo": "covers/podcast-heal-security.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2024-01",
+      "spotify": "https://open.spotify.com/show/6SGoT2iWqYjxbfSTROJ5ny",
+      "id": "heal-security"
+    },
+    {
+      "type": "podcast",
       "name": "Host Unknown",
       "by": "Javvad Malik, Thom Langford & Andy Agnês",
       "desc": "Irreverent infosec news and opinion from industry veterans — a pub chat with decades of experience behind it.",
@@ -2204,6 +2777,37 @@
     },
     {
       "type": "podcast",
+      "name": "How Hacks Happen",
+      "by": "Michele Bousquet",
+      "desc": "Hacks, scams and online misbehaviour explained in plain language, case by case.",
+      "domains": [
+        "stories",
+        "human"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "monthly",
+      "status": "active",
+      "web": "http://howhackshappen.net",
+      "apple": "https://podcasts.apple.com/podcast/id1533766066",
+      "rss": "https://rss.buzzsprout.com/1241654.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 88,
+      "lastEpisode": "2026-09-10",
+      "logo": "covers/podcast-how-hacks-happen.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2021-05",
+      "spotify": "https://open.spotify.com/show/5dB3xgREV4C44jjk9qckTt",
+      "id": "how-hacks-happen"
+    },
+    {
+      "type": "podcast",
       "name": "Human Factor Security",
       "by": "Jenny Radcliffe",
       "desc": "The 'People Hacker' interviews hackers, psychologists and criminologists about manipulation, scams and human-centric security.",
@@ -2233,6 +2837,37 @@
       "episodes": 100,
       "spotify": "https://open.spotify.com/show/35fsZMSuOq143jKMZOlzH0",
       "id": "human-factor-security"
+    },
+    {
+      "type": "podcast",
+      "name": "IDTheftCenter",
+      "by": "Identity Theft Resource Center",
+      "desc": "Two series from the ITRC: a weekly breach breakdown and conversations on identity theft, scams and data privacy.",
+      "domains": [
+        "privacy",
+        "news"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://www.idtheftcenter.org/",
+      "apple": "https://podcasts.apple.com/podcast/id1543301596",
+      "rss": "https://feeds.soundcloud.com/users/soundcloud:users:820008592/sounds.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 296,
+      "lastEpisode": "2026-10-29",
+      "logo": "covers/podcast-idtheftcenter.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2020-10",
+      "spotify": "https://open.spotify.com/show/3pyc8Q4KL5CiHODvXvqiZf",
+      "id": "idtheftcenter"
     },
     {
       "type": "podcast",
@@ -2428,6 +3063,38 @@
     },
     {
       "type": "podcast",
+      "name": "Masked Actors",
+      "by": "Group-IB",
+      "desc": "Narrative episodes on the people behind ransomware gangs, espionage crews and financial crime networks.",
+      "domains": [
+        "cti",
+        "stories"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "monthly",
+      "status": "active",
+      "web": "https://maskedactorsgroup-ib.buzzsprout.com",
+      "apple": "https://podcasts.apple.com/podcast/id1813334799",
+      "rss": "https://rss.buzzsprout.com/2489886.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 20,
+      "lastEpisode": "2026-10-15",
+      "logo": "covers/podcast-masked-actors.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2025-05",
+      "spotify": "https://open.spotify.com/show/1vzw40FaWa9QEzvjZIrTWM",
+      "id": "masked-actors"
+    },
+    {
+      "type": "podcast",
       "name": "Microsoft Threat Intelligence Podcast",
       "by": "Sherrod DeGrippo · Microsoft",
       "desc": "Microsoft researchers on nation-state actors, malware, threat hunting and the stories behind investigations.",
@@ -2493,6 +3160,69 @@
       "amazon": "https://music.amazon.co.uk/podcasts/904c0c88-6ef4-4ed6-bbf1-d630fd1fe337/mnemonic-security-podcast",
       "spotify": "https://open.spotify.com/show/4rx6QrSsjCZYngJQnhTwbo",
       "id": "mnemonic"
+    },
+    {
+      "type": "podcast",
+      "name": "Modern Cyber with Jeremy Snyder",
+      "by": "Jeremy Snyder",
+      "desc": "Weekly AI security news round-ups and interviews on securing APIs, cloud and the infrastructure behind AI systems.",
+      "domains": [
+        "ai",
+        "cloud"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://rss.com/podcasts/modern-cyber-with-jeremy-snyder",
+      "apple": "https://podcasts.apple.com/podcast/id1741968392",
+      "rss": "https://media.rss.com/modern-cyber-with-jeremy-snyder/feed.xml",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 139,
+      "lastEpisode": "2026-10-22",
+      "logo": "covers/podcast-modern-cyber.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2024-04",
+      "spotify": "https://open.spotify.com/show/6liqNyCWDZzT9MbFPVai3i",
+      "id": "modern-cyber"
+    },
+    {
+      "type": "podcast",
+      "name": "NCSC Cyber Series",
+      "by": "National Cyber Security Centre",
+      "desc": "The UK NCSC's own podcast, covering topical issues, its leaders' perspectives and lessons for organisations of every size.",
+      "domains": [
+        "leadership",
+        "news"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "monthly",
+      "status": "active",
+      "web": "https://ncsc.gov.uk",
+      "apple": "https://podcasts.apple.com/podcast/id1742556737",
+      "rss": "https://anchor.fm/s/f408358c/podcast/rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 15,
+      "lastEpisode": "2026-10-23",
+      "logo": "covers/podcast-ncsc-cyber-series.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2024-04",
+      "spotify": "https://open.spotify.com/show/2ba1AsrgRqvpJjcvbBmv2L",
+      "id": "ncsc-cyber-series"
     },
     {
       "type": "podcast",
@@ -2684,6 +3414,37 @@
     },
     {
       "type": "podcast",
+      "name": "Razorwire Cyber Security & InfoSec Insights",
+      "by": "Razorthorn Security",
+      "desc": "UK conversations on practical security leadership, industry economics and endpoint technology, with frank views on where the profession is heading.",
+      "domains": [
+        "leadership",
+        "grc"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "biweekly",
+      "status": "active",
+      "web": "https://www.razorthorn.com/blog/",
+      "apple": "https://podcasts.apple.com/podcast/id1635227643",
+      "rss": "https://feeds.captivate.fm/razorwire/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 108,
+      "lastEpisode": "2026-10-29",
+      "logo": "covers/podcast-razorwire.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2022-07",
+      "spotify": "https://open.spotify.com/show/2bsrSCYr4EZ08lohH39RHX",
+      "id": "razorwire"
+    },
+    {
+      "type": "podcast",
       "name": "Redefining CyberSecurity",
       "by": "Sean Martin · ITSPmagazine",
       "desc": "Big-picture view of security in business and society: ethics, resilience, policy and leadership.",
@@ -2871,6 +3632,37 @@
       "episodes": 41,
       "spotify": "https://open.spotify.com/show/6ag1Lo9QHB8rCy4DuCTWqN",
       "id": "sans-cyber-leaders"
+    },
+    {
+      "type": "podcast",
+      "name": "Scam Rangers",
+      "by": "Ayelet Biger-Levin",
+      "desc": "The human side of fraud, through the researchers, prosecutors and advocates working to protect victims.",
+      "domains": [
+        "human",
+        "stories"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "biweekly",
+      "status": "active",
+      "web": "https://zencastr.com/Scam-Rangers",
+      "apple": "https://podcasts.apple.com/podcast/id1661710240",
+      "rss": "https://feeds.zencastr.com/f/jIYKVsR9.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 64,
+      "lastEpisode": "2026-10-14",
+      "logo": "covers/podcast-scam-rangers.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2022-12",
+      "spotify": "https://open.spotify.com/show/29zIj4RGaSZS71Q8jwSRHW",
+      "id": "scam-rangers"
     },
     {
       "type": "podcast",
@@ -3329,6 +4121,37 @@
     },
     {
       "type": "podcast",
+      "name": "State of Cybercrime",
+      "by": "Matt Radolec & David Gibson · Varonis",
+      "desc": "The Varonis threat team on recent breaches and criminal groups, and what organisations should learn from them.",
+      "domains": [
+        "cti",
+        "news"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "monthly",
+      "status": "active",
+      "web": "https://securitytools.simplecast.com",
+      "apple": "https://podcasts.apple.com/podcast/id1101894776",
+      "rss": "https://feeds.simplecast.com/2Ntuu3AF",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 214,
+      "lastEpisode": "2026-09-28",
+      "logo": "covers/podcast-state-of-cybercrime.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2016-07",
+      "spotify": "https://open.spotify.com/show/4l5OCzHeJiUcb39IWNpNGs",
+      "id": "state-of-cybercrime"
+    },
+    {
+      "type": "podcast",
       "name": "Talkin' Bout [Infosec] News",
       "by": "Black Hills Information Security",
       "desc": "The Black Hills team and friends talk through the week's notable infosec news, with plenty of practitioner banter and practical takeaways.",
@@ -3358,6 +4181,38 @@
       "launched": "2018-07",
       "spotify": "https://open.spotify.com/show/5JcgajysqCIYNPIR9ICcFe",
       "id": "talkin-bout-infosec-news"
+    },
+    {
+      "type": "podcast",
+      "name": "Talking Cyber Security",
+      "by": "Richard Heron",
+      "desc": "Formerly The Australian CISO: breaches, crisis management and the wellbeing of security teams, from an Australian leadership perspective.",
+      "domains": [
+        "leadership",
+        "news"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "monthly",
+      "status": "active",
+      "web": "https://www.podomatic.com/podcasts/talkingcybersecurity",
+      "apple": "https://podcasts.apple.com/podcast/id1674398294",
+      "rss": "https://talkingcybersecurity.podomatic.com/rss2.xml",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 77,
+      "lastEpisode": "2026-09-12",
+      "logo": "covers/podcast-talking-cyber-security.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2023-02",
+      "spotify": "https://open.spotify.com/show/38qcndxsBN7TjkuhF2mlZf",
+      "id": "talking-cyber-security"
     },
     {
       "type": "podcast",
@@ -3617,6 +4472,38 @@
     },
     {
       "type": "podcast",
+      "name": "The CyBUr Guy Podcast",
+      "by": "Darren J. Mott",
+      "desc": "A retired FBI special agent on current cybercrime and historic FBI cyber and counterintelligence cases.",
+      "domains": [
+        "cti",
+        "stories"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "biweekly",
+      "status": "active",
+      "web": "https://thecyburguy.podbean.com",
+      "apple": "https://podcasts.apple.com/podcast/id1526491250",
+      "rss": "https://feed.podbean.com/thecyburguy/feed.xml",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 100,
+      "lastEpisode": "2026-10-29",
+      "logo": "covers/podcast-cybur-guy.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2021-11",
+      "spotify": "https://open.spotify.com/show/0c4SQseaCwJmGECNWpEnP4",
+      "id": "cybur-guy"
+    },
+    {
+      "type": "podcast",
       "name": "The Hackle Box",
       "by": "Oscar Minks · FRSecure",
       "desc": "Monthly threat-intel discussion from FRSecure's technical team on recent techniques, vulnerabilities and exploits; last episode April 2026.",
@@ -3679,6 +4566,37 @@
     },
     {
       "type": "podcast",
+      "name": "The Perfect Scam",
+      "by": "Bob Sullivan · AARP",
+      "desc": "Stories of people targeted by scams, alongside experts and reformed fraudsters explaining how the cons work.",
+      "domains": [
+        "human",
+        "stories"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://www.aarp.org/podcasts/the-perfect-scam",
+      "apple": "https://podcasts.apple.com/podcast/id1362050907",
+      "rss": "https://rss.libsyn.com/shows/118503/destinations/684119.xml",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 340,
+      "lastEpisode": "2026-10-30",
+      "logo": "covers/podcast-perfect-scam.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2018-03",
+      "spotify": "https://open.spotify.com/show/1HhgxCadyWTQ09MiqQ136u",
+      "id": "perfect-scam"
+    },
+    {
+      "type": "podcast",
       "name": "The Privacy, Security & OSINT Show",
       "by": "Michael Bazzell",
       "desc": "Methodical, practical guidance on personal privacy, OPSEC and open-source intelligence from a former FBI investigator. Slower release schedule but a dense archive.",
@@ -3731,6 +4649,37 @@
       "amazon": "https://music.amazon.co.uk/podcasts/eacfcc55-3e56-4be0-908f-db49f1811fcf/the-security-detail",
       "spotify": "https://open.spotify.com/show/55uVsTaEYxY5zAZ8e819sQ",
       "id": "security-detail"
+    },
+    {
+      "type": "podcast",
+      "name": "The Security Strategist",
+      "by": "EM360Tech",
+      "desc": "Interviews with security leaders and vendors on strategy, detection and the security of AI agents.",
+      "domains": [
+        "leadership",
+        "ai"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "multiweekly",
+      "status": "active",
+      "web": "https://em360tech.com/podcasts/the-security-strategist",
+      "apple": "https://podcasts.apple.com/podcast/id1506612863",
+      "rss": "https://feeds.captivate.fm/the-security-strategist/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 256,
+      "lastEpisode": "2026-10-20",
+      "logo": "covers/podcast-security-strategist.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2020-04",
+      "spotify": "https://open.spotify.com/show/5gcaJBBVwuZZNhJ6fzmowU",
+      "id": "security-strategist"
     },
     {
       "type": "podcast",
@@ -3795,6 +4744,37 @@
       "episodes": 801,
       "amazon": "https://music.amazon.co.uk/podcasts/786d7a2f-a556-4b36-b6cc-4db135c95ae1/the-twiml-ai-podcast-formerly-this-week-in-machine-learning-artificial-intelligence",
       "id": "twiml"
+    },
+    {
+      "type": "podcast",
+      "name": "THEOS Cybernova",
+      "by": "Paul Jackson · THEOS Cyber",
+      "desc": "Conversations with investigators and researchers on espionage, financial crime and mobile spyware; no new episodes since February 2026.",
+      "domains": [
+        "cti",
+        "stories"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "status": "active",
+      "web": "https://theos-cyber.com/theos-cybernova-podcast/",
+      "apple": "https://podcasts.apple.com/podcast/id1790372030",
+      "rss": "https://rss.buzzsprout.com/2431922.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 28,
+      "lastEpisode": "2026-02-06",
+      "logo": "covers/podcast-theos-cybernova.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2025-01",
+      "spotify": "https://open.spotify.com/show/11cMTsglAxSSw2Mso4GNIH",
+      "id": "theos-cybernova"
     },
     {
       "type": "podcast",
@@ -3953,6 +4933,37 @@
       "amazon": "https://music.amazon.co.uk/podcasts/2fb48111-48bf-4cf6-89c2-c15da0b77031/unsolicited-response-podcast",
       "spotify": "https://open.spotify.com/show/3IBQ9z2x01JAkJQczBOXam",
       "id": "unsolicited-response"
+    },
+    {
+      "type": "podcast",
+      "name": "What The Fraud?",
+      "by": "Vicky Baker · Sumsub",
+      "desc": "An investigative journalist explores why smart people fall for scams and how fraudsters build trust.",
+      "domains": [
+        "human",
+        "stories"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "biweekly",
+      "status": "active",
+      "web": "https://shows.acast.com/what-the-fraud",
+      "apple": "https://podcasts.apple.com/podcast/id1730525068",
+      "rss": "https://feeds.acast.com/public/shows/65c9ee33056405001663c974",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 58,
+      "lastEpisode": "2026-10-28",
+      "logo": "covers/podcast-what-the-fraud.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2024-02",
+      "spotify": "https://open.spotify.com/show/4Jm0xxrezPB3QQOu63jAE6",
+      "id": "what-the-fraud"
     },
     {
       "type": "podcast",
