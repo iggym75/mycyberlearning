@@ -103,6 +103,7 @@ test("Spotify link from a Podnews page, and og:title", () => {
   assert.equal(parsePodnewsSpotify(`<a href="https://evil.example/?u=${show}">x</a>`), null);   // embedded in another URL
   assert.equal(ogTitle('<meta property="og:title" content="Beers with Talos Podcast"><title>x</title>'), "Beers with Talos Podcast");
   assert.equal(ogTitle("<title>none</title>"), null);
+  assert.equal(ogTitle('<meta property="og:title" content="Paul&#x27;s Security Weekly &amp; Friends">'), "Paul's Security Weekly & Friends");
 });
 
 test("Spotify search: name plus publisher or episode count, and look-alikes are told apart", () => {

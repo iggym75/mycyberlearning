@@ -73,7 +73,16 @@ export function pickSpotifyShow(item, shows, { author, episodes } = {}) {
   return null;
 }
 /** og:title from a page (Spotify's show pages carry the show name there; its oEmbed title is the latest episode). */
-export const ogTitle = html => String(html).match(/<meta property="og:title" content="([^"]*)"/)?.[1] || null;
+export const ogTitle = html => {
+  const t = String(html).match(/<meta property="og:title" content="([^"]*)"/)?.[1];
+  return t ? decodeEntities(t) : null;
+};
+/** Decode the character references that turn up in page titles (&amp; &#x27; &#39; &quot; ...). */
+export function decodeEntities(s) {
+  const named = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " " };
+  return String(s).replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, e) =>
+    e[0] === "#" ? String.fromCodePoint(e[1].toLowerCase() === "x" ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10)) : named[e.toLowerCase()] ?? m);
+}
 export const appleId = url => url?.match(/id(\d{5,})/)?.[1] || null;
 
 
