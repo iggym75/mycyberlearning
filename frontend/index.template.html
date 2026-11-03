@@ -186,11 +186,26 @@ footer{border-top:1px solid var(--line);padding-block:24px;color:var(--ink-3);fo
 footer .linkish{background:none;border:0;padding:0;color:var(--signal);cursor:pointer;font:inherit;text-decoration:underline}
 
 /* Section switch */
-.views{display:flex;gap:2px;background:var(--sunk);border-radius:9px;padding:3px}
-.views a{padding:6px 12px;border-radius:7px;text-decoration:none;color:var(--ink-2);font-weight:500;font-size:14px;white-space:nowrap}
-.views a[aria-current="page"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow);font-weight:600}
-@media (max-width:400px){.views{max-width:100%;overflow-x:auto;scrollbar-width:none}.views a{padding:6px 8px;font-size:13.5px}}
-.views .live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--signal);margin-right:6px;vertical-align:1px}
+/* Section tabs: Library / Podcasts / Books / Daily briefing, each with an icon; the current one takes the signal colour.
+   Phones: a full-width row of equal tabs, icon over label. */
+.views{display:flex;gap:4px;background:var(--sunk);border-radius:11px;padding:4px}
+.views a{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:8px;text-decoration:none;color:var(--ink-2);font-weight:600;font-size:15px;white-space:nowrap}
+.views a:hover{color:var(--ink);background:color-mix(in srgb,var(--surface) 60%,transparent)}
+.views a[aria-current="page"]{background:var(--signal-soft);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--signal)}
+.views svg{width:18px;height:18px;flex:none}
+.views a[aria-current="page"] svg{color:var(--signal)}
+.views .nc{font-style:normal;font-family:var(--f-mono);font-size:11.5px;font-weight:500;color:var(--ink-3);margin-left:2px}
+.views .nc:empty{display:none}
+.views .nl-short{display:none}
+.views .live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--signal);margin:0 5px;flex:none}
+@media (max-width:640px){
+  .views{flex:1 1 100%}
+  .views a{flex:1;flex-direction:column;gap:3px;padding:7px 4px;font-size:12.5px;justify-content:center}
+  .views svg{width:20px;height:20px}
+  .views .nc{display:none}
+  .views .nl-long{display:none}.views .nl-short{display:inline}
+  .views .live-dot{width:9px;height:9px;margin:5px 0 6px}
+}
 body[data-view="news"] .library-only{display:none!important}
 
 /* Daily briefing */
@@ -281,10 +296,10 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
       <span><b>My <span class="brand-hl">Cyber</span> Learning</b><small>mycyberlearning.co.uk</small></span>
     </a>
     <nav class="views" aria-label="Sections">
-      <a href="#library" data-view="library" data-navtype="all">Library</a>
-      <a href="#podcasts" data-view="library" data-navtype="podcast">Podcasts</a>
-      <a href="#books" data-view="library" data-navtype="book">Books</a>
-      <a href="#news" data-view="news"><span class="live-dot" aria-hidden="true"></span>Daily briefing</a>
+      <a href="#library" data-view="library" data-navtype="all"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Library</span></a>
+      <a href="#podcasts" data-view="library" data-navtype="podcast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/></svg><span>Podcasts <i class="nc" id="navPods"></i></span></a>
+      <a href="#books" data-view="library" data-navtype="book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/></svg><span>Books <i class="nc" id="navBooks"></i></span></a>
+      <a href="#news" data-view="news"><span class="live-dot" aria-hidden="true"></span><span><span class="nl-long">Daily briefing</span><span class="nl-short">Briefing</span></span></a>
     </nav>
     <div class="search library-only">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
@@ -790,6 +805,7 @@ function render(){
   $("#activeFilters").innerHTML = act.length ? act.map(([k,v,l]) => `<button class="chip" type="button" data-remove="${k}:${v}">${esc(l)} ✕</button>`).join("") + (state.domains.length>1?`<span class="muted" style="font-size:12.5px;align-self:center">matching ${state.match==="all"?"all":"any"} selected domains</span>`:"") : "";
   $("#grid").innerHTML = list.length ? list.map(card).join("") : `<div class="empty"><p style="margin:0 0 10px"><b>Nothing matches those filters.</b></p><p style="margin:0">Try “Match any” instead of “Match all”, or clear a frequency filter.</p></div>`;
   const pods = ITEMS.filter(i=>i.type==="podcast"&&!i.hidden).length, books = ITEMS.filter(i=>i.type==="book"&&!i.hidden).length;
+  $("#navPods").textContent = pods; $("#navBooks").textContent = books;
   $("#stats").innerHTML = `<span><b>${pods}</b> podcasts</span><span><b>${books}</b> books</span><span><b>${TAX.domains.length}</b> security domains</span><span><b>${ITEMS.filter(i=>i.curator).length}</b> MCL Picks</span>`;
 }
 
