@@ -1,5 +1,5 @@
 // Public endpoints: list items, vote, submit a suggestion.
-import { json, sha, clientIp, rateLimited, isHttpUrl, isAmazonMusicUrl, normaliseIsbn, clean, slug, claudeReview, DOMAIN_KEYS, FREQ_KEYS } from "./lib/shared.js";
+import { json, sha, clientIp, rateLimited, isHttpUrl, isAmazonMusicUrl, isPlatformUrl, normaliseIsbn, clean, slug, claudeReview, DOMAIN_KEYS, FREQ_KEYS } from "./lib/shared.js";
 import { listItems, getItemRow } from "./lib/db.js";
 import { isAdmin } from "./auth.js";
 
@@ -68,8 +68,9 @@ export async function submit(req, env) {
   if (s.desc.length < 40) errs.push("Write a description of at least 40 characters.");
   for (const k of ["web", "apple", "spotify", "amazon", "youtube", "rss"]) if (s[k] && !isHttpUrl(s[k])) errs.push(`The ${k} link isn't a valid web address.`);
   if (s.amazon && !isAmazonMusicUrl(s.amazon)) errs.push("The Amazon Music link should be a podcast page, e.g. https://music.amazon.co.uk/podcasts/….");
-  if (s.apple && !/^https:\/\/podcasts\.apple\.com\//.test(s.apple)) errs.push("The Apple link should start with https://podcasts.apple.com/.");
-  if (s.spotify && !/^https:\/\/open\.spotify\.com\//.test(s.spotify)) errs.push("The Spotify link should start with https://open.spotify.com/.");
+  if (s.apple && !isPlatformUrl("apple", s.apple)) errs.push("The Apple link should start with https://podcasts.apple.com/.");
+  if (s.spotify && !isPlatformUrl("spotify", s.spotify)) errs.push("The Spotify link should start with https://open.spotify.com/.");
+  if (s.youtube && !isPlatformUrl("youtube", s.youtube)) errs.push("The YouTube link should be a youtube.com or youtu.be address.");
   if (s.youtube && !/^https:\/\/(www\.|music\.)?youtube\.com\/|^https:\/\/youtu\.be\//.test(s.youtube)) errs.push("The YouTube link should be a youtube.com address.");
   if (s.type === "book") {
     if (s.isbn) { const n = normaliseIsbn(s.isbn); if (!n) errs.push("That ISBN doesn't look right. Check the digits."); else s.isbn = n; }

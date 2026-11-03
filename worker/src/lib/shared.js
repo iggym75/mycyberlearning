@@ -42,6 +42,15 @@ export const AMAZON_MUSIC_HOSTS = ["music.amazon.co.uk", "music.amazon.com", "mu
 export function isAmazonMusicUrl(v) {
   try { const u = new URL(v); return u.protocol === "https:" && AMAZON_MUSIC_HOSTS.includes(u.hostname) && /^\/podcasts\//.test(u.pathname); } catch { return false; }
 }
+// Listening platforms: a link must be https on one of these exact hosts (look-alikes such as open.spotify.com.evil.example fail).
+export const PLATFORM_HOSTS = {
+  apple: ["podcasts.apple.com"],
+  spotify: ["open.spotify.com"],
+  youtube: ["www.youtube.com", "youtube.com", "m.youtube.com", "music.youtube.com", "youtu.be"]
+};
+export function isPlatformUrl(kind, v) {
+  try { const u = new URL(v); return u.protocol === "https:" && PLATFORM_HOSTS[kind].includes(u.hostname); } catch { return false; }
+}
 export const slug = s => s.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60);
 export const clean = (s, max) => String(s ?? "").replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, max);
 

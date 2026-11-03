@@ -685,6 +685,9 @@ function searchUrl(platform, i){
     youtube:`https://www.youtube.com/results?search_query=${q}`, goodreads:`https://www.goodreads.com/search?q=${q}`, openlibrary:`https://openlibrary.org/search?q=${q}`}[platform];
 }
 const AMAZON_MUSIC_HOSTS = ["music.amazon.co.uk","music.amazon.com","music.amazon.ca","music.amazon.com.au","music.amazon.de","music.amazon.fr","music.amazon.it","music.amazon.es","music.amazon.in","music.amazon.co.jp","music.amazon.com.br","music.amazon.com.mx"];
+// Same exact-host rule as the Worker (worker/src/lib/shared.js PLATFORM_HOSTS); the server check is the one that counts.
+const PLATFORM_HOSTS = {apple:["podcasts.apple.com"], spotify:["open.spotify.com"], youtube:["www.youtube.com","youtube.com","m.youtube.com","music.youtube.com","youtu.be"]};
+function isPlatform(kind, v){ try { const u=new URL(v); return u.protocol==="https:" && PLATFORM_HOSTS[kind].includes(u.hostname); } catch { return false; } }
 function isAmazonMusic(v){ try { const u=new URL(v); return u.protocol==="https:" && AMAZON_MUSIC_HOSTS.includes(u.hostname) && u.pathname.startsWith("/podcasts/"); } catch { return false; } }
 function platLinks(i){
   const L = [];
@@ -912,8 +915,9 @@ $("#submitForm").addEventListener("submit", async e => {
   if (p.type==="book") delete p.amazon;
   for (const k of ["web","apple","spotify","amazon","youtube","rss"]) if (p[k] && !isUrl(p[k])) errs.push(`The ${k==="web"?"website":k} link isn't a valid web address.`);
   if (p.amazon && isUrl(p.amazon) && !isAmazonMusic(p.amazon)) errs.push("The Amazon Music link should be a podcast page, e.g. https://music.amazon.co.uk/podcasts/….");
-  if (p.apple && !/podcasts\.apple\.com/.test(p.apple)) errs.push("The Apple link should be a podcasts.apple.com address.");
-  if (p.spotify && !/open\.spotify\.com/.test(p.spotify)) errs.push("The Spotify link should be an open.spotify.com address.");
+  if (p.apple && !isPlatform("apple", p.apple)) errs.push("The Apple link should be a podcasts.apple.com address.");
+  if (p.spotify && !isPlatform("spotify", p.spotify)) errs.push("The Spotify link should be an open.spotify.com address.");
+  if (p.youtube && !isPlatform("youtube", p.youtube)) errs.push("The YouTube link should be a youtube.com or youtu.be address.");
   if (p.type==="book"){ if (p.isbn){ const ok=isbnOk(p.isbn); if(!ok) errs.push("That ISBN doesn't look right. Check the digits (10 or 13, hyphens are fine)."); else p.isbn=ok; } if (!p.publisher) errs.push("Add the publisher."); } else { delete p.isbn; delete p.publisher; }
   if (p.type==="podcast" && !p.web) errs.push("Add the podcast's official website.");
   if (p.type==="podcast" && !(p.apple||p.spotify||p.youtube||p.amazon)) errs.push("Add at least one of Apple Podcasts, Spotify, YouTube or Amazon Music.");
@@ -953,6 +957,7 @@ $("#editForm").addEventListener("submit", async e => {
   e.preventDefault(); const patch = {domains:editDomains, curator:$("#e_curator").checked};
   for (const k of ["name","by","desc","web","apple","spotify","amazon","youtube","launched","isbn","publisher"]) patch[k] = $("#e_"+k).value.trim()||undefined;
   if (patch.amazon && !isAmazonMusic(patch.amazon)){ toast("The Amazon Music link should be a music.amazon… /podcasts/ page."); return; }
+  for (const [k,label] of [["apple","podcasts.apple.com"],["spotify","open.spotify.com"],["youtube","youtube.com"]]) if (patch[k] && !isPlatform(k, patch[k])){ toast(`The ${k==="apple"?"Apple":k==="spotify"?"Spotify":"YouTube"} link should be a ${label} address.`); return; }
   if (editing.type==="podcast") patch.freq=$("#e_freq").value;
   if (patch.isbn){ const ok=isbnOk(patch.isbn); if(!ok){ toast("That ISBN doesn't look right. Check the digits."); return; } patch.isbn=ok; }
   await api.save(editing.id, patch); Object.assign(editing, patch); $("#editDlg").close(); render(); toast("Saved");
