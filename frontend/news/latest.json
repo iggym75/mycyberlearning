@@ -1,22 +1,107 @@
 {
   "date": "2026-11-03",
-  "generatedAt": "2026-11-03T20:38:55.856Z",
+  "generatedAt": "2026-11-03T21:45:25.365Z",
   "windowHours": 24,
-  "headline": "Today's cyber security podcasts",
-  "overview": "6 new episodes from 6 news shows in the last 24 hours.",
-  "topStories": [],
+  "headline": "Election security retreat, botnet takedowns and AI-driven attacks dominate",
+  "overview": "Election security and AI-enabled threats featured across several shows, alongside a botnet takedown and a wave of crypto wallet thefts. Vendor and infrastructure bugs from Barracuda, Ivanti and Synology round out the day's technical news.",
+  "topStories": [
+    {
+      "title": "CISA scales back election security role ahead of midterms",
+      "summary": "CISA is reportedly pulling back from its Election Day role ahead of the US midterms. CyberWire Daily covered the shift under the theme of democracy and safety nets.",
+      "refs": [
+        "cyberwire-daily-0"
+      ],
+      "domains": [
+        "news",
+        "grc"
+      ]
+    },
+    {
+      "title": "AI-enabled attacks raise alarm for critical infrastructure and crime",
+      "summary": "The UK's NCSC chief warned of imminent AI-driven ransomware against critical infrastructure. Separately, an AI-enabled infostealer was reported to rank its victims, and Chinese hackers were said to use AI across simultaneous attacks on around 200 organisations.",
+      "refs": [
+        "cyberwire-daily-0",
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "ai",
+        "defensive",
+        "cti"
+      ]
+    },
+    {
+      "title": "Crypto wallet thefts hit outdated BTCPay Server instances",
+      "summary": "Attackers stole Bitcoin and Litecoin from hot wallets on BTCPay Server 2.4.1 and earlier by exploiting a flaw fixed in 2.4.2. Operators are told to sweep funds to new wallets, rebuild on fresh servers and rotate exposed credentials.",
+      "refs": [
+        "cyber-security-headlines-0",
+        "sans-stormcast-0"
+      ],
+      "domains": [
+        "cti",
+        "operations"
+      ]
+    },
+    {
+      "title": "Google dismantles Android TV botnet",
+      "summary": "Google and other tech firms took down a botnet that had turned about 1.3 million TV boxes into proxies. CyberWire Daily also noted NATO cyber war games in Estonia and a Harvard breach linked to about 850,000 email addresses.",
+      "refs": [
+        "cyberwire-daily-0"
+      ],
+      "domains": [
+        "news",
+        "defensive"
+      ]
+    },
+    {
+      "title": "Barracuda and Synology issue urgent patches and ransomware warnings",
+      "summary": "Barracuda patched a pre-authentication authorization bypass (CVE-2026-116606, CVSS 9.3) and a command injection flaw in its Email Security Gateway and other appliances. Synology warned that ransomware is hitting outdated DSM devices.",
+      "refs": [
+        "sans-stormcast-0"
+      ],
+      "domains": [
+        "tvm",
+        "defensive"
+      ]
+    },
+    {
+      "title": "Open-source voting machine aims to build trust in elections",
+      "summary": "Ben Adida and the nonprofit VotingWorks built an open-source voting machine whose code anyone can inspect. The episode questions whether transparency alone will earn voter trust.",
+      "refs": [
+        "click-here-0"
+      ],
+      "domains": [
+        "grc",
+        "news"
+      ]
+    }
+  ],
   "episodes": [
+    {
+      "show": "cyberwire-daily",
+      "title": "Democracy without a safety net.",
+      "publishedAt": "2026-11-03T21:30:00.000Z",
+      "minutes": 30,
+      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2670/notes",
+      "ref": "cyberwire-daily-0",
+      "domains": [
+        "news",
+        "cti",
+        "ai"
+      ],
+      "summary": "Covers CISA scaling back election security, Google's Android TV botnet takedown, UK warnings on AI attacks and German lawmaker spyware concerns. Includes an interview with Alex Weinert of Semperis on identity security in the AI era, which is sponsored-style vendor content in the interview segment."
+    },
     {
       "show": "ai-daily-brief",
       "title": "AI Lurches Toward Recursive Self-Improvement",
-      "publishedAt": "2026-11-03T20:15:43Z",
+      "publishedAt": "2026-11-03T20:15:43.000Z",
       "minutes": 27,
-      "url": "https://podcasts.apple.com/gb/podcast/ai-lurches-toward-recursive-self-improvement/id1680633614",
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/AI-Lurches-Toward-Recursive-Self-Improvement-e3rmekk",
       "ref": "ai-daily-brief-0",
       "domains": [
+        "ai",
         "news"
       ],
-      "summary": "Check out How We Got Here Ep."
+      "summary": "Episode titled around AI moving toward recursive self-improvement. The provided notes contain only sponsor messages and programme links, so no substantive detail is available."
     },
     {
       "show": "cyber-security-headlines",
@@ -26,9 +111,11 @@
       "url": "https://cisoseries.libsyn.com/european-freezer-hacks-btcpay-wallet-thefts-gdpx-tests-ai-agents",
       "ref": "cyber-security-headlines-0",
       "domains": [
-        "news"
+        "news",
+        "cti",
+        "defensive"
       ],
-      "summary": "European supermarkets report freezer hacks BTCPay warns of hot wallet thefts GDPx puts AI agents through harder tests Hackers send false emergency alerts DarkBlinders targets Israel and Iraqi Kurdistan Chinese hackers…"
+      "summary": "Roundup of news including suspected freezer hacks at European supermarkets, BTCPay hot wallet thefts, emergency alert app hacks in Ukraine and Russia, DarkBlinders targeting Israel and Iraqi Kurdistan, and a ransomware claim against Michigan State University."
     },
     {
       "show": "click-here",
@@ -38,9 +125,10 @@
       "url": "https://play.prx.org/listen?ge=prx_8376_71895135-68a4-4624-a8bc-4f91373ddf81&uf=https%3A%2F%2Fpublicfeeds.net%2Ff%2F8376%2Fclickhere",
       "ref": "click-here-0",
       "domains": [
+        "grc",
         "news"
       ],
-      "summary": "Voting machines have long been at the center of conspiracy theories about U.S. elections."
+      "summary": "Looks at an open-source voting machine built by Ben Adida and VotingWorks, which anyone can inspect down to the code, and whether transparency can restore trust in US election results."
     },
     {
       "show": "sans-stormcast",
@@ -50,9 +138,11 @@
       "url": "https://isc.sans.edu/podcastdetail/10162",
       "ref": "sans-stormcast-0",
       "domains": [
-        "news"
+        "tvm",
+        "defensive",
+        "operations"
       ],
-      "summary": "Today's episode covers how to detect multipath TCP in your network, attacks stealing Bitcoin and Litecoin from outdated BTCPay Server installs, Barracuda patches for an authorization bypass and command injection in…"
+      "summary": "Explains how to detect Multipath TCP using TCP option 30 and common tools, covers BTCPay Server thefts, Barracuda authorization bypass and command injection patches, and Synology's ransomware warning for outdated DSM devices."
     },
     {
       "show": "5bytes",
@@ -62,21 +152,10 @@
       "url": "https://soundcloud.com/5bytespodcast/talkin-tech-with-jon-dore",
       "ref": "5bytes-0",
       "domains": [
-        "news"
+        "career",
+        "stories"
       ],
-      "summary": "In this special episode of 5Bytes Podcast, I'm joined by comedian, actor, and writer Jon Dore in the very first Talkin' Tech with Rorymon episode."
-    },
-    {
-      "show": "cyberwire-daily",
-      "title": "A TraderTraitor's guide to getting away with billions.",
-      "publishedAt": "2026-11-02T21:30:00.000Z",
-      "minutes": 28,
-      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2669/notes",
-      "ref": "cyberwire-daily-0",
-      "domains": [
-        "news"
-      ],
-      "summary": "The FBI blames North Korea for a record-breaking crypto heist. Hackers hijack air raid alerts in Ukraine and Russia. European supermarket freezers come under attack again."
+      "summary": "A lighter interview with comedian Jon Dore about remote work, AI in comedy and digital marketing for comedians. Little relevance to security professionals."
     }
   ]
 }
