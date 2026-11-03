@@ -681,7 +681,7 @@ function score(c){ return (c?.up||0)-(c?.down||0); }
 function year(l){ return l ? String(l).slice(0,4) : null; }
 function searchUrl(platform, i){
   const q = encodeURIComponent(i.name + (i.type==="book" ? " " + (i.by||"") : " podcast"));
-  return {apple:`https://podcasts.apple.com/search?term=${encodeURIComponent(i.name)}`, spotify:`https://open.spotify.com/search/${encodeURIComponent(i.name)}/podcasts`,
+  return {apple:`https://podcasts.apple.com/search?term=${encodeURIComponent(i.name)}`, spotify:`https://open.spotify.com/search/${encodeURIComponent(i.name)}`,
     youtube:`https://www.youtube.com/results?search_query=${q}`, goodreads:`https://www.goodreads.com/search?q=${q}`, openlibrary:`https://openlibrary.org/search?q=${q}`}[platform];
 }
 const AMAZON_MUSIC_HOSTS = ["music.amazon.co.uk","music.amazon.com","music.amazon.ca","music.amazon.com.au","music.amazon.de","music.amazon.fr","music.amazon.it","music.amazon.es","music.amazon.in","music.amazon.co.jp","music.amazon.com.br","music.amazon.com.mx"];
