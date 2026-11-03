@@ -1,6 +1,6 @@
 // Admin endpoints. Every handler is wrapped in guard(): a valid admin session cookie, and same-origin JSON for writes.
 import { normaliseEmail, subscriberId } from "./lib/mail.js";
-import { json, slug, normaliseIsbn, isHttpUrl, isAmazonMusicUrl, DOMAIN_KEYS, FREQ_KEYS } from "./lib/shared.js";
+import { json, slug, normaliseIsbn, isHttpUrl, isAmazonMusicUrl, isPlatformUrl, DOMAIN_KEYS, FREQ_KEYS } from "./lib/shared.js";
 import { rowToItem, getItemRow, upsertItem, insertItem, deleteItem } from "./lib/db.js";
 import { guard } from "./auth.js";
 
@@ -8,6 +8,7 @@ const URL_FIELDS = ["web", "apple", "spotify", "amazon", "youtube", "rss"];
 function sanitiseItem(item) {
   for (const k of URL_FIELDS) if (item[k] != null) item[k] = isHttpUrl(item[k]) ? String(item[k]).slice(0, 500) : undefined;
   if (item.amazon && !isAmazonMusicUrl(item.amazon)) item.amazon = undefined;
+  for (const k of ["apple", "spotify", "youtube"]) if (item[k] && !isPlatformUrl(k, item[k])) item[k] = undefined;
   if (item.logo != null && !(/^covers\/[a-z0-9-]+\.jpg$/.test(item.logo) || isHttpUrl(item.logo))) item.logo = undefined;
   if (item.bundle && !isHttpUrl(item.bundle.url)) item.bundle = undefined;
   item.domains = (Array.isArray(item.domains) ? item.domains : []).filter(d => DOMAIN_KEYS.includes(d)).slice(0, 5);
