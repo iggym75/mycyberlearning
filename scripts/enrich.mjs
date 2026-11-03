@@ -55,17 +55,22 @@ async function spotifyAuth() {
   spotifyToken = { value: j.access_token, exp: Date.now() + j.expires_in * 1000 };
   return spotifyToken.value;
 }
-export async function searchSpotify(item, hints) {
+/** Raw Spotify show search (UK market). Returns null without credentials. */
+export async function spotifyShows(q, { limit = 10, offset = 0 } = {}) {
   const token = await spotifyAuth();
   if (!token) return null;
-  const url = `https://api.spotify.com/v1/search?type=show&market=GB&limit=10&q=${encodeURIComponent(item.name)}`;
+  const url = `https://api.spotify.com/v1/search?type=show&market=GB&limit=${limit}&offset=${offset}&q=${encodeURIComponent(q)}`;
   for (let attempt = 0; attempt < 2; attempt++) {
     const r = await fetch(url, { headers: { authorization: `Bearer ${token}` } });
     if (r.status === 429 && attempt === 0) { await sleep(1000 * Math.min(30, Number(r.headers.get("retry-after")) || 5)); continue; }
     if (!r.ok) throw new Error(`Spotify search ${r.status}`);
-    return pickSpotifyShow(item, (await r.json()).shows?.items, hints);
+    return ((await r.json()).shows?.items || []).filter(Boolean);
   }
-  return null;
+  return [];
+}
+export async function searchSpotify(item, hints) {
+  const shows = await spotifyShows(item.name);
+  return shows && pickSpotifyShow(item, shows, hints);
 }
 
 /** Aggregated listener rating. Podnews is used by default; check its terms before running at scale. */
