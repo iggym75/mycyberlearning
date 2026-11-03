@@ -84,7 +84,7 @@
       "apple": "https://podcasts.apple.com/podcast/id1332947921",
       "rss": "https://feeds.soundcloud.com/users/soundcloud:users:376833845/sounds.rss",
       "lastEpisode": "2026-11-03",
-      "episodes": 463,
+      "episodes": 462,
       "amazon": "https://music.amazon.co.uk/podcasts/8d3ef16b-d055-452e-8f60-bc4e71316232/5bytespodcast",
       "spotify": "https://open.spotify.com/show/5HlR3ywunSAUnZ6NAtPWXA",
       "id": "5bytes"
@@ -369,7 +369,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.libsyn.com/shows/289580/destinations/2260670.xml",
       "lastEpisode": "2026-11-03",
-      "episodes": 1882,
+      "episodes": 1881,
       "amazon": "https://music.amazon.co.uk/podcasts/45477283-d157-4ea1-9782-fd29dab41f3d/cybersecurity-headlines",
       "spotify": "https://open.spotify.com/show/5ylaiuoDj7YOVSdyVJMDR7",
       "id": "cyber-security-headlines"
@@ -1099,6 +1099,41 @@
     },
     {
       "type": "podcast",
+      "name": "(CS)²AI Podcast Show: Control System Cyber Security",
+      "by": "Derek Harp · (CS)²AI",
+      "desc": "Interviews with control-system security professionals, from medical devices to critical infrastructure asset owners.",
+      "domains": [
+        "icsot"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://www.cs2ai.org/podcast",
+      "apple": "https://podcasts.apple.com/podcast/id1590583030",
+      "rss": "https://feeds.captivate.fm/cs2ai/",
+      "rating": {
+        "v": 5,
+        "n": 3,
+        "asOf": "2026-11-03"
+      },
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 141,
+      "lastEpisode": "2026-11-03",
+      "logo": "covers/podcast-cs2ai-podcast.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2021-05",
+      "spotify": "https://open.spotify.com/show/7JVVSdCidMxXXeGtVLnHMS",
+      "id": "cs2ai-podcast"
+    },
+    {
+      "type": "podcast",
       "name": "401 Access Denied",
       "by": "Joseph Carson · Delinea",
       "desc": "Conversational show spanning red teaming, identity, zero trust and insider threat with frontline guests.",
@@ -1174,6 +1209,77 @@
     },
     {
       "type": "podcast",
+      "name": "Afternoon Cyber Tea with Ann Johnson",
+      "by": "Ann Johnson · Microsoft",
+      "desc": "Microsoft's deputy CISO in conversation with security leaders about the trends boards and executives should be thinking about; paused since April 2026.",
+      "domains": [
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "status": "active",
+      "web": "https://AfternoonCyberTea.com",
+      "apple": "https://podcasts.apple.com/podcast/id1484676119",
+      "rss": "https://feeds.megaphone.fm/afternoon-cyber-tea",
+      "rating": {
+        "v": 4.9,
+        "n": 70,
+        "asOf": "2026-11-03"
+      },
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 134,
+      "lastEpisode": "2026-04-28",
+      "logo": "covers/podcast-afternoon-cyber-tea.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2019-11",
+      "spotify": "https://open.spotify.com/show/3bLXLVq9nSoj3xtrNh0Br5",
+      "id": "afternoon-cyber-tea"
+    },
+    {
+      "type": "podcast",
+      "name": "BrakeSec Education Podcast",
+      "by": "Bryan Brake, Amanda Berlin & Brian Boettcher",
+      "desc": "Teaching-focused show on security, privacy and compliance topics, aimed at people entering the field and those who want a refresher, mixed with news and quizzes.",
+      "domains": [
+        "career",
+        "defensive",
+        "grc"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "status": "active",
+      "web": "https://www.youtube.com/c/BDSPodcast",
+      "apple": "https://podcasts.apple.com/podcast/id799131292",
+      "rss": "https://rss.libsyn.com/shows/50535/destinations/177487.xml",
+      "rating": {
+        "v": 4.7,
+        "n": 136,
+        "asOf": "2026-11-03"
+      },
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 466,
+      "lastEpisode": "2026-10-28",
+      "logo": "covers/podcast-brakesec.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2014-01",
+      "spotify": "https://open.spotify.com/show/1IbTZuMBM4t6qLqdLVXl5D",
+      "id": "brakesec"
+    },
+    {
+      "type": "podcast",
       "name": "Capture the CISO",
       "by": "David Spark · CISO Series",
       "desc": "Vendors pitch to a panel of CISOs — a rare view of how security buyers evaluate tools.",
@@ -1206,6 +1312,41 @@
       "episodes": 10,
       "amazon": "https://music.amazon.co.uk/podcasts/549b1d81-7dda-4264-b6b6-e073751669b8/capture-the-ciso",
       "id": "capture-the-ciso"
+    },
+    {
+      "type": "podcast",
+      "name": "CheckMates Go: Cyber Security Podcast from Check Point",
+      "by": "Check Point CheckMates",
+      "desc": "Brief informal conversations with Check Point experts on incident response, customer stories and current attack trends.",
+      "domains": [
+        "defensive",
+        "operations"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://community.checkpoint.com",
+      "apple": "https://podcasts.apple.com/podcast/id1144646453",
+      "rss": "https://rss.buzzsprout.com/1474780.rss",
+      "rating": {
+        "v": 4.7,
+        "n": 42,
+        "asOf": "2026-11-03"
+      },
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 161,
+      "lastEpisode": "2026-09-28",
+      "logo": "covers/podcast-checkmates-go.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2019-04",
+      "spotify": "https://open.spotify.com/show/0E7svE8u9w4AkhRbrnqXF2",
+      "id": "checkmates-go"
     },
     {
       "type": "podcast",
@@ -1358,6 +1499,132 @@
     },
     {
       "type": "podcast",
+      "name": "Cyber Investigations",
+      "by": "Cyber Investigations Media",
+      "desc": "Breakdowns of major breaches, ransomware attacks and the investigations behind them, from an Australian perspective.",
+      "domains": [
+        "news",
+        "cti"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://www.buzzsprout.com/2612669",
+      "apple": "https://podcasts.apple.com/podcast/id1895129598",
+      "rss": "https://rss.buzzsprout.com/2612669.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 21,
+      "lastEpisode": "2026-10-30",
+      "logo": "covers/podcast-cyber-investigations.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2026-04",
+      "spotify": "https://open.spotify.com/show/5TFVosKou1WGi9H6HJhqLG",
+      "id": "cyber-investigations"
+    },
+    {
+      "type": "podcast",
+      "name": "Cyber Rants - The Refreshingly Real Cybersecurity Podcast",
+      "by": "Silent Sector",
+      "desc": "Two long-time practitioners cut through marketing to talk about what actually protects organisations, from CTEM to cyber insurance; ended December 2025.",
+      "domains": [
+        "leadership",
+        "grc"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "status": "active",
+      "web": "https://www.silentsector.com/cyberrants",
+      "apple": "https://podcasts.apple.com/podcast/id1540138407",
+      "rss": "https://rss.buzzsprout.com/1430665.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 136,
+      "lastEpisode": "2025-12-12",
+      "logo": "covers/podcast-cyber-rants.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2020-10",
+      "spotify": "https://open.spotify.com/show/5wjwzokazxOZMBfINSjEk2",
+      "id": "cyber-rants"
+    },
+    {
+      "type": "podcast",
+      "name": "Cyber Security America",
+      "by": "Joshua Nicholson",
+      "desc": "Business-focused interviews on risk intelligence, critical infrastructure and the basics of cyber hygiene.",
+      "domains": [
+        "leadership",
+        "icsot"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "monthly",
+      "status": "active",
+      "web": "http://www.darkstack7.com",
+      "apple": "https://podcasts.apple.com/podcast/id1668216285",
+      "rss": "https://rss.pdrl.fm/257710/feeds.libsyn.com/506373/rss/?redirect=false",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 59,
+      "lastEpisode": "2026-10-29",
+      "logo": "covers/podcast-cyber-security-america.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2023-01",
+      "spotify": "https://open.spotify.com/show/3wmyUbe1TY5hNl96Q8UFFI",
+      "id": "cyber-security-america"
+    },
+    {
+      "type": "podcast",
+      "name": "Cyber Security District",
+      "by": "Laurens Jagt",
+      "desc": "Interviews with security professionals and founders about trends, war stories and building a career in the industry.",
+      "domains": [
+        "career",
+        "leadership"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "biweekly",
+      "status": "active",
+      "web": "https://cybersecuritytalks.podbean.com",
+      "apple": "https://podcasts.apple.com/podcast/id1598365914",
+      "rss": "https://feed.podbean.com/cybersecuritytalks/feed.xml",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 53,
+      "lastEpisode": "2026-10-27",
+      "logo": "covers/podcast-cyber-security-district.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2021-12",
+      "spotify": "https://open.spotify.com/show/2fNG2TGxSEVcEeuIcMQdyD",
+      "id": "cyber-security-district"
+    },
+    {
+      "type": "podcast",
       "name": "Cyber Security Sauna",
       "by": "WithSecure",
       "desc": "Relaxed, well-produced conversations with researchers and CISOs about threats, careers and offensive security ethics.",
@@ -1391,6 +1658,129 @@
       "episodes": 95,
       "spotify": "https://open.spotify.com/show/1lZNKbGxw1FNLJspTZdYb5",
       "id": "cyber-security-sauna"
+    },
+    {
+      "type": "podcast",
+      "name": "Cyber Security Weekly Podcast",
+      "by": "Chris Cubbage · MySecurity Media",
+      "desc": "Australian interview series on cyber and physical security trends, industry events and government initiatives; no new episodes since late 2025.",
+      "domains": [
+        "news",
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "status": "active",
+      "web": "https://www.australiancybersecuritymagazine.com.au",
+      "apple": "https://podcasts.apple.com/podcast/id1305527038",
+      "rss": "https://feeds.blubrry.com/feeds/mysecurity.xml",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 50,
+      "lastEpisode": "2025-11-12",
+      "logo": "covers/podcast-cyber-security-weekly.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2024-11",
+      "id": "cyber-security-weekly"
+    },
+    {
+      "type": "podcast",
+      "name": "Cybercrime Magazine Podcast",
+      "by": "Cybercrime Magazine",
+      "desc": "Daily short news bulletins on hacks and breaches plus interviews with CISOs and security executives about the business of cybercrime.",
+      "domains": [
+        "news",
+        "leadership"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "daily",
+      "status": "active",
+      "web": "http://www.cybersecurityventures.com",
+      "apple": "https://podcasts.apple.com/podcast/id1428735886",
+      "rss": "https://feeds.soundcloud.com/users/soundcloud:users:286242900/sounds.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 535,
+      "lastEpisode": "2026-11-03",
+      "logo": "covers/podcast-cybercrime-magazine.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2026-03",
+      "spotify": "https://open.spotify.com/show/5StLnwffOEavc314Zujypw",
+      "id": "cybercrime-magazine"
+    },
+    {
+      "type": "podcast",
+      "name": "CyberHub Podcast",
+      "by": "James Azar",
+      "desc": "Weekday headlines for practitioners from a working CISO, framed around risk, impact and mitigation without the hype.",
+      "domains": [
+        "news"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "daily",
+      "status": "active",
+      "web": "https://www.cyberhubpodcast.com",
+      "apple": "https://podcasts.apple.com/podcast/id1511071564",
+      "rss": "https://feeds.captivate.fm/cyberhub-podcast/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 300,
+      "lastEpisode": "2026-11-03",
+      "logo": "covers/podcast-cyberhub.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2025-04",
+      "spotify": "https://open.spotify.com/show/6qp4IQ7fIqfIESJkFmrBvk",
+      "id": "cyberhub"
+    },
+    {
+      "type": "podcast",
+      "name": "Cybersecurity Sense",
+      "by": "Mark Burnette · LBMC",
+      "desc": "Practical security beyond compliance checklists, including PCI insights and conversations with cyber leaders; no new episodes since December 2025.",
+      "domains": [
+        "grc",
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "status": "active",
+      "web": "https://cybersecuritysense.libsyn.com/site",
+      "apple": "https://podcasts.apple.com/podcast/id1269195484",
+      "rss": "https://rss.libsyn.com/shows/103098/destinations/548906.xml",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 72,
+      "lastEpisode": "2025-12-02",
+      "logo": "covers/podcast-cybersecurity-sense.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2017-07",
+      "spotify": "https://open.spotify.com/show/7y3EjDdoiZ9QT44w7UEAPd",
+      "id": "cybersecurity-sense"
     },
     {
       "type": "podcast",
@@ -1455,6 +1845,132 @@
     },
     {
       "type": "podcast",
+      "name": "Cyberside Chats: Cybersecurity Insights from the Experts",
+      "by": "Chatcyberside",
+      "desc": "Weekly briefings on emerging threats and incidents, with practical advice for security teams and executives.",
+      "domains": [
+        "news",
+        "defensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://www.chatcyberside.com",
+      "apple": "https://podcasts.apple.com/podcast/id1785938953",
+      "rss": "https://www.chatcyberside.com/feed.xml",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 94,
+      "lastEpisode": "2026-11-03",
+      "logo": "covers/podcast-cyberside-chats.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2024-12",
+      "spotify": "https://open.spotify.com/show/5H9BpeHlewjzAsxbCJk9rj",
+      "id": "cyberside-chats"
+    },
+    {
+      "type": "podcast",
+      "name": "Daily Cyber Threat Brief",
+      "by": "Gerald Auger · Simply Cyber",
+      "desc": "Weekday live show covering the stories that matter to analysts and security leaders, explaining why each one matters, with a lively community.",
+      "domains": [
+        "news",
+        "career"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "daily",
+      "status": "active",
+      "web": "https://www.simplycyber.io/streams",
+      "apple": "https://podcasts.apple.com/podcast/id1590662228",
+      "rss": "https://feeds.transistor.fm/simply-cyber",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 1146,
+      "lastEpisode": "2026-11-03",
+      "logo": "covers/podcast-daily-cyber-threat-brief.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2021-10",
+      "spotify": "https://open.spotify.com/show/4cIPSwHmDVMAGd2UsFAvyl",
+      "id": "daily-cyber-threat-brief"
+    },
+    {
+      "type": "podcast",
+      "name": "Daily DefSec Brief",
+      "by": "Jerry Bell",
+      "desc": "Daily round-up of the security news IT and security teams need to act on, from the co-host of the Defensive Security Podcast.",
+      "domains": [
+        "news",
+        "defensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "daily",
+      "status": "active",
+      "web": "https://riverside.com",
+      "apple": "https://podcasts.apple.com/podcast/id6788003131",
+      "rss": "https://api.riverside.com/hosting/oUoHi93O.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 85,
+      "lastEpisode": "2026-11-03",
+      "logo": "covers/podcast-daily-defsec-brief.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2026-07",
+      "spotify": "https://open.spotify.com/show/033KO35fs1a8PYCbmnzGLN",
+      "id": "daily-defsec-brief"
+    },
+    {
+      "type": "podcast",
+      "name": "DailyCyber The Truth About Cyber Security with Brandon Krieger",
+      "by": "Brandon Krieger",
+      "desc": "Weekly live show and podcast on industry trends, certifications, careers and interviews, lately centred on AI agents and shadow AI.",
+      "domains": [
+        "career",
+        "ai"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "biweekly",
+      "status": "active",
+      "web": "https://www.dailycyber.ca",
+      "apple": "https://podcasts.apple.com/podcast/id1487733097",
+      "rss": "https://feeds.simplecast.com/WoZubQcU",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 104,
+      "lastEpisode": "2026-11-01",
+      "logo": "covers/podcast-dailycyber.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2019-11",
+      "spotify": "https://open.spotify.com/show/6A9MyVF2CEXsZCm2zPmNh3",
+      "id": "dailycyber"
+    },
+    {
+      "type": "podcast",
       "name": "Defense in Depth",
       "by": "David Spark & co-hosts · CISO Series",
       "desc": "One contested security question per episode, worked through with CISOs and community input in about 25 minutes.",
@@ -1490,6 +2006,134 @@
       "amazon": "https://music.amazon.co.uk/podcasts/6391c752-85cf-4aa7-bac9-0af5390ec05d/defense-in-depth",
       "spotify": "https://open.spotify.com/show/158C90JWnCxBXAX7HfWxIM",
       "id": "defense-in-depth"
+    },
+    {
+      "type": "podcast",
+      "name": "Down the Security Rabbithole Podcast (DtSR)",
+      "by": "Rafal Los, James Jardine & Jim Tiller",
+      "desc": "Long-running, vendor-neutral conversations on the security profession: leadership, strategy and candid interviews with people who have done the work since 2011.",
+      "domains": [
+        "leadership",
+        "career"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://www.youtube.com/@DTSR_Podcast",
+      "apple": "https://podcasts.apple.com/podcast/id466659176",
+      "rss": "https://rss.buzzsprout.com/2153215.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 767,
+      "lastEpisode": "2026-11-03",
+      "logo": "covers/podcast-dtsr.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2011-09",
+      "spotify": "https://open.spotify.com/show/0xnEHBzM0mayXFK5VKpziy",
+      "id": "dtsr"
+    },
+    {
+      "type": "podcast",
+      "name": "DrZeroTrust",
+      "by": "Dr. Chase Cunningham",
+      "desc": "Zero Trust strategy and practice from one of its best-known advocates, plus commentary on identity, AI and current breaches.",
+      "domains": [
+        "architecture"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "biweekly",
+      "status": "active",
+      "web": "https://www.patreon.com/drzerotrust",
+      "apple": "https://podcasts.apple.com/podcast/id1570251081",
+      "rss": "https://api.riverside.fm/hosting/RZQWaV5g.rss",
+      "rating": {
+        "v": 5,
+        "n": 22,
+        "asOf": "2026-11-03"
+      },
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 249,
+      "lastEpisode": "2026-11-02",
+      "logo": "covers/podcast-drzerotrust.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2021-06",
+      "spotify": "https://open.spotify.com/show/5YrSai2Q9UGATh8GXgzA5K",
+      "id": "drzerotrust"
+    },
+    {
+      "type": "podcast",
+      "name": "Exploring Information Security",
+      "by": "Timothy De Block",
+      "desc": "Weekly interviews with a different security professional each time, exploring disciplines across the field; currently only rereleases since spring 2026.",
+      "domains": [
+        "career"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "status": "active",
+      "web": "https://www.exploresec.com/eis/",
+      "apple": "https://podcasts.apple.com/podcast/id1026428940",
+      "rss": "https://www.exploresec.com/eis?format=rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 100,
+      "lastEpisode": "2026-05-05",
+      "logo": "covers/podcast-exploring-infosec.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2024-06",
+      "spotify": "https://open.spotify.com/show/7zC4JVj8wwB3klp1Ttb6Pc",
+      "id": "exploring-infosec"
+    },
+    {
+      "type": "podcast",
+      "name": "Fortinet Cybersecurity Podcast",
+      "by": "Fortinet",
+      "desc": "Fortinet experts on securing large enterprises, service providers and industry, including the Brass Tacks series; no new episodes since March 2026.",
+      "domains": [
+        "leadership",
+        "icsot"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "status": "active",
+      "web": "https://www.fortinet.com/",
+      "apple": "https://podcasts.apple.com/podcast/id1521692109",
+      "rss": "https://feeds.soundcloud.com/users/soundcloud:users:829321804/sounds.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 189,
+      "lastEpisode": "2026-03-13",
+      "logo": "covers/podcast-fortinet-podcast.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2020-06",
+      "spotify": "https://open.spotify.com/show/4iPB98kwkoMokPNxZukSOO",
+      "id": "fortinet-podcast"
     },
     {
       "type": "podcast",
@@ -1592,6 +2236,36 @@
     },
     {
       "type": "podcast",
+      "name": "Industrial Cybersecurity Insider",
+      "by": "Velta Technology",
+      "desc": "Industrial cybersecurity for manufacturing and critical infrastructure: plant-floor blind spots, OT managed services and readiness.",
+      "domains": [
+        "icsot"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://industrial-cybersecurity-insider.captivate.fm",
+      "apple": "https://podcasts.apple.com/podcast/id1713811546",
+      "rss": "https://feeds.captivate.fm/industrial-cybersecurity-insider/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 150,
+      "lastEpisode": "2026-10-28",
+      "logo": "covers/podcast-industrial-cybersecurity-insider.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2023-10",
+      "spotify": "https://open.spotify.com/show/6y0fvWaYstCG604LYveckc",
+      "id": "industrial-cybersecurity-insider"
+    },
+    {
+      "type": "podcast",
       "name": "Industrial Security Podcast",
       "by": "Andrew Ginter · Waterfall Security",
       "desc": "Interviews with OT and ICS practitioners on protecting industrial operations and critical infrastructure.",
@@ -1624,6 +2298,38 @@
     },
     {
       "type": "podcast",
+      "name": "Infosecurity Magazine Podcast",
+      "by": "Infosecurity Magazine",
+      "desc": "Monthly discussions from the magazine's editorial team and guests on current issues, incident communication and the security job market.",
+      "domains": [
+        "news",
+        "leadership"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "monthly",
+      "status": "active",
+      "web": "https://soundcloud.com/user-460162468",
+      "apple": "https://podcasts.apple.com/podcast/id1474398143",
+      "rss": "https://feeds.soundcloud.com/users/soundcloud:users:619327530/sounds.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 97,
+      "lastEpisode": "2026-10-23",
+      "logo": "covers/podcast-infosecurity-magazine.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2019-05",
+      "spotify": "https://open.spotify.com/show/5YCt2S2za0px2dBdZjqsr0",
+      "id": "infosecurity-magazine"
+    },
+    {
+      "type": "podcast",
       "name": "Latent Space",
       "by": "swyx & Alessio Fanelli",
       "desc": "AI engineering at depth: foundation models, agents, MCP and production architecture. Context for anyone securing AI systems.",
@@ -1653,6 +2359,38 @@
       "episodes": 290,
       "amazon": "https://music.amazon.co.uk/podcasts/abff303e-e4f1-447c-9823-b35bfc6e8da8/latent-space-the-ai-engineer-podcast",
       "id": "latent-space"
+    },
+    {
+      "type": "podcast",
+      "name": "Lock and Code",
+      "by": "David Ruiz · Malwarebytes",
+      "desc": "Human stories behind security and privacy, from sextortion and virtual kidnapping scams to what our apps quietly collect about us.",
+      "domains": [
+        "privacy",
+        "human",
+        "stories"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "biweekly",
+      "status": "active",
+      "web": "https://www.malwarebytes.com/blog/category/podcast",
+      "apple": "https://podcasts.apple.com/podcast/id1500049667",
+      "rss": "https://feeds.captivate.fm/lock-and-code/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 172,
+      "lastEpisode": "2026-11-01",
+      "logo": "covers/podcast-lock-and-code.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2020-02",
+      "spotify": "https://open.spotify.com/show/3VB1MCXNk76TSddNNZcDuo",
+      "id": "lock-and-code"
     },
     {
       "type": "podcast",
@@ -1758,6 +2496,68 @@
     },
     {
       "type": "podcast",
+      "name": "Nexus: A Claroty Podcast",
+      "by": "Mike Mimoso · Claroty",
+      "desc": "Conversations with researchers and leaders responsible for securing cyber-physical systems, from water utilities to vehicle controllers.",
+      "domains": [
+        "icsot"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://nexusconnect.io/podcasts",
+      "apple": "https://podcasts.apple.com/podcast/id1540650068",
+      "rss": "https://rss.buzzsprout.com/1475533.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 142,
+      "lastEpisode": "2026-10-28",
+      "logo": "covers/podcast-nexus-claroty.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2020-11",
+      "spotify": "https://open.spotify.com/show/5k2WYwZftAUjkWnRYj7iQZ",
+      "id": "nexus-claroty"
+    },
+    {
+      "type": "podcast",
+      "name": "No Password Required",
+      "by": "Cyber Florida",
+      "desc": "Personal stories from interesting people across the security and tech community, including a series for the next generation entering the field.",
+      "domains": [
+        "career",
+        "stories"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "biweekly",
+      "status": "active",
+      "web": "https://no-password-required.simplecast.com",
+      "apple": "https://podcasts.apple.com/podcast/id1488799631",
+      "rss": "https://feeds.simplecast.com/YGJgknbK",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 87,
+      "lastEpisode": "2026-10-26",
+      "logo": "covers/podcast-no-password-required.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2019-11",
+      "spotify": "https://open.spotify.com/show/6sz5sSY6OUCCdZfxfi2OUN",
+      "id": "no-password-required"
+    },
+    {
+      "type": "podcast",
       "name": "No Such Podcast",
       "by": "US National Security Agency",
       "desc": "Six-episode limited series from the NSA revealing declassified stories of signals intelligence and cyber missions.",
@@ -1818,6 +2618,37 @@
       "amazon": "https://music.amazon.co.uk/podcasts/12848f0b-1aa5-49e0-bdcb-8e0a41fdedd1/paul's-security-weekly-audio",
       "spotify": "https://open.spotify.com/show/0YC8VPkCkfmrDuiEulxkC6",
       "id": "security-weekly"
+    },
+    {
+      "type": "podcast",
+      "name": "Phillip Wylie Show",
+      "by": "Phillip Wylie",
+      "desc": "Interviews with red teamers, penetration testers and researchers on offensive security careers, techniques and AI.",
+      "domains": [
+        "offensive",
+        "career"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://phillipwylieshow.com/",
+      "apple": "https://podcasts.apple.com/podcast/id1685564407",
+      "rss": "https://anchor.fm/s/10de70ec4/podcast/rss/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 222,
+      "lastEpisode": "2026-11-03",
+      "logo": "covers/podcast-phillip-wylie-show.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2023-05",
+      "spotify": "https://open.spotify.com/show/6LH3TYGlg0JRsK7UzDmbjb",
+      "id": "phillip-wylie-show"
     },
     {
       "type": "podcast",
@@ -1882,6 +2713,69 @@
       "amazon": "https://music.amazon.co.uk/podcasts/fd96b7f9-88d8-4baa-9f36-4a37fee38816/redefining-cybersecurity",
       "spotify": "https://open.spotify.com/show/0HC1ssGBdV7pe4hXJlC0n2",
       "id": "redefining-cybersecurity"
+    },
+    {
+      "type": "podcast",
+      "name": "Reimagining Cyber - real world perspectives on cybersecurity",
+      "by": "Rob Aragao & Tyler Moffitt",
+      "desc": "Real-world perspectives for CISOs and CIOs on where security meets business impact, from attacker thinking to fairer phishing programmes.",
+      "domains": [
+        "leadership",
+        "human"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "http://CyberResilient.com",
+      "apple": "https://podcasts.apple.com/podcast/id1542819224",
+      "rss": "https://rss.buzzsprout.com/2004238.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 225,
+      "lastEpisode": "2026-10-28",
+      "logo": "covers/podcast-reimagining-cyber.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2020-12",
+      "spotify": "https://open.spotify.com/show/7abu8LJmxAwcif2SGSnOn3",
+      "id": "reimagining-cyber"
+    },
+    {
+      "type": "podcast",
+      "name": "Research Saturday",
+      "by": "Dave Bittner · N2K",
+      "desc": "Weekly conversations with researchers about their latest findings on threats, vulnerabilities and espionage campaigns.",
+      "domains": [
+        "cti",
+        "tvm"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://thecyberwire.com/podcasts/research-saturday",
+      "apple": "https://podcasts.apple.com/podcast/id1531793375",
+      "rss": "https://rss.pdrl.fm/6ec23a/feeds.megaphone.fm/cyberwire-research-saturday",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 472,
+      "lastEpisode": "2026-10-31",
+      "logo": "covers/podcast-research-saturday.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2017-09",
+      "spotify": "https://open.spotify.com/show/3xAfDfrKjJjYw3xZm6uWDo",
+      "id": "research-saturday"
     },
     {
       "type": "podcast",
@@ -1980,6 +2874,131 @@
     },
     {
       "type": "podcast",
+      "name": "Secure AF - A Cybersecurity Podcast",
+      "by": "Donovan Farrow & Jonathan Kimmitt · Alias",
+      "desc": "Practitioner discussion of real incidents and red-team tactics, from ransomware crews to unexpected IoT endpoints.",
+      "domains": [
+        "offensive",
+        "defensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://aliascybersecurity.com/",
+      "apple": "https://podcasts.apple.com/podcast/id1824479887",
+      "rss": "https://rss.buzzsprout.com/660007.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 183,
+      "lastEpisode": "2026-10-29",
+      "logo": "covers/podcast-secure-af.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2019-10",
+      "spotify": "https://open.spotify.com/show/4bp69CvHAVYj87KSi2nHhg",
+      "id": "secure-af"
+    },
+    {
+      "type": "podcast",
+      "name": "Secure Talk Podcast",
+      "by": "Justin Beals",
+      "desc": "Interviews with security, privacy and technology leaders on compliance, data protection and the wider effects of AI and regulation.",
+      "domains": [
+        "grc",
+        "privacy",
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "biweekly",
+      "status": "active",
+      "web": "http://securetalkpodcast.com",
+      "apple": "https://podcasts.apple.com/podcast/id1354145110",
+      "rss": "https://feeds.transistor.fm/secure-talk-podcast",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 264,
+      "lastEpisode": "2026-11-03",
+      "logo": "covers/podcast-secure-talk.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2018-02",
+      "spotify": "https://open.spotify.com/show/1wjdjq9ccE2UQdpuIVAzy9",
+      "id": "secure-talk"
+    },
+    {
+      "type": "podcast",
+      "name": "SecureAfrique Cybersecurity Podcast - Safeguarding the Digital Frontier",
+      "by": "Olu Faks",
+      "desc": "Fortnightly security headlines with a focus on governance, risk and compliance across the African continent.",
+      "domains": [
+        "news",
+        "grc"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "monthly",
+      "status": "active",
+      "web": "https://www.buzzsprout.com/1963000",
+      "apple": "https://podcasts.apple.com/podcast/id1733335996",
+      "rss": "https://rss.buzzsprout.com/1963000.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 33,
+      "lastEpisode": "2026-11-03",
+      "logo": "covers/podcast-secureafrique.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2024-02",
+      "spotify": "https://open.spotify.com/show/6bcXxVQN4OZgdY4ZIrF8VW",
+      "id": "secureafrique"
+    },
+    {
+      "type": "podcast",
+      "name": "Security Confidential",
+      "by": "Dark Rhiino Security",
+      "desc": "The human, business and technical sides of cyber risk for smaller organisations, including insurance and compliance.",
+      "domains": [
+        "leadership",
+        "grc"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://darkrhiinosecurity.com/media/",
+      "apple": "https://podcasts.apple.com/podcast/id1454036146",
+      "rss": "https://anchor.fm/s/1cc862a4/podcast/rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 259,
+      "lastEpisode": "2026-10-29",
+      "logo": "covers/podcast-security-confidential.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2019-02",
+      "id": "security-confidential"
+    },
+    {
+      "type": "podcast",
       "name": "Security Now",
       "by": "Steve Gibson & Leo Laporte · TWiT",
       "desc": "Two-hour weekly deep dive into vulnerabilities, crypto and protocols. One of the oldest security podcasts, with full transcripts and show notes.",
@@ -2022,6 +3041,101 @@
     },
     {
       "type": "podcast",
+      "name": "Security Squawk - The Business of Cybersecurity",
+      "by": "Bryan Hornung, Reginald Andre & Randy Bryan",
+      "desc": "The week's breaches and attacks discussed from a business owner's point of view, with what they mean for organisations.",
+      "domains": [
+        "news",
+        "leadership"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "http://www.securitysquawk.com",
+      "apple": "https://podcasts.apple.com/podcast/id1544342775",
+      "rss": "https://www.podserve.fm/series/rss/2206/security-squawk.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 295,
+      "lastEpisode": "2026-10-27",
+      "logo": "covers/podcast-security-squawk.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2020-12",
+      "spotify": "https://open.spotify.com/show/5VdWXq9DwYVBn8bOVgumyg",
+      "id": "security-squawk"
+    },
+    {
+      "type": "podcast",
+      "name": "Security Unfiltered",
+      "by": "Joe South",
+      "desc": "Candid interviews aimed at helping people break into and grow in security, covering cloud, hardware hacking and AI.",
+      "domains": [
+        "career",
+        "cloud",
+        "ai"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://www.securityunfiltered.com",
+      "apple": "https://podcasts.apple.com/podcast/id1552525713",
+      "rss": "https://api.riverside.com/hosting/IU1EqlCJ.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 288,
+      "lastEpisode": "2026-10-22",
+      "logo": "covers/podcast-security-unfiltered.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2021-02",
+      "spotify": "https://open.spotify.com/show/6FEQMYYviaalvkgGMa2Uzz",
+      "id": "security-unfiltered"
+    },
+    {
+      "type": "podcast",
+      "name": "Security Weekly News (Audio)",
+      "by": "Doug White, Josh Marpet & Aaran Leyland · Security Weekly",
+      "desc": "Short twice-weekly round-up of the most significant security stories, from malware and breaches to government action.",
+      "domains": [
+        "news"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "multiweekly",
+      "status": "active",
+      "web": "https://securityweekly.com/swn",
+      "apple": "https://podcasts.apple.com/podcast/id1111792719",
+      "rss": "https://rss.libsyn.com/shows/81240/destinations/376644.xml",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 851,
+      "lastEpisode": "2026-11-03",
+      "logo": "covers/podcast-security-weekly-news.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2016-04",
+      "spotify": "https://open.spotify.com/show/2tDV6qKYv8o0a3VJnHJYYP",
+      "id": "security-weekly-news"
+    },
+    {
+      "type": "podcast",
       "name": "Security. Cryptography. Whatever.",
       "by": "Deirdre Connolly, Thomas Ptacek & David Adrian",
       "desc": "Freeform, deeply technical talk on cryptography, secure protocols, post-quantum and systems security.",
@@ -2051,6 +3165,70 @@
       "amazon": "https://music.amazon.co.uk/podcasts/cca43784-85d9-4ad2-9fd4-53c81d784053/security-cryptography-whatever",
       "spotify": "https://open.spotify.com/show/0bMJ5a7e4er7yDHMuGs9jp",
       "id": "scw"
+    },
+    {
+      "type": "podcast",
+      "name": "SecurityWeek Podcast Series - Cybersecurity Insights",
+      "by": "SecurityWeek",
+      "desc": "Occasional interviews from the SecurityWeek newsroom with industry experts on governance, AI and OT standards.",
+      "domains": [
+        "leadership",
+        "grc",
+        "icsot"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "status": "active",
+      "web": "http://www.securityweek.com",
+      "apple": "https://podcasts.apple.com/podcast/id606535230",
+      "rss": "https://feeds.feedburner.com/SecurityConversations-APodcastWithRyanNaraine",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 24,
+      "lastEpisode": "2026-08-06",
+      "logo": "covers/podcast-securityweek-podcast.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2013-06",
+      "id": "securityweek-podcast"
+    },
+    {
+      "type": "podcast",
+      "name": "Shared Security Podcast",
+      "by": "Tom Eston, Scott Wright & Kevin Tackett",
+      "desc": "One of the longest-running security and privacy shows, picking apart the week's privacy failures, human mistakes and avoidable incidents with humour.",
+      "domains": [
+        "privacy",
+        "news",
+        "human"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://sharedsecurity.net/",
+      "apple": "https://podcasts.apple.com/podcast/id329032812",
+      "rss": "https://feeds.transistor.fm/shared-security-podcast",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 585,
+      "lastEpisode": "2026-11-02",
+      "logo": "covers/podcast-shared-security.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2009-08",
+      "spotify": "https://open.spotify.com/show/4if1IufSX43ZbYmojVWh17",
+      "id": "shared-security"
     },
     {
       "type": "podcast",
@@ -2120,6 +3298,69 @@
     },
     {
       "type": "podcast",
+      "name": "Stalked",
+      "by": "BBC Sounds",
+      "desc": "Limited series following one woman's ordeal with an anonymous tech-enabled stalker, and why the police struggled to stop it.",
+      "domains": [
+        "privacy",
+        "human",
+        "stories"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "ended",
+      "status": "ended",
+      "web": "http://www.bbc.co.uk/programmes/p0klkdww",
+      "apple": "https://podcasts.apple.com/podcast/id1793748839",
+      "rss": "https://podcasts.files.bbci.co.uk/p0klkdww.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 13,
+      "lastEpisode": "2025-04-15",
+      "logo": "covers/podcast-stalked.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "spotify": "https://open.spotify.com/show/2o0KjQ5HsY5O1u0O1lur0Q",
+      "id": "stalked"
+    },
+    {
+      "type": "podcast",
+      "name": "Talkin' Bout [Infosec] News",
+      "by": "Black Hills Information Security",
+      "desc": "The Black Hills team and friends talk through the week's notable infosec news, with plenty of practitioner banter and practical takeaways.",
+      "domains": [
+        "news",
+        "offensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://bhisnews.transistor.fm",
+      "apple": "https://podcasts.apple.com/podcast/id1410835265",
+      "rss": "https://feeds.transistor.fm/talkin-bout-infosec-news",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 360,
+      "lastEpisode": "2026-10-29",
+      "logo": "covers/podcast-talkin-bout-infosec-news.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2018-07",
+      "spotify": "https://open.spotify.com/show/5JcgajysqCIYNPIR9ICcFe",
+      "id": "talkin-bout-infosec-news"
+    },
+    {
+      "type": "podcast",
       "name": "Talos Takes",
       "by": "Cisco Talos",
       "desc": "Five-to-ten-minute weekly explainers on a single security topic, emerging threat or attacker trend from the Talos team.",
@@ -2150,6 +3391,37 @@
       "amazon": "https://music.amazon.co.uk/podcasts/ba71c5ff-8b36-4597-8fb5-e0f8c5d88ca0/talos-takes",
       "spotify": "https://open.spotify.com/show/2sZqrFXR3RupDqwXJM7kve",
       "id": "talos-takes"
+    },
+    {
+      "type": "podcast",
+      "name": "teissPodcast - Cracking Cyber Security",
+      "by": "TEISS",
+      "desc": "UK-based panels and interviews with security leaders on resilience, supply-chain risk, exposure management and regulation such as NIS2.",
+      "domains": [
+        "leadership",
+        "grc"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://www.teiss.co.uk",
+      "apple": "https://podcasts.apple.com/podcast/id1378994502",
+      "rss": "https://rss.buzzsprout.com/180185.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 312,
+      "lastEpisode": "2026-10-29",
+      "logo": "covers/podcast-teiss-podcast.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2018-05",
+      "spotify": "https://open.spotify.com/show/49peeTQA9Q4NvPCrWnkj8O",
+      "id": "teiss-podcast"
     },
     {
       "type": "podcast",
@@ -2190,6 +3462,41 @@
     },
     {
       "type": "podcast",
+      "name": "The Cyber Hot Seat: Taking on your Cyber Security challenges",
+      "by": "Equilibrium Security",
+      "desc": "Guests tackle common security challenges, from adversary emulation to AI adoption and what attackers can already see.",
+      "domains": [
+        "defensive",
+        "leadership"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "monthly",
+      "status": "active",
+      "web": "https://equilibriumsecuritypodcast.buzzsprout.com",
+      "apple": "https://podcasts.apple.com/podcast/id1620873071",
+      "rss": "https://rss.buzzsprout.com/1954719.rss",
+      "rating": {
+        "v": 5,
+        "n": 1,
+        "asOf": "2026-11-03"
+      },
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 26,
+      "lastEpisode": "2026-10-26",
+      "logo": "covers/podcast-cyber-hot-seat.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2022-09",
+      "spotify": "https://open.spotify.com/show/48nAW5S7VU9Wm0wSAcmg0I",
+      "id": "cyber-hot-seat"
+    },
+    {
+      "type": "podcast",
       "name": "The Cyber Queens Podcast",
       "by": "Women in cyber leadership",
       "desc": "Career paths, leadership and community advocacy from women working across cybersecurity.",
@@ -2213,6 +3520,162 @@
       "verified": false,
       "amazon": "https://music.amazon.co.uk/podcasts/3ced8532-3b05-437d-83c5-016ccaf35731/the-cyber-queens-podcast",
       "id": "cyber-queens"
+    },
+    {
+      "type": "podcast",
+      "name": "The Cyber Security Transformation Podcast",
+      "by": "JC Gaillard · Corix Partners",
+      "desc": "An independent take for CIOs and CISOs on the organisational issues security teams face, from governance to the quantum threat.",
+      "domains": [
+        "leadership"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://corixpartners.com/podcast",
+      "apple": "https://podcasts.apple.com/podcast/id1519383255",
+      "rss": "https://anchor.fm/s/2586c78c/podcast/rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 146,
+      "lastEpisode": "2026-11-03",
+      "logo": "covers/podcast-cyber-security-transformation.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2020-06",
+      "spotify": "https://open.spotify.com/show/7mIELyvJe1BA5LC8qLcRi0",
+      "id": "cyber-security-transformation"
+    },
+    {
+      "type": "podcast",
+      "name": "The Cybersecurity Defenders Podcast",
+      "by": "Christopher Luft · LimaCharlie",
+      "desc": "Technical but accessible segments: recent news, interviews with specialists and deep dives into defensive tooling and AI security.",
+      "domains": [
+        "defensive",
+        "news",
+        "ai"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "multiweekly",
+      "status": "active",
+      "web": "http://limacharlie.io",
+      "apple": "https://podcasts.apple.com/podcast/id1649981740",
+      "rss": "https://feeds.transistor.fm/the-cybersecurity-defenders-podcast",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 350,
+      "lastEpisode": "2026-10-01",
+      "logo": "covers/podcast-cybersecurity-defenders.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2022-10",
+      "spotify": "https://open.spotify.com/show/6ep00zeY3S8ffZ4o0UeSps",
+      "id": "cybersecurity-defenders"
+    },
+    {
+      "type": "podcast",
+      "name": "The Cybersecurity Readiness Podcast Series",
+      "by": "Dr. Dave Chatterjee",
+      "desc": "Jargon-free, research-informed discussions on raising cyber readiness for individuals, organisations and nations.",
+      "domains": [
+        "leadership",
+        "grc"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "biweekly",
+      "status": "active",
+      "web": "https://www.dchatte.com/episodes/",
+      "apple": "https://podcasts.apple.com/podcast/id1569626290",
+      "rss": "https://feeds.captivate.fm/the-cybersecurity-readi/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 117,
+      "lastEpisode": "2026-10-28",
+      "logo": "covers/podcast-cybersecurity-readiness.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2021-05",
+      "spotify": "https://open.spotify.com/show/4gpORvvc7Gn1MkYeQT5RYd",
+      "id": "cybersecurity-readiness"
+    },
+    {
+      "type": "podcast",
+      "name": "The Hackle Box",
+      "by": "Oscar Minks · FRSecure",
+      "desc": "Monthly threat-intel discussion from FRSecure's technical team on recent techniques, vulnerabilities and exploits; last episode April 2026.",
+      "domains": [
+        "cti",
+        "offensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "status": "active",
+      "web": "https://frsecure.com/cyber-threat-intel-series/",
+      "apple": "https://podcasts.apple.com/podcast/id1585692939",
+      "rss": "https://www.spreaker.com/show/5101210/episodes/feed",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 45,
+      "lastEpisode": "2026-05-08",
+      "logo": "covers/podcast-hackle-box.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2021-09",
+      "spotify": "https://open.spotify.com/show/5cnqaVmhnyRJOWQw1yfwtN",
+      "id": "hackle-box"
+    },
+    {
+      "type": "podcast",
+      "name": "The Identity Thread by Entrust",
+      "by": "Entrust",
+      "desc": "Focused discussions on identity-centric security, trust and how AI agents change authentication and authorisation.",
+      "domains": [
+        "architecture",
+        "ai"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "monthly",
+      "status": "active",
+      "web": "https://cybersecurity-institute.podcasts.entrust.com/",
+      "apple": "https://podcasts.apple.com/podcast/id1623405181",
+      "rss": "https://cybersecurity-institute.podcasts.entrust.com/feed.xml",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 59,
+      "lastEpisode": "2026-10-22",
+      "logo": "covers/podcast-identity-thread.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2022-05",
+      "spotify": "https://open.spotify.com/show/1rCwgp64HJq7MpKRq8u5dy",
+      "id": "identity-thread"
     },
     {
       "type": "podcast",
@@ -2329,9 +3792,136 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.megaphone.fm/MLN2155636147",
       "lastEpisode": "2026-11-03",
-      "episodes": 800,
+      "episodes": 801,
       "amazon": "https://music.amazon.co.uk/podcasts/786d7a2f-a556-4b36-b6cc-4db135c95ae1/the-twiml-ai-podcast-formerly-this-week-in-machine-learning-artificial-intelligence",
       "id": "twiml"
+    },
+    {
+      "type": "podcast",
+      "name": "Threat Talks - Your Gateway to Cybersecurity Insights",
+      "by": "Lieuwe Jan Koning, Luca Cipriano & Rob Maas",
+      "desc": "Accessible breakdowns of current threats and incidents, plus Zero Trust practice,.",
+      "domains": [
+        "defensive",
+        "news"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://threat-talks.com/",
+      "apple": "https://podcasts.apple.com/podcast/id1725776520",
+      "rss": "https://feeds.transistor.fm/threat-talks-your-gateway-to-cybersecurity-insights",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 147,
+      "lastEpisode": "2026-11-03",
+      "logo": "covers/podcast-threat-talks.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2024-01",
+      "spotify": "https://open.spotify.com/show/1SXUyUEndOeKYREvlAeD7E",
+      "id": "threat-talks"
+    },
+    {
+      "type": "podcast",
+      "name": "To Catch a Thief: North Korea On Our Payroll",
+      "by": "Nicole Perlroth · Rubrik",
+      "desc": "Limited series investigating North Korean operatives who get hired into Western companies, and what the scheme funds.",
+      "domains": [
+        "cti",
+        "stories"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://www.rubrik.com/lp/to-catch-a-thief-podcast",
+      "apple": "https://podcasts.apple.com/podcast/id1798267956",
+      "rss": "https://anchor.fm/s/1163f4320/podcast/rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 19,
+      "lastEpisode": "2026-07-14",
+      "logo": "covers/podcast-to-catch-a-thief.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2025-03",
+      "spotify": "https://open.spotify.com/show/1xFnf1ReS81p79TtR7f6vj",
+      "id": "to-catch-a-thief"
+    },
+    {
+      "type": "podcast",
+      "name": "To The Point - Cybersecurity",
+      "by": "Rachael Lyon & guests · Forcepoint",
+      "desc": "Discussions with practitioners and policymakers on current threats and emerging technology, lately with a strong focus on AI agents and identity.",
+      "domains": [
+        "leadership",
+        "ai",
+        "engineering"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://forcepoint.com/govpodcast",
+      "apple": "https://podcasts.apple.com/podcast/id1438873656",
+      "rss": "https://cybersecuritytothepointpodcast.libsyn.com/rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 300,
+      "lastEpisode": "2026-10-06",
+      "logo": "covers/podcast-to-the-point-cybersecurity.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2020-03",
+      "spotify": "https://open.spotify.com/show/7cV2mUlLungBjlqXhem8O1",
+      "id": "to-the-point-cybersecurity"
+    },
+    {
+      "type": "podcast",
+      "name": "UNSECURITY: Information Security Podcast",
+      "by": "Oscar Minks & Brad Nigh · FRSecure",
+      "desc": "Information security as a whole-organisation issue, covering compliance, healthcare and the limits of automated pen testing.",
+      "domains": [
+        "grc",
+        "offensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "freq": "biweekly",
+      "status": "active",
+      "web": "https://evanfrancen.com/podcast",
+      "apple": "https://podcasts.apple.com/podcast/id1442520920",
+      "rss": "https://www.spreaker.com/show/3246578/episodes/feed",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 263,
+      "lastEpisode": "2026-10-07",
+      "logo": "covers/podcast-unsecurity.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2018-11",
+      "spotify": "https://open.spotify.com/show/2qFDx2nwwZluizP1W4VXLf",
+      "id": "unsecurity"
     },
     {
       "type": "podcast",
@@ -2366,6 +3956,37 @@
     },
     {
       "type": "podcast",
+      "name": "What the Hack?",
+      "by": "Adam Levin · DeleteMe",
+      "desc": "True cybercrime stories with practical advice on avoiding scams and making yourself harder to target.",
+      "domains": [
+        "stories",
+        "privacy"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "freq": "weekly",
+      "status": "active",
+      "web": "https://joindeleteme.com/scan",
+      "apple": "https://podcasts.apple.com/podcast/id1571482669",
+      "rss": "https://rss.introcast.io/1571482669/feeds.megaphone.fm/TPG2245590306",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "millionpodcasts"
+      ],
+      "verified": true,
+      "episodes": 278,
+      "lastEpisode": "2026-11-03",
+      "logo": "covers/podcast-what-the-hack.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2021-05",
+      "spotify": "https://open.spotify.com/show/5892yrlZCRK4B1Ns2v6zFP",
+      "id": "what-the-hack"
+    },
+    {
+      "type": "podcast",
       "name": "Women in the Middle (WiCyS)",
       "by": "Jackie McGuire · Women in CyberSecurity",
       "desc": "Mentorship, community building and career stories from leaders and emerging professionals.",
@@ -2392,6 +4013,38 @@
       "lastEpisode": "2026-09-02",
       "episodes": 6,
       "id": "women-in-the-middle"
+    },
+    {
+      "type": "podcast",
+      "name": "YusufOnSecurity.com",
+      "by": "Ibrahim Yusuf",
+      "desc": "Weekly plain-English explainers on a single security topic, from Linux kernel bugs to non-human identities; no new episodes since May 2026.",
+      "domains": [
+        "engineering",
+        "tvm"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "freq": "irregular",
+      "status": "active",
+      "web": "https://yusufonsecurity.com",
+      "apple": "https://podcasts.apple.com/podcast/id1552571794",
+      "rss": "https://rss.buzzsprout.com/1673686.rss",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "feedspot"
+      ],
+      "verified": true,
+      "episodes": 278,
+      "lastEpisode": "2026-05-30",
+      "logo": "covers/podcast-yusufonsecurity.jpg",
+      "logoSource": "Apple Podcasts artwork",
+      "launched": "2021-02",
+      "spotify": "https://open.spotify.com/show/7ut33RP9fXAPGRyBnvJEjg",
+      "id": "yusufonsecurity"
     },
     {
       "type": "book",
