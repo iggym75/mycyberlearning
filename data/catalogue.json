@@ -613,8 +613,7 @@
       "desc": "A former FBI agent and the hacker he once arrested discuss cybercrime cases, news and the ethics of law enforcement.",
       "domains": [
         "offensive",
-        "stories",
-        "news"
+        "stories"
       ],
       "level": [
         "beginner",
@@ -639,6 +638,7 @@
       "episodes": 156,
       "amazon": "https://music.amazon.co.uk/podcasts/4f7abfb1-93f7-4ffd-a0d3-dc306c4a8836/hacker-and-the-fed",
       "spotify": "https://open.spotify.com/show/4uze2AoxrCv0dRjvElUpTy",
+      "tagsLocked": true,
       "id": "hacker-and-the-fed"
     },
     {
@@ -1076,7 +1076,6 @@
       "desc": "Weekly synthesis of security, AI and technology trends with commentary on what they mean for practitioners and society.",
       "domains": [
         "ai",
-        "news",
         "leadership"
       ],
       "level": [
@@ -1103,6 +1102,7 @@
       "lastEpisode": "2026-09-17",
       "episodes": 548,
       "amazon": "https://music.amazon.co.uk/podcasts/01eaab8a-49bb-4763-974e-8378248ef1b0/unsupervised-learning",
+      "tagsLocked": true,
       "id": "unsupervised-learning"
     },
     {
@@ -1640,8 +1640,7 @@
       "by": "Circle Of Insight Productions",
       "desc": "Narrated investigations into real cybercrime cases, from government data exposures to abuse of everyday platforms.",
       "domains": [
-        "stories",
-        "news"
+        "stories"
       ],
       "level": [
         "beginner"
@@ -1667,6 +1666,7 @@
       "logoSource": "Apple Podcasts artwork",
       "launched": "2020-11",
       "spotify": "https://open.spotify.com/show/1oxG0bAhh0HSU6uUvd9Sw1",
+      "tagsLocked": true,
       "id": "cyber-crime-podcast"
     },
     {
@@ -1817,7 +1817,11 @@
       "web": "https://www.klogixsecurity.com/podcast",
       "apple": "https://podcasts.apple.com/podcast/id1676975535",
       "rss": "https://media.rss.com/k-logix-cybersecurity-business/feed.xml",
-      "rating": null,
+      "rating": {
+        "v": 4.9,
+        "n": 15,
+        "asOf": "2026-11-04"
+      },
       "curator": false,
       "sources": [
         "feedspot"
@@ -1828,6 +1832,7 @@
       "logo": "covers/podcast-cyber-security-business.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2023-03",
+      "spotify": "https://open.spotify.com/show/2dRiBratmmP9JItGJwX98k",
       "id": "cyber-security-business"
     },
     {
@@ -1934,7 +1939,6 @@
       "by": "Cybercrime Magazine",
       "desc": "Daily short news bulletins on hacks and breaches plus interviews with CISOs and security executives about the business of cybercrime.",
       "domains": [
-        "news",
         "leadership"
       ],
       "level": [
@@ -1958,6 +1962,7 @@
       "logoSource": "Apple Podcasts artwork",
       "launched": "2026-03",
       "spotify": "https://open.spotify.com/show/5StLnwffOEavc314Zujypw",
+      "tagsLocked": true,
       "id": "cybercrime-magazine"
     },
     {
@@ -2118,30 +2123,6 @@
     },
     {
       "type": "podcast",
-      "name": "Cybersecurity Simplified",
-      "by": "David Barton & Susanna Song · Highwire Networks",
-      "desc": "Under-30-minute episodes making online safety and security news understandable for non-specialists.",
-      "domains": [
-        "news",
-        "defensive"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "freq": "monthly",
-      "launched": "2021-01",
-      "status": "active",
-      "web": "https://www.highwirenetworks.com/cybersecurity-podcasts/",
-      "rating": null,
-      "curator": false,
-      "sources": [
-        "nordlayer"
-      ],
-      "verified": false,
-      "id": "cybersecurity-simplified"
-    },
-    {
-      "type": "podcast",
       "name": "Cybersecurity Today",
       "by": "IT World Canada",
       "desc": "Short news updates several times a week on breaches, patches and regulation for busy practitioners.",
@@ -2202,7 +2183,7 @@
       ],
       "verified": true,
       "episodes": 147,
-      "lastEpisode": "2026-11-04",
+      "lastEpisode": "2026-11-03",
       "logo": "covers/podcast-cybersecurity-under-pressure.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2026-02",
@@ -2246,7 +2227,6 @@
       "by": "Chatcyberside",
       "desc": "Weekly briefings on emerging threats and incidents, with practical advice for security teams and executives.",
       "domains": [
-        "news",
         "defensive"
       ],
       "level": [
@@ -2269,6 +2249,7 @@
       "logoSource": "Apple Podcasts artwork",
       "launched": "2024-12",
       "spotify": "https://open.spotify.com/show/5H9BpeHlewjzAsxbCJk9rj",
+      "tagsLocked": true,
       "id": "cyberside-chats"
     },
     {
@@ -2404,14 +2385,13 @@
       "by": "Dark Reading",
       "desc": "The Dark Reading editors and guests on the stories behind major attacks and the pressures facing security leaders.",
       "domains": [
-        "news",
         "leadership"
       ],
       "level": [
         "intermediate"
       ],
-      "freq": "monthly",
-      "status": "active",
+      "freq": "ended",
+      "status": "ended",
       "web": "https://darkreadingconfidential.podbean.com",
       "apple": "https://podcasts.apple.com/podcast/id1744422932",
       "rss": "https://feed.podbean.com/darkreadingconfidential/feed.xml",
@@ -2427,6 +2407,8 @@
       "logoSource": "Apple Podcasts artwork",
       "launched": "2024-05",
       "spotify": "https://open.spotify.com/show/2NShEX369DjZcOm5ODmQWn",
+      "tagsLocked": true,
+      "statusLocked": true,
       "id": "dark-reading-confidential"
     },
     {
@@ -2556,7 +2538,7 @@
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 345,
+      "episodes": 344,
       "lastEpisode": "2026-11-04",
       "logo": "covers/podcast-easy-prey.jpg",
       "logoSource": "Apple Podcasts artwork",
@@ -2761,7 +2743,6 @@
       "by": "Javvad Malik, Thom Langford & Andy Agnês",
       "desc": "Irreverent infosec news and opinion from industry veterans — a pub chat with decades of experience behind it.",
       "domains": [
-        "news",
         "leadership"
       ],
       "level": [
@@ -2785,6 +2766,7 @@
       "episodes": 231,
       "amazon": "https://music.amazon.co.uk/podcasts/dec8ef5a-867d-4824-b64b-2521a9a05612/the-host-unknown-podcast",
       "spotify": "https://open.spotify.com/show/4RoWtLtWzkwPbHCcRR0jvq",
+      "tagsLocked": true,
       "id": "host-unknown"
     },
     {
@@ -2856,8 +2838,7 @@
       "by": "Identity Theft Resource Center",
       "desc": "Two series from the ITRC: a weekly breach breakdown and conversations on identity theft, scams and data privacy.",
       "domains": [
-        "privacy",
-        "news"
+        "privacy"
       ],
       "level": [
         "beginner"
@@ -2879,6 +2860,7 @@
       "logoSource": "Apple Podcasts artwork",
       "launched": "2020-10",
       "spotify": "https://open.spotify.com/show/3pyc8Q4KL5CiHODvXvqiZf",
+      "tagsLocked": true,
       "id": "idtheftcenter"
     },
     {
@@ -2903,7 +2885,7 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 151,
+      "episodes": 150,
       "lastEpisode": "2026-11-04",
       "logo": "covers/podcast-industrial-cybersecurity-insider.jpg",
       "logoSource": "Apple Podcasts artwork",
@@ -3003,7 +2985,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://podcast.latent.space/feed.xml",
       "lastEpisode": "2026-11-03",
-      "episodes": 290,
+      "episodes": 291,
       "amazon": "https://music.amazon.co.uk/podcasts/abff303e-e4f1-447c-9823-b35bfc6e8da8/latent-space-the-ai-engineer-podcast",
       "id": "latent-space"
     },
@@ -3210,8 +3192,7 @@
       "by": "National Cyber Security Centre",
       "desc": "The UK NCSC's own podcast, covering topical issues, its leaders' perspectives and lessons for organisations of every size.",
       "domains": [
-        "leadership",
-        "news"
+        "leadership"
       ],
       "level": [
         "beginner",
@@ -3234,6 +3215,7 @@
       "logoSource": "Apple Podcasts artwork",
       "launched": "2024-04",
       "spotify": "https://open.spotify.com/show/2ba1AsrgRqvpJjcvbBmv2L",
+      "tagsLocked": true,
       "id": "ncsc-cyber-series"
     },
     {
@@ -3510,7 +3492,7 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 226,
+      "episodes": 225,
       "lastEpisode": "2026-11-04",
       "logo": "covers/podcast-reimagining-cyber.jpg",
       "logoSource": "Apple Podcasts artwork",
@@ -3753,7 +3735,6 @@
       "by": "Olu Faks",
       "desc": "Fortnightly security headlines with a focus on governance, risk and compliance across the African continent.",
       "domains": [
-        "news",
         "grc"
       ],
       "level": [
@@ -3776,6 +3757,7 @@
       "logoSource": "Apple Podcasts artwork",
       "launched": "2024-02",
       "spotify": "https://open.spotify.com/show/6bcXxVQN4OZgdY4ZIrF8VW",
+      "tagsLocked": true,
       "id": "secureafrique"
     },
     {
@@ -3847,7 +3829,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.twit.tv/sn.xml",
       "lastEpisode": "2026-11-04",
-      "episodes": 232,
+      "episodes": 233,
       "amazon": "https://music.amazon.co.uk/podcasts/3c251d39-3b4a-4e5c-ac5a-b1d7f6ddc2ce/security-now-audio",
       "id": "security-now"
     },
@@ -4149,8 +4131,7 @@
       "by": "Matt Radolec & David Gibson · Varonis",
       "desc": "The Varonis threat team on recent breaches and criminal groups, and what organisations should learn from them.",
       "domains": [
-        "cti",
-        "news"
+        "cti"
       ],
       "level": [
         "intermediate"
@@ -4172,6 +4153,7 @@
       "logoSource": "Apple Podcasts artwork",
       "launched": "2016-07",
       "spotify": "https://open.spotify.com/show/4l5OCzHeJiUcb39IWNpNGs",
+      "tagsLocked": true,
       "id": "state-of-cybercrime"
     },
     {
@@ -4212,8 +4194,7 @@
       "by": "Richard Heron",
       "desc": "Formerly The Australian CISO: breaches, crisis management and the wellbeing of security teams, from an Australian leadership perspective.",
       "domains": [
-        "leadership",
-        "news"
+        "leadership"
       ],
       "level": [
         "beginner",
@@ -4236,6 +4217,7 @@
       "logoSource": "Apple Podcasts artwork",
       "launched": "2023-02",
       "spotify": "https://open.spotify.com/show/38qcndxsBN7TjkuhF2mlZf",
+      "tagsLocked": true,
       "id": "talking-cyber-security"
     },
     {
@@ -4244,8 +4226,7 @@
       "by": "Cisco Talos",
       "desc": "Five-to-ten-minute weekly explainers on a single security topic, emerging threat or attacker trend from the Talos team.",
       "domains": [
-        "cti",
-        "news"
+        "cti"
       ],
       "level": [
         "beginner",
@@ -4269,6 +4250,7 @@
       "episodes": 242,
       "amazon": "https://music.amazon.co.uk/podcasts/ba71c5ff-8b36-4597-8fb5-e0f8c5d88ca0/talos-takes",
       "spotify": "https://open.spotify.com/show/2sZqrFXR3RupDqwXJM7kve",
+      "tagsLocked": true,
       "id": "talos-takes"
     },
     {
@@ -4335,7 +4317,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://anchor.fm/s/f7cac464/podcast/rss",
       "lastEpisode": "2026-11-03",
-      "episodes": 1130,
+      "episodes": 1129,
       "amazon": "https://music.amazon.co.uk/podcasts/2b3e5988-907e-4702-96f5-7eb33adc729e/the-ai-daily-brief-artificial-intelligence-news-and-analysis",
       "id": "ai-daily-brief"
     },
@@ -4439,7 +4421,6 @@
       "desc": "Technical but accessible segments: recent news, interviews with specialists and deep dives into defensive tooling and AI security.",
       "domains": [
         "defensive",
-        "news",
         "ai"
       ],
       "level": [
@@ -4462,6 +4443,7 @@
       "logoSource": "Apple Podcasts artwork",
       "launched": "2022-10",
       "spotify": "https://open.spotify.com/show/6ep00zeY3S8ffZ4o0UeSps",
+      "tagsLocked": true,
       "id": "cybersecurity-defenders"
     },
     {
@@ -4767,7 +4749,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.megaphone.fm/MLN2155636147",
       "lastEpisode": "2026-11-03",
-      "episodes": 800,
+      "episodes": 801,
       "amazon": "https://music.amazon.co.uk/podcasts/786d7a2f-a556-4b36-b6cc-4db135c95ae1/the-twiml-ai-podcast-formerly-this-week-in-machine-learning-artificial-intelligence",
       "id": "twiml"
     },
@@ -4808,8 +4790,7 @@
       "by": "Lieuwe Jan Koning, Luca Cipriano & Rob Maas",
       "desc": "Accessible breakdowns of current threats and incidents, plus Zero Trust practice,.",
       "domains": [
-        "defensive",
-        "news"
+        "defensive"
       ],
       "level": [
         "beginner",
@@ -4832,6 +4813,7 @@
       "logoSource": "Apple Podcasts artwork",
       "launched": "2024-01",
       "spotify": "https://open.spotify.com/show/1SXUyUEndOeKYREvlAeD7E",
+      "tagsLocked": true,
       "id": "threat-talks"
     },
     {
@@ -10946,30 +10928,6 @@
     },
     {
       "type": "platform",
-      "name": "SANS Cyber Academy",
-      "by": "SANS Institute",
-      "kind": "certification",
-      "cost": "free",
-      "desc": "Fully funded scholarship for career changers: three SANS courses, each with its GIAC certification exam, over about nine months. Entry is by application, an aptitude test and an interview; check the site for the next intake.",
-      "domains": [
-        "career",
-        "defensive"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "web": "https://www.sans.org/cyber-academy",
-      "status": "active",
-      "rating": null,
-      "curator": false,
-      "sources": [
-        "curator"
-      ],
-      "verified": true,
-      "id": "sans-cyber-academy"
-    },
-    {
-      "type": "platform",
       "name": "SANS free webcasts, summits and resources",
       "by": "SANS Institute",
       "kind": "events",
@@ -10993,7 +10951,9 @@
         "curator"
       ],
       "verified": true,
-      "id": "sans-free-resources"
+      "id": "sans-free-resources",
+      "logo": "covers/platform-sans-free-resources.png",
+      "logoSource": "site icon (sans.org)"
     },
     {
       "type": "platform",
