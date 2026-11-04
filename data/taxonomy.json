@@ -33,5 +33,19 @@
     { "key": "beginner",     "label": "Beginner" },
     { "key": "intermediate", "label": "Intermediate" },
     { "key": "advanced",     "label": "Advanced" }
+  ],
+  "platformKinds": [
+    { "key": "lab",           "label": "Hands-on labs",      "hint": "Guided rooms, ranges and sandboxes you practise in" },
+    { "key": "ctf",           "label": "CTFs & challenges",  "hint": "Capture-the-flag events, wargames and challenge sites" },
+    { "key": "course",        "label": "Courses",            "hint": "Structured video or text courses" },
+    { "key": "certification", "label": "Certifications",     "hint": "Vendor-neutral certifications with a free or low-cost route" },
+    { "key": "events",        "label": "Events & meetups",   "hint": "Conferences, meetups and where to find them" },
+    { "key": "community",     "label": "Communities",        "hint": "Open projects, chapters and member communities" }
+  ],
+  "costs": [
+    { "key": "free",     "label": "Free",      "hint": "Everything that matters is free" },
+    { "key": "freemium", "label": "Free tier", "hint": "A useful free tier, with optional paid extras" },
+    { "key": "low",      "label": "Low cost",  "hint": "Pay per course or a modest subscription, often discounted" },
+    { "key": "paid",     "label": "Paid",      "hint": "Subscription-based, usually with a free trial" }
   ]
 }

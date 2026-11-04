@@ -177,6 +177,22 @@ test("votes: parallel duplicate requests can't inflate the tally", async () => {
   await call("/api/vote", { method: "POST", body: { id: "darknet-diaries", dir: 0, voterId: "racer-123456" } });
 });
 
+test("submissions: platforms need a website, kind and cost; podcast-only links are dropped", async () => {
+  const bad = await call("/api/submissions", { method: "POST", ip: "192.0.2.61", body: { type: "platform", name: "Lab Site", desc: "A free hands-on lab platform for practising security skills." } });
+  assert.equal(bad.status, 400);
+  const err = (await bad.json()).error;
+  assert.match(err, /website/); assert.match(err, /kind of platform/); assert.match(err, /costs/);
+  const ok = await call("/api/submissions", { method: "POST", ip: "192.0.2.61", body: { type: "platform", name: "Lab Site", kind: "lab", cost: "freemium",
+    desc: "A free hands-on lab platform for practising security skills.", web: "https://labs.example", spotify: "https://open.spotify.com/show/x", freq: "weekly" } });
+  assert.equal(ok.status, 202);
+  const row = await db.prepare("SELECT data FROM submissions WHERE data LIKE '%Lab Site%'").first();
+  const d = JSON.parse(row.data);
+  assert.equal(d.type, "platform"); assert.equal(d.kind, "lab"); assert.equal(d.cost, "freemium"); assert.equal(d.spotify, ""); assert.equal(d.freq, "");
+  const odd = await call("/api/submissions", { method: "POST", ip: "192.0.2.62", body: { type: "platform", name: "Odd Site", kind: "nope", cost: "cheap", desc: "A platform with made-up kind and cost values here.", web: "https://odd.example" } });
+  assert.equal(odd.status, 400);
+  await db.prepare("DELETE FROM submissions WHERE data LIKE '%Lab Site%'").run(); // keep the admin queue test independent
+});
+
 test("submissions: a name with no letters or digits is refused (it would have no id)", async () => {
   const r = await call("/api/submissions", { method: "POST", ip: "192.0.2.77", body: { name: "日本語", desc: "A security podcast in Japanese about many things.", web: "https://jp.example", apple: "https://podcasts.apple.com/x" } });
   assert.equal(r.status, 400);
@@ -222,6 +238,15 @@ test("admin: queue, approve, edit (URL sanitising), CSRF checks, insights, expor
   assert.equal(ins.subscribers.active, 1); assert.equal(ins.visits.byDay[new Date().toISOString().slice(0, 10)], 1);
   const csv = await (await call("/api/admin/subscribers/export", { headers: h })).text();
   assert.match(csv, /"'=HYPERLINK/);
+  // Catalogue export: every item including hidden ones, with vote tallies; formula injection neutralised; admin only
+  await call("/api/admin/items/new-show", { method: "PATCH", body: { desc: "=cmd|' /C calc'!A0 is not a formula here", curator: true }, headers: h });
+  const cat = await call("/api/admin/export", { headers: h });
+  assert.equal(cat.status, 200); assert.match(cat.headers.get("content-disposition"), /attachment; filename="mycyberlearning-catalogue-/);
+  const catCsv = await cat.text();
+  assert.match(catCsv.split("\r\n")[0], /"id","type","name"/);
+  assert.ok(catCsv.includes('"secret-show"')); assert.match(catCsv, /"'=cmd/);
+  assert.match(catCsv.split("\r\n").find(l => l.startsWith('"new-show"')), /"yes"/); // curator flag from the one-click MCL Pick toggle
+  assert.equal((await call("/api/admin/export")).status, 403);
   // Erasure
   const er = await (await call("/api/admin/subscribers/erase", { method: "POST", body: { email: "reader@example.com" }, headers: h })).json();
   assert.equal(er.ok, true);

@@ -1,7 +1,7 @@
 <title>My Cyber Learning</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
-<meta name="description" content="My Cyber Learning: a curated, filterable library of cybersecurity podcasts and books, rated by listeners and the community.">
+<meta name="description" content="My Cyber Learning: a curated, filterable library of cybersecurity podcasts, books and learning platforms, rated by listeners and the community.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -124,6 +124,7 @@ button.logo:hover .zoom-hint,button.logo:focus-visible .zoom-hint{opacity:1}
 .badge{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:4px;background:var(--sunk);color:var(--ink-2)}
 .badge.pick{background:var(--pick-soft);color:var(--pick)}
 .badge.ended{background:transparent;border:1px solid var(--line)}
+.badge.cost-free{background:color-mix(in srgb,var(--signal) 16%,transparent);color:var(--ink)}
 .desc{font-size:14px;color:var(--ink-2);margin:0}
 .tags{display:flex;flex-wrap:wrap;gap:5px}
 .tag{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--signal-soft);color:var(--ink);cursor:pointer;border:0}
@@ -299,11 +300,12 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
       <a href="#library" data-view="library" data-navtype="all"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Library</span></a>
       <a href="#podcasts" data-view="library" data-navtype="podcast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/></svg><span>Podcasts <i class="nc" id="navPods"></i></span></a>
       <a href="#books" data-view="library" data-navtype="book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/></svg><span>Books <i class="nc" id="navBooks"></i></span></a>
+      <a href="#platforms" data-view="library" data-navtype="platform"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7.5 9l2.5 2-2.5 2M12 13h4"/></svg><span>Platforms <i class="nc" id="navPlats"></i></span></a>
       <a href="#news" data-view="news"><span class="live-dot" aria-hidden="true"></span><span><span class="nl-long">Daily briefing</span><span class="nl-short">Briefing</span></span></a>
     </nav>
     <div class="search library-only">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="q" type="search" placeholder="Search podcasts, books, hosts, topics…" aria-label="Search">
+      <input id="q" type="search" placeholder="Search podcasts, books, platforms, topics…" aria-label="Search">
     </div>
     <button class="btn filters-toggle library-only" id="openFilters" type="button" aria-controls="rail" aria-expanded="false">Filters</button>
     <button class="btn primary library-only" id="openSubmit" type="button">+ Suggest a resource</button>
@@ -312,8 +314,8 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 </header>
 
 <section class="wrap intro library-only">
-  <h1>Podcasts and books to keep your cyber skills current</h1>
-  <p>A curated library for people starting out in security and practitioners staying sharp. Filter by the domains you work in, see listener ratings from the podcast platforms, and add your own vote — community scores sit alongside the official ratings, never mixed with them.</p>
+  <h1>Podcasts, books and platforms to keep your cyber skills current</h1>
+  <p>A curated library for people starting out in security and practitioners staying sharp. Filter by the domains you work in, find free and low-cost labs, courses and events, see listener ratings from the podcast platforms, and add your own vote — community scores sit alongside the official ratings, never mixed with them.</p>
   <div class="stats" id="stats"></div>
 </section>
 
@@ -325,6 +327,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
       <button type="button" data-type="all" aria-pressed="true">All</button>
       <button type="button" data-type="podcast" aria-pressed="false">Podcasts</button>
       <button type="button" data-type="book" aria-pressed="false">Books</button>
+      <button type="button" data-type="platform" aria-pressed="false">Platforms</button>
     </div>
 
     <h3 style="margin-top:16px">Curation</h3>
@@ -337,8 +340,14 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
     </div>
     <div class="chips" id="domainChips"></div>
 
-    <h3>Release frequency <button class="mini" id="clearFreq" type="button">clear</button></h3>
-    <div class="chips" id="freqChips"></div>
+    <div id="freqBlock"><h3>Release frequency <button class="mini" id="clearFreq" type="button">clear</button></h3>
+    <div class="chips" id="freqChips"></div></div>
+
+    <div id="kindBlock"><h3>Platform type <button class="mini" id="clearKind" type="button">clear</button></h3>
+    <div class="chips" id="kindChips"></div></div>
+
+    <div id="costBlock"><h3>Cost <button class="mini" id="clearCost" type="button">clear</button></h3>
+    <div class="chips" id="costChips"></div></div>
 
     <div id="pubBlock"><h3>Publisher <button class="mini" id="clearPub" type="button">clear</button></h3>
     <div class="chips" id="pubChips"></div></div>
@@ -419,24 +428,26 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
   <form id="submitForm" novalidate>
     <div class="dlg-h"><h2 id="submitTitle">Suggest a resource</h2><button class="btn ghost sm" type="button" data-close>Close</button></div>
     <div class="dlg-b">
-      <p class="note" style="margin:0">Suggestions are reviewed before they appear. Give at least the official website and one listening platform for podcasts. We'll suggest domain tags from your description; adjust them if they're off.</p>
+      <p class="note" style="margin:0">Suggestions are reviewed before they appear. Give at least the official website, plus one listening platform for podcasts. For platforms (labs, courses, events, communities) we look for free or low-cost options that aren't tied to one vendor. We'll suggest domain tags from your description; adjust them if they're off.</p>
       <div class="row2">
-        <div class="field"><label for="s_type">Type</label><select id="s_type"><option value="podcast">Podcast</option><option value="book">Book</option></select></div>
-        <div class="field"><label for="s_freq">Release frequency</label><select id="s_freq"></select></div>
+        <div class="field"><label for="s_type">Type</label><select id="s_type"><option value="podcast">Podcast</option><option value="book">Book</option><option value="platform">Platform (lab, course, event…)</option></select></div>
+        <div class="field not-platform"><label for="s_freq">Release frequency</label><select id="s_freq"></select></div>
+        <div class="field platform-only"><label for="s_kind">Kind of platform</label><select id="s_kind"></select></div>
+        <div class="field platform-only"><label for="s_cost">Cost</label><select id="s_cost"></select></div>
       </div>
       <div class="field"><label for="s_name">Name</label><input id="s_name" required maxlength="120"></div>
-      <div class="field"><label for="s_by">Host(s) or author(s)</label><input id="s_by" maxlength="160"></div>
+      <div class="field"><label for="s_by" id="s_by_label">Host(s) or author(s)</label><input id="s_by" maxlength="160"></div>
       <div class="field"><label for="s_desc">Description</label><textarea id="s_desc" required maxlength="800" placeholder="What is it about, who is it for, why is it worth someone's time?"></textarea><span class="help"><span id="descCount">0</span>/800 · at least 40 characters</span></div>
       <div class="field"><span class="lbl">Security domains</span><span class="help">Suggested from your description. Tap to change.</span><div class="chips" id="s_domains"></div></div>
       <div class="row2">
         <div class="field"><label for="s_web">Official website</label><input id="s_web" type="url" placeholder="https://"></div>
-        <div class="field"><label for="s_apple">Apple Podcasts</label><input id="s_apple" type="url" placeholder="https://podcasts.apple.com/…"></div>
-        <div class="field"><label for="s_spotify">Spotify</label><input id="s_spotify" type="url" placeholder="https://open.spotify.com/show/…"></div>
+        <div class="field not-platform"><label for="s_apple">Apple Podcasts</label><input id="s_apple" type="url" placeholder="https://podcasts.apple.com/…"></div>
+        <div class="field not-platform"><label for="s_spotify">Spotify</label><input id="s_spotify" type="url" placeholder="https://open.spotify.com/show/…"></div>
         <div class="field podcast-only"><label for="s_amazon">Amazon Music (optional)</label><input id="s_amazon" type="url" placeholder="https://music.amazon.co.uk/podcasts/…"></div>
-        <div class="field"><label for="s_youtube">YouTube / YouTube Music</label><input id="s_youtube" type="url" placeholder="https://youtube.com/…"></div>
+        <div class="field not-platform"><label for="s_youtube">YouTube / YouTube Music</label><input id="s_youtube" type="url" placeholder="https://youtube.com/…"></div>
         <div class="field book-only"><label for="s_isbn">ISBN (10 or 13 digits)</label><input id="s_isbn" inputmode="numeric" placeholder="978-…"></div>
         <div class="field book-only"><label for="s_publisher">Publisher</label><input id="s_publisher" maxlength="120" list="pubList"><datalist id="pubList"></datalist></div>
-        <div class="field"><label for="s_rss">RSS feed (optional)</label><input id="s_rss" type="url" placeholder="https://…/feed.xml"></div>
+        <div class="field not-platform"><label for="s_rss">RSS feed (optional)</label><input id="s_rss" type="url" placeholder="https://…/feed.xml"></div>
         <div class="field"><label for="s_email">Your email (optional, never shown)</label><input id="s_email" type="email"></div>
       </div>
       <p class="err" id="submitErr" hidden></p>
@@ -457,11 +468,13 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
     <div class="dlg-h"><h2 id="editTitle">Edit entry</h2><button class="btn ghost sm" type="button" data-close>Close</button></div>
     <div class="dlg-b">
       <div class="field"><label for="e_name">Name</label><input id="e_name"></div>
-      <div class="field"><label for="e_by">Host(s) / author(s)</label><input id="e_by"></div>
+      <div class="field"><label for="e_by">Host(s) / author(s) / organisation</label><input id="e_by"></div>
       <div class="field"><label for="e_desc">Description</label><textarea id="e_desc"></textarea></div>
       <div class="field"><span class="lbl">Domains</span><div class="chips" id="e_domains"></div></div>
       <div class="row2">
         <div class="field"><label for="e_freq">Frequency</label><select id="e_freq"></select></div>
+        <div class="field e-platform"><label for="e_kind">Kind of platform</label><select id="e_kind"></select></div>
+        <div class="field e-platform"><label for="e_cost">Cost</label><select id="e_cost"></select></div>
         <div class="field"><label for="e_launched">Launched (YYYY or YYYY-MM)</label><input id="e_launched"></div>
         <div class="field"><label for="e_web">Website</label><input id="e_web" type="url"></div>
         <div class="field"><label for="e_apple">Apple</label><input id="e_apple" type="url"></div>
@@ -607,7 +620,7 @@ const api = {
 };
 function toItem(s){
   return {id:(s.name||"item").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")+"-"+Date.now().toString(36),
-    type:s.type, name:s.name, by:s.by, desc:s.desc, domains:s.domains, level:["intermediate"], freq:s.type==="podcast"?s.freq:undefined,
+    type:s.type, name:s.name, by:s.by, desc:s.desc, domains:s.domains, level:["intermediate"], freq:s.type==="podcast"?s.freq:undefined, kind:s.type==="platform"?s.kind:undefined, cost:s.type==="platform"?s.cost:undefined,
     launched:null, status:"active", web:s.web||undefined, apple:s.apple||undefined, spotify:s.spotify||undefined, amazon:s.amazon||undefined, youtube:s.youtube||undefined,
     rating:null, curator:false, sources:["community"], verified:false, community:{up:0,down:0}, isbn:s.isbn||undefined, publisher:s.publisher||undefined};
 }
@@ -640,7 +653,7 @@ function suggestDomains(text){
 }
 
 /* ---------- State ---------- */
-const state = Object.assign({type:"all", match:"any", domains:[], freqs:[], levels:[], publishers:[], picks:false, q:"", sort:"official"}, store.get("filters", {}));
+const state = Object.assign({type:"all", match:"any", domains:[], freqs:[], levels:[], publishers:[], kinds:[], costs:[], picks:false, q:"", sort:"official"}, store.get("filters", {}));
 let ITEMS = [];
 let myVotes = store.get("myVotes", {});
 
@@ -693,7 +706,8 @@ function platLinks(i){
   const L = [];
   // key: colour + icon; text: visible label; title: full name for tooltip and screen readers.
   const add = (href, key, text, title, isSearch) => /^https?:\/\//i.test(href||"") && L.push(`<a class="plat k-${key}${isSearch?" srch":""}" href="${esc(href)}" target="_blank" rel="noopener" title="${esc(title)}" aria-label="${esc(title)}">${ICONS[key]||ICONS.web}<span class="pl" aria-hidden="true">${esc(text)}</span></a>`);
-  if (i.type === "podcast"){
+  if (i.type === "platform"){ /* just the site itself, below */ }
+  else if (i.type === "podcast"){
     i.apple ? add(i.apple,"apple","Apple","Apple Podcasts") : add(searchUrl("apple",i),"apple","Apple","Search Apple Podcasts",1);
     i.spotify ? add(i.spotify,"spotify","Spotify","Spotify") : add(searchUrl("spotify",i),"spotify","Spotify","Search Spotify",1);
     i.youtube ? add(i.youtube,"youtube","YouTube","YouTube") : add(searchUrl("youtube",i),"youtube","YouTube","Search YouTube",1);
@@ -703,7 +717,7 @@ function platLinks(i){
     else { add(searchUrl("goodreads",i),"goodreads","Goodreads","Find on Goodreads",1); add(searchUrl("openlibrary",i),"openlibrary","Open Library","Find on Open Library",1); }
     if (i.bundle?.url) add(i.bundle.url,"bundle","Bundle",i.bundle.name);
   }
-  if (i.web) add(i.web,"web","Website","Official website");
+  if (i.web) i.type === "platform" ? add(i.web,"listen","Visit site",`Visit ${i.name}`) : add(i.web,"web","Website","Official website");
   return L.join("");
 }
 function card(i){
@@ -711,13 +725,14 @@ function card(i){
   const c = i.community||{up:0,down:0}, mv = myVotes[i.id]||0;
   const rating = i.rating ? `<span class="stars" aria-hidden="true">${stars(i.rating.v)}</span><b>${i.rating.v.toFixed(1)}</b><span class="muted">(${fmtN(i.rating.n)})</span>`
                           : `<span class="muted">Awaiting refresh</span>`;
+  if (i.type === "platform") return platformCard(i, tags, c, mv);
   const isPod = i.type==="podcast";
   const cad = isPod ? `<span class="cadence" aria-hidden="true">${[1,2,3,4,5].map(k=>`<i class="${k<=CADENCE[i.freq]?"on":""}" style="height:${2+k*2}px"></i>`).join("")}</span>${esc(FREQ[i.freq]?.label||"—")}` : esc(i.format?.join(", ")||"Book");
   const since = isPod ? (year(i.launched) ? `Since ${year(i.launched)}${i.status==="ended"?" · ended":""}` : `<span class="muted">Launch date pending</span>`) : esc(i.published||"—");
   return `<article class="card${i.hidden?" hidden-item":""}" data-id="${esc(i.id)}">
     <div class="head">${logo(i)}<div style="min-width:0">
       <h2 class="title">${esc(i.name)}</h2><div class="by">${esc(i.by||"")}</div>
-      <div class="badges">${i.curator?'<span class="badge pick">MCL Pick</span>':""}<span class="badge">${isPod?"Podcast":"Book"}</span>${i.status==="ended"?'<span class="badge ended">Archive</span>':""}${(i.level||[]).map(l=>`<span class="badge">${esc(l)}</span>`).join("")}</div>
+      <div class="badges">${i.curator?'<span class="badge pick">MCL Pick</span>':""}<span class="badge">${TYPE_LABEL[i.type]}</span>${i.status==="ended"?'<span class="badge ended">Archive</span>':""}${(i.level||[]).map(l=>`<span class="badge">${esc(l)}</span>`).join("")}</div>
     </div></div>
     <p class="desc">${esc(i.desc)}</p>
     <div class="tags">${tags}</div>
@@ -731,14 +746,40 @@ function card(i){
       <div style="grid-column:1/-1"><dt>Official rating <span style="text-transform:none;letter-spacing:0">(platforms combined)</span></dt><dd>${rating}</dd></div>
     </dl>
     <div class="foot">
-      <div class="vote" role="group" aria-label="Community vote for ${esc(i.name)}">
+      ${voteBox(i, c, mv)}
+      <div class="links">${platLinks(i)}</div>
+    </div>
+    ${adminRow(i)}
+  </article>`;
+}
+
+const TYPE_LABEL = {podcast:"Podcast", book:"Book", platform:"Platform"};
+const KIND = Object.fromEntries(TAX.platformKinds.map(k => [k.key, k]));
+const COST = Object.fromEntries(TAX.costs.map(c => [c.key, c]));
+function adminRow(i){
+  return api.isAdmin ? `<div class="admin-row"><button class="btn sm" type="button" data-curate aria-pressed="${!!i.curator}">${i.curator?"★ MCL Pick":"☆ Make MCL Pick"}</button><button class="btn sm" type="button" data-edit>Edit</button><button class="btn sm" type="button" data-hide>${i.hidden?"Unhide":"Hide"}</button><button class="btn sm danger" type="button" data-del>Delete</button></div>` : "";
+}
+function voteBox(i, c, mv){
+  return `<div class="vote" role="group" aria-label="Community vote for ${esc(i.name)}">
         <button type="button" class="up" data-vote="1" aria-pressed="${mv===1}" aria-label="Thumbs up">${ICONS.up}</button>
         <output aria-label="Community score">${score(c)}</output>
         <button type="button" class="down" data-vote="-1" aria-pressed="${mv===-1}" aria-label="Thumbs down">${ICONS.down}</button>
-      </div>
+      </div>`;
+}
+// Platforms (labs, courses, events, communities) have no official rating source, so only the community vote shows.
+function platformCard(i, tags, c, mv){
+  return `<article class="card${i.hidden?" hidden-item":""}" data-id="${esc(i.id)}">
+    <div class="head">${logo(i)}<div style="min-width:0">
+      <h2 class="title">${esc(i.name)}</h2><div class="by">${esc(i.by||"")}</div>
+      <div class="badges">${i.curator?'<span class="badge pick">MCL Pick</span>':""}<span class="badge">${esc(KIND[i.kind]?.label||"Platform")}</span>${i.cost?`<span class="badge${i.cost==="free"?" cost-free":""}" title="${esc(COST[i.cost]?.hint||"")}">${esc(COST[i.cost]?.label||i.cost)}</span>`:""}${(i.level||[]).map(l=>`<span class="badge">${esc(l)}</span>`).join("")}</div>
+    </div></div>
+    <p class="desc">${esc(i.desc)}</p>
+    <div class="tags">${tags}</div>
+    <div class="foot">
+      ${voteBox(i, c, mv)}
       <div class="links">${platLinks(i)}</div>
     </div>
-    ${api.isAdmin?`<div class="admin-row"><button class="btn sm" type="button" data-edit>Edit</button><button class="btn sm" type="button" data-hide>${i.hidden?"Unhide":"Hide"}</button><button class="btn sm danger" type="button" data-del>Delete</button></div>`:""}
+    ${adminRow(i)}
   </article>`;
 }
 
@@ -756,7 +797,9 @@ function filtered(){
     if (state.freqs.length && (i.type!=="podcast" || !state.freqs.includes(i.freq))) return false;
     if (state.levels.length && !(i.level||[]).some(l=>state.levels.includes(l))) return false;
     if (state.publishers.length && state.type!=="podcast" && (i.type!=="book" || !state.publishers.includes(i.publisher))) return false;
-    if (q){ const hay=(i.name+" "+(i.by||"")+" "+i.desc+" "+(i.publisher||"")+" "+(i.isbn||"")+" "+(i.isbnAlt||[]).join(" ")+" "+i.domains.map(d=>DOM[d]?.label).join(" ")).toLowerCase();
+    if (state.kinds.length && (i.type!=="platform" || !state.kinds.includes(i.kind))) return false;
+    if (state.costs.length && (i.type!=="platform" || !state.costs.includes(i.cost))) return false;
+    if (q){ const hay=(i.name+" "+(i.by||"")+" "+i.desc+" "+(i.publisher||"")+" "+(KIND[i.kind]?.label||"")+" "+(i.isbn||"")+" "+(i.isbnAlt||[]).join(" ")+" "+i.domains.map(d=>DOM[d]?.label).join(" ")).toLowerCase();
       const qi=q.replace(/[-\s]/g,""); if (!hay.includes(q) && !(/^\d{9,13}x?$/.test(qi) && [i.isbn,...(i.isbnAlt||[])].some(x=>(x||"").includes(qi)))) return false; }
     return true;
   }).sort((a,b) => {
@@ -774,42 +817,47 @@ function filtered(){
 function countBy(key){
   const base = {...state}; const out = {};
   for (const i of ITEMS){ if (i.hidden && !api.isAdmin) continue; if (base.type!=="all" && i.type!==base.type) continue;
-    const vals = key==="domains" ? i.domains : key==="freq" ? (i.type==="podcast"?[i.freq]:[]) : (i.level||[]);
+    const vals = key==="domains" ? i.domains : key==="freq" ? (i.type==="podcast"?[i.freq]:[]) : key==="kind" ? (i.type==="platform"?[i.kind]:[]) : key==="cost" ? (i.type==="platform"?[i.cost]:[]) : (i.level||[]);
     for (const v of vals) out[v]=(out[v]||0)+1; }
   return out;
 }
 
 function renderChips(){
-  const dc = countBy("domains"), fc = countBy("freq"), lc = countBy("levels");
+  const dc = countBy("domains"), fc = countBy("freq"), lc = countBy("levels"), kc = countBy("kind"), cc = countBy("cost");
+  // Frequency is for podcasts, publisher for books, platform type and cost for platforms: show what applies.
+  $("#freqBlock").hidden = state.type==="book" || state.type==="platform";
+  $("#kindBlock").hidden = $("#costBlock").hidden = state.type==="podcast" || state.type==="book";
+  $("#kindChips").innerHTML = TAX.platformKinds.map(k => `<button class="chip" type="button" data-kind="${k.key}" aria-pressed="${state.kinds.includes(k.key)}" title="${esc(k.hint)}">${esc(k.label)} <span class="n">${kc[k.key]||0}</span></button>`).join("");
+  $("#costChips").innerHTML = TAX.costs.map(k => `<button class="chip" type="button" data-cost="${k.key}" aria-pressed="${state.costs.includes(k.key)}" title="${esc(k.hint)}">${esc(k.label)} <span class="n">${cc[k.key]||0}</span></button>`).join("");
   $("#domainChips").innerHTML = TAX.domains.map(d => `<button class="chip" type="button" data-domain="${d.key}" aria-pressed="${state.domains.includes(d.key)}" title="${esc(d.hint)}">${esc(d.label)} <span class="n">${dc[d.key]||0}</span></button>`).join("");
   $("#freqChips").innerHTML = TAX.frequencies.map(f => `<button class="chip" type="button" data-freq="${f.key}" aria-pressed="${state.freqs.includes(f.key)}">${esc(f.label)} <span class="n">${fc[f.key]||0}</span></button>`).join("");
   const pubs = {}; for (const i of ITEMS) if (i.type==="book" && i.publisher && (!i.hidden||api.isAdmin)) pubs[i.publisher]=(pubs[i.publisher]||0)+1;
-  $("#pubBlock").hidden = state.type==="podcast";
+  $("#pubBlock").hidden = state.type==="podcast" || state.type==="platform";
   $("#pubChips").innerHTML = Object.entries(pubs).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).map(([k,n]) => `<button class="chip" type="button" data-pub="${esc(k)}" aria-pressed="${state.publishers.includes(k)}">${esc(k)} <span class="n">${n}</span></button>`).join("");
   $("#levelChips").innerHTML = TAX.levels.map(l => `<button class="chip" type="button" data-level="${l.key}" aria-pressed="${state.levels.includes(l.key)}">${esc(l.label)} <span class="n">${lc[l.key]||0}</span></button>`).join("");
   $$("[data-type]").forEach(b => b.setAttribute("aria-pressed", b.dataset.type===state.type));
   $$("[data-match]").forEach(b => b.setAttribute("aria-pressed", b.dataset.match===state.match));
   $("#picksOnly").checked = state.picks; $("#sort").value = state.sort; $("#q").value = state.q;
 }
-const TYPE_HASH = {all:"#library", podcast:"#podcasts", book:"#books"};
+const TYPE_HASH = {all:"#library", podcast:"#podcasts", book:"#books", platform:"#platforms"};
 // Highlights Daily briefing in the news view, otherwise whichever of Library / Podcasts / Books matches the type filter.
 function syncNav(){
   const news = document.body.dataset.view === "news";
   $$(".views a").forEach(a => (news ? a.dataset.view === "news" : a.dataset.navtype === state.type) ? a.setAttribute("aria-current","page") : a.removeAttribute("aria-current"));
 }
 function render(){
-  store.set("filters", {type:state.type, match:state.match, domains:state.domains, freqs:state.freqs, levels:state.levels, publishers:state.publishers, picks:state.picks, sort:state.sort});
+  store.set("filters", {type:state.type, match:state.match, domains:state.domains, freqs:state.freqs, levels:state.levels, publishers:state.publishers, kinds:state.kinds, costs:state.costs, picks:state.picks, sort:state.sort});
   renderChips();
   const list = filtered();
   $("#count").textContent = `${list.length} of ${ITEMS.filter(i=>!i.hidden||api.isAdmin).length} resources`;
   $("#closeFilters").textContent = list.length ? `Show ${list.length} result${list.length===1?"":"s"}` : "No matches: close";
   syncNav();
-  const act = [...state.domains.map(d=>["domain",d,DOM[d]?.label]), ...state.freqs.map(f=>["freq",f,FREQ[f]?.label]), ...state.levels.map(l=>["level",l,l]), ...state.publishers.map(p=>["pub",p,p])];
+  const act = [...state.domains.map(d=>["domain",d,DOM[d]?.label]), ...state.freqs.map(f=>["freq",f,FREQ[f]?.label]), ...state.levels.map(l=>["level",l,l]), ...state.publishers.map(p=>["pub",p,p]), ...state.kinds.map(k=>["kind",k,KIND[k]?.label]), ...state.costs.map(k=>["cost",k,COST[k]?.label])];
   $("#activeFilters").innerHTML = act.length ? act.map(([k,v,l]) => `<button class="chip" type="button" data-remove="${k}:${v}">${esc(l)} ✕</button>`).join("") + (state.domains.length>1?`<span class="muted" style="font-size:12.5px;align-self:center">matching ${state.match==="all"?"all":"any"} selected domains</span>`:"") : "";
   $("#grid").innerHTML = list.length ? list.map(card).join("") : `<div class="empty"><p style="margin:0 0 10px"><b>Nothing matches those filters.</b></p><p style="margin:0">Try “Match any” instead of “Match all”, or clear a frequency filter.</p></div>`;
-  const pods = ITEMS.filter(i=>i.type==="podcast"&&!i.hidden).length, books = ITEMS.filter(i=>i.type==="book"&&!i.hidden).length;
-  $("#navPods").textContent = pods; $("#navBooks").textContent = books;
-  $("#stats").innerHTML = `<span><b>${pods}</b> podcasts</span><span><b>${books}</b> books</span><span><b>${TAX.domains.length}</b> security domains</span><span><b>${ITEMS.filter(i=>i.curator).length}</b> MCL Picks</span>`;
+  const pods = ITEMS.filter(i=>i.type==="podcast"&&!i.hidden).length, books = ITEMS.filter(i=>i.type==="book"&&!i.hidden).length, plats = ITEMS.filter(i=>i.type==="platform"&&!i.hidden).length;
+  $("#navPods").textContent = pods; $("#navBooks").textContent = books; $("#navPlats").textContent = plats;
+  $("#stats").innerHTML = `<span><b>${pods}</b> podcasts</span><span><b>${books}</b> books</span><span><b>${plats}</b> platforms</span><span><b>${TAX.domains.length}</b> security domains</span><span><b>${ITEMS.filter(i=>i.curator).length}</b> MCL Picks</span>`;
 }
 
 function toggle(arr, v){ const k = arr.indexOf(v); k<0 ? arr.push(v) : arr.splice(k,1); }
@@ -823,10 +871,14 @@ document.addEventListener("click", async e => {
   else if (b.dataset.domain && b.closest("#domainChips")){ toggle(state.domains,b.dataset.domain); render(); }
   else if (b.dataset.freq){ toggle(state.freqs,b.dataset.freq); render(); }
   else if (b.dataset.pub){ toggle(state.publishers,b.dataset.pub); render(); }
+  else if (b.dataset.kind && b.closest("#kindChips")){ toggle(state.kinds,b.dataset.kind); render(); }
+  else if (b.dataset.cost && b.closest("#costChips")){ toggle(state.costs,b.dataset.cost); render(); }
+  else if (b.id==="clearKind"){ state.kinds=[]; render(); }
+  else if (b.id==="clearCost"){ state.costs=[]; render(); }
   else if (b.id==="clearPub"){ state.publishers=[]; render(); }
   else if (b.dataset.level){ toggle(state.levels,b.dataset.level); render(); }
   else if (b.dataset.tag){ if(!state.domains.includes(b.dataset.tag)) state.domains.push(b.dataset.tag); render(); window.scrollTo({top:$("#count").getBoundingClientRect().top+scrollY-90,behavior:"smooth"}); }
-  else if (b.dataset.remove){ const k=b.dataset.remove.split(":")[0], v=b.dataset.remove.slice(k.length+1); toggle(k==="domain"?state.domains:k==="freq"?state.freqs:k==="pub"?state.publishers:state.levels,v); render(); }
+  else if (b.dataset.remove){ const k=b.dataset.remove.split(":")[0], v=b.dataset.remove.slice(k.length+1); toggle(k==="domain"?state.domains:k==="freq"?state.freqs:k==="pub"?state.publishers:k==="kind"?state.kinds:k==="cost"?state.costs:state.levels,v); render(); }
   else if (b.id==="clearDomains"){ state.domains=[]; render(); }
   else if (b.id==="clearFreq"){ state.freqs=[]; render(); }
   else if (b.dataset.vote){
@@ -840,6 +892,7 @@ document.addEventListener("click", async e => {
   else if (b.hasAttribute("data-close")){ b.closest("dialog").close(); }
   else if (b.hasAttribute("data-zoom")){ openCover(b.closest(".card").dataset.id); }
   else if (b.hasAttribute("data-edit")){ openEdit(b.closest(".card").dataset.id); }
+  else if (b.hasAttribute("data-curate")){ const id=b.closest(".card").dataset.id, it=ITEMS.find(x=>x.id===id); it.curator=!it.curator; await api.save(id,{curator:it.curator}); render(); toast(it.curator?"Marked as an MCL Pick":"No longer an MCL Pick"); }
   else if (b.hasAttribute("data-hide")){ const id=b.closest(".card").dataset.id, it=ITEMS.find(x=>x.id===id); it.hidden=!it.hidden; await api.save(id,{hidden:it.hidden}); render(); toast(it.hidden?"Hidden from visitors":"Visible to visitors"); }
   else if (b.hasAttribute("data-del")){
     if (b.dataset.confirm){ const id=b.closest(".card").dataset.id; await api.remove(id); ITEMS=ITEMS.filter(x=>x.id!==id); render(); toast("Deleted"); }
@@ -870,7 +923,7 @@ function openCover(id){
 function showCover(){
   const i = cvList[cvIdx]; if (!i) return;
   const img = $("#cvImg"); img.src = i.logo; img.alt = `Cover of ${i.name}`;
-  $("#cvType").textContent = i.type==="book" ? "Book" : "Podcast";
+  $("#cvType").textContent = TYPE_LABEL[i.type] || "Resource";
   $("#cvTitle").textContent = i.name; $("#cvBy").textContent = i.by || "";
   $("#cvDesc").textContent = i.desc || "";
   $("#cvBadges").innerHTML = (i.curator?'<span class="badge pick">MCL Pick</span>':"") + (i.level||[]).map(l=>`<span class="badge">${esc(l)}</span>`).join("");
@@ -897,22 +950,29 @@ let subDomains = [], userTouchedDomains = false;
 function renderDomainPicker(el, sel){ el.innerHTML = TAX.domains.map(d=>`<button class="chip" type="button" data-pick="${d.key}" aria-pressed="${sel.includes(d.key)}">${esc(d.label)}</button>`).join(""); }
 $("#s_freq").innerHTML = $("#e_freq").innerHTML = TAX.frequencies.map(f=>`<option value="${f.key}">${esc(f.label)}</option>`).join("");
 $("#s_freq").value = "weekly";
+$("#s_kind").innerHTML = $("#e_kind").innerHTML = `<option value="">Choose…</option>` + TAX.platformKinds.map(k=>`<option value="${k.key}">${esc(k.label)}</option>`).join("");
+$("#s_cost").innerHTML = $("#e_cost").innerHTML = `<option value="">Choose…</option>` + TAX.costs.map(k=>`<option value="${k.key}">${esc(k.label)} — ${esc(k.hint)}</option>`).join("");
 $("#openSubmit").addEventListener("click", () => { subDomains=[]; userTouchedDomains=false; $("#submitForm").reset(); $("#s_freq").value="weekly"; renderDomainPicker($("#s_domains"),subDomains); $("#submitErr").hidden=true; syncType(); $("#submitDlg").showModal(); });
 $("#s_desc").addEventListener("input", e => { $("#descCount").textContent=e.target.value.length; if(!userTouchedDomains){ subDomains=suggestDomains($("#s_name").value+" "+e.target.value); renderDomainPicker($("#s_domains"),subDomains);} });
 $("#s_domains").addEventListener("click", e => { const b=e.target.closest("[data-pick]"); if(!b) return; userTouchedDomains=true; toggle(subDomains,b.dataset.pick); renderDomainPicker($("#s_domains"),subDomains); });
-function syncType(){ const book=$("#s_type").value==="book"; $("#s_freq").disabled=book; $$(".book-only").forEach(x=>x.hidden=!book); $$(".podcast-only").forEach(x=>x.hidden=book);
+function syncType(){ const t=$("#s_type").value, book=t==="book", plat=t==="platform"; $("#s_freq").disabled=book;
+  $$(".book-only").forEach(x=>x.hidden=!book); $$(".podcast-only").forEach(x=>x.hidden=t!=="podcast"); $$(".platform-only").forEach(x=>x.hidden=!plat); $$(".not-platform").forEach(x=>x.hidden=plat);
+  $("#s_by_label").textContent = plat ? "Organisation or company" : "Host(s) or author(s)"; $("#s_web").previousElementSibling.textContent = plat ? "Website" : "Official website";
   $("#pubList").innerHTML=[...new Set(ITEMS.map(i=>i.publisher).filter(Boolean))].sort().map(p=>`<option value="${esc(p)}">`).join(""); }
 $("#s_type").addEventListener("change", syncType);
 const isUrl = v => { try { const u=new URL(v); return u.protocol==="https:"||u.protocol==="http:"; } catch { return false; } };
 $("#submitForm").addEventListener("submit", async e => {
   e.preventDefault();
   const v = id => $("#"+id).value.trim();
-  const p = {type:v("s_type"), name:v("s_name"), by:v("s_by"), desc:v("s_desc"), freq:v("s_freq"), domains:subDomains, web:v("s_web"), apple:v("s_apple"), spotify:v("s_spotify"), amazon:v("s_amazon"), youtube:v("s_youtube"), rss:v("s_rss"), email:v("s_email"), isbn:v("s_isbn"), publisher:v("s_publisher")};
+  const p = {type:v("s_type"), name:v("s_name"), by:v("s_by"), desc:v("s_desc"), freq:v("s_freq"), kind:v("s_kind"), cost:v("s_cost"), domains:subDomains, web:v("s_web"), apple:v("s_apple"), spotify:v("s_spotify"), amazon:v("s_amazon"), youtube:v("s_youtube"), rss:v("s_rss"), email:v("s_email"), isbn:v("s_isbn"), publisher:v("s_publisher")};
   const errs = [];
   if (p.name.length<2) errs.push("Add the name.");
   if (p.desc.length<40) errs.push("Write a description of at least 40 characters.");
   if (!p.domains.length) errs.push("Choose at least one security domain.");
   if (p.type==="book") delete p.amazon;
+  if (p.type==="platform"){ for (const k of ["apple","spotify","amazon","youtube","rss","freq"]) delete p[k];
+    if (!p.web) errs.push("Add the platform's website."); if (!p.kind) errs.push("Choose what kind of platform it is."); if (!p.cost) errs.push("Choose how much it costs."); }
+  else { delete p.kind; delete p.cost; }
   for (const k of ["web","apple","spotify","amazon","youtube","rss"]) if (p[k] && !isUrl(p[k])) errs.push(`The ${k==="web"?"website":k} link isn't a valid web address.`);
   if (p.amazon && isUrl(p.amazon) && !isAmazonMusic(p.amazon)) errs.push("The Amazon Music link should be a podcast page, e.g. https://music.amazon.co.uk/podcasts/….");
   if (p.apple && !isPlatform("apple", p.apple)) errs.push("The Apple link should be a podcasts.apple.com address.");
@@ -930,14 +990,22 @@ $("#submitForm").addEventListener("submit", async e => {
 async function refreshAdminBadge(){ if(!api.isAdmin) return; const q = await api.queue(); $("#adminBtn").hidden=false; $("#adminBtn").textContent = `Admin · ${q.length} pending`; }
 $("#adminBtn").addEventListener("click", async () => {
   const q = await api.queue();
-  $("#queue").innerHTML = `<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" type="button" id="openInsights">Subscribers &amp; visitors</button>${api.remote?`<a class="btn sm ghost" href="/auth/logout" style="margin-left:auto">Sign out</a>`:""}</div>` + (api.remote?"":`<p class="note" style="margin:0">Demo mode: the review queue and edits are stored in this browser only. On the live site this panel appears only for accounts with the admin role.</p>`) +
+  $("#queue").innerHTML = `<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" type="button" id="openInsights">Subscribers &amp; visitors</button>${api.remote?`<a class="btn sm" href="/api/admin/export" download>Export catalogue (CSV)</a>`:`<button class="btn sm" type="button" id="exportDemo">Export catalogue (CSV)</button>`}${api.remote?`<a class="btn sm ghost" href="/auth/logout" style="margin-left:auto">Sign out</a>`:""}</div>` + (api.remote?"":`<p class="note" style="margin:0">Demo mode: the review queue and edits are stored in this browser only. On the live site this panel appears only for accounts with the admin role.</p>`) +
     (q.length ? q.map(s=>`<div class="qitem" data-sid="${esc(s.id)}"><h4>${esc(s.name)} <span class="badge">${esc(s.type)}</span></h4><div class="by">${esc(s.by||"")}</div><p class="desc" style="margin:0">${esc(s.desc)}</p>
       <div class="tags">${(s.domains||[]).map(d=>`<span class="tag">${esc(DOM[d]?.label||d)}</span>`).join("")}</div>
-      <div class="muted" style="font-size:12.5px;word-break:break-all">${["web","apple","spotify","amazon","youtube","rss","isbn","publisher"].filter(k=>s[k]).map(k=>`${k}: ${esc(s[k])}`).join(" · ")}</div>
+      <div class="muted" style="font-size:12.5px;word-break:break-all">${["kind","cost","web","apple","spotify","amazon","youtube","rss","isbn","publisher"].filter(k=>s[k]).map(k=>`${k}: ${esc(k==="kind"?KIND[s[k]]?.label||s[k]:k==="cost"?COST[s[k]]?.label||s[k]:s[k])}`).join(" · ")}</div>
       ${s.review?`<div class="note">Automated check: ${esc(s.review)}</div>`:""}
       <div style="display:flex;gap:8px"><button class="btn sm primary" type="button" data-approve>Approve</button><button class="btn sm danger" type="button" data-reject>Reject</button></div></div>`).join("")
      : `<p class="muted" style="margin:0">No suggestions waiting. New submissions from visitors will appear here.</p>`);
   $("#adminDlg").showModal();
+});
+// Demo mode has no server, so the CSV is built from the catalogue in this browser (same columns as /api/admin/export).
+$("#queue").addEventListener("click", e => {
+  if (!e.target.closest("#exportDemo")) return;
+  const cols = ["id","type","name","by","desc","kind","cost","domains","level","freq","status","web","apple","spotify","isbn","publisher","curator","hidden"];
+  const cell = v => { let s = Array.isArray(v) ? v.join(" ") : String(v ?? ""); if (/^[=+\-@\t\r]/.test(s)) s = "'" + s; return `"${s.replace(/"/g,'""')}"`; };
+  const csv = "\ufeff" + [cols, ...ITEMS.map(i => cols.map(c => c==="curator"||c==="hidden" ? (i[c]?"yes":"no") : i[c]))].map(r => r.map(cell).join(",")).join("\r\n");
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], {type:"text/csv"})); a.download = "mycyberlearning-catalogue.csv"; a.click(); URL.revokeObjectURL(a.href);
 });
 $("#queue").addEventListener("click", async e => {
   const b = e.target.closest("[data-approve],[data-reject]"); if(!b) return;
@@ -949,7 +1017,8 @@ let editing=null, editDomains=[];
 function openEdit(id){
   editing = ITEMS.find(x=>x.id===id); editDomains=[...editing.domains];
   for (const k of ["name","by","desc","web","apple","spotify","amazon","youtube","launched","isbn","publisher"]) $("#e_"+k).value = editing[k]||"";
-  $("#e_freq").value = editing.freq||"irregular"; $("#e_freq").disabled = editing.type==="book"; $("#e_curator").checked=!!editing.curator;
+  $("#e_freq").value = editing.freq||"irregular"; $("#e_freq").disabled = editing.type!=="podcast"; $("#e_curator").checked=!!editing.curator;
+  $("#e_kind").value = editing.kind||""; $("#e_cost").value = editing.cost||""; $$(".e-platform").forEach(x=>x.hidden = editing.type!=="platform");
   renderDomainPicker($("#e_domains"), editDomains); $("#editDlg").showModal();
 }
 $("#e_domains").addEventListener("click", e => { const b=e.target.closest("[data-pick]"); if(!b) return; toggle(editDomains,b.dataset.pick); renderDomainPicker($("#e_domains"),editDomains); });
@@ -959,6 +1028,7 @@ $("#editForm").addEventListener("submit", async e => {
   if (patch.amazon && !isAmazonMusic(patch.amazon)){ toast("The Amazon Music link should be a music.amazon… /podcasts/ page."); return; }
   for (const [k,label] of [["apple","podcasts.apple.com"],["spotify","open.spotify.com"],["youtube","youtube.com"]]) if (patch[k] && !isPlatform(k, patch[k])){ toast(`The ${k==="apple"?"Apple":k==="spotify"?"Spotify":"YouTube"} link should be a ${label} address.`); return; }
   if (editing.type==="podcast") patch.freq=$("#e_freq").value;
+  if (editing.type==="platform"){ patch.kind=$("#e_kind").value||undefined; patch.cost=$("#e_cost").value||undefined; }
   if (patch.isbn){ const ok=isbnOk(patch.isbn); if(!ok){ toast("That ISBN doesn't look right. Check the digits."); return; } patch.isbn=ok; }
   await api.save(editing.id, patch); Object.assign(editing, patch); $("#editDlg").close(); render(); toast("Saved");
 });
@@ -1078,7 +1148,7 @@ document.addEventListener("submit", async e => {
 // #podcasts and #books are the library view with the type filter set, so they can be linked to directly.
 function showView(){
   const v = location.hash === "#news" ? "news" : "library";
-  const t = {"#podcasts":"podcast", "#books":"book"}[location.hash];
+  const t = {"#podcasts":"podcast", "#books":"book", "#platforms":"platform"}[location.hash];
   if (t && state.type !== t){ state.type = t; render(); }
   document.body.dataset.view = v; $("#newsView").hidden = v !== "news";
   syncNav();
