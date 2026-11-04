@@ -67,7 +67,7 @@ for (const { item } of rows) {
         }
         next.verified = true;
       } else report.notes.push(`${item.id}: not found in Apple directory — check the name or add the Apple link`);
-    } else {
+    } else if (item.type === "book") {
       const b = await lookupBook(item).catch(() => null);
       if (b) {
         next.openlibrary = b.openlibrary;

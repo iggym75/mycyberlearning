@@ -5,6 +5,9 @@ import taxonomy from "./taxonomy.json" with { type: "json" };
 export { taxonomy };
 export const DOMAIN_KEYS = taxonomy.domains.map(d => d.key);
 export const FREQ_KEYS = taxonomy.frequencies.map(f => f.key);
+export const KIND_KEYS = taxonomy.platformKinds.map(k => k.key);
+export const COST_KEYS = taxonomy.costs.map(c => c.key);
+export const TYPES = ["podcast", "book", "platform"];
 
 /** Copies the Worker's string bindings (vars and secrets) into process.env, so shared code reads one place. */
 export function initEnv(env = {}) {

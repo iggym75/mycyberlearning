@@ -1,6 +1,6 @@
 // Admin endpoints. Every handler is wrapped in guard(): a valid admin session cookie, and same-origin JSON for writes.
 import { normaliseEmail, subscriberId } from "./lib/mail.js";
-import { json, slug, normaliseIsbn, isHttpUrl, isAmazonMusicUrl, isPlatformUrl, DOMAIN_KEYS, FREQ_KEYS } from "./lib/shared.js";
+import { json, slug, normaliseIsbn, isHttpUrl, isAmazonMusicUrl, isPlatformUrl, DOMAIN_KEYS, FREQ_KEYS, KIND_KEYS, COST_KEYS } from "./lib/shared.js";
 import { rowToItem, getItemRow, upsertItem, insertItem, deleteItem } from "./lib/db.js";
 import { guard } from "./auth.js";
 
@@ -12,6 +12,8 @@ function sanitiseItem(item) {
   if (item.logo != null && !(/^covers\/[a-z0-9-]+\.jpg$/.test(item.logo) || isHttpUrl(item.logo))) item.logo = undefined;
   if (item.bundle && !isHttpUrl(item.bundle.url)) item.bundle = undefined;
   item.domains = (Array.isArray(item.domains) ? item.domains : []).filter(d => DOMAIN_KEYS.includes(d)).slice(0, 5);
+  if (item.type === "platform") { if (!KIND_KEYS.includes(item.kind)) item.kind = undefined; if (!COST_KEYS.includes(item.cost)) item.cost = undefined; }
+  else { delete item.kind; delete item.cost; }
   return item;
 }
 const parse = (s, d) => { try { return JSON.parse(s ?? ""); } catch { return d; } };
@@ -38,7 +40,7 @@ export const decide = guard(async (req, env, ctx, { id }) => {
     const item = sanitiseItem({
       id: slug(s.name), type: s.type, name: s.name, by: s.by, desc: s.desc,
       domains: (Array.isArray(overrides.domains) ? overrides.domains : [...new Set([...suggested, ...(s.domains || [])])]),
-      level: level.length ? level : ["intermediate"], freq: s.type === "podcast" ? s.freq : undefined,
+      level: level.length ? level : ["intermediate"], freq: s.type === "podcast" ? s.freq : undefined, kind: s.kind || undefined, cost: s.cost || undefined,
       launched: null, status: "active", web: s.web || undefined, apple: s.apple || undefined, spotify: s.spotify || undefined,
       amazon: s.amazon || undefined, youtube: s.youtube || undefined, rss: s.rss || undefined, isbn: s.isbn || undefined, publisher: s.publisher || undefined,
       isbnVerified: false, rating: null, curator: false, sources: ["community"], verified: false, addedAt: new Date().toISOString()
@@ -59,7 +61,7 @@ export const item = guard(async (req, env, ctx, { id }) => {
   if (req.method === "DELETE") { await deleteItem(env.DB, id); return json(200, { ok: true }); }
   const patch = await req.json().catch(() => ({}));
   const cur = rowToItem(r), it = { ...cur };
-  const allowed = ["name", "by", "desc", "domains", "level", "freq", "launched", "status", "web", "apple", "spotify", "amazon", "youtube", "rss", "logo", "curator", "hidden", "published", "tagsLocked", "isbn", "publisher", "format"];
+  const allowed = ["name", "by", "desc", "domains", "level", "freq", "launched", "status", "web", "apple", "spotify", "amazon", "youtube", "rss", "logo", "curator", "hidden", "published", "tagsLocked", "isbn", "publisher", "format", "kind", "cost"];
   for (const k of allowed) if (k in patch) it[k] = patch[k] === "" || patch[k] === null ? undefined : patch[k];
   sanitiseItem(it);
   if ("isbn" in patch && it.isbn) { const n = normaliseIsbn(it.isbn); if (!n) return json(400, { error: "That ISBN doesn't look right." }); if (n !== cur.isbn) it.isbnVerified = false; it.isbn = n; }
@@ -95,17 +97,38 @@ export const insights = guard(async (req, env) => {
   return json(200, { days, subscribers: subs, visits });
 });
 
+// GET /api/admin/export → CSV of every catalogue item, hidden ones included, with community vote tallies.
+const ITEM_COLUMNS = ["id", "type", "name", "by", "desc", "kind", "cost", "domains", "level", "freq", "status", "launched", "published",
+  "web", "apple", "spotify", "amazon", "youtube", "rss", "isbn", "publisher", "rating", "rating_count", "rating_as_of",
+  "community_up", "community_down", "curator", "hidden", "tags_locked", "episodes", "last_episode", "sources"];
+export const exportItems = guard(async (req, env) => {
+  const { results } = await env.DB.prepare("SELECT * FROM items ORDER BY id").all();
+  const rows = [ITEM_COLUMNS];
+  for (const r of results) {
+    const i = rowToItem(r);
+    rows.push([i.id, i.type, i.name, i.by, i.desc, i.kind, i.cost, (i.domains || []).join(" "), (i.level || []).join(" "), i.freq, i.status, i.launched, i.published,
+      i.web, i.apple, i.spotify, i.amazon, i.youtube, i.rss, i.isbn, i.publisher, i.rating?.v, i.rating?.n, i.rating?.asOf,
+      i.community?.up ?? 0, i.community?.down ?? 0, i.curator ? "yes" : "no", i.hidden ? "yes" : "no", i.tagsLocked ? "yes" : "no",
+      i.episodes, i.lastEpisode, (i.sources || []).join(" ")]);
+  }
+  return csvResponse(rows, `mycyberlearning-catalogue-${new Date().toISOString().slice(0, 10)}.csv`);
+});
+
+// Neutralise spreadsheet formula injection (=, +, -, @ at the start of a cell) and quote every cell.
+const csvCell = v => { let s = String(v ?? ""); if (/^[=+\-@\t\r]/.test(s)) s = "'" + s; return `"${s.replace(/"/g, '""')}"`; };
+function csvResponse(rows, filename) {
+  return new Response("\ufeff" + rows.map(r => r.map(csvCell).join(",")).join("\r\n"), { status: 200, headers: {
+    "content-type": "text/csv; charset=utf-8", "cache-control": "no-store", "x-content-type-options": "nosniff",
+    "content-disposition": `attachment; filename="${filename}"` } });
+}
+
 // GET /api/admin/subscribers/export → CSV of active subscribers (for your records and subject access requests).
 export const exportSubscribers = guard(async (req, env) => {
   const rows = [["email", "name", "country", "interests", "confirmed_at", "consent_version"]];
   const { results } = await env.DB.prepare("SELECT * FROM subscribers WHERE status = 'active' ORDER BY confirmed_at").all();
   for (const r of results) if (r.status === "active") rows.push([r.email, r.name || "", r.country || "", parse(r.interests, []).join(" "), r.confirmed_at || "", r.consent_version || ""]);
-  // Neutralise spreadsheet formula injection (=, +, -, @ at the start of a cell).
-  const cell = v => { let s = String(v ?? ""); if (/^[=+\-@\t\r]/.test(s)) s = "'" + s; return `"${s.replace(/"/g, '""')}"`; };
   console.log(`subscriber export by admin, ${rows.length - 1} rows`);
-  return new Response(rows.map(r => r.map(cell).join(",")).join("\r\n"), { status: 200, headers: {
-    "content-type": "text/csv; charset=utf-8", "cache-control": "no-store", "x-content-type-options": "nosniff",
-    "content-disposition": `attachment; filename="subscribers-${new Date().toISOString().slice(0, 10)}.csv"` } });
+  return csvResponse(rows, `subscribers-${new Date().toISOString().slice(0, 10)}.csv`);
 });
 
 // POST /api/admin/subscribers/erase { email } → right-to-erasure requests received by email or post.

@@ -1,5 +1,5 @@
 // Public endpoints: list items, vote, submit a suggestion.
-import { json, sha, clientIp, rateLimited, isHttpUrl, isAmazonMusicUrl, isPlatformUrl, normaliseIsbn, clean, slug, claudeReview, DOMAIN_KEYS, FREQ_KEYS } from "./lib/shared.js";
+import { json, sha, clientIp, rateLimited, isHttpUrl, isAmazonMusicUrl, isPlatformUrl, normaliseIsbn, clean, slug, claudeReview, DOMAIN_KEYS, FREQ_KEYS, KIND_KEYS, COST_KEYS, TYPES } from "./lib/shared.js";
 import { listItems, getItemRow } from "./lib/db.js";
 import { isAdmin } from "./auth.js";
 
@@ -55,7 +55,8 @@ export async function submit(req, env) {
   if (b.website_url_confirm) return json(200, { ok: true }); // honeypot field for bots
 
   const s = {
-    type: b.type === "book" ? "book" : "podcast",
+    type: TYPES.includes(b.type) ? b.type : "podcast",
+    kind: KIND_KEYS.includes(b.kind) ? b.kind : "", cost: COST_KEYS.includes(b.cost) ? b.cost : "",
     name: clean(b.name, 120), by: clean(b.by, 160), desc: clean(b.desc, 800),
     freq: FREQ_KEYS.includes(b.freq) ? b.freq : "irregular",
     domains: (Array.isArray(b.domains) ? b.domains : []).filter(d => DOMAIN_KEYS.includes(d)).slice(0, 6),
@@ -71,12 +72,18 @@ export async function submit(req, env) {
   if (s.apple && !isPlatformUrl("apple", s.apple)) errs.push("The Apple link should start with https://podcasts.apple.com/.");
   if (s.spotify && !isPlatformUrl("spotify", s.spotify)) errs.push("The Spotify link should start with https://open.spotify.com/.");
   if (s.youtube && !isPlatformUrl("youtube", s.youtube)) errs.push("The YouTube link should be a youtube.com or youtu.be address.");
-  if (s.youtube && !/^https:\/\/(www\.|music\.)?youtube\.com\/|^https:\/\/youtu\.be\//.test(s.youtube)) errs.push("The YouTube link should be a youtube.com address.");
   if (s.type === "book") {
     if (s.isbn) { const n = normaliseIsbn(s.isbn); if (!n) errs.push("That ISBN doesn't look right. Check the digits."); else s.isbn = n; }
     if (!s.publisher) errs.push("Add the publisher.");
     s.amazon = "";
   } else { s.isbn = ""; s.publisher = ""; }
+  if (s.type === "platform") {
+    // A platform is a website: listening links and frequency don't apply.
+    if (!s.web) errs.push("Add the platform's website.");
+    if (!s.kind) errs.push("Choose what kind of platform it is.");
+    if (!s.cost) errs.push("Choose how much it costs.");
+    s.apple = s.spotify = s.amazon = s.youtube = s.rss = ""; s.freq = "";
+  } else { s.kind = ""; s.cost = ""; }
   if (s.type === "podcast" && !s.web) errs.push("Add the podcast's official website.");
   if (s.type === "podcast" && !(s.apple || s.spotify || s.youtube || s.amazon)) errs.push("Add at least one of Apple Podcasts, Spotify, YouTube or Amazon Music.");
   if (errs.length) return json(400, { error: errs.join(" ") });

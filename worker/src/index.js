@@ -20,6 +20,7 @@ const ROUTES = [
   ["POST", "/api/admin/submissions/:id", admin.decide],
   ["PATCH,DELETE", "/api/admin/items/:id", admin.item],
   ["GET", "/api/admin/insights", admin.insights],
+  ["GET", "/api/admin/export", admin.exportItems],
   ["GET", "/api/admin/subscribers/export", admin.exportSubscribers],
   ["POST", "/api/admin/subscribers/erase", admin.eraseSubscriber],
   ["GET", "/auth/login", auth.login],
