@@ -190,7 +190,7 @@ export async function claudeTag(item, titles = []) {
     const r = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: { "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json" },
-      body: JSON.stringify({ model: process.env.CLAUDE_MODEL || "claude-haiku-5-5", max_tokens: 300, tools: [tool], tool_choice: { type: "tool", name: tool.name }, messages: [{ role: "user", content }] })
+      body: JSON.stringify({ model: process.env.CLAUDE_MODEL || "claude-haiku-5-5", max_tokens: 1000, thinking: { type: "disabled" }, tools: [tool], tool_choice: { type: "tool", name: tool.name }, messages: [{ role: "user", content }] })
     });
     if (r.status === 429 || r.status >= 500) { await sleep(2000 * (attempt + 1)); continue; }
     if (!r.ok) throw new Error(`Claude API ${r.status}: ${await r.text()}`);
