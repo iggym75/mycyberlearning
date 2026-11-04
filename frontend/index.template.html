@@ -108,6 +108,7 @@ button.logo:hover .zoom-hint,button.logo:focus-visible .zoom-hint{opacity:1}
 #coverDlg{width:min(860px,calc(100vw - 32px))}
 .cover-view{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:24px;padding:20px;align-items:start}
 .cover-view .art{display:grid;place-items:center;background:var(--sunk);border-radius:10px;padding:14px;min-height:200px}
+.cover-view img.site{background:#fff;padding:24px;border-radius:12px;min-width:min(260px,100%)}
 .cover-view img{max-width:100%;max-height:min(68vh,520px);width:auto;height:auto;border-radius:3px 6px 6px 3px;box-shadow:0 10px 28px -10px rgba(0,0,0,.55)}
 .cover-view .info{display:grid;gap:12px;min-width:0}
 .cover-view h3{font-family:var(--f-display);font-weight:800;font-size:clamp(20px,2.4vw,26px);line-height:1.15;margin:0;text-wrap:balance}
@@ -116,6 +117,9 @@ button.logo:hover .zoom-hint,button.logo:focus-visible .zoom-hint{opacity:1}
 .cover-view dd{margin:0;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
 .cover-nav{display:flex;gap:8px;justify-content:space-between;align-items:center;padding:12px 20px;border-top:1px solid var(--line)}
 @media (max-width:640px){.cover-view{grid-template-columns:minmax(0,1fr)}.cover-view img{max-height:52vh}}
+/* Platform logos are site icons and wordmarks, not artwork: shown whole on a light tile. */
+.logo.site{background:#fff;color:transparent}
+.logo.site img{object-fit:contain;padding:9%}
 .logo.book{border-radius:3px 6px 6px 3px;box-shadow:inset 5px 0 0 rgba(0,0,0,.18);height:84px}
 .logo.book img{box-shadow:0 1px 3px rgba(0,0,0,.25)}
 .title{font-family:var(--f-display);font-weight:600;font-size:17px;line-height:1.2;margin:0;text-wrap:balance}
@@ -676,9 +680,9 @@ function hue(s){ let h=0; for (const c of s) h=(h*31+c.charCodeAt(0))>>>0; retur
 function initials(n){ return n.replace(/^(the|a)\s+/i,"").split(/[\s\-:.]+/).filter(w=>/[A-Za-z0-9]/.test(w)).slice(0,2).map(w=>w[0].toUpperCase()).join(""); }
 function logo(i){
   const h = hue(i.id), bg = `linear-gradient(140deg,hsl(${h} 55% 38%),hsl(${(h+40)%360} 60% 26%))`;
-  const cls = `logo${i.type==="book"?" book":""}`;
+  const cls = `logo${i.type==="book"?" book":""}${i.type==="platform"&&i.logo?" site":""}`;
   if (!i.logo) return `<div class="${cls}" style="background:${bg}" aria-hidden="true">${esc(initials(i.name))}</div>`;
-  return `<button type="button" class="${cls} zoomable" data-zoom style="background:${bg}" aria-label="Enlarge ${i.type==="book"?"cover":"artwork"} for ${esc(i.name)}">${esc(initials(i.name))}<img src="${esc(i.logo)}" alt="" loading="lazy" onerror="this.closest('[data-zoom]').removeAttribute('data-zoom');this.remove()"><span class="zoom-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M11 8.5v5M8.5 11h5M20 20l-4.2-4.2"/></svg></span></button>`;
+  return `<button type="button" class="${cls} zoomable" data-zoom style="${i.type==="platform"?"":`background:${bg}`}" aria-label="Enlarge ${i.type==="book"?"cover":i.type==="platform"?"logo":"artwork"} for ${esc(i.name)}">${esc(initials(i.name))}<img src="${esc(i.logo)}" alt="" loading="lazy" onerror="this.closest('[data-zoom]').removeAttribute('data-zoom');this.remove()"><span class="zoom-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M11 8.5v5M8.5 11h5M20 20l-4.2-4.2"/></svg></span></button>`;
 }
 function stars(v){ const full=Math.round(v); return "★".repeat(full)+"☆".repeat(5-full); }
 function fmtN(n){ return n>=1000 ? (n/1000).toFixed(n>=10000?0:1)+"k" : String(n); }
@@ -922,7 +926,7 @@ function openCover(id){
 }
 function showCover(){
   const i = cvList[cvIdx]; if (!i) return;
-  const img = $("#cvImg"); img.src = i.logo; img.alt = `Cover of ${i.name}`;
+  const img = $("#cvImg"); img.src = i.logo; img.alt = `${i.type==="platform"?"Logo":"Cover"} of ${i.name}`; img.classList.toggle("site", i.type==="platform");
   $("#cvType").textContent = TYPE_LABEL[i.type] || "Resource";
   $("#cvTitle").textContent = i.name; $("#cvBy").textContent = i.by || "";
   $("#cvDesc").textContent = i.desc || "";

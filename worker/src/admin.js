@@ -11,6 +11,7 @@ function sanitiseItem(item) {
   for (const k of ["apple", "spotify", "youtube"]) if (item[k] && !isPlatformUrl(k, item[k])) item[k] = undefined;
   if (item.logo != null && !(/^covers\/[a-z0-9-]+\.jpg$/.test(item.logo) || isHttpUrl(item.logo))) item.logo = undefined;
   if (item.bundle && !isHttpUrl(item.bundle.url)) item.bundle = undefined;
+  if (item.logoFrom != null && !(isHttpUrl(item.logoFrom) && item.logoFrom.startsWith("https://"))) item.logoFrom = undefined; // where the refresh fetches a platform logo from
   item.domains = (Array.isArray(item.domains) ? item.domains : []).filter(d => DOMAIN_KEYS.includes(d)).slice(0, 5);
   if (item.type === "platform") { if (!KIND_KEYS.includes(item.kind)) item.kind = undefined; if (!COST_KEYS.includes(item.cost)) item.cost = undefined; }
   else { delete item.kind; delete item.cost; }
@@ -61,7 +62,7 @@ export const item = guard(async (req, env, ctx, { id }) => {
   if (req.method === "DELETE") { await deleteItem(env.DB, id); return json(200, { ok: true }); }
   const patch = await req.json().catch(() => ({}));
   const cur = rowToItem(r), it = { ...cur };
-  const allowed = ["name", "by", "desc", "domains", "level", "freq", "launched", "status", "web", "apple", "spotify", "amazon", "youtube", "rss", "logo", "curator", "hidden", "published", "tagsLocked", "isbn", "publisher", "format", "kind", "cost"];
+  const allowed = ["name", "by", "desc", "domains", "level", "freq", "launched", "status", "web", "apple", "spotify", "amazon", "youtube", "rss", "logo", "curator", "hidden", "published", "tagsLocked", "isbn", "publisher", "format", "kind", "cost", "logoFrom"];
   for (const k of allowed) if (k in patch) it[k] = patch[k] === "" || patch[k] === null ? undefined : patch[k];
   sanitiseItem(it);
   if ("isbn" in patch && it.isbn) { const n = normaliseIsbn(it.isbn); if (!n) return json(400, { error: "That ISBN doesn't look right." }); if (n !== cur.isbn) it.isbnVerified = false; it.isbn = n; }
