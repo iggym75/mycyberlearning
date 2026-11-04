@@ -5,6 +5,7 @@ import * as pub from "./public.js";
 import * as admin from "./admin.js";
 import * as news from "./news.js";
 import * as auth from "./auth.js";
+import { dispatchBriefing } from "./cron.js";
 
 // [method(s), path pattern, handler]. `:id` captures one URL-encoded segment.
 const ROUTES = [
@@ -59,5 +60,10 @@ export default {
       console.error(`${req.method} ${url.pathname} failed:`, e?.message); // no request bodies or personal data in logs
       return json(500, { error: "Something went wrong. Please try again." });
     }
+  },
+  // Cron Triggers (wrangler.jsonc "triggers"): start the daily briefing on time.
+  async scheduled(event, env, ctx) {
+    initEnv(env);
+    ctx.waitUntil(dispatchBriefing(new Date(event.scheduledTime)));
   }
 };

@@ -10,7 +10,7 @@ import { signToken, subscriberId } from "../../worker/src/lib/mail.js";
 
 const SITE = "https://mycyberlearning.co.uk";
 const TOKEN_SECRET = "t".repeat(48), SESSION_SECRET = "z".repeat(48);
-let db, env, outbox, ghUser;
+let db, env, outbox, ghUser, dispatches = [];
 const ctx = { waitUntil: p => p };
 
 before(async () => {
@@ -27,6 +27,7 @@ before(async () => {
     if (u === "https://github.com/login/oauth/access_token") return Response.json({ access_token: "gho_test" });
     if (u === "https://api.github.com/user") return Response.json(ghUser);
     if (u.startsWith("https://api.github.com/applications/")) return new Response(null, { status: 204 });
+    if (u.endsWith("/actions/workflows/news.yml/dispatches")) { dispatches.push({ url: u, auth: init.headers.authorization, body: JSON.parse(init.body) }); return new Response(null, { status: 204 }); }
     throw new Error("unexpected fetch " + u);
   };
   await insertItem(db, { id: "darknet-diaries", type: "podcast", name: "Darknet Diaries", desc: "Stories", domains: ["stories"] });
@@ -268,4 +269,21 @@ test("removing an id from ADMIN_GITHUB_IDS revokes an existing session at once",
   env.ADMIN_GITHUB_IDS = "9999";
   assert.equal((await call("/api/admin/submissions", { headers: { cookie } })).status, 403);
   env.ADMIN_GITHUB_IDS = "1001";
+});
+
+test("cron: starts the briefing workflow only in the 06:xx London hour, and only when configured", async () => {
+  const run = async iso => { const waits = []; await worker.scheduled({ scheduledTime: Date.parse(iso) }, env, { waitUntil: p => waits.push(p) }); return Promise.all(waits); };
+  dispatches.length = 0;
+  await run("2026-01-15T06:05:00Z");                       // 06:05 GMT, but no token configured yet
+  assert.equal(dispatches.length, 0);
+  env.GH_DISPATCH_TOKEN = "github_pat_test"; env.GITHUB_REPO = "iggym75/mycyberlearning";
+  await run("2026-01-15T05:05:00Z");                       // 05:05 in London in winter: the other cron's turn
+  assert.equal(dispatches.length, 0);
+  await run("2026-01-15T06:05:00Z");                       // 06:05 GMT
+  await run("2026-07-15T05:05:00Z");                       // 06:05 BST
+  assert.equal(dispatches.length, 2);
+  assert.equal(dispatches[0].url, "https://api.github.com/repos/iggym75/mycyberlearning/actions/workflows/news.yml/dispatches");
+  assert.equal(dispatches[0].auth, "Bearer github_pat_test");
+  assert.deepEqual(dispatches[0].body, { ref: "main", inputs: { send: "true" } });
+  delete env.GH_DISPATCH_TOKEN; delete env.GITHUB_REPO;
 });
