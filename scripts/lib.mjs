@@ -1,5 +1,6 @@
 // Helpers shared by the seed, refresh, export and news scripts.
 import { openD1 } from "./d1.mjs";
+import { imageSize } from "./pure.mjs";
 import { listItems as listItemsDb, upsertItem } from "../worker/src/lib/db.js";
 export { openD1, upsertItem };
 
@@ -27,9 +28,12 @@ export async function saveImage(url, name) {
     if (!r.ok || !type.startsWith("image/")) return null;
     const buf = Buffer.from(await r.arrayBuffer());
     if (buf.length < 1500 || buf.length > 3_000_000) return null; // skip placeholders and oversized files
+    // Name the file after what it really is: Safari won't show a PNG or WebP served as image/jpeg.
+    const ext = { png: "png", webp: "webp", gif: "gif", jpeg: "jpg" }[imageSize(buf)?.type];
+    if (!ext) return null;
     const dir = new URL("../frontend/covers/", import.meta.url);
     await mkdir(dir, { recursive: true });
-    await writeFile(new URL(`${name}.jpg`, dir), buf);
-    return `covers/${name}.jpg`;
+    await writeFile(new URL(`${name}.${ext}`, dir), buf);
+    return `covers/${name}.${ext}`;
   } catch { return null; } finally { clearTimeout(t); }
 }
