@@ -51,7 +51,9 @@ for (const { item } of rows) {
         if (feedUrl) {
           const f = await readFeed(feedUrl, a.trackCount).catch(e => { report.notes.push(`${item.id}: feed unreadable (${e.message})`); return null; });
           if (f?.cadence) {
-            next.freq = f.cadence.freq; next.status = f.cadence.status; next.lastEpisode = f.cadence.lastEpisode;
+            // A status or frequency set by hand (statusLocked, e.g. archiving a show whose feed still looks live) is kept.
+            if (!item.statusLocked) { next.freq = f.cadence.freq; next.status = f.cadence.status; }
+            next.lastEpisode = f.cadence.lastEpisode;
             if (f.cadence.launched && (!next.launched || f.cadence.launched < next.launched)) next.launched = f.cadence.launched;
             titles = f.titles;
           }
