@@ -84,6 +84,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .chip[aria-pressed="true"]{background:var(--signal);border-color:var(--signal);color:var(--signal-ink)}
 .chip[aria-pressed="true"] .n{color:var(--signal-ink);opacity:.8}
 .mini{font-size:12px;color:var(--ink-3);font-family:var(--f-body);text-transform:none;letter-spacing:0;background:none;border:0;cursor:pointer;padding:0;text-decoration:underline}
+.mini:disabled{opacity:.45;cursor:default;text-decoration:none}
+.active-filters .chip.clear-all{background:none;border-color:var(--line);color:var(--ink-2)}
 .switch{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
 .switch input{accent-color:var(--pick);width:16px;height:16px}
 
@@ -326,7 +328,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 <main class="wrap main library-only" id="libraryView">
   <aside class="rail" id="rail" aria-label="Filters">
     <div class="rail-head rail-mobile"><h2>Filters</h2><button class="btn ghost" id="closeFiltersX" type="button" aria-label="Close filters">✕</button></div>
-    <h3>Show</h3>
+    <h3>Show <button class="mini" id="clearAll" type="button" disabled>Clear all filters</button></h3>
     <div class="seg" role="group" aria-label="Resource type">
       <button type="button" data-type="all" aria-pressed="true">All</button>
       <button type="button" data-type="podcast" aria-pressed="false">Podcasts</button>
@@ -856,9 +858,11 @@ function render(){
   $("#count").textContent = `${list.length} of ${ITEMS.filter(i=>!i.hidden||api.isAdmin).length} resources`;
   $("#closeFilters").textContent = list.length ? `Show ${list.length} result${list.length===1?"":"s"}` : "No matches: close";
   syncNav();
-  const act = [...state.domains.map(d=>["domain",d,DOM[d]?.label]), ...state.freqs.map(f=>["freq",f,FREQ[f]?.label]), ...state.levels.map(l=>["level",l,l]), ...state.publishers.map(p=>["pub",p,p]), ...state.kinds.map(k=>["kind",k,KIND[k]?.label]), ...state.costs.map(k=>["cost",k,COST[k]?.label])];
-  $("#activeFilters").innerHTML = act.length ? act.map(([k,v,l]) => `<button class="chip" type="button" data-remove="${k}:${v}">${esc(l)} ✕</button>`).join("") + (state.domains.length>1?`<span class="muted" style="font-size:12.5px;align-self:center">matching ${state.match==="all"?"all":"any"} selected domains</span>`:"") : "";
-  $("#grid").innerHTML = list.length ? list.map(card).join("") : `<div class="empty"><p style="margin:0 0 10px"><b>Nothing matches those filters.</b></p><p style="margin:0">Try “Match any” instead of “Match all”, or clear a frequency filter.</p></div>`;
+  const act = [...(state.picks?[["picks","on","MCL Picks"]]:[]), ...state.domains.map(d=>["domain",d,DOM[d]?.label]), ...state.freqs.map(f=>["freq",f,FREQ[f]?.label]), ...state.levels.map(l=>["level",l,l]), ...state.publishers.map(p=>["pub",p,p]), ...state.kinds.map(k=>["kind",k,KIND[k]?.label]), ...state.costs.map(k=>["cost",k,COST[k]?.label])];
+  const anyFilter = act.length > 0 || state.q.trim() !== "";
+  $("#clearAll").disabled = !anyFilter;
+  $("#activeFilters").innerHTML = act.length ? act.map(([k,v,l]) => `<button class="chip" type="button" data-remove="${k}:${v}">${esc(l)} ✕</button>`).join("") + (state.domains.length>1?`<span class="muted" style="font-size:12.5px;align-self:center">matching ${state.match==="all"?"all":"any"} selected domains</span>`:"") + (act.length>1||state.q.trim()?`<button class="chip clear-all" type="button" data-clearall>Clear all</button>`:"") : "";
+  $("#grid").innerHTML = list.length ? list.map(card).join("") : `<div class="empty"><p style="margin:0 0 10px"><b>Nothing matches those filters.</b></p><p style="margin:0 0 12px">Try “Match any” instead of “Match all”, or remove a filter.</p>${anyFilter?`<button class="btn sm" type="button" data-clearall>Clear all filters</button>`:""}</div>`;
   const pods = ITEMS.filter(i=>i.type==="podcast"&&!i.hidden).length, books = ITEMS.filter(i=>i.type==="book"&&!i.hidden).length, plats = ITEMS.filter(i=>i.type==="platform"&&!i.hidden).length;
   $("#navPods").textContent = pods; $("#navBooks").textContent = books; $("#navPlats").textContent = plats;
   $("#stats").innerHTML = `<span><b>${pods}</b> podcasts</span><span><b>${books}</b> books</span><span><b>${plats}</b> platforms</span><span><b>${TAX.domains.length}</b> security domains</span><span><b>${ITEMS.filter(i=>i.curator).length}</b> MCL Picks</span>`;
@@ -867,6 +871,12 @@ function render(){
 function toggle(arr, v){ const k = arr.indexOf(v); k<0 ? arr.push(v) : arr.splice(k,1); }
 function toast(msg){ const t=$("#toast"); t.textContent=msg; t.hidden=false; clearTimeout(toast._t); toast._t=setTimeout(()=>t.hidden=true, 2600); }
 
+/* Resets every filter and the search box; keeps the chosen tab (All/Podcasts/Books/Platforms) and sort order. */
+function clearAllFilters(){
+  Object.assign(state, {match:"any", domains:[], freqs:[], levels:[], publishers:[], kinds:[], costs:[], picks:false, q:""});
+  render();
+  toast("All filters cleared");
+}
 /* ---------- Events ---------- */
 document.addEventListener("click", async e => {
   const b = e.target.closest("button, [data-close]"); if (!b) return;
@@ -882,6 +892,8 @@ document.addEventListener("click", async e => {
   else if (b.id==="clearPub"){ state.publishers=[]; render(); }
   else if (b.dataset.level){ toggle(state.levels,b.dataset.level); render(); }
   else if (b.dataset.tag){ if(!state.domains.includes(b.dataset.tag)) state.domains.push(b.dataset.tag); render(); window.scrollTo({top:$("#count").getBoundingClientRect().top+scrollY-90,behavior:"smooth"}); }
+  else if (b.id==="clearAll" || b.hasAttribute("data-clearall")){ clearAllFilters(); }
+  else if (b.dataset.remove==="picks:on"){ state.picks=false; render(); }
   else if (b.dataset.remove){ const k=b.dataset.remove.split(":")[0], v=b.dataset.remove.slice(k.length+1); toggle(k==="domain"?state.domains:k==="freq"?state.freqs:k==="pub"?state.publishers:k==="kind"?state.kinds:k==="cost"?state.costs:state.levels,v); render(); }
   else if (b.id==="clearDomains"){ state.domains=[]; render(); }
   else if (b.id==="clearFreq"){ state.freqs=[]; render(); }
