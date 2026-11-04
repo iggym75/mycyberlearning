@@ -28,8 +28,13 @@
     "MAIL_PROVIDER": "resend",
     "CLAUDE_MODEL": "claude-haiku-5-5",
     "GITHUB_OAUTH_CLIENT_ID": "Ov23liBFSHlciUM04fQn",
-    "ADMIN_GITHUB_IDS": "281173996"
+    "ADMIN_GITHUB_IDS": "281173996",
+    "GITHUB_REPO": "iggym75/mycyberlearning"
   },
+
+  // 05:05 and 06:05 UTC: one of them is 06:05 in London (GMT in winter, BST in summer); worker/src/cron.js starts the
+  // daily briefing workflow. Secret GH_DISPATCH_TOKEN: fine-grained GitHub token, this repo only, Actions read & write.
+  "triggers": { "crons": ["5 5 * * *", "5 6 * * *"] },
 
   // Our own console messages only: request URLs (which carry unsubscribe tokens) and IP metadata aren't logged.
   "observability": { "enabled": true, "logs": { "invocation_logs": false } },
