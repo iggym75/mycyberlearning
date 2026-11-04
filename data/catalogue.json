@@ -1,7 +1,7 @@
 {
   "meta": {
     "site": "My Cyber Learning",
-    "generated": "2026-11-03",
+    "generated": "2026-11-04",
     "ratingSource": "Podnews.net aggregate (Rephonic: Apple Podcasts, Spotify, Podchaser, Podcast Addict)",
     "notes": "Items with verified:false have metadata from list articles or editorial knowledge; the weekly refresh job confirms links, artwork, frequency, launch date and ratings."
   },
@@ -72,7 +72,7 @@
       "rating": {
         "v": 4.9,
         "n": 45,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": true,
       "sources": [
@@ -84,7 +84,7 @@
       "apple": "https://podcasts.apple.com/podcast/id1332947921",
       "rss": "https://feeds.soundcloud.com/users/soundcloud:users:376833845/sounds.rss",
       "lastEpisode": "2026-11-03",
-      "episodes": 462,
+      "episodes": 463,
       "amazon": "https://music.amazon.co.uk/podcasts/8d3ef16b-d055-452e-8f60-bc4e71316232/5bytespodcast",
       "spotify": "https://open.spotify.com/show/5HlR3ywunSAUnZ6NAtPWXA",
       "id": "5bytes"
@@ -143,7 +143,7 @@
       "rating": {
         "v": 4.8,
         "n": 228,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": true,
       "sources": [
@@ -178,7 +178,11 @@
       "launched": "2020-06",
       "status": "active",
       "web": "https://www.sans.org/podcasts/blueprint",
-      "rating": null,
+      "rating": {
+        "v": 4.9,
+        "n": 193,
+        "asOf": "2026-11-04"
+      },
       "curator": true,
       "sources": [
         "mcl",
@@ -216,7 +220,7 @@
       "rating": {
         "v": 4.8,
         "n": 207,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": true,
       "sources": [
@@ -288,7 +292,7 @@
       "rating": {
         "v": 5,
         "n": 10,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": true,
       "sources": [
@@ -323,7 +327,7 @@
       "rating": {
         "v": 4.8,
         "n": 7824,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": true,
       "sources": [
@@ -368,8 +372,8 @@
       "logo": "covers/podcast-cyber-security-headlines.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.libsyn.com/shows/289580/destinations/2260670.xml",
-      "lastEpisode": "2026-11-03",
-      "episodes": 1881,
+      "lastEpisode": "2026-11-04",
+      "episodes": 1883,
       "amazon": "https://music.amazon.co.uk/podcasts/45477283-d157-4ea1-9782-fd29dab41f3d/cybersecurity-headlines",
       "spotify": "https://open.spotify.com/show/5ylaiuoDj7YOVSdyVJMDR7",
       "id": "cyber-security-headlines"
@@ -731,7 +735,7 @@
       "rating": {
         "v": 4.7,
         "n": 1220,
-        "asOf": "2026-10-30"
+        "asOf": "2026-11-04"
       },
       "curator": true,
       "sources": [
@@ -746,7 +750,7 @@
       "logo": "covers/podcast-risky-business.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://risky.biz/feeds/risky-business/",
-      "lastEpisode": "2026-10-30",
+      "lastEpisode": "2026-11-04",
       "episodes": 102,
       "amazon": "https://music.amazon.co.uk/podcasts/43b404f9-791f-4e4c-a18b-fa17fd64db11/risky-business",
       "id": "risky-business"
@@ -769,7 +773,11 @@
       "launched": "2016-04",
       "status": "active",
       "web": "https://isc.sans.edu/podcast.html",
-      "rating": null,
+      "rating": {
+        "v": 4.9,
+        "n": 1370,
+        "asOf": "2026-11-04"
+      },
       "curator": true,
       "sources": [
         "mcl"
@@ -779,7 +787,7 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id304863991",
       "rss": "https://www.dshield.org/dailypodcast.xml",
-      "lastEpisode": "2026-11-03",
+      "lastEpisode": "2026-11-04",
       "episodes": 2000,
       "amazon": "https://music.amazon.co.uk/podcasts/43784207-1ec2-465d-8d86-ebc9b450ebb7/sans-internet-stormcenter-daily-cyber-security-podcast-stormcast",
       "spotify": "https://open.spotify.com/show/6oeUmMwv1AQpdYNHmOE4A0",
@@ -1117,7 +1125,7 @@
       "rating": {
         "v": 5,
         "n": 3,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -1152,7 +1160,7 @@
       "rating": {
         "v": 4.7,
         "n": 62,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -1190,7 +1198,7 @@
       "rating": {
         "v": 4.8,
         "n": 109,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -1226,7 +1234,7 @@
       "rating": {
         "v": 4.9,
         "n": 70,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -1291,7 +1299,7 @@
       "rating": {
         "v": 5,
         "n": 10,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -1328,7 +1336,7 @@
       "rating": {
         "v": 4.7,
         "n": 136,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -1362,7 +1370,7 @@
       "rating": {
         "v": 5,
         "n": 3,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -1398,7 +1406,7 @@
       "rating": {
         "v": 4.7,
         "n": 42,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -1432,7 +1440,7 @@
       "rating": {
         "v": 4.8,
         "n": 297,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -1470,7 +1478,7 @@
       "rating": {
         "v": 4.9,
         "n": 145,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -1510,7 +1518,7 @@
       "rating": {
         "v": 4.6,
         "n": 984,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -1545,7 +1553,7 @@
       "rating": {
         "v": 4.9,
         "n": 527,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -1611,7 +1619,7 @@
       "rating": {
         "v": 4.7,
         "n": 34,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -1646,7 +1654,7 @@
       "rating": {
         "v": 3.7,
         "n": 12,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -1680,7 +1688,7 @@
       "rating": {
         "v": 3,
         "n": 3,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -2159,7 +2167,7 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1363182054",
       "rss": "https://cybersecuritytoday.libsyn.com/rss",
-      "lastEpisode": "2026-11-02",
+      "lastEpisode": "2026-11-04",
       "episodes": 105,
       "amazon": "https://music.amazon.co.uk/podcasts/4fecadbb-cd07-4d0c-9edc-a2a4441111ce/cybersecurity-today",
       "spotify": "https://open.spotify.com/show/2YiPcnkJLIcxtQ04nCfaSu",
@@ -2189,8 +2197,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 146,
-      "lastEpisode": "2026-11-03",
+      "episodes": 147,
+      "lastEpisode": "2026-11-04",
       "logo": "covers/podcast-cybersecurity-under-pressure.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2026-02",
@@ -2891,8 +2899,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 150,
-      "lastEpisode": "2026-10-28",
+      "episodes": 151,
+      "lastEpisode": "2026-11-04",
       "logo": "covers/podcast-industrial-cybersecurity-insider.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2023-10",
@@ -3498,8 +3506,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 225,
-      "lastEpisode": "2026-10-28",
+      "episodes": 226,
+      "lastEpisode": "2026-11-04",
       "logo": "covers/podcast-reimagining-cyber.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2020-12",
@@ -3588,7 +3596,11 @@
       "launched": "2024-09",
       "status": "active",
       "web": "https://riskmanagementshow.com/",
-      "rating": null,
+      "rating": {
+        "v": 4.6,
+        "n": 36,
+        "asOf": "2026-11-04"
+      },
       "curator": false,
       "sources": [
         "gcs"
@@ -3618,7 +3630,11 @@
       "freq": "weekly",
       "launched": "2024-12",
       "status": "active",
-      "rating": null,
+      "rating": {
+        "v": 4.8,
+        "n": 45,
+        "asOf": "2026-11-04"
+      },
       "curator": false,
       "sources": [
         "cycode"
@@ -3826,7 +3842,7 @@
       "logo": "covers/podcast-security-now.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.twit.tv/sn.xml",
-      "lastEpisode": "2026-10-28",
+      "lastEpisode": "2026-11-04",
       "episodes": 232,
       "amazon": "https://music.amazon.co.uk/podcasts/3c251d39-3b4a-4e5c-ac5a-b1d7f6ddc2ce/security-now-audio",
       "id": "security-now"
@@ -3942,7 +3958,11 @@
       "launched": "2021-07",
       "status": "active",
       "web": "https://securitycryptographywhatever.com/",
-      "rating": null,
+      "rating": {
+        "v": 4.8,
+        "n": 239,
+        "asOf": "2026-11-04"
+      },
       "curator": false,
       "sources": [
         "gcs"
@@ -4241,7 +4261,7 @@
       "logo": "covers/podcast-talos-takes.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.buzzsprout.com/2018149.rss",
-      "lastEpisode": "2026-10-21",
+      "lastEpisode": "2026-11-04",
       "episodes": 242,
       "amazon": "https://music.amazon.co.uk/podcasts/ba71c5ff-8b36-4597-8fb5-e0f8c5d88ca0/talos-takes",
       "spotify": "https://open.spotify.com/show/2sZqrFXR3RupDqwXJM7kve",
@@ -4300,7 +4320,7 @@
       "rating": {
         "v": 4.5,
         "n": 2950,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -4311,7 +4331,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://anchor.fm/s/f7cac464/podcast/rss",
       "lastEpisode": "2026-11-03",
-      "episodes": 1129,
+      "episodes": 1130,
       "amazon": "https://music.amazon.co.uk/podcasts/2b3e5988-907e-4702-96f5-7eb33adc729e/the-ai-daily-brief-artificial-intelligence-news-and-analysis",
       "id": "ai-daily-brief"
     },
@@ -4335,7 +4355,7 @@
       "rating": {
         "v": 5,
         "n": 1,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -4374,7 +4394,8 @@
       ],
       "verified": false,
       "amazon": "https://music.amazon.co.uk/podcasts/3ced8532-3b05-437d-83c5-016ccaf35731/the-cyber-queens-podcast",
-      "id": "cyber-queens"
+      "id": "cyber-queens",
+      "hidden": true
     },
     {
       "type": "podcast",
@@ -4617,7 +4638,8 @@
         "gcs"
       ],
       "verified": false,
-      "id": "osint-show"
+      "id": "osint-show",
+      "hidden": true
     },
     {
       "type": "podcast",
@@ -5230,7 +5252,7 @@
         "v": 4.5,
         "n": 8,
         "src": "Open Library",
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "isbnAlt": [
         "9781119096726"
@@ -7933,7 +7955,7 @@
         "v": 4.5,
         "n": 57,
         "src": "Open Library",
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": true,
       "sources": [
@@ -8823,7 +8845,7 @@
         "v": 3.6,
         "n": 15,
         "src": "Open Library",
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "isbnAlt": [
         "9781119433385"
@@ -8949,7 +8971,7 @@
         "v": 4.2,
         "n": 5,
         "src": "Open Library",
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "logo": "covers/book-tcp-ip-illustrated-volume-1.jpg",
       "openlibrary": "https://openlibrary.org/isbn/9780321336316",
@@ -9100,7 +9122,7 @@
         "v": 3.7,
         "n": 6,
         "src": "Open Library",
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "isbn": "9780470503829",
       "logo": "covers/book-the-art-of-intrusion.jpg",
@@ -10128,7 +10150,7 @@
         "v": 4,
         "n": 12,
         "src": "Open Library",
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -10255,7 +10277,7 @@
         "v": 4.2,
         "n": 6,
         "src": "Open Library",
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -10322,7 +10344,7 @@
         "v": 4.1,
         "n": 22,
         "src": "Open Library",
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-04"
       },
       "curator": false,
       "sources": [
@@ -10399,6 +10421,705 @@
       "logo": "covers/book-this-is-how.jpg",
       "logoSource": "Open Library",
       "id": "book-this-is-how"
+    },
+    {
+      "type": "platform",
+      "name": "Hack The Box",
+      "by": "Hack The Box",
+      "desc": "Large library of vulnerable machines, challenges and Pro Labs, plus the HTB Academy courses; free active machines and paid tiers for retired content and modules.",
+      "kind": "lab",
+      "cost": "freemium",
+      "domains": [
+        "offensive",
+        "defensive"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "status": "active",
+      "web": "https://www.hackthebox.com/",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logoFrom": "https://www.hackthebox.com/hubfs/Cube_favicon.png",
+      "logo": "covers/platform-hackthebox.jpg",
+      "logoSource": "hand-picked (www.hackthebox.com)",
+      "id": "hackthebox"
+    },
+    {
+      "type": "platform",
+      "name": "Pluralsight",
+      "by": "Pluralsight",
+      "desc": "Subscription video library with structured security and cloud paths and skill assessments; a free trial is usually available.",
+      "kind": "course",
+      "cost": "paid",
+      "domains": [
+        "engineering",
+        "cloud",
+        "career"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "status": "active",
+      "web": "https://www.pluralsight.com/",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logoFrom": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/77/dd/55/77dd55b8-955e-9c44-25fd-8e04539d79c1/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/512x512bb.jpg",
+      "logo": "covers/platform-pluralsight.jpg",
+      "logoSource": "hand-picked (is1-ssl.mzstatic.com)",
+      "id": "pluralsight"
+    },
+    {
+      "type": "platform",
+      "name": "Security BSides",
+      "by": "BSides",
+      "desc": "Community-run local security conferences around the world, usually free or very low cost and welcoming to newcomers.",
+      "kind": "events",
+      "cost": "free",
+      "domains": [
+        "career"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "status": "active",
+      "web": "https://bsides.org/",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-security-bsides.jpg",
+      "logoSource": "site icon",
+      "id": "security-bsides"
+    },
+    {
+      "type": "platform",
+      "name": "TryHackMe",
+      "by": "TryHackMe",
+      "desc": "Browser-based rooms and learning paths that take complete beginners through to pen-testing and SOC work, with many rooms free and a low-cost subscription for the rest.",
+      "kind": "lab",
+      "cost": "freemium",
+      "domains": [
+        "offensive",
+        "defensive",
+        "career"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "status": "active",
+      "web": "https://tryhackme.com/",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-tryhackme.jpg",
+      "logoSource": "site icon",
+      "id": "tryhackme"
+    },
+    {
+      "type": "platform",
+      "name": "Udemy",
+      "by": "Udemy",
+      "desc": "A large marketplace of cybersecurity courses by independent instructors; check reviews and wait for the frequent sales.",
+      "kind": "course",
+      "cost": "low",
+      "domains": [
+        "career",
+        "offensive",
+        "defensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "status": "active",
+      "web": "https://www.udemy.com/topic/cyber-security/",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logoFrom": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/960px-Udemy_logo.svg.png",
+      "logo": "covers/platform-udemy.jpg",
+      "logoSource": "hand-picked (upload.wikimedia.org)",
+      "id": "udemy"
+    },
+    {
+      "type": "platform",
+      "name": "Antisyphon Training",
+      "by": "Antisyphon Training",
+      "desc": "Practitioner-taught live and on-demand classes, many on a pay-what-you-can basis, from the Black Hills community.",
+      "kind": "course",
+      "cost": "low",
+      "domains": [
+        "defensive",
+        "offensive",
+        "career"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "status": "active",
+      "web": "https://www.antisyphontraining.com/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-antisyphon.jpg",
+      "logoSource": "site icon",
+      "id": "antisyphon"
+    },
+    {
+      "type": "platform",
+      "name": "Blue Team Labs Online",
+      "by": "Security Blue Team",
+      "desc": "Defensive challenges and investigations in forensics, incident response, threat hunting and log analysis, with a free tier.",
+      "kind": "lab",
+      "cost": "freemium",
+      "domains": [
+        "defensive",
+        "operations",
+        "hunting"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "status": "active",
+      "web": "https://blueteamlabs.online/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-blue-team-labs-online.jpg",
+      "logoSource": "site social image",
+      "id": "blue-team-labs-online"
+    },
+    {
+      "type": "platform",
+      "name": "Coursera",
+      "by": "Coursera",
+      "desc": "University and industry cybersecurity courses and certificates; most can be audited free, with paid certificates.",
+      "kind": "course",
+      "cost": "freemium",
+      "domains": [
+        "career",
+        "grc"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "status": "active",
+      "web": "https://www.coursera.org/courses?query=cybersecurity",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-coursera.jpg",
+      "logoSource": "site icon",
+      "id": "coursera"
+    },
+    {
+      "type": "platform",
+      "name": "CTFtime",
+      "by": "CTFtime",
+      "desc": "The community calendar and leaderboard for capture-the-flag events worldwide, with team rankings and write-ups.",
+      "kind": "events",
+      "cost": "free",
+      "domains": [
+        "offensive",
+        "career"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "status": "active",
+      "web": "https://ctftime.org/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-ctftime.jpg",
+      "logoSource": "site icon",
+      "id": "ctftime"
+    },
+    {
+      "type": "platform",
+      "name": "CyberDefenders",
+      "by": "CyberDefenders",
+      "desc": "Blue-team labs built from realistic incident data: packet captures, memory images and SIEM logs to investigate, many of them free.",
+      "kind": "lab",
+      "cost": "freemium",
+      "domains": [
+        "defensive",
+        "hunting",
+        "operations"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "status": "active",
+      "web": "https://cyberdefenders.org/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-cyberdefenders.jpg",
+      "logoSource": "site icon",
+      "id": "cyberdefenders"
+    },
+    {
+      "type": "platform",
+      "name": "Cybrary",
+      "by": "Cybrary",
+      "desc": "Courses and career paths across SOC analysis, pen testing and certifications, with a free library and a paid tier.",
+      "kind": "course",
+      "cost": "freemium",
+      "domains": [
+        "career",
+        "defensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "status": "active",
+      "web": "https://www.cybrary.it/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-cybrary.jpg",
+      "logoSource": "site icon",
+      "id": "cybrary"
+    },
+    {
+      "type": "platform",
+      "name": "edX",
+      "by": "edX",
+      "desc": "University-led cybersecurity courses and programmes, free to audit with optional paid certificates.",
+      "kind": "course",
+      "cost": "freemium",
+      "domains": [
+        "career",
+        "grc"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "status": "active",
+      "web": "https://www.edx.org/learn/cybersecurity",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-edx.jpg",
+      "logoSource": "site icon (via Google)",
+      "id": "edx"
+    },
+    {
+      "type": "platform",
+      "name": "Eventbrite (cybersecurity events)",
+      "by": "Eventbrite",
+      "desc": "Search for security webinars, workshops and conferences, online and near you; many listings are free.",
+      "kind": "events",
+      "cost": "free",
+      "domains": [
+        "career"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "status": "active",
+      "web": "https://www.eventbrite.co.uk/d/online/cyber-security/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-eventbrite.jpg",
+      "logoSource": "site icon (via Google)",
+      "id": "eventbrite"
+    },
+    {
+      "type": "platform",
+      "name": "ISC2 Certified in Cybersecurity (CC)",
+      "by": "ISC2",
+      "desc": "An entry-level, vendor-neutral certification whose official online training and exam are offered free to new candidates.",
+      "kind": "certification",
+      "cost": "free",
+      "domains": [
+        "career",
+        "grc"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "status": "active",
+      "web": "https://www.isc2.org/certifications/cc",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logoFrom": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/ISC2_Logo.svg/960px-ISC2_Logo.svg.png",
+      "logo": "covers/platform-isc2-cc.jpg",
+      "logoSource": "hand-picked (upload.wikimedia.org)",
+      "id": "isc2-cc"
+    },
+    {
+      "type": "platform",
+      "name": "LetsDefend",
+      "by": "LetsDefend",
+      "desc": "A simulated SOC where you triage alerts, investigate cases and learn analyst workflows; free tier with paid learning paths.",
+      "kind": "lab",
+      "cost": "freemium",
+      "domains": [
+        "operations",
+        "defensive",
+        "career"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "status": "active",
+      "web": "https://letsdefend.io/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-letsdefend.jpg",
+      "logoSource": "site icon",
+      "id": "letsdefend"
+    },
+    {
+      "type": "platform",
+      "name": "Meetup (cybersecurity groups)",
+      "by": "Meetup",
+      "desc": "Find local and online security meetups, study groups and talks near you; most groups are free to join.",
+      "kind": "events",
+      "cost": "free",
+      "domains": [
+        "career"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "status": "active",
+      "web": "https://www.meetup.com/topics/cybersecurity/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-meetup.jpg",
+      "logoSource": "site icon",
+      "id": "meetup"
+    },
+    {
+      "type": "platform",
+      "name": "OpenSecurityTraining2",
+      "by": "OpenSecurityTraining2",
+      "desc": "Free, deep technical courses on architecture, reverse engineering, firmware and vulnerability research, taught by practitioners.",
+      "kind": "course",
+      "cost": "free",
+      "domains": [
+        "engineering",
+        "offensive"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "status": "active",
+      "web": "https://p.ost2.fyi/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "id": "ost2"
+    },
+    {
+      "type": "platform",
+      "name": "OverTheWire Wargames",
+      "by": "OverTheWire",
+      "desc": "Classic free wargames played over SSH; Bandit is a popular first step for learning the Linux command line and security basics.",
+      "kind": "ctf",
+      "cost": "free",
+      "domains": [
+        "offensive",
+        "career"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "status": "active",
+      "web": "https://overthewire.org/wargames/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "id": "overthewire"
+    },
+    {
+      "type": "platform",
+      "name": "OWASP Chapters",
+      "by": "OWASP",
+      "desc": "Free local OWASP meetups worldwide with talks on application security and a friendly way into the community.",
+      "kind": "community",
+      "cost": "free",
+      "domains": [
+        "appsec",
+        "career"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "status": "active",
+      "web": "https://owasp.org/chapters",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logoFrom": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/OWASP_black_logo.svg/960px-OWASP_black_logo.svg.png",
+      "logo": "covers/platform-owasp-chapters.jpg",
+      "logoSource": "hand-picked (upload.wikimedia.org)",
+      "id": "owasp-chapters"
+    },
+    {
+      "type": "platform",
+      "name": "OWASP Juice Shop",
+      "by": "OWASP",
+      "desc": "A deliberately insecure web shop you run yourself, with scored challenges covering the OWASP Top 10 and much more.",
+      "kind": "lab",
+      "cost": "free",
+      "domains": [
+        "appsec"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "status": "active",
+      "web": "https://owasp.org/projects/juice-shop",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logoFrom": "https://raw.githubusercontent.com/juice-shop/juice-shop/master/frontend/src/assets/public/images/JuiceShop_Logo.png",
+      "logo": "covers/platform-owasp-juice-shop.jpg",
+      "logoSource": "hand-picked (raw.githubusercontent.com)",
+      "id": "owasp-juice-shop"
+    },
+    {
+      "type": "platform",
+      "name": "PentesterLab",
+      "by": "PentesterLab",
+      "desc": "Hands-on exercises on real-world web and code-review vulnerabilities, with free introductory exercises and an affordable subscription.",
+      "kind": "lab",
+      "cost": "low",
+      "domains": [
+        "appsec",
+        "offensive"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "status": "active",
+      "web": "https://pentesterlab.com/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-pentesterlab.jpg",
+      "logoSource": "site icon (via Google)",
+      "id": "pentesterlab"
+    },
+    {
+      "type": "platform",
+      "name": "picoCTF",
+      "by": "Carnegie Mellon University",
+      "desc": "Free capture-the-flag practice and an annual competition from Carnegie Mellon, designed for students and newcomers.",
+      "kind": "ctf",
+      "cost": "free",
+      "domains": [
+        "offensive",
+        "career"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "status": "active",
+      "web": "https://picoctf.org/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-picoctf.jpg",
+      "logoSource": "site icon (via Google)",
+      "id": "picoctf"
+    },
+    {
+      "type": "platform",
+      "name": "Professor Messer",
+      "by": "Professor Messer",
+      "desc": "Free, complete video courses for CompTIA certifications including Security+, Network+ and A+, with low-cost study notes.",
+      "kind": "course",
+      "cost": "free",
+      "domains": [
+        "career"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "status": "active",
+      "web": "https://www.professormesser.com/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-professor-messer.jpg",
+      "logoSource": "site icon (via Google)",
+      "id": "professor-messer"
+    },
+    {
+      "type": "platform",
+      "name": "pwn.college",
+      "by": "Arizona State University",
+      "desc": "Free university-built dojo for binary exploitation, reverse engineering and systems security, from Linux basics to kernel exploits.",
+      "kind": "lab",
+      "cost": "free",
+      "domains": [
+        "offensive",
+        "engineering"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "status": "active",
+      "web": "https://pwn.college/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-pwn-college.jpg",
+      "logoSource": "site icon",
+      "id": "pwn-college"
+    },
+    {
+      "type": "platform",
+      "name": "Root Me",
+      "by": "Root Me",
+      "desc": "Hundreds of free challenges and virtual environments across web, network, cryptography, forensics and reverse engineering.",
+      "kind": "ctf",
+      "cost": "freemium",
+      "domains": [
+        "offensive",
+        "appsec"
+      ],
+      "level": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "status": "active",
+      "web": "https://www.root-me.org/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "id": "root-me"
+    },
+    {
+      "type": "platform",
+      "name": "Web Security Academy",
+      "by": "PortSwigger",
+      "desc": "Free, in-depth web application security training with hundreds of interactive labs covering everything from SQL injection to request smuggling.",
+      "kind": "lab",
+      "cost": "free",
+      "domains": [
+        "appsec",
+        "offensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "status": "active",
+      "web": "https://portswigger.net/web-security",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logo": "covers/platform-portswigger-academy.jpg",
+      "logoSource": "site icon",
+      "id": "portswigger-academy"
     }
   ]
 }
