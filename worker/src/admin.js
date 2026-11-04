@@ -62,12 +62,14 @@ export const item = guard(async (req, env, ctx, { id }) => {
   if (req.method === "DELETE") { await deleteItem(env.DB, id); return json(200, { ok: true }); }
   const patch = await req.json().catch(() => ({}));
   const cur = rowToItem(r), it = { ...cur };
-  const allowed = ["name", "by", "desc", "domains", "level", "freq", "launched", "status", "web", "apple", "spotify", "amazon", "youtube", "rss", "logo", "curator", "hidden", "published", "tagsLocked", "isbn", "publisher", "format", "kind", "cost", "logoFrom"];
+  const allowed = ["name", "by", "desc", "domains", "level", "freq", "launched", "status", "web", "apple", "spotify", "amazon", "youtube", "rss", "logo", "curator", "hidden", "published", "tagsLocked", "isbn", "publisher", "format", "kind", "cost", "logoFrom", "statusLocked"];
   for (const k of allowed) if (k in patch) it[k] = patch[k] === "" || patch[k] === null ? undefined : patch[k];
   sanitiseItem(it);
   if ("isbn" in patch && it.isbn) { const n = normaliseIsbn(it.isbn); if (!n) return json(400, { error: "That ISBN doesn't look right." }); if (n !== cur.isbn) it.isbnVerified = false; it.isbn = n; }
   if (it.freq && !FREQ_KEYS.includes(it.freq)) return json(400, { error: "Unknown frequency." });
   if ("domains" in patch) it.tagsLocked = true; // a human edited the tags; the refresh job leaves them alone
+  // Likewise a changed status or frequency (the edit form always sends freq, so only a real change locks it).
+  if (!("statusLocked" in patch) && (("status" in patch && patch.status !== cur.status) || ("freq" in patch && patch.freq !== cur.freq))) it.statusLocked = true;
   for (const k of ["name", "by", "desc"]) if (typeof it[k] === "string") it[k] = it[k].slice(0, k === "desc" ? 800 : 160);
   await upsertItem(env.DB, it);
   return json(200, { item: it });
