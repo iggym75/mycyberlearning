@@ -9,7 +9,7 @@ function sanitiseItem(item) {
   for (const k of URL_FIELDS) if (item[k] != null) item[k] = isHttpUrl(item[k]) ? String(item[k]).slice(0, 500) : undefined;
   if (item.amazon && !isAmazonMusicUrl(item.amazon)) item.amazon = undefined;
   for (const k of ["apple", "spotify", "youtube"]) if (item[k] && !isPlatformUrl(k, item[k])) item[k] = undefined;
-  if (item.logo != null && !(/^covers\/[a-z0-9-]+\.jpg$/.test(item.logo) || isHttpUrl(item.logo))) item.logo = undefined;
+  if (item.logo != null && !(/^covers\/[a-z0-9-]+\.(jpg|png|webp|gif)$/.test(item.logo) || isHttpUrl(item.logo))) item.logo = undefined;
   if (item.bundle && !isHttpUrl(item.bundle.url)) item.bundle = undefined;
   if (item.logoFrom != null && !(isHttpUrl(item.logoFrom) && item.logoFrom.startsWith("https://"))) item.logoFrom = undefined; // where the refresh fetches a platform logo from
   item.domains = (Array.isArray(item.domains) ? item.domains : []).filter(d => DOMAIN_KEYS.includes(d)).slice(0, 5);
