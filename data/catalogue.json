@@ -6433,6 +6433,36 @@
     },
     {
       "type": "book",
+      "name": "Extreme Privacy: What It Takes to Disappear",
+      "by": "Michael Bazzell",
+      "desc": "Step-by-step playbook for shrinking your digital footprint: devices, accounts, payments, housing and identity, from basic hygiene to going off the grid.",
+      "domains": [
+        "privacy",
+        "human"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2024",
+      "publisher": "Independently published",
+      "format": [
+        "book",
+        "ebook"
+      ],
+      "isbn": "9798335024334",
+      "isbnVerified": false,
+      "web": "https://inteltechniques.com/books",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "book-extreme-privacy"
+    },
+    {
+      "type": "book",
       "name": "Foundations of Information Security",
       "by": "Jason Andress",
       "desc": "Clear introduction to core security concepts for newcomers.",
@@ -7833,6 +7863,36 @@
       "rating": null,
       "logo": "covers/book-operationalizing-threat-intelligence.jpg",
       "id": "book-operationalizing-threat-intelligence"
+    },
+    {
+      "type": "book",
+      "name": "OSINT Techniques: Resources for Uncovering Online Information",
+      "by": "Michael Bazzell & Jason Edison",
+      "desc": "Hands-on field manual for open-source intelligence: search methods, tools and a ready-built investigation VM for finding people, accounts and data online.",
+      "domains": [
+        "cti",
+        "offensive"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2024",
+      "publisher": "Independently published",
+      "format": [
+        "book",
+        "ebook"
+      ],
+      "isbn": "9798345969250",
+      "isbnVerified": false,
+      "web": "https://inteltechniques.com/books",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "book-osint-techniques"
     },
     {
       "type": "book",
