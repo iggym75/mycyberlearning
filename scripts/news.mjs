@@ -96,12 +96,14 @@ ${input}`;
   try {
     const r = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST", headers: { "x-api-key": process.env.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json" },
-      body: JSON.stringify({ model: process.env.CLAUDE_MODEL || "claude-haiku-5-5", max_tokens: 3000, tools: [tool], tool_choice: { type: "tool", name: tool.name }, messages: [{ role: "user", content: prompt }] })
+      body: JSON.stringify({ model: process.env.CLAUDE_MODEL || "claude-haiku-5-5", max_tokens: 8000, thinking: { type: "disabled" }, tools: [tool], tool_choice: { type: "tool", name: tool.name }, messages: [{ role: "user", content: prompt }] })
     });
     if (!r.ok) throw new Error(`Claude API ${r.status}`);
-    const out = (await r.json()).content?.find(c => c.type === "tool_use")?.input;
+    const res = await r.json();
+    const out = res.content?.find(c => c.type === "tool_use")?.input;
     const v = validateDigest(out, digest.episodes, DOMAIN_KEYS);
     if (v.headline && v.overview) digest = v;
+    else console.warn(`Claude summary unusable (stop_reason ${res.stop_reason}, ${res.usage?.output_tokens ?? "?"} output tokens); using show-note excerpts`);
   } catch (e) { console.warn(`Claude summary failed (${e.message}); using show-note excerpts`); }
 }
 

@@ -84,7 +84,7 @@ export async function claudeReview({ name, by, desc, links = {}, episodes = [] }
     const r = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST", signal: ctrl.signal,
       headers: { "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json" },
-      body: JSON.stringify({ model: process.env.CLAUDE_MODEL || "claude-haiku-5-5", max_tokens: 400, tools: [tool], tool_choice: { type: "tool", name: tool.name }, messages: [{ role: "user", content }] })
+      body: JSON.stringify({ model: process.env.CLAUDE_MODEL || "claude-haiku-5-5", max_tokens: 1000, thinking: { type: "disabled" }, tools: [tool], tool_choice: { type: "tool", name: tool.name }, messages: [{ role: "user", content }] })
     });
     if (!r.ok) return null;
     const out = (await r.json()).content?.find(c => c.type === "tool_use")?.input;
