@@ -373,7 +373,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.libsyn.com/shows/289580/destinations/2260670.xml",
       "lastEpisode": "2026-11-04",
-      "episodes": 1883,
+      "episodes": 1882,
       "amazon": "https://music.amazon.co.uk/podcasts/45477283-d157-4ea1-9782-fd29dab41f3d/cybersecurity-headlines",
       "spotify": "https://open.spotify.com/show/5ylaiuoDj7YOVSdyVJMDR7",
       "id": "cyber-security-headlines"
@@ -1783,7 +1783,11 @@
       "web": "http://www.darkstack7.com",
       "apple": "https://podcasts.apple.com/podcast/id1668216285",
       "rss": "https://rss.pdrl.fm/257710/feeds.libsyn.com/506373/rss/?redirect=false",
-      "rating": null,
+      "rating": {
+        "v": 4.9,
+        "n": 18,
+        "asOf": "2026-11-04"
+      },
       "curator": false,
       "sources": [
         "feedspot"
@@ -2228,8 +2232,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 211,
-      "lastEpisode": "2026-10-28",
+      "episodes": 212,
+      "lastEpisode": "2026-11-04",
       "logo": "covers/podcast-cybersecurity-where-you-are.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2021-01",
@@ -2552,8 +2556,8 @@
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 344,
-      "lastEpisode": "2026-10-21",
+      "episodes": 345,
+      "lastEpisode": "2026-11-04",
       "logo": "covers/podcast-easy-prey.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2020-03",
@@ -4194,8 +4198,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 360,
-      "lastEpisode": "2026-10-29",
+      "episodes": 361,
+      "lastEpisode": "2026-11-04",
       "logo": "covers/podcast-talkin-bout-infosec-news.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2018-07",
@@ -4763,7 +4767,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.megaphone.fm/MLN2155636147",
       "lastEpisode": "2026-11-03",
-      "episodes": 801,
+      "episodes": 800,
       "amazon": "https://music.amazon.co.uk/podcasts/786d7a2f-a556-4b36-b6cc-4db135c95ae1/the-twiml-ai-podcast-formerly-this-week-in-machine-learning-artificial-intelligence",
       "id": "twiml"
     },
@@ -10446,7 +10450,7 @@
       ],
       "verified": true,
       "logoFrom": "https://www.hackthebox.com/hubfs/Cube_favicon.png",
-      "logo": "covers/platform-hackthebox.jpg",
+      "logo": "covers/platform-hackthebox.webp",
       "logoSource": "hand-picked (www.hackthebox.com)",
       "id": "hackthebox"
     },
@@ -10500,7 +10504,7 @@
         "mcl-starter"
       ],
       "verified": true,
-      "logo": "covers/platform-security-bsides.jpg",
+      "logo": "covers/platform-security-bsides.png",
       "logoSource": "site icon",
       "id": "security-bsides"
     },
@@ -10528,7 +10532,7 @@
         "mcl-starter"
       ],
       "verified": true,
-      "logo": "covers/platform-tryhackme.jpg",
+      "logo": "covers/platform-tryhackme.png",
       "logoSource": "site icon",
       "id": "tryhackme"
     },
@@ -10557,7 +10561,7 @@
       ],
       "verified": true,
       "logoFrom": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/960px-Udemy_logo.svg.png",
-      "logo": "covers/platform-udemy.jpg",
+      "logo": "covers/platform-udemy.png",
       "logoSource": "hand-picked (upload.wikimedia.org)",
       "id": "udemy"
     },
@@ -10585,7 +10589,7 @@
         "mcl-starter"
       ],
       "verified": true,
-      "logo": "covers/platform-antisyphon.jpg",
+      "logo": "covers/platform-antisyphon.webp",
       "logoSource": "site icon",
       "id": "antisyphon"
     },
@@ -10613,7 +10617,7 @@
         "mcl-starter"
       ],
       "verified": true,
-      "logo": "covers/platform-blue-team-labs-online.jpg",
+      "logo": "covers/platform-blue-team-labs-online.png",
       "logoSource": "site social image",
       "id": "blue-team-labs-online"
     },
@@ -10640,63 +10644,9 @@
         "mcl-starter"
       ],
       "verified": true,
-      "logo": "covers/platform-coursera.jpg",
+      "logo": "covers/platform-coursera.png",
       "logoSource": "site icon",
       "id": "coursera"
-    },
-    {
-      "type": "platform",
-      "name": "CTFtime",
-      "by": "CTFtime",
-      "desc": "The community calendar and leaderboard for capture-the-flag events worldwide, with team rankings and write-ups.",
-      "kind": "events",
-      "cost": "free",
-      "domains": [
-        "offensive",
-        "career"
-      ],
-      "level": [
-        "intermediate",
-        "advanced"
-      ],
-      "status": "active",
-      "web": "https://ctftime.org/",
-      "rating": null,
-      "curator": false,
-      "sources": [
-        "mcl-starter"
-      ],
-      "verified": true,
-      "logo": "covers/platform-ctftime.jpg",
-      "logoSource": "site icon",
-      "id": "ctftime"
-    },
-    {
-      "type": "platform",
-      "name": "CyberDefenders",
-      "by": "CyberDefenders",
-      "desc": "Blue-team labs built from realistic incident data: packet captures, memory images and SIEM logs to investigate, many of them free.",
-      "kind": "lab",
-      "cost": "freemium",
-      "domains": [
-        "defensive",
-        "hunting",
-        "operations"
-      ],
-      "level": [
-        "intermediate"
-      ],
-      "status": "active",
-      "web": "https://cyberdefenders.org/",
-      "rating": null,
-      "curator": false,
-      "sources": [
-        "mcl-starter"
-      ],
-      "verified": true,
-      "logo": "covers/platform-cyberdefenders.jpg",
-      "logoSource": "site icon",
-      "id": "cyberdefenders"
     },
     {
       "type": "platform",
@@ -10721,7 +10671,7 @@
         "mcl-starter"
       ],
       "verified": true,
-      "logo": "covers/platform-cybrary.jpg",
+      "logo": "covers/platform-cybrary.png",
       "logoSource": "site icon",
       "id": "cybrary"
     },
@@ -10748,7 +10698,7 @@
         "mcl-starter"
       ],
       "verified": true,
-      "logo": "covers/platform-edx.jpg",
+      "logo": "covers/platform-edx.png",
       "logoSource": "site icon (via Google)",
       "id": "edx"
     },
@@ -10773,7 +10723,7 @@
         "mcl-starter"
       ],
       "verified": true,
-      "logo": "covers/platform-eventbrite.jpg",
+      "logo": "covers/platform-eventbrite.png",
       "logoSource": "site icon (via Google)",
       "id": "eventbrite"
     },
@@ -10800,7 +10750,7 @@
       ],
       "verified": true,
       "logoFrom": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/ISC2_Logo.svg/960px-ISC2_Logo.svg.png",
-      "logo": "covers/platform-isc2-cc.jpg",
+      "logo": "covers/platform-isc2-cc.png",
       "logoSource": "hand-picked (upload.wikimedia.org)",
       "id": "isc2-cc"
     },
@@ -10828,7 +10778,7 @@
         "mcl-starter"
       ],
       "verified": true,
-      "logo": "covers/platform-letsdefend.jpg",
+      "logo": "covers/platform-letsdefend.png",
       "logoSource": "site icon",
       "id": "letsdefend"
     },
@@ -10853,59 +10803,9 @@
         "mcl-starter"
       ],
       "verified": true,
-      "logo": "covers/platform-meetup.jpg",
+      "logo": "covers/platform-meetup.png",
       "logoSource": "site icon",
       "id": "meetup"
-    },
-    {
-      "type": "platform",
-      "name": "OpenSecurityTraining2",
-      "by": "OpenSecurityTraining2",
-      "desc": "Free, deep technical courses on architecture, reverse engineering, firmware and vulnerability research, taught by practitioners.",
-      "kind": "course",
-      "cost": "free",
-      "domains": [
-        "engineering",
-        "offensive"
-      ],
-      "level": [
-        "intermediate",
-        "advanced"
-      ],
-      "status": "active",
-      "web": "https://p.ost2.fyi/",
-      "rating": null,
-      "curator": false,
-      "sources": [
-        "mcl-starter"
-      ],
-      "verified": true,
-      "id": "ost2"
-    },
-    {
-      "type": "platform",
-      "name": "OverTheWire Wargames",
-      "by": "OverTheWire",
-      "desc": "Classic free wargames played over SSH; Bandit is a popular first step for learning the Linux command line and security basics.",
-      "kind": "ctf",
-      "cost": "free",
-      "domains": [
-        "offensive",
-        "career"
-      ],
-      "level": [
-        "beginner",
-        "intermediate"
-      ],
-      "status": "active",
-      "web": "https://overthewire.org/wargames/",
-      "rating": null,
-      "curator": false,
-      "sources": [
-        "mcl-starter"
-      ],
-      "verified": true,
-      "id": "overthewire"
     },
     {
       "type": "platform",
@@ -10931,7 +10831,7 @@
       ],
       "verified": true,
       "logoFrom": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/OWASP_black_logo.svg/960px-OWASP_black_logo.svg.png",
-      "logo": "covers/platform-owasp-chapters.jpg",
+      "logo": "covers/platform-owasp-chapters.png",
       "logoSource": "hand-picked (upload.wikimedia.org)",
       "id": "owasp-chapters"
     },
@@ -10958,7 +10858,7 @@
       ],
       "verified": true,
       "logoFrom": "https://raw.githubusercontent.com/juice-shop/juice-shop/master/frontend/src/assets/public/images/JuiceShop_Logo.png",
-      "logo": "covers/platform-owasp-juice-shop.jpg",
+      "logo": "covers/platform-owasp-juice-shop.png",
       "logoSource": "hand-picked (raw.githubusercontent.com)",
       "id": "owasp-juice-shop"
     },
@@ -10985,60 +10885,9 @@
         "mcl-starter"
       ],
       "verified": true,
-      "logo": "covers/platform-pentesterlab.jpg",
+      "logo": "covers/platform-pentesterlab.png",
       "logoSource": "site icon (via Google)",
       "id": "pentesterlab"
-    },
-    {
-      "type": "platform",
-      "name": "picoCTF",
-      "by": "Carnegie Mellon University",
-      "desc": "Free capture-the-flag practice and an annual competition from Carnegie Mellon, designed for students and newcomers.",
-      "kind": "ctf",
-      "cost": "free",
-      "domains": [
-        "offensive",
-        "career"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "status": "active",
-      "web": "https://picoctf.org/",
-      "rating": null,
-      "curator": false,
-      "sources": [
-        "mcl-starter"
-      ],
-      "verified": true,
-      "logo": "covers/platform-picoctf.jpg",
-      "logoSource": "site icon (via Google)",
-      "id": "picoctf"
-    },
-    {
-      "type": "platform",
-      "name": "Professor Messer",
-      "by": "Professor Messer",
-      "desc": "Free, complete video courses for CompTIA certifications including Security+, Network+ and A+, with low-cost study notes.",
-      "kind": "course",
-      "cost": "free",
-      "domains": [
-        "career"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "status": "active",
-      "web": "https://www.professormesser.com/",
-      "rating": null,
-      "curator": false,
-      "sources": [
-        "mcl-starter"
-      ],
-      "verified": true,
-      "logo": "covers/platform-professor-messer.jpg",
-      "logoSource": "site icon (via Google)",
-      "id": "professor-messer"
     },
     {
       "type": "platform",
@@ -11063,7 +10912,7 @@
         "mcl-starter"
       ],
       "verified": true,
-      "logo": "covers/platform-pwn-college.jpg",
+      "logo": "covers/platform-pwn-college.png",
       "logoSource": "site icon",
       "id": "pwn-college"
     },
@@ -11091,7 +10940,60 @@
         "mcl-starter"
       ],
       "verified": true,
-      "id": "root-me"
+      "id": "root-me",
+      "logo": "covers/platform-root-me.png",
+      "logoSource": "supplied by site owner"
+    },
+    {
+      "type": "platform",
+      "name": "SANS Cyber Academy",
+      "by": "SANS Institute",
+      "kind": "certification",
+      "cost": "free",
+      "desc": "Fully funded scholarship for career changers: three SANS courses, each with its GIAC certification exam, over about nine months. Entry is by application, an aptitude test and an interview; check the site for the next intake.",
+      "domains": [
+        "career",
+        "defensive"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "web": "https://www.sans.org/cyber-academy",
+      "status": "active",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "curator"
+      ],
+      "verified": true,
+      "id": "sans-cyber-academy"
+    },
+    {
+      "type": "platform",
+      "name": "SANS free webcasts, summits and resources",
+      "by": "SANS Institute",
+      "kind": "events",
+      "cost": "free",
+      "desc": "Free live webcasts, virtual summits, community CTFs and cyber ranges from SANS, plus a library of free posters, cheat sheets and white papers; some need a free SANS account.",
+      "domains": [
+        "defensive",
+        "operations",
+        "career"
+      ],
+      "level": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "web": "https://www.sans.org/free-cybersecurity-events",
+      "status": "active",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "curator"
+      ],
+      "verified": true,
+      "id": "sans-free-resources"
     },
     {
       "type": "platform",
@@ -11117,7 +11019,7 @@
         "mcl-starter"
       ],
       "verified": true,
-      "logo": "covers/platform-portswigger-academy.jpg",
+      "logo": "covers/platform-portswigger-academy.png",
       "logoSource": "site icon",
       "id": "portswigger-academy"
     }
