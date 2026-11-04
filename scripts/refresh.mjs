@@ -10,7 +10,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { openD1, listItems, upsertItem, sleep, saveImage } from "./lib.mjs";
 import { hasLocalImage } from "./pure.mjs";
-import { lookupApple, readFeed, lookupPodnews, searchSpotify, lookupBook, claudeTag } from "./enrich.mjs";
+import { lookupApple, readFeed, lookupPodnews, searchSpotify, lookupBook, claudeTag, findPlatformLogo } from "./enrich.mjs";
 
 const args = process.argv.slice(2);
 const flag = f => args.includes(f);
@@ -67,6 +67,14 @@ for (const { item } of rows) {
         }
         next.verified = true;
       } else report.notes.push(`${item.id}: not found in Apple directory — check the name or add the Apple link`);
+    } else if (item.type === "platform") {
+      // Platforms have no feed or rating source; the refresh only fetches a logo (self-hosted like covers).
+      if (!hasLocalImage(item) || reimage || (item.logoFrom && item.logoSource !== `hand-picked (${new URL(item.logoFrom).hostname})`)) {
+        const found = await findPlatformLogo(item).catch(() => null);
+        const saved = found && !dry ? await saveImage(found.url, `platform-${item.id}`) : null;
+        if (saved) { next.logo = saved; next.logoSource = item.logoFrom ? `hand-picked (${new URL(item.logoFrom).hostname})` : found.source; report.images++; }
+        else if (!hasLocalImage(item)) report.notes.push(`${item.id}: no usable logo found${found ? " (download failed)" : ""}; it keeps the initials tile`);
+      }
     } else if (item.type === "book") {
       const b = await lookupBook(item).catch(() => null);
       if (b) {

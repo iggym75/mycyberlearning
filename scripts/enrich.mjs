@@ -2,12 +2,12 @@
 // Pure functions (inferCadence, parsePodnewsRating, bestMatch) are unit-tested in scripts/test/.
 import { XMLParser } from "fast-xml-parser";
 import { readFileSync } from "node:fs";
-import { getText, getJson, sleep } from "./lib.mjs";
+import { getText, getJson, sleep, UA } from "./lib.mjs";
 
 const taxonomy = JSON.parse(readFileSync(new URL("../data/taxonomy.json", import.meta.url), "utf8"));
 const DOMAIN_KEYS = taxonomy.domains.map(d => d.key);
 export { inferCadence, parsePodnewsRating, bestMatch, appleId } from "./pure.mjs";
-import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, FEED_XML, parsePodnewsSpotify, ogTitle, pickSpotifyShow } from "./pure.mjs";
+import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, FEED_XML, parsePodnewsSpotify, ogTitle, pickSpotifyShow, imageSize, pickLogo } from "./pure.mjs";
 
 /** Apple Podcasts directory (free, no key): artwork, feed URL, canonical link, episode count. */
 export async function lookupApple(item) {
@@ -71,6 +71,41 @@ export async function spotifyShows(q, { limit = 10, offset = 0 } = {}) {
 export async function searchSpotify(item, hints) {
   const shows = await spotifyShows(item.name);
   return shows && pickSpotifyShow(item, shows, hints);
+}
+
+/**
+ * Finds a logo for a platform (lab, course, event site): the site's own app icon or square social image, else
+ * Google's public favicon service. Returns { url, source } or null. `item.logoFrom` (a hand-picked image, e.g.
+ * from Wikimedia Commons) wins when set.
+ */
+export async function findPlatformLogo(item) {
+  if (item.logoFrom) return { url: item.logoFrom, source: new URL(item.logoFrom).hostname.replace(/^(www|upload|thumb)\./, "") };
+  if (!item.web) return null;
+  const measure = async (url, from) => {
+    try {
+      const r = await fetch(url, { headers: { "user-agent": UA }, redirect: "follow", signal: AbortSignal.timeout(15000) });
+      if (!r.ok || !/^image\/(png|jpeg|webp|gif)/.test(r.headers.get("content-type") || "")) return null;
+      const size = imageSize(await r.arrayBuffer());
+      return size && { url, from, ...size };
+    } catch { return null; }
+  };
+  let html = "", base = item.web;
+  try { const r = await fetch(item.web, { headers: { "user-agent": UA }, redirect: "follow", signal: AbortSignal.timeout(15000) }); html = await r.text(); base = r.url; } catch {}
+  const attr = (tag, a) => tag.match(new RegExp(`\\b${a}\\s*=\\s*["']([^"']+)["']`, "i"))?.[1];
+  const urls = [];
+  for (const tag of html.match(/<link\b[^>]*>/gi) || []) { const rel = (attr(tag, "rel") || "").toLowerCase(), href = attr(tag, "href"); if (href && /(^|\s)(apple-touch-icon|icon)(\s|$)/.test(rel)) urls.push([href, "icon"]); }
+  for (const tag of html.match(/<meta\b[^>]*>/gi) || []) if (/property=["']og:image["']/i.test(tag) && attr(tag, "content")) urls.push([attr(tag, "content"), "og:image"]);
+  urls.push(["/apple-touch-icon.png", "icon"]);
+  const cands = [], seen = new Set();
+  for (const [href, from] of urls.slice(0, 12)) {
+    let u; try { u = new URL(href, base); } catch { continue; }
+    if (u.protocol !== "https:" || seen.has(u.href) || /\.(svg|ico)(\?|$)/i.test(u.pathname)) continue;
+    seen.add(u.href); const c = await measure(u.href, from); if (c) cands.push(c);
+  }
+  const best = pickLogo(cands);
+  if (best) return { url: best.url, source: best.from === "og:image" ? "site social image" : "site icon" };
+  const g = await measure(`https://www.google.com/s2/favicons?domain=${new URL(base).hostname}&sz=256`, "icon");
+  return g && Math.min(g.w, g.h) >= 128 && Math.max(g.w, g.h) / Math.min(g.w, g.h) <= 1.25 ? { url: g.url, source: "site icon (via Google)" } : null;
 }
 
 /** Aggregated listener rating. Podnews is used by default; check its terms before running at scale. */

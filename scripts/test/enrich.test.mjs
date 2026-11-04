@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { XMLParser } from "fast-xml-parser";
-import { inferCadence, parsePodnewsRating, bestMatch, appleId, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, hasLocalImage, FEED_XML, parsePodnewsSpotify, ogTitle, pickSpotifyShow, sameOrg } from "../pure.mjs";
+import { inferCadence, parsePodnewsRating, bestMatch, appleId, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, hasLocalImage, FEED_XML, parsePodnewsSpotify, ogTitle, pickSpotifyShow, sameOrg, imageSize, pickLogo } from "../pure.mjs";
 
 const NOW = Date.parse("2026-10-30T12:00:00Z");
 const series = (n, everyDays, endDaysAgo = 1) => Array.from({ length: n }, (_, i) => new Date(NOW - (endDaysAgo + i * everyDays) * 86_400_000).toUTCString());
@@ -123,4 +123,19 @@ test("Spotify search: name plus publisher or episode count, and look-alikes are 
   assert.equal(pickSpotifyShow({ name: "Darknet Diaries" }, [show("Other", "x", 1, "O")], {}), null);
   assert.ok(sameOrg("N2K Networks", "Dave Bittner · N2K Networks"));
   assert.ok(!sameOrg("Security Weekly Media", "Cyber Security Media"));   // only generic words in common
+});
+
+test("image sizes from bytes, and choosing a platform logo", () => {
+  const png = Buffer.alloc(33); png.write("\x89PNG\r\n\x1a\n", 0, "latin1"); png.writeUInt32BE(180, 16); png.writeUInt32BE(180, 20);
+  assert.deepEqual(imageSize(png), { type: "png", w: 180, h: 180 });
+  const gif = Buffer.from("GIF89a", "latin1"); assert.deepEqual(imageSize(Buffer.concat([gif, Buffer.from([0x40, 0x00, 0x20, 0x00]), Buffer.alloc(4)])), { type: "gif", w: 64, h: 32 });
+  // JPEG: SOI, an APP0 segment to skip, then SOF0 with height 300 and width 400
+  const jpg = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x04, 0x00, 0x00, 0xff, 0xc0, 0x00, 0x11, 0x08, 0x01, 0x2c, 0x01, 0x90, 0x03, 0, 0, 0, 0, 0, 0]);
+  assert.deepEqual(imageSize(jpg), { type: "jpeg", w: 400, h: 300 });
+  assert.equal(imageSize(Buffer.from("<svg xmlns='http://www.w3.org/2000/svg'/>")), null);
+  // Largest square icon wins; tiny and wide images don't; a square social image is the fallback
+  const pick = pickLogo([{ url: "a", from: "icon", w: 32, h: 32 }, { url: "b", from: "icon", w: 180, h: 180 }, { url: "c", from: "icon", w: 256, h: 256 }, { url: "d", from: "og:image", w: 1200, h: 630 }]);
+  assert.equal(pick.url, "c");
+  assert.equal(pickLogo([{ url: "d", from: "og:image", w: 1200, h: 630 }, { url: "e", from: "icon", w: 48, h: 48 }]), null);
+  assert.equal(pickLogo([{ url: "f", from: "og:image", w: 2200, h: 2200 }, { url: "e", from: "icon", w: 48, h: 48 }]).url, "f");
 });
