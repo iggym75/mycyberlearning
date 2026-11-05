@@ -277,16 +277,16 @@ test("removing an id from ADMIN_GITHUB_IDS revokes an existing session at once",
   env.ADMIN_GITHUB_IDS = "1001";
 });
 
-test("cron: starts the briefing workflow only in the 06:xx London hour, and only when configured", async () => {
+test("cron: starts the briefing workflow only in the 08:xx London hour, and only when configured", async () => {
   const run = async iso => { const waits = []; await worker.scheduled({ scheduledTime: Date.parse(iso) }, env, { waitUntil: p => waits.push(p) }); return Promise.all(waits); };
   dispatches.length = 0;
-  await run("2026-01-15T06:05:00Z");                       // 06:05 GMT, but no token configured yet
+  await run("2026-01-15T08:30:00Z");                       // 08:30 GMT, but no token configured yet
   assert.equal(dispatches.length, 0);
   env.GH_DISPATCH_TOKEN = "github_pat_test"; env.GITHUB_REPO = "iggym75/mycyberlearning";
-  await run("2026-01-15T05:05:00Z");                       // 05:05 in London in winter: the other cron's turn
+  await run("2026-01-15T07:30:00Z");                       // 07:30 in London in winter: the other cron's turn
   assert.equal(dispatches.length, 0);
-  await run("2026-01-15T06:05:00Z");                       // 06:05 GMT
-  await run("2026-07-15T05:05:00Z");                       // 06:05 BST
+  await run("2026-01-15T08:30:00Z");                       // 08:30 GMT
+  await run("2026-07-15T07:30:00Z");                       // 08:30 BST
   assert.equal(dispatches.length, 2);
   assert.equal(dispatches[0].url, "https://api.github.com/repos/iggym75/mycyberlearning/actions/workflows/news.yml/dispatches");
   assert.equal(dispatches[0].auth, "Bearer github_pat_test");
