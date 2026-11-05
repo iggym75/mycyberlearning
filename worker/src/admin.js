@@ -4,11 +4,11 @@ import { json, slug, normaliseIsbn, isHttpUrl, isAmazonMusicUrl, isPlatformUrl, 
 import { rowToItem, getItemRow, upsertItem, insertItem, deleteItem } from "./lib/db.js";
 import { guard } from "./auth.js";
 
-const URL_FIELDS = ["web", "apple", "spotify", "amazon", "youtube", "rss"];
+const URL_FIELDS = ["web", "apple", "spotify", "amazon", "youtube", "rss", "twitch"];
 function sanitiseItem(item) {
   for (const k of URL_FIELDS) if (item[k] != null) item[k] = isHttpUrl(item[k]) ? String(item[k]).slice(0, 500) : undefined;
   if (item.amazon && !isAmazonMusicUrl(item.amazon)) item.amazon = undefined;
-  for (const k of ["apple", "spotify", "youtube"]) if (item[k] && !isPlatformUrl(k, item[k])) item[k] = undefined;
+  for (const k of ["apple", "spotify", "youtube", "twitch"]) if (item[k] && !isPlatformUrl(k, item[k])) item[k] = undefined;
   if (item.logo != null && !(/^covers\/[a-z0-9-]+\.(jpg|png|webp|gif)$/.test(item.logo) || isHttpUrl(item.logo))) item.logo = undefined;
   if (item.bundle && !isHttpUrl(item.bundle.url)) item.bundle = undefined;
   if (item.logoFrom != null && !(isHttpUrl(item.logoFrom) && item.logoFrom.startsWith("https://"))) item.logoFrom = undefined; // where the refresh fetches a platform logo from
@@ -62,7 +62,7 @@ export const item = guard(async (req, env, ctx, { id }) => {
   if (req.method === "DELETE") { await deleteItem(env.DB, id); return json(200, { ok: true }); }
   const patch = await req.json().catch(() => ({}));
   const cur = rowToItem(r), it = { ...cur };
-  const allowed = ["name", "by", "desc", "domains", "level", "freq", "launched", "status", "web", "apple", "spotify", "amazon", "youtube", "rss", "logo", "curator", "hidden", "published", "tagsLocked", "isbn", "publisher", "format", "kind", "cost", "logoFrom", "statusLocked"];
+  const allowed = ["name", "by", "desc", "domains", "level", "freq", "launched", "status", "web", "apple", "spotify", "amazon", "youtube", "rss", "logo", "curator", "hidden", "published", "tagsLocked", "isbn", "publisher", "format", "kind", "cost", "logoFrom", "statusLocked", "twitch"];
   for (const k of allowed) if (k in patch) it[k] = patch[k] === "" || patch[k] === null ? undefined : patch[k];
   sanitiseItem(it);
   if ("isbn" in patch && it.isbn) { const n = normaliseIsbn(it.isbn); if (!n) return json(400, { error: "That ISBN doesn't look right." }); if (n !== cur.isbn) it.isbnVerified = false; it.isbn = n; }

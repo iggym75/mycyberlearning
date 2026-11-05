@@ -844,7 +844,7 @@
       "status": "active",
       "web": "https://www.smashingsecurity.com",
       "apple": "https://podcasts.apple.com/podcast/id1195001633",
-      "spotify": "https://open.spotify.com/show/3F6vfKfyMjJQWvvMXJeKTM",
+      "spotify": "https://open.spotify.com/show/3J7pBxEu43nCnRTSXaan8S",
       "rating": {
         "v": 4.8,
         "n": 1141,
@@ -11042,6 +11042,92 @@
       "logo": "covers/platform-portswigger-academy.png",
       "logoSource": "site icon",
       "id": "portswigger-academy"
+    },
+    {
+      "type": "platform",
+      "name": "The Cyber Mentor",
+      "by": "Heath Adams · TCM Security",
+      "desc": "Free ethical-hacking lessons on YouTube and live Twitch streams: full-length beginner courses on penetration testing, Active Directory attacks, web app hacking and Linux, plus career advice for people breaking into security.",
+      "kind": "course",
+      "cost": "free",
+      "domains": [
+        "offensive",
+        "career"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "status": "active",
+      "web": "https://www.thecybermentor.com/",
+      "youtube": "https://www.youtube.com/c/thecybermentor",
+      "twitch": "https://www.twitch.tv/thecybermentor",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "tagsLocked": true,
+      "id": "the-cyber-mentor"
+    },
+    {
+      "type": "platform",
+      "name": "TCM Security Academy",
+      "by": "TCM Security",
+      "desc": "Self-paced, hands-on video courses from the team behind The Cyber Mentor, covering pentesting (network, web, API, mobile, Active Directory), SOC and incident response, malware analysis, forensics, OSINT and AI security, with practical exams such as PJPT and PNPT. Six fundamentals courses are free (security, Linux, programming, AI, help desk and job-market soft skills); the rest need a subscription.",
+      "kind": "course",
+      "cost": "freemium",
+      "domains": [
+        "offensive",
+        "defensive",
+        "operations",
+        "career"
+      ],
+      "level": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "status": "active",
+      "web": "https://tcm-sec.com/academy/",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "tagsLocked": true,
+      "id": "tcm-security-academy"
+    },
+    {
+      "id": "three-buddy-problem",
+      "type": "podcast",
+      "name": "Three Buddy Problem",
+      "by": "Ryan Naraine, Costin Raiu & Juan Andrés Guerrero-Saade",
+      "desc": "Three veteran threat researchers unpack the week's nation-state hacking, malware discoveries, attribution debates and cyberwar news, with candid opinions you won't hear in vendor briefings.",
+      "domains": [
+        "cti",
+        "news",
+        "offensive"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "freq": "weekly",
+      "launched": "2018",
+      "status": "active",
+      "web": "https://securityconversations.com/",
+      "apple": "https://podcasts.apple.com/podcast/id1414525622",
+      "spotify": "https://open.spotify.com/show/6dXbRagTUo4fPfpYjIDlwO",
+      "rss": "https://feeds.fireside.fm/securityconversations/rss",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": false
     }
   ]
 }
