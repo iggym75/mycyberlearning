@@ -1,94 +1,80 @@
 {
   "date": "2026-11-05",
-  "generatedAt": "2026-11-05T23:06:36.835Z",
-  "windowHours": 35,
-  "headline": "Hijacked fridges, Zyxel switch exploits and APT signing flaws dominate the day",
-  "overview": "Today's shows lead with attacks on critical systems, from European blood bank and supermarket refrigeration to a Zyxel switch zero-day that compromised nearly a thousand devices. Several episodes flag unpatched or end-of-life products and package-manager signature bypasses on Debian and Ubuntu. Election-day threats and the political fallout for AI infrastructure round out the news.",
+  "generatedAt": "2026-11-05T23:16:21.945Z",
+  "windowHours": 36,
+  "headline": "AI agent hijacks, White House proxies and Binance heist dominate the Nov 5 briefing",
+  "overview": "Today's shows lead with a Claude remote-control flaw, residential proxy traffic routed through White House networks, and a wave of breaches at Asian airlines via Amadeus. Supermarket and blood bank refrigeration tampering in Europe and France, and a French bank heist, add physical-impact concerns. Several shows also flag unpatched or actively exploited edge devices and a Linux TCP kernel flaw.",
   "topStories": [
     {
-      "title": "Refrigeration systems hacked in Europe",
-      "summary": "Attackers disrupted refrigeration in European blood banks and supermarkets, affecting blood supply in France. Coverage ties these incidents together as a recurring threat to cold-chain systems.",
+      "title": "Claude remote-control flaw could enable device hijacking",
+      "summary": "A researcher found that Anthropic's Claude Dispatch, which lets users control a desktop remotely, could be hijacked via an authenticated browser session to install a malicious package. The design weakness reportedly also touches related Claude features; Anthropic acknowledged it in May but has not fixed it.",
       "refs": [
-        "cyberwire-daily-0",
-        "cyberwire-daily-1",
-        "cyber-security-headlines-0",
-        "security-weekly-0",
-        "cyberhub-0"
+        "cyberwire-daily-0"
       ],
       "domains": [
-        "news",
-        "operations"
+        "ai",
+        "appsec"
       ]
     },
     {
-      "title": "Zyxel switch zero-day compromises about a thousand devices",
-      "summary": "Attackers exploited Zyxel GS1900 switches via a pre-login flaw, stealing configurations and password hashes. Many devices still used factory passwords, and the exploit also worked on switches with the June patch, so updated firmware is advised.",
+      "title": "Residential proxies running on White House networks",
+      "summary": "Krebs on Security and Layer 3 Intel found proxy services renting White House IP addresses, with 236 connections recorded across 26 of 30 days. One provider has Russian links. The White House has not commented.",
       "refs": [
-        "cyberwire-daily-0",
-        "cyberhub-0",
-        "daily-defsec-brief-0",
-        "daily-defsec-brief-1"
+        "cyberwire-daily-0"
       ],
       "domains": [
         "news",
+        "defensive"
+      ]
+    },
+    {
+      "title": "Amadeus breach exposes passenger data at six Asian airlines",
+      "summary": "A cyber attack on the reservation provider Amadeus led to passenger data exposure at several airlines, including Japan Airlines, Korean Air and Singapore Airlines. Exposed fields can include passport and frequent flyer details; Amadeus reports no financial data access.",
+      "refs": [
+        "cyberwire-daily-0"
+      ],
+      "domains": [
+        "news",
+        "privacy"
+      ]
+    },
+    {
+      "title": "Refrigeration systems tampered with across Europe and in French blood bank",
+      "summary": "Attackers remotely changed temperature settings on supermarket refrigeration in several European countries, and reportedly on equipment at French blood sites, where alarms caught the changes. No blood losses or patient harm were reported. Officials urge securing remote access and removing default passwords.",
+      "refs": [
+        "cyberwire-daily-0",
+        "cyberwire-daily-1",
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "icsot",
+        "defensive"
+      ]
+    },
+    {
+      "title": "Edge device and patch alerts: Cisco, WatchGuard, Zyxel and SonicWall",
+      "summary": "Cisco and WatchGuard shipped patches for critical flaws, with Cisco noting an actively exploited issue across 19 products. Zyxel GS1900 switches were hit by a zero-day used against nearly a thousand devices, and SonicWall's end-of-life GMS platform has unpatched flaws.",
+      "refs": [
+        "cyberwire-daily-0",
+        "daily-defsec-brief-0",
+        "cyberhub-1"
+      ],
+      "domains": [
+        "defensive",
         "tvm"
       ]
     },
     {
-      "title": "APT29-linked attacks on outdated phones",
-      "summary": "Russia-linked actors are using hacked websites to target out-of-date iPhones and Android phones, where simply visiting a page is enough. The advice is to enforce minimum OS versions in device management.",
+      "title": "Linux kernel TCP flaw and APT signature bypass",
+      "summary": "A remote root-level flaw in the Linux TCP stack affects many distributions, with some vendors still preparing fixes. Separately, an APT signature bypass lets attackers push swapped packages to Debian and Ubuntu systems via forced retries.",
       "refs": [
-        "cyber-security-headlines-0",
+        "daily-defsec-brief-1",
+        "sans-stormcast-0",
         "daily-defsec-brief-0"
       ],
       "domains": [
-        "offensive",
-        "tvm",
-        "news"
-      ]
-    },
-    {
-      "title": "Linux and APT package integrity flaws",
-      "summary": "A critical Linux kernel TCP flaw can allow remote root on some systems, while an APT signature bypass on Debian and Ubuntu can let attackers inject malicious packages, especially over HTTP. Patching and moving to HTTPS are recommended.",
-      "refs": [
-        "sans-stormcast-0",
-        "daily-defsec-brief-0",
-        "daily-defsec-brief-1",
-        "cyberhub-1"
-      ],
-      "domains": [
         "appsec",
-        "tvm",
-        "operations"
-      ]
-    },
-    {
-      "title": "Critical patches and end-of-life products",
-      "summary": "Cisco, WatchGuard, Barracuda and other vendors shipped critical fixes, while SonicWall will not patch unsupported GMS flaws. Teams are urged to patch quickly and remove internet exposure of unsupported systems.",
-      "refs": [
-        "cyberwire-daily-0",
-        "cyberwire-daily-1",
-        "sans-stormcast-0",
-        "daily-defsec-brief-1",
-        "cyberhub-1"
-      ],
-      "domains": [
-        "tvm",
-        "operations"
-      ]
-    },
-    {
-      "title": "Binance and French bank heists",
-      "summary": "Large cryptocurrency and banking thefts were reported, with a Binance heist attributed to North Korea and a French bank heist estimated at about $133 million. Coverage also mentions fake job interviews used in the Binance case.",
-      "refs": [
-        "cyberwire-daily-1",
-        "cyber-security-headlines-0",
-        "security-weekly-0",
-        "smashing-security-0"
-      ],
-      "domains": [
-        "news",
-        "cti"
+        "defensive"
       ]
     }
   ],
@@ -103,11 +89,11 @@
       "domains": [
         "news",
         "ai",
-        "cloud",
-        "defensive"
+        "defensive",
+        "cti"
       ],
       "core": true,
-      "summary": "Covers Claude Dispatch remote command risk, residential proxies on White House networks, airline breaches tied to an attack on Amadeus, critical Cisco and WatchGuard patches, GhostMap reboot loops on Android, and a Zyxel zero-day. Also includes a guest on the NIST post-quantum roadmap."
+      "summary": "Covers the Claude dispatch hijack, White House residential proxies, the Amadeus-linked airline breaches, Cisco and WatchGuard patches, the GhostMap Android reboot flaw, a Zyxel zero-day, Ukrainian call centre arrests, AI-driven pet scams and a guilty plea in an Ethiopia espionage case. Also includes a sponsored interview with the CEO of QSecure on NIST's post-quantum migration timeline."
     },
     {
       "show": "cyberwire-daily",
@@ -119,11 +105,11 @@
       "domains": [
         "news",
         "ai",
-        "cti",
-        "defensive"
+        "operations",
+        "leadership"
       ],
       "core": true,
-      "summary": "Covers election-day voting system glitches and misinformation, hackers tampering with European refrigeration, questions over OpenAI security warnings, a roughly six-billion-dollar North Korean-attributed heist at Binance, and Barracuda critical patches. Includes an interview with Box's CISO on enterprise AI security."
+      "summary": "Covers election-day security attempts, European refrigeration attacks, OpenAI security criticism, NVIDIA's China customer limits, the Binance heist, a Barracuda flaw, Gartner's SOC staffing forecast and an indictment of two Canadian hackers. Includes a sponsored Box CISO interview on enterprise AI governance."
     },
     {
       "show": "cyber-security-headlines",
@@ -134,12 +120,11 @@
       "ref": "cyber-security-headlines-0",
       "domains": [
         "news",
-        "offensive",
-        "ai",
-        "privacy"
+        "cti",
+        "defensive"
       ],
       "core": true,
-      "summary": "Covers blood bank fridge attacks in Europe, Anthropic work on proving which AI model answered, Google Calendar phishing that hijacks sessions and bypasses MFA, a Chinese keyboard app used to deliver malware, a French bank heist of about $133 million, and APT29-linked attacks on unpatched phones."
+      "summary": "Covers French blood bank fridge tampering, Anthropic's model-verification research prototype, Google Calendar phishing that bypasses MFA, a China-aligned keyboard app hijack, a French bank heist, APT29-linked mobile exploits, a tampered game launcher and a hacked Ukrainian news site. One segment is sponsored by ESET."
     },
     {
       "show": "sans-stormcast",
@@ -150,12 +135,11 @@
       "ref": "sans-stormcast-0",
       "domains": [
         "appsec",
-        "operations",
         "defensive",
         "tvm"
       ],
       "core": true,
-      "summary": "Covers abuse of test email scripts left on production sites, a new out-of-band scanning tool for exposed management interfaces, a critical APT signature bypass enabling malicious package injection over HTTP, and unpatched SonicWall GMS flaws on an end-of-life product."
+      "summary": "Covers exposed test email scripts leaking configuration and enabling spam, the OOBScan tool for finding exposed out-of-band management interfaces, an APT signature bypass, and unpatched SonicWall GMS flaws."
     },
     {
       "show": "ai-daily-brief",
@@ -169,7 +153,7 @@
         "news"
       ],
       "core": true,
-      "summary": "Discusses whether a slowdown in data center construction could benefit large tech firms after the election backlash, with headlines on ChatGPT search, a Meta acquisition and Apple AI spending limits. This is a general AI news show with no security focus."
+      "summary": "Discusses the midterm results and data centre politics, and whether a slowdown could benefit large cloud providers. Also covers ChatGPT search growth, acquisitions and bank agent payments. Segments are sponsored; the rest is commentary on AI and markets."
     },
     {
       "show": "ai-daily-brief",
@@ -184,7 +168,7 @@
         "grc"
       ],
       "core": true,
-      "summary": "Examines how the midterm results could affect AI scrutiny, data center construction and AI regulation, and suggests the backlash may produce better local community deals rather than halting AI buildout. General AI news, not security-focused."
+      "summary": "Analyses how the midterm results may shape AI policy, focusing on data centre opposition, key Senate and state races, and likely incremental regulation. This is opinion and analysis rather than reported events."
     },
     {
       "show": "security-weekly",
@@ -195,11 +179,10 @@
       "ref": "security-weekly-0",
       "domains": [
         "news",
-        "offensive",
-        "defensive",
-        "ai"
+        "appsec",
+        "tvm"
       ],
-      "summary": "Covers a range of security news including supermarket refrigeration attacks, a large Android TV botnet takedown, a Linux TCP flaw, the Binance theft, hacked emergency alert apps, and AI-assisted exploit development."
+      "summary": "A roundup of supermarket refrigeration attacks, a Linux TCP flaw, the Binance theft, PHP security debt, a Google Android TV botnet takedown, and AI-assisted exploit development, among other items. The notes list topics only, without detail."
     },
     {
       "show": "cyberhub",
@@ -210,10 +193,9 @@
       "ref": "cyberhub-0",
       "domains": [
         "news",
-        "appsec",
-        "tvm"
+        "defensive"
       ],
-      "summary": "Covers a second Zyxel switch zero-day that compromised about a thousand devices, a Debian and Ubuntu APT man-in-the-middle flaw, and the French blood supply cyberattack. The notes also mention AI-linked breaches and Chrome 157 fixes."
+      "summary": "Lists a second Zyxel switch zero-day, a Debian and Ubuntu APT man-in-the-middle flaw and the French blood supply attack, alongside AI-linked breaches and Chrome 157 fixes. Notes are headline-only with little detail."
     },
     {
       "show": "daily-defsec-brief",
@@ -223,12 +205,11 @@
       "url": "https://riverside.com",
       "ref": "daily-defsec-brief-0",
       "domains": [
-        "news",
+        "defensive",
         "tvm",
-        "offensive",
-        "cloud"
+        "news"
       ],
-      "summary": "Covers APT29-linked exploitation of outdated iPhones and Android phones via hacked websites, the Zyxel GS1900 switch exploitation and firmware advice, a DreamHost file manager credential exposure, the APT retry-based package swap, Xen hypervisor memory flaws, and residential proxy traffic leaving the White House network."
+      "summary": "Covers APT29-linked exploitation of unpatched phones, the Zyxel GS1900 flaw being used since August, a DreamHost file manager credential exposure, the APT retry flaw, Xen hypervisor memory flaws and a White House proxy issue. Recommends patching and device minimum-version controls."
     },
     {
       "show": "security-squawk",
@@ -239,11 +220,10 @@
       "ref": "security-squawk-0",
       "domains": [
         "news",
-        "leadership",
         "operations",
-        "stories"
+        "leadership"
       ],
-      "summary": "Covers ransomware that forced a New Mexico Level 1 trauma center to divert ambulances, a phone-based social engineering breach affecting about 5.7 million people at Marathon Health, and a town paying an $82K ransom. Aimed at business leaders."
+      "summary": "Covers a ransomware attack that diverted ambulances from a New Mexico trauma centre, and a phone-based social engineering breach affecting about 5.7 million people. The notes end partway through, so later stories are not covered."
     },
     {
       "show": "smashing-security",
@@ -255,10 +235,9 @@
       "domains": [
         "ai",
         "news",
-        "stories",
         "operations"
       ],
-      "summary": "Covers AI agents calling banks on users' behalf, a Florida man indicted over a ransomware recovery fraud, and a sponsored interview on AI-driven alert triage. The notes indicate the show also touches on Binance fake job interviews and GCHQ missing storage devices."
+      "summary": "Covers AI agents calling banks on users' behalf, a ransomware recovery fraud case, and a sponsored interview on AI-driven alert triage. The notes are a transcript of the show's content."
     },
     {
       "show": "shadowtalk",
@@ -270,10 +249,9 @@
       "domains": [
         "ai",
         "offensive",
-        "defensive",
-        "tvm"
+        "defensive"
       ],
-      "summary": "Discusses ARTEX, an openly available AI-powered penetration testing framework now seen in real intrusions, and defensive steps such as rotating exposed credentials and using AI-enabled red team tools. Sponsored by a vendor."
+      "summary": "Discusses the ARTEX AI-powered penetration testing framework, which is openly available and now appearing in real intrusions, and defensive steps such as credential rotation and exposure management. This is a sponsored discussion from a vendor."
     },
     {
       "show": "daily-defsec-brief",
@@ -283,12 +261,11 @@
       "url": "https://riverside.com",
       "ref": "daily-defsec-brief-1",
       "domains": [
-        "news",
-        "appsec",
-        "tvm",
-        "cloud"
+        "cloud",
+        "defensive",
+        "tvm"
       ],
-      "summary": "Covers stolen Entra app secrets used to sign in through MSPs, a CPGuard update channel hijack, Siemens Node-RED exploitation, WS_FTP and Barracuda patches, a Linux kernel TCP flaw correction, Chrome 157 fixes, and a forged GitHub commit. Practical patch and credential rotation advice throughout."
+      "summary": "Covers stolen Entra app secrets used for sign-ins through MSPs, a hijacked CPGuard update channel, a Node-RED exploitation campaign, WS_FTP admin credential exposure and Chrome 157 fixes. Recommends rotating secrets and checking sign-in logs."
     },
     {
       "show": "cyberhub",
@@ -300,10 +277,9 @@
       "domains": [
         "news",
         "tvm",
-        "defensive",
-        "offensive"
+        "appsec"
       ],
-      "summary": "Covers a remote unauthenticated root Linux kernel TCP flaw, critical Barracuda flaws enabling root on security appliances, Google's takedown of a large Android botnet, Android November updates, and a password manager security incident."
+      "summary": "Covers a remote root Linux TCP flaw, Barracuda root flaws, a 1.3 million device Android botnet takedown, Android's November updates and a password manager incident. Notes are headline-only."
     }
   ],
   "quietCore": [
