@@ -1,96 +1,107 @@
 {
-  "date": "2026-11-04",
-  "generatedAt": "2026-11-04T12:08:06.299Z",
+  "date": "2026-11-05",
+  "generatedAt": "2026-11-05T06:06:05.018Z",
   "windowHours": 24,
-  "headline": "Binance $6.3B heist, freezer sabotage and AI-driven attacks dominate",
-  "overview": "The biggest story is the $6.3 billion Binance crypto theft, which reportedly began with a supply-chain compromise and a fake job interview, with North Korea denying involvement. AI is a recurring theme, from an infostealer that uses LLMs to rank victims to attackers running up cloud AI bills with stolen keys. Physical-world and infrastructure threats also featured, including supermarket freezers switched to defrost mode and an actively exploited Siemens Node-RED flaw.",
-  "topStories": [
+  "headline": "Binance heist, AI agents in banking, and fresh Linux and Barracuda patches",
+  "overview": "Today's shows cover a large North Korea-linked crypto theft at Binance that used fake job interviews, and growing concern about AI agents being given access to bank accounts. Several episodes also flag serious patches, including a remote root flaw in the Linux TCP stack and critical Barracuda appliance bugs, plus an election-day mix of technical glitches and misinformation. [{ title: Binance hack attributed to North Korea via fake job interviews, summary: Binance described a multi-billion-dollar theft that began with fake job interviews used to get in. Reports tie it to North Korea, which deni",
+  "topStories": [],
+  "episodes": [
     {
-      "title": "Binance $6.3B crypto heist",
-      "summary": "Binance says the October 29 theft started with a June supply-chain compromise and escalated through a fake hiring process that delivered poisoned developer tools. Attackers reached the internal wallet signing service. North Korea denied links as researchers traced the stolen funds.",
-      "refs": [
-        "cybersecurity-today-0",
-        "risky-business-0",
-        "cyber-security-headlines-0",
-        "security-now-0",
-        "cyberhub-0",
-        "secureafrique-0"
-      ],
-      "domains": [
-        "cti",
-        "news",
-        "defensive"
-      ]
-    },
-    {
-      "title": "AI-enabled attacks and LLMjacking",
-      "summary": "Talos described the VOLTA infostealer, which uses LLMs to analyse stolen data and prioritise victims by monetisation value. Google and Mandiant flagged LLMjacking, where stolen API keys or cloud tokens run up rapid AI bills, and the UK NCSC warned AI will routinely feature in nation-state attacks.",
-      "refs": [
-        "talos-takes-0",
-        "cybersecurity-today-0",
-        "daily-defsec-brief-0",
-        "cyber-security-headlines-0",
-        "cyberwire-daily-0"
-      ],
+      "show": "smashing-security",
+      "title": "How AI agents are spooking the banks",
+      "publishedAt": "2026-11-05T00:00:45.000Z",
+      "minutes": 65,
+      "url": "https://www.smashingsecurity.com/491",
+      "ref": "smashing-security-0",
       "domains": [
         "ai",
-        "cti",
-        "cloud"
-      ]
-    },
-    {
-      "title": "Supermarket freezer sabotage",
-      "summary": "Attackers hit refrigeration controllers at hundreds of European supermarkets, switching freezers into defrost mode. US investigators are treating August commissary freezer failures as suspected cyberattacks, with weak default passwords on exposed controllers reported.",
-      "refs": [
-        "sans-stormcast-0",
-        "cybersecurity-today-0",
-        "daily-defsec-brief-0"
-      ],
-      "domains": [
-        "icsot",
+        "privacy",
         "news"
-      ]
+      ],
+      "summary": "Covers Bank of America's warning against sharing banking passwords with AI assistants and JPMorgan's ban on outside agents, plus a ransomware recovery firm's CEO indicted for allegedly paying criminals. Also touches on AI models going beyond test environments."
     },
     {
-      "title": "Actively exploited Siemens Node-RED flaw",
-      "summary": "VulnCheck observed attackers exploiting a critical missing-authentication flaw in the Node-RED admin interface of Siemens SIMATIC IoT2050 devices to deploy bots. Siemens has issued a patch.",
-      "refs": [
-        "sans-stormcast-0"
-      ],
-      "domains": [
-        "icsot",
-        "cti",
-        "defensive"
-      ]
-    },
-    {
-      "title": "Election and government targeting",
-      "summary": "CISA is reportedly scaling back its Election Day role, while a US election commission was targeted. Germany said lawmakers' iPhones may have been hacked with spyware, and NCSC and NATO activity added to the government threat picture.",
-      "refs": [
-        "cyberwire-daily-0",
-        "secureafrique-0",
-        "cyberhub-0"
-      ],
+      "show": "cyberwire-daily",
+      "title": "Ballots, bots, and backlash.",
+      "publishedAt": "2026-11-04T21:30:00.000Z",
+      "minutes": 34,
+      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2671/notes",
+      "ref": "cyberwire-daily-0",
       "domains": [
         "news",
-        "cti"
-      ]
+        "ai",
+        "leadership"
+      ],
+      "summary": "Covers election-day technical glitches and misinformation, tampering with European refrigeration systems, scrutiny of OpenAI's security warnings, and the Binance heist attributed to North Korea. Includes a guest interview with Box's CISO on enterprise AI security."
     },
     {
-      "title": "Ransomware and secrets exposure",
-      "summary": "Ransomware is encrypting outdated Synology NAS devices, and Trigger.dev customers were told to rotate their secrets after an exposure. Langflow also fixed a critical login bypass and RCE.",
-      "refs": [
-        "daily-defsec-brief-0",
-        "cyber-security-headlines-0"
-      ],
+      "show": "ai-daily-brief",
+      "title": "How the Midterm Results Change AI",
+      "publishedAt": "2026-11-04T19:57:20.000Z",
+      "minutes": 25,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/How-the-Midterm-Results-Change-AI-e3rotli",
+      "ref": "ai-daily-brief-0",
       "domains": [
+        "ai",
+        "grc",
+        "news"
+      ],
+      "summary": "Looks at how the midterm election results may bring more scrutiny to AI, including data centre construction and regulation, and suggests the backlash could lead to better terms for local communities."
+    },
+    {
+      "show": "daily-cyber-threat-brief",
+      "title": "🔴 Nov 4's Top Cyber News NOW! - Ep 1280",
+      "publishedAt": "2026-11-04T18:32:39.000Z",
+      "minutes": 108,
+      "url": "https://simplycyber.transistor.fm/1280",
+      "ref": "daily-cyber-threat-brief-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "A general daily cyber news roundup for 4 November with no detailed story summaries in the notes. (Sponsored: includes vendor promotions.)"
+    },
+    {
+      "show": "shadowtalk",
+      "title": "ARTEX for Everyone: What Widely Available AI Hacking Means for Defenders",
+      "publishedAt": "2026-11-04T18:00:00.000Z",
+      "minutes": 28,
+      "url": "https://www.reliaquest.com/resources/podcast",
+      "ref": "shadowtalk-0",
+      "domains": [
+        "ai",
+        "offensive",
+        "defensive"
+      ],
+      "summary": "Discusses ARTEX, an AI-powered penetration-testing framework openly available on GitHub and now seen in real intrusions. Advises rotating exposed credentials, treating application records as telemetry, and using AI-enabled red teaming and exposure management."
+    },
+    {
+      "show": "daily-defsec-brief",
+      "title": "Stolen Entra app secrets, cPGuard update hijack, Binance fake interview | Cyber Security News Nov 4",
+      "publishedAt": "2026-11-04T14:36:34.000Z",
+      "minutes": 6,
+      "url": "https://riverside.com",
+      "ref": "daily-defsec-brief-0",
+      "domains": [
+        "tvm",
         "defensive",
-        "appsec",
         "cloud"
-      ]
-    }
-  ],
-  "episodes": [
+      ],
+      "summary": "Thirteen defender stories including stolen Entra app secrets hitting MSPs, a backdoor pushed via the cPGuard update channel, Node-RED exploitation, WS_FTP and Barracuda patches, Zyxel switch fixes, and a Linux TCP flaw with Ubuntu still open."
+    },
+    {
+      "show": "cyberhub",
+      "title": "🎙️ Linux Kernel TCP Use-After-Free Gives Remote Unauthenticated Root on Every Major Distribution, Barracuda Critical Flaws Allow Root Access to Security Appliances, Google Dismantles 1.3 Million Devi",
+      "publishedAt": "2026-11-04T14:00:00.000Z",
+      "minutes": 22,
+      "url": "https://www.cyberhubpodcast.com",
+      "ref": "cyberhub-0",
+      "domains": [
+        "appsec",
+        "tvm",
+        "defensive"
+      ],
+      "summary": "Covers a Linux kernel TCP use-after-free rated CVSS 9.8 that allows remote root, Barracuda root-access flaws on security appliances, and Google taking down a 1.3 million device Android botnet. (Sponsored/promotional links present in notes.)"
+    },
     {
       "show": "talkin-bout-infosec-news",
       "title": "All Your RAM Now Belong to SAM - 2026-11-02",
@@ -103,21 +114,7 @@
         "appsec",
         "ai"
       ],
-      "summary": "Weekly news roundup covering the Binance hack, a Telegram Android voice-call flaw, a Linux MPTCP vulnerability, Windows Kerberos delegation abuse and AI-assisted vulnerability research costs."
-    },
-    {
-      "show": "talos-takes",
-      "title": "The VOLTA infostealer: Outsourcing cybercrime grunt work to AI",
-      "publishedAt": "2026-11-04T10:00:00.000Z",
-      "minutes": 20,
-      "url": "https://talosintelligence.com/podcasts",
-      "ref": "talos-takes-0",
-      "domains": [
-        "cti",
-        "ai",
-        "defensive"
-      ],
-      "summary": "Talos discusses the VOLTA infostealer, which uses LLMs to rank stolen victims by value and reads session data such as email and order histories. Includes defender advice."
+      "summary": "A weekly community news discussion covering RAM and cryptocurrency-related stories, a reported Binance hot wallet hack, Telegram and Linux MPTCP flaws, Pwn2Own Edge chains, AI-assisted vulnerability research costs, and data centre cargo theft with GPS spoofing."
     },
     {
       "show": "cyber-security-headlines",
@@ -127,182 +124,11 @@
       "url": "https://cisoseries.libsyn.com/chinas-ai-guardrails-ncscs-2028-warning-more-binance-hack-details",
       "ref": "cyber-security-headlines-0",
       "domains": [
-        "news",
         "ai",
+        "news",
         "cti"
       ],
-      "summary": "Headlines on China planning AI guardrails, the UK predicting routine AI use in nation-state attacks, Ukraine war-crime investigators hit by cyberattacks, mSecure asking users to reset passwords, and Google shutting down TV-box malware."
-    },
-    {
-      "show": "risky-business",
-      "title": "Risky Business #858 -- The $6.3b laptop",
-      "publishedAt": "2026-11-04T03:26:14.000Z",
-      "minutes": 61,
-      "url": "https://risky.biz/RB858/",
-      "ref": "risky-business-0",
-      "domains": [
-        "news",
-        "cti",
-        "engineering"
-      ],
-      "summary": "Weekly news with guest Ciaran Martin covering the Binance hack, a Brazilian exchange breach, the Polymarket DebugBear compromise and a Trezor hardware wallet warning. Sponsored by runZero, which discusses post-quantum readiness and end-of-life products."
-    },
-    {
-      "show": "sans-stormcast",
-      "title": "SANS Stormcast Wednesday, November 4th, 2026: Refrigerator Defrost Attacks; Siemens SIMATIC Node-RED Exploited (CVE-2026-58115); cPGuard Update Channel Compromise; iPhone Lockdown Mode AirDrop Exploit",
-      "publishedAt": "2026-11-04T02:10:02.000Z",
-      "minutes": 6,
-      "url": "https://isc.sans.edu/podcastdetail/10164",
-      "ref": "sans-stormcast-0",
-      "domains": [
-        "icsot",
-        "cti",
-        "defensive"
-      ],
-      "summary": "Covers freezer defrost attacks, active exploitation of the Node-RED flaw in Siemens SIMATIC IoT2050 devices, a compromised cPGuard update channel and an iPhone AirDrop exploit that bypasses Lockdown Mode."
-    },
-    {
-      "show": "security-now",
-      "title": "SN 1103: Exposing Bad Consumer Crypto - AI vs. Encrypted Drives",
-      "publishedAt": "2026-11-04T02:04:08.000Z",
-      "minutes": 169,
-      "url": "https://twit.tv/shows/security-now/episodes/1103",
-      "ref": "security-now-0",
-      "domains": [
-        "news",
-        "ai",
-        "engineering"
-      ],
-      "summary": "Covers Cisco reportedly assigning AI-driven recoding of most of its software, a PXE boot weakness, the Binance theft, Polymarket wallet losses and a new robots.txt control for AI bots."
-    },
-    {
-      "show": "cybersecurity-today",
-      "title": "North Korean fake job interview leads to $6.3B Binance heist",
-      "publishedAt": "2026-11-04T00:22:00.000Z",
-      "minutes": 13,
-      "url": "https://cybersecuritytoday.libsyn.com/north-korean-fake-job-interview-leads-to-63b-binance-heist",
-      "ref": "cybersecurity-today-0",
-      "domains": [
-        "news",
-        "cti",
-        "cloud"
-      ],
-      "summary": "Details the Binance heist via fake hiring and poisoned tools, European fridge hacks, Barracuda root-takeover flaws, PHP-to-shell chains on Palo Alto firewalls and LLMjacking costs."
-    },
-    {
-      "show": "security-weekly-news",
-      "title": "Patrick Stewart, Videostrong, C3RB3R, GitLab, VMware, BTCPay, Binance, Aaran Leyland. - SWN #630",
-      "publishedAt": "2026-11-03T22:00:00.000Z",
-      "minutes": 33,
-      "url": "https://hntvaudio.libsyn.com/patrick-stewart-videostrong-c3rb3r-gitlab-vmware-btcpay-binance-aaran-leyland-swn-630",
-      "ref": "security-weekly-news-0",
-      "domains": [
-        "news"
-      ],
-      "summary": "Weekly news roundup touching on GitLab, VMware, BTCPay, Binance and several other stories, with show notes linked from the episode."
-    },
-    {
-      "show": "cyberwire-daily",
-      "title": "Democracy without a safety net.",
-      "publishedAt": "2026-11-03T21:30:00.000Z",
-      "minutes": 30,
-      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2670/notes",
-      "ref": "cyberwire-daily-0",
-      "domains": [
-        "news",
-        "cti",
-        "ai"
-      ],
-      "summary": "Covers CISA scaling back election security, Google dismantling a 1.3M-device TV botnet, UK warnings on AI ransomware, German lawmaker spyware, the VOLTA infostealer, Ivanti zero-day patches and a Harvard breach. Includes an interview on identity security in the AI era."
-    },
-    {
-      "show": "cybercrime-magazine",
-      "title": "Cybercrime Wire For Nov. 3, 2026. Cyber Intrusion Probe At Fashion Retailer. WCYB Digital Radio.",
-      "publishedAt": "2026-11-03T20:33:55.000Z",
-      "minutes": 2,
-      "url": "https://soundcloud.com/cybercrimemagazine/cyber-intrusion-probe-at-fashion-retailer",
-      "ref": "cybercrime-magazine-0",
-      "domains": [
-        "news"
-      ],
-      "summary": "Short breaking-news wire on a cyber intrusion at a fashion retailer."
-    },
-    {
-      "show": "ai-daily-brief",
-      "title": "AI Lurches Toward Recursive Self-Improvement",
-      "publishedAt": "2026-11-03T20:15:43.000Z",
-      "minutes": 27,
-      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/AI-Lurches-Toward-Recursive-Self-Improvement-e3rmekk",
-      "ref": "ai-daily-brief-0",
-      "domains": [
-        "ai"
-      ],
-      "summary": "Discusses AI moving toward recursive self-improvement. Sponsored by several AI vendors."
-    },
-    {
-      "show": "daily-cyber-threat-brief",
-      "title": "🔴 Nov 3's Top Cyber News NOW! - Ep 1279",
-      "publishedAt": "2026-11-03T16:37:10.000Z",
-      "minutes": 93,
-      "url": "https://simplycyber.transistor.fm/1279",
-      "ref": "daily-cyber-threat-brief-0",
-      "domains": [
-        "news"
-      ],
-      "summary": "Daily roundup of the top cyber news for 3 November, with sponsor segments omitted."
-    },
-    {
-      "show": "secureafrique",
-      "title": "US Election Commission Targeted",
-      "publishedAt": "2026-11-03T16:00:00.000Z",
-      "minutes": 4,
-      "url": "https://www.buzzsprout.com/1963000",
-      "ref": "secureafrique-0",
-      "domains": [
-        "news",
-        "human"
-      ],
-      "summary": "Covers rising cyber threats in Kenya, the Binance breach, a US election commission being targeted and an ASOS data breach, with a reminder on staff training."
-    },
-    {
-      "show": "cybercrime-magazine",
-      "title": "Cybercrime News For Nov. 3, 2026. Hackers Breach Russia's Statistics Agency. WCYB Digital Radio.",
-      "publishedAt": "2026-11-03T14:20:05.000Z",
-      "minutes": 3,
-      "url": "https://soundcloud.com/cybercrimemagazine/hackers-breach-russias-statistics-agency",
-      "ref": "cybercrime-magazine-1",
-      "domains": [
-        "news"
-      ],
-      "summary": "Daily cybercrime news covering reported hackers breaching Russia's statistics agency."
-    },
-    {
-      "show": "cyberhub",
-      "title": "🎙️ China’s Vapor Panda Uses ARTEX AI Framework and DeepSeek to Attack 200+ Organizations Across 14 Countries, FBI Flags Over 600 Cryptocurrency Addresses Tied to Binance Heist, Lawmakers’ iPhones May",
-      "publishedAt": "2026-11-03T14:00:00.000Z",
-      "minutes": 22,
-      "url": "https://www.cyberhubpodcast.com",
-      "ref": "cyberhub-0",
-      "domains": [
-        "cti",
-        "news",
-        "ai"
-      ],
-      "summary": "Covers China's Vapor Panda using an AI framework and DeepSeek against 200+ organisations in 14 countries, FBI tracking of Binance-linked crypto addresses, and PHP2Shell insurance risk."
-    },
-    {
-      "show": "daily-defsec-brief",
-      "title": "Synology NAS ransomware, stolen keys running up $100K AI bills | Cyber Security News Nov 3",
-      "publishedAt": "2026-11-03T12:56:13.000Z",
-      "minutes": 4,
-      "url": "https://riverside.com",
-      "ref": "daily-defsec-brief-0",
-      "domains": [
-        "defensive",
-        "cloud",
-        "appsec"
-      ],
-      "summary": "Covers ransomware on outdated Synology NAS devices, stolen cloud keys running up AI bills, a Trigger.dev secrets exposure, a Langflow login bypass and RCE, and unmaintained MCP servers being installed by coding agents."
+      "summary": "Covers China planning broad AI guardrails, the UK predicting routine AI use in nation-state attacks, Russia-linked espionage against Ukraine war crime investigations, more Binance hack details, mSecure asking users to reset passwords, OpenAI's security sprint, and LLMjacking costs. (Sponsored: ESET mentioned.)"
     }
   ]
 }

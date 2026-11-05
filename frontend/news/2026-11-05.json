@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-05",
+  "generatedAt": "2026-11-05T06:06:05.018Z",
+  "windowHours": 24,
+  "headline": "Binance heist, AI agents in banking, and fresh Linux and Barracuda patches",
+  "overview": "Today's shows cover a large North Korea-linked crypto theft at Binance that used fake job interviews, and growing concern about AI agents being given access to bank accounts. Several episodes also flag serious patches, including a remote root flaw in the Linux TCP stack and critical Barracuda appliance bugs, plus an election-day mix of technical glitches and misinformation. [{ title: Binance hack attributed to North Korea via fake job interviews, summary: Binance described a multi-billion-dollar theft that began with fake job interviews used to get in. Reports tie it to North Korea, which deni",
+  "topStories": [],
+  "episodes": [
+    {
+      "show": "smashing-security",
+      "title": "How AI agents are spooking the banks",
+      "publishedAt": "2026-11-05T00:00:45.000Z",
+      "minutes": 65,
+      "url": "https://www.smashingsecurity.com/491",
+      "ref": "smashing-security-0",
+      "domains": [
+        "ai",
+        "privacy",
+        "news"
+      ],
+      "summary": "Covers Bank of America's warning against sharing banking passwords with AI assistants and JPMorgan's ban on outside agents, plus a ransomware recovery firm's CEO indicted for allegedly paying criminals. Also touches on AI models going beyond test environments."
+    },
+    {
+      "show": "cyberwire-daily",
+      "title": "Ballots, bots, and backlash.",
+      "publishedAt": "2026-11-04T21:30:00.000Z",
+      "minutes": 34,
+      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2671/notes",
+      "ref": "cyberwire-daily-0",
+      "domains": [
+        "news",
+        "ai",
+        "leadership"
+      ],
+      "summary": "Covers election-day technical glitches and misinformation, tampering with European refrigeration systems, scrutiny of OpenAI's security warnings, and the Binance heist attributed to North Korea. Includes a guest interview with Box's CISO on enterprise AI security."
+    },
+    {
+      "show": "ai-daily-brief",
+      "title": "How the Midterm Results Change AI",
+      "publishedAt": "2026-11-04T19:57:20.000Z",
+      "minutes": 25,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/How-the-Midterm-Results-Change-AI-e3rotli",
+      "ref": "ai-daily-brief-0",
+      "domains": [
+        "ai",
+        "grc",
+        "news"
+      ],
+      "summary": "Looks at how the midterm election results may bring more scrutiny to AI, including data centre construction and regulation, and suggests the backlash could lead to better terms for local communities."
+    },
+    {
+      "show": "daily-cyber-threat-brief",
+      "title": "🔴 Nov 4's Top Cyber News NOW! - Ep 1280",
+      "publishedAt": "2026-11-04T18:32:39.000Z",
+      "minutes": 108,
+      "url": "https://simplycyber.transistor.fm/1280",
+      "ref": "daily-cyber-threat-brief-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "A general daily cyber news roundup for 4 November with no detailed story summaries in the notes. (Sponsored: includes vendor promotions.)"
+    },
+    {
+      "show": "shadowtalk",
+      "title": "ARTEX for Everyone: What Widely Available AI Hacking Means for Defenders",
+      "publishedAt": "2026-11-04T18:00:00.000Z",
+      "minutes": 28,
+      "url": "https://www.reliaquest.com/resources/podcast",
+      "ref": "shadowtalk-0",
+      "domains": [
+        "ai",
+        "offensive",
+        "defensive"
+      ],
+      "summary": "Discusses ARTEX, an AI-powered penetration-testing framework openly available on GitHub and now seen in real intrusions. Advises rotating exposed credentials, treating application records as telemetry, and using AI-enabled red teaming and exposure management."
+    },
+    {
+      "show": "daily-defsec-brief",
+      "title": "Stolen Entra app secrets, cPGuard update hijack, Binance fake interview | Cyber Security News Nov 4",
+      "publishedAt": "2026-11-04T14:36:34.000Z",
+      "minutes": 6,
+      "url": "https://riverside.com",
+      "ref": "daily-defsec-brief-0",
+      "domains": [
+        "tvm",
+        "defensive",
+        "cloud"
+      ],
+      "summary": "Thirteen defender stories including stolen Entra app secrets hitting MSPs, a backdoor pushed via the cPGuard update channel, Node-RED exploitation, WS_FTP and Barracuda patches, Zyxel switch fixes, and a Linux TCP flaw with Ubuntu still open."
+    },
+    {
+      "show": "cyberhub",
+      "title": "🎙️ Linux Kernel TCP Use-After-Free Gives Remote Unauthenticated Root on Every Major Distribution, Barracuda Critical Flaws Allow Root Access to Security Appliances, Google Dismantles 1.3 Million Devi",
+      "publishedAt": "2026-11-04T14:00:00.000Z",
+      "minutes": 22,
+      "url": "https://www.cyberhubpodcast.com",
+      "ref": "cyberhub-0",
+      "domains": [
+        "appsec",
+        "tvm",
+        "defensive"
+      ],
+      "summary": "Covers a Linux kernel TCP use-after-free rated CVSS 9.8 that allows remote root, Barracuda root-access flaws on security appliances, and Google taking down a 1.3 million device Android botnet. (Sponsored/promotional links present in notes.)"
+    },
+    {
+      "show": "talkin-bout-infosec-news",
+      "title": "All Your RAM Now Belong to SAM - 2026-11-02",
+      "publishedAt": "2026-11-04T10:45:00.000Z",
+      "minutes": 71,
+      "url": "https://bhisnews.transistor.fm/episodes/all-your-ram-now-belong-to-sam-2026-11-02",
+      "ref": "talkin-bout-infosec-news-0",
+      "domains": [
+        "news",
+        "appsec",
+        "ai"
+      ],
+      "summary": "A weekly community news discussion covering RAM and cryptocurrency-related stories, a reported Binance hot wallet hack, Telegram and Linux MPTCP flaws, Pwn2Own Edge chains, AI-assisted vulnerability research costs, and data centre cargo theft with GPS spoofing."
+    },
+    {
+      "show": "cyber-security-headlines",
+      "title": "China's AI guardrails, NCSC's 2028 warning, more Binance hack details",
+      "publishedAt": "2026-11-04T07:00:00.000Z",
+      "minutes": 8,
+      "url": "https://cisoseries.libsyn.com/chinas-ai-guardrails-ncscs-2028-warning-more-binance-hack-details",
+      "ref": "cyber-security-headlines-0",
+      "domains": [
+        "ai",
+        "news",
+        "cti"
+      ],
+      "summary": "Covers China planning broad AI guardrails, the UK predicting routine AI use in nation-state attacks, Russia-linked espionage against Ukraine war crime investigations, more Binance hack details, mSecure asking users to reset passwords, OpenAI's security sprint, and LLMjacking costs. (Sponsored: ESET mentioned.)"
+    }
+  ]
+}
