@@ -153,15 +153,15 @@ button.logo:hover .zoom-hint,button.logo:focus-visible .zoom-hint{opacity:1}
 /* Platform links: coloured, labelled chips. Colours are darkened for contrast on white and lightened for dark mode.
    Search fallbacks (no direct link stored) stay grey with a dotted border. Phones keep the labels (the icons alone
    aren't recognisable enough) and start the row on the left so wrapped chips line up. */
-:root{--c-apple:#7f35bd;--c-spotify:#157a3a;--c-youtube:#c62828;--c-amazon:#0a727b;--c-openlibrary:#2c5aa0;--c-goodreads:#7a5230;--c-bundle:#a35c0a;--c-listen:var(--signal)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-apple:#c9a2ee;--c-spotify:#5dd98d;--c-youtube:#ff8f87;--c-amazon:#5fd6de;--c-openlibrary:#93b9f2;--c-goodreads:#ddb98f;--c-bundle:#e8a75a}}
-:root[data-theme="dark"]{--c-apple:#c9a2ee;--c-spotify:#5dd98d;--c-youtube:#ff8f87;--c-amazon:#5fd6de;--c-openlibrary:#93b9f2;--c-goodreads:#ddb98f;--c-bundle:#e8a75a}
+:root{--c-apple:#7f35bd;--c-spotify:#157a3a;--c-youtube:#c62828;--c-amazon:#0a727b;--c-openlibrary:#2c5aa0;--c-goodreads:#7a5230;--c-bundle:#a35c0a;--c-listen:var(--signal);--c-twitch:#6b3fc0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-apple:#c9a2ee;--c-spotify:#5dd98d;--c-youtube:#ff8f87;--c-amazon:#5fd6de;--c-openlibrary:#93b9f2;--c-goodreads:#ddb98f;--c-bundle:#e8a75a;--c-twitch:#bfa2ff}}
+:root[data-theme="dark"]{--c-apple:#c9a2ee;--c-spotify:#5dd98d;--c-youtube:#ff8f87;--c-amazon:#5fd6de;--c-openlibrary:#93b9f2;--c-goodreads:#ddb98f;--c-bundle:#e8a75a;--c-twitch:#bfa2ff}
 .links{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;margin-left:auto;flex:1 1 200px;min-width:0}
 .plat{--c:var(--ink-2);flex:none;display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px 0 8px;border-radius:999px;border:1px solid color-mix(in srgb,var(--c) 40%,transparent);background:color-mix(in srgb,var(--c) 9%,transparent);color:var(--c);text-decoration:none;font-size:12.5px;font-weight:600;white-space:nowrap;position:relative}
 .plat:hover{background:color-mix(in srgb,var(--c) 18%,transparent);border-color:var(--c)}
 .plat:focus-visible{outline:2px solid var(--c);outline-offset:2px}
 .plat svg{width:15px;height:15px;flex:none}
-.plat.k-apple{--c:var(--c-apple)}.plat.k-spotify{--c:var(--c-spotify)}.plat.k-youtube{--c:var(--c-youtube)}.plat.k-amazon{--c:var(--c-amazon)}
+.plat.k-apple{--c:var(--c-apple)}.plat.k-spotify{--c:var(--c-spotify)}.plat.k-youtube{--c:var(--c-youtube)}.plat.k-amazon{--c:var(--c-amazon)}.plat.k-twitch{--c:var(--c-twitch)}
 .plat.k-openlibrary{--c:var(--c-openlibrary)}.plat.k-goodreads{--c:var(--c-goodreads)}.plat.k-bundle{--c:var(--c-bundle)}.plat.k-listen{--c:var(--c-listen)}
 .plat.k-web{--c:var(--ink-2);background:transparent;border-color:var(--line)}
 .plat.srch{--c:var(--ink-3);background:transparent;border:1px dotted var(--ink-3);font-weight:500}
@@ -487,6 +487,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
         <div class="field"><label for="e_spotify">Spotify</label><input id="e_spotify" type="url"></div>
         <div class="field"><label for="e_amazon">Amazon Music (podcasts)</label><input id="e_amazon" type="url" placeholder="https://music.amazon.co.uk/podcasts/…"></div>
         <div class="field"><label for="e_youtube">YouTube</label><input id="e_youtube" type="url"></div>
+        <div class="field"><label for="e_twitch">Twitch (platforms)</label><input id="e_twitch" type="url" placeholder="https://www.twitch.tv/…"></div>
         <div class="field"><label for="e_isbn">ISBN (books)</label><input id="e_isbn"></div>
         <div class="field"><label for="e_publisher">Publisher (books)</label><input id="e_publisher"></div>
       </div>
@@ -668,6 +669,7 @@ const ICONS = {
   apple:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg>',
   spotify:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M7 9.5c3.5-1 7-.6 10 1M7.5 12.8c2.8-.7 5.6-.4 8 .9M8 16c2.2-.5 4.3-.3 6.2.7"/></svg>',
   amazon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg>',
+  twitch:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 3h16v11l-4 4h-4l-3 3v-3H4z"/><path d="M11 7.5v4M15.5 7.5v4" stroke-linecap="round"/></svg>',
   youtube:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg>',
   web:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.7 5.7 3.7 9s-1.2 6.3-3.7 9c-2.5-2.7-3.7-5.7-3.7-9S9.5 5.7 12 3z"/></svg>',
   listen:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/></svg>',
@@ -705,14 +707,17 @@ function searchUrl(platform, i){
 }
 const AMAZON_MUSIC_HOSTS = ["music.amazon.co.uk","music.amazon.com","music.amazon.ca","music.amazon.com.au","music.amazon.de","music.amazon.fr","music.amazon.it","music.amazon.es","music.amazon.in","music.amazon.co.jp","music.amazon.com.br","music.amazon.com.mx"];
 // Same exact-host rule as the Worker (worker/src/lib/shared.js PLATFORM_HOSTS); the server check is the one that counts.
-const PLATFORM_HOSTS = {apple:["podcasts.apple.com"], spotify:["open.spotify.com"], youtube:["www.youtube.com","youtube.com","m.youtube.com","music.youtube.com","youtu.be"]};
+const PLATFORM_HOSTS = {apple:["podcasts.apple.com"], spotify:["open.spotify.com"], youtube:["www.youtube.com","youtube.com","m.youtube.com","music.youtube.com","youtu.be"], twitch:["www.twitch.tv","twitch.tv"]};
 function isPlatform(kind, v){ try { const u=new URL(v); return u.protocol==="https:" && PLATFORM_HOSTS[kind].includes(u.hostname); } catch { return false; } }
 function isAmazonMusic(v){ try { const u=new URL(v); return u.protocol==="https:" && AMAZON_MUSIC_HOSTS.includes(u.hostname) && u.pathname.startsWith("/podcasts/"); } catch { return false; } }
 function platLinks(i){
   const L = [];
   // key: colour + icon; text: visible label; title: full name for tooltip and screen readers.
   const add = (href, key, text, title, isSearch) => /^https?:\/\//i.test(href||"") && L.push(`<a class="plat k-${key}${isSearch?" srch":""}" href="${esc(href)}" target="_blank" rel="noopener" title="${esc(title)}" aria-label="${esc(title)}">${ICONS[key]||ICONS.web}<span class="pl" aria-hidden="true">${esc(text)}</span></a>`);
-  if (i.type === "platform"){ /* just the site itself, below */ }
+  if (i.type === "platform"){ // the site itself (below), plus a free video channel or live stream when there is one
+    if (isPlatform("youtube", i.youtube)) add(i.youtube,"youtube","YouTube","YouTube channel");
+    if (isPlatform("twitch", i.twitch)) add(i.twitch,"twitch","Twitch","Twitch live streams");
+  }
   else if (i.type === "podcast"){
     i.apple ? add(i.apple,"apple","Apple","Apple Podcasts") : add(searchUrl("apple",i),"apple","Apple","Search Apple Podcasts",1);
     i.spotify ? add(i.spotify,"spotify","Spotify","Spotify") : add(searchUrl("spotify",i),"spotify","Spotify","Search Spotify",1);
@@ -1032,7 +1037,7 @@ $("#queue").addEventListener("click", async e => {
 let editing=null, editDomains=[];
 function openEdit(id){
   editing = ITEMS.find(x=>x.id===id); editDomains=[...editing.domains];
-  for (const k of ["name","by","desc","web","apple","spotify","amazon","youtube","launched","isbn","publisher"]) $("#e_"+k).value = editing[k]||"";
+  for (const k of ["name","by","desc","web","apple","spotify","amazon","youtube","twitch","launched","isbn","publisher"]) $("#e_"+k).value = editing[k]||"";
   $("#e_freq").value = editing.freq||"irregular"; $("#e_freq").disabled = editing.type!=="podcast"; $("#e_curator").checked=!!editing.curator;
   $("#e_kind").value = editing.kind||""; $("#e_cost").value = editing.cost||""; $$(".e-platform").forEach(x=>x.hidden = editing.type!=="platform");
   renderDomainPicker($("#e_domains"), editDomains); $("#editDlg").showModal();
@@ -1040,9 +1045,9 @@ function openEdit(id){
 $("#e_domains").addEventListener("click", e => { const b=e.target.closest("[data-pick]"); if(!b) return; toggle(editDomains,b.dataset.pick); renderDomainPicker($("#e_domains"),editDomains); });
 $("#editForm").addEventListener("submit", async e => {
   e.preventDefault(); const patch = {domains:editDomains, curator:$("#e_curator").checked};
-  for (const k of ["name","by","desc","web","apple","spotify","amazon","youtube","launched","isbn","publisher"]) patch[k] = $("#e_"+k).value.trim()||undefined;
+  for (const k of ["name","by","desc","web","apple","spotify","amazon","youtube","twitch","launched","isbn","publisher"]) patch[k] = $("#e_"+k).value.trim()||undefined;
   if (patch.amazon && !isAmazonMusic(patch.amazon)){ toast("The Amazon Music link should be a music.amazon… /podcasts/ page."); return; }
-  for (const [k,label] of [["apple","podcasts.apple.com"],["spotify","open.spotify.com"],["youtube","youtube.com"]]) if (patch[k] && !isPlatform(k, patch[k])){ toast(`The ${k==="apple"?"Apple":k==="spotify"?"Spotify":"YouTube"} link should be a ${label} address.`); return; }
+  for (const [k,label] of [["apple","podcasts.apple.com"],["spotify","open.spotify.com"],["youtube","youtube.com"],["twitch","twitch.tv"]]) if (patch[k] && !isPlatform(k, patch[k])){ toast(`The ${k==="apple"?"Apple":k==="spotify"?"Spotify":k==="twitch"?"Twitch":"YouTube"} link should be a ${label} address.`); return; }
   if (editing.type==="podcast") patch.freq=$("#e_freq").value;
   if (editing.type==="platform"){ patch.kind=$("#e_kind").value||undefined; patch.cost=$("#e_cost").value||undefined; }
   if (patch.isbn){ const ok=isbnOk(patch.isbn); if(!ok){ toast("That ISBN doesn't look right. Check the digits."); return; } patch.isbn=ok; }

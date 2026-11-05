@@ -227,13 +227,15 @@ test("admin: queue, approve, edit (URL sanitising), CSRF checks, insights, expor
   const { item } = await patch.json();
   assert.equal(item.web, undefined); assert.equal(item.amazon, undefined); assert.deepEqual(item.domains, ["ai"]); assert.equal(item.tagsLocked, true); assert.equal(item.hidden, true);
   // Look-alike listening-platform hosts are dropped on edit; real ones are kept
-  const p2 = await call("/api/admin/items/new-show", { method: "PATCH", body: { spotify: "https://open.spotify.com.evil.example/show/x", apple: "https://evil.example/podcasts.apple.com/id1", youtube: "https://www.youtube.com/@realshow" }, headers: h });
+  const p2 = await call("/api/admin/items/new-show", { method: "PATCH", body: { spotify: "https://open.spotify.com.evil.example/show/x", apple: "https://evil.example/podcasts.apple.com/id1", youtube: "https://www.youtube.com/@realshow", twitch: "https://www.twitch.tv.evil.example/x" }, headers: h });
   const { item: item2 } = await p2.json();
   // Archiving by hand locks status and frequency; re-sending the same frequency doesn't
   assert.equal(item2.statusLocked, undefined);
   const arch = await (await call("/api/admin/items/new-show", { method: "PATCH", body: { status: "ended", freq: "ended" }, headers: h })).json();
   assert.equal(arch.item.status, "ended"); assert.equal(arch.item.statusLocked, true);
-  assert.equal(item2.spotify, undefined); assert.equal(item2.apple, undefined); assert.equal(item2.youtube, "https://www.youtube.com/@realshow");
+  assert.equal(item2.spotify, undefined); assert.equal(item2.apple, undefined); assert.equal(item2.youtube, "https://www.youtube.com/@realshow"); assert.equal(item2.twitch, undefined);
+  const tw = await (await call("/api/admin/items/new-show", { method: "PATCH", body: { twitch: "https://www.twitch.tv/realshow" }, headers: h })).json();
+  assert.equal(tw.item.twitch, "https://www.twitch.tv/realshow");
   // Admin list includes hidden items
   const all = await (await call("/api/items", { headers: { cookie } })).json();
   assert.ok(all.items.some(i => i.id === "secret-show"));
