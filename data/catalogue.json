@@ -10760,7 +10760,7 @@
       "status": "active",
       "web": "https://www.eventbrite.co.uk/d/online/cyber-security/",
       "rating": null,
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl-starter"
       ],
@@ -10786,7 +10786,7 @@
       "status": "active",
       "web": "https://www.isc2.org/certifications/cc",
       "rating": null,
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl-starter"
       ],
@@ -11006,7 +11006,7 @@
       "web": "https://www.sans.org/free-cybersecurity-events",
       "status": "active",
       "rating": null,
-      "curator": false,
+      "curator": true,
       "sources": [
         "curator"
       ],
