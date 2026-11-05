@@ -1,5 +1,5 @@
 // Emails the latest briefing to confirmed subscribers.
-//   node scripts/send-digest.mjs             send (only between 06:00 and 06:59 London time, once per day)
+//   node scripts/send-digest.mjs             send (only between 08:00 and 08:59 London time, once per day)
 //   node scripts/send-digest.mjs --force     ignore the time window (still once per day)
 //   node scripts/send-digest.mjs --preview   write an HTML preview to email-preview.html (repo root, git-ignored) and send nothing
 // Needs: the D1 settings (see scripts/d1.mjs), MAIL_PROVIDER, MAIL_API_KEY, MAIL_FROM, TOKEN_SECRET, SITE_URL
@@ -29,7 +29,7 @@ if (preview) {
 }
 
 const today = londonDate();
-if (!force && londonHour() !== 6) { console.log(`Not 06:00-06:59 in London (it's ${londonHour()}:xx); skipping.`); process.exit(0); }
+if (!force && londonHour() !== 8) { console.log(`Not 08:00-08:59 in London (it's ${londonHour()}:xx); skipping.`); process.exit(0); }
 if (digest.date !== today) { console.log(`Latest briefing is for ${digest.date}, not ${today}; not sending a stale briefing.`); process.exit(0); }
 
 const db = await openD1();

@@ -79,7 +79,7 @@ export function windowHours(prevGeneratedAt, now = Date.now(), { min = 24, max =
   return Math.min(max, Math.max(min, Math.ceil((now - t) / 3600e3)));
 }
 
-const epKey = e => `${e.show}|${String(e.title || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim()}`;
+export const epKey = e => `${e.show}|${String(e.title || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim()}`;
 /** Removes episodes already listed in earlier briefings (matched by show and title). */
 export function dropSeen(episodes, previous = []) {
   const seen = new Set(previous.flatMap(b => (b?.episodes || []).map(epKey)));

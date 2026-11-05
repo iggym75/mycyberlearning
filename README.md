@@ -7,7 +7,8 @@
 - Links to Apple Podcasts, Spotify, YouTube, Amazon Music (where added by hand) and the official site; logos, cadence and launch date for every show
 - Visitors suggest podcasts and books; Claude pre-tags and sanity-checks each suggestion; an admin approves, edits, hides or deletes anything
 - A weekly automated job keeps logos, links, cadence, launch dates, ratings and tags current
-- **Daily briefing**: every morning at 06:00 UK time, the news podcasts' episodes from the last 24 hours are summarised on the site (`#news`, 30-day archive) and emailed to confirmed subscribers
+- **Daily briefing**: every morning at 08:30 UK time, the news podcasts' new episodes since the previous briefing are summarised on the site (`#news`, 30-day archive) and emailed to confirmed subscribers
+- The five core news shows (`data/briefing.json`) are transcribed with an open-source speech model in the GitHub job, so the summaries reflect what was actually said, not just the show notes
 - Privacy-first: double opt-in, one-click unsubscribe, no tracking pixels, cookieless aggregate analytics that honour Global Privacy Control / Do Not Track. See [SECURITY.md](SECURITY.md)
 
 ---
@@ -21,7 +22,7 @@ Everything runs on free plans with **no payment card on file**, so neither a lea
  ┌────────────────────────────────────────┐            ┌──────────────────────────────────────────┐
  │ push to main → test → wrangler deploy  │──────────► │ Worker "mycyberlearning"                  │
  │ Mon 05:17  refresh.mjs (catalogue)     │            │  • static site (frontend/dist, _headers)  │
- │ 06:00 UK   news.mjs → send-digest.mjs  │──D1 API──► │  • /api/*  votes, suggestions, sign-ups   │
+ │ 08:30 UK   news.mjs → send-digest.mjs  │──D1 API──► │  • /api/*  votes, suggestions, sign-ups   │
  │ daily      cleanup.mjs (retention)     │            │  • /auth/* GitHub sign-in for the admin   │
  └────────────────────────────────────────┘            │ D1 database (EU jurisdiction)             │
           │ Claude API (tagging, summaries)            └──────────────────┬───────────────────────┘
@@ -54,7 +55,7 @@ Everything runs on free plans with **no payment card on file**, so neither a lea
 |---|---|---|
 | Deploy on push | GitHub Actions `deploy.yml` | Tests, builds, applies D1 migrations, `wrangler deploy`. Pull requests are tested, never deployed. |
 | Weekly catalogue refresh | `refresh.yml` (Mon 05:17 UTC) | Apple directory, RSS, Podnews, Open Library, Claude tags; commits `data/catalogue.json` and new artwork, then deploys. |
-| Daily briefing | `news.yml` (06:00 UK) | Builds `frontend/news/<date>.json`, deploys, emails subscribers, applies retention. |
+| Daily briefing | `news.yml` (08:30 UK, started by the Worker cron) | Builds `frontend/news/<date>.json`, deploys, emails subscribers, applies retention. |
 | Code and content changes | Claude Code in this repo | Reads `CLAUDE.md`; proposes changes as PRs. |
 
 ## Setup

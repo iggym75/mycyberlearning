@@ -17,7 +17,9 @@ The site runs on Cloudflare's Workers Free plan and Resend's free plan, with **n
 | Visitor suggestions (optional contact email) | `submissions` | IP stored only as a salted hash for abuse control | Email and IP hash removed on review, or after 90 days |
 | Briefing emails in transit | Resend (email delivery) | TLS; open and click tracking left off | Per Resend's retention for delivery logs |
 
-IP addresses are used in memory for rate limiting and are never written to the database. No personal data is sent to Anthropic: Claude only sees public podcast notes and catalogue text.
+IP addresses are used in memory for rate limiting and are never written to the database. No personal data is sent to Anthropic: Claude only sees public podcast notes, episode pages or transcripts, and catalogue text.
+
+The daily briefing transcribes the five core news shows' public audio with an open-source speech model (faster-whisper) running inside a GitHub Actions job. That job has no secrets and read-only repository access, because it decodes third-party audio; transcripts reach the build job through the Actions cache, are used only as input for our summaries, and are never committed, published or emailed.
 
 ## Controls
 **Application**

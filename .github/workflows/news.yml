@@ -1,15 +1,15 @@
 name: Daily news briefing
 
-# Aims for 06:07 London time (05:07 UTC in summer/BST, 06:07 UTC in winter/GMT). GitHub often starts
-# scheduled runs hours late, so later runs are fallbacks: the first run at or after 06:00 London builds
+# Runs at 08:30 London time: the Worker's cron (worker/src/cron.js) dispatches it, since GitHub often starts
+# scheduled runs hours late. These schedules are fallbacks: the first run at or after 08:25 London builds
 # and sends the day's briefing, and every later run that day finds it built and only retries the email
 # (send-digest.mjs sends at most once per day, resuming an interrupted send).
 on:
   schedule:
-    - cron: "7 5 * * *"
-    - cron: "7 6 * * *"
-    - cron: "37 7 * * *"
-    - cron: "7 10 * * *"
+    - cron: "41 7 * * *"    # 08:41 BST
+    - cron: "41 8 * * *"    # 08:41 GMT
+    - cron: "11 10 * * *"
+    - cron: "11 12 * * *"
   workflow_dispatch:
     inputs:
       send:
@@ -33,16 +33,58 @@ jobs:
         with: { ref: main, persist-credentials: false, sparse-checkout: frontend/news }
       - id: check
         run: |
-          hour=$(TZ=Europe/London date +%-H); today=$(TZ=Europe/London date +%F)
+          hm=$(TZ=Europe/London date +%H%M); today=$(TZ=Europe/London date +%F)
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then echo "go=true" >> "$GITHUB_OUTPUT"; echo "build=true" >> "$GITHUB_OUTPUT"; exit 0; fi
-          if [ "$hour" -lt 6 ]; then echo "go=false" >> "$GITHUB_OUTPUT"; echo "London hour is $hour, before 06:00; skipping."; exit 0; fi
+          if [ $((10#$hm)) -lt 825 ]; then echo "go=false" >> "$GITHUB_OUTPUT"; echo "London time is $hm, before 08:25; skipping."; exit 0; fi
           echo "go=true" >> "$GITHUB_OUTPUT"
           if [ -f "frontend/news/$today.json" ]; then echo "build=false" >> "$GITHUB_OUTPUT"; echo "Briefing for $today already built; checking the email only."
           else echo "build=true" >> "$GITHUB_OUTPUT"; fi
 
-  build:
+  # Speech-to-text for the core shows (data/briefing.json). Runs in its own job with no secrets and read-only
+  # permissions, because it downloads and decodes third-party audio. Transcripts pass to the build job through the
+  # Actions cache (not an artifact, so they're never downloadable) and are never committed or published.
+  # If anything here fails or runs long, the build carries on with show notes and episode pages.
+  transcribe:
     needs: gate
     if: needs.gate.outputs.go == 'true' && needs.gate.outputs.build == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    continue-on-error: true
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, persist-credentials: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm install --no-audit --no-fund --ignore-scripts --omit=dev
+      - name: List today's core episodes
+        run: node scripts/news.mjs --local --plan "$RUNNER_TEMP/plan.json"
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Restore the speech model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-${{ vars.WHISPER_MODEL || 'base.en' }}-v1
+      - name: Install faster-whisper (prebuilt wheels only)
+        run: 'python -m pip install --disable-pip-version-check --only-binary=:all: faster-whisper==1.1.1'
+      - name: Transcribe
+        timeout-minutes: 24
+        env:
+          WHISPER_MODEL: ${{ vars.WHISPER_MODEL || 'base.en' }}
+          TRANSCRIBE_BUDGET_MIN: "18"
+        run: python -I scripts/transcribe.py "$RUNNER_TEMP/plan.json" "$RUNNER_TEMP/transcripts"
+      - name: Hand the transcripts to the build job
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ runner.temp }}/transcripts
+          key: transcripts-${{ github.run_id }}-${{ github.run_attempt }}
+
+  build:
+    needs: [gate, transcribe]
+    if: ${{ !cancelled() && needs.gate.outputs.go == 'true' && needs.gate.outputs.build == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -54,11 +96,17 @@ jobs:
         with: { node-version: 22 }
       # --ignore-scripts: dependency install scripts never run, and no secrets are in the environment yet.
       - run: npm install --no-audit --no-fund --ignore-scripts --omit=dev   # switch to `npm ci --ignore-scripts` once package-lock.json is committed
+      - name: Fetch the transcripts (if the transcribe job made any)
+        uses: actions/cache/restore@v4
+        continue-on-error: true
+        with:
+          path: ${{ runner.temp }}/transcripts
+          key: transcripts-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Build today's briefing
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL || 'claude-haiku-5-5' }}
-        run: node scripts/news.mjs --local   # shows come from the catalogue snapshot, so this job holds no database token
+        run: node scripts/news.mjs --local --transcripts "$RUNNER_TEMP/transcripts"   # shows come from the catalogue snapshot, so this job holds no database token
       - name: Commit the briefing
         env:
           GH_TOKEN: ${{ github.token }}   # only this step can push
@@ -104,7 +152,7 @@ jobs:
           SITE_URL: ${{ vars.SITE_URL || 'https://mycyberlearning.co.uk' }}
           MAIL_RATE_PER_MINUTE: ${{ vars.MAIL_RATE_PER_MINUTE || '25' }}
           MAIL_DAILY_LIMIT: ${{ vars.MAIL_DAILY_LIMIT || '' }}
-        # The gate job already checked it's 06:00 or later in London; --force lets a late-starting run still send that day.
+        # The gate job already checked it's 08:25 or later in London; --force lets a late-starting run still send that day.
         run: node scripts/send-digest.mjs --force
 
   retention:
