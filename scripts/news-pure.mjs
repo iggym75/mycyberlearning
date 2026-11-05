@@ -55,15 +55,67 @@ export function fallbackSummary(text, max = 220) {
   return out.length < clean.length && !/[.!?]$/.test(out) ? out.replace(/\s+\S*$/, "") + "…" : out;
 }
 
+/** Shortens text to at most `max` characters at a sentence end (or a word end with "…"), never mid-word. */
+export function clip(text, max) {
+  const t = String(text ?? "").trim();
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max);
+  const end = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf("! "), cut.lastIndexOf("? "));
+  if (end > max * 0.4) return cut.slice(0, end + 1);
+  return cut.slice(0, max - 1).replace(/\s+\S*$/, "").replace(/[,;:\s]+$/, "") + "…";
+}
+
+/** The model sometimes pastes structured data (e.g. "[{ title: …") into a prose field. Cut it off there. */
+export function dropStructure(text) {
+  const t = String(text ?? "");
+  const i = t.search(/\[\s*\{|\{\s*"?(title|summary|refs|headline)"?\s*:/);
+  return { text: (i >= 0 ? t.slice(0, i) : t).trim(), hadStructure: i >= 0 };
+}
+
+/** Window for this run: since the previous briefing (at least 24 h, at most 48 h), so late or early runs neither skip nor repeat episodes. */
+export function windowHours(prevGeneratedAt, now = Date.now(), { min = 24, max = 48 } = {}) {
+  const t = Date.parse(prevGeneratedAt);
+  if (!Number.isFinite(t) || t >= now) return min;
+  return Math.min(max, Math.max(min, Math.ceil((now - t) / 3600e3)));
+}
+
+const epKey = e => `${e.show}|${String(e.title || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim()}`;
+/** Removes episodes already listed in earlier briefings (matched by show and title). */
+export function dropSeen(episodes, previous = []) {
+  const seen = new Set(previous.flatMap(b => (b?.episodes || []).map(epKey)));
+  return episodes.filter(e => !seen.has(epKey(e)));
+}
+
+/** Core shows first, in the configured order; then the rest, newest first. */
+export function orderEpisodes(episodes, core = []) {
+  const rank = id => { const i = core.indexOf(id); return i < 0 ? core.length : i; };
+  return [...episodes].sort((a, b) => rank(a.show) - rank(b.show) || Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
+}
+
+/** Plain text from a podcast transcript file (WebVTT, SRT, Podcasting 2.0 JSON, HTML or plain text). */
+export function transcriptText(body, type = "") {
+  const s = String(body ?? "");
+  if (/json/i.test(type) || /^\s*\{/.test(s)) {
+    try { const j = JSON.parse(s); return stripHtml((j.segments || []).map(x => x?.body || "").join(" "), 20000); } catch { /* fall through */ }
+  }
+  if (/vtt|srt|subrip/i.test(type) || /^\s*WEBVTT/.test(s) || /-->/.test(s)) {
+    return stripHtml(s.replace(/^WEBVTT.*$/m, "").split(/\r?\n/)
+      .filter(l => l.trim() && !/-->/.test(l) && !/^\d+$/.test(l.trim()) && !/^(NOTE|STYLE|REGION)\b/.test(l))
+      .map(l => l.replace(/<v\s+[^>]*>/g, "")).join(" "), 20000);
+  }
+  return stripHtml(s, 20000);
+}
+
 /** Keeps only well-formed output from the model: known refs and domains, bounded string lengths. */
 export function validateDigest(raw, episodes, domainKeys) {
   const refs = new Set(episodes.map(e => e.ref));
-  const str = (v, n) => typeof v === "string" ? scrubContacts(stripHtml(v, n * 2)).slice(0, n) : "";
+  const str = (v, n) => typeof v === "string" ? clip(scrubContacts(dropStructure(stripHtml(v, n * 3)).text), n) : "";
   const doms = d => (Array.isArray(d) ? d : []).filter(x => domainKeys.includes(x)).slice(0, 4);
   const summaries = new Map((raw?.episodes || []).filter(e => refs.has(e?.ref)).map(e => [e.ref, { summary: str(e.summary, 400), domains: doms(e.domains) }]));
   return {
     headline: str(raw?.headline, 120),
-    overview: str(raw?.overview, 600),
+    overview: str(raw?.overview, 700),
+    malformed: [raw?.headline, raw?.overview].some(v => dropStructure(v).hadStructure),
     topStories: (raw?.topStories || []).slice(0, 6).map(s => ({
       title: str(s?.title, 120), summary: str(s?.summary, 400),
       refs: (Array.isArray(s?.refs) ? s.refs : []).filter(r => refs.has(r)).slice(0, 6), domains: doms(s?.domains)

@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { stripHtml, durationMinutes, inWindow, fallbackSummary, validateDigest, pruneDates, scrubContacts } from "../news-pure.mjs";
+import { stripHtml, durationMinutes, inWindow, fallbackSummary, validateDigest, pruneDates, scrubContacts, clip, dropStructure, windowHours, dropSeen, orderEpisodes, transcriptText } from "../news-pure.mjs";
 import { escapeHtml, safeUrl, normaliseEmail, signToken, verifyToken, newOneTimeToken, sha256, hashesMatch, londonHour, londonDate, renderDigestEmail, renderConfirmEmail, sendMail } from "../../worker/src/lib/mail.js";
 
 process.env.TOKEN_SECRET = "test-secret-0123456789-abcdefghijklmnopqrstuvwxyz";
@@ -132,4 +132,47 @@ test("model output is scrubbed of links, emails and phone numbers", () => {
   const v = validateDigest({ headline: "Go to http://x.io/a", overview: "<b>ok</b>", topStories: [], episodes: [] }, [], []);
   assert.equal(v.headline, "Go to");
   assert.equal(v.overview, "ok");
+});
+
+test("clip ends at a sentence or a whole word, never mid-word", () => {
+  assert.equal(clip("Short.", 50), "Short.");
+  assert.equal(clip("First sentence here. Second sentence that is much longer than the limit allows.", 40), "First sentence here.");
+  assert.equal(clip("North Korea denied any involvement whatsoever", 30), "North Korea denied any…");
+});
+
+test("structure pasted into the overview is cut off and flagged (the 5 Nov briefing)", () => {
+  const overview = "Today's shows cover the Binance theft and Linux patches. [{ title: Binance hack attributed to North Korea, summary: Binance described a theft";
+  assert.deepEqual(dropStructure(overview), { text: "Today's shows cover the Binance theft and Linux patches.", hadStructure: true });
+  const eps = [{ ref: "a-0", show: "a", summary: "x", domains: ["news"] }];
+  const v = validateDigest({ headline: "H", overview, topStories: [], episodes: [] }, eps, ["news"]);
+  assert.equal(v.overview, "Today's shows cover the Binance theft and Linux patches.");
+  assert.equal(v.malformed, true);
+  assert.equal(validateDigest({ headline: "H", overview: "Plain prose.", topStories: [], episodes: [] }, eps, ["news"]).malformed, false);
+});
+
+test("windowHours runs from the previous briefing, between 24 and 48 hours", () => {
+  const now = Date.parse("2026-11-05T06:06:00Z");
+  assert.equal(windowHours(undefined, now), 24);
+  assert.equal(windowHours("2026-11-04T12:08:00Z", now), 24);   // early run: still 24 h; repeats are dropped by dropSeen
+  assert.equal(windowHours("2026-11-04T01:00:00Z", now), 30);   // late previous run: nothing in the gap is lost
+  assert.equal(windowHours("2026-11-01T06:00:00Z", now), 48);   // capped after a long outage
+});
+
+test("dropSeen skips episodes an earlier briefing listed (same show and title)", () => {
+  const prev = [{ episodes: [{ show: "csh", title: "China's AI guardrails, NCSC's 2028 warning" }] }];
+  const r = dropSeen([{ show: "csh", title: "China’s AI guardrails NCSC’s 2028 warning" }, { show: "csh", title: "New story" }, { show: "other", title: "China's AI guardrails, NCSC's 2028 warning" }], prev);
+  assert.deepEqual(r.map(e => e.title), ["New story", "China's AI guardrails, NCSC's 2028 warning"]);
+});
+
+test("orderEpisodes lists core shows first in the configured order, then newest first", () => {
+  const ep = (show, h) => ({ show, publishedAt: new Date(Date.UTC(2026, 10, 5, h)).toISOString() });
+  const r = orderEpisodes([ep("x", 5), ep("sans", 2), ep("y", 6), ep("cw", 1)], ["cw", "sans"]);
+  assert.deepEqual(r.map(e => e.show), ["cw", "sans", "y", "x"]);
+});
+
+test("transcriptText reads WebVTT, SRT and Podcasting 2.0 JSON", () => {
+  assert.equal(transcriptText("WEBVTT\n\n00:00:00.000 --> 00:00:02.000\n<v Dave>Hello and welcome.\n\n00:00:02.000 --> 00:00:04.000\nToday: <b>Binance</b>.", "text/vtt"), "Hello and welcome. Today: Binance .");
+  assert.equal(transcriptText("1\n00:00:00,000 --> 00:00:02,000\nFirst line.\n\n2\n00:00:02,000 --> 00:00:03,000\nSecond line.", "application/x-subrip"), "First line. Second line.");
+  assert.equal(transcriptText(JSON.stringify({ version: "1.0.0", segments: [{ body: "One" }, { body: "two." }] }), "application/json"), "One two.");
+  assert.equal(transcriptText("<p>Plain <i>HTML</i></p>", "text/html"), "Plain HTML");
 });
