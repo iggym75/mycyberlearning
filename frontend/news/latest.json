@@ -1,11 +1,245 @@
 {
   "date": "2026-11-05",
-  "generatedAt": "2026-11-05T06:06:05.018Z",
-  "windowHours": 24,
-  "headline": "Binance heist, AI agents in banking, and fresh Linux and Barracuda patches",
-  "overview": "Today's shows cover a large North Korea-linked crypto theft at Binance that used fake job interviews, and growing concern about AI agents being given access to bank accounts. Several episodes also flag serious patches, including a remote root flaw in the Linux TCP stack and critical Barracuda appliance bugs, plus an election-day mix of technical glitches and misinformation.",
-  "topStories": [],
+  "generatedAt": "2026-11-05T23:01:24.192Z",
+  "windowHours": 35,
+  "headline": "Blood bank and fridge attacks, Claude Dispatch hijack risk, Zyxel switch exploitation",
+  "overview": "Today's shows lead with attacks on European blood bank and supermarket refrigeration systems, a Claude Dispatch flaw that could allow cross-boundary command execution, and a Zyxel switch zero-day used to compromise nearly a thousand devices. Several shows also flag fresh critical patches from Cisco, Barracuda, Chrome and Linux, plus Entra app-secret abuse and a Binance heist linked to North Korea.",
+  "topStories": [
+    {
+      "title": "Refrigeration and blood supply cyberattacks in Europe",
+      "summary": "Hackers tampered with European refrigeration systems, disrupting blood banks and supermarket freezers. Several shows say the same attacks also hit a French blood plasma operator and a French bank heist estimated at about $133 million.",
+      "refs": [
+        "cyberwire-daily-0",
+        "cyberwire-daily-1",
+        "cyber-security-headlines-0",
+        "security-weekly-0",
+        "cyberhub-0",
+        "cyberhub-1"
+      ],
+      "domains": [
+        "defensive",
+        "news",
+        "operations"
+      ]
+    },
+    {
+      "title": "Zyxel switch zero-day exploited against nearly 1,000 devices",
+      "summary": "Attackers exploited a Zyxel GS1900 switch flaw from August, stealing configurations and password hashes from roughly a thousand devices. A second flaw reportedly works even on switches patched in June, and many looted devices still had factory passwords.",
+      "refs": [
+        "cyberwire-daily-0",
+        "daily-defsec-brief-0",
+        "cyberhub-0",
+        "daily-defsec-brief-1"
+      ],
+      "domains": [
+        "defensive",
+        "news",
+        "tvm"
+      ]
+    },
+    {
+      "title": "Claude Dispatch flaw and AI-era security concerns",
+      "summary": "Anthropic reportedly declined to fix a Claude Dispatch flaw that could let attackers run remote commands across corporate boundaries. Other AI-related items include OpenAI facing questions over past security warnings and attempts to prove which AI model produced an answer.",
+      "refs": [
+        "cyberwire-daily-0",
+        "cyberwire-daily-1",
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "ai",
+        "appsec",
+        "news"
+      ]
+    },
+    {
+      "title": "Critical patches and unpatched Linux and firewall flaws",
+      "summary": "Cisco and WatchGuard shipped critical patches while SonicWall will not fix flaws in its end-of-life GMS product. A Debian and Ubuntu APT signature bypass lets attackers inject packages, and a Linux TCP kernel flaw allows remote root on some systems, with Ubuntu's fix still pending.",
+      "refs": [
+        "cyberwire-daily-0",
+        "sans-stormcast-0",
+        "daily-defsec-brief-0",
+        "daily-defsec-brief-1",
+        "cyberhub-1"
+      ],
+      "domains": [
+        "appsec",
+        "defensive",
+        "tvm"
+      ]
+    },
+    {
+      "title": "Entra app secret abuse and supply-chain tampering",
+      "summary": "Attackers used stolen app secrets to sign into trusted Entra apps through MSPs, reaching at least 27 organisations. A fake update to CPGuard reached nearly 3,000 Linux hosting servers after a trial-account compromise of the vendor's billing portal.",
+      "refs": [
+        "daily-defsec-brief-1"
+      ],
+      "domains": [
+        "cloud",
+        "defensive",
+        "appsec"
+      ]
+    },
+    {
+      "title": "Binance heist and North Korea attribution",
+      "summary": "Binance detailed a multi-billion-dollar theft attributed to North Korea, and one show notes that fake job interviews helped enable the theft. Separately, a Canadian faced charges for hacking U.S. universities.",
+      "refs": [
+        "cyberwire-daily-1",
+        "security-weekly-0",
+        "daily-defsec-brief-1"
+      ],
+      "domains": [
+        "news",
+        "cti"
+      ]
+    }
+  ],
   "episodes": [
+    {
+      "show": "cyberwire-daily",
+      "title": "Claude, you've got company.",
+      "publishedAt": "2026-11-05T21:30:00.000Z",
+      "minutes": 30,
+      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2672/notes",
+      "ref": "cyberwire-daily-0",
+      "domains": [
+        "news",
+        "appsec",
+        "cloud"
+      ],
+      "core": true,
+      "summary": "Covers the Claude Dispatch flaw, residential proxies on White House networks, Asian airline breaches tied to Amadeus, Cisco and WatchGuard patches, GhostMap Android reboot loops, the Zyxel zero-day, and a Ukrainian scam crackdown. Also includes a guest interview on the NIST post-quantum roadmap."
+    },
+    {
+      "show": "cyberwire-daily",
+      "title": "Ballots, bots, and backlash.",
+      "publishedAt": "2026-11-04T21:30:00.000Z",
+      "minutes": 34,
+      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2671/notes",
+      "ref": "cyberwire-daily-1",
+      "domains": [
+        "news",
+        "ai",
+        "leadership"
+      ],
+      "core": true,
+      "summary": "Covers election-day technical glitches and misinformation, hacks on European refrigeration systems, OpenAI security-warning scrutiny, Nvidia restrictions on Chinese customers, the Binance heist, Barracuda patches, and Canadians charged for hacking U.S. universities. Includes an industry interview with Box's CISO on enterprise AI security."
+    },
+    {
+      "show": "cyber-security-headlines",
+      "title": "Blood bank fridge hacks, Anthropic model identity, Google Calendar phishing",
+      "publishedAt": "2026-11-05T08:00:00.000Z",
+      "minutes": 7,
+      "url": "https://cisoseries.libsyn.com/blood-bank-fridge-hacks-anthropic-model-identity-google-calendar-phishing",
+      "ref": "cyber-security-headlines-0",
+      "domains": [
+        "news",
+        "defensive",
+        "ai"
+      ],
+      "core": true,
+      "summary": "Covers blood bank fridge attacks in Europe, Anthropic's work on proving which AI model answered, Google Calendar phishing that hijacks sessions, a Chinese keyboard app used to deliver malware, a French bank heist of about $133 million, and an APT29-linked campaign against unpatched phones."
+    },
+    {
+      "show": "sans-stormcast",
+      "title": "SANS Stormcast Thursday, November 5th, 2026: Email Test Scripts; runZero oobscan BMC/IPMI; apt Signature Bypass (CVE-2026-109518); SonicWall GMS EOL Unpatched Flaws",
+      "publishedAt": "2026-11-05T11:25:11.000Z",
+      "minutes": 6,
+      "url": "https://isc.sans.edu/podcastdetail/10166",
+      "ref": "sans-stormcast-0",
+      "domains": [
+        "appsec",
+        "defensive",
+        "tvm"
+      ],
+      "core": true,
+      "summary": "Covers attempts to find exposed test email scripts that can leak configuration and send spam, a new out-of-band management scanner from runZero, a critical APT signature bypass, and SonicWall GMS flaws that will not be fixed as the product is end of life."
+    },
+    {
+      "show": "ai-daily-brief",
+      "title": "Why a Data Center Slowdown Benefits Big Tech",
+      "publishedAt": "2026-11-05T22:32:18.000Z",
+      "minutes": 26,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/Why-a-Data-Center-Slowdown-Benefits-Big-Tech-e3rreid",
+      "ref": "ai-daily-brief-0",
+      "domains": [
+        "ai",
+        "news"
+      ],
+      "core": true,
+      "summary": "Discusses how a slowdown in data center construction could benefit large tech firms, alongside headlines on ChatGPT search, a Meta acquisition, and Apple AI spending limits. Other episodes in the feed cover AI self-improvement and benchmark rankings; this is general AI industry news rather than security."
+    },
+    {
+      "show": "ai-daily-brief",
+      "title": "How the Midterm Results Change AI",
+      "publishedAt": "2026-11-04T19:57:20.000Z",
+      "minutes": 25,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/How-the-Midterm-Results-Change-AI-e3rotli",
+      "ref": "ai-daily-brief-1",
+      "domains": [
+        "ai",
+        "grc",
+        "news"
+      ],
+      "core": true,
+      "summary": "Looks at how the midterm election results could affect data center construction, AI regulation, and the 2028 presidential race, with the backlash possibly leading to better local community deals rather than a halt to AI build-out. This is AI policy rather than security news."
+    },
+    {
+      "show": "security-weekly",
+      "title": "That's Not Supposed to Happen - PSW #951",
+      "publishedAt": "2026-11-05T22:00:00.000Z",
+      "minutes": 124,
+      "url": "https://pswonly.libsyn.com/that-s-not-supposed-to-happen-psw-951",
+      "ref": "security-weekly-0",
+      "domains": [
+        "news",
+        "offensive",
+        "defensive"
+      ],
+      "summary": "Covers supermarket refrigeration attacks, a Linux TCP kernel flaw, the Binance theft, a Google Android TV botnet takedown, AI-assisted exploit development, emergency alert app hijacking, and a railway employee blaming an intrusion on AI. The notes are a topic list with little detail on each."
+    },
+    {
+      "show": "cyberhub",
+      "title": "Zyxel 2nd Switch 0-Day, 1K Hacked, Debian/Ubuntu APT MitM Flaw, France Blood Supply Cyberattack",
+      "publishedAt": "2026-11-05T14:00:00.000Z",
+      "minutes": 21,
+      "url": "https://www.cyberhubpodcast.com",
+      "ref": "cyberhub-0",
+      "domains": [
+        "news",
+        "defensive",
+        "tvm"
+      ],
+      "summary": "Covers a second Zyxel switch zero-day that compromised about a thousand devices, a Debian and Ubuntu APT man-in-the-middle flaw, and a cyberattack on the French blood supply. Also mentions AI-linked breaches at several firms and a Chrome 157 release with 213 fixes."
+    },
+    {
+      "show": "daily-defsec-brief",
+      "title": "APT29-linked phone exploits, Zyxel patch bypass, White House proxy | Cyber Security News Nov 5",
+      "publishedAt": "2026-11-05T13:35:16.000Z",
+      "minutes": 5,
+      "url": "https://riverside.com",
+      "ref": "daily-defsec-brief-0",
+      "domains": [
+        "news",
+        "defensive",
+        "tvm",
+        "cti"
+      ],
+      "summary": "Covers APT29-linked exploitation of out-of-date phones through hacked websites, the Zyxel switch flaw and password theft, a DreamHost file manager login compromise, Debian and Ubuntu APT tampering, Xen hypervisor memory flaws, Cisco Snort 3 and Foglight issues, SonicWall GMS, a DigiCert system exposure, and residential proxy use from the White House network."
+    },
+    {
+      "show": "security-squawk",
+      "title": "Hospital Diverts Ambulances, 5.7M Breached by a Phone Call, Town Pays $82K Ransom",
+      "publishedAt": "2026-11-05T13:29:21.000Z",
+      "minutes": 33,
+      "url": "https://www.podserve.fm/listen/security-squawk-fiPvu4ii/hospital-diverts-ambulances-57m-breached-by-a-phone-call-town-pays-82k-ransom-S34cSck/",
+      "ref": "security-squawk-0",
+      "domains": [
+        "leadership",
+        "defensive",
+        "news"
+      ],
+      "summary": "Covers ransomware forcing a New Mexico Level 1 trauma center to divert ambulances, a new group claiming access to many systems, and a phone-based social engineering breach affecting about 5.7 million people at Marathon Health. Aimed at business leaders, with a focus on recovery planning."
+    },
     {
       "show": "smashing-security",
       "title": "How AI agents are spooking the banks",
@@ -15,50 +249,10 @@
       "ref": "smashing-security-0",
       "domains": [
         "ai",
-        "privacy",
-        "news"
-      ],
-      "summary": "Covers Bank of America's warning against sharing banking passwords with AI assistants and JPMorgan's ban on outside agents, plus a ransomware recovery firm's CEO indicted for allegedly paying criminals. Also touches on AI models going beyond test environments."
-    },
-    {
-      "show": "cyberwire-daily",
-      "title": "Ballots, bots, and backlash.",
-      "publishedAt": "2026-11-04T21:30:00.000Z",
-      "minutes": 34,
-      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2671/notes",
-      "ref": "cyberwire-daily-0",
-      "domains": [
         "news",
-        "ai",
-        "leadership"
+        "defensive"
       ],
-      "summary": "Covers election-day technical glitches and misinformation, tampering with European refrigeration systems, scrutiny of OpenAI's security warnings, and the Binance heist attributed to North Korea. Includes a guest interview with Box's CISO on enterprise AI security."
-    },
-    {
-      "show": "ai-daily-brief",
-      "title": "How the Midterm Results Change AI",
-      "publishedAt": "2026-11-04T19:57:20.000Z",
-      "minutes": 25,
-      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/How-the-Midterm-Results-Change-AI-e3rotli",
-      "ref": "ai-daily-brief-0",
-      "domains": [
-        "ai",
-        "grc",
-        "news"
-      ],
-      "summary": "Looks at how the midterm election results may bring more scrutiny to AI, including data centre construction and regulation, and suggests the backlash could lead to better terms for local communities."
-    },
-    {
-      "show": "daily-cyber-threat-brief",
-      "title": "🔴 Nov 4's Top Cyber News NOW! - Ep 1280",
-      "publishedAt": "2026-11-04T18:32:39.000Z",
-      "minutes": 108,
-      "url": "https://simplycyber.transistor.fm/1280",
-      "ref": "daily-cyber-threat-brief-0",
-      "domains": [
-        "news"
-      ],
-      "summary": "A general daily cyber news roundup for 4 November with no detailed story summaries in the notes. (Sponsored: includes vendor promotions.)"
+      "summary": "Discusses AI agents calling banks on users' behalf, a Florida man indicted over a ransomware recovery fraud, and fake job interviews linked to Binance losses. The episode page mentions sponsored content and an interview with Dropzone AI on AI-driven alert triage; the rest is mostly show banter."
     },
     {
       "show": "shadowtalk",
@@ -72,7 +266,7 @@
         "offensive",
         "defensive"
       ],
-      "summary": "Discusses ARTEX, an AI-powered penetration-testing framework openly available on GitHub and now seen in real intrusions. Advises rotating exposed credentials, treating application records as telemetry, and using AI-enabled red teaming and exposure management."
+      "summary": "Discusses ARTEX, an openly available AI-powered penetration-testing framework now appearing in real intrusions, and what defenders can do, such as rotating exposed credentials and using AI-enabled red-team tools. This is a vendor-hosted discussion, so it is sponsored."
     },
     {
       "show": "daily-defsec-brief",
@@ -80,13 +274,13 @@
       "publishedAt": "2026-11-04T14:36:34.000Z",
       "minutes": 6,
       "url": "https://riverside.com",
-      "ref": "daily-defsec-brief-0",
+      "ref": "daily-defsec-brief-1",
       "domains": [
-        "tvm",
+        "cloud",
         "defensive",
-        "cloud"
+        "tvm"
       ],
-      "summary": "Thirteen defender stories including stolen Entra app secrets hitting MSPs, a backdoor pushed via the cPGuard update channel, Node-RED exploitation, WS_FTP and Barracuda patches, Zyxel switch fixes, and a Linux TCP flaw with Ubuntu still open."
+      "summary": "Covers attackers abusing stolen Entra app secrets through MSPs, the CPGuard update hijack, exploitation of a Node-RED editor flaw, WS_FTP admin credential exposure, Barracuda email gateway patches, a Linux kernel flaw, Zyxel GS1900 firmware, Chrome 157 fixes, an Android update, and a forged GitHub commit."
     },
     {
       "show": "cyberhub",
@@ -94,41 +288,16 @@
       "publishedAt": "2026-11-04T14:00:00.000Z",
       "minutes": 22,
       "url": "https://www.cyberhubpodcast.com",
-      "ref": "cyberhub-0",
+      "ref": "cyberhub-1",
       "domains": [
-        "appsec",
+        "news",
         "tvm",
         "defensive"
       ],
-      "summary": "Covers a Linux kernel TCP use-after-free rated CVSS 9.8 that allows remote root, Barracuda root-access flaws on security appliances, and Google taking down a 1.3 million device Android botnet. (Sponsored/promotional links present in notes.)"
-    },
-    {
-      "show": "talkin-bout-infosec-news",
-      "title": "All Your RAM Now Belong to SAM - 2026-11-02",
-      "publishedAt": "2026-11-04T10:45:00.000Z",
-      "minutes": 71,
-      "url": "https://bhisnews.transistor.fm/episodes/all-your-ram-now-belong-to-sam-2026-11-02",
-      "ref": "talkin-bout-infosec-news-0",
-      "domains": [
-        "news",
-        "appsec",
-        "ai"
-      ],
-      "summary": "A weekly community news discussion covering RAM and cryptocurrency-related stories, a reported Binance hot wallet hack, Telegram and Linux MPTCP flaws, Pwn2Own Edge chains, AI-assisted vulnerability research costs, and data centre cargo theft with GPS spoofing."
-    },
-    {
-      "show": "cyber-security-headlines",
-      "title": "China's AI guardrails, NCSC's 2028 warning, more Binance hack details",
-      "publishedAt": "2026-11-04T07:00:00.000Z",
-      "minutes": 8,
-      "url": "https://cisoseries.libsyn.com/chinas-ai-guardrails-ncscs-2028-warning-more-binance-hack-details",
-      "ref": "cyber-security-headlines-0",
-      "domains": [
-        "ai",
-        "news",
-        "cti"
-      ],
-      "summary": "Covers China planning broad AI guardrails, the UK predicting routine AI use in nation-state attacks, Russia-linked espionage against Ukraine war crime investigations, more Binance hack details, mSecure asking users to reset passwords, OpenAI's security sprint, and LLMjacking costs. (Sponsored: ESET mentioned.)"
+      "summary": "Covers a Linux TCP use-after-free flaw giving remote root on major distributions, Barracuda root-access flaws in security appliances, Google's takedown of a 1.3 million device Android botnet, Android's November patches, European supermarket refrigeration disruption, and a password manager security incident."
     }
+  ],
+  "quietCore": [
+    "cybersecurity-today"
   ]
 }
