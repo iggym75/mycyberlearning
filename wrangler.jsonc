@@ -34,7 +34,7 @@
 
   // 05:05 and 06:05 UTC: one of them is 06:05 in London (GMT in winter, BST in summer); worker/src/cron.js starts the
   // daily briefing workflow. Secret GH_DISPATCH_TOKEN: fine-grained GitHub token, this repo only, Actions read & write.
-  "triggers": { "crons": ["5 5 * * *", "5 6 * * *"] },
+  "triggers": { "crons": ["30 7 * * *", "30 8 * * *"] },
 
   // Our own console messages only: request URLs (which carry unsubscribe tokens) and IP metadata aren't logged.
   "observability": { "enabled": true, "logs": { "invocation_logs": false } },

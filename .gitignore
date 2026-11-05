@@ -7,3 +7,4 @@ frontend/dist/
 *.log
 .DS_Store
 email-preview.html
+__pycache__/

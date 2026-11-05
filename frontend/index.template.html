@@ -403,7 +403,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 
     <aside class="news-side" aria-label="Subscribe">
       <div class="sub-card" id="subCard">
-        <div class="eyebrow">Free · every morning at 06:00 UK</div>
+        <div class="eyebrow">Free · every morning at 08:30 UK</div>
         <h2>Get the briefing in your inbox</h2>
         <p>The top stories and every new episode from the news podcasts, summarised. Ready before breakfast.</p>
         <form id="subForm" novalidate>
@@ -1073,7 +1073,7 @@ function renderNews(){
   const idx = d ? NEWS.index.indexOf(d.date) : -1;
   $("#newsPrev").disabled = idx < 0 || idx >= NEWS.index.length-1;
   $("#newsNext").disabled = idx <= 0;
-  if (!d){ $("#newsTitle").textContent="Daily briefing"; $("#newsMeta").textContent=""; $("#newsBody").innerHTML = `<div class="news-empty">The first briefing will appear here after the next morning run at 06:00 UK time.</div>`; return; }
+  if (!d){ $("#newsTitle").textContent="Daily briefing"; $("#newsMeta").textContent=""; $("#newsBody").innerHTML = `<div class="news-empty">The first briefing will appear here after the next morning run at 08:30 UK time.</div>`; return; }
   $("#newsTitle").textContent = fmtLong(d.date);
   const nShows = new Set(d.episodes.map(e=>e.show)).size;
   $("#newsMeta").textContent = `${d.episodes.length} episode${d.episodes.length===1?"":"s"} from ${nShows} show${nShows===1?"":"s"} · ${d.windowHours||24} hours to ${new Date(d.generatedAt).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",timeZone:"Europe/London"})} UK`;
@@ -1189,7 +1189,7 @@ addEventListener("hashchange", () => { showView(); scrollTo(0,0); });
   $("#modePill").textContent = api.remote ? "live" : "demo · votes saved in this browser";
   render(); refreshAdminBadge(); showView();
   const q = new URLSearchParams(location.search).get("subscribe");
-  if (q){ toast({confirmed:"You're subscribed. The briefing arrives at 06:00 UK time.", expired:"That confirmation link has expired. Please subscribe again.", invalid:"That confirmation link isn't valid. Please subscribe again."}[q] || "");
+  if (q){ toast({confirmed:"You're subscribed. The briefing arrives at 08:30 UK time.", expired:"That confirmation link has expired. Please subscribe again.", invalid:"That confirmation link isn't valid. Please subscribe again."}[q] || "");
     history.replaceState(null, "", location.pathname + location.hash); }
 })();
 })();
