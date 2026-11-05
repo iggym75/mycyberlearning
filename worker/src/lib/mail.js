@@ -96,10 +96,11 @@ export function renderDigestEmail({ digest, shows, siteUrl, unsubscribeUrl, name
   const hit = d => (d || []).some(x => interests.includes(x));
   const order = (a, b) => (hit(b.domains) - hit(a.domains));
   const stories = [...(digest.topStories || [])].sort(order);
-  const episodes = [...(digest.episodes || [])].sort(order);
+  const episodes = [...(digest.episodes || [])].sort((a, b) => order(a, b) || (!!b.core - !!a.core));
   const byRef = Object.fromEntries((digest.episodes || []).map(e => [e.ref, e]));
   const greet = name ? `Good morning, ${escapeHtml(name)}.` : "Good morning.";
   const archive = new URL(`#news`, site).href;
+  const quiet = (digest.quietCore || []).map(id => shows[id] || id).join(", ");
 
   const storyHtml = stories.map((s, i) => {
     const via = (s.refs || []).map(r => byRef[r]).filter(Boolean).map(e => {
@@ -122,20 +123,20 @@ ${via ? `<div style="font-size:12px;color:${C.muted};margin-top:4px">Covered by 
 ${u ? `<div style="margin-top:6px"><a href="${escapeHtml(u)}" style="font-size:13px;color:${C.signal}">Listen</a></div>` : ""}</td></tr>`;
   }).join("");
 
-  const empty = `<tr><td style="padding:0 24px 20px;font-size:14px;color:${C.ink2}">No new episodes from the news podcasts in the last 24 hours. Back tomorrow.</td></tr>`;
+  const empty = `<tr><td style="padding:0 24px 20px;font-size:14px;color:${C.ink2}">No new episodes from the news podcasts since the last briefing. Back tomorrow.</td></tr>`;
   const html = wrap(`<tr><td style="padding:24px 24px 8px">
 <div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:${C.muted}">Daily briefing · ${escapeHtml(dateLabel)}</div>
 <h1 style="font-size:22px;line-height:1.25;margin:6px 0 10px">${escapeHtml(digest.headline || "Today in cyber security")}</h1>
 <p style="font-size:15px;line-height:1.55;color:${C.ink2};margin:0 0 8px">${greet} ${escapeHtml(digest.overview || "")}</p></td></tr>
 ${stories.length ? `<tr><td style="padding:12px 24px 8px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:${C.muted}">Top stories</td></tr>${storyHtml}` : ""}
-${episodes.length ? `<tr><td style="padding:12px 24px 4px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:${C.muted}">Episodes from the last 24 hours</td></tr>${epHtml}` : empty}
+${episodes.length ? `<tr><td style="padding:12px 24px 4px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:${C.muted}">New episodes since the last briefing</td></tr>${epHtml}` : empty}${quiet ? `<tr><td style="padding:8px 24px 0;font-size:13px;color:${C.muted}">No new episode from: ${escapeHtml(quiet)}.</td></tr>` : ""}
 <tr><td style="padding:16px 24px 24px;border-top:1px solid ${C.line}"><a href="${escapeHtml(archive)}" style="color:${C.signal};font-size:14px">Read on the website</a></td></tr>`,
     `Summaries are written by My Cyber Learning from each show's public episode notes; listen to the shows for the full story.<br>
 You're receiving this because you subscribed at ${escapeHtml(site)}. <a href="${escapeHtml(unsub)}" style="color:${C.muted}">Unsubscribe</a> (one click, no login).`);
 
   const text = [`My Cyber Learning, daily briefing, ${dateLabel}`, "", digest.headline || "", "", `${name ? `Good morning, ${name}.` : "Good morning."} ${digest.overview || ""}`, "",
     ...(stories.length ? ["TOP STORIES", ...stories.map((s, i) => `${i + 1}. ${s.title}\n   ${s.summary}`), ""] : []),
-    ...(episodes.length ? ["EPISODES", ...episodes.map(e => `- ${shows[e.show] || e.show}: ${e.title}${e.minutes ? ` (${e.minutes} min)` : ""}\n  ${e.summary}\n  ${safeUrl(e.url) || ""}`)] : ["No new episodes in the last 24 hours."]),
+    ...(episodes.length ? ["EPISODES", ...episodes.map(e => `- ${shows[e.show] || e.show}: ${e.title}${e.minutes ? ` (${e.minutes} min)` : ""}\n  ${e.summary}\n  ${safeUrl(e.url) || ""}`)] : ["No new episodes since the last briefing."]),
     "", `Website: ${archive}`, `Unsubscribe: ${unsub}`].join("\n");
   return { subject: `Cyber briefing: ${digest.headline || dateLabel}`.slice(0, 140), html, text };
 }

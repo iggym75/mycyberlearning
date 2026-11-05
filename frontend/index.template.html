@@ -225,6 +225,7 @@ body[data-view="news"] .library-only{display:none!important}
 .news-nav{display:flex;gap:6px;flex-wrap:wrap}
 .sub-jump{display:none}
 .news-headline{font-family:var(--f-display);font-weight:600;font-size:clamp(20px,2.4vw,26px);line-height:1.2;margin:22px 0 8px;text-wrap:balance}
+.news-quiet{font-size:13.5px;color:var(--muted);margin:10px 0 0}
 .news-overview{color:var(--ink-2);font-size:16px;line-height:1.6;max-width:68ch;margin:0}
 .section-label{font-family:var(--f-mono);font-size:11.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:30px 0 12px}
 .stories{list-style:none;margin:0;padding:0;display:grid;gap:4px;counter-reset:story}
@@ -1075,21 +1076,25 @@ function renderNews(){
   if (!d){ $("#newsTitle").textContent="Daily briefing"; $("#newsMeta").textContent=""; $("#newsBody").innerHTML = `<div class="news-empty">The first briefing will appear here after the next morning run at 06:00 UK time.</div>`; return; }
   $("#newsTitle").textContent = fmtLong(d.date);
   const nShows = new Set(d.episodes.map(e=>e.show)).size;
-  $("#newsMeta").textContent = `${d.episodes.length} episode${d.episodes.length===1?"":"s"} from ${nShows} show${nShows===1?"":"s"} · 24 hours to ${new Date(d.generatedAt).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",timeZone:"Europe/London"})} UK`;
+  $("#newsMeta").textContent = `${d.episodes.length} episode${d.episodes.length===1?"":"s"} from ${nShows} show${nShows===1?"":"s"} · ${d.windowHours||24} hours to ${new Date(d.generatedAt).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",timeZone:"Europe/London"})} UK`;
   const byRef = Object.fromEntries(d.episodes.map(e=>[e.ref,e]));
   const art = id => shows[id]?.logo ? `<img src="${esc(shows[id].logo)}" alt="" loading="lazy">` : "";
   const name = id => shows[id]?.name || id;
   const stories = (d.topStories||[]).map(s=>`<li><div style="min-width:0"><h4>${esc(s.title)}</h4><p>${esc(s.summary)}</p>
     <div class="via">Covered by ${(s.refs||[]).map(r=>byRef[r]).filter(Boolean).map(e=>`<a href="#ep-${esc(e.ref)}" data-jump="${esc(e.ref)}">${art(e.show)}${esc(name(e.show))}</a>`).join("")}</div></div></li>`).join("");
-  const eps = d.episodes.map(e=>{ const sh = shows[e.show]; const u = /^https?:\/\//.test(e.url||"") ? e.url : null;
+  const epHtml = e=>{ const sh = shows[e.show]; const u = /^https?:\/\//.test(e.url||"") ? e.url : null;
     return `<article class="ep" id="ep-${esc(e.ref)}">${sh?.logo?`<img class="art" src="${esc(sh.logo)}" alt="" loading="lazy">`:`<div class="art"></div>`}
     <div style="min-width:0"><div class="show"><b style="color:var(--ink-2)">${esc(name(e.show))}</b><span>${esc(fmtTime(e.publishedAt))}</span>${e.minutes?`<span>${e.minutes} min</span>`:""}</div>
     <h4>${u?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(e.title)}</a>`:esc(e.title)}</h4><p>${esc(e.summary)}</p>
     <div class="row"><div class="tags">${(e.domains||[]).filter(x=>DOM[x]).map(x=>`<span class="tag" style="cursor:default">${esc(DOM[x].label)}</span>`).join("")}</div>
-    <div class="links">${u?`<a class="plat k-listen" href="${esc(u)}" target="_blank" rel="noopener" title="Listen to this episode" aria-label="Listen to ${esc(e.title)}">${ICONS.listen}<span class="pl" aria-hidden="true">Listen</span></a>`:""}${sh?.spotify?`<a class="plat k-spotify" href="${esc(sh.spotify)}" target="_blank" rel="noopener" title="Show on Spotify" aria-label="${esc(name(e.show))} on Spotify">${ICONS.spotify}<span class="pl" aria-hidden="true">Spotify</span></a>`:""}${isAmazonMusic(sh?.amazon)?`<a class="plat k-amazon" href="${esc(sh.amazon)}" target="_blank" rel="noopener" title="Show on Amazon Music" aria-label="${esc(name(e.show))} on Amazon Music">${ICONS.amazon}<span class="pl" aria-hidden="true">Amazon</span></a>`:""}</div></div></div></article>`; }).join("");
+    <div class="links">${u?`<a class="plat k-listen" href="${esc(u)}" target="_blank" rel="noopener" title="Listen to this episode" aria-label="Listen to ${esc(e.title)}">${ICONS.listen}<span class="pl" aria-hidden="true">Listen</span></a>`:""}${sh?.spotify?`<a class="plat k-spotify" href="${esc(sh.spotify)}" target="_blank" rel="noopener" title="Show on Spotify" aria-label="${esc(name(e.show))} on Spotify">${ICONS.spotify}<span class="pl" aria-hidden="true">Spotify</span></a>`:""}${isAmazonMusic(sh?.amazon)?`<a class="plat k-amazon" href="${esc(sh.amazon)}" target="_blank" rel="noopener" title="Show on Amazon Music" aria-label="${esc(name(e.show))} on Amazon Music">${ICONS.amazon}<span class="pl" aria-hidden="true">Amazon</span></a>`:""}</div></div></div></article>`; };
+  const core = d.episodes.filter(e=>e.core), rest = d.episodes.filter(e=>!e.core);
+  const quiet = (d.quietCore||[]).map(id=>esc(name(id))).join(", ");
+  const eps = core.length ? `<h3 class="section-label">Main daily news shows</h3><div class="episodes">${core.map(epHtml).join("")}</div>${quiet?`<p class="news-quiet">No new episode since the last briefing: ${quiet}.</p>`:""}${rest.length?`<h3 class="section-label">More new episodes</h3><div class="episodes">${rest.map(epHtml).join("")}</div>`:""}`
+    : d.episodes.length ? `<h3 class="section-label">Every episode</h3><div class="episodes">${d.episodes.map(epHtml).join("")}</div>` : "";
   $("#newsBody").innerHTML = `<h2 class="news-headline">${esc(d.headline)}</h2><p class="news-overview">${esc(d.overview)}</p>
     ${stories?`<h3 class="section-label">Top stories</h3><ol class="stories">${stories}</ol>`:""}
-    <h3 class="section-label">Every episode</h3>${eps?`<div class="episodes">${eps}</div>`:`<div class="news-empty">No new episodes from the news podcasts in these 24 hours.</div>`}`;
+    ${eps || `<div class="news-empty">No new episodes from the news podcasts since the previous briefing.</div>`}`;
 }
 $("#subJump").addEventListener("click", () => { $("#subCard").scrollIntoView({behavior:"smooth"}); setTimeout(()=>$("#sub_email").focus({preventScroll:true}), 400); });
 $("#newsPrev").addEventListener("click", () => { const i = NEWS.index.indexOf(NEWS.cur?.date); if (i>=0 && i<NEWS.index.length-1) loadNews(NEWS.index[i+1]); });

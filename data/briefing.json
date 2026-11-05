@@ -1,0 +1,5 @@
+{
+  "_comment": "Daily briefing settings. core: the main daily news shows, listed first and used as the backbone of the top stories; their full episode pages or transcripts are read when the feed's notes are thin. exclude: podcasts left out of the briefing (they stay in the library).",
+  "core": ["cyberwire-daily", "cyber-security-headlines", "sans-stormcast", "cybersecurity-today", "ai-daily-brief"],
+  "exclude": ["daily-cyber-threat-brief"]
+}
