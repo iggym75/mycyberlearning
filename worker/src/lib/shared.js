@@ -49,7 +49,8 @@ export function isAmazonMusicUrl(v) {
 export const PLATFORM_HOSTS = {
   apple: ["podcasts.apple.com"],
   spotify: ["open.spotify.com"],
-  youtube: ["www.youtube.com", "youtube.com", "m.youtube.com", "music.youtube.com", "youtu.be"]
+  youtube: ["www.youtube.com", "youtube.com", "m.youtube.com", "music.youtube.com", "youtu.be"],
+  twitch: ["www.twitch.tv", "twitch.tv"]
 };
 export function isPlatformUrl(kind, v) {
   try { const u = new URL(v); return u.protocol === "https:" && PLATFORM_HOSTS[kind].includes(u.hostname); } catch { return false; }
