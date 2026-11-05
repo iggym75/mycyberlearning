@@ -68,7 +68,7 @@ jobs:
           path: ~/.cache/huggingface
           key: whisper-${{ vars.WHISPER_MODEL || 'base.en' }}-v1
       - name: Install faster-whisper (prebuilt wheels only)
-        run: 'python -m pip install --disable-pip-version-check --only-binary=:all: faster-whisper==1.1.1 "huggingface_hub<1" requests'
+        run: 'python -m pip install --disable-pip-version-check --only-binary=:all: faster-whisper==1.1.1 "huggingface_hub<1" "av<14" requests'
       - name: Transcribe
         timeout-minutes: 24
         env:
