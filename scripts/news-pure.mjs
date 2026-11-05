@@ -98,9 +98,10 @@ export function transcriptText(body, type = "") {
   if (/json/i.test(type) || /^\s*\{/.test(s)) {
     try { const j = JSON.parse(s); return stripHtml((j.segments || []).map(x => x?.body || "").join(" "), 20000); } catch { /* fall through */ }
   }
-  if (/vtt|srt|subrip/i.test(type) || /^\s*WEBVTT/.test(s) || /-->/.test(s)) {
+  const CUE_TIME = /^\s*(?:\d+:)?\d{2}:\d{2}[.,]\d{3}\s/;   // a cue timing line starts with a timestamp, e.g. "00:00:01.000 …"
+  if (/vtt|srt|subrip/i.test(type) || /^\s*WEBVTT/.test(s) || s.split(/\r?\n/).some(l => CUE_TIME.test(l))) {
     return stripHtml(s.replace(/^WEBVTT.*$/m, "").split(/\r?\n/)
-      .filter(l => l.trim() && !/-->/.test(l) && !/^\d+$/.test(l.trim()) && !/^(NOTE|STYLE|REGION)\b/.test(l))
+      .filter(l => l.trim() && !CUE_TIME.test(l) && !/^\d+$/.test(l.trim()) && !/^(NOTE|STYLE|REGION)\b/.test(l))
       .map(l => l.replace(/<v\s+[^>]*>/g, "")).join(" "), 20000);
   }
   return stripHtml(s, 20000);
