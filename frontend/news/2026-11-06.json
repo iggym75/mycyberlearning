@@ -1,0 +1,147 @@
+{
+  "date": "2026-11-06",
+  "generatedAt": "2026-11-06T08:33:47.804Z",
+  "windowHours": 24,
+  "headline": "Breaches hit airlines, Norway's aid agency and French blood storage; Zyxel and OpenSSH flaws",
+  "overview": "Today's core headlines are dominated by data breaches and attacks on critical systems, from a Norwegian aid agency and Amadeus-linked airline breaches to tampered refrigeration at French blood facilities. Several vulnerabilities also need attention, including an actively exploited Zyxel switch flaw, a musl-based OpenSSH password bypass, and an Android boot-loop flaw that Google has not patched.",
+  "topStories": [
+    {
+      "title": "Refrigeration systems tampered with in France",
+      "summary": "Attackers changed temperature and defrost settings on cold storage at three French blood service facilities, but alarms caught the changes and no blood products were lost. The campaign follows earlier attacks on supermarket refrigeration in France and other European countries, and a related weakness in refrigeration monitoring software is the suspected entry point.",
+      "refs": [
+        "cybersecurity-today-0",
+        "cyber-security-headlines-0",
+        "sans-stormcast-0"
+      ],
+      "domains": [
+        "defensive",
+        "operations",
+        "news"
+      ]
+    },
+    {
+      "title": "Airline data breaches linked to Amadeus attack",
+      "summary": "Several Asian airlines, including Cathay Pacific, Korean Air and Singapore Airlines, reported customer data breaches after a cyber attack on Spanish IT provider Amadeus, which supplies reservation and check-in platforms. Reported affected counts range from tens of thousands upwards, and Amadeus has not said how many victims there were in total.",
+      "refs": [
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "news",
+        "privacy"
+      ]
+    },
+    {
+      "title": "Zyxel GS1900 switch zero-day exploited",
+      "summary": "A out-of-bounds write flaw in Zyxel GS1900 series switches allows unauthenticated command execution over the web interface, and attackers have used it to compromise nearly 1,000 devices. Updates were released October 22, and the flaw was initially mistaken for an older, already patched bug.",
+      "refs": [
+        "cyber-security-headlines-0",
+        "sans-stormcast-0"
+      ],
+      "domains": [
+        "defensive",
+        "tvm",
+        "news"
+      ]
+    },
+    {
+      "title": "OpenSSH password check bypass on musl systems",
+      "summary": "Systems using the musl C library, notably Alpine Linux, may accept any password longer than 256 characters for SSH logins, because of a change in how the crypt function behaves. The issue only applies under certain conditions, such as password logins being enabled and PAM not being used, and a simple length test can check exposure.",
+      "refs": [
+        "sans-stormcast-0"
+      ],
+      "domains": [
+        "appsec",
+        "defensive",
+        "tvm"
+      ]
+    },
+    {
+      "title": "Norway aid agency and other data breaches",
+      "summary": "Norway's aid agency NORAD confirmed attackers stole data on more than 20,000 users across 12,000 organisations from its grant portal, detected on October 30. Separately, Russian hosting provider Beget is restoring servers after an attack wiped data, and Dreamhost disclosed an intruder had access to its file manager for about two months.",
+      "refs": [
+        "cyber-security-headlines-0",
+        "cybersecurity-today-0"
+      ],
+      "domains": [
+        "news",
+        "privacy",
+        "operations"
+      ]
+    },
+    {
+      "title": "Android GhostMap flaw and Google's response",
+      "summary": "Researchers at Bitdefender found a flaw dubbed GhostMap that lets a harmless-looking app with no permissions force Android devices into a continuous boot loop. Google reportedly knew of the issue since August but closed it as not reproducible without releasing a patch.",
+      "refs": [
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "news",
+        "defensive"
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "show": "cyber-security-headlines",
+      "title": "Norway aid agency attack, GhostMap Android flaw, More airlines hacked",
+      "publishedAt": "2026-11-06T07:00:00.000Z",
+      "minutes": 7,
+      "url": "https://cisoseries.libsyn.com/norway-aid-agency-attack-ghostmap-android-flaw-more-airlines-hacked",
+      "ref": "cyber-security-headlines-0",
+      "domains": [
+        "news",
+        "privacy",
+        "defensive"
+      ],
+      "core": true,
+      "summary": "Covers the NORAD grant portal breach, the GhostMap Android boot-loop flaw, airline breaches tied to Amadeus, a Zyxel GS1900 zero-day, the Beget hosting wipe, a patched Apple flaw used by suspected APT29, a bank phishing kit that fakes suspension pages, and a ransomware attack on Queens Public Library."
+    },
+    {
+      "show": "sans-stormcast",
+      "title": "SANS Stormcast Friday, November 6th, 2026: RootEvidence Cisco IOS Opt-Out Scans; OpenSSH musl sshhole (CVE-2026-123158); Refrigeration OT Hardening; Zyxel GS1900 OOB Write (CVE-2026-107441)",
+      "publishedAt": "2026-11-06T02:00:02.000Z",
+      "minutes": 8,
+      "url": "https://isc.sans.edu/podcastdetail/10168",
+      "ref": "sans-stormcast-0",
+      "domains": [
+        "defensive",
+        "appsec",
+        "operations"
+      ],
+      "core": true,
+      "summary": "Covers a vulnerability scanner that includes opt-out headers, the OpenSSH and musl password bypass, a joint government advisory on hardening refrigeration and OT systems, and the actively exploited Zyxel GS1900 flaw."
+    },
+    {
+      "show": "cybersecurity-today",
+      "title": "Cyberattack heats French blood bank fridges",
+      "publishedAt": "2026-11-06T00:09:00.000Z",
+      "minutes": 11,
+      "url": "https://cybersecuritytoday.libsyn.com/cyberattack-heats-french-blood-bank-fridges",
+      "ref": "cybersecurity-today-0",
+      "domains": [
+        "news",
+        "defensive",
+        "cti"
+      ],
+      "core": true,
+      "summary": "Covers the French blood service cold storage tampering, the AI-assisted Crafty Falcon campaign against Indian financial firms, the Dreamhost file manager breach, a Canadian extradition over university supercomputer crypto mining, and the Volta infostealer that uses AI to rank victims' valuables."
+    },
+    {
+      "show": "click-here",
+      "title": "Facial recognition can find missing people. It can find you, too.",
+      "publishedAt": "2026-11-06T08:00:00.000Z",
+      "minutes": 45,
+      "url": "https://play.prx.org/listen?ge=prx_8376_e49bc200-7c7a-473d-aeb8-f4d8485dd831&uf=https%3A%2F%2Fpublicfeeds.net%2Ff%2F8376%2Fclickhere",
+      "ref": "click-here-0",
+      "domains": [
+        "privacy",
+        "human"
+      ],
+      "summary": "Sponsored-free episode; the notes discuss facial recognition used to find missing people and the privacy implications of the technology. No specific security incidents are described."
+    }
+  ],
+  "quietCore": [
+    "cyberwire-daily",
+    "ai-daily-brief"
+  ]
+}
