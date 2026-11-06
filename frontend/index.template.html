@@ -431,7 +431,6 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
             <div class="field"><label for="sub_email">Email address</label><input id="sub_email" type="email" autocomplete="email" required maxlength="254"></div>
             <div class="field"><label for="sub_name">First name <span class="muted" style="font-weight:400">(optional)</span></label><input id="sub_name" autocomplete="given-name" maxlength="40"></div>
             <div class="field"><label for="sub_country">Country <span class="muted" style="font-weight:400">(optional)</span></label><select id="sub_country"></select></div>
-            <div class="field"><span class="lbl">Put these first <span class="muted" style="font-weight:400">(optional)</span></span><div class="chips" id="sub_interests"></div></div>
             <div class="hp" aria-hidden="true"><label for="sub_website">Website</label><input id="sub_website" tabindex="-1" autocomplete="off"></div>
             <label class="consent"><input type="checkbox" id="sub_consent"> <span>Email me the My Cyber Learning daily briefing. I can unsubscribe at any time. See the <button type="button" class="linkish" data-privacy style="background:none;border:0;padding:0;color:var(--signal);cursor:pointer;font:inherit;text-decoration:underline">privacy notice</button>.</span></label>
             <p class="err" id="subErr" hidden></p>
@@ -563,7 +562,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
     <p>My Cyber Learning (mycyberlearning.co.uk) is run by Ian Moore, who is the data controller. Version 2026-11-06.</p>
     <h3>Daily briefing subscribers</h3>
     <ul>
-      <li><b>What we keep:</b> your email address, and if you give them, your first name, country and topic preferences, plus when and how you agreed.</li>
+      <li><b>What we keep:</b> your email address, and if you give them, your first name and country, plus when and how you agreed.</li>
       <li><b>Why:</b> only to send you the briefing you asked for. Lawful basis: your consent. We never sell or share your details, and never use them for advertising.</li>
       <li><b>Confirmation:</b> we send one confirmation email, and nothing else until you confirm. If you don't, your address is deleted after 7 days.</li>
       <li><b>Unsubscribing:</b> one click in any email. Your details are deleted straight away; we keep only a one-way hash of your address as a record that you opted out. You can subscribe again at any time.</li>
@@ -1223,15 +1222,11 @@ $("#newsBody").addEventListener("click", e => { const a = e.target.closest("[dat
   el.classList.add("highlight"); setTimeout(()=>el.classList.remove("highlight"),1600); });
 
 /* Subscribe */
-let subInterests = [];
 $("#sub_country").innerHTML = COUNTRY_LIST.map(([v,l])=>`<option value="${v}">${esc(l)}</option>`).join("");
-function renderSubInterests(){ $("#sub_interests").innerHTML = ["ai","cti","tvm","operations","leadership","icsot","cloud","appsec"].map(k=>`<button class="chip" type="button" data-sub-int="${k}" aria-pressed="${subInterests.includes(k)}">${esc(DOM[k].label)}</button>`).join(""); }
-renderSubInterests();
-$("#sub_interests").addEventListener("click", e => { const b=e.target.closest("[data-sub-int]"); if(!b) return; toggle(subInterests,b.dataset.subInt); renderSubInterests(); });
 const emailOk = v => /^[^\s@<>]+@[^\s@<>]+\.[a-z]{2,}$/i.test(v) && v.length <= 254;
 $("#subForm").addEventListener("submit", async e => {
   e.preventDefault();
-  const body = { email: $("#sub_email").value.trim(), name: $("#sub_name").value.trim(), country: $("#sub_country").value, interests: subInterests, consent: $("#sub_consent").checked, website: $("#sub_website").value };
+  const body = { email: $("#sub_email").value.trim(), name: $("#sub_name").value.trim(), country: $("#sub_country").value, consent: $("#sub_consent").checked, website: $("#sub_website").value };
   const err = !emailOk(body.email) ? "Enter a valid email address." : !body.consent ? "Tick the box to agree to receive the briefing." : "";
   if (err){ $("#subErr").textContent = err; $("#subErr").hidden = false; return; }
   $("#subErr").hidden = true; $("#subBtn").disabled = true; $("#subBtn").textContent = "Sending…";
