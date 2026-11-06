@@ -1,20 +1,24 @@
 // Admin endpoints. Every handler is wrapped in guard(): a valid admin session cookie, and same-origin JSON for writes.
 import { normaliseEmail, subscriberId } from "./lib/mail.js";
-import { json, slug, normaliseIsbn, isHttpUrl, isAmazonMusicUrl, isPlatformUrl, DOMAIN_KEYS, FREQ_KEYS, KIND_KEYS, COST_KEYS } from "./lib/shared.js";
+import { json, slug, normaliseIsbn, isHttpUrl, isAmazonMusicUrl, isPlatformUrl, isSocialUrl, SOCIAL_FIELDS, DOMAIN_KEYS, FREQ_KEYS, KIND_KEYS, COST_KEYS } from "./lib/shared.js";
 import { rowToItem, getItemRow, upsertItem, insertItem, deleteItem } from "./lib/db.js";
 import { guard } from "./auth.js";
 
-const URL_FIELDS = ["web", "apple", "spotify", "amazon", "youtube", "rss", "twitch"];
+const URL_FIELDS = ["web", "apple", "spotify", "amazon", "youtube", "rss", "twitch", ...SOCIAL_FIELDS];
 function sanitiseItem(item) {
   for (const k of URL_FIELDS) if (item[k] != null) item[k] = isHttpUrl(item[k]) ? String(item[k]).slice(0, 500) : undefined;
   if (item.amazon && !isAmazonMusicUrl(item.amazon)) item.amazon = undefined;
   for (const k of ["apple", "spotify", "youtube", "twitch"]) if (item[k] && !isPlatformUrl(k, item[k])) item[k] = undefined;
+  for (const k of SOCIAL_FIELDS) if (item[k] && !isSocialUrl(k, item[k])) item[k] = undefined;
   if (item.logo != null && !(/^covers\/[a-z0-9-]+\.(jpg|png|webp|gif)$/.test(item.logo) || isHttpUrl(item.logo))) item.logo = undefined;
   if (item.bundle && !isHttpUrl(item.bundle.url)) item.bundle = undefined;
   if (item.logoFrom != null && !(isHttpUrl(item.logoFrom) && item.logoFrom.startsWith("https://"))) item.logoFrom = undefined; // where the refresh fetches a platform logo from
   item.domains = (Array.isArray(item.domains) ? item.domains : []).filter(d => DOMAIN_KEYS.includes(d)).slice(0, 5);
   if (item.type === "platform") { if (!KIND_KEYS.includes(item.kind)) item.kind = undefined; if (!COST_KEYS.includes(item.cost)) item.cost = undefined; }
   else { delete item.kind; delete item.cost; }
+  // An expert is a person: no listening links, feed, ISBN or release schedule; profile links only on experts.
+  if (item.type === "person") { for (const k of ["apple", "spotify", "amazon", "rss", "isbn", "publisher", "freq", "launched", "status", "format", "bundle"]) delete item[k]; }
+  else for (const k of SOCIAL_FIELDS) delete item[k];
   return item;
 }
 const parse = (s, d) => { try { return JSON.parse(s ?? ""); } catch { return d; } };
@@ -44,6 +48,7 @@ export const decide = guard(async (req, env, ctx, { id }) => {
       level: level.length ? level : ["intermediate"], freq: s.type === "podcast" ? s.freq : undefined, kind: s.kind || undefined, cost: s.cost || undefined,
       launched: null, status: "active", web: s.web || undefined, apple: s.apple || undefined, spotify: s.spotify || undefined,
       amazon: s.amazon || undefined, youtube: s.youtube || undefined, rss: s.rss || undefined, isbn: s.isbn || undefined, publisher: s.publisher || undefined,
+      ...Object.fromEntries(SOCIAL_FIELDS.map(k => [k, s[k] || undefined])),
       isbnVerified: false, rating: null, curator: false, sources: ["community"], verified: false, addedAt: new Date().toISOString()
     });
     if (!(await insertItem(env.DB, item))) return json(409, { error: `"${s.name}" is already in the library.` });
@@ -62,7 +67,7 @@ export const item = guard(async (req, env, ctx, { id }) => {
   if (req.method === "DELETE") { await deleteItem(env.DB, id); return json(200, { ok: true }); }
   const patch = await req.json().catch(() => ({}));
   const cur = rowToItem(r), it = { ...cur };
-  const allowed = ["name", "by", "desc", "domains", "level", "freq", "launched", "status", "web", "apple", "spotify", "amazon", "youtube", "rss", "logo", "curator", "hidden", "published", "tagsLocked", "isbn", "publisher", "format", "kind", "cost", "logoFrom", "statusLocked", "twitch"];
+  const allowed = ["name", "by", "desc", "domains", "level", "freq", "launched", "status", "web", "apple", "spotify", "amazon", "youtube", "rss", "logo", "curator", "hidden", "published", "tagsLocked", "isbn", "publisher", "format", "kind", "cost", "logoFrom", "statusLocked", "twitch", ...SOCIAL_FIELDS];
   for (const k of allowed) if (k in patch) it[k] = patch[k] === "" || patch[k] === null ? undefined : patch[k];
   sanitiseItem(it);
   if ("isbn" in patch && it.isbn) { const n = normaliseIsbn(it.isbn); if (!n) return json(400, { error: "That ISBN doesn't look right." }); if (n !== cur.isbn) it.isbnVerified = false; it.isbn = n; }
@@ -102,7 +107,7 @@ export const insights = guard(async (req, env) => {
 
 // GET /api/admin/export → CSV of every catalogue item, hidden ones included, with community vote tallies.
 const ITEM_COLUMNS = ["id", "type", "name", "by", "desc", "kind", "cost", "domains", "level", "freq", "status", "launched", "published",
-  "web", "apple", "spotify", "amazon", "youtube", "rss", "isbn", "publisher", "rating", "rating_count", "rating_as_of",
+  "web", "apple", "spotify", "amazon", "youtube", "rss", ...SOCIAL_FIELDS, "isbn", "publisher", "rating", "rating_count", "rating_as_of",
   "community_up", "community_down", "curator", "hidden", "tags_locked", "episodes", "last_episode", "sources"];
 export const exportItems = guard(async (req, env) => {
   const { results } = await env.DB.prepare("SELECT * FROM items ORDER BY id").all();
@@ -110,7 +115,7 @@ export const exportItems = guard(async (req, env) => {
   for (const r of results) {
     const i = rowToItem(r);
     rows.push([i.id, i.type, i.name, i.by, i.desc, i.kind, i.cost, (i.domains || []).join(" "), (i.level || []).join(" "), i.freq, i.status, i.launched, i.published,
-      i.web, i.apple, i.spotify, i.amazon, i.youtube, i.rss, i.isbn, i.publisher, i.rating?.v, i.rating?.n, i.rating?.asOf,
+      i.web, i.apple, i.spotify, i.amazon, i.youtube, i.rss, ...SOCIAL_FIELDS.map(k => i[k]), i.isbn, i.publisher, i.rating?.v, i.rating?.n, i.rating?.asOf,
       i.community?.up ?? 0, i.community?.down ?? 0, i.curator ? "yes" : "no", i.hidden ? "yes" : "no", i.tagsLocked ? "yes" : "no",
       i.episodes, i.lastEpisode, (i.sources || []).join(" ")]);
   }
