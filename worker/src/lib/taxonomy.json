@@ -51,7 +51,7 @@
   "scope": {
     "podcast": {"intro": "Top-rated cyber security podcasts, with platform ratings shown alongside community votes.", "criteria": "An established, regularly published podcast mainly about cyber security."},
     "book": {"intro": "Some of the best-rated cyber security books.", "criteria": "A well-regarded book mainly about cyber security."},
-    "platform": {"intro": "Labs, courses, CTFs, certifications, events and communities. The list is deliberately vendor-agnostic, to cover a wide range of subjects, and deliberately free or low-cost.", "criteria": "Free or low-cost, and not tied to or promoting one vendor's products. Expensive training, paid-only certifications or vendor product academies don't fit."},
+    "platform": {"intro": "Vendor-agnostic labs, courses, CTFs and events across a wide range of subjects, all free or low-cost.", "criteria": "Free or low-cost, and not tied to or promoting one vendor's products. Expensive training, paid-only certifications or vendor product academies don't fit."},
     "person": {"intro": "Subject-matter experts with real, hands-on experience who share substantial content.", "criteria": "A recognised practitioner, researcher or educator with real experience who publishes substantial security content. Social-media influencers, especially TikTok or Instagram personalities, don't fit."}
   }
 }
