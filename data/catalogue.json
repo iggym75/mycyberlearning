@@ -11150,6 +11150,25 @@
     },
     {
       "type": "person",
+      "name": "Alec Muffett",
+      "by": "Security engineer and writer",
+      "desc": "UK veteran engineer who wrote the Crack password tool and built Facebook's Tor onion service; writes on encryption and privacy policy.",
+      "domains": [
+        "privacy",
+        "architecture",
+        "engineering"
+      ],
+      "bluesky": "https://bsky.app/profile/alecmuffett.bsky.social",
+      "web": "https://alecmuffett.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-alec-muffett"
+    },
+    {
+      "type": "person",
       "name": "Alex Stamos",
       "by": "Security executive and Stanford lecturer",
       "desc": "Former CSO of Facebook and Yahoo who teaches at Stanford and speaks on platform security, disinformation and secure design.",
@@ -11267,6 +11286,41 @@
     },
     {
       "type": "person",
+      "name": "Chris Wysopal",
+      "by": "Co-founder, Veracode; former L0pht member",
+      "desc": "One of the L0pht hackers who testified to the US Senate in 1998, now focused on secure software development and application security.",
+      "domains": [
+        "appsec",
+        "tvm"
+      ],
+      "bluesky": "https://bsky.app/profile/weld.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-chris-wysopal"
+    },
+    {
+      "type": "person",
+      "name": "Dan Goodin",
+      "by": "Security reporter, Ars Technica",
+      "desc": "Veteran security journalist whose Ars Technica articles explain new attacks and vulnerabilities with unusual technical depth.",
+      "domains": [
+        "news",
+        "tvm"
+      ],
+      "x": "https://x.com/dangoodin001",
+      "bluesky": "https://bsky.app/profile/dangoodin.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-dan-goodin"
+    },
+    {
+      "type": "person",
       "name": "Daniel Miessler",
       "by": "Founder, Unsupervised Learning",
       "desc": "Security practitioner of 25+ years whose newsletter and essays connect security, AI and how people work; author of widely used open-source AI tooling.",
@@ -11323,6 +11377,23 @@
       ],
       "verified": true,
       "id": "expert-dave-kennedy"
+    },
+    {
+      "type": "person",
+      "name": "Dmitri Alperovitch",
+      "by": "Co-founder, CrowdStrike; chairman, Silverado",
+      "desc": "Co-founded CrowdStrike and now writes and podcasts on the geopolitics of cyber conflict, especially China and Russia.",
+      "domains": [
+        "cti",
+        "leadership"
+      ],
+      "bluesky": "https://bsky.app/profile/dmitri.silverado.org",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-dmitri-alperovitch"
     },
     {
       "type": "person",
@@ -11403,6 +11474,24 @@
     },
     {
       "type": "person",
+      "name": "Eric Capuano",
+      "by": "Co-founder, Recon InfoSec; SANS DFIR instructor",
+      "desc": "Incident responder and instructor who publishes hands-on detection engineering and DFIR guides.",
+      "domains": [
+        "operations",
+        "hunting",
+        "defensive"
+      ],
+      "bluesky": "https://bsky.app/profile/eric.zip",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-eric-capuano"
+    },
+    {
+      "type": "person",
       "name": "Eva Galperin",
       "by": "Director of Cybersecurity, EFF",
       "desc": "Leads security work at the Electronic Frontier Foundation and co-founded the Coalition Against Stalkerware, protecting at-risk people from surveillance.",
@@ -11416,7 +11505,8 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-eva-galperin"
+      "id": "expert-eva-galperin",
+      "bluesky": "https://bsky.app/profile/evacide.bsky.social"
     },
     {
       "type": "person",
@@ -11562,6 +11652,24 @@
     },
     {
       "type": "person",
+      "name": "Jayson E. Street",
+      "by": "Social engineer and physical penetration tester",
+      "desc": "Long-time hacker and speaker known for physical and social-engineering assessments and for encouraging newcomers.",
+      "domains": [
+        "human",
+        "offensive"
+      ],
+      "bluesky": "https://bsky.app/profile/jaysonstreet.bsky.social",
+      "web": "https://www.jaysonestreet.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-jayson-e-street"
+    },
+    {
+      "type": "person",
       "name": "Jeff Moss (The Dark Tangent)",
       "by": "Founder, DEF CON and Black Hat",
       "desc": "Founded DEF CON and Black Hat, two of the most important gatherings in security, and advises governments on cyber policy.",
@@ -11576,6 +11684,23 @@
       ],
       "verified": true,
       "id": "expert-jeff-moss"
+    },
+    {
+      "type": "person",
+      "name": "Joe Slowik",
+      "by": "Threat intelligence researcher, ICS/OT",
+      "desc": "Former US Navy officer and threat researcher specialising in attacks on industrial and critical infrastructure systems.",
+      "domains": [
+        "cti",
+        "icsot"
+      ],
+      "bluesky": "https://bsky.app/profile/pylos.co",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-joe-slowik"
     },
     {
       "type": "person",
@@ -11599,6 +11724,22 @@
     },
     {
       "type": "person",
+      "name": "John Hultquist",
+      "by": "Chief analyst, Google Threat Intelligence (Mandiant)",
+      "desc": "Long-standing threat intelligence leader who tracks nation-state actors, especially Russian operations, and founded the CYBERWARCON conference.",
+      "domains": [
+        "cti"
+      ],
+      "bluesky": "https://bsky.app/profile/hultquist.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-john-hultquist"
+    },
+    {
+      "type": "person",
       "name": "John Strand",
       "by": "Founder, Black Hills Information Security",
       "desc": "SANS instructor and founder of BHIS, whose free webcasts, pay-what-you-can training and Antisyphon courses make security education accessible.",
@@ -11618,6 +11759,23 @@
       ],
       "verified": true,
       "id": "expert-john-strand"
+    },
+    {
+      "type": "person",
+      "name": "Juan Andrés Guerrero-Saade",
+      "by": "VP of intelligence and security research, SentinelOne",
+      "desc": "Threat researcher known for in-depth analysis of state-sponsored malware and for teaching malware analysis at Johns Hopkins SAIS.",
+      "domains": [
+        "cti",
+        "defensive"
+      ],
+      "bluesky": "https://bsky.app/profile/jags.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-juan-andres-guerrero-saade"
     },
     {
       "type": "person",
@@ -11741,6 +11899,41 @@
     },
     {
       "type": "person",
+      "name": "Lea Kissner",
+      "by": "CISO, LinkedIn",
+      "desc": "Privacy and security engineering leader, formerly Twitter CISO and head of privacy engineering at Google.",
+      "domains": [
+        "privacy",
+        "leadership",
+        "engineering"
+      ],
+      "bluesky": "https://bsky.app/profile/leak.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-lea-kissner"
+    },
+    {
+      "type": "person",
+      "name": "Leigh Honeywell",
+      "by": "Co-founder and CEO, Tall Poppy",
+      "desc": "Security engineer turned founder who protects people from online harassment, with past roles at Slack, Microsoft and the ACLU.",
+      "domains": [
+        "human",
+        "privacy"
+      ],
+      "bluesky": "https://bsky.app/profile/hypatia.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-leigh-honeywell"
+    },
+    {
+      "type": "person",
       "name": "Lesley Carhart",
       "by": "Industrial incident response, Dragos",
       "desc": "Industrial control system incident responder and US Air Force veteran who writes some of the best advice available on starting and growing a security career.",
@@ -11778,6 +11971,23 @@
       ],
       "verified": true,
       "id": "expert-lisa-forte"
+    },
+    {
+      "type": "person",
+      "name": "LiveOverflow",
+      "by": "Security educator and YouTuber",
+      "desc": "Long-running YouTube channel teaching binary exploitation, web security and CTF thinking with clear, careful explanations.",
+      "domains": [
+        "offensive",
+        "career"
+      ],
+      "youtube": "https://www.youtube.com/@LiveOverflow",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-liveoverflow"
     },
     {
       "type": "person",
@@ -11833,6 +12043,59 @@
       ],
       "verified": true,
       "id": "expert-marcus-j-carey"
+    },
+    {
+      "type": "person",
+      "name": "Mark Russinovich",
+      "by": "CTO, Microsoft Azure",
+      "desc": "Creator of the Sysinternals tools and author of Windows Internals, sharing deep technical insight on Windows, cloud and AI security.",
+      "domains": [
+        "cloud",
+        "defensive"
+      ],
+      "bluesky": "https://bsky.app/profile/markrussinovich.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-mark-russinovich"
+    },
+    {
+      "type": "person",
+      "name": "Matt Blaze",
+      "by": "Professor of computer science and law, Georgetown",
+      "desc": "Researcher in cryptography, surveillance and election security since the 1990s, well known for finding flaws in the Clipper chip and in master-key locks.",
+      "domains": [
+        "privacy",
+        "architecture"
+      ],
+      "bluesky": "https://bsky.app/profile/mattblaze.org",
+      "web": "https://www.mattblaze.org/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-matt-blaze"
+    },
+    {
+      "type": "person",
+      "name": "Matthew Green",
+      "by": "Cryptographer, Johns Hopkins University",
+      "desc": "Professor who explains applied cryptography, encrypted messaging and backdoor debates on his widely read blog, A Few Thoughts on Cryptographic Engineering.",
+      "domains": [
+        "architecture",
+        "privacy"
+      ],
+      "bluesky": "https://bsky.app/profile/matthewdgreen.bsky.social",
+      "web": "https://blog.cryptographyengineering.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-matthew-green"
     },
     {
       "type": "person",
@@ -11965,6 +12228,24 @@
     },
     {
       "type": "person",
+      "name": "Ray [REDACTED]",
+      "by": "Security researcher and podcast producer",
+      "desc": "Hacker and researcher who hosted Tribe of Hackers and helped produce Darknet Diaries, and supports newcomers to the field.",
+      "domains": [
+        "career",
+        "stories"
+      ],
+      "x": "https://x.com/RayRedacted",
+      "bluesky": "https://bsky.app/profile/rayredacted.com",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-ray-redacted"
+    },
+    {
+      "type": "person",
       "name": "Richard Bejtlich",
       "by": "Author and network security monitoring pioneer",
       "desc": "Former US Air Force intelligence officer who built GE's CIRT and was Mandiant's first CSO; his books and TaoSecurity blog shaped network security monitoring.",
@@ -11983,6 +12264,24 @@
       ],
       "verified": true,
       "id": "expert-richard-bejtlich"
+    },
+    {
+      "type": "person",
+      "name": "Rik Ferguson",
+      "by": "VP of security intelligence, Rapid7; Europol adviser",
+      "desc": "UK security researcher of more than 25 years who comments on threat trends and advises Europol's EC3.",
+      "domains": [
+        "cti",
+        "leadership"
+      ],
+      "bluesky": "https://bsky.app/profile/rikferguson.com",
+      "web": "https://rikferguson.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-rik-ferguson"
     },
     {
       "type": "person",
@@ -12008,6 +12307,23 @@
     },
     {
       "type": "person",
+      "name": "Rob Joyce",
+      "by": "Former NSA Cybersecurity Director",
+      "desc": "Spent more than three decades at the NSA, including leading its offensive TAO unit, and now speaks plainly on what actually stops attackers.",
+      "domains": [
+        "leadership",
+        "cti"
+      ],
+      "bluesky": "https://bsky.app/profile/rgblights.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-rob-joyce"
+    },
+    {
+      "type": "person",
       "name": "Robert M. Lee",
       "by": "Co-founder and CEO, Dragos",
       "desc": "Leading voice on industrial cyber security and threat intelligence, former US Air Force and NSA, and author of SANS ICS and CTI courses.",
@@ -12025,6 +12341,75 @@
       ],
       "verified": true,
       "id": "expert-robert-m-lee"
+    },
+    {
+      "type": "person",
+      "name": "Rory McCune",
+      "by": "Container and Kubernetes security specialist",
+      "desc": "UK-based researcher and trainer who explains container and Kubernetes security in depth through blogs, talks and courses.",
+      "domains": [
+        "cloud",
+        "engineering"
+      ],
+      "bluesky": "https://bsky.app/profile/mccune.org.uk",
+      "web": "https://www.mccune.org.uk/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-rory-mccune"
+    },
+    {
+      "type": "person",
+      "name": "Runa Sandvik",
+      "by": "Founder, Granitt",
+      "desc": "Security researcher who protects journalists and at-risk people, formerly of the Tor Project and The New York Times.",
+      "domains": [
+        "privacy",
+        "human"
+      ],
+      "bluesky": "https://bsky.app/profile/runasand.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-runa-sandvik"
+    },
+    {
+      "type": "person",
+      "name": "Scott Helme",
+      "by": "Security researcher; founder, Report URI and Security Headers",
+      "desc": "UK researcher who teaches web security standards such as CSP and HSTS through his blog, tools and training.",
+      "domains": [
+        "appsec",
+        "defensive"
+      ],
+      "bluesky": "https://bsky.app/profile/scotthelme.bsky.social",
+      "web": "https://scotthelme.co.uk/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-scott-helme"
+    },
+    {
+      "type": "person",
+      "name": "Scott Piper",
+      "by": "Cloud security researcher",
+      "desc": "Creator of flaws.cloud and CloudMapper, sharing practical research on AWS security and cloud breaches.",
+      "domains": [
+        "cloud"
+      ],
+      "bluesky": "https://bsky.app/profile/scottpiper.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-scott-piper"
     },
     {
       "type": "person",
@@ -12067,6 +12452,23 @@
     },
     {
       "type": "person",
+      "name": "Taz Wake",
+      "by": "DFIR and threat hunting specialist; SANS author",
+      "desc": "Incident responder and author of the SANS FOR577 Linux incident response course, sharing practical DFIR knowledge.",
+      "domains": [
+        "operations",
+        "hunting"
+      ],
+      "bluesky": "https://bsky.app/profile/tazwake.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-taz-wake"
+    },
+    {
+      "type": "person",
       "name": "Teri Radichel",
       "by": "CEO, 2nd Sight Lab",
       "desc": "AWS Security Hero and penetration tester who writes in depth about cloud security architecture and attacks on cloud environments.",
@@ -12082,6 +12484,41 @@
       ],
       "verified": true,
       "id": "expert-teri-radichel"
+    },
+    {
+      "type": "person",
+      "name": "Tib3rius",
+      "by": "Web application hacker and educator",
+      "desc": "Penetration tester who teaches web application hacking and privilege escalation through courses and streams.",
+      "domains": [
+        "offensive",
+        "appsec"
+      ],
+      "bluesky": "https://bsky.app/profile/tib3rius.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-tib3rius"
+    },
+    {
+      "type": "person",
+      "name": "Tracy Z. Maleeff (InfoSecSherpa)",
+      "by": "Security researcher and OSINT specialist",
+      "desc": "Librarian turned security practitioner who shares OSINT research skills and a long-running security news digest.",
+      "domains": [
+        "cti",
+        "career"
+      ],
+      "x": "https://x.com/InfoSecSherpa",
+      "bluesky": "https://bsky.app/profile/infosecsherpa.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-tracy-maleeff"
     },
     {
       "type": "person",
