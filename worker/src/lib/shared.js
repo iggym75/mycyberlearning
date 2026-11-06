@@ -56,14 +56,16 @@ export function isPlatformUrl(kind, v) {
   try { const u = new URL(v); return u.protocol === "https:" && PLATFORM_HOSTS[kind].includes(u.hostname); } catch { return false; }
 }
 // Experts' public profiles: https on the service's exact host(s) and a profile-shaped path. Mastodon has many
-// servers, so any https host is allowed there but the path must be a /@user profile.
-export const SOCIAL_FIELDS = ["x", "bluesky", "mastodon", "linkedin", "github", "discord"];
+// servers, so any https host is allowed there but the path must be a /@user profile. Medium is a profile
+// (medium.com/@user), a publication (medium.com/name) or a custom subdomain (name.medium.com/).
+export const SOCIAL_FIELDS = ["x", "bluesky", "mastodon", "linkedin", "github", "medium", "discord"];
 const SOCIAL_RULES = {
   x: { hosts: ["x.com", "www.x.com", "twitter.com", "www.twitter.com"], path: /^\/[A-Za-z0-9_]{1,15}\/?$/ },
   bluesky: { hosts: ["bsky.app"], path: /^\/profile\/[A-Za-z0-9.:_-]+\/?$/ },
   mastodon: { hosts: null, path: /^\/@[A-Za-z0-9_]{1,30}\/?$/ },
   linkedin: { hosts: ["www.linkedin.com", "linkedin.com", "uk.linkedin.com"], path: /^\/(in|company)\/[A-Za-z0-9%_-]+\/?$/ },
   github: { hosts: ["github.com"], path: /^\/[A-Za-z0-9-]{1,39}\/?$/ },
+  medium: { hosts: ["medium.com"], path: /^\/@?[A-Za-z0-9._-]{1,50}\/?$/ },
   discord: { hosts: ["discord.gg", "discord.com"], path: /^\/(invite\/)?[A-Za-z0-9-]{2,32}\/?$/ }
 };
 export function isSocialUrl(kind, v) {
@@ -71,6 +73,7 @@ export function isSocialUrl(kind, v) {
   try {
     const u = new URL(v);
     if (u.protocol !== "https:" || u.username || u.password || u.port) return false;
+    if (kind === "medium" && /^[a-z0-9-]{1,50}\.medium\.com$/.test(u.hostname) && u.hostname !== "www.medium.com") return /^\/?$/.test(u.pathname);
     if (rule.hosts ? !rule.hosts.includes(u.hostname) : !/^[a-z0-9.-]+\.[a-z]{2,}$/.test(u.hostname)) return false;
     if (kind === "discord" && u.hostname === "discord.com" && !u.pathname.startsWith("/invite/")) return false;
     return rule.path.test(u.pathname);

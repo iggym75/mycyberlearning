@@ -11214,6 +11214,28 @@
     },
     {
       "type": "person",
+      "name": "Amanda Rousseau (Malware Unicorn)",
+      "by": "Security researcher; reverse-engineering educator",
+      "desc": "Malware researcher formerly of Microsoft, Meta's red team, Endgame and FireEye, known for free reverse-engineering workshops for newcomers.",
+      "domains": [
+        "cti",
+        "offensive",
+        "defensive"
+      ],
+      "x": "https://x.com/malwareunicorn",
+      "bluesky": "https://bsky.app/profile/malwareunicorn.bsky.social",
+      "web": "https://www.malwareunicorn.org/",
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-amanda-rousseau",
+      "logo": "covers/expert-amanda-rousseau.webp",
+      "logoSource": "Bluesky"
+    },
+    {
+      "type": "person",
       "name": "Anton Chuvakin",
       "by": "Office of the CISO, Google Cloud",
       "desc": "Former Gartner analyst and long-time authority on SIEM, logging and detection; co-hosts the Cloud Security Podcast by Google.",
@@ -11224,7 +11246,8 @@
       ],
       "x": "https://x.com/anton_chuvakin",
       "bluesky": "https://bsky.app/profile/anton1chuvakin.bsky.social",
-      "web": "https://medium.com/anton-on-security",
+      "medium": "https://medium.com/anton-on-security",
+      "web": "https://www.chuvakin.org/",
       "curator": true,
       "sources": [
         "mcl"
@@ -11233,6 +11256,46 @@
       "id": "expert-anton-chuvakin",
       "logo": "covers/expert-anton-chuvakin.jpg",
       "logoSource": "own website"
+    },
+    {
+      "type": "person",
+      "name": "Azeria (Maria Markstedter)",
+      "by": "Founder, Azeria Labs",
+      "desc": "Arm exploitation and reverse-engineering specialist and author of Blue Fox, whose free Azeria Labs tutorials teach Arm assembly and exploit development.",
+      "domains": [
+        "offensive",
+        "engineering"
+      ],
+      "x": "https://x.com/Fox0x01",
+      "bluesky": "https://bsky.app/profile/azeria-labs.com",
+      "github": "https://github.com/azeria-labs",
+      "web": "https://azeria-labs.com/",
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-azeria",
+      "logo": "covers/expert-azeria.webp",
+      "logoSource": "Bluesky"
+    },
+    {
+      "type": "person",
+      "name": "Binni Shah",
+      "by": "Security researcher and link curator",
+      "desc": "Shares a constant, well-chosen stream of security research, malware analysis and Linux internals links that many practitioners rely on to stay current.",
+      "domains": [
+        "cti",
+        "offensive",
+        "defensive"
+      ],
+      "x": "https://x.com/binitamshah",
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-binni-shah"
     },
     {
       "type": "person",
@@ -11504,7 +11567,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-ed-skoudis"
+      "id": "expert-ed-skoudis",
+      "logo": "covers/expert-ed-skoudis.jpg",
+      "logoSource": "photo supplied by curator"
     },
     {
       "type": "person",
@@ -11545,6 +11610,28 @@
       "bluesky": "https://bsky.app/profile/evacide.bsky.social",
       "logo": "covers/expert-eva-galperin.webp",
       "logoSource": "Bluesky"
+    },
+    {
+      "type": "person",
+      "name": "Florian Roth",
+      "by": "Head of research, Nextron Systems",
+      "desc": "Detection engineer who created the Sigma rule format and widely used YARA rules and scanners, sharing practical threat-detection research.",
+      "domains": [
+        "hunting",
+        "operations",
+        "defensive"
+      ],
+      "x": "https://x.com/cyb3rops",
+      "github": "https://github.com/Neo23x0",
+      "medium": "https://medium.com/@cyb3rops",
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-florian-roth",
+      "logo": "covers/expert-florian-roth.jpg",
+      "logoSource": "GitHub"
     },
     {
       "type": "person",
