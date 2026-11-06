@@ -176,3 +176,17 @@ test("transcriptText reads WebVTT, SRT and Podcasting 2.0 JSON", () => {
   assert.equal(transcriptText(JSON.stringify({ version: "1.0.0", segments: [{ body: "One" }, { body: "two." }] }), "application/json"), "One two.");
   assert.equal(transcriptText("<p>Plain <i>HTML</i></p>", "text/html"), "Plain HTML");
 });
+
+test("digest email: MCL subject prefix, numbered stories without interest labels, one link per episode", async () => {
+  const { renderDigestEmail, digestSubject } = await import("../../worker/src/lib/mail.js");
+  assert.equal(digestSubject("Short headline"), "MCL Daily Briefing: Short headline");
+  const long = digestSubject("A very long headline about many different security stories that keeps going well past what fits nicely");
+  assert.ok(long.length <= 91 && long.startsWith("MCL Daily Briefing: ") && long.endsWith("…") && !/\s…$/.test(long));
+  const digest = { date: "2026-11-06", headline: "H", overview: "O.", topStories: [{ title: "Story one", summary: "S", refs: ["cw-0"], domains: ["news"] }],
+    episodes: [{ ref: "cw-0", show: "cw", title: "Ep", url: "https://example.com/ep", summary: "Sum", domains: ["news"], core: true }] };
+  const m = renderDigestEmail({ digest, shows: { cw: "CyberWire Daily" }, siteUrl: "https://mycyberlearning.co.uk", unsubscribeUrl: "https://mycyberlearning.co.uk/api/unsubscribe?x=1", interests: ["news"] });
+  assert.equal(m.subject, "MCL Daily Briefing: H");
+  assert.ok(!m.html.includes("matches your interests"));
+  assert.equal(m.html.split("https://example.com/ep").length - 1, 1);
+  assert.ok(m.html.includes(">CyberWire Daily<"));
+});

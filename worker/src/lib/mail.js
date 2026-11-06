@@ -61,8 +61,9 @@ export function londonDate(date = new Date()) {
 
 /* ---------- Email templates (inline styles only; no images, scripts, tracking pixels or remote fonts) ---------- */
 const C = { ink: "#0f1c2e", ink2: "#4a5668", muted: "#6c7789", line: "#d3d9e1", bg: "#f2f4f7", card: "#ffffff", signal: "#0b7a75", tag: "#d5ecea" };
-const wrap = (inner, footer) => `<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>My Cyber Learning</title></head>
+const wrap = (inner, footer, preheader = "") => `<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>My Cyber Learning</title></head>
 <body style="margin:0;padding:0;background:${C.bg};font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;color:${C.ink}">
+${preheader ? `<div style="display:none;max-height:0;overflow:hidden;mso-hide:all">${escapeHtml(preheader)}</div>` : ""}
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${C.bg}"><tr><td align="center" style="padding:24px 12px">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:${C.card};border:1px solid ${C.line};border-radius:10px">
 <tr><td style="padding:20px 24px;border-bottom:1px solid ${C.line}"><span style="display:inline-block;background:${C.signal};color:#fff;font-weight:700;border-radius:6px;padding:3px 8px;font-size:13px">MCL</span>
@@ -102,25 +103,24 @@ export function renderDigestEmail({ digest, shows, siteUrl, unsubscribeUrl, name
   const archive = new URL(`#news`, site).href;
   const quiet = (digest.quietCore || []).map(id => shows[id] || id).join(", ");
 
+  // Deliverability: few links (each episode is linked once, from its title), no images, no tracking, a real plain-text part.
   const storyHtml = stories.map((s, i) => {
-    const via = (s.refs || []).map(r => byRef[r]).filter(Boolean).map(e => {
-      const u = safeUrl(e.url); const n = escapeHtml(shows[e.show] || e.show);
-      return u ? `<a href="${escapeHtml(u)}" style="color:${C.signal}">${n}</a>` : n;
-    }).join(", ");
-    return `<tr><td style="padding:0 24px 16px"><div style="font-size:12px;color:${C.muted};font-weight:600">${i + 1}${hit(s.domains) ? " · matches your interests" : ""}</div>
-<div style="font-size:16px;font-weight:700;margin:2px 0 4px">${escapeHtml(s.title)}</div>
+    const via = [...new Set((s.refs || []).map(r => byRef[r]).filter(Boolean).map(e => shows[e.show] || e.show))].map(escapeHtml).join(", ");
+    return `<tr><td style="padding:0 24px 18px">
+<table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+<td valign="top" style="width:30px;padding-top:1px"><div style="width:24px;height:24px;line-height:24px;border-radius:12px;background:${C.signal};color:#fff;font-size:13px;font-weight:700;text-align:center">${i + 1}</div></td>
+<td valign="top"><div style="font-size:18px;line-height:1.3;font-weight:700;color:${C.ink};margin:0 0 4px">${escapeHtml(s.title)}</div>
 <div style="font-size:14px;line-height:1.55;color:${C.ink2}">${escapeHtml(s.summary)}</div>
-${via ? `<div style="font-size:12px;color:${C.muted};margin-top:4px">Covered by ${via}</div>` : ""}</td></tr>`;
+${via ? `<div style="font-size:12px;color:${C.muted};margin-top:4px">Covered by ${via}</div>` : ""}</td></tr></table></td></tr>`;
   }).join("");
 
   const epHtml = episodes.map(e => {
     const u = safeUrl(e.url);
-    const title = u ? `<a href="${escapeHtml(u)}" style="color:${C.ink};text-decoration:none">${escapeHtml(e.title)}</a>` : escapeHtml(e.title);
+    const title = u ? `<a href="${escapeHtml(u)}" style="color:${C.ink};text-decoration:underline">${escapeHtml(e.title)}</a>` : escapeHtml(e.title);
     return `<tr><td style="padding:12px 24px;border-top:1px solid ${C.line}">
-<div style="font-size:12px;color:${C.muted}">${escapeHtml(shows[e.show] || e.show)}${e.minutes ? ` · ${Number(e.minutes) | 0} min` : ""}</div>
-<div style="font-size:15px;font-weight:600;margin:2px 0 4px">${title}</div>
-<div style="font-size:14px;line-height:1.5;color:${C.ink2}">${escapeHtml(e.summary)}</div>
-${u ? `<div style="margin-top:6px"><a href="${escapeHtml(u)}" style="font-size:13px;color:${C.signal}">Listen</a></div>` : ""}</td></tr>`;
+<div style="font-size:16px;font-weight:700;color:${C.signal};margin:0 0 2px">${escapeHtml(shows[e.show] || e.show)}${e.minutes ? `<span style="font-size:12px;font-weight:400;color:${C.muted}"> · ${Number(e.minutes) | 0} min</span>` : ""}</div>
+<div style="font-size:15px;font-weight:600;margin:0 0 4px">${title}</div>
+<div style="font-size:14px;line-height:1.5;color:${C.ink2}">${escapeHtml(e.summary)}</div></td></tr>`;
   }).join("");
 
   const empty = `<tr><td style="padding:0 24px 20px;font-size:14px;color:${C.ink2}">No new episodes from the news podcasts since the last briefing. Back tomorrow.</td></tr>`;
@@ -128,17 +128,26 @@ ${u ? `<div style="margin-top:6px"><a href="${escapeHtml(u)}" style="font-size:1
 <div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:${C.muted}">Daily briefing · ${escapeHtml(dateLabel)}</div>
 <h1 style="font-size:22px;line-height:1.25;margin:6px 0 10px">${escapeHtml(digest.headline || "Today in cyber security")}</h1>
 <p style="font-size:15px;line-height:1.55;color:${C.ink2};margin:0 0 8px">${greet} ${escapeHtml(digest.overview || "")}</p></td></tr>
-${stories.length ? `<tr><td style="padding:12px 24px 8px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:${C.muted}">Top stories</td></tr>${storyHtml}` : ""}
-${episodes.length ? `<tr><td style="padding:12px 24px 4px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:${C.muted}">New episodes since the last briefing</td></tr>${epHtml}` : empty}${quiet ? `<tr><td style="padding:8px 24px 0;font-size:13px;color:${C.muted}">No new episode from: ${escapeHtml(quiet)}.</td></tr>` : ""}
+${stories.length ? `<tr><td style="padding:14px 24px 12px"><div style="font-size:20px;font-weight:800;color:${C.ink};border-left:4px solid ${C.signal};padding-left:10px">Top stories</div></td></tr>${storyHtml}` : ""}
+${episodes.length ? `<tr><td style="padding:14px 24px 10px"><div style="font-size:20px;font-weight:800;color:${C.ink};border-left:4px solid ${C.signal};padding-left:10px">New episodes since the last briefing</div></td></tr>${epHtml}` : empty}${quiet ? `<tr><td style="padding:8px 24px 0;font-size:13px;color:${C.muted}">No new episode from: ${escapeHtml(quiet)}.</td></tr>` : ""}
 <tr><td style="padding:16px 24px 24px;border-top:1px solid ${C.line}"><a href="${escapeHtml(archive)}" style="color:${C.signal};font-size:14px">Read on the website</a></td></tr>`,
     `Summaries are written by My Cyber Learning from each show's public episode notes; listen to the shows for the full story.<br>
-You're receiving this because you subscribed at ${escapeHtml(site)}. <a href="${escapeHtml(unsub)}" style="color:${C.muted}">Unsubscribe</a> (one click, no login).`);
+You're receiving this because you subscribed at ${escapeHtml(site)}. <a href="${escapeHtml(unsub)}" style="color:${C.muted}">Unsubscribe</a> (one click, no login).`, digest.overview || "");
 
   const text = [`My Cyber Learning, daily briefing, ${dateLabel}`, "", digest.headline || "", "", `${name ? `Good morning, ${name}.` : "Good morning."} ${digest.overview || ""}`, "",
-    ...(stories.length ? ["TOP STORIES", ...stories.map((s, i) => `${i + 1}. ${s.title}\n   ${s.summary}`), ""] : []),
-    ...(episodes.length ? ["EPISODES", ...episodes.map(e => `- ${shows[e.show] || e.show}: ${e.title}${e.minutes ? ` (${e.minutes} min)` : ""}\n  ${e.summary}\n  ${safeUrl(e.url) || ""}`)] : ["No new episodes since the last briefing."]),
+    ...(stories.length ? ["Top stories", ...stories.map((s, i) => `${i + 1}. ${s.title}\n   ${s.summary}`), ""] : []),
+    ...(episodes.length ? ["New episodes since the last briefing", ...episodes.map(e => `- ${shows[e.show] || e.show}: ${e.title}${e.minutes ? ` (${e.minutes} min)` : ""}\n  ${e.summary}\n  ${safeUrl(e.url) || ""}`)] : ["No new episodes since the last briefing."]),
     "", `Website: ${archive}`, `Unsubscribe: ${unsub}`].join("\n");
-  return { subject: `Cyber briefing: ${digest.headline || dateLabel}`.slice(0, 140), html, text };
+  return { subject: digestSubject(digest.headline, dateLabel), html, text };
+}
+
+/** "MCL Daily Briefing: <headline>", kept under ~90 characters and cut at a word, not mid-word (long subjects score worse with spam filters). */
+export function digestSubject(headline, dateLabel) {
+  const prefix = "MCL Daily Briefing: ";
+  let h = String(headline || dateLabel || "").replace(/\s+/g, " ").trim();
+  const room = 90 - prefix.length;
+  if (h.length > room) h = h.slice(0, room).replace(/\s+\S*$/, "").replace(/[,;:\s]+$/, "") + "…";
+  return prefix + h;
 }
 
 /* ---------- Sending (Resend or Brevo HTTP API; no SDK) ---------- */
