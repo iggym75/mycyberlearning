@@ -11586,7 +11586,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-heath-adams"
+      "id": "expert-heath-adams",
+      "logo": "covers/expert-heath-adams.jpg",
+      "logoSource": "The Cyber Mentor about page"
     },
     {
       "type": "person",
