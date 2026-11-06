@@ -50,7 +50,14 @@ export default {
     initEnv(env);
     const url = new URL(req.url);
     const dynamic = url.pathname.startsWith("/api/") || url.pathname.startsWith("/auth/") || url.pathname === "/admin";
-    if (!dynamic) return env.ASSETS.fetch(req);
+    if (!dynamic) {
+      // Existing files are served before the Worker runs, so this only sees misses. A "not found" must never be
+      // cached: otherwise a cover requested just before it was published stays missing for a week (_headers).
+      const res = await env.ASSETS.fetch(req);
+      if (res.status !== 404) return res;
+      const h = new Headers(res.headers); h.set("cache-control", "no-store");
+      return new Response(res.body, { status: 404, headers: h });
+    }
     const hit = match(req.method, url.pathname);
     if (!hit) return json(404, { error: "Not found." });
     if (hit.status) return json(hit.status, { error: hit.status === 405 ? "Method not allowed." : "Bad request." });

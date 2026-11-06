@@ -12254,7 +12254,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-nicole-perlroth"
+      "id": "expert-nicole-perlroth",
+      "logo": "covers/expert-nicole-perlroth.jpg",
+      "logoSource": "Global Speakers Bureau page"
     },
     {
       "type": "person",

@@ -9,16 +9,19 @@ import { isAdmin } from "./auth.js";
 let memo = { at: 0, body: null };
 export async function items(req, env, ctx) {
   if (isAdmin(req)) return json(200, { items: await listItems(env.DB, { includeHidden: true }) });
-  const headers = { "cache-control": "public, max-age=60", vary: "cookie" };
-  if (memo.body && Date.now() - memo.at < 60_000) return new Response(memo.body, { status: 200, headers: { ...JSON_HEADERS, ...headers } });
+  // Browsers must check back every time ("no-cache"): Cloudflare's zone Browser Cache TTL stretches a short max-age
+  // to hours, which hid catalogue changes (new photos, picks) from returning visitors. The Worker's own 60-second
+  // memo and edge cache below still absorb the load, so D1 reads don't go up.
+  const headers = { "cache-control": "no-cache", vary: "cookie" };
+  const send = body => new Response(body, { status: 200, headers: { ...JSON_HEADERS, ...headers } });
+  if (memo.body && Date.now() - memo.at < 60_000) return send(memo.body);
   const cache = globalThis.caches?.default, key = new Request(new URL("/api/items", req.url).href);
   const hit = cache && await cache.match(key).catch(() => null);
-  if (hit) return hit;
+  if (hit) return send(await hit.text());
   const body = JSON.stringify({ items: await listItems(env.DB, { includeHidden: false }) });
   memo = { at: Date.now(), body };
-  const res = new Response(body, { status: 200, headers: { ...JSON_HEADERS, ...headers } });
-  if (cache) ctx.waitUntil(cache.put(key, res.clone()).catch(() => {}));
-  return res;
+  if (cache) ctx.waitUntil(cache.put(key, new Response(body, { headers: { ...JSON_HEADERS, "cache-control": "public, max-age=60" } })).catch(() => {}));
+  return send(body);
 }
 const JSON_HEADERS = { "content-type": "application/json; charset=utf-8", "x-content-type-options": "nosniff", "referrer-policy": "strict-origin-when-cross-origin" };
 
