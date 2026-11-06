@@ -11606,7 +11606,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-ian-coldwater"
+      "id": "expert-ian-coldwater",
+      "logo": "covers/expert-ian-coldwater.jpg",
+      "logoSource": "DevOpsDays speaker page"
     },
     {
       "type": "person",
