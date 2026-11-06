@@ -88,7 +88,7 @@ export async function submit(req, env) {
     if (!s.cost) errs.push("Choose how much it costs.");
     s.apple = s.spotify = s.amazon = s.youtube = s.rss = ""; s.freq = "";
   } else { s.kind = ""; s.cost = ""; }
-  const SOCIAL_LABEL = { x: "X", bluesky: "Bluesky", mastodon: "Mastodon", linkedin: "LinkedIn", github: "GitHub", discord: "Discord" };
+  const SOCIAL_LABEL = { x: "X", bluesky: "Bluesky", mastodon: "Mastodon", linkedin: "LinkedIn", github: "GitHub", medium: "Medium", discord: "Discord" };
   if (s.type === "person") {
     // An expert is a person to follow: profile links only, at least one of them (or a personal site).
     for (const k of SOCIAL_FIELDS) if (s[k] && !isSocialUrl(k, s[k])) errs.push(`The ${SOCIAL_LABEL[k]} link should be a link to their ${SOCIAL_LABEL[k]} profile.`);
