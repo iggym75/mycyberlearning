@@ -112,7 +112,8 @@ const newRecoveryCode = () => {
   // 26 symbols from a 31-letter alphabet without look-alikes (≈128.8 bits), shown as 6 groups for writing down.
   // Rejection sampling keeps every symbol equally likely: bytes of 248 or more (31 × 8) are discarded.
   const A = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; let s = "";
-  while (s.length < 26) for (const b of randomBytes(32)) { if (b < 248 && s.length < 26) s += A[b >> 3]; // 0..247 >> 3 = 0..30, each value from exactly 8 bytes }
+  // 0..247 >> 3 gives 0..30, each value from exactly 8 byte values.
+  while (s.length < 26) for (const b of randomBytes(32)) { if (b < 248 && s.length < 26) s += A[b >> 3]; }
   return s.match(/.{1,5}/g).join("-");
 };
 const normCode = c => String(c || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
