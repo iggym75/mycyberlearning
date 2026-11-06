@@ -1,5 +1,5 @@
 // Public endpoints: list items, vote, submit a suggestion.
-import { json, sha, clientIp, rateLimited, isHttpUrl, isAmazonMusicUrl, isPlatformUrl, normaliseIsbn, clean, slug, claudeReview, DOMAIN_KEYS, FREQ_KEYS, KIND_KEYS, COST_KEYS, TYPES } from "./lib/shared.js";
+import { json, sha, clientIp, rateLimited, isHttpUrl, isAmazonMusicUrl, isPlatformUrl, isSocialUrl, SOCIAL_FIELDS, normaliseIsbn, clean, slug, claudeReview, DOMAIN_KEYS, FREQ_KEYS, KIND_KEYS, COST_KEYS, TYPES } from "./lib/shared.js";
 import { listItems, getItemRow } from "./lib/db.js";
 import { isAdmin } from "./auth.js";
 
@@ -61,7 +61,8 @@ export async function submit(req, env) {
     freq: FREQ_KEYS.includes(b.freq) ? b.freq : "irregular",
     domains: (Array.isArray(b.domains) ? b.domains : []).filter(d => DOMAIN_KEYS.includes(d)).slice(0, 6),
     web: clean(b.web, 400), apple: clean(b.apple, 400), spotify: clean(b.spotify, 400), amazon: clean(b.amazon, 400), youtube: clean(b.youtube, 400), rss: clean(b.rss, 400),
-    email: clean(b.email, 200), isbn: clean(b.isbn, 20), publisher: clean(b.publisher, 120)
+    email: clean(b.email, 200), isbn: clean(b.isbn, 20), publisher: clean(b.publisher, 120),
+    ...Object.fromEntries(SOCIAL_FIELDS.map(k => [k, clean(b[k], 400)]))
   };
   const errs = [];
   if (s.name.length < 2) errs.push("Add the name.");
@@ -84,13 +85,20 @@ export async function submit(req, env) {
     if (!s.cost) errs.push("Choose how much it costs.");
     s.apple = s.spotify = s.amazon = s.youtube = s.rss = ""; s.freq = "";
   } else { s.kind = ""; s.cost = ""; }
+  const SOCIAL_LABEL = { x: "X", bluesky: "Bluesky", mastodon: "Mastodon", linkedin: "LinkedIn", github: "GitHub", discord: "Discord" };
+  if (s.type === "person") {
+    // An expert is a person to follow: profile links only, at least one of them (or a personal site).
+    for (const k of SOCIAL_FIELDS) if (s[k] && !isSocialUrl(k, s[k])) errs.push(`The ${SOCIAL_LABEL[k]} link should be a link to their ${SOCIAL_LABEL[k]} profile.`);
+    if (!(s.web || s.youtube || SOCIAL_FIELDS.some(k => s[k]))) errs.push("Add at least one place to follow them: a profile link, YouTube channel or personal site.");
+    s.apple = s.spotify = s.amazon = s.rss = ""; s.freq = "";
+  } else for (const k of SOCIAL_FIELDS) s[k] = "";
   if (s.type === "podcast" && !s.web) errs.push("Add the podcast's official website.");
   if (s.type === "podcast" && !(s.apple || s.spotify || s.youtube || s.amazon)) errs.push("Add at least one of Apple Podcasts, Spotify, YouTube or Amazon Music.");
   if (errs.length) return json(400, { error: errs.join(" ") });
 
   if (await getItemRow(env.DB, slug(s.name))) return json(409, { error: `"${s.name}" is already in the library.` });
 
-  const review = await claudeReview({ name: s.name, by: s.by, desc: s.desc, links: { web: s.web, apple: s.apple, spotify: s.spotify, amazon: s.amazon, youtube: s.youtube } });
+  const review = await claudeReview({ name: s.name, by: s.by, desc: s.desc, links: { web: s.web, apple: s.apple, spotify: s.spotify, amazon: s.amazon, youtube: s.youtube, ...Object.fromEntries(SOCIAL_FIELDS.map(k => [k, s[k]])) } });
   const id = `${Date.now().toString(36)}-${slug(s.name).slice(0, 30)}`;
   await env.DB.prepare(`INSERT INTO submissions (id, status, data, suggested_domains, suggested_level, review, ip_hash, submitted)
     VALUES (?, 'pending', ?, ?, ?, ?, ?, ?)`).bind(

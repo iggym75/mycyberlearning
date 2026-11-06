@@ -3,7 +3,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { listItems } from "./lib.mjs";
 
-const TYPE_ORDER = ["podcast", "book", "platform"];
+const TYPE_ORDER = ["podcast", "book", "platform", "person"];
 
 const path = new URL("../data/catalogue.json", import.meta.url);
 const current = JSON.parse(await readFile(path, "utf8"));

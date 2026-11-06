@@ -10,6 +10,7 @@ The site runs on Cloudflare's Workers Free plan and Resend's free plan, with **n
 | Data | Where | Protection | Retention |
 |---|---|---|---|
 | Subscriber email, optional first name, country, topic preferences, consent record | D1 table `subscribers` (EU jurisdiction) | Row id is an HMAC of the email, never the address; encrypted at rest by Cloudflare; reachable only through the Worker or a D1-scoped API token | Until unsubscribe or erasure; unconfirmed sign-ups deleted after 7 days |
+| Listed experts (type `person`): name, public role, our own short description, domain tags, links to profiles they publish themselves | D1 table `items`, `data/catalogue.json` | Public professional information only; no photos, posts or contact details copied; profile links must match exact hosts (`isSocialUrl`) | Until removal on request (privacy@mycyberlearning.co.uk) or curator decision |
 | Unsubscribed / erased addresses | `subscribers` rows with status `suppressed` | HMAC id only; every personal field is cleared | Indefinitely, as an opt-out record (the person can re-subscribe by confirming again) |
 | Confirmation tokens | `subscribers` | Stored as SHA-256 hash; expire after 48 h; cleared on use | 48 hours |
 | Visit counters | `stats` | Aggregate counts per day (section, time-zone region, language, device, referring site). No IPs, cookies or identifiers | 13 months |

@@ -293,3 +293,44 @@ test("cron: starts the briefing workflow only in the 08:xx London hour, and only
   assert.deepEqual(dispatches[0].body, { ref: "main", inputs: { send: "true" } });
   delete env.GH_DISPATCH_TOKEN; delete env.GITHUB_REPO;
 });
+
+test("profile links: exact hosts and profile-shaped paths only", async () => {
+  const { isSocialUrl } = await import("../../worker/src/lib/shared.js");
+  const ok = [["x", "https://x.com/troyhunt"], ["x", "https://twitter.com/_JohnHammond"], ["bluesky", "https://bsky.app/profile/troyhunt.com"],
+    ["mastodon", "https://infosec.exchange/@troyhunt"], ["linkedin", "https://www.linkedin.com/in/troyhunt"], ["github", "https://github.com/mubix"],
+    ["discord", "https://discord.gg/BHIS"], ["discord", "https://discord.com/invite/jhaddix"]];
+  for (const [k, v] of ok) assert.equal(isSocialUrl(k, v), true, `${k} ${v}`);
+  const bad = [["x", "http://x.com/troyhunt"], ["x", "https://x.com.evil.example/troyhunt"], ["x", "https://x.com/troyhunt/status/1"],
+    ["bluesky", "https://bsky.app/search?q=x"], ["mastodon", "https://infosec.exchange/about"], ["mastodon", "javascript:alert(1)"],
+    ["linkedin", "https://www.linkedin.com/feed/"], ["github", "https://github.com/a/b"], ["discord", "https://discord.com/channels/1"],
+    ["x", "https://user:pw@x.com/troyhunt"], ["nope", "https://x.com/a"]];
+  for (const [k, v] of bad) assert.equal(isSocialUrl(k, v), false, `${k} ${v}`);
+});
+
+test("submissions: experts need a profile link; bad links and podcast fields are refused or dropped", async () => {
+  const desc = "Long-standing security researcher who shares detailed analysis in public.";
+  const none = await call("/api/submissions", { method: "POST", ip: "192.0.2.81", body: { type: "person", name: "Ada Example", desc } });
+  assert.equal(none.status, 400); assert.match((await none.json()).error, /place to follow them/);
+  const wrong = await call("/api/submissions", { method: "POST", ip: "192.0.2.81", body: { type: "person", name: "Ada Example", desc, x: "https://evil.example/ada" } });
+  assert.equal(wrong.status, 400); assert.match((await wrong.json()).error, /X link/);
+  const ok = await call("/api/submissions", { method: "POST", ip: "192.0.2.82", body: { type: "person", name: "Ada Example", desc,
+    bluesky: "https://bsky.app/profile/ada.example", spotify: "https://open.spotify.com/show/x", freq: "weekly" } });
+  assert.equal(ok.status, 202);
+  const d = JSON.parse((await db.prepare("SELECT data FROM submissions WHERE data LIKE '%Ada Example%'").first()).data);
+  assert.equal(d.type, "person"); assert.equal(d.bluesky, "https://bsky.app/profile/ada.example"); assert.equal(d.spotify, ""); assert.equal(d.freq, "");
+  const pod = await call("/api/submissions", { method: "POST", ip: "192.0.2.83", body: { type: "podcast", name: "Pod With Socials", desc: "A security podcast with plenty of detail in it.",
+    web: "https://pod.example", apple: "https://podcasts.apple.com/x", x: "https://x.com/pod" } });
+  assert.equal(pod.status, 202);
+  assert.equal(JSON.parse((await db.prepare("SELECT data FROM submissions WHERE data LIKE '%Pod With Socials%'").first()).data).x, "");
+  await db.prepare("DELETE FROM submissions WHERE data LIKE '%Ada Example%' OR data LIKE '%Pod With Socials%'").run();
+});
+
+test("admin: an expert keeps valid profile links and drops invalid ones and podcast fields", async () => {
+  await insertItem(db, { id: "expert-ada", type: "person", name: "Ada Example", desc: "x", domains: ["cti"] });
+  const cookie = await adminCookie();
+  const r = await call("/api/admin/items/expert-ada", { method: "PATCH", headers: { cookie, origin: SITE },
+    body: { x: "https://x.com/ada", linkedin: "https://evil.example/in/ada", apple: "https://podcasts.apple.com/x", freq: "weekly", curator: true } });
+  assert.equal(r.status, 200);
+  const it = (await r.json()).item;
+  assert.equal(it.x, "https://x.com/ada"); assert.equal(it.linkedin, undefined); assert.equal(it.apple, undefined); assert.equal(it.freq, undefined); assert.equal(it.curator, true);
+});

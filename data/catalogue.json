@@ -11128,6 +11128,1035 @@
         "mcl"
       ],
       "verified": false
+    },
+    {
+      "type": "person",
+      "name": "Adrian Sanabria",
+      "by": "Host, Enterprise Security Weekly",
+      "desc": "Former analyst and practitioner who hosts Enterprise Security Weekly and asks hard questions about what security products actually deliver.",
+      "domains": [
+        "operations",
+        "leadership",
+        "defensive"
+      ],
+      "x": "https://x.com/sawaba",
+      "bluesky": "https://bsky.app/profile/sawaba.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-adrian-sanabria"
+    },
+    {
+      "type": "person",
+      "name": "Alex Stamos",
+      "by": "Security executive and Stanford lecturer",
+      "desc": "Former CSO of Facebook and Yahoo who teaches at Stanford and speaks on platform security, disinformation and secure design.",
+      "domains": [
+        "leadership",
+        "architecture"
+      ],
+      "x": "https://x.com/alexstamos",
+      "bluesky": "https://bsky.app/profile/stamos.org",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-alex-stamos"
+    },
+    {
+      "type": "person",
+      "name": "Alyssa Miller",
+      "by": "CISO and author",
+      "desc": "CISO and author of Cybersecurity Career Guide, speaking widely on application security, leadership and career paths.",
+      "domains": [
+        "leadership",
+        "appsec",
+        "career"
+      ],
+      "x": "https://x.com/AlyssaM_InfoSec",
+      "bluesky": "https://bsky.app/profile/alyssam-infosec.com",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-alyssa-miller"
+    },
+    {
+      "type": "person",
+      "name": "Anton Chuvakin",
+      "by": "Office of the CISO, Google Cloud",
+      "desc": "Former Gartner analyst and long-time authority on SIEM, logging and detection; co-hosts the Cloud Security Podcast by Google.",
+      "domains": [
+        "operations",
+        "cloud",
+        "defensive"
+      ],
+      "x": "https://x.com/anton_chuvakin",
+      "bluesky": "https://bsky.app/profile/anton1chuvakin.bsky.social",
+      "web": "https://medium.com/anton-on-security",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-anton-chuvakin"
+    },
+    {
+      "type": "person",
+      "name": "Brian Honan",
+      "by": "CEO, BH Consulting; head of IRISSCERT",
+      "desc": "Irish security leader who founded Ireland's first CERT and advised Europol, and comments regularly on European security and data protection.",
+      "domains": [
+        "grc",
+        "operations",
+        "privacy"
+      ],
+      "x": "https://x.com/BrianHonan",
+      "bluesky": "https://bsky.app/profile/brianhonan.bsky.social",
+      "web": "https://bhconsulting.ie/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-brian-honan"
+    },
+    {
+      "type": "person",
+      "name": "Brian Krebs",
+      "by": "Investigative journalist, KrebsOnSecurity",
+      "desc": "Investigative reporter who has spent nearly two decades exposing cybercrime groups, fraud and data breaches.",
+      "domains": [
+        "news",
+        "cti",
+        "stories"
+      ],
+      "x": "https://x.com/briankrebs",
+      "mastodon": "https://infosec.exchange/@briankrebs",
+      "linkedin": "https://www.linkedin.com/in/bkrebs",
+      "web": "https://krebsonsecurity.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-brian-krebs"
+    },
+    {
+      "type": "person",
+      "name": "Bruce Schneier",
+      "by": "Security technologist and author",
+      "desc": "One of the field's best-known thinkers, writing for decades on cryptography, privacy, security policy and the economics of trust; his blog is essential reading.",
+      "domains": [
+        "privacy",
+        "architecture",
+        "grc"
+      ],
+      "x": "https://x.com/schneierblog",
+      "web": "https://www.schneier.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-bruce-schneier"
+    },
+    {
+      "type": "person",
+      "name": "Daniel Miessler",
+      "by": "Founder, Unsupervised Learning",
+      "desc": "Security practitioner of 25+ years whose newsletter and essays connect security, AI and how people work; author of widely used open-source AI tooling.",
+      "domains": [
+        "ai",
+        "offensive",
+        "leadership"
+      ],
+      "x": "https://x.com/DanielMiessler",
+      "bluesky": "https://bsky.app/profile/danielmiessler.bsky.social",
+      "github": "https://github.com/danielmiessler",
+      "web": "https://danielmiessler.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-daniel-miessler"
+    },
+    {
+      "type": "person",
+      "name": "Dave Bittner",
+      "by": "Host, CyberWire Daily",
+      "desc": "Host of the CyberWire Daily, Hacking Humans and Caveat podcasts, interviewing practitioners on news, scams and policy.",
+      "domains": [
+        "news",
+        "human"
+      ],
+      "x": "https://x.com/bittner",
+      "mastodon": "https://hachyderm.io/@bittner",
+      "web": "https://thecyberwire.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-dave-bittner"
+    },
+    {
+      "type": "person",
+      "name": "Dave Kennedy",
+      "by": "Founder, TrustedSec and Binary Defense",
+      "desc": "Penetration tester and former Diebold CSO who created the Social-Engineer Toolkit and co-founded DerbyCon.",
+      "domains": [
+        "offensive",
+        "defensive",
+        "leadership"
+      ],
+      "x": "https://x.com/HackingDave",
+      "web": "https://www.trustedsec.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-dave-kennedy"
+    },
+    {
+      "type": "person",
+      "name": "Dr Chris Sanders",
+      "by": "Founder, Applied Network Defense",
+      "desc": "Author of Practical Packet Analysis and Intrusion Detection Honeypots, researching how analysts think through investigations.",
+      "domains": [
+        "operations",
+        "hunting",
+        "defensive"
+      ],
+      "x": "https://x.com/chrissanders88",
+      "bluesky": "https://bsky.app/profile/chrissanders88.bsky.social",
+      "linkedin": "https://www.linkedin.com/in/chrissanders88",
+      "web": "https://chrissanders.org/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-chris-sanders"
+    },
+    {
+      "type": "person",
+      "name": "Dr Gerald Auger",
+      "by": "Founder, Simply Cyber",
+      "desc": "Educator whose Simply Cyber channel and daily live stream help people break into and grow in security careers, especially GRC.",
+      "domains": [
+        "career",
+        "grc"
+      ],
+      "x": "https://x.com/Gerald_Auger",
+      "youtube": "https://www.youtube.com/@SimplyCyber",
+      "web": "https://simplycyber.io/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-gerald-auger"
+    },
+    {
+      "type": "person",
+      "name": "Dr Jessica Barker",
+      "by": "Co-founder, Cygenta",
+      "desc": "UK expert on the human side of security, author of Confident Cyber Security and Hacked, focused on awareness, behaviour and culture.",
+      "domains": [
+        "human",
+        "leadership"
+      ],
+      "x": "https://x.com/drjessicabarker",
+      "linkedin": "https://www.linkedin.com/in/jessica-barker",
+      "youtube": "https://www.youtube.com/@drjessicabarker",
+      "web": "https://www.drjessicabarker.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-jessica-barker"
+    },
+    {
+      "type": "person",
+      "name": "Ed Skoudis",
+      "by": "President, SANS Technology Institute",
+      "desc": "Penetration testing pioneer and SANS Fellow who created the SANS Holiday Hack Challenge and NetWars.",
+      "domains": [
+        "offensive",
+        "career"
+      ],
+      "x": "https://x.com/edskoudis",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-ed-skoudis"
+    },
+    {
+      "type": "person",
+      "name": "Eva Galperin",
+      "by": "Director of Cybersecurity, EFF",
+      "desc": "Leads security work at the Electronic Frontier Foundation and co-founded the Coalition Against Stalkerware, protecting at-risk people from surveillance.",
+      "domains": [
+        "privacy",
+        "human"
+      ],
+      "x": "https://x.com/evacide",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-eva-galperin"
+    },
+    {
+      "type": "person",
+      "name": "Graham Cluley",
+      "by": "Writer and podcaster, Smashing Security",
+      "desc": "UK security veteran since the early 1990s, from antivirus research to his long-running blog and the Smashing Security podcast.",
+      "domains": [
+        "news",
+        "human",
+        "stories"
+      ],
+      "x": "https://x.com/gcluley",
+      "bluesky": "https://bsky.app/profile/grahamcluley.com",
+      "linkedin": "https://www.linkedin.com/in/grahamcluley",
+      "web": "https://grahamcluley.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-graham-cluley"
+    },
+    {
+      "type": "person",
+      "name": "Heath Adams (The Cyber Mentor)",
+      "by": "Founder, TCM Security",
+      "desc": "Ethical hacking educator whose free YouTube courses and low-cost academy have helped many people into penetration testing.",
+      "domains": [
+        "offensive",
+        "career"
+      ],
+      "x": "https://x.com/thecybermentor",
+      "youtube": "https://www.youtube.com/c/thecybermentor",
+      "web": "https://tcm-sec.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-heath-adams"
+    },
+    {
+      "type": "person",
+      "name": "Ian Coldwater",
+      "by": "Container and Kubernetes security researcher",
+      "desc": "Specialist in attacking and hardening containers and Kubernetes, and long-time co-chair of Kubernetes security work.",
+      "domains": [
+        "cloud",
+        "offensive"
+      ],
+      "x": "https://x.com/IanColdwater",
+      "bluesky": "https://bsky.app/profile/lookitup.baby",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-ian-coldwater"
+    },
+    {
+      "type": "person",
+      "name": "Jack Rhysider",
+      "by": "Creator, Darknet Diaries",
+      "desc": "Former security operations engineer who tells true stories of hacking, crime and espionage on the Darknet Diaries podcast.",
+      "domains": [
+        "stories",
+        "human"
+      ],
+      "x": "https://x.com/JackRhysider",
+      "bluesky": "https://bsky.app/profile/jackrhysider.bsky.social",
+      "youtube": "https://www.youtube.com/@JackRhysider",
+      "discord": "https://discord.gg/darknetdiaries",
+      "web": "https://darknetdiaries.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-jack-rhysider"
+    },
+    {
+      "type": "person",
+      "name": "Jake Williams",
+      "by": "VP of R&D, Hunter Strategy; IANS faculty",
+      "desc": "Former NSA operator and incident responder who gives sharp, practical takes on breaches, threat intelligence and what defenders should do next.",
+      "domains": [
+        "operations",
+        "cti",
+        "defensive"
+      ],
+      "x": "https://x.com/MalwareJake",
+      "bluesky": "https://bsky.app/profile/malwarejake.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-jake-williams"
+    },
+    {
+      "type": "person",
+      "name": "Jason Haddix",
+      "by": "CEO, Arcanum Information Security",
+      "desc": "Veteran bug hunter and red team leader who teaches web hacking methodology and, more recently, attacking and securing AI systems.",
+      "domains": [
+        "offensive",
+        "appsec",
+        "ai"
+      ],
+      "x": "https://x.com/Jhaddix",
+      "youtube": "https://www.youtube.com/c/jhaddix",
+      "discord": "https://discord.com/invite/jhaddix",
+      "web": "https://arcanum-sec.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-jason-haddix"
+    },
+    {
+      "type": "person",
+      "name": "Javvad Malik",
+      "by": "Lead security awareness advocate, KnowBe4",
+      "desc": "Long-standing UK voice who explains security with humour through videos, talks and the Host Unknown podcast.",
+      "domains": [
+        "human",
+        "career",
+        "stories"
+      ],
+      "x": "https://x.com/J4vv4D",
+      "bluesky": "https://bsky.app/profile/j4vv4d.com",
+      "mastodon": "https://infosec.exchange/@Javvad",
+      "linkedin": "https://www.linkedin.com/in/javvad",
+      "youtube": "https://www.youtube.com/@j4vv4d",
+      "web": "https://javvadmalik.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-javvad-malik"
+    },
+    {
+      "type": "person",
+      "name": "Jeff Moss (The Dark Tangent)",
+      "by": "Founder, DEF CON and Black Hat",
+      "desc": "Founded DEF CON and Black Hat, two of the most important gatherings in security, and advises governments on cyber policy.",
+      "domains": [
+        "career",
+        "stories"
+      ],
+      "mastodon": "https://defcon.social/@thedarktangent",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-jeff-moss"
+    },
+    {
+      "type": "person",
+      "name": "John Hammond",
+      "by": "Principal security researcher, Huntress",
+      "desc": "Hands-on malware analysis, CTF walkthroughs and threat research on one of the most-watched security YouTube channels; strong for learners at every level.",
+      "domains": [
+        "offensive",
+        "defensive",
+        "career"
+      ],
+      "x": "https://x.com/_JohnHammond",
+      "bluesky": "https://bsky.app/profile/johnhammond.bsky.social",
+      "youtube": "https://www.youtube.com/@_JohnHammond",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-john-hammond"
+    },
+    {
+      "type": "person",
+      "name": "John Strand",
+      "by": "Founder, Black Hills Information Security",
+      "desc": "SANS instructor and founder of BHIS, whose free webcasts, pay-what-you-can training and Antisyphon courses make security education accessible.",
+      "domains": [
+        "offensive",
+        "defensive",
+        "career"
+      ],
+      "x": "https://x.com/strandjs",
+      "bluesky": "https://bsky.app/profile/strandjs.bsky.social",
+      "youtube": "https://www.youtube.com/@BlackHillsInformationSecurity",
+      "discord": "https://discord.gg/BHIS",
+      "web": "https://www.blackhillsinfosec.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-john-strand"
+    },
+    {
+      "type": "person",
+      "name": "Katie Moussouris",
+      "by": "Founder and CEO, Luta Security",
+      "desc": "Pioneer of bug bounty and vulnerability disclosure programmes, including the first at Microsoft and the US Department of Defense.",
+      "domains": [
+        "tvm",
+        "offensive",
+        "leadership"
+      ],
+      "x": "https://x.com/k8em0",
+      "bluesky": "https://bsky.app/profile/k8em0.bsky.social",
+      "web": "https://www.lutasecurity.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-katie-moussouris"
+    },
+    {
+      "type": "person",
+      "name": "Katie Nickels",
+      "by": "Director of Intelligence, Red Canary; SANS instructor",
+      "desc": "Threat intelligence leader and SANS CTI instructor, formerly MITRE ATT&CK lead, who explains clearly how to turn intelligence into detection.",
+      "domains": [
+        "cti",
+        "hunting"
+      ],
+      "x": "https://x.com/LikeTheCoins",
+      "bluesky": "https://bsky.app/profile/likethecoins.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-katie-nickels"
+    },
+    {
+      "type": "person",
+      "name": "Kelly Shortridge",
+      "by": "Chief product officer, Fastly",
+      "desc": "Author of Security Chaos Engineering, writing on resilience, behavioural economics and building systems that fail safely.",
+      "domains": [
+        "engineering",
+        "architecture"
+      ],
+      "x": "https://x.com/swagitda_",
+      "bluesky": "https://bsky.app/profile/shortridge.bsky.social",
+      "mastodon": "https://hachyderm.io/@shortridge",
+      "linkedin": "https://www.linkedin.com/in/kellyshortridge",
+      "github": "https://github.com/swagitda",
+      "web": "https://kellyshortridge.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-kelly-shortridge"
+    },
+    {
+      "type": "person",
+      "name": "Keren Elazari",
+      "by": "Security analyst, author and researcher",
+      "desc": "Israeli security researcher known for her TED talk on hackers as the internet's immune system, and founder of BSides Tel Aviv.",
+      "domains": [
+        "human",
+        "career"
+      ],
+      "x": "https://x.com/k3r3n3",
+      "linkedin": "https://www.linkedin.com/in/kerene",
+      "youtube": "https://www.youtube.com/channel/UCVBpDZIp_e98uI5Lh4SDXSQ",
+      "web": "https://www.k3r3n3.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-keren-elazari"
+    },
+    {
+      "type": "person",
+      "name": "Kevin Beaumont",
+      "by": "Independent security researcher",
+      "desc": "UK researcher who tracks exploited vulnerabilities and ransomware as they happen, and writes candidly about vendor security on DoublePulsar.",
+      "domains": [
+        "cti",
+        "defensive",
+        "news"
+      ],
+      "bluesky": "https://bsky.app/profile/doublepulsar.com",
+      "mastodon": "https://cyberplace.social/@GossiTheDog",
+      "web": "https://doublepulsar.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-kevin-beaumont"
+    },
+    {
+      "type": "person",
+      "name": "Kim Zetter",
+      "by": "Journalist and author, Zero Day",
+      "desc": "Award-winning journalist and author of Countdown to Zero Day on Stuxnet; covers nation-state hacking in depth.",
+      "domains": [
+        "news",
+        "stories",
+        "icsot"
+      ],
+      "x": "https://x.com/KimZetter",
+      "bluesky": "https://bsky.app/profile/kimzetter.bsky.social",
+      "web": "https://www.zetter-zeroday.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-kim-zetter"
+    },
+    {
+      "type": "person",
+      "name": "Lesley Carhart",
+      "by": "Industrial incident response, Dragos",
+      "desc": "Industrial control system incident responder and US Air Force veteran who writes some of the best advice available on starting and growing a security career.",
+      "domains": [
+        "icsot",
+        "operations",
+        "career"
+      ],
+      "x": "https://x.com/hacks4pancakes",
+      "bluesky": "https://bsky.app/profile/hacks4pancakes.com",
+      "mastodon": "https://infosec.exchange/@hacks4pancakes",
+      "linkedin": "https://www.linkedin.com/in/lcarhart",
+      "web": "https://tisiphone.net/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-lesley-carhart"
+    },
+    {
+      "type": "person",
+      "name": "Lisa Forte",
+      "by": "Partner, Red Goat Cyber Security",
+      "desc": "UK-based specialist in social engineering, insider threat and crisis exercises, with a background in counter-terrorism intelligence.",
+      "domains": [
+        "human",
+        "leadership"
+      ],
+      "x": "https://x.com/LisaForteUK",
+      "bluesky": "https://bsky.app/profile/lisaforte.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-lisa-forte"
+    },
+    {
+      "type": "person",
+      "name": "Maddie Stone",
+      "by": "Security researcher, Google Project Zero",
+      "desc": "Zero-day researcher who analyses in-the-wild exploits and explains what they reveal about how software vendors fix, and fail to fix, vulnerabilities.",
+      "domains": [
+        "tvm",
+        "offensive"
+      ],
+      "x": "https://x.com/maddiestone",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-maddie-stone"
+    },
+    {
+      "type": "person",
+      "name": "Marcus Hutchins (MalwareTech)",
+      "by": "Malware analyst and educator",
+      "desc": "UK malware researcher who stopped the WannaCry outbreak and now teaches reverse engineering and threat analysis.",
+      "domains": [
+        "cti",
+        "defensive"
+      ],
+      "x": "https://x.com/MalwareTechBlog",
+      "bluesky": "https://bsky.app/profile/malwaretech.com",
+      "linkedin": "https://linkedin.com/in/malwaretech",
+      "web": "https://www.malwaretech.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-marcus-hutchins"
+    },
+    {
+      "type": "person",
+      "name": "Marcus J. Carey",
+      "by": "Creator of Tribe of Hackers",
+      "desc": "US Navy and NSA veteran behind the Tribe of Hackers book series, which collects career advice from hundreds of practitioners.",
+      "domains": [
+        "career",
+        "offensive"
+      ],
+      "x": "https://x.com/marcusjcarey",
+      "bluesky": "https://bsky.app/profile/marcusjcarey.com",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-marcus-j-carey"
+    },
+    {
+      "type": "person",
+      "name": "Mike Chapple",
+      "by": "Teaching professor, University of Notre Dame",
+      "desc": "Author of many of the standard certification guides (CISSP, Security+, CySA+) who runs free study groups through CertMike.",
+      "domains": [
+        "career",
+        "grc"
+      ],
+      "x": "https://x.com/mchapple",
+      "linkedin": "https://www.linkedin.com/in/mikechapple",
+      "youtube": "https://www.youtube.com/@CertMike",
+      "web": "https://certmike.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-mike-chapple"
+    },
+    {
+      "type": "person",
+      "name": "Mikko Hyppönen",
+      "by": "Malware researcher and author",
+      "desc": "Finnish researcher who has tracked malware since the early 1990s and explains threats to wide audiences; author of If It's Smart, It's Vulnerable.",
+      "domains": [
+        "cti",
+        "stories"
+      ],
+      "x": "https://x.com/mikko",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-mikko-hypponen"
+    },
+    {
+      "type": "person",
+      "name": "Nicole Perlroth",
+      "by": "Author; former New York Times cyber reporter",
+      "desc": "Author of This Is How They Tell Me the World Ends, on the zero-day market, after a decade covering cyber for the New York Times.",
+      "domains": [
+        "stories",
+        "news",
+        "tvm"
+      ],
+      "x": "https://x.com/nicoleperlroth",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-nicole-perlroth"
+    },
+    {
+      "type": "person",
+      "name": "Phillip Wylie",
+      "by": "Offensive security practitioner and educator",
+      "desc": "Penetration tester, co-author of The Pentester BluePrint and podcast host, focused on helping newcomers into offensive security.",
+      "domains": [
+        "offensive",
+        "career"
+      ],
+      "x": "https://x.com/PhillipWylie",
+      "bluesky": "https://bsky.app/profile/phillipwylie.bsky.social",
+      "linkedin": "https://www.linkedin.com/in/phillipwylie",
+      "youtube": "https://www.youtube.com/@PhillipWylie",
+      "web": "https://thehackermaker.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-phillip-wylie"
+    },
+    {
+      "type": "person",
+      "name": "Prof. Alan Woodward",
+      "by": "Visiting professor, University of Surrey",
+      "desc": "UK computer scientist who comments widely on cryptography, surveillance and quantum computing, translating complex topics for the public.",
+      "domains": [
+        "privacy",
+        "architecture"
+      ],
+      "x": "https://x.com/ProfWoodward",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-alan-woodward"
+    },
+    {
+      "type": "person",
+      "name": "Rachel Tobac",
+      "by": "CEO, SocialProof Security",
+      "desc": "Social engineer who demonstrates live how attackers manipulate people and teaches practical defences against phishing and pretexting.",
+      "domains": [
+        "human"
+      ],
+      "x": "https://x.com/RachelTobac",
+      "bluesky": "https://bsky.app/profile/racheltobac.bsky.social",
+      "web": "https://www.socialproofsecurity.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-rachel-tobac"
+    },
+    {
+      "type": "person",
+      "name": "Raj Samani",
+      "by": "Chief Scientist, Rapid7",
+      "desc": "UK-based threat researcher, Europol EC3 adviser and co-founder of the No More Ransom initiative that offers free decryptors.",
+      "domains": [
+        "cti",
+        "defensive"
+      ],
+      "x": "https://x.com/Raj_Samani",
+      "bluesky": "https://bsky.app/profile/rajsamani.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-raj-samani"
+    },
+    {
+      "type": "person",
+      "name": "Richard Bejtlich",
+      "by": "Author and network security monitoring pioneer",
+      "desc": "Former US Air Force intelligence officer who built GE's CIRT and was Mandiant's first CSO; his books and TaoSecurity blog shaped network security monitoring.",
+      "domains": [
+        "operations",
+        "defensive",
+        "hunting"
+      ],
+      "bluesky": "https://bsky.app/profile/taosecurity.bsky.social",
+      "mastodon": "https://infosec.exchange/@taosecurity",
+      "linkedin": "https://www.linkedin.com/in/richardbejtlich",
+      "web": "https://taosecurity.blogspot.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-richard-bejtlich"
+    },
+    {
+      "type": "person",
+      "name": "Rob Fuller (mubix)",
+      "by": "Red teamer, educator and community organiser",
+      "desc": "Long-time penetration tester and red team lead, known for sharing post-exploitation techniques and for building the NoVA Hackers community.",
+      "domains": [
+        "offensive",
+        "career"
+      ],
+      "x": "https://x.com/mubix",
+      "bluesky": "https://bsky.app/profile/mubix.com",
+      "mastodon": "https://infosec.exchange/@mubix",
+      "linkedin": "https://linkedin.com/in/mubix",
+      "github": "https://github.com/mubix",
+      "web": "https://malicious.link/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-rob-fuller"
+    },
+    {
+      "type": "person",
+      "name": "Robert M. Lee",
+      "by": "Co-founder and CEO, Dragos",
+      "desc": "Leading voice on industrial cyber security and threat intelligence, former US Air Force and NSA, and author of SANS ICS and CTI courses.",
+      "domains": [
+        "icsot",
+        "cti",
+        "leadership"
+      ],
+      "x": "https://x.com/RobertMLee",
+      "linkedin": "https://www.linkedin.com/in/robmichaellee",
+      "web": "https://www.robertmlee.org/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-robert-m-lee"
+    },
+    {
+      "type": "person",
+      "name": "SwiftOnSecurity",
+      "by": "Anonymous security commentator, former helpdesk",
+      "desc": "Long-running pseudonymous voice on practical defence: Windows hardening, Sysmon configuration and the realities of IT operations, with plenty of humour.",
+      "domains": [
+        "defensive",
+        "operations",
+        "human"
+      ],
+      "x": "https://x.com/SwiftOnSecurity",
+      "bluesky": "https://bsky.app/profile/swiftonsecurity.com",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-swiftonsecurity"
+    },
+    {
+      "type": "person",
+      "name": "Tanya Janca",
+      "by": "Founder, SheHacksPurple",
+      "desc": "Application security educator and author of the Alice and Bob Learn books, teaching developers to write secure code.",
+      "domains": [
+        "appsec",
+        "career"
+      ],
+      "x": "https://x.com/shehackspurple",
+      "bluesky": "https://bsky.app/profile/shehackspurple.bsky.social",
+      "mastodon": "https://infosec.exchange/@SheHacksPurple",
+      "web": "https://shehackspurple.ca/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-tanya-janca"
+    },
+    {
+      "type": "person",
+      "name": "Teri Radichel",
+      "by": "CEO, 2nd Sight Lab",
+      "desc": "AWS Security Hero and penetration tester who writes in depth about cloud security architecture and attacks on cloud environments.",
+      "domains": [
+        "cloud",
+        "offensive"
+      ],
+      "x": "https://x.com/teriradichel",
+      "bluesky": "https://bsky.app/profile/teriradichel.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-teri-radichel"
+    },
+    {
+      "type": "person",
+      "name": "Troy Hunt",
+      "by": "Founder, Have I Been Pwned",
+      "desc": "Runs Have I Been Pwned, the breach-notification service, and writes plainly about data breaches, passwords and web security from Australia.",
+      "domains": [
+        "privacy",
+        "appsec",
+        "defensive"
+      ],
+      "x": "https://x.com/troyhunt",
+      "bluesky": "https://bsky.app/profile/troyhunt.com",
+      "mastodon": "https://infosec.exchange/@troyhunt",
+      "linkedin": "https://www.linkedin.com/in/troyhunt",
+      "youtube": "https://www.youtube.com/user/troyhuntdotcom",
+      "web": "https://www.troyhunt.com/",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-troy-hunt"
+    },
+    {
+      "type": "person",
+      "name": "Wendy Nather",
+      "by": "Security leader and former research director",
+      "desc": "Former CISO and research director known for the idea of the 'security poverty line' and for clear thinking on security strategy.",
+      "domains": [
+        "leadership",
+        "grc"
+      ],
+      "x": "https://x.com/wendynather",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-wendy-nather"
+    },
+    {
+      "type": "person",
+      "name": "Whitney Merrill",
+      "by": "Privacy and security lawyer, CPO/DPO",
+      "desc": "Privacy lawyer and hacker who bridges legal, privacy and security teams, and long-time organiser of the DEF CON Crypto & Privacy Village.",
+      "domains": [
+        "privacy",
+        "grc"
+      ],
+      "x": "https://x.com/wbm312",
+      "bluesky": "https://bsky.app/profile/wbm312.bsky.social",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-whitney-merrill"
+    },
+    {
+      "type": "person",
+      "name": "Window Snyder",
+      "by": "Founder and CEO, Thistle Technologies",
+      "desc": "Veteran security engineer who led security at Mozilla, Apple, Square and Fastly, now focused on securing connected devices.",
+      "domains": [
+        "engineering",
+        "architecture"
+      ],
+      "x": "https://x.com/window",
+      "curator": false,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-window-snyder"
     }
   ]
 }
