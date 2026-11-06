@@ -11141,7 +11141,7 @@
       ],
       "x": "https://x.com/sawaba",
       "bluesky": "https://bsky.app/profile/sawaba.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11160,7 +11160,7 @@
       ],
       "bluesky": "https://bsky.app/profile/alecmuffett.bsky.social",
       "web": "https://alecmuffett.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11178,7 +11178,7 @@
       ],
       "x": "https://x.com/alexstamos",
       "bluesky": "https://bsky.app/profile/stamos.org",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11197,7 +11197,7 @@
       ],
       "x": "https://x.com/AlyssaM_InfoSec",
       "bluesky": "https://bsky.app/profile/alyssam-infosec.com",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11217,7 +11217,7 @@
       "x": "https://x.com/anton_chuvakin",
       "bluesky": "https://bsky.app/profile/anton1chuvakin.bsky.social",
       "web": "https://medium.com/anton-on-security",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11237,7 +11237,7 @@
       "x": "https://x.com/BrianHonan",
       "bluesky": "https://bsky.app/profile/brianhonan.bsky.social",
       "web": "https://bhconsulting.ie/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11258,7 +11258,7 @@
       "mastodon": "https://infosec.exchange/@briankrebs",
       "linkedin": "https://www.linkedin.com/in/bkrebs",
       "web": "https://krebsonsecurity.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11277,7 +11277,7 @@
       ],
       "x": "https://x.com/schneierblog",
       "web": "https://www.schneier.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11294,7 +11294,7 @@
         "tvm"
       ],
       "bluesky": "https://bsky.app/profile/weld.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11312,7 +11312,7 @@
       ],
       "x": "https://x.com/dangoodin001",
       "bluesky": "https://bsky.app/profile/dangoodin.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11333,7 +11333,7 @@
       "bluesky": "https://bsky.app/profile/danielmiessler.bsky.social",
       "github": "https://github.com/danielmiessler",
       "web": "https://danielmiessler.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11352,7 +11352,7 @@
       "x": "https://x.com/bittner",
       "mastodon": "https://hachyderm.io/@bittner",
       "web": "https://thecyberwire.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11371,7 +11371,7 @@
       ],
       "x": "https://x.com/HackingDave",
       "web": "https://www.trustedsec.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11388,7 +11388,7 @@
         "leadership"
       ],
       "bluesky": "https://bsky.app/profile/dmitri.silverado.org",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11409,7 +11409,7 @@
       "bluesky": "https://bsky.app/profile/chrissanders88.bsky.social",
       "linkedin": "https://www.linkedin.com/in/chrissanders88",
       "web": "https://chrissanders.org/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11428,7 +11428,7 @@
       "x": "https://x.com/Gerald_Auger",
       "youtube": "https://www.youtube.com/@SimplyCyber",
       "web": "https://simplycyber.io/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11448,7 +11448,7 @@
       "linkedin": "https://www.linkedin.com/in/jessica-barker",
       "youtube": "https://www.youtube.com/@drjessicabarker",
       "web": "https://www.drjessicabarker.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11465,7 +11465,7 @@
         "career"
       ],
       "x": "https://x.com/edskoudis",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11483,7 +11483,7 @@
         "defensive"
       ],
       "bluesky": "https://bsky.app/profile/eric.zip",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11500,7 +11500,7 @@
         "human"
       ],
       "x": "https://x.com/evacide",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11522,7 +11522,7 @@
       "bluesky": "https://bsky.app/profile/grahamcluley.com",
       "linkedin": "https://www.linkedin.com/in/grahamcluley",
       "web": "https://grahamcluley.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11541,7 +11541,7 @@
       "x": "https://x.com/thecybermentor",
       "youtube": "https://www.youtube.com/c/thecybermentor",
       "web": "https://tcm-sec.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11559,7 +11559,7 @@
       ],
       "x": "https://x.com/IanColdwater",
       "bluesky": "https://bsky.app/profile/lookitup.baby",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11580,7 +11580,7 @@
       "youtube": "https://www.youtube.com/@JackRhysider",
       "discord": "https://discord.gg/darknetdiaries",
       "web": "https://darknetdiaries.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11599,7 +11599,7 @@
       ],
       "x": "https://x.com/MalwareJake",
       "bluesky": "https://bsky.app/profile/malwarejake.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11620,7 +11620,7 @@
       "youtube": "https://www.youtube.com/c/jhaddix",
       "discord": "https://discord.com/invite/jhaddix",
       "web": "https://arcanum-sec.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11643,7 +11643,7 @@
       "linkedin": "https://www.linkedin.com/in/javvad",
       "youtube": "https://www.youtube.com/@j4vv4d",
       "web": "https://javvadmalik.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11661,7 +11661,7 @@
       ],
       "bluesky": "https://bsky.app/profile/jaysonstreet.bsky.social",
       "web": "https://www.jaysonestreet.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11678,7 +11678,7 @@
         "stories"
       ],
       "mastodon": "https://defcon.social/@thedarktangent",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11695,7 +11695,7 @@
         "icsot"
       ],
       "bluesky": "https://bsky.app/profile/pylos.co",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11715,7 +11715,7 @@
       "x": "https://x.com/_JohnHammond",
       "bluesky": "https://bsky.app/profile/johnhammond.bsky.social",
       "youtube": "https://www.youtube.com/@_JohnHammond",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11731,7 +11731,7 @@
         "cti"
       ],
       "bluesky": "https://bsky.app/profile/hultquist.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11753,7 +11753,7 @@
       "youtube": "https://www.youtube.com/@BlackHillsInformationSecurity",
       "discord": "https://discord.gg/BHIS",
       "web": "https://www.blackhillsinfosec.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11770,7 +11770,7 @@
         "defensive"
       ],
       "bluesky": "https://bsky.app/profile/jags.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11790,7 +11790,7 @@
       "x": "https://x.com/k8em0",
       "bluesky": "https://bsky.app/profile/k8em0.bsky.social",
       "web": "https://www.lutasecurity.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11808,7 +11808,7 @@
       ],
       "x": "https://x.com/LikeTheCoins",
       "bluesky": "https://bsky.app/profile/likethecoins.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11830,7 +11830,7 @@
       "linkedin": "https://www.linkedin.com/in/kellyshortridge",
       "github": "https://github.com/swagitda",
       "web": "https://kellyshortridge.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11850,7 +11850,7 @@
       "linkedin": "https://www.linkedin.com/in/kerene",
       "youtube": "https://www.youtube.com/channel/UCVBpDZIp_e98uI5Lh4SDXSQ",
       "web": "https://www.k3r3n3.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11870,7 +11870,7 @@
       "bluesky": "https://bsky.app/profile/doublepulsar.com",
       "mastodon": "https://cyberplace.social/@GossiTheDog",
       "web": "https://doublepulsar.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11890,7 +11890,7 @@
       "x": "https://x.com/KimZetter",
       "bluesky": "https://bsky.app/profile/kimzetter.bsky.social",
       "web": "https://www.zetter-zeroday.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11908,7 +11908,7 @@
         "engineering"
       ],
       "bluesky": "https://bsky.app/profile/leak.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11925,7 +11925,7 @@
         "privacy"
       ],
       "bluesky": "https://bsky.app/profile/hypatia.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11947,7 +11947,7 @@
       "mastodon": "https://infosec.exchange/@hacks4pancakes",
       "linkedin": "https://www.linkedin.com/in/lcarhart",
       "web": "https://tisiphone.net/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11965,7 +11965,7 @@
       ],
       "x": "https://x.com/LisaForteUK",
       "bluesky": "https://bsky.app/profile/lisaforte.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11982,7 +11982,7 @@
         "career"
       ],
       "youtube": "https://www.youtube.com/@LiveOverflow",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -11999,7 +11999,7 @@
         "offensive"
       ],
       "x": "https://x.com/maddiestone",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12019,7 +12019,7 @@
       "bluesky": "https://bsky.app/profile/malwaretech.com",
       "linkedin": "https://linkedin.com/in/malwaretech",
       "web": "https://www.malwaretech.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12037,7 +12037,7 @@
       ],
       "x": "https://x.com/marcusjcarey",
       "bluesky": "https://bsky.app/profile/marcusjcarey.com",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12054,7 +12054,7 @@
         "defensive"
       ],
       "bluesky": "https://bsky.app/profile/markrussinovich.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12072,7 +12072,7 @@
       ],
       "bluesky": "https://bsky.app/profile/mattblaze.org",
       "web": "https://www.mattblaze.org/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12090,7 +12090,7 @@
       ],
       "bluesky": "https://bsky.app/profile/matthewdgreen.bsky.social",
       "web": "https://blog.cryptographyengineering.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12110,7 +12110,7 @@
       "linkedin": "https://www.linkedin.com/in/mikechapple",
       "youtube": "https://www.youtube.com/@CertMike",
       "web": "https://certmike.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12127,7 +12127,7 @@
         "stories"
       ],
       "x": "https://x.com/mikko",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12145,7 +12145,7 @@
         "tvm"
       ],
       "x": "https://x.com/nicoleperlroth",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12166,7 +12166,7 @@
       "linkedin": "https://www.linkedin.com/in/phillipwylie",
       "youtube": "https://www.youtube.com/@PhillipWylie",
       "web": "https://thehackermaker.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12183,7 +12183,7 @@
         "architecture"
       ],
       "x": "https://x.com/ProfWoodward",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12201,7 +12201,7 @@
       "x": "https://x.com/RachelTobac",
       "bluesky": "https://bsky.app/profile/racheltobac.bsky.social",
       "web": "https://www.socialproofsecurity.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12219,7 +12219,7 @@
       ],
       "x": "https://x.com/Raj_Samani",
       "bluesky": "https://bsky.app/profile/rajsamani.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12237,7 +12237,7 @@
       ],
       "x": "https://x.com/RayRedacted",
       "bluesky": "https://bsky.app/profile/rayredacted.com",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12258,7 +12258,7 @@
       "mastodon": "https://infosec.exchange/@taosecurity",
       "linkedin": "https://www.linkedin.com/in/richardbejtlich",
       "web": "https://taosecurity.blogspot.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12276,7 +12276,7 @@
       ],
       "bluesky": "https://bsky.app/profile/rikferguson.com",
       "web": "https://rikferguson.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12298,7 +12298,7 @@
       "linkedin": "https://linkedin.com/in/mubix",
       "github": "https://github.com/mubix",
       "web": "https://malicious.link/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12315,7 +12315,7 @@
         "cti"
       ],
       "bluesky": "https://bsky.app/profile/rgblights.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12335,7 +12335,7 @@
       "x": "https://x.com/RobertMLee",
       "linkedin": "https://www.linkedin.com/in/robmichaellee",
       "web": "https://www.robertmlee.org/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12353,7 +12353,7 @@
       ],
       "bluesky": "https://bsky.app/profile/mccune.org.uk",
       "web": "https://www.mccune.org.uk/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12370,7 +12370,7 @@
         "human"
       ],
       "bluesky": "https://bsky.app/profile/runasand.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12388,7 +12388,7 @@
       ],
       "bluesky": "https://bsky.app/profile/scotthelme.bsky.social",
       "web": "https://scotthelme.co.uk/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12404,7 +12404,7 @@
         "cloud"
       ],
       "bluesky": "https://bsky.app/profile/scottpiper.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12423,7 +12423,7 @@
       ],
       "x": "https://x.com/SwiftOnSecurity",
       "bluesky": "https://bsky.app/profile/swiftonsecurity.com",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12443,7 +12443,7 @@
       "bluesky": "https://bsky.app/profile/shehackspurple.bsky.social",
       "mastodon": "https://infosec.exchange/@SheHacksPurple",
       "web": "https://shehackspurple.ca/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12460,7 +12460,7 @@
         "hunting"
       ],
       "bluesky": "https://bsky.app/profile/tazwake.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12478,7 +12478,7 @@
       ],
       "x": "https://x.com/teriradichel",
       "bluesky": "https://bsky.app/profile/teriradichel.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12495,7 +12495,7 @@
         "appsec"
       ],
       "bluesky": "https://bsky.app/profile/tib3rius.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12513,7 +12513,7 @@
       ],
       "x": "https://x.com/InfoSecSherpa",
       "bluesky": "https://bsky.app/profile/infosecsherpa.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12536,7 +12536,7 @@
       "linkedin": "https://www.linkedin.com/in/troyhunt",
       "youtube": "https://www.youtube.com/user/troyhuntdotcom",
       "web": "https://www.troyhunt.com/",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12553,7 +12553,7 @@
         "grc"
       ],
       "x": "https://x.com/wendynather",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12571,7 +12571,7 @@
       ],
       "x": "https://x.com/wbm312",
       "bluesky": "https://bsky.app/profile/wbm312.bsky.social",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
@@ -12588,7 +12588,7 @@
         "architecture"
       ],
       "x": "https://x.com/window",
-      "curator": false,
+      "curator": true,
       "sources": [
         "mcl"
       ],
