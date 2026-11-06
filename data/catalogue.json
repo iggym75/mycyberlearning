@@ -11400,7 +11400,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-dave-kennedy"
+      "id": "expert-dave-kennedy",
+      "logo": "covers/expert-dave-kennedy.jpg",
+      "logoSource": "TrustedSec team page"
     },
     {
       "type": "person",
@@ -11584,7 +11586,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-heath-adams"
+      "id": "expert-heath-adams",
+      "logo": "covers/expert-heath-adams.jpg",
+      "logoSource": "The Cyber Mentor about page"
     },
     {
       "type": "person",
@@ -11602,7 +11606,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-ian-coldwater"
+      "id": "expert-ian-coldwater",
+      "logo": "covers/expert-ian-coldwater.jpg",
+      "logoSource": "DevOpsDays speaker page"
     },
     {
       "type": "person",
@@ -11965,7 +11971,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-kim-zetter"
+      "id": "expert-kim-zetter",
+      "logo": "covers/expert-kim-zetter.jpg",
+      "logoSource": "Global Speakers Bureau page"
     },
     {
       "type": "person",
@@ -12413,7 +12421,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-rob-fuller"
+      "id": "expert-rob-fuller",
+      "logo": "covers/expert-rob-fuller.jpg",
+      "logoSource": "Security Affairs page"
     },
     {
       "type": "person",
@@ -12472,7 +12482,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-rory-mccune"
+      "id": "expert-rory-mccune",
+      "logo": "covers/expert-rory-mccune.jpg",
+      "logoSource": "LinkedIn profile photo (supplied by curator)"
     },
     {
       "type": "person",
@@ -12692,7 +12704,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-wendy-nather"
+      "id": "expert-wendy-nather",
+      "logo": "covers/expert-wendy-nather.jpg",
+      "logoSource": "Atlantic Council expert page"
     },
     {
       "type": "person",
@@ -12724,12 +12738,15 @@
         "architecture"
       ],
       "x": "https://x.com/window",
+      "linkedin": "https://www.linkedin.com/in/window",
       "curator": true,
       "sources": [
         "mcl"
       ],
       "verified": true,
-      "id": "expert-window-snyder"
+      "id": "expert-window-snyder",
+      "logo": "covers/expert-window-snyder.jpg",
+      "logoSource": "TechCrunch author page"
     }
   ]
 }
