@@ -12421,7 +12421,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-rob-fuller"
+      "id": "expert-rob-fuller",
+      "logo": "covers/expert-rob-fuller.jpg",
+      "logoSource": "Security Affairs page"
     },
     {
       "type": "person",
