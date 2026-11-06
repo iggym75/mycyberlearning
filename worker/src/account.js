@@ -109,9 +109,10 @@ async function takeChallenge(env, credential, purposes) {
   return row;
 }
 const newRecoveryCode = () => {
-  // 130 bits in Crockford-style base32 without look-alikes, shown as 6 groups of 5 for writing down.
-  const A = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; const bytes = randomBytes(26);
-  const s = [...bytes].map(b => A[b % 31]).join(""); // 26 chars x log2(31) ≈ 128.8 bits; slight modulo bias is irrelevant at this size
+  // 26 symbols from a 31-letter alphabet without look-alikes (≈128.8 bits), shown as 6 groups for writing down.
+  // Rejection sampling keeps every symbol equally likely: bytes of 248 or more (31 × 8) are discarded.
+  const A = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; let s = "";
+  while (s.length < 26) for (const b of randomBytes(32)) { if (b < 248 && s.length < 26) s += A[b >> 3]; // 0..247 >> 3 = 0..30, each value from exactly 8 bytes }
   return s.match(/.{1,5}/g).join("-");
 };
 const normCode = c => String(c || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
