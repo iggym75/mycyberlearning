@@ -9,6 +9,7 @@
 - A weekly automated job keeps logos, links, cadence, launch dates, ratings and tags current
 - **Daily briefing**: every morning at 08:30 UK time, the news podcasts' new episodes since the previous briefing are summarised on the site (`#news`, 30-day archive) and emailed to confirmed subscribers
 - The five core news shows (`data/briefing.json`) are transcribed with an open-source speech model in the GitHub job, so the summaries reflect what was actually said, not just the show notes
+- **My list**: anyone can save podcasts, books, platforms and experts with the heart button; a free account with a passkey (no password, no email) keeps the list on every device, with "New episode" badges for saved podcasts
 - Privacy-first: double opt-in, one-click unsubscribe, no tracking pixels, cookieless aggregate analytics that honour Global Privacy Control / Do Not Track. See [SECURITY.md](SECURITY.md)
 
 ---
@@ -37,6 +38,7 @@ Everything runs on free plans with **no payment card on file**, so neither a lea
 | `POST /api/subscribe`, `/api/subscribe/confirm`, `/api/unsubscribe` | public | Double opt-in briefing sign-up; one-click unsubscribe |
 | `POST /api/t` | public | Cookieless aggregate page counters |
 | `GET /admin`, `/auth/callback`, `/auth/logout` | admin | GitHub sign-in; only ids in `ADMIN_GITHUB_IDS` |
+| `/api/account/*` | visitor | Passkey sign-up/sign-in, recovery code, My list (save, remove, merge, seen), export, delete |
 | `GET /api/admin/submissions`, `POST /api/admin/submissions/{id}` | admin | Review queue, approve / reject |
 | `PATCH` / `DELETE /api/admin/items/{id}` | admin | Edit, hide, retag (locks tags), delete |
 | `GET /api/admin/insights`, `/api/admin/subscribers/export`, `POST /api/admin/subscribers/erase` | admin | Aggregate stats, CSV export, erasure requests |
