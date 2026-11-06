@@ -168,8 +168,9 @@ button.logo:hover .zoom-hint,button.logo:focus-visible .zoom-hint{opacity:1}
 .plat.k-apple{--c:var(--c-apple)}.plat.k-spotify{--c:var(--c-spotify)}.plat.k-youtube{--c:var(--c-youtube)}.plat.k-amazon{--c:var(--c-amazon)}.plat.k-twitch{--c:var(--c-twitch)}
 .plat.k-openlibrary{--c:var(--c-openlibrary)}.plat.k-goodreads{--c:var(--c-goodreads)}.plat.k-bundle{--c:var(--c-bundle)}.plat.k-listen{--c:var(--c-listen)}
 .plat.k-web{--c:var(--ink-2);background:transparent;border-color:var(--line)}
+.plat.ico{width:34px;height:34px;padding:0;justify-content:center}.plat.ico svg{width:17px;height:17px}.plat.ico .pl{display:none}
 .plat.srch{--c:var(--ink-3);background:transparent;border:1px dotted var(--ink-3);font-weight:500}
-@media (max-width:640px){.links{justify-content:flex-start;margin-left:0;flex-basis:100%}.plat{height:34px}}
+@media (max-width:640px){.links{justify-content:flex-start;margin-left:0;flex-basis:100%}.plat{height:34px}.plat.ico{width:40px;height:40px}}
 .admin-row{display:flex;gap:6px;flex-wrap:wrap;padding-top:8px;border-top:1px dashed var(--line)}
 .empty{padding:48px 16px;text-align:center;color:var(--ink-2);border:1px dashed var(--line);border-radius:var(--r);grid-column:1/-1}
 
@@ -710,7 +711,7 @@ const ICONS = {
   bundle:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M3 12h18M12 8v13M12 8c-1.5-3-5-4-5-1.5S10 8 12 8zm0 0c1.5-3 5-4 5-1.5S14 8 12 8z"/></svg>',
   x:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg>',
   bluesky:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.3 4.2C8.6 5.9 11 9.4 12 11.3c1-1.9 3.4-5.4 5.7-7.1 1.6-1.2 4.3-2.2 4.3.9 0 .6-.4 5.2-.6 5.9-.7 2.6-3.3 3.2-5.6 2.8 4 .7 5 3 2.8 5.3-4.2 4.3-6-1.1-6.5-2.5L12 16l-.1.6c-.5 1.4-2.3 6.8-6.5 2.5-2.2-2.3-1.2-4.6 2.8-5.3-2.3.4-4.9-.2-5.6-2.8C2.4 10.3 2 5.7 2 5.1c0-3.1 2.7-2.1 4.3-.9z"/></svg>',
-  mastodon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20 8.5c0-4-3.6-5-3.6-5S14.6 2.7 12 2.7s-4.4.8-4.4.8S4 4.5 4 8.5c0 2.5-.1 8.6 6.4 9.9 2.6.5 5-.3 5.6-.6l-.1-2c-1.6.5-3.5.5-4.9.1"/><path d="M8.5 13V9a1.8 1.8 0 0 1 3.5 0v2.5M12 11.5V9a1.8 1.8 0 0 1 3.5 0v4" stroke-linecap="round"/></svg>',
+  mastodon:'<svg viewBox="0 0 24 24"><mask id="mclMastodonM"><rect width="24" height="24" fill="#fff"/><path d="M8.2 13.6V9.7a1.6 1.6 0 0 1 3.2 0v2.5M11.4 12.2V9.7a1.6 1.6 0 0 1 3.2 0v3.9" stroke="#000" stroke-width="1.8" fill="none" stroke-linecap="round"/></mask><path mask="url(#mclMastodonM)" fill="currentColor" d="M12 2.5c-4.6 0-8 1.6-8 6.2v3.6c0 4.6 2.7 6.8 6.6 7.2 1.5.2 3.1 0 4.6-.5l-.1-1.7c-1.5.4-3 .5-4.1.3-1.3-.2-2.2-.8-2.4-1.9 1.9.4 4 .6 6 .4 3.4-.3 5.4-2 5.4-5.4V8.7c0-4.6-3.4-6.2-8-6.2z"/></svg>',
   linkedin:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM3.2 8h2.6v12H3.2zM9 8h2.5v1.7c.5-.9 1.7-2 3.6-2 3.4 0 4 2.2 4 5.1V20h-2.6v-6.5c0-1.6 0-3.5-2.2-3.5s-2.5 1.7-2.5 3.4V20H9z"/></svg>',
   github:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg>',
   discord:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.3 5.3A16.5 16.5 0 0 0 15.2 4l-.5 1a15.3 15.3 0 0 0-5.4 0L8.8 4a16.4 16.4 0 0 0-4.1 1.3C2.1 9.2 1.4 13 1.7 16.7a16.6 16.6 0 0 0 5 2.5l1.1-1.7c-.6-.2-1.2-.5-1.7-.9l.4-.3a11.8 11.8 0 0 0 11 0l.4.3c-.5.4-1.1.7-1.7.9l1.1 1.7a16.5 16.5 0 0 0 5-2.5c.4-4.3-.7-8-3-11.4zM8.7 14.4c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.6 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>',
@@ -757,11 +758,13 @@ function isAmazonMusic(v){ try { const u=new URL(v); return u.protocol==="https:
 function platLinks(i){
   const L = [];
   // key: colour + icon; text: visible label; title: full name for tooltip and screen readers.
-  const add = (href, key, text, title, isSearch) => /^https?:\/\//i.test(href||"") && L.push(`<a class="plat k-${key}${isSearch?" srch":""}" href="${esc(href)}" target="_blank" rel="noopener" title="${esc(title)}" aria-label="${esc(title)}">${ICONS[key]||ICONS.web}<span class="pl" aria-hidden="true">${esc(text)}</span></a>`);
+  const add = (href, key, text, title, isSearch, ico) => /^https?:\/\//i.test(href||"") && L.push(`<a class="plat k-${key}${isSearch?" srch":""}${ico?" ico":""}" href="${esc(href)}" target="_blank" rel="noopener" title="${esc(title)}" aria-label="${esc(title)}">${ICONS[key]||ICONS.web}<span class="pl" aria-hidden="true">${esc(text)}</span></a>`);
   if (i.type === "person"){ // their own public profiles, in a fixed order; nothing is searched or guessed
-    for (const k of SOCIALS) if (k.key!=="web" && k.key!=="youtube" && isSocial(k.key, i[k.key])) add(i[k.key], k.key, k.label, `${i.name} on ${k.label}`);
-    if (isPlatform("youtube", i.youtube)) add(i.youtube,"youtube","YouTube",`${i.name} on YouTube`);
-    if (i.web) add(i.web,"web","Website",`${i.name}'s website or blog`);
+    // Icon-only round buttons: brand logos are recognisable on their own, and "X" beside the X logo reads twice.
+    // The full name stays in the tooltip (title) and for screen readers (aria-label).
+    for (const k of SOCIALS) if (k.key!=="web" && k.key!=="youtube" && isSocial(k.key, i[k.key])) add(i[k.key], k.key, k.label, `${i.name} on ${k.label}`, 0, 1);
+    if (isPlatform("youtube", i.youtube)) add(i.youtube,"youtube","YouTube",`${i.name} on YouTube`, 0, 1);
+    if (i.web) add(i.web,"web","Website",`${i.name}'s website or blog`, 0, 1);
     return L.join("");
   }
   if (i.type === "platform"){ // the site itself (below), plus a free video channel or live stream when there is one
