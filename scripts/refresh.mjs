@@ -10,7 +10,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { openD1, listItems, upsertItem, sleep, saveImage } from "./lib.mjs";
 import { hasLocalImage } from "./pure.mjs";
-import { lookupApple, readFeed, lookupPodnews, searchSpotify, lookupBook, claudeTag, findPlatformLogo } from "./enrich.mjs";
+import { lookupApple, readFeed, lookupPodnews, searchSpotify, lookupBook, claudeTag, findPlatformLogo, findExpertPhoto } from "./enrich.mjs";
 
 const args = process.argv.slice(2);
 const flag = f => args.includes(f);
@@ -76,6 +76,16 @@ for (const { item } of rows) {
         const saved = found && !dry ? await saveImage(found.url, `platform-${item.id}`) : null;
         if (saved) { next.logo = saved; next.logoSource = item.logoFrom ? `hand-picked (${new URL(item.logoFrom).hostname})` : found.source; report.images++; }
         else if (!hasLocalImage(item)) report.notes.push(`${item.id}: no usable logo found${found ? " (download failed)" : ""}; it keeps the initials tile`);
+      }
+    } else if (item.type === "person") {
+      // Experts: the profile picture from a profile they publish themselves (self-hosted like covers).
+      // noPhoto (set by the curator, e.g. on request) means no picture is fetched or shown.
+      if (item.noPhoto) { if (item.logo) { delete next.logo; delete next.logoSource; } }
+      else if (!hasLocalImage(item) || reimage) {
+        const found = await findExpertPhoto(item).catch(() => null);
+        const saved = found && !dry ? await saveImage(found.url, item.id) : null;
+        if (saved) { next.logo = saved; next.logoSource = found.source; report.images++; }
+        else if (!hasLocalImage(item)) report.notes.push(`${item.id}: no profile picture found${found ? " (download failed)" : ""}; it keeps the initials tile`);
       }
     } else if (item.type === "book") {
       const b = await lookupBook(item).catch(() => null);
