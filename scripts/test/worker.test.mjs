@@ -298,12 +298,15 @@ test("profile links: exact hosts and profile-shaped paths only", async () => {
   const { isSocialUrl } = await import("../../worker/src/lib/shared.js");
   const ok = [["x", "https://x.com/troyhunt"], ["x", "https://twitter.com/_JohnHammond"], ["bluesky", "https://bsky.app/profile/troyhunt.com"],
     ["mastodon", "https://infosec.exchange/@troyhunt"], ["linkedin", "https://www.linkedin.com/in/troyhunt"], ["github", "https://github.com/mubix"],
-    ["discord", "https://discord.gg/BHIS"], ["discord", "https://discord.com/invite/jhaddix"]];
+    ["discord", "https://discord.gg/BHIS"], ["discord", "https://discord.com/invite/jhaddix"],
+    ["medium", "https://medium.com/@cyb3rops"], ["medium", "https://medium.com/anton-on-security"], ["medium", "https://cyb3rops.medium.com/"]];
   for (const [k, v] of ok) assert.equal(isSocialUrl(k, v), true, `${k} ${v}`);
   const bad = [["x", "http://x.com/troyhunt"], ["x", "https://x.com.evil.example/troyhunt"], ["x", "https://x.com/troyhunt/status/1"],
     ["bluesky", "https://bsky.app/search?q=x"], ["mastodon", "https://infosec.exchange/about"], ["mastodon", "javascript:alert(1)"],
     ["linkedin", "https://www.linkedin.com/feed/"], ["github", "https://github.com/a/b"], ["discord", "https://discord.com/channels/1"],
-    ["x", "https://user:pw@x.com/troyhunt"], ["nope", "https://x.com/a"]];
+    ["x", "https://user:pw@x.com/troyhunt"], ["nope", "https://x.com/a"],
+    ["medium", "https://medium.com/@cyb3rops/some-post-123"], ["medium", "https://medium.com.evil.example/@a"], ["medium", "https://cyb3rops.medium.com/a-post"],
+    ["medium", "https://evil.example/@cyb3rops"], ["medium", "http://medium.com/@cyb3rops"]];
   for (const [k, v] of bad) assert.equal(isSocialUrl(k, v), false, `${k} ${v}`);
 });
 

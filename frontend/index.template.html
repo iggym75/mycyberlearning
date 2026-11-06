@@ -156,15 +156,15 @@ button.logo:hover .zoom-hint,button.logo:focus-visible .zoom-hint{opacity:1}
 /* Platform links: coloured, labelled chips. Colours are darkened for contrast on white and lightened for dark mode.
    Search fallbacks (no direct link stored) stay grey with a dotted border. Phones keep the labels (the icons alone
    aren't recognisable enough) and start the row on the left so wrapped chips line up. */
-:root{--c-x:#14171a;--c-bluesky:#0a5fc4;--c-mastodon:#5232c2;--c-linkedin:#0a5fa8;--c-github:#24292f;--c-discord:#4450c9;--c-apple:#7f35bd;--c-spotify:#157a3a;--c-youtube:#c62828;--c-amazon:#0a727b;--c-openlibrary:#2c5aa0;--c-goodreads:#7a5230;--c-bundle:#a35c0a;--c-listen:var(--signal);--c-twitch:#6b3fc0}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-x:#e7e9ea;--c-bluesky:#7ab8ff;--c-mastodon:#b1a3ff;--c-linkedin:#7cb9f5;--c-github:#d0d7de;--c-discord:#a3abff;--c-apple:#c9a2ee;--c-spotify:#5dd98d;--c-youtube:#ff8f87;--c-amazon:#5fd6de;--c-openlibrary:#93b9f2;--c-goodreads:#ddb98f;--c-bundle:#e8a75a;--c-twitch:#bfa2ff}}
-:root[data-theme="dark"]{--c-x:#e7e9ea;--c-bluesky:#7ab8ff;--c-mastodon:#b1a3ff;--c-linkedin:#7cb9f5;--c-github:#d0d7de;--c-discord:#a3abff;--c-apple:#c9a2ee;--c-spotify:#5dd98d;--c-youtube:#ff8f87;--c-amazon:#5fd6de;--c-openlibrary:#93b9f2;--c-goodreads:#ddb98f;--c-bundle:#e8a75a;--c-twitch:#bfa2ff}
+:root{--c-x:#14171a;--c-bluesky:#0a5fc4;--c-mastodon:#5232c2;--c-linkedin:#0a5fa8;--c-github:#24292f;--c-medium:#1a1a1a;--c-discord:#4450c9;--c-apple:#7f35bd;--c-spotify:#157a3a;--c-youtube:#c62828;--c-amazon:#0a727b;--c-openlibrary:#2c5aa0;--c-goodreads:#7a5230;--c-bundle:#a35c0a;--c-listen:var(--signal);--c-twitch:#6b3fc0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-x:#e7e9ea;--c-bluesky:#7ab8ff;--c-mastodon:#b1a3ff;--c-linkedin:#7cb9f5;--c-github:#d0d7de;--c-medium:#e8e8e8;--c-discord:#a3abff;--c-apple:#c9a2ee;--c-spotify:#5dd98d;--c-youtube:#ff8f87;--c-amazon:#5fd6de;--c-openlibrary:#93b9f2;--c-goodreads:#ddb98f;--c-bundle:#e8a75a;--c-twitch:#bfa2ff}}
+:root[data-theme="dark"]{--c-x:#e7e9ea;--c-bluesky:#7ab8ff;--c-mastodon:#b1a3ff;--c-linkedin:#7cb9f5;--c-github:#d0d7de;--c-medium:#e8e8e8;--c-discord:#a3abff;--c-apple:#c9a2ee;--c-spotify:#5dd98d;--c-youtube:#ff8f87;--c-amazon:#5fd6de;--c-openlibrary:#93b9f2;--c-goodreads:#ddb98f;--c-bundle:#e8a75a;--c-twitch:#bfa2ff}
 .links{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;margin-left:auto;flex:1 1 200px;min-width:0}
 .plat{--c:var(--ink-2);flex:none;display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px 0 8px;border-radius:999px;border:1px solid color-mix(in srgb,var(--c) 40%,transparent);background:color-mix(in srgb,var(--c) 9%,transparent);color:var(--c);text-decoration:none;font-size:12.5px;font-weight:600;white-space:nowrap;position:relative}
 .plat:hover{background:color-mix(in srgb,var(--c) 18%,transparent);border-color:var(--c)}
 .plat:focus-visible{outline:2px solid var(--c);outline-offset:2px}
 .plat svg{width:15px;height:15px;flex:none}
-.plat.k-x{--c:var(--c-x)}.plat.k-bluesky{--c:var(--c-bluesky)}.plat.k-mastodon{--c:var(--c-mastodon)}.plat.k-linkedin{--c:var(--c-linkedin)}.plat.k-github{--c:var(--c-github)}.plat.k-discord{--c:var(--c-discord)}
+.plat.k-x{--c:var(--c-x)}.plat.k-bluesky{--c:var(--c-bluesky)}.plat.k-mastodon{--c:var(--c-mastodon)}.plat.k-linkedin{--c:var(--c-linkedin)}.plat.k-github{--c:var(--c-github)}.plat.k-medium{--c:var(--c-medium)}.plat.k-discord{--c:var(--c-discord)}
 .plat.k-apple{--c:var(--c-apple)}.plat.k-spotify{--c:var(--c-spotify)}.plat.k-youtube{--c:var(--c-youtube)}.plat.k-amazon{--c:var(--c-amazon)}.plat.k-twitch{--c:var(--c-twitch)}
 .plat.k-openlibrary{--c:var(--c-openlibrary)}.plat.k-goodreads{--c:var(--c-goodreads)}.plat.k-bundle{--c:var(--c-bundle)}.plat.k-listen{--c:var(--c-listen)}
 .plat.k-web{--c:var(--ink-2);background:transparent;border-color:var(--line)}
@@ -472,6 +472,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
         <div class="field person-only"><label for="s_mastodon">Mastodon</label><input id="s_mastodon" type="url" placeholder="https://infosec.exchange/@…"></div>
         <div class="field person-only"><label for="s_linkedin">LinkedIn</label><input id="s_linkedin" type="url" placeholder="https://www.linkedin.com/in/…"></div>
         <div class="field person-only"><label for="s_github">GitHub</label><input id="s_github" type="url" placeholder="https://github.com/…"></div>
+        <div class="field person-only"><label for="s_medium">Medium</label><input id="s_medium" type="url" placeholder="https://medium.com/@…"></div>
         <div class="field person-only"><label for="s_discord">Discord invite</label><input id="s_discord" type="url" placeholder="https://discord.gg/…"></div>
         <div class="field"><label for="s_email">Your email (optional, never shown)</label><input id="s_email" type="email"></div>
       </div>
@@ -512,6 +513,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
         <div class="field e-person"><label for="e_mastodon">Mastodon</label><input id="e_mastodon" type="url" placeholder="https://infosec.exchange/@…"></div>
         <div class="field e-person"><label for="e_linkedin">LinkedIn</label><input id="e_linkedin" type="url" placeholder="https://www.linkedin.com/in/…"></div>
         <div class="field e-person"><label for="e_github">GitHub</label><input id="e_github" type="url" placeholder="https://github.com/…"></div>
+        <div class="field e-person"><label for="e_medium">Medium</label><input id="e_medium" type="url" placeholder="https://medium.com/@…"></div>
         <div class="field e-person"><label for="e_discord">Discord invite</label><input id="e_discord" type="url" placeholder="https://discord.gg/…"></div>
         <div class="field"><label for="e_isbn">ISBN (books)</label><input id="e_isbn"></div>
         <div class="field"><label for="e_publisher">Publisher (books)</label><input id="e_publisher"></div>
@@ -716,6 +718,7 @@ const ICONS = {
   mastodon:'<svg viewBox="0 0 24 24"><mask id="mclMastodonM"><rect width="24" height="24" fill="#fff"/><path d="M8.2 13.6V9.7a1.6 1.6 0 0 1 3.2 0v2.5M11.4 12.2V9.7a1.6 1.6 0 0 1 3.2 0v3.9" stroke="#000" stroke-width="1.8" fill="none" stroke-linecap="round"/></mask><path mask="url(#mclMastodonM)" fill="currentColor" d="M12 2.5c-4.6 0-8 1.6-8 6.2v3.6c0 4.6 2.7 6.8 6.6 7.2 1.5.2 3.1 0 4.6-.5l-.1-1.7c-1.5.4-3 .5-4.1.3-1.3-.2-2.2-.8-2.4-1.9 1.9.4 4 .6 6 .4 3.4-.3 5.4-2 5.4-5.4V8.7c0-4.6-3.4-6.2-8-6.2z"/></svg>',
   linkedin:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM3.2 8h2.6v12H3.2zM9 8h2.5v1.7c.5-.9 1.7-2 3.6-2 3.4 0 4 2.2 4 5.1V20h-2.6v-6.5c0-1.6 0-3.5-2.2-3.5s-2.5 1.7-2.5 3.4V20H9z"/></svg>',
   github:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg>',
+  medium:'<svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="7" cy="12" rx="5.5" ry="5.5"/><ellipse cx="16.2" cy="12" rx="2.7" ry="5.2"/><ellipse cx="21" cy="12" rx="1.1" ry="4.6"/></svg>',
   discord:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.3 5.3A16.5 16.5 0 0 0 15.2 4l-.5 1a15.3 15.3 0 0 0-5.4 0L8.8 4a16.4 16.4 0 0 0-4.1 1.3C2.1 9.2 1.4 13 1.7 16.7a16.6 16.6 0 0 0 5 2.5l1.1-1.7c-.6-.2-1.2-.5-1.7-.9l.4-.3a11.8 11.8 0 0 0 11 0l.4.3c-.5.4-1.1.7-1.7.9l1.1 1.7a16.5 16.5 0 0 0 5-2.5c.4-4.3-.7-8-3-11.4zM8.7 14.4c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.6 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>',
   up:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10.5v10"/><path d="M7 10.5 11.2 3c1.6.1 2.7 1.6 2.3 3.2L12.8 9.5h5.7a2 2 0 0 1 2 2.4l-1.4 6.8a2 2 0 0 1-2 1.8H7"/><rect x="3" y="10.5" width="4" height="10" rx="1"/></svg>',
   down:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="rotate(180 12 12)"><path d="M7 10.5v10"/><path d="M7 10.5 11.2 3c1.6.1 2.7 1.6 2.3 3.2L12.8 9.5h5.7a2 2 0 0 1 2 2.4l-1.4 6.8a2 2 0 0 1-2 1.8H7"/><rect x="3" y="10.5" width="4" height="10" rx="1"/></g></svg>'
@@ -767,11 +770,12 @@ const AMAZON_MUSIC_HOSTS = ["music.amazon.co.uk","music.amazon.com","music.amazo
 const PLATFORM_HOSTS = {apple:["podcasts.apple.com"], spotify:["open.spotify.com"], youtube:["www.youtube.com","youtube.com","m.youtube.com","music.youtube.com","youtu.be"], twitch:["www.twitch.tv","twitch.tv"]};
 function isPlatform(kind, v){ try { const u=new URL(v); return u.protocol==="https:" && PLATFORM_HOSTS[kind].includes(u.hostname); } catch { return false; } }
 // Same profile rules as the Worker (worker/src/lib/shared.js SOCIAL_RULES); the server check is the one that counts.
-const SOCIALS = [{key:"x",label:"X"},{key:"bluesky",label:"Bluesky"},{key:"mastodon",label:"Mastodon"},{key:"linkedin",label:"LinkedIn"},{key:"youtube",label:"YouTube"},{key:"github",label:"GitHub"},{key:"discord",label:"Discord"},{key:"web",label:"Website"}];
+const SOCIALS = [{key:"x",label:"X"},{key:"bluesky",label:"Bluesky"},{key:"mastodon",label:"Mastodon"},{key:"linkedin",label:"LinkedIn"},{key:"youtube",label:"YouTube"},{key:"github",label:"GitHub"},{key:"medium",label:"Medium"},{key:"discord",label:"Discord"},{key:"web",label:"Website"}];
 const SOCIAL_RULES = {x:{hosts:["x.com","www.x.com","twitter.com","www.twitter.com"],path:/^\/[A-Za-z0-9_]{1,15}\/?$/}, bluesky:{hosts:["bsky.app"],path:/^\/profile\/[A-Za-z0-9.:_-]+\/?$/},
   mastodon:{hosts:null,path:/^\/@[A-Za-z0-9_]{1,30}\/?$/}, linkedin:{hosts:["www.linkedin.com","linkedin.com","uk.linkedin.com"],path:/^\/(in|company)\/[A-Za-z0-9%_-]+\/?$/},
-  github:{hosts:["github.com"],path:/^\/[A-Za-z0-9-]{1,39}\/?$/}, discord:{hosts:["discord.gg","discord.com"],path:/^\/(invite\/)?[A-Za-z0-9-]{2,32}\/?$/}};
+  github:{hosts:["github.com"],path:/^\/[A-Za-z0-9-]{1,39}\/?$/}, medium:{hosts:["medium.com"],path:/^\/@?[A-Za-z0-9._-]{1,50}\/?$/}, discord:{hosts:["discord.gg","discord.com"],path:/^\/(invite\/)?[A-Za-z0-9-]{2,32}\/?$/}};
 function isSocial(kind, v){ const r=SOCIAL_RULES[kind]; if(!r||!v) return false; try { const u=new URL(v); if (u.protocol!=="https:"||u.username||u.password||u.port) return false;
+  if (kind==="medium" && /^[a-z0-9-]{1,50}\.medium\.com$/.test(u.hostname) && u.hostname!=="www.medium.com") return /^\/?$/.test(u.pathname);
   if (r.hosts ? !r.hosts.includes(u.hostname) : !/^[a-z0-9.-]+\.[a-z]{2,}$/.test(u.hostname)) return false; if (kind==="discord"&&u.hostname==="discord.com"&&!u.pathname.startsWith("/invite/")) return false; return r.path.test(u.pathname); } catch { return false; } }
 function isAmazonMusic(v){ try { const u=new URL(v); return u.protocol==="https:" && AMAZON_MUSIC_HOSTS.includes(u.hostname) && u.pathname.startsWith("/podcasts/"); } catch { return false; } }
 function platLinks(i){
@@ -1081,7 +1085,7 @@ const isUrl = v => { try { const u=new URL(v); return u.protocol==="https:"||u.p
 $("#submitForm").addEventListener("submit", async e => {
   e.preventDefault();
   const v = id => $("#"+id).value.trim();
-  const p = {type:v("s_type"), name:v("s_name"), by:v("s_by"), desc:v("s_desc"), freq:v("s_freq"), kind:v("s_kind"), cost:v("s_cost"), domains:subDomains, web:v("s_web"), apple:v("s_apple"), spotify:v("s_spotify"), amazon:v("s_amazon"), youtube:v("s_youtube"), rss:v("s_rss"), email:v("s_email"), x:v("s_x"), bluesky:v("s_bluesky"), mastodon:v("s_mastodon"), linkedin:v("s_linkedin"), github:v("s_github"), discord:v("s_discord"), isbn:v("s_isbn"), publisher:v("s_publisher")};
+  const p = {type:v("s_type"), name:v("s_name"), by:v("s_by"), desc:v("s_desc"), freq:v("s_freq"), kind:v("s_kind"), cost:v("s_cost"), domains:subDomains, web:v("s_web"), apple:v("s_apple"), spotify:v("s_spotify"), amazon:v("s_amazon"), youtube:v("s_youtube"), rss:v("s_rss"), email:v("s_email"), x:v("s_x"), bluesky:v("s_bluesky"), mastodon:v("s_mastodon"), linkedin:v("s_linkedin"), github:v("s_github"), medium:v("s_medium"), discord:v("s_discord"), isbn:v("s_isbn"), publisher:v("s_publisher")};
   const errs = [];
   if (p.name.length<2) errs.push("Add the name.");
   if (p.desc.length<40) errs.push("Write a description of at least 40 characters.");
@@ -1114,7 +1118,7 @@ $("#adminBtn").addEventListener("click", async () => {
   $("#queue").innerHTML = `<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" type="button" id="openInsights">Subscribers &amp; visitors</button>${api.remote?`<a class="btn sm" href="/api/admin/export" download>Export catalogue (CSV)</a>`:`<button class="btn sm" type="button" id="exportDemo">Export catalogue (CSV)</button>`}${api.remote?`<a class="btn sm ghost" href="/auth/logout" style="margin-left:auto">Sign out</a>`:""}</div>` + (api.remote?"":`<p class="note" style="margin:0">Demo mode: the review queue and edits are stored in this browser only. On the live site this panel appears only for accounts with the admin role.</p>`) +
     (q.length ? q.map(s=>`<div class="qitem" data-sid="${esc(s.id)}"><h4>${esc(s.name)} <span class="badge">${esc(s.type)}</span></h4><div class="by">${esc(s.by||"")}</div><p class="desc" style="margin:0">${esc(s.desc)}</p>
       <div class="tags">${(s.domains||[]).map(d=>`<span class="tag">${esc(DOM[d]?.label||d)}</span>`).join("")}</div>
-      <div class="muted" style="font-size:12.5px;word-break:break-all">${["kind","cost","web","apple","spotify","amazon","youtube","rss","x","bluesky","mastodon","linkedin","github","discord","isbn","publisher"].filter(k=>s[k]).map(k=>`${k}: ${esc(k==="kind"?KIND[s[k]]?.label||s[k]:k==="cost"?COST[s[k]]?.label||s[k]:s[k])}`).join(" · ")}</div>
+      <div class="muted" style="font-size:12.5px;word-break:break-all">${["kind","cost","web","apple","spotify","amazon","youtube","rss","x","bluesky","mastodon","linkedin","github","medium","discord","isbn","publisher"].filter(k=>s[k]).map(k=>`${k}: ${esc(k==="kind"?KIND[s[k]]?.label||s[k]:k==="cost"?COST[s[k]]?.label||s[k]:s[k])}`).join(" · ")}</div>
       ${s.review?`<div class="note">Automated check: ${esc(s.review)}</div>`:""}
       <div style="display:flex;gap:8px"><button class="btn sm primary" type="button" data-approve>Approve</button><button class="btn sm danger" type="button" data-reject>Reject</button></div></div>`).join("")
      : `<p class="muted" style="margin:0">No suggestions waiting. New submissions from visitors will appear here.</p>`);
@@ -1123,7 +1127,7 @@ $("#adminBtn").addEventListener("click", async () => {
 // Demo mode has no server, so the CSV is built from the catalogue in this browser (same columns as /api/admin/export).
 $("#queue").addEventListener("click", e => {
   if (!e.target.closest("#exportDemo")) return;
-  const cols = ["id","type","name","by","desc","kind","cost","domains","level","freq","status","web","apple","spotify","youtube","x","bluesky","mastodon","linkedin","github","discord","isbn","publisher","curator","hidden"];
+  const cols = ["id","type","name","by","desc","kind","cost","domains","level","freq","status","web","apple","spotify","youtube","x","bluesky","mastodon","linkedin","github","medium","discord","isbn","publisher","curator","hidden"];
   const cell = v => { let s = Array.isArray(v) ? v.join(" ") : String(v ?? ""); if (/^[=+\-@\t\r]/.test(s)) s = "'" + s; return `"${s.replace(/"/g,'""')}"`; };
   const csv = "\ufeff" + [cols, ...ITEMS.map(i => cols.map(c => c==="curator"||c==="hidden" ? (i[c]?"yes":"no") : i[c]))].map(r => r.map(cell).join(",")).join("\r\n");
   const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], {type:"text/csv"})); a.download = "mycyberlearning-catalogue.csv"; a.click(); URL.revokeObjectURL(a.href);
@@ -1137,7 +1141,7 @@ $("#queue").addEventListener("click", async e => {
 let editing=null, editDomains=[];
 function openEdit(id){
   editing = ITEMS.find(x=>x.id===id); editDomains=[...editing.domains];
-  for (const k of ["name","by","desc","web","apple","spotify","amazon","youtube","twitch","launched","isbn","publisher","x","bluesky","mastodon","linkedin","github","discord"]) $("#e_"+k).value = editing[k]||"";
+  for (const k of ["name","by","desc","web","apple","spotify","amazon","youtube","twitch","launched","isbn","publisher","x","bluesky","mastodon","linkedin","github","medium","discord"]) $("#e_"+k).value = editing[k]||"";
   $$(".e-person").forEach(x=>x.hidden = editing.type!=="person"); $("#e_noPhoto").checked = !!editing.noPhoto;
   $("#e_freq").value = editing.freq||"irregular"; $("#e_freq").disabled = editing.type!=="podcast"; $("#e_curator").checked=!!editing.curator;
   $("#e_kind").value = editing.kind||""; $("#e_cost").value = editing.cost||""; $$(".e-platform").forEach(x=>x.hidden = editing.type!=="platform");
