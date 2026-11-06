@@ -7,7 +7,7 @@ import { getText, getJson, sleep, UA } from "./lib.mjs";
 const taxonomy = JSON.parse(readFileSync(new URL("../data/taxonomy.json", import.meta.url), "utf8"));
 const DOMAIN_KEYS = taxonomy.domains.map(d => d.key);
 export { inferCadence, parsePodnewsRating, bestMatch, appleId } from "./pure.mjs";
-import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, FEED_XML, parsePodnewsSpotify, ogTitle, pickSpotifyShow, imageSize, pickLogo } from "./pure.mjs";
+import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, FEED_XML, parsePodnewsSpotify, ogTitle, pickSpotifyShow, imageSize, pickLogo, expertPhotoPlan, bskyThumb, youtubeAvatar } from "./pure.mjs";
 
 /** Apple Podcasts directory (free, no key): artwork, feed URL, canonical link, episode count. */
 export async function lookupApple(item) {
@@ -197,6 +197,25 @@ export async function claudeTag(item, titles = []) {
     const out = (await r.json()).content?.find(c => c.type === "tool_use")?.input;
     if (!out) return null;
     return { domains: out.domains.filter(d => DOMAIN_KEYS.includes(d)), level: out.level };
+  }
+  return null;
+}
+
+/** Finds an expert's public profile picture from a profile they publish themselves. Returns { url, source } or null. */
+export async function findExpertPhoto(item) {
+  for (const step of expertPhotoPlan(item)) {
+    try {
+      if (step.source === "Bluesky") {
+        const p = await getJson(`https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor=${encodeURIComponent(step.actor)}`);
+        if (p.avatar) return { url: bskyThumb(p.avatar), source: "Bluesky" };
+      } else if (step.source === "Mastodon") {
+        const a = await getJson(`https://${step.host}/api/v1/accounts/lookup?acct=${encodeURIComponent(step.acct)}`);
+        if (a.avatar_static && !/missing\.png$/.test(a.avatar_static)) return { url: a.avatar_static, source: "Mastodon" };
+      } else if (step.source === "YouTube") {
+        const u = youtubeAvatar(await getText(step.page));
+        if (u) return { url: u, source: "YouTube" };
+      } else return { url: step.url, source: step.source };
+    } catch { /* try the next source */ }
   }
   return null;
 }

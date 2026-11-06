@@ -17,8 +17,9 @@ function sanitiseItem(item) {
   if (item.type === "platform") { if (!KIND_KEYS.includes(item.kind)) item.kind = undefined; if (!COST_KEYS.includes(item.cost)) item.cost = undefined; }
   else { delete item.kind; delete item.cost; }
   // An expert is a person: no listening links, feed, ISBN or release schedule; profile links only on experts.
-  if (item.type === "person") { for (const k of ["apple", "spotify", "amazon", "rss", "isbn", "publisher", "freq", "launched", "status", "format", "bundle"]) delete item[k]; }
-  else for (const k of SOCIAL_FIELDS) delete item[k];
+  if (item.type === "person") { if (item.noPhoto) { item.noPhoto = true; item.logo = undefined; item.logoSource = undefined; } else delete item.noPhoto;
+    for (const k of ["apple", "spotify", "amazon", "rss", "isbn", "publisher", "freq", "launched", "status", "format", "bundle"]) delete item[k]; }
+  else { for (const k of SOCIAL_FIELDS) delete item[k]; delete item.noPhoto; }
   return item;
 }
 const parse = (s, d) => { try { return JSON.parse(s ?? ""); } catch { return d; } };
@@ -67,7 +68,7 @@ export const item = guard(async (req, env, ctx, { id }) => {
   if (req.method === "DELETE") { await deleteItem(env.DB, id); return json(200, { ok: true }); }
   const patch = await req.json().catch(() => ({}));
   const cur = rowToItem(r), it = { ...cur };
-  const allowed = ["name", "by", "desc", "domains", "level", "freq", "launched", "status", "web", "apple", "spotify", "amazon", "youtube", "rss", "logo", "curator", "hidden", "published", "tagsLocked", "isbn", "publisher", "format", "kind", "cost", "logoFrom", "statusLocked", "twitch", ...SOCIAL_FIELDS];
+  const allowed = ["name", "by", "desc", "domains", "level", "freq", "launched", "status", "web", "apple", "spotify", "amazon", "youtube", "rss", "logo", "curator", "hidden", "published", "tagsLocked", "isbn", "publisher", "format", "kind", "cost", "logoFrom", "statusLocked", "twitch", "noPhoto", ...SOCIAL_FIELDS];
   for (const k of allowed) if (k in patch) it[k] = patch[k] === "" || patch[k] === null ? undefined : patch[k];
   sanitiseItem(it);
   if ("isbn" in patch && it.isbn) { const n = normaliseIsbn(it.isbn); if (!n) return json(400, { error: "That ISBN doesn't look right." }); if (n !== cur.isbn) it.isbnVerified = false; it.isbn = n; }

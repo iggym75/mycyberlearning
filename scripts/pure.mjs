@@ -162,3 +162,28 @@ export const FEED_XML = {
   htmlEntities: true,
   processEntities: { enabled: true, maxEntitySize: 10000, maxExpansionDepth: 10, maxTotalExpansions: 1_000_000, maxExpandedLength: 100000 }
 };
+
+/**
+ * Where to look for an expert's photo, best first: the profile picture they chose on a profile they publish
+ * themselves (Bluesky, then GitHub, then Mastodon, then their YouTube channel). Returns [{ source, ...lookup }].
+ * Nothing is guessed from a name, and X/LinkedIn are never used (they block automated access).
+ */
+export function expertPhotoPlan(item) {
+  const plan = [];
+  const m = (re, v) => (typeof v === "string" ? v.match(re) : null);
+  const bsky = m(/^https:\/\/bsky\.app\/profile\/([A-Za-z0-9.:_-]+)\/?$/, item.bluesky);
+  if (bsky) plan.push({ source: "Bluesky", actor: bsky[1] });
+  const gh = m(/^https:\/\/github\.com\/([A-Za-z0-9-]{1,39})\/?$/, item.github);
+  if (gh) plan.push({ source: "GitHub", url: `https://github.com/${gh[1]}.png?size=240` });
+  const masto = m(/^https:\/\/([a-z0-9.-]+\.[a-z]{2,})\/@([A-Za-z0-9_]{1,30})\/?$/, item.mastodon);
+  if (masto) plan.push({ source: "Mastodon", host: masto[1], acct: masto[2] });
+  if (typeof item.youtube === "string" && /^https:\/\/(www\.)?youtube\.com\/(@|c\/|channel\/|user\/)/.test(item.youtube)) plan.push({ source: "YouTube", page: item.youtube });
+  return plan;
+}
+/** A Bluesky avatar URL at thumbnail size (plenty for a 60px tile on a high-density screen). */
+export const bskyThumb = url => typeof url === "string" ? url.replace("/img/avatar/plain/", "/img/avatar_thumbnail/plain/") : null;
+/** A YouTube channel avatar (og:image on yt3.googleusercontent.com / yt3.ggpht.com) resized to 240px. */
+export function youtubeAvatar(html) {
+  const u = String(html).match(/<meta property="og:image" content="(https:\/\/yt3\.(?:googleusercontent|ggpht)\.com\/[^"]+)"/)?.[1];
+  return u ? u.replace(/=s\d+[^"]*$/, "=s240-c-k-c0x00ffffff-no-rj") : null;
+}

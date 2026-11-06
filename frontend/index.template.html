@@ -517,6 +517,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
         <div class="field"><label for="e_publisher">Publisher (books)</label><input id="e_publisher"></div>
       </div>
       <label class="switch"><input type="checkbox" id="e_curator"> MCL Pick</label>
+      <label class="switch e-person"><input type="checkbox" id="e_noPhoto"> Don't show a photo (for example, if they ask)</label>
     </div>
     <div class="dlg-f"><button class="btn" type="button" data-close>Cancel</button><button class="btn primary" type="submit">Save changes</button></div>
   </form>
@@ -567,9 +568,9 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
     </ul>
     <h3>Experts we list</h3>
     <ul>
-      <li><b>What we show:</b> the person's name, their public role, a short description we write ourselves, the security topics they cover, and links to profiles and sites they publish themselves. We don't copy their posts, store photos or collect anything else about them.</li>
+      <li><b>What we show:</b> the person's name, their public role, a short description we write ourselves, the security topics they cover, and links to profiles and sites they publish themselves. Where they have one, we also show the profile picture they chose for a public profile of their own (such as Bluesky, Mastodon, YouTube or their website), kept as a small copy on our site so your browser doesn't contact those services. We don't copy their posts or collect anything else about them.</li>
       <li><b>Why:</b> to help people find respected voices in security. Lawful basis: our legitimate interest in pointing learners to people who share their expertise publicly, limited to professional information they have made public.</li>
-      <li><b>Corrections and removal:</b> if you're listed and want a link changed or to be removed, email privacy@mycyberlearning.co.uk. We act on removal requests promptly, without needing a reason.</li>
+      <li><b>Corrections and removal:</b> if you're listed and want a link or picture changed, your picture taken down, or to be removed altogether, email privacy@mycyberlearning.co.uk. We act on removal requests promptly, without needing a reason.</li>
     </ul>
     <h3>Who processes data for us</h3>
     <p>Cloudflare (hosting and database; the database is stored in the EU), Resend (delivering the briefing emails) and GitHub (building the site). Some of these companies are based in the US; we rely on their data protection terms for any transfer. Anthropic's Claude writes the briefing summaries from public podcast notes; no subscriber or visitor data is ever sent to it.</p>
@@ -720,11 +721,28 @@ const ICONS = {
 };
 function hue(s){ let h=0; for (const c of s) h=(h*31+c.charCodeAt(0))>>>0; return h%360; }
 function initials(n){ return n.replace(/^(the|a)\s+/i,"").split(/[\s\-:.]+/).filter(w=>/[A-Za-z0-9]/.test(w)).slice(0,2).map(w=>w[0].toUpperCase()).join(""); }
+/* Images: a failed load is retried with back-off (and again when the connection comes back) before falling
+   back to the initials tile, so a dropped request on a flaky connection no longer needs a page refresh. */
+const RETRY_DELAYS = [700, 2000, 5000, 12000];
+window.mclImgRetry = img => {
+  if (!img.isConnected) return;
+  const base = img.dataset.src || (img.dataset.src = img.getAttribute("src").replace(/[?&]r=\d+$/, ""));
+  if (navigator.onLine === false){ img.dataset.wait = "1"; return; } // try again on the "online" event
+  const n = +(img.dataset.retry || 0);
+  if (n < RETRY_DELAYS.length){
+    img.dataset.retry = n + 1;
+    setTimeout(() => { if (img.isConnected) img.src = `${base}${base.includes("?") ? "&" : "?"}r=${n + 1}`; }, RETRY_DELAYS[n]);
+    return;
+  }
+  const t = img.closest("[data-zoom]"); // give up: show the initials tile (cards) or nothing (briefing art)
+  if (t){ t.removeAttribute("data-zoom"); t.classList.remove("site"); img.remove(); } else img.style.visibility = "hidden";
+};
+addEventListener("online", () => document.querySelectorAll("img[data-wait]").forEach(img => { delete img.dataset.wait; img.dataset.retry = 0; window.mclImgRetry(img); }));
 function logo(i){
   const h = hue(i.id), bg = `linear-gradient(140deg,hsl(${h} 55% 38%),hsl(${(h+40)%360} 60% 26%))`;
   const cls = `logo${i.type==="book"?" book":""}${i.type==="person"?" person":""}${i.type==="platform"&&i.logo?" site":""}`;
   if (!i.logo) return `<div class="${cls}" style="background:${bg}" aria-hidden="true">${esc(initials(i.name))}</div>`;
-  return `<button type="button" class="${cls} zoomable" data-zoom style="background:${bg}" aria-label="Enlarge ${i.type==="book"?"cover":i.type==="platform"?"logo":i.type==="person"?"picture":"artwork"} for ${esc(i.name)}">${esc(initials(i.name))}<img src="${esc(i.logo)}" alt="" loading="lazy" onerror="const t=this.closest('[data-zoom]');t.removeAttribute('data-zoom');t.classList.remove('site');this.remove()"><span class="zoom-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M11 8.5v5M8.5 11h5M20 20l-4.2-4.2"/></svg></span></button>`;
+  return `<button type="button" class="${cls} zoomable" data-zoom style="background:${bg}" aria-label="Enlarge ${i.type==="book"?"cover":i.type==="platform"?"logo":i.type==="person"?"picture":"artwork"} for ${esc(i.name)}">${esc(initials(i.name))}<img src="${esc(i.logo)}" alt="" loading="lazy" decoding="async" onerror="mclImgRetry(this)"><span class="zoom-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M11 8.5v5M8.5 11h5M20 20l-4.2-4.2"/></svg></span></button>`;
 }
 function stars(v){ const full=Math.round(v); return "★".repeat(full)+"☆".repeat(5-full); }
 function fmtN(n){ return n>=1000 ? (n/1000).toFixed(n>=10000?0:1)+"k" : String(n); }
@@ -1019,7 +1037,7 @@ function openCover(id){
 }
 function showCover(){
   const i = cvList[cvIdx]; if (!i) return;
-  const img = $("#cvImg"); img.src = i.logo; img.alt = `${i.type==="platform"?"Logo":"Cover"} of ${i.name}`; img.classList.toggle("site", i.type==="platform");
+  const img = $("#cvImg"); img.src = i.logo; img.alt = `${i.type==="platform"?"Logo":i.type==="person"?"Photo":"Cover"} of ${i.name}`; img.classList.toggle("site", i.type==="platform");
   $("#cvType").textContent = TYPE_LABEL[i.type] || "Resource";
   $("#cvTitle").textContent = i.name; $("#cvBy").textContent = i.by || "";
   $("#cvDesc").textContent = i.desc || "";
@@ -1119,7 +1137,7 @@ let editing=null, editDomains=[];
 function openEdit(id){
   editing = ITEMS.find(x=>x.id===id); editDomains=[...editing.domains];
   for (const k of ["name","by","desc","web","apple","spotify","amazon","youtube","twitch","launched","isbn","publisher","x","bluesky","mastodon","linkedin","github","discord"]) $("#e_"+k).value = editing[k]||"";
-  $$(".e-person").forEach(x=>x.hidden = editing.type!=="person");
+  $$(".e-person").forEach(x=>x.hidden = editing.type!=="person"); $("#e_noPhoto").checked = !!editing.noPhoto;
   $("#e_freq").value = editing.freq||"irregular"; $("#e_freq").disabled = editing.type!=="podcast"; $("#e_curator").checked=!!editing.curator;
   $("#e_kind").value = editing.kind||""; $("#e_cost").value = editing.cost||""; $$(".e-platform").forEach(x=>x.hidden = editing.type!=="platform");
   renderDomainPicker($("#e_domains"), editDomains); $("#editDlg").showModal();
@@ -1128,6 +1146,7 @@ $("#e_domains").addEventListener("click", e => { const b=e.target.closest("[data
 $("#editForm").addEventListener("submit", async e => {
   e.preventDefault(); const patch = {domains:editDomains, curator:$("#e_curator").checked};
   for (const k of ["name","by","desc","web","apple","spotify","amazon","youtube","twitch","launched","isbn","publisher"]) patch[k] = $("#e_"+k).value.trim()||undefined;
+  if (editing.type==="person"){ patch.noPhoto = $("#e_noPhoto").checked; if (patch.noPhoto) patch.logo = null; }
   if (editing.type==="person") for (const k of SOCIALS) if (SOCIAL_RULES[k.key]){ patch[k.key] = $("#e_"+k.key).value.trim()||undefined; if (patch[k.key] && !isSocial(k.key, patch[k.key])){ toast(`The ${k.label} link should be a link to a ${k.label} profile.`); return; } }
   if (patch.amazon && !isAmazonMusic(patch.amazon)){ toast("The Amazon Music link should be a music.amazon… /podcasts/ page."); return; }
   for (const [k,label] of [["apple","podcasts.apple.com"],["spotify","open.spotify.com"],["youtube","youtube.com"],["twitch","twitch.tv"]]) if (patch[k] && !isPlatform(k, patch[k])){ toast(`The ${k==="apple"?"Apple":k==="spotify"?"Spotify":k==="twitch"?"Twitch":"YouTube"} link should be a ${label} address.`); return; }
@@ -1160,12 +1179,12 @@ function renderNews(){
   const nShows = new Set(d.episodes.map(e=>e.show)).size;
   $("#newsMeta").textContent = `${d.episodes.length} episode${d.episodes.length===1?"":"s"} from ${nShows} show${nShows===1?"":"s"} · ${d.windowHours||24} hours to ${new Date(d.generatedAt).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",timeZone:"Europe/London"})} UK`;
   const byRef = Object.fromEntries(d.episodes.map(e=>[e.ref,e]));
-  const art = id => shows[id]?.logo ? `<img src="${esc(shows[id].logo)}" alt="" loading="lazy">` : "";
+  const art = id => shows[id]?.logo ? `<img src="${esc(shows[id].logo)}" alt="" loading="lazy" decoding="async" onerror="mclImgRetry(this)">` : "";
   const name = id => shows[id]?.name || id;
   const stories = (d.topStories||[]).map(s=>`<li><div style="min-width:0"><h4>${esc(s.title)}</h4><p>${esc(s.summary)}</p>
     <div class="via">Covered by ${(s.refs||[]).map(r=>byRef[r]).filter(Boolean).map(e=>`<a href="#ep-${esc(e.ref)}" data-jump="${esc(e.ref)}">${art(e.show)}${esc(name(e.show))}</a>`).join("")}</div></div></li>`).join("");
   const epHtml = e=>{ const sh = shows[e.show]; const u = /^https?:\/\//.test(e.url||"") ? e.url : null;
-    return `<article class="ep" id="ep-${esc(e.ref)}">${sh?.logo?`<img class="art" src="${esc(sh.logo)}" alt="" loading="lazy">`:`<div class="art"></div>`}
+    return `<article class="ep" id="ep-${esc(e.ref)}">${sh?.logo?`<img class="art" src="${esc(sh.logo)}" alt="" loading="lazy" decoding="async" onerror="mclImgRetry(this)">`:`<div class="art"></div>`}
     <div style="min-width:0"><div class="show"><b style="color:var(--ink-2)">${esc(name(e.show))}</b><span>${esc(fmtTime(e.publishedAt))}</span>${e.minutes?`<span>${e.minutes} min</span>`:""}</div>
     <h4>${u?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(e.title)}</a>`:esc(e.title)}</h4><p>${esc(e.summary)}</p>
     <div class="row"><div class="tags">${(e.domains||[]).filter(x=>DOM[x]).map(x=>`<span class="tag" style="cursor:default">${esc(DOM[x].label)}</span>`).join("")}</div>
