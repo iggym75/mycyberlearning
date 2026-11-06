@@ -101,12 +101,12 @@ export async function submit(req, env) {
 
   if (await getItemRow(env.DB, slug(s.name))) return json(409, { error: `"${s.name}" is already in the library.` });
 
-  const review = await claudeReview({ name: s.name, by: s.by, desc: s.desc, links: { web: s.web, apple: s.apple, spotify: s.spotify, amazon: s.amazon, youtube: s.youtube, ...Object.fromEntries(SOCIAL_FIELDS.map(k => [k, s[k]])) } });
+  const review = await claudeReview({ type: s.type, name: s.name, by: s.by, desc: s.desc, links: { web: s.web, apple: s.apple, spotify: s.spotify, amazon: s.amazon, youtube: s.youtube, ...Object.fromEntries(SOCIAL_FIELDS.map(k => [k, s[k]])) } });
   const id = `${Date.now().toString(36)}-${slug(s.name).slice(0, 30)}`;
   await env.DB.prepare(`INSERT INTO submissions (id, status, data, suggested_domains, suggested_level, review, ip_hash, submitted)
     VALUES (?, 'pending', ?, ?, ?, ?, ?, ?)`).bind(
     id, JSON.stringify(s), JSON.stringify(review?.domains || []), JSON.stringify(review?.level || []),
-    review ? `${review.relevant ? "Looks relevant" : "May not be a security resource"}${review.spam_or_abuse ? " · possible spam" : ""}. ${review.note}` : "",
+    review ? `${review.relevant ? "Looks relevant" : "May not be a security resource"}${review.fits_criteria === false ? " · outside our criteria" : ""}${review.spam_or_abuse ? " · possible spam" : ""}. ${review.note}` : "",
     sha((process.env.VOTE_SALT || "") + ip), new Date().toISOString()
   ).run();
   return json(202, { ok: true });
