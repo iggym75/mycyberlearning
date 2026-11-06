@@ -12482,7 +12482,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-rory-mccune"
+      "id": "expert-rory-mccune",
+      "logo": "covers/expert-rory-mccune.jpg",
+      "logoSource": "LinkedIn profile photo (supplied by curator)"
     },
     {
       "type": "person",
