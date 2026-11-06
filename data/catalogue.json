@@ -11400,7 +11400,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-dave-kennedy"
+      "id": "expert-dave-kennedy",
+      "logo": "covers/expert-dave-kennedy.jpg",
+      "logoSource": "TrustedSec team page"
     },
     {
       "type": "person",
