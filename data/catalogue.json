@@ -12704,7 +12704,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-wendy-nather"
+      "id": "expert-wendy-nather",
+      "logo": "covers/expert-wendy-nather.jpg",
+      "logoSource": "Atlantic Council expert page"
     },
     {
       "type": "person",
