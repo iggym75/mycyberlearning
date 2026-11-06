@@ -334,3 +334,18 @@ test("admin: an expert keeps valid profile links and drops invalid ones and podc
   const it = (await r.json()).item;
   assert.equal(it.x, "https://x.com/ada"); assert.equal(it.linkedin, undefined); assert.equal(it.apple, undefined); assert.equal(it.freq, undefined); assert.equal(it.curator, true);
 });
+
+test("caching: the item list is revalidated by browsers; a missing file is never cached", async () => {
+  const r = await call("/api/items");
+  assert.equal(r.headers.get("cache-control"), "no-cache");
+  const again = await call("/api/items"); // served from the Worker's own short-lived cache, same header
+  assert.equal(again.headers.get("cache-control"), "no-cache");
+  const assets = env.ASSETS;
+  env.ASSETS = { fetch: () => new Response("Not found", { status: 404, headers: { "cache-control": "public, max-age=604800" } }) };
+  try {
+    const miss = await call("/covers/expert-not-there-yet.jpg");
+    assert.equal(miss.status, 404);
+    assert.equal(miss.headers.get("cache-control"), "no-store");
+  } finally { env.ASSETS = assets; }
+  assert.equal(await (await call("/")).text(), "static"); // found files pass straight through
+});
