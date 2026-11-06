@@ -12743,7 +12743,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-window-snyder"
+      "id": "expert-window-snyder",
+      "logo": "covers/expert-window-snyder.jpg",
+      "logoSource": "TechCrunch author page"
     }
   ]
 }
