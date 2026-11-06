@@ -611,7 +611,8 @@ const api = {
   remote:false, isAdmin:false,
   async init(){
     try {
-      const r = await fetch("/api/items", {headers:{accept:"application/json"}});
+      // cache:"no-cache" always revalidates, so a copy a browser kept under an older, longer cache rule is never shown.
+      const r = await fetch("/api/items", {headers:{accept:"application/json"}, cache:"no-cache"});
       if (!r.ok) throw 0;
       const j = await r.json(); this.remote = true;
       try { const me = await (await fetch("/api/me", {headers:{accept:"application/json"}})).json(); this.isAdmin = me.admin === true; } catch {}
