@@ -31,7 +31,16 @@ export async function localD1(file = ":memory:", { migrate = true } = {}) {
     exec: async sql => sqlite.exec(sql),
     close: () => sqlite.close()
   };
-  if (migrate) for (const f of (await readdir(MIGRATIONS)).filter(f => f.endsWith(".sql")).sort()) sqlite.exec(await readFile(new URL(f, MIGRATIONS), "utf8"));
+  // Like wrangler, record applied migrations so reopening a local file doesn't re-run them (ALTER TABLE isn't repeatable).
+  if (migrate) {
+    sqlite.exec("CREATE TABLE IF NOT EXISTS d1_migrations (name TEXT PRIMARY KEY, applied_at TEXT NOT NULL)");
+    const done = new Set(sqlite.prepare("SELECT name FROM d1_migrations").all().map(r => r.name));
+    for (const f of (await readdir(MIGRATIONS)).filter(f => f.endsWith(".sql")).sort()) {
+      if (done.has(f)) continue;
+      sqlite.exec(await readFile(new URL(f, MIGRATIONS), "utf8"));
+      sqlite.prepare("INSERT INTO d1_migrations (name, applied_at) VALUES (?, ?)").run(f, new Date().toISOString());
+    }
+  }
   return db;
 }
 

@@ -26,5 +26,8 @@ for (const id of stale) await db.batch([
   db.prepare("DELETE FROM accounts WHERE id = ?").bind(id)
 ]);
 await db.prepare("DELETE FROM webauthn_challenges WHERE expires < ?").bind(now).run();
+// Unconfirmed account email addresses and stale sign-in links are removed once their links expire.
+await db.prepare("UPDATE accounts SET email_pending = NULL, email_token_hash = NULL, email_token_expires = NULL WHERE email_token_expires < ?").bind(iso(now)).run();
+await db.prepare("UPDATE accounts SET login_token_hash = NULL, login_token_expires = NULL WHERE login_token_expires < ?").bind(iso(now)).run();
 console.log(`Retention: ${stale.length} unused My list accounts deleted.`);
 console.log(`Retention: deleted ${pending.meta.changes ?? 0} unconfirmed sign-ups and ${old.meta.changes ?? 0} old visit counters; removed contact details from ${scrubbed} old suggestions.`);

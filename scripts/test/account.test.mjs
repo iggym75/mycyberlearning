@@ -8,15 +8,26 @@ import { localD1 } from "../d1.mjs";
 import worker from "../../worker/src/index.js";
 import { insertItem } from "../../worker/src/lib/db.js";
 import { decodeCbor, derToRaw, b64u } from "../../worker/src/lib/webauthn.js";
+import { subscriberId } from "../../worker/src/lib/mail.js";
 
 const SITE = "https://mycyberlearning.co.uk", RP_ID = "mycyberlearning.co.uk";
-let db, env;
+let db, env, outbox = [], dispatches = [];
 const ctx = { waitUntil: p => p };
 
 before(async () => {
   db = await localD1(":memory:");
-  env = { DB: db, ASSETS: { fetch: () => new Response("static") }, SITE_URL: SITE, SESSION_SECRET: "z".repeat(48), TOKEN_SECRET: "t".repeat(48), VOTE_SALT: "s".repeat(40) };
-  globalThis.fetch = async u => { throw new Error("unexpected fetch " + u); };
+  env = { DB: db, ASSETS: { fetch: () => new Response("static") }, SITE_URL: SITE, SESSION_SECRET: "z".repeat(48), TOKEN_SECRET: "t".repeat(48), VOTE_SALT: "s".repeat(40),
+    MAIL_FROM: "My Cyber Learning <briefing@mycyberlearning.co.uk>", MAIL_PROVIDER: "resend", MAIL_API_KEY: "re_test",
+    GITHUB_OAUTH_CLIENT_ID: "cid", GITHUB_OAUTH_CLIENT_SECRET: "csecret", ADMIN_GITHUB_IDS: "1001", GH_DISPATCH_TOKEN: "ghp_test", GITHUB_REPO: "iggym75/mycyberlearning" };
+  globalThis.fetch = async (url, init = {}) => {
+    const u = String(url);
+    if (u === "https://api.resend.com/emails") { outbox.push(JSON.parse(init.body)); return new Response('{"id":"x"}', { status: 200 }); }
+    if (u === "https://github.com/login/oauth/access_token") return Response.json({ access_token: "gho_test" });
+    if (u === "https://api.github.com/user") return Response.json({ id: 1001, login: "ianm" });
+    if (u.startsWith("https://api.github.com/applications/")) return new Response(null, { status: 204 });
+    if (u.endsWith("/actions/workflows/updates.yml/dispatches")) { dispatches.push(u); return new Response(null, { status: 204 }); }
+    throw new Error("unexpected fetch " + u);
+  };
   for (const id of ["darknet-diaries", "risky-business", "hacking-book"]) await insertItem(db, { id, type: "podcast", name: id, desc: "x", domains: ["news"] });
   await insertItem(db, { id: "hidden-one", type: "podcast", name: "h", desc: "x", domains: ["news"], hidden: true });
 });
@@ -269,4 +280,127 @@ test("malformed base64 and keys are a clean 400, not a 500", async () => {
   const opts = await (await call("/api/account/register/options", { method: "POST", body: {} })).json();
   const cred = a.create(opts); cred.response.attestationObject = "abcde";
   assert.equal((await call("/api/account/register/verify", { method: "POST", body: { credential: cred } })).status, 400);
+});
+
+/* ---------- Optional name and email, email sign-in links, update emails ---------- */
+const lastMail = () => outbox[outbox.length - 1];
+const linkIn = (m, path) => { const u = new URL(m.text.match(new RegExp(`https://\\S+${path.replace(/\//g, "\\/")}\\S+`))[0]); return u.pathname + u.search; };
+const post = (path, headers = {}) => worker.fetch(new Request(SITE + path, { method: "POST", headers: { "cf-connecting-ip": "198.51.100.250", "sec-fetch-site": "same-origin", ...headers } }), env, ctx);
+
+test("adding an email sends a confirmation link; confirming starts the briefing only if asked", async () => {
+  const a = await makeAuthenticator(); const { cookie } = await register(a);
+  outbox.length = 0;
+  const r = await call("/api/account/profile", { method: "PUT", body: { name: "Ada <b>", email: "Ada@Example.com", briefing: true, updates: true }, cookie });
+  assert.equal(r.status, 200);
+  const d = await r.json();
+  assert.equal(d.profile.name, "Ada b"); assert.equal(d.profile.emailPending, "ada@example.com"); assert.equal(d.profile.emailVerified, false);
+  assert.equal(d.profile.briefing, false); assert.equal(d.profile.briefingWaiting, true); assert.equal(d.profile.updates, true);
+  assert.equal(outbox.length, 1); assert.deepEqual(outbox[0].to, ["ada@example.com"]);
+  const link = linkIn(outbox[0], "/api/account/email/confirm");
+  // GET only shows a button; a cross-site POST is refused; a same-origin POST confirms once
+  assert.equal((await call(link)).status, 200);
+  assert.equal((await (await call("/api/account", { cookie })).json()).profile.emailVerified, false);
+  assert.equal((await post(link, { "sec-fetch-site": "cross-site" })).status, 400);
+  const ok = await post(link);
+  assert.equal(ok.status, 303); assert.match(ok.headers.get("location"), /account=email-confirmed/);
+  assert.equal((await post(link)).status, 400);
+  const p = (await (await call("/api/account", { cookie })).json()).profile;
+  assert.equal(p.email, "ada@example.com"); assert.equal(p.emailVerified, true); assert.equal(p.briefing, true);
+  const sub = await db.prepare("SELECT status, consent_text FROM subscribers WHERE id = ?").bind(subscriberId("ada@example.com")).first();
+  assert.equal(sub.status, "active"); assert.match(sub.consent_text, /My list account/);
+  // Turning the briefing off suppresses that subscription
+  await call("/api/account/profile", { method: "PUT", body: { briefing: false }, cookie });
+  assert.equal((await db.prepare("SELECT status FROM subscribers WHERE id = ?").bind(subscriberId("ada@example.com")).first()).status, "suppressed");
+  // Deleting the account also stops a re-enabled briefing
+  await call("/api/account/profile", { method: "PUT", body: { briefing: true }, cookie });
+  assert.equal((await call("/api/account", { method: "DELETE", cookie })).status, 200);
+  const after = await db.prepare("SELECT status, email FROM subscribers WHERE id = ?").bind(subscriberId("ada@example.com")).first();
+  assert.equal(after.status, "suppressed"); assert.equal(after.email, null);
+});
+
+test("changing the email needs a recent passkey sign-in; an address can belong to one account only", async () => {
+  const a = await makeAuthenticator(); const { cookie } = await register(a);
+  const stale = mint(a.userHandle, 0, Math.floor(Date.now() / 1000) - 3600);
+  const r = await call("/api/account/profile", { method: "PUT", body: { email: "thief@example.com" }, cookie: stale });
+  assert.equal(r.status, 403); assert.equal((await r.json()).reauth, true);
+  assert.equal((await call("/api/account/profile", { method: "PUT", body: { name: "Bo" }, cookie: stale })).status, 200); // name is fine
+  // Someone else's confirmed address can't be confirmed again on a second account
+  const b = await makeAuthenticator(); const second = await register(b);
+  await call("/api/account/profile", { method: "PUT", body: { email: "shared@example.com" }, cookie });
+  await post(linkIn(lastMail(), "/api/account/email/confirm"));
+  await new Promise(r => setTimeout(r, 5));
+  await db.prepare("UPDATE accounts SET mail_last = NULL").run();
+  await call("/api/account/profile", { method: "PUT", body: { email: "shared@example.com" }, cookie: second.cookie });
+  assert.equal((await post(linkIn(lastMail(), "/api/account/email/confirm"))).status, 409);
+});
+
+test("email sign-in link: same answer for unknown addresses, works once, signs other devices out", async () => {
+  const a = await makeAuthenticator(); const { cookie } = await register(a);
+  await call("/api/account/profile", { method: "PUT", body: { email: "lost@example.com" }, cookie });
+  await post(linkIn(lastMail(), "/api/account/email/confirm"));
+  await db.prepare("UPDATE accounts SET mail_last = NULL").run();
+  outbox.length = 0;
+  const unknown = await call("/api/account/recover/email", { method: "POST", body: { email: "nobody@example.com" } });
+  const known = await call("/api/account/recover/email", { method: "POST", body: { email: "LOST@example.com" } });
+  assert.equal(unknown.status, 202); assert.equal(known.status, 202);
+  assert.deepEqual(await unknown.json(), await known.json());
+  assert.equal(outbox.length, 1);
+  const link = linkIn(outbox[0], "/api/account/email-login");
+  assert.equal((await call(link)).status, 200);                                  // GET: a button, nothing else
+  assert.equal((await call("/api/account/list", { cookie })).status, 200);       // still signed in on the old device
+  const r = await post(link);
+  assert.equal(r.status, 303);
+  const fresh = cookieOf(r);
+  assert.ok(fresh);
+  assert.equal((await call("/api/account/list", { cookie: fresh })).status, 200);
+  assert.equal((await call("/api/account/list", { cookie })).status, 401);       // other devices signed out
+  assert.equal((await post(link)).status, 400);                                  // single use
+  // The emailed sign-in counts as a fresh sign-in, so a passkey can be added straight away
+  assert.equal((await call("/api/account/register/options", { method: "POST", body: {}, cookie: fresh })).status, 200);
+});
+
+test("account emails are throttled per account", async () => {
+  const a = await makeAuthenticator(); const { cookie } = await register(a);
+  outbox.length = 0;
+  await call("/api/account/profile", { method: "PUT", body: { email: "t1@example.com" }, cookie });
+  const r = await (await call("/api/account/profile", { method: "PUT", body: { email: "t2@example.com" }, cookie })).json();
+  assert.equal(outbox.length, 1); assert.match(r.message, /wait a minute/);
+});
+
+test("new-feature emails: unsubscribe link (GET shows a page, POST stops them; altered links refused)", async () => {
+  const a = await makeAuthenticator(); const { cookie } = await register(a);
+  await call("/api/account/profile", { method: "PUT", body: { updates: true }, cookie });
+  const { updatesUnsubUrl } = await import("../../worker/src/account-email.js");
+  const u = new URL(updatesUnsubUrl(SITE, a.userHandle));
+  assert.equal((await call(u.pathname + u.search)).status, 200);
+  assert.equal((await (await call("/api/account", { cookie })).json()).profile.updates, true);
+  assert.equal((await post(u.pathname + u.search.replace(/t=./, "t=X"), { "sec-fetch-site": "none" })).status, 400);
+  assert.equal((await post(u.pathname + u.search, { "sec-fetch-site": "none" })).status, 200);   // one-click from the mail client
+  assert.equal((await (await call("/api/account", { cookie })).json()).profile.updates, false);
+});
+
+async function adminCookie() {
+  const login = await call("/auth/login");
+  const state = new URL(login.headers.get("location")).searchParams.get("state");
+  const cb = await call(`/auth/callback?code=abc&state=${state}`, { cookie: login.headers.get("set-cookie").split(";")[0] });
+  return cb.headers.getSetCookie().find(c => c.startsWith("__Host-mcl_admin=")).split(";")[0];
+}
+
+test("admin update composer: draft, preview (escaped), test send, queue once; only the admin", async () => {
+  assert.equal((await call("/api/admin/updates")).status, 403);
+  const admin = await adminCookie();
+  assert.equal((await call("/api/admin/updates", { method: "POST", body: { subject: "x", body: "short" }, cookie: admin })).status, 400);
+  const saved = await (await call("/api/admin/updates", { method: "POST", body: { subject: "New: My list", body: "Hello <script>alert(1)</script>\n\n- one\n- two https://mycyberlearning.co.uk/#mylist" }, cookie: admin })).json();
+  assert.ok(saved.id);
+  const pv = await (await call(`/api/admin/updates/${saved.id}/preview`, { method: "POST", body: {}, cookie: admin })).json();
+  assert.ok(!pv.html.includes("<script>")); assert.match(pv.html, /&lt;script&gt;/); assert.match(pv.html, /<li>one<\/li>/);
+  assert.match(pv.html, /href="https:\/\/mycyberlearning\.co\.uk\/#mylist"/); assert.match(pv.subject, /^MCL: New: My list/);
+  outbox.length = 0;
+  assert.equal((await call(`/api/admin/updates/${saved.id}/test`, { method: "POST", body: { to: "me@example.com" }, cookie: admin })).status, 200);
+  assert.equal(outbox.length, 1); assert.match(outbox[0].subject, /^\[Test\] MCL:/);
+  dispatches.length = 0;
+  const sent = await call(`/api/admin/updates/${saved.id}/send`, { method: "POST", body: {}, cookie: admin });
+  assert.equal(sent.status, 200); assert.equal((await sent.json()).startedNow, true); assert.equal(dispatches.length, 1);
+  assert.equal((await call(`/api/admin/updates/${saved.id}/send`, { method: "POST", body: {}, cookie: admin })).status, 409); // only once
+  assert.equal((await call("/api/admin/updates", { method: "POST", body: { id: saved.id, subject: "Changed", body: "Changed body text" }, cookie: admin })).status, 409);
 });
