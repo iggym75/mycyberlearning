@@ -139,3 +139,18 @@ test("image sizes from bytes, and choosing a platform logo", () => {
   assert.equal(pickLogo([{ url: "d", from: "og:image", w: 1200, h: 630 }, { url: "e", from: "icon", w: 48, h: 48 }]), null);
   assert.equal(pickLogo([{ url: "f", from: "og:image", w: 2200, h: 2200 }, { url: "e", from: "icon", w: 48, h: 48 }]).url, "f");
 });
+
+test("expert photos: only from their own profiles, best source first; X and LinkedIn never used", async () => {
+  const { expertPhotoPlan, bskyThumb, youtubeAvatar } = await import("../pure.mjs");
+  const plan = expertPhotoPlan({ bluesky: "https://bsky.app/profile/troyhunt.com", github: "https://github.com/mubix", mastodon: "https://infosec.exchange/@troyhunt",
+    youtube: "https://www.youtube.com/@troyhunt", x: "https://x.com/troyhunt", linkedin: "https://www.linkedin.com/in/troyhunt" });
+  assert.deepEqual(plan.map(s => s.source), ["Bluesky", "GitHub", "Mastodon", "YouTube"]);
+  assert.equal(plan[0].actor, "troyhunt.com");
+  assert.equal(plan[1].url, "https://github.com/mubix.png?size=240");
+  assert.deepEqual([plan[2].host, plan[2].acct], ["infosec.exchange", "troyhunt"]);
+  assert.deepEqual(expertPhotoPlan({ x: "https://x.com/a", linkedin: "https://www.linkedin.com/in/a", web: "https://a.example/" }), []);
+  assert.deepEqual(expertPhotoPlan({ bluesky: "https://evil.example/profile/a", github: "https://github.com/a/b" }), []);
+  assert.equal(bskyThumb("https://cdn.bsky.app/img/avatar/plain/did:plc:x/abc@jpeg"), "https://cdn.bsky.app/img/avatar_thumbnail/plain/did:plc:x/abc@jpeg");
+  assert.equal(youtubeAvatar('<meta property="og:image" content="https://yt3.googleusercontent.com/abc=s900-c-k-c0x00ffffff-no-rj">'), "https://yt3.googleusercontent.com/abc=s240-c-k-c0x00ffffff-no-rj");
+  assert.equal(youtubeAvatar('<meta property="og:image" content="https://evil.example/a.jpg">'), null);
+});

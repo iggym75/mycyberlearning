@@ -12,4 +12,4 @@
   Cache-Control: public, max-age=300
 
 /covers/*
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=604800, stale-while-revalidate=604800
