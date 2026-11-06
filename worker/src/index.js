@@ -5,6 +5,7 @@ import * as pub from "./public.js";
 import * as admin from "./admin.js";
 import * as news from "./news.js";
 import * as auth from "./auth.js";
+import * as account from "./account.js";
 import { dispatchBriefing } from "./cron.js";
 
 // [method(s), path pattern, handler]. `:id` captures one URL-encoded segment.
@@ -17,6 +18,20 @@ const ROUTES = [
   ["GET,POST", "/api/unsubscribe", news.unsubscribe],
   ["POST", "/api/t", news.telemetry],
   ["GET", "/api/me", auth.me],
+  ["POST", "/api/account/register/options", account.registerOptions],
+  ["POST", "/api/account/register/verify", account.registerVerify],
+  ["POST", "/api/account/login/options", account.loginOptions],
+  ["POST", "/api/account/login/verify", account.loginVerify],
+  ["POST", "/api/account/recover", account.recover],
+  ["POST", "/api/account/logout", account.logout],
+  ["POST", "/api/account/recovery-code", account.newRecovery],
+  ["DELETE", "/api/account/passkeys/:id", account.removePasskey],
+  ["GET,DELETE", "/api/account", (req, env, ctx, p) => (req.method === "DELETE" ? account.remove : account.status)(req, env, ctx, p)],
+  ["GET", "/api/account/export", account.exportData],
+  ["GET", "/api/account/list", account.list],
+  ["POST", "/api/account/list/merge", account.merge],
+  ["POST", "/api/account/list/seen", account.seen],
+  ["PUT,DELETE", "/api/account/list/:id", account.listItem],
   ["GET", "/api/admin/submissions", admin.listSubmissions],
   ["POST", "/api/admin/submissions/:id", admin.decide],
   ["PATCH,DELETE", "/api/admin/items/:id", admin.item],

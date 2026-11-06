@@ -24,6 +24,7 @@ A curated library of cybersecurity podcasts, books and learning platforms (labs,
 - Claude prompts treat resource text as data inside `<resource>` tags and use forced tool output constrained to the taxonomy enum.
 - Caching: `/api/items` is `no-cache` for browsers (Cloudflare's zone Browser Cache TTL would otherwise stretch a short max-age to hours); the Worker's 60-second memo/edge cache carries the load. Covers are cached for a week, so a *replaced* image needs a new file name, not an overwrite. A missing static file is answered `no-store`.
 - Daily briefing: `scripts/news.mjs` writes `frontend/news/<date>.json`; `scripts/send-digest.mjs` emails it; shared email/token code is in `worker/src/lib/mail.js`. Never republish show notes verbatim; only our summaries.
+- My list accounts (`worker/src/account.js`, `worker/src/lib/webauthn.js`): passkey-only sign-in with user verification required, plus a one-time recovery code; no email, name or password is ever stored. Never add password sign-in or store contact details for accounts without asking. Keep `scripts/test/account.test.mjs` passing (it signs real ES256/Ed25519/RS256 credentials). Signed-out visitors' lists live in localStorage and are merged on sign-in.
 - Personal data rules (see SECURITY.md): consent-only, minimum fields, no IPs or identifiers stored, escape everything in emails, GET never changes state, keep the privacy notice in the page in step with any change.
 
 ## Commands
