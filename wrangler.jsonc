@@ -40,7 +40,10 @@
   "observability": { "enabled": true, "logs": { "invocation_logs": false } },
 
   // Shared per-IP limit for briefing sign-ups (free; works across Cloudflare's isolates). Period must be 10 or 60 s.
-  "ratelimits": [ { "name": "SUBSCRIBE_LIMITER", "namespace_id": "1001", "simple": { "limit": 3, "period": 60 } } ],
+  "ratelimits": [
+    { "name": "SUBSCRIBE_LIMITER", "namespace_id": "1001", "simple": { "limit": 3, "period": 60 } },
+    { "name": "ACCOUNT_LIMITER", "namespace_id": "1002", "simple": { "limit": 20, "period": 60 } }
+  ],
   // The site's own domain (runbook Phase 6). Cloudflare creates the DNS record and certificate on deploy.
   "routes": [ { "pattern": "mycyberlearning.co.uk", "custom_domain": true } ],
   "workers_dev": false,  // the site is served only at mycyberlearning.co.uk (runbook Phase 6)
