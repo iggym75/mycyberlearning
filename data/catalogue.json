@@ -11971,7 +11971,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-kim-zetter"
+      "id": "expert-kim-zetter",
+      "logo": "covers/expert-kim-zetter.jpg",
+      "logoSource": "Global Speakers Bureau page"
     },
     {
       "type": "person",
