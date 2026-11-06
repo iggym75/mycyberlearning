@@ -176,3 +176,17 @@ test("transcriptText reads WebVTT, SRT and Podcasting 2.0 JSON", () => {
   assert.equal(transcriptText(JSON.stringify({ version: "1.0.0", segments: [{ body: "One" }, { body: "two." }] }), "application/json"), "One two.");
   assert.equal(transcriptText("<p>Plain <i>HTML</i></p>", "text/html"), "Plain HTML");
 });
+
+test("briefing email: MCL subject prefix, numbered stories without interest labels, one link per episode", async () => {
+  const { renderDigestEmail } = await import("../../worker/src/lib/mail.js");
+  const digest = { date: "2026-11-06", headline: "Big day", overview: "Things happened.",
+    topStories: [{ title: "Story A", summary: "A.", refs: ["cw-0", "cw-1"], domains: ["cti"] }],
+    episodes: [{ ref: "cw-0", show: "cw", title: "Ep 1", summary: "S1", url: "https://example.com/1", domains: ["cti"] },
+               { ref: "cw-1", show: "cw", title: "Ep 2", summary: "S2", url: "https://example.com/2", domains: ["news"] }] };
+  const m = renderDigestEmail({ digest, shows: { cw: "CyberWire Daily" }, siteUrl: "https://mycyberlearning.co.uk/", unsubscribeUrl: "https://mycyberlearning.co.uk/api/unsubscribe?x=1", interests: ["cti"] });
+  assert.equal(m.subject, "MCL Daily Briefing: Big day");
+  assert.ok(!/matches your interests/.test(m.html));
+  assert.match(m.html, />1\.<\/td>/);
+  assert.match(m.html, /Covered by CyberWire Daily</);                 // each show named once, as text
+  assert.equal((m.html.match(/https:\/\/example\.com\/1/g) || []).length, 1);
+});

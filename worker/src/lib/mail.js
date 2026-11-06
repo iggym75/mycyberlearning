@@ -82,7 +82,7 @@ export function renderConfirmEmail({ confirmUrl, siteUrl }) {
 <p style="font-size:13px;color:${C.muted};margin:0">If you didn't ask for this, ignore this email and you won't hear from us again.</p></td></tr>`,
     `You received this because this address was entered at ${escapeHtml(site)}. If you don't confirm, we delete it within 7 days.`);
   const text = `Confirm your My Cyber Learning daily briefing\n\nOpen this link to confirm (expires in 48 hours):\n${url}\n\nIf you didn't ask for this, ignore this email.`;
-  return { subject: "Confirm your My Cyber Learning daily briefing", html, text };
+  return { subject: "MCL: confirm your My Cyber Learning daily briefing", html, text };
 }
 
 /**
@@ -103,22 +103,20 @@ export function renderDigestEmail({ digest, shows, siteUrl, unsubscribeUrl, name
   const quiet = (digest.quietCore || []).map(id => shows[id] || id).join(", ");
 
   const storyHtml = stories.map((s, i) => {
-    const via = (s.refs || []).map(r => byRef[r]).filter(Boolean).map(e => {
-      const u = safeUrl(e.url); const n = escapeHtml(shows[e.show] || e.show);
-      return u ? `<a href="${escapeHtml(u)}" style="color:${C.signal}">${n}</a>` : n;
-    }).join(", ");
-    return `<tr><td style="padding:0 24px 16px"><div style="font-size:12px;color:${C.muted};font-weight:600">${i + 1}${hit(s.domains) ? " · matches your interests" : ""}</div>
-<div style="font-size:16px;font-weight:700;margin:2px 0 4px">${escapeHtml(s.title)}</div>
+    // Sources as plain names, not links: fewer links per email helps it past spam filters.
+    const via = [...new Set((s.refs || []).map(r => byRef[r]).filter(Boolean).map(e => shows[e.show] || e.show))].map(escapeHtml).join(", ");
+    return `<tr><td style="padding:0 24px 16px"><table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+<td valign="top" width="30" style="font-size:16px;font-weight:700;color:${C.signal};padding-top:1px">${i + 1}.</td>
+<td valign="top"><div style="font-size:16px;font-weight:700;line-height:1.35;margin:0 0 4px">${escapeHtml(s.title)}</div>
 <div style="font-size:14px;line-height:1.55;color:${C.ink2}">${escapeHtml(s.summary)}</div>
-${via ? `<div style="font-size:12px;color:${C.muted};margin-top:4px">Covered by ${via}</div>` : ""}</td></tr>`;
+${via ? `<div style="font-size:12px;color:${C.muted};margin-top:4px">Covered by ${via}</div>` : ""}</td></tr></table></td></tr>`;
   }).join("");
 
   const epHtml = episodes.map(e => {
     const u = safeUrl(e.url);
-    const title = u ? `<a href="${escapeHtml(u)}" style="color:${C.ink};text-decoration:none">${escapeHtml(e.title)}</a>` : escapeHtml(e.title);
-    return `<tr><td style="padding:12px 24px;border-top:1px solid ${C.line}">
-<div style="font-size:12px;color:${C.muted}">${escapeHtml(shows[e.show] || e.show)}${e.minutes ? ` · ${Number(e.minutes) | 0} min` : ""}</div>
-<div style="font-size:15px;font-weight:600;margin:2px 0 4px">${title}</div>
+    return `<tr><td style="padding:14px 24px;border-top:1px solid ${C.line}">
+<div style="font-size:17px;font-weight:700;color:${C.signal};line-height:1.3">${escapeHtml(shows[e.show] || e.show)}${e.minutes ? `<span style="font-size:13px;font-weight:400;color:${C.muted}"> · ${Number(e.minutes) | 0} min</span>` : ""}</div>
+<div style="font-size:14px;font-weight:600;color:${C.ink};margin:3px 0 4px">${escapeHtml(e.title)}</div>
 <div style="font-size:14px;line-height:1.5;color:${C.ink2}">${escapeHtml(e.summary)}</div>
 ${u ? `<div style="margin-top:6px"><a href="${escapeHtml(u)}" style="font-size:13px;color:${C.signal}">Listen</a></div>` : ""}</td></tr>`;
   }).join("");
@@ -128,17 +126,17 @@ ${u ? `<div style="margin-top:6px"><a href="${escapeHtml(u)}" style="font-size:1
 <div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:${C.muted}">Daily briefing · ${escapeHtml(dateLabel)}</div>
 <h1 style="font-size:22px;line-height:1.25;margin:6px 0 10px">${escapeHtml(digest.headline || "Today in cyber security")}</h1>
 <p style="font-size:15px;line-height:1.55;color:${C.ink2};margin:0 0 8px">${greet} ${escapeHtml(digest.overview || "")}</p></td></tr>
-${stories.length ? `<tr><td style="padding:12px 24px 8px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:${C.muted}">Top stories</td></tr>${storyHtml}` : ""}
-${episodes.length ? `<tr><td style="padding:12px 24px 4px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:${C.muted}">New episodes since the last briefing</td></tr>${epHtml}` : empty}${quiet ? `<tr><td style="padding:8px 24px 0;font-size:13px;color:${C.muted}">No new episode from: ${escapeHtml(quiet)}.</td></tr>` : ""}
+${stories.length ? `<tr><td style="padding:16px 24px 12px"><div style="font-size:20px;font-weight:800;color:${C.ink};border-left:4px solid ${C.signal};padding-left:10px">Top stories</div></td></tr>${storyHtml}` : ""}
+${episodes.length ? `<tr><td style="padding:16px 24px 12px"><div style="font-size:20px;font-weight:800;color:${C.ink};border-left:4px solid ${C.signal};padding-left:10px">New episodes since the last briefing</div></td></tr>${epHtml}` : empty}${quiet ? `<tr><td style="padding:8px 24px 0;font-size:13px;color:${C.muted}">No new episode from: ${escapeHtml(quiet)}.</td></tr>` : ""}
 <tr><td style="padding:16px 24px 24px;border-top:1px solid ${C.line}"><a href="${escapeHtml(archive)}" style="color:${C.signal};font-size:14px">Read on the website</a></td></tr>`,
-    `Summaries are written by My Cyber Learning from each show's public episode notes; listen to the shows for the full story.<br>
+    `Summaries are written by My Cyber Learning from each show's public episodes; listen to the shows for the full story.<br>
 You're receiving this because you subscribed at ${escapeHtml(site)}. <a href="${escapeHtml(unsub)}" style="color:${C.muted}">Unsubscribe</a> (one click, no login).`);
 
   const text = [`My Cyber Learning, daily briefing, ${dateLabel}`, "", digest.headline || "", "", `${name ? `Good morning, ${name}.` : "Good morning."} ${digest.overview || ""}`, "",
     ...(stories.length ? ["TOP STORIES", ...stories.map((s, i) => `${i + 1}. ${s.title}\n   ${s.summary}`), ""] : []),
-    ...(episodes.length ? ["EPISODES", ...episodes.map(e => `- ${shows[e.show] || e.show}: ${e.title}${e.minutes ? ` (${e.minutes} min)` : ""}\n  ${e.summary}\n  ${safeUrl(e.url) || ""}`)] : ["No new episodes since the last briefing."]),
+    ...(episodes.length ? ["NEW EPISODES", ...episodes.map(e => `- ${shows[e.show] || e.show}: ${e.title}${e.minutes ? ` (${e.minutes} min)` : ""}\n  ${e.summary}\n  ${safeUrl(e.url) || ""}`)] : ["No new episodes since the last briefing."]),
     "", `Website: ${archive}`, `Unsubscribe: ${unsub}`].join("\n");
-  return { subject: `Cyber briefing: ${digest.headline || dateLabel}`.slice(0, 140), html, text };
+  return { subject: `MCL Daily Briefing: ${digest.headline || dateLabel}`.slice(0, 120), html, text };
 }
 
 /* ---------- Sending (Resend or Brevo HTTP API; no SDK) ---------- */
