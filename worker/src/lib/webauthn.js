@@ -19,8 +19,8 @@ export const b64u = {
     return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
   },
   decode: str => {
-    if (typeof str !== "string" || !/^[A-Za-z0-9_-]*$/.test(str) || str.length > 8192) throw new WebAuthnError("bad base64url");
-    const s = atob(str.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((str.length + 3) % 4));
+    if (typeof str !== "string" || !/^[A-Za-z0-9_-]*$/.test(str) || str.length > 8192 || str.length % 4 === 1) throw new WebAuthnError("bad base64url");
+    let s; try { s = atob(str.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((str.length + 3) % 4)); } catch { throw new WebAuthnError("bad base64url"); }
     const out = new Uint8Array(s.length);
     for (let i = 0; i < s.length; i++) out[i] = s.charCodeAt(i);
     return out;
@@ -122,9 +122,10 @@ const IMPORT = {
   [-8]: [{ name: "Ed25519" }, { name: "Ed25519" }],
   [-257]: [{ name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" }, { name: "RSASSA-PKCS1-v1_5" }]
 };
-const importKey = (jwk, alg) => {
+const importKey = async (jwk, alg) => {
   if (!IMPORT[alg]) fail("unsupported algorithm");
-  return crypto.subtle.importKey("jwk", { ...jwk, ext: true }, IMPORT[alg][0], false, ["verify"]);
+  try { return await crypto.subtle.importKey("jwk", { ...jwk, ext: true }, IMPORT[alg][0], false, ["verify"]); }
+  catch { return fail("invalid public key"); }
 };
 
 /** ECDSA signatures arrive DER-encoded; Web Crypto wants raw r||s (32 bytes each for P-256). */
@@ -205,7 +206,8 @@ export async function verifyAuthentication(credential, { expectedChallenge, orig
   if (alg === -7) sig = derToRaw(sig);
   const key = await importKey(jwk, alg);
   const signed = concat(authData, await sha256(clientDataJSON));
-  if (!(await crypto.subtle.verify(IMPORT[alg][1], key, sig, signed))) fail("bad signature");
+  let ok = false; try { ok = await crypto.subtle.verify(IMPORT[alg][1], key, sig, signed); } catch { ok = false; }
+  if (!ok) fail("bad signature");
   // Counter: synced passkeys report 0; if either side is non-zero it must go up, or the key may have been cloned.
   if ((ad.signCount !== 0 || storedSignCount !== 0) && ad.signCount <= storedSignCount) fail("signature counter did not increase");
   return { signCount: ad.signCount, backedUp: ad.bs };

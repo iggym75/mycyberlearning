@@ -3,7 +3,7 @@
 // cryptographic checks in worker/src/lib/webauthn.js run exactly as they would against a phone or laptop.
 import { test, before } from "node:test";
 import assert from "node:assert/strict";
-import { webcrypto as wc, createHash } from "node:crypto";
+import { webcrypto as wc, createHash, createHmac } from "node:crypto";
 import { localD1 } from "../d1.mjs";
 import worker from "../../worker/src/index.js";
 import { insertItem } from "../../worker/src/lib/db.js";
@@ -193,9 +193,14 @@ test("second passkey, removing passkeys, recovery code, sign out everywhere, del
   let me = await (await call("/api/account", { cookie })).json();
   assert.equal(me.passkeys.length, 2);
   assert.equal((await login(b)).r.status, 200);
-  // Can't remove the last passkey
-  assert.equal((await call(`/api/account/passkeys/${encodeURIComponent(me.passkeys[1].id)}`, { method: "DELETE", cookie })).status, 200);
+  // Removing a passkey signs every other device out but keeps this one signed in
+  const otherDevice = (await login(a)).cookie;
+  const rm = await call(`/api/account/passkeys/${encodeURIComponent(me.passkeys[1].id)}`, { method: "DELETE", cookie });
+  assert.equal(rm.status, 200);
+  assert.equal((await call("/api/account/list", { cookie: otherDevice })).status, 401);
+  cookie = cookieOf(rm);
   me = await (await call("/api/account", { cookie })).json();
+  // Can't remove the last passkey
   assert.equal((await call(`/api/account/passkeys/${encodeURIComponent(me.passkeys[0].id)}`, { method: "DELETE", cookie })).status, 400);
   // Recovery code signs in once, replaces itself and ends other sessions
   const rc = await call("/api/account/recover", { method: "POST", body: { code: first.data.recoveryCode.toLowerCase().replace(/-/g, " ") } });
@@ -224,4 +229,44 @@ test("new accounts stop at the daily cap", async () => {
     const r = await call("/api/account/register/options", { method: "POST", body: {} });
     assert.equal(r.status, 503);
   } finally { delete process.env.ACCOUNT_DAILY_CAP; }
+});
+
+const mint = (aid, gen, at) => { const payload = Buffer.from(JSON.stringify({ aid, gen, at, exp: Math.floor(Date.now() / 1000) + 3600 })).toString("base64url");
+  return `__Host-mcl_user=${payload}.${createHmac("sha256", "z".repeat(48)).update("user:" + payload).digest("base64url")}`; };
+
+test("sensitive changes need a passkey sign-in in the last 10 minutes", async () => {
+  const a = await makeAuthenticator(); const { cookie } = await register(a);
+  const aid = a.userHandle, stale = mint(aid, 0, Math.floor(Date.now() / 1000) - 3600);
+  assert.equal((await call("/api/account/list", { cookie: stale })).status, 200);                       // ordinary use is fine
+  for (const [path, method] of [["/api/account/register/options", "POST"], ["/api/account/recovery-code", "POST"], ["/api/account", "DELETE"]]) {
+    const r = await call(path, { method, body: method === "POST" ? {} : undefined, cookie: stale });
+    assert.equal(r.status, 403, path); assert.equal((await r.json()).reauth, true);
+  }
+  // A new recovery code (fresh session) ends other sessions
+  const other = (await login(a)).cookie;
+  const nc = await call("/api/account/recovery-code", { method: "POST", body: {}, cookie });
+  assert.equal(nc.status, 200);
+  assert.equal((await call("/api/account/list", { cookie: other })).status, 401);
+  assert.equal((await call("/api/account/list", { cookie: cookieOf(nc) })).status, 200);
+});
+
+test("sign-in needs the user handle to match, and marking seen is one write", async () => {
+  const a = await makeAuthenticator(); const { cookie } = await register(a);
+  const opts = await (await call("/api/account/login/options", { method: "POST", body: {} })).json();
+  const cred = await a.get(opts); cred.response.userHandle = null;
+  assert.equal((await call("/api/account/login/verify", { method: "POST", body: { credential: cred } })).status, 400);
+  await call("/api/account/list/darknet-diaries", { method: "PUT", body: {}, cookie });
+  await call("/api/account/list/risky-business", { method: "PUT", body: {}, cookie });
+  const r = await call("/api/account/list/seen", { method: "POST", body: {}, cookie });
+  assert.equal(r.status, 200);
+  const l = (await (await call("/api/account/list", { cookie })).json()).items;
+  assert.ok(l.every(x => x.seen >= x.added));
+  assert.equal((await call("/api/account/list/merge", { method: "POST", body: { items: Array.from({ length: 501 }, (_, i) => ({ id: "x" + i })) }, cookie })).status, 400);
+});
+
+test("malformed base64 and keys are a clean 400, not a 500", async () => {
+  const a = await makeAuthenticator();
+  const opts = await (await call("/api/account/register/options", { method: "POST", body: {} })).json();
+  const cred = a.create(opts); cred.response.attestationObject = "abcde";
+  assert.equal((await call("/api/account/register/verify", { method: "POST", body: { credential: cred } })).status, 400);
 });

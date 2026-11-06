@@ -1027,9 +1027,16 @@ function passkeyError(e, creating){
   if (creating && e?.name === "InvalidStateError") return toast("This device already has a passkey for My Cyber Learning. Use Sign in instead.");
   toast("Your device couldn't use a passkey here. Please try again.");
 }
+// Sensitive changes need a recent passkey sign-in: if the server asks, confirm with the passkey and retry once.
+async function confirmed(call){
+  let r = await call();
+  if (r.status === 403 && r.data.reauth){ toast("Confirm it's you with your passkey"); if (!(await signInPasskey(true))) return null; r = await call(); }
+  return r;
+}
 async function createPasskey(adding){
   if (!passkeysOk()) return toast("This browser doesn't support passkeys.");
-  const o = await aj("/api/account/register/options", "POST", {});
+  const o = adding ? await confirmed(() => aj("/api/account/register/options", "POST", {})) : await aj("/api/account/register/options", "POST", {});
+  if (!o) return;
   if (!o.ok) return toast(o.data.error || "Please try again.");
   const pk = o.data.publicKey;
   pk.challenge = b64uDec(pk.challenge); pk.user.id = b64uDec(pk.user.id);
@@ -1043,18 +1050,19 @@ async function createPasskey(adding){
   if (v.data.recoveryCode) await showCode(v.data.recoveryCode);
   await favs.load(); render(); toast("Account created. Your list now follows you to any device.");
 }
-async function signInPasskey(){
-  if (!passkeysOk()) return toast("This browser doesn't support passkeys.");
+async function signInPasskey(quiet){
+  if (!passkeysOk()){ toast("This browser doesn't support passkeys."); return false; }
   const o = await aj("/api/account/login/options", "POST", {});
-  if (!o.ok) return toast(o.data.error || "Please try again.");
+  if (!o.ok){ toast(o.data.error || "Please try again."); return false; }
   const pk = o.data.publicKey; pk.challenge = b64uDec(pk.challenge);
-  let cred; try { cred = await navigator.credentials.get({ publicKey: pk }); } catch (e) { return passkeyError(e, false); }
+  let cred; try { cred = await navigator.credentials.get({ publicKey: pk }); } catch (e) { passkeyError(e, false); return false; }
   const r = cred.response;
   const credential = { id: cred.id, rawId: b64uEnc(cred.rawId), type: cred.type,
     response: { clientDataJSON: b64uEnc(r.clientDataJSON), authenticatorData: b64uEnc(r.authenticatorData), signature: b64uEnc(r.signature), userHandle: r.userHandle ? b64uEnc(r.userHandle) : null } };
   const v = await aj("/api/account/login/verify", "POST", { credential });
-  if (!v.ok) return toast(v.data.error || "Please try again.");
-  await favs.load(); render(); toast("Signed in");
+  if (!v.ok){ toast(v.data.error || "Please try again."); return false; }
+  if (!quiet){ await favs.load(); render(); toast("Signed in"); }
+  return true;
 }
 function showCode(code){
   return new Promise(resolve => {
@@ -1085,6 +1093,7 @@ async function openAcct(){
   $("#acctBody").innerHTML = `<h3 style="margin-top:0">Passkeys</h3>
     <ul class="pk-list">${r.data.passkeys.map(p => `<li><span><b>${esc(p.label || "Passkey")}</b><small>${p.synced ? "Synced across your devices" : "Saved on one device"} · added ${fmt(p.created)} · last used ${fmt(p.lastUsed)}</small></span>${r.data.passkeys.length > 1 ? `<button class="btn ghost sm" type="button" data-pk-remove="${esc(p.id)}">Remove</button>` : ""}</li>`).join("")}</ul>
     <p style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button class="btn sm" type="button" data-acct="add">Add a passkey on another device</button><button class="btn sm" type="button" data-acct="newcode">Get a new recovery code</button></p>
+    <p class="muted" style="font-size:13px;margin:0 0 4px">Lost a device? Remove its passkey: every other device is signed out too. Getting a new recovery code does the same.</p>
     <h3>Your data</h3>
     <p style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn sm" href="/api/account/export" download>Download my data</a><button class="btn sm" type="button" data-acct="logout-all">Sign out everywhere</button><button class="btn sm danger" type="button" data-acct="delete">Delete account</button></p>
     <p class="muted" style="font-size:13px;margin:0">Created ${fmt(r.data.created)}. We hold no email, name or password, only your passkeys' public keys and your saved items.</p>`;
@@ -1092,8 +1101,9 @@ async function openAcct(){
 }
 async function removePasskey(id, b){
   if (!b.dataset.confirm){ b.dataset.confirm = "1"; b.textContent = "Confirm remove"; return; }
-  const r = await aj(`/api/account/passkeys/${encodeURIComponent(id)}`, "DELETE");
-  toast(r.ok ? "Passkey removed" : r.data.error || "Please try again."); openAcct();
+  const r = await confirmed(() => aj(`/api/account/passkeys/${encodeURIComponent(id)}`, "DELETE"));
+  if (!r) return;
+  toast(r.ok ? "Passkey removed. Any other device signed in to your account has been signed out." : r.data.error || "Please try again."); openAcct();
 }
 async function acctAction(a, b){
   if (a === "create") return createPasskey(false);
@@ -1109,16 +1119,18 @@ async function acctAction(a, b){
     await favs.load(); render(); toast("Signed in. Add a passkey from Manage account so you don't need the code next time.");
     return;
   }
-  if (a === "newcode"){ const r = await aj("/api/account/recovery-code", "POST", {}); if (r.ok){ $("#acctDlg").close(); await showCode(r.data.recoveryCode); } else toast(r.data.error || "Please try again."); return; }
+  if (a === "newcode"){ const r = await confirmed(() => aj("/api/account/recovery-code", "POST", {})); if (!r) return; if (r.ok){ $("#acctDlg").close(); await showCode(r.data.recoveryCode); } else toast(r.data.error || "Please try again."); return; }
   if (a === "logout" || a === "logout-all"){
-    await aj("/api/account/logout", "POST", { everywhere: a === "logout-all" });
+    const r = await aj("/api/account/logout", "POST", { everywhere: a === "logout-all" });
+    if (!r.ok) return toast(r.data.error || "Couldn't sign out. Check your connection and try again.");
     if ($("#acctDlg").open) $("#acctDlg").close();
     FAV.signedIn = false; FAV.list = localFav(); FAV.snapshot = null; render(); toast(a === "logout-all" ? "Signed out on every device" : "Signed out");
     return;
   }
   if (a === "delete"){
     if (!b.dataset.confirm){ b.dataset.confirm = "1"; b.textContent = "Yes, delete my account and list"; return; }
-    const r = await aj("/api/account", "DELETE");
+    const r = await confirmed(() => aj("/api/account", "DELETE"));
+    if (!r) return;
     if (!r.ok) return toast(r.data.error || "Please try again.");
     $("#acctDlg").close(); FAV.signedIn = false; FAV.list = localFav(); render(); toast("Your account and list have been deleted");
   }

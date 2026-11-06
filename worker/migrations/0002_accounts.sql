@@ -5,7 +5,8 @@ CREATE TABLE IF NOT EXISTS accounts (
   created_at    TEXT NOT NULL,
   last_seen     TEXT,
   recovery_hash TEXT UNIQUE,               -- SHA-256 of the one-time recovery code (128-bit random); null once used until a new one is made
-  session_gen   INTEGER NOT NULL DEFAULT 0 -- bumping it signs the account out everywhere
+  session_gen   INTEGER NOT NULL DEFAULT 0, -- bumping it signs the account out everywhere
+  list_seen_at  TEXT                       -- when the person last opened My list: drives the "new" badges
 );
 
 CREATE TABLE IF NOT EXISTS passkeys (
@@ -33,6 +34,5 @@ CREATE TABLE IF NOT EXISTS favourites (
   account_id  TEXT NOT NULL REFERENCES accounts(id) ON DELETE CASCADE,
   item_id     TEXT NOT NULL,
   added_at    TEXT NOT NULL,
-  seen_at     TEXT NOT NULL,               -- when the person last opened My list: drives the "new" badges
   PRIMARY KEY (account_id, item_id)
 );
