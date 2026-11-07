@@ -11464,8 +11464,7 @@
       ],
       "verified": true,
       "id": "expert-dave-kennedy",
-      "logo": "covers/expert-dave-kennedy.jpg",
-      "logoSource": "TrustedSec team page"
+      "noPhoto": true
     },
     {
       "type": "person",
@@ -11568,8 +11567,7 @@
       ],
       "verified": true,
       "id": "expert-ed-skoudis",
-      "logo": "covers/expert-ed-skoudis.jpg",
-      "logoSource": "photo supplied by curator"
+      "noPhoto": true
     },
     {
       "type": "person",
@@ -11693,9 +11691,7 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-ian-coldwater",
-      "logo": "covers/expert-ian-coldwater.jpg",
-      "logoSource": "DevOpsDays speaker page"
+      "id": "expert-ian-coldwater"
     },
     {
       "type": "person",
@@ -12058,9 +12054,7 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-kim-zetter",
-      "logo": "covers/expert-kim-zetter.jpg",
-      "logoSource": "Global Speakers Bureau page"
+      "id": "expert-kim-zetter"
     },
     {
       "type": "person",
@@ -12342,8 +12336,7 @@
       ],
       "verified": true,
       "id": "expert-nicole-perlroth",
-      "logo": "covers/expert-nicole-perlroth.jpg",
-      "logoSource": "Global Speakers Bureau page"
+      "noPhoto": true
     },
     {
       "type": "person",
@@ -12510,9 +12503,7 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-rob-fuller",
-      "logo": "covers/expert-rob-fuller.jpg",
-      "logoSource": "Security Affairs page"
+      "id": "expert-rob-fuller"
     },
     {
       "type": "person",
@@ -12571,9 +12562,7 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-rory-mccune",
-      "logo": "covers/expert-rory-mccune.jpg",
-      "logoSource": "LinkedIn profile photo (supplied by curator)"
+      "id": "expert-rory-mccune"
     },
     {
       "type": "person",
@@ -12794,8 +12783,7 @@
       ],
       "verified": true,
       "id": "expert-wendy-nather",
-      "logo": "covers/expert-wendy-nather.jpg",
-      "logoSource": "Atlantic Council expert page"
+      "noPhoto": true
     },
     {
       "type": "person",
@@ -12834,8 +12822,7 @@
       ],
       "verified": true,
       "id": "expert-window-snyder",
-      "logo": "covers/expert-window-snyder.jpg",
-      "logoSource": "TechCrunch author page"
+      "noPhoto": true
     },
     {
       "type": "person",
