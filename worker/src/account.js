@@ -13,6 +13,7 @@
 // - Nothing personal is stored: an account is a random id, passkey public keys, a hashed recovery code and item ids.
 import { createHmac, randomBytes, timingSafeEqual, createHash } from "node:crypto";
 import { json, clientIp, rateLimited } from "./lib/shared.js";
+import { suppress } from "./admin.js";
 import { verifyRegistration, verifyAuthentication, challengeOf, newChallenge, ALGS, b64u, WebAuthnError } from "./lib/webauthn.js";
 
 const COOKIE = "__Host-mcl_user";
@@ -223,7 +224,9 @@ export const recover = handler(async (req, env) => {
 export const status = handler(async (req, env, ctx, params, acc) => {
   if (!acc) return json(200, { signedIn: false });
   const keys = (await env.DB.prepare("SELECT id, label, backed_up, created_at, last_used FROM passkeys WHERE account_id = ? ORDER BY created_at").bind(acc.id).all()).results;
-  return json(200, { signedIn: true, created: acc.created_at, hasRecoveryCode: !!acc.has_recovery,
+  const { profileOf } = await import("./account-email.js"); // loaded lazily: that module imports helpers from this one
+  const p = await profileOf(env, acc.id);
+  return json(200, { signedIn: true, created: acc.created_at, hasRecoveryCode: !!acc.has_recovery, profile: p,
     passkeys: keys.map(k => ({ id: k.id, label: k.label, synced: !!k.backed_up, created: k.created_at, lastUsed: k.last_used })) });
 });
 
@@ -258,10 +261,14 @@ export const removePasskey = handler(async (req, env, ctx, params, acc) => {
 
 // DELETE /api/account: erase the account, its passkeys and its list.
 export const remove = handler(async (req, env, ctx, params, acc) => {
+  // Deleting the account also stops the daily briefing to its verified address (the person asked us to forget them).
+  const row = await env.DB.prepare("SELECT email_id FROM accounts WHERE id = ?").bind(acc.id).first();
+  if (row?.email_id) await suppress(env.DB, row.email_id, "account deleted");
   await env.DB.batch([
     env.DB.prepare("DELETE FROM favourites WHERE account_id = ?").bind(acc.id),
     env.DB.prepare("DELETE FROM passkeys WHERE account_id = ?").bind(acc.id),
     env.DB.prepare("DELETE FROM webauthn_challenges WHERE account_id = ?").bind(acc.id),
+    env.DB.prepare("DELETE FROM login_links WHERE account_id = ?").bind(acc.id),
     env.DB.prepare("DELETE FROM accounts WHERE id = ?").bind(acc.id)
   ]);
   return json(200, { ok: true }, { "set-cookie": clearCookie });
@@ -323,6 +330,11 @@ export const seen = handler(async (req, env, ctx, params, acc) => {
 // GET /api/account/export: everything we hold for this account, as JSON.
 export const exportData = handler(async (req, env, ctx, params, acc) => {
   const keys = (await env.DB.prepare("SELECT id, label, alg, backed_up, created_at, last_used FROM passkeys WHERE account_id = ?").bind(acc.id).all()).results;
-  return json(200, { account: { created: acc.created_at }, passkeys: keys.map(k => ({ ...k, publicKeyOnly: true })), list: await listRows(env, acc.id) },
+  const { profileOf } = await import("./account-email.js"); // loaded lazily: that module imports helpers from this one
+  const p = await profileOf(env, acc.id);
+  const c = await env.DB.prepare("SELECT updates_consent_at, updates_consent_text FROM accounts WHERE id = ?").bind(acc.id).first();
+  return json(200, { account: { created: acc.created_at, ...p, updatesConsent: c?.updates_consent_at ? { at: c.updates_consent_at, text: c.updates_consent_text } : null }, passkeys: keys.map(k => ({ ...k, publicKeyOnly: true })), list: await listRows(env, acc.id) },
     { "content-disposition": 'attachment; filename="my-cyber-learning-list.json"' });
 }, { needSession: true });
+
+export const _internal = { handler, sessionCookie, clearCookie, limited, body, refuse, now, site, REAUTH_S };

@@ -1,5 +1,6 @@
 // Admin endpoints. Every handler is wrapped in guard(): a valid admin session cookie, and same-origin JSON for writes.
-import { normaliseEmail, subscriberId } from "./lib/mail.js";
+import { normaliseEmail, subscriberId, renderUpdateEmail, sendMail, signToken } from "./lib/mail.js";
+import { dispatchWorkflow } from "./cron.js";
 import { json, slug, normaliseIsbn, isHttpUrl, isAmazonMusicUrl, isPlatformUrl, isSocialUrl, SOCIAL_FIELDS, DOMAIN_KEYS, FREQ_KEYS, KIND_KEYS, COST_KEYS } from "./lib/shared.js";
 import { rowToItem, getItemRow, upsertItem, insertItem, deleteItem } from "./lib/db.js";
 import { guard } from "./auth.js";
@@ -163,3 +164,70 @@ export async function suppress(db, id, reason = "unsubscribed") {
       confirmed_at = NULL, last_sent = NULL, suppressed_at = excluded.suppressed_at, reason = excluded.reason`)
     .bind(id, new Date().toISOString(), reason).run();
 }
+
+/* ---------- Update emails ("new features and releases") ---------- */
+// Drafted, previewed and tested here; sent by the updates.yml workflow (scripts/send-updates.mjs) within the email
+// plan's daily allowance, to verified account emails that opted in. Nobody else is ever sent one.
+const SITE_ORIGIN = () => { try { return new URL(process.env.SITE_URL).origin; } catch { return "https://mycyberlearning.co.uk"; } };
+const audienceCount = async env => (await env.DB.prepare("SELECT COUNT(*) AS n FROM accounts WHERE updates_opt_in = 1 AND email IS NOT NULL AND email_verified_at IS NOT NULL").first())?.n || 0;
+const validUpdate = b => {
+  const subject = String(b?.subject ?? "").replace(/[\u0000-\u001f]/g, " ").trim(), body = String(b?.body ?? "").replace(/\r/g, "").replace(/[\u0000-\u0008\u000b-\u001f]/g, "").trim();
+  if (subject.length < 3 || subject.length > 120) return { error: "The subject needs 3 to 120 characters." };
+  if (body.length < 10 || body.length > 6000) return { error: "The message needs 10 to 6,000 characters." };
+  return { subject, body };
+};
+const renderUpdate = (u, name, aid = "A".repeat(22)) => {
+  const site = SITE_ORIGIN();
+  return renderUpdateEmail({ subject: u.subject, body: u.body, name, siteUrl: site, unsubscribeUrl: `${site}/api/account/updates/unsubscribe?a=${aid}&t=${signToken("updates-unsub", aid)}` });
+};
+
+// GET /api/admin/updates
+export const listUpdates = guard(async (req, env) => {
+  const { results } = await env.DB.prepare("SELECT id, subject, body, status, created_at, updated_at, queued_at, finished_at, sent, failed FROM announcements ORDER BY id DESC LIMIT 20").all();
+  return json(200, { audience: await audienceCount(env), items: results });
+});
+// POST /api/admin/updates { id?, subject, body }: create or edit a draft
+export const saveUpdate = guard(async (req, env) => {
+  const b = await req.json().catch(() => null), v = validUpdate(b);
+  if (v.error) return json(400, v);
+  const t = new Date().toISOString();
+  if (b.id) {
+    const r = await env.DB.prepare("UPDATE announcements SET subject = ?, body = ?, updated_at = ? WHERE id = ? AND status = 'draft'").bind(v.subject, v.body, t, Number(b.id)).run();
+    if (!(r.meta?.changes ?? 0)) return json(409, { error: "Only drafts can be edited." });
+    return json(200, { ok: true, id: Number(b.id) });
+  }
+  const r = await env.DB.prepare("INSERT INTO announcements (subject, body, status, created_at, updated_at) VALUES (?, ?, 'draft', ?, ?) RETURNING id").bind(v.subject, v.body, t, t).first();
+  return json(200, { ok: true, id: r.id });
+});
+const getUpdate = (env, id) => env.DB.prepare("SELECT * FROM announcements WHERE id = ?").bind(Number(id)).first();
+// POST /api/admin/updates/:id/preview
+export const previewUpdate = guard(async (req, env, ctx, { id }) => {
+  const u = await getUpdate(env, id); if (!u) return json(404, { error: "Not found." });
+  const m = renderUpdate(u, "Sam");
+  return json(200, { subject: m.subject, html: m.html, audience: await audienceCount(env) });
+});
+// POST /api/admin/updates/:id/test { to }: one test copy, at most 10 a day
+export const testUpdate = guard(async (req, env, ctx, { id }) => {
+  const u = await getUpdate(env, id); if (!u) return json(404, { error: "Not found." });
+  const b = await req.json().catch(() => ({})), to = normaliseEmail(b.to);
+  if (!to) return json(400, { error: "Enter the address to send the test to." });
+  const day = new Date().toISOString().slice(0, 10);
+  const n = (await env.DB.prepare("SELECT n FROM stats WHERE day = ? AND dim = 'mail' AND val = 'test'").bind(day).first())?.n || 0;
+  if (n >= 10) return json(429, { error: "That's 10 test emails today. Try again tomorrow." });
+  await env.DB.prepare("INSERT INTO stats (day, dim, val, n) VALUES (?, 'mail', 'test', 1) ON CONFLICT(day, dim, val) DO UPDATE SET n = n + 1").bind(day).run();
+  const m = renderUpdate(u, "");
+  try { await sendMail({ to, ...m, subject: `[Test] ${m.subject}` }); } catch (e) { console.error("test update email failed:", e.message); return json(502, { error: "The email provider didn't accept the test. Check the mail settings." }); }
+  return json(200, { ok: true });
+});
+// POST /api/admin/updates/:id/send: queue for sending, and start the sending workflow now if it can be started
+export const sendUpdate = guard(async (req, env, ctx, { id }) => {
+  const r = await env.DB.prepare("UPDATE announcements SET status = 'queued', queued_at = ? WHERE id = ? AND status = 'draft'").bind(new Date().toISOString(), Number(id)).run();
+  if (!(r.meta?.changes ?? 0)) return json(409, { error: "Only a draft can be sent, and only once." });
+  const d = await dispatchWorkflow("updates.yml");
+  return json(200, { ok: true, audience: await audienceCount(env), startedNow: !!d.ok });
+});
+// DELETE /api/admin/updates/:id (drafts only)
+export const deleteUpdate = guard(async (req, env, ctx, { id }) => {
+  const r = await env.DB.prepare("DELETE FROM announcements WHERE id = ? AND status = 'draft'").bind(Number(id)).run();
+  return (r.meta?.changes ?? 0) ? json(200, { ok: true }) : json(409, { error: "Only drafts can be deleted." });
+});

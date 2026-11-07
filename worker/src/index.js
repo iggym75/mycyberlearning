@@ -6,6 +6,7 @@ import * as admin from "./admin.js";
 import * as news from "./news.js";
 import * as auth from "./auth.js";
 import * as account from "./account.js";
+import * as accountEmail from "./account-email.js";
 import { dispatchBriefing } from "./cron.js";
 
 // [method(s), path pattern, handler]. `:id` captures one URL-encoded segment.
@@ -23,6 +24,11 @@ const ROUTES = [
   ["POST", "/api/account/login/options", account.loginOptions],
   ["POST", "/api/account/login/verify", account.loginVerify],
   ["POST", "/api/account/recover", account.recover],
+  ["POST", "/api/account/recover/email", accountEmail.requestLoginLink],
+  ["GET,POST", "/api/account/email-login", accountEmail.emailLogin],
+  ["GET,POST", "/api/account/email/confirm", accountEmail.confirmEmail],
+  ["GET,POST", "/api/account/updates/unsubscribe", accountEmail.updatesUnsubscribe],
+  ["PUT", "/api/account/profile", accountEmail.profile],
   ["POST", "/api/account/logout", account.logout],
   ["POST", "/api/account/recovery-code", account.newRecovery],
   ["DELETE", "/api/account/passkeys/:id", account.removePasskey],
@@ -35,6 +41,12 @@ const ROUTES = [
   ["GET", "/api/admin/submissions", admin.listSubmissions],
   ["POST", "/api/admin/submissions/:id", admin.decide],
   ["PATCH,DELETE", "/api/admin/items/:id", admin.item],
+  ["GET", "/api/admin/updates", admin.listUpdates],
+  ["POST", "/api/admin/updates", admin.saveUpdate],
+  ["POST", "/api/admin/updates/:id/preview", admin.previewUpdate],
+  ["POST", "/api/admin/updates/:id/test", admin.testUpdate],
+  ["POST", "/api/admin/updates/:id/send", admin.sendUpdate],
+  ["DELETE", "/api/admin/updates/:id", admin.deleteUpdate],
   ["GET", "/api/admin/insights", admin.insights],
   ["GET", "/api/admin/export", admin.exportItems],
   ["GET", "/api/admin/subscribers/export", admin.exportSubscribers],

@@ -70,12 +70,12 @@ export async function subscribe(req, env) {
 
 // GET /api/subscribe/confirm?s=<id>&t=<token> shows a "Confirm" button; POST confirms.
 // Email security scanners open links automatically, so a GET must never change anything.
-const htmlPage = (title, body, status = 200) => new Response(`<!doctype html><html lang="en-GB"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(title)}</title>
+export const htmlPage = (title, body, status = 200) => new Response(`<!doctype html><html lang="en-GB"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(title)}</title>
 <body style="font-family:system-ui,sans-serif;max-width:520px;margin:12vh auto;padding:0 16px;color:#0f1c2e;line-height:1.5"><h1 style="font-size:22px">${escapeHtml(title)}</h1>${body}
 <p><a href="/" style="color:#0b7a75">Back to My Cyber Learning</a></p></body></html>`, { status, headers: {
   "content-type": "text/html; charset=utf-8", "cache-control": "no-store", "referrer-policy": "no-referrer", "x-content-type-options": "nosniff",
   "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; form-action 'self'; frame-ancestors 'none'; base-uri 'none'" } });
-const button = label => `<button type="submit" style="background:#0b7a75;color:#fff;border:0;border-radius:8px;padding:10px 16px;font-size:15px;cursor:pointer">${escapeHtml(label)}</button>`;
+export const button = label => `<button type="submit" style="background:#0b7a75;color:#fff;border:0;border-radius:8px;padding:10px 16px;font-size:15px;cursor:pointer">${escapeHtml(label)}</button>`;
 
 export async function confirm(req, env) {
   const q = new URL(req.url).searchParams, id = String(q.get("s") || ""), token = String(q.get("t") || "");

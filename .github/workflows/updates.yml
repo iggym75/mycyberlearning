@@ -1,0 +1,37 @@
+# Sends queued "new features and releases" emails written in Admin → Send an update.
+# Started by the Worker when the admin presses Send (if GH_DISPATCH_TOKEN is set), and every day after the briefing as a
+# fallback and to finish sends that didn't fit in one day's email allowance. With nothing queued it does nothing.
+name: Update emails
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 10 * * *"   # after the 08:30 UK briefing in both GMT and BST
+
+permissions: { contents: read }
+concurrency: { group: update-emails, cancel-in-progress: false }
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, persist-credentials: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm install --no-audit --no-fund --ignore-scripts --omit=dev
+      - name: Send queued update emails
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_DATABASE_ID: ${{ vars.D1_DATABASE_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_D1_TOKEN }}
+          MAIL_PROVIDER: ${{ vars.MAIL_PROVIDER || 'resend' }}
+          MAIL_API_KEY: ${{ secrets.MAIL_API_KEY }}
+          TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
+          MAIL_FROM: ${{ vars.MAIL_FROM || 'My Cyber Learning <briefing@mycyberlearning.co.uk>' }}
+          SITE_URL: ${{ vars.SITE_URL || 'https://mycyberlearning.co.uk' }}
+          MAIL_RATE_PER_MINUTE: ${{ vars.MAIL_RATE_PER_MINUTE || '25' }}
+          MAIL_DAILY_LIMIT: ${{ vars.MAIL_DAILY_LIMIT || '' }}
+        run: node scripts/send-updates.mjs

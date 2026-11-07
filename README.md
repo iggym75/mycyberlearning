@@ -9,7 +9,7 @@
 - A weekly automated job keeps logos, links, cadence, launch dates, ratings and tags current
 - **Daily briefing**: every morning at 08:30 UK time, the news podcasts' new episodes since the previous briefing are summarised on the site (`#news`, 30-day archive) and emailed to confirmed subscribers
 - The five core news shows (`data/briefing.json`) are transcribed with an open-source speech model in the GitHub job, so the summaries reflect what was actually said, not just the show notes
-- **My list**: anyone can save podcasts, books, platforms and experts with the heart button; a free account with a passkey (no password, no email) keeps the list on every device, with "New episode" badges for saved podcasts
+- **My list**: anyone can save podcasts, books, platforms and experts with the heart button; a free account with a passkey (no password, no email) keeps the list on every device, with "New episode" badges for saved podcasts. Optional name and email give one-click briefing sign-up, sign-in links by email, and occasional new-feature emails written from Admin → Send an update
 - Privacy-first: double opt-in, one-click unsubscribe, no tracking pixels, cookieless aggregate analytics that honour Global Privacy Control / Do Not Track. See [SECURITY.md](SECURITY.md)
 
 ---
