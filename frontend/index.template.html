@@ -164,6 +164,7 @@ button.logo:hover .zoom-hint,button.logo:focus-visible .zoom-hint{opacity:1}
 .logo.site{background:#fff!important;color:transparent}
 .logo.site img{object-fit:contain;padding:9%}
 .logo.person{border-radius:50%}
+.logo.ring{background:none;overflow:visible}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .logo.book{border-radius:3px 6px 6px 3px;box-shadow:inset 5px 0 0 rgba(0,0,0,.18);height:84px}
 .logo.book img{box-shadow:0 1px 3px rgba(0,0,0,.25)}
@@ -875,7 +876,17 @@ function imageCredit(i){
   if (i.type === "book") return /Open Library/.test(s) ? "Open Library (publisher's cover)" : "the publisher's cover";
   return "the site's own icon";
 }
+// Experts without a picture of their own get a topic ring: one coloured arc per topic (colours from the taxonomy),
+// around their initials. Drawn here, so there's no image to license.
+const DOMAIN_HUE = Object.fromEntries((TAX.domains || []).map(d => [d.key, d.hue ?? 180]));
+function topicRing(i){
+  const d = (i.domains || []).slice(0, 4), r = 27, C = 2 * Math.PI * r, seg = C / Math.max(1, d.length);
+  const arcs = (d.length ? d : ["_"]).map((t, k) => `<circle cx="32" cy="32" r="${r}" fill="none" stroke="hsl(${DOMAIN_HUE[t] ?? 180} 58% 46%)" stroke-width="6"${d.length > 1 ? ` stroke-dasharray="${(seg - 3).toFixed(2)} ${(C - seg + 3).toFixed(2)}" stroke-dashoffset="${(-k * seg).toFixed(2)}" stroke-linecap="round"` : ""} transform="rotate(-90 32 32)"/>`).join("");
+  const label = (i.domains || []).map(k => DOM[k]?.label || k).join(", ");
+  return `<div class="logo person ring" role="img" aria-label="${esc(i.name)}${label ? `: ${esc(label)}` : ""}"><svg viewBox="0 0 64 64" width="100%" height="100%" aria-hidden="true"><circle cx="32" cy="32" r="31" fill="var(--surface)"/>${arcs}<text x="32" y="39.5" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="20" fill="var(--ink)">${esc(initials(i.name.replace(/\s*\(.*?\)\s*/g, " ").trim()))}</text></svg></div>`;
+}
 function logo(i){
+  if (i.type === "person" && !i.logo) return topicRing(i);
   const h = hue(i.id), bg = `linear-gradient(140deg,hsl(${h} 55% 38%),hsl(${(h+40)%360} 60% 26%))`;
   const cls = `logo${i.type==="book"?" book":""}${i.type==="person"?" person":""}${i.type==="platform"&&i.logo?" site":""}`;
   if (!i.logo) return `<div class="${cls}" style="background:${bg}" aria-hidden="true">${esc(initials(i.name))}</div>`;
