@@ -286,7 +286,7 @@ test("malformed base64 and keys are a clean 400, not a 500", async () => {
 
 /* ---------- Optional name and email, email sign-in links, update emails ---------- */
 const lastMail = () => outbox[outbox.length - 1];
-const linkIn = (m, path) => { const u = new URL(m.text.match(new RegExp(`https://\\S+${path.replace(/\//g, "\\/")}\\S+`))[0]); return u.pathname + u.search; };
+const linkIn = (m, path) => { const u = new URL(m.text.match(/https:\/\/\S+/g).find(x => x.includes(path))); return u.pathname + u.search; };
 const post = (path, headers = {}, form) => worker.fetch(new Request(SITE + path, { method: "POST",
   headers: { "cf-connecting-ip": "198.51.100.250", "sec-fetch-site": "same-origin", ...(form ? { "content-type": "application/x-www-form-urlencoded" } : {}), ...headers },
   body: form ? new URLSearchParams(form).toString() : undefined }), env, ctx);

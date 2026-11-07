@@ -90,7 +90,8 @@ export function renderConfirmEmail({ confirmUrl, siteUrl }) {
 export function renderAccountEmail({ kind, url: rawUrl, siteUrl, name }) {
   const url = safeUrl(rawUrl), site = safeUrl(siteUrl);
   if (!url || !site) throw new Error("Invalid URL for account email");
-  const hi = name ? `Hi ${escapeHtml(name)}, ` : "";
+  // Plain text first; the HTML version escapes it. (Never derive text by stripping tags from HTML.)
+  const hi = name ? `Hi ${String(name)}, ` : "";
   const t = kind === "login"
     ? { subject: "Your My Cyber Learning sign-in link", title: "Sign in to My list", cta: "Sign in",
         body: `${hi}someone (hopefully you) asked for a link to sign in to your My list account. It works once and expires in 30 minutes. Signing in this way signs your other devices out.`,
@@ -100,11 +101,11 @@ export function renderAccountEmail({ kind, url: rawUrl, siteUrl, name }) {
         ignore: "If you didn't ask for this, ignore this email and the address won't be added." };
   const html = wrap(`<tr><td style="padding:24px">
 <h1 style="font-size:22px;margin:0 0 12px">${t.title}</h1>
-<p style="font-size:15px;line-height:1.55;color:${C.ink2};margin:0 0 20px">${t.body}</p>
+<p style="font-size:15px;line-height:1.55;color:${C.ink2};margin:0 0 20px">${escapeHtml(t.body)}</p>
 <p style="margin:0 0 20px"><a href="${escapeHtml(url)}" style="display:inline-block;background:${C.signal};color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:8px">${t.cta}</a></p>
-<p style="font-size:13px;color:${C.muted};margin:0">${t.ignore}</p></td></tr>`,
+<p style="font-size:13px;color:${C.muted};margin:0">${escapeHtml(t.ignore)}</p></td></tr>`,
     `Sent by ${escapeHtml(site)} because this address was entered for a My list account.`);
-  const text = `${t.title}\n\n${t.body.replace(/<[^>]+>/g, "")}\n\n${url}\n\n${t.ignore}`;
+  const text = `${t.title}\n\n${t.body}\n\n${url}\n\n${t.ignore}`;
   return { subject: t.subject, html, text };
 }
 
