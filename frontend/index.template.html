@@ -624,9 +624,9 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
       <li><b>What we keep:</b> a random account number, the public half of each passkey you register (your fingerprint, face or PIN never leave your device), a one-way hash of your recovery code, the items you saved and when, and when you last signed in. Never a password.</li>
       <li><b>If you give them:</b> your first name and email address. We only use an email address after you confirm it from a link we send to it.</li>
       <li><b>Why:</b> to keep your list across your devices, to email you a sign-in link if you ask for one, and to send the emails you've ticked. Lawful basis: providing the service you asked for; for the daily briefing and new-feature emails, your consent.</li>
-      <li><b>Emails:</b> the daily briefing and occasional new-feature emails are separate choices, both off unless you tick them, and each email has a one-click unsubscribe link. We record when and how you agreed. Creating an account never signs you up to either.</li>
+      <li><b>Emails:</b> the daily briefing and occasional new-feature emails are separate choices, both off unless you tick them. For a new address, you confirm them yourself on the page the confirmation link opens. Each email has a one-click unsubscribe link, and we record when and how you agreed. Creating an account never signs you up to either.</li>
       <li><b>Cookie:</b> signing in sets one essential cookie that keeps you signed in for up to 30 days.</li>
-      <li><b>Your control:</b> from My list you can download everything we hold, sign out everywhere, or delete your account, which erases it straight away. Deleting the account also stops the daily briefing to its email. Unconfirmed email addresses are removed after 48 hours, and accounts unused for two years are deleted.</li>
+      <li><b>Your control:</b> from My list you can download everything we hold, sign out everywhere, or delete your account, which erases it straight away. Deleting the account also stops the daily briefing to its email. Unconfirmed email addresses are removed after 48 hours, and accounts unused for two years are deleted, which also stops their briefing.</li>
     </ul>
     <h3>Experts we list</h3>
     <ul>
@@ -652,7 +652,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
     <div class="dlg-b" style="display:grid;gap:12px">
       <p style="margin:0">You'll sign in with a passkey: your fingerprint, face or device PIN. No password. Name and email are optional.</p>
       <div class="field"><label for="su_name">First name <span class="muted" style="font-weight:400">(optional)</span></label><input id="su_name" autocomplete="given-name" maxlength="40"></div>
-      <div class="field"><label for="su_email">Email <span class="muted" style="font-weight:400">(optional)</span></label><input id="su_email" type="email" autocomplete="email" maxlength="254"><small class="muted">We'll send a link to confirm it. It also lets you sign in by email if you lose your devices.</small></div>
+      <div class="field"><label for="su_email">Email <span class="muted" style="font-weight:400">(optional)</span></label><input id="su_email" type="email" autocomplete="email" maxlength="254"><small class="muted">We'll send a link to confirm it, where you can say yes to the emails below. It also lets you sign in by email if you lose your devices.</small></div>
       <label class="consent"><input type="checkbox" id="su_briefing" disabled> <span>Email me the daily briefing (08:30 UK time). I can unsubscribe at any time.</span></label>
       <label class="consent"><input type="checkbox" id="su_updates" disabled> <span>Email me occasionally about new features. I can stop these at any time.</span></label>
       <p class="muted" style="font-size:13px;margin:0">See the <button type="button" data-privacy style="background:none;border:0;padding:0;color:var(--signal);cursor:pointer;font:inherit;text-decoration:underline">privacy notice</button>.</p>
@@ -1143,8 +1143,8 @@ async function openAcct(){
     <form class="prof" id="profForm" novalidate>
       <div class="row2"><div class="field"><label for="pf_name">First name</label><input type="text" id="pf_name" maxlength="40" autocomplete="given-name" value="${esc(pr.name || "")}"></div>
       <div class="field"><label for="pf_email">Email</label><input type="email" id="pf_email" maxlength="254" autocomplete="email" value="${esc(pr.emailPending || pr.email || "")}">${mailState}</div></div>
-      <label class="consent"><input type="checkbox" id="pf_briefing" ${pr.briefing || pr.briefingWaiting ? "checked" : ""}> <span>Email me the daily briefing (08:30 UK time)${pr.briefingWaiting && !pr.briefing ? " <span class='muted'>(starts when your email is confirmed)</span>" : ""}</span></label>
-      <label class="consent"><input type="checkbox" id="pf_updates" ${pr.updates ? "checked" : ""}> <span>Email me occasionally about new features</span></label>
+      <label class="consent"><input type="checkbox" id="pf_briefing" ${pr.briefing || pr.briefingWaiting ? "checked" : ""}> <span>Email me the daily briefing (08:30 UK time)${pr.briefingWaiting && !pr.briefing ? " <span class='muted'>(you'll be asked when you confirm your email)</span>" : ""}</span></label>
+      <label class="consent"><input type="checkbox" id="pf_updates" ${pr.updates || pr.updatesWaiting ? "checked" : ""}> <span>Email me occasionally about new features${pr.updatesWaiting && !pr.updates ? " <span class='muted'>(you'll be asked when you confirm your email)</span>" : ""}</span></label>
       <p style="margin:0"><button class="btn sm primary" type="submit">Save details</button></p>
     </form>
     <h3>Passkeys</h3>

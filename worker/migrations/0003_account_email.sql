@@ -7,16 +7,27 @@ ALTER TABLE accounts ADD COLUMN email_verified_at TEXT;
 ALTER TABLE accounts ADD COLUMN email_pending TEXT;        -- address waiting for its confirmation link
 ALTER TABLE accounts ADD COLUMN email_token_hash TEXT;     -- SHA-256 of the confirmation token (48 h)
 ALTER TABLE accounts ADD COLUMN email_token_expires TEXT;
-ALTER TABLE accounts ADD COLUMN login_token_hash TEXT;     -- SHA-256 of an emailed sign-in link token (30 min, single use)
-ALTER TABLE accounts ADD COLUMN login_token_expires TEXT;
-ALTER TABLE accounts ADD COLUMN mail_window_start TEXT;    -- per-account email throttle
+ALTER TABLE accounts ADD COLUMN mail_window_start TEXT;    -- per-account throttle for confirmation emails
 ALTER TABLE accounts ADD COLUMN mail_sends INTEGER NOT NULL DEFAULT 0;
 ALTER TABLE accounts ADD COLUMN mail_last TEXT;
-ALTER TABLE accounts ADD COLUMN briefing_wanted INTEGER NOT NULL DEFAULT 0;  -- start the briefing once the email is confirmed
-ALTER TABLE accounts ADD COLUMN updates_opt_in INTEGER NOT NULL DEFAULT 0;   -- consent to occasional new-feature emails
+ALTER TABLE accounts ADD COLUMN login_window_start TEXT;   -- separate per-account throttle for sign-in links
+ALTER TABLE accounts ADD COLUMN login_sends INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE accounts ADD COLUMN login_last TEXT;
+ALTER TABLE accounts ADD COLUMN briefing_wanted INTEGER NOT NULL DEFAULT 0;  -- account holder asked for it; the address owner confirms it on the confirm page
+ALTER TABLE accounts ADD COLUMN updates_wanted INTEGER NOT NULL DEFAULT 0;   -- same, for new-feature emails
+ALTER TABLE accounts ADD COLUMN updates_opt_in INTEGER NOT NULL DEFAULT 0;   -- consent to occasional new-feature emails, given by the confirmed address owner
 ALTER TABLE accounts ADD COLUMN updates_consent_at TEXT;
 ALTER TABLE accounts ADD COLUMN updates_consent_text TEXT;
 CREATE UNIQUE INDEX IF NOT EXISTS accounts_email_id ON accounts(email_id);
+
+-- Emailed sign-in links (30 minutes, single use). Several can be live at once, so a new request never cancels
+-- a link the person is about to use.
+CREATE TABLE IF NOT EXISTS login_links (
+  token_hash  TEXT PRIMARY KEY,
+  account_id  TEXT NOT NULL,
+  expires     TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS login_links_account ON login_links(account_id);
 
 CREATE TABLE IF NOT EXISTS announcements (
   id          INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -33,6 +44,8 @@ CREATE TABLE IF NOT EXISTS announcements (
 CREATE TABLE IF NOT EXISTS announce_log (
   announcement_id INTEGER NOT NULL,
   account_id      TEXT NOT NULL,
+  status          TEXT NOT NULL,             -- sending | sent | failed
+  attempts        INTEGER NOT NULL DEFAULT 1,
   sent_at         TEXT NOT NULL,
   PRIMARY KEY (announcement_id, account_id)
 );

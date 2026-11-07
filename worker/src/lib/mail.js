@@ -96,7 +96,7 @@ export function renderAccountEmail({ kind, url: rawUrl, siteUrl, name }) {
         body: `${hi}someone (hopefully you) asked for a link to sign in to your My list account. It works once and expires in 30 minutes. Signing in this way signs your other devices out.`,
         ignore: "If you didn't ask for this, ignore this email: nobody can sign in without the link. Your account is still protected by your passkey." }
     : { subject: "Confirm your email for My Cyber Learning", title: "Confirm your email address", cta: "Confirm email",
-        body: `${hi}please confirm this address for your My list account. The link expires in 48 hours.`,
+        body: `${hi}please confirm this address for a My list account on My Cyber Learning. The link expires in 48 hours. Confirming doesn't sign you up to any emails: on the next page you choose whether you'd like the daily briefing or new-feature emails.`,
         ignore: "If you didn't ask for this, ignore this email and the address won't be added." };
   const html = wrap(`<tr><td style="padding:24px">
 <h1 style="font-size:22px;margin:0 0 12px">${t.title}</h1>

@@ -12,7 +12,9 @@ import { subscriberId } from "../../worker/src/lib/mail.js";
 
 const SITE = "https://mycyberlearning.co.uk", RP_ID = "mycyberlearning.co.uk";
 let db, env, outbox = [], dispatches = [];
-const ctx = { waitUntil: p => p };
+const pending = [];
+const ctx = { waitUntil: p => { pending.push(p); } };
+const settle = async () => { while (pending.length) await pending.shift(); };
 
 before(async () => {
   db = await localD1(":memory:");
@@ -285,29 +287,34 @@ test("malformed base64 and keys are a clean 400, not a 500", async () => {
 /* ---------- Optional name and email, email sign-in links, update emails ---------- */
 const lastMail = () => outbox[outbox.length - 1];
 const linkIn = (m, path) => { const u = new URL(m.text.match(new RegExp(`https://\\S+${path.replace(/\//g, "\\/")}\\S+`))[0]); return u.pathname + u.search; };
-const post = (path, headers = {}) => worker.fetch(new Request(SITE + path, { method: "POST", headers: { "cf-connecting-ip": "198.51.100.250", "sec-fetch-site": "same-origin", ...headers } }), env, ctx);
+const post = (path, headers = {}, form) => worker.fetch(new Request(SITE + path, { method: "POST",
+  headers: { "cf-connecting-ip": "198.51.100.250", "sec-fetch-site": "same-origin", ...(form ? { "content-type": "application/x-www-form-urlencoded" } : {}), ...headers },
+  body: form ? new URLSearchParams(form).toString() : undefined }), env, ctx);
 
-test("adding an email sends a confirmation link; confirming starts the briefing only if asked", async () => {
+test("adding an email sends a confirmation link; the address owner chooses the emails on the confirm page", async () => {
   const a = await makeAuthenticator(); const { cookie } = await register(a);
   outbox.length = 0;
   const r = await call("/api/account/profile", { method: "PUT", body: { name: "Ada <b>", email: "Ada@Example.com", briefing: true, updates: true }, cookie });
   assert.equal(r.status, 200);
   const d = await r.json();
   assert.equal(d.profile.name, "Ada b"); assert.equal(d.profile.emailPending, "ada@example.com"); assert.equal(d.profile.emailVerified, false);
-  assert.equal(d.profile.briefing, false); assert.equal(d.profile.briefingWaiting, true); assert.equal(d.profile.updates, true);
+  assert.equal(d.profile.briefing, false); assert.equal(d.profile.briefingWaiting, true); assert.equal(d.profile.updates, false); assert.equal(d.profile.updatesWaiting, true);
+  assert.match(outbox[0].text, /doesn't sign you up to any emails/);
   assert.equal(outbox.length, 1); assert.deepEqual(outbox[0].to, ["ada@example.com"]);
   const link = linkIn(outbox[0], "/api/account/email/confirm");
   // GET only shows a button; a cross-site POST is refused; a same-origin POST confirms once
-  assert.equal((await call(link)).status, 200);
+  const page = await (await call(link)).text();
+  assert.match(page, /type="checkbox" name="briefing"/); assert.ok(!/checked/.test(page));              // unticked by default
   assert.equal((await (await call("/api/account", { cookie })).json()).profile.emailVerified, false);
   assert.equal((await post(link, { "sec-fetch-site": "cross-site" })).status, 400);
-  const ok = await post(link);
+  const ok = await post(link, {}, { briefing: "yes", updates: "yes" });
   assert.equal(ok.status, 303); assert.match(ok.headers.get("location"), /account=email-confirmed/);
   assert.equal((await post(link)).status, 400);
   const p = (await (await call("/api/account", { cookie })).json()).profile;
   assert.equal(p.email, "ada@example.com"); assert.equal(p.emailVerified, true); assert.equal(p.briefing, true);
   const sub = await db.prepare("SELECT status, consent_text FROM subscribers WHERE id = ?").bind(subscriberId("ada@example.com")).first();
-  assert.equal(sub.status, "active"); assert.match(sub.consent_text, /My list account/);
+  assert.equal(sub.status, "active"); assert.match(sub.consent_text, /ticked by the address owner on the confirmation page/);
+  assert.equal((await (await call("/api/account", { cookie })).json()).profile.updates, true);
   // Turning the briefing off suppresses that subscription
   await call("/api/account/profile", { method: "PUT", body: { briefing: false }, cookie });
   assert.equal((await db.prepare("SELECT status FROM subscribers WHERE id = ?").bind(subscriberId("ada@example.com")).first()).status, "suppressed");
@@ -342,6 +349,7 @@ test("email sign-in link: same answer for unknown addresses, works once, signs o
   outbox.length = 0;
   const unknown = await call("/api/account/recover/email", { method: "POST", body: { email: "nobody@example.com" } });
   const known = await call("/api/account/recover/email", { method: "POST", body: { email: "LOST@example.com" } });
+  await settle();
   assert.equal(unknown.status, 202); assert.equal(known.status, 202);
   assert.deepEqual(await unknown.json(), await known.json());
   assert.equal(outbox.length, 1);
@@ -369,7 +377,9 @@ test("account emails are throttled per account", async () => {
 
 test("new-feature emails: unsubscribe link (GET shows a page, POST stops them; altered links refused)", async () => {
   const a = await makeAuthenticator(); const { cookie } = await register(a);
-  await call("/api/account/profile", { method: "PUT", body: { updates: true }, cookie });
+  // Without a confirmed address, ticking only records the wish; the owner opts in when confirming (simulated here).
+  assert.equal((await (await call("/api/account/profile", { method: "PUT", body: { updates: true }, cookie })).json()).profile.updates, false);
+  await db.prepare("UPDATE accounts SET updates_opt_in = 1 WHERE id = ?").bind(a.userHandle).run();
   const { updatesUnsubUrl } = await import("../../worker/src/account-email.js");
   const u = new URL(updatesUnsubUrl(SITE, a.userHandle));
   assert.equal((await call(u.pathname + u.search)).status, 200);
@@ -403,4 +413,30 @@ test("admin update composer: draft, preview (escaped), test send, queue once; on
   assert.equal(sent.status, 200); assert.equal((await sent.json()).startedNow, true); assert.equal(dispatches.length, 1);
   assert.equal((await call(`/api/admin/updates/${saved.id}/send`, { method: "POST", body: {}, cookie: admin })).status, 409); // only once
   assert.equal((await call("/api/admin/updates", { method: "POST", body: { id: saved.id, subject: "Changed", body: "Changed body text" }, cookie: admin })).status, 409);
+});
+
+test("someone else's address: the account holder's ticks don't subscribe it; only the owner's own ticks do", async () => {
+  const a = await makeAuthenticator(); const { cookie } = await register(a);
+  outbox.length = 0;
+  await call("/api/account/profile", { method: "PUT", body: { email: "victim@example.com", briefing: true, updates: true }, cookie });
+  const link = linkIn(lastMail(), "/api/account/email/confirm");
+  assert.equal((await post(link)).status, 303);                                   // owner confirms without ticking anything
+  const p = (await (await call("/api/account", { cookie })).json()).profile;
+  assert.equal(p.emailVerified, true); assert.equal(p.briefing, false); assert.equal(p.updates, false);
+  assert.equal(await db.prepare("SELECT status FROM subscribers WHERE id = ?").bind(subscriberId("victim@example.com")).first(), null);
+});
+
+test("a new sign-in link request doesn't cancel an earlier one; using any link ends them all", async () => {
+  const a = await makeAuthenticator(); const { cookie } = await register(a);
+  await call("/api/account/profile", { method: "PUT", body: { email: "two@example.com" }, cookie });
+  await post(linkIn(lastMail(), "/api/account/email/confirm"));
+  outbox.length = 0;
+  await call("/api/account/recover/email", { method: "POST", body: { email: "two@example.com" } }); await settle();
+  await db.prepare("UPDATE accounts SET login_last = NULL").run();
+  await call("/api/account/recover/email", { method: "POST", body: { email: "two@example.com" } }); await settle();
+  assert.equal(outbox.length, 2);
+  const first = linkIn(outbox[0], "/api/account/email-login"), second = linkIn(outbox[1], "/api/account/email-login");
+  assert.equal((await call(first)).status, 200);                                  // still valid after the second request
+  assert.equal((await post(first)).status, 303);
+  assert.equal((await post(second)).status, 400);                                 // signing in ended the other link
 });

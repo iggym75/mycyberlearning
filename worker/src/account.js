@@ -268,6 +268,7 @@ export const remove = handler(async (req, env, ctx, params, acc) => {
     env.DB.prepare("DELETE FROM favourites WHERE account_id = ?").bind(acc.id),
     env.DB.prepare("DELETE FROM passkeys WHERE account_id = ?").bind(acc.id),
     env.DB.prepare("DELETE FROM webauthn_challenges WHERE account_id = ?").bind(acc.id),
+    env.DB.prepare("DELETE FROM login_links WHERE account_id = ?").bind(acc.id),
     env.DB.prepare("DELETE FROM accounts WHERE id = ?").bind(acc.id)
   ]);
   return json(200, { ok: true }, { "set-cookie": clearCookie });
