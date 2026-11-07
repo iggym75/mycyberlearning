@@ -10,7 +10,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { openD1, listItems, upsertItem, sleep, saveImage } from "./lib.mjs";
 import { hasLocalImage } from "./pure.mjs";
-import { lookupApple, readFeed, lookupPodnews, searchSpotify, lookupBook, claudeTag, findPlatformLogo, findExpertPhoto } from "./enrich.mjs";
+import { lookupApple, readFeed, lookupPodnews, searchSpotify, lookupBook, claudeTag, findPlatformLogo, findExpertPhoto, findCommonsPhoto } from "./enrich.mjs";
 
 const args = process.argv.slice(2);
 const flag = f => args.includes(f);
@@ -80,11 +80,15 @@ for (const { item } of rows) {
     } else if (item.type === "person") {
       // Experts: the profile picture from a profile they publish themselves (self-hosted like covers).
       // noPhoto (set by the curator, e.g. on request) means no picture is fetched or shown.
-      if (item.noPhoto) { if (item.logo) { delete next.logo; delete next.logoSource; } }
-      else if (!hasLocalImage(item) || reimage) {
-        const found = await findExpertPhoto(item).catch(() => null);
-        const saved = found && !dry ? await saveImage(found.url, item.id, { refuseRights: true }) : null;
-        if (saved) { next.logo = saved; next.logoSource = found.source; report.images++; }
+      // A freely licensed Wikimedia Commons photo (with its credit) comes first; a Commons photo already chosen is kept.
+      if (item.noPhoto) { if (item.logo) { delete next.logo; delete next.logoSource; delete next.logoCredit; } }
+      else if (!hasLocalImage(item) || (reimage && item.logoSource !== "Wikimedia Commons")) {
+        const cc = await findCommonsPhoto(item).catch(() => null);
+        const ccSaved = cc && !dry ? await saveImage(cc.url, `${item.id}-cc`) : null;
+        const found = ccSaved ? null : await findExpertPhoto(item).catch(() => null);
+        const saved = ccSaved || (found && !dry ? await saveImage(found.url, item.id, { refuseRights: true }) : null);
+        if (ccSaved) { next.logo = ccSaved; next.logoSource = cc.source; next.logoCredit = cc.credit; report.images++; report.notes.push(`${item.id}: new Commons photo, check it by eye`); }
+        else if (saved) { next.logo = saved; next.logoSource = found.source; delete next.logoCredit; report.images++; report.notes.push(`${item.id}: new profile picture, check it by eye`); }
         else if (!hasLocalImage(item)) report.notes.push(`${item.id}: no profile picture found${found ? " (download failed)" : ""}; it keeps the initials tile`);
       }
     } else if (item.type === "book") {
