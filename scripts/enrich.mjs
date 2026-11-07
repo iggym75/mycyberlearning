@@ -235,10 +235,12 @@ export async function findCommonsPhoto(item) {
     if (!ii || !/^image\/(jpeg|png|webp)$/.test(ii.mime || "")) continue;
     const lic = commonsLicence(ii.extmetadata);
     if (!lic) { console.log(`  ${item.id}: Commons photo ${who.file} skipped (licence not usable: ${ii.extmetadata?.LicenseShortName?.value || "none"})`); continue; }
+    const year = commonsYear(ii.extmetadata);
+    if (!year || year < new Date().getFullYear() - 8) { console.log(`  ${item.id}: Commons photo ${who.file} skipped (taken ${year || "on an unknown date"}; too old)`); continue; }
     const page = String(ii.descriptionurl || "").replace(/^http:/, "https:");
     if (!page.startsWith("https://commons.wikimedia.org/")) continue;
     return { url: ii.thumburl || ii.url, source: "Wikimedia Commons", qid: who.qid, desc: who.desc, linked: who.linked,
-      credit: { author: lic.author, licence: lic.licence, licenceUrl: lic.licenceUrl, page, file: who.file, shareAlike: lic.shareAlike } };
+      credit: { author: lic.author, licence: lic.licence, licenceUrl: lic.licenceUrl, page, file: who.file, shareAlike: lic.shareAlike, year } };
   }
   return null;
 }

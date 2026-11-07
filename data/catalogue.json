@@ -11117,18 +11117,9 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-alec-muffett-cc.webp",
-      "logoSource": "Wikimedia Commons",
-      "id": "expert-alec-muffett",
-      "logoCredit": {
-        "author": "Doc Searls",
-        "licence": "CC BY-SA 2.0",
-        "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Alec_muffett.jpg",
-        "file": "Alec muffett.jpg",
-        "shareAlike": true,
-        "cropped": true
-      }
+      "logo": "covers/expert-alec-muffett.webp",
+      "logoSource": "Bluesky",
+      "id": "expert-alec-muffett"
     },
     {
       "type": "person",
@@ -11146,17 +11137,18 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-alex-stamos-cc.webp",
+      "logo": "covers/expert-alex-stamos-cc2018.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-alex-stamos",
       "logoCredit": {
-        "author": "Web Summit",
-        "licence": "CC BY 2.0",
-        "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Alex_Stamos_at_Web_Summit_2015_-_Dublin,_Ireland.jpg",
-        "file": "Alex Stamos at Web Summit 2015 - Dublin, Ireland.jpg",
+        "author": "Hecker / MSC",
+        "licence": "CC BY 3.0 de",
+        "licenceUrl": "https://creativecommons.org/licenses/by/3.0/de/deed.en",
+        "page": "https://commons.wikimedia.org/wiki/File:Alex_Stamos_-_MSC_2018_(cropped).jpg",
+        "file": "Alex Stamos - MSC 2018 (cropped).jpg",
         "shareAlike": false,
-        "cropped": true
+        "cropped": true,
+        "year": 2018
       }
     },
     {
@@ -11326,17 +11318,18 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-bruce-schneier-cc.webp",
+      "logo": "covers/expert-bruce-schneier-cc2026.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-bruce-schneier",
       "logoCredit": {
-        "author": "sfllaw",
-        "licence": "CC BY-SA 2.0",
-        "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Bruce_Schneier_1.jpg",
-        "file": "Bruce Schneier 1.jpg",
+        "author": "Xuthoria",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Worldcon_2026_(LAcon_V)_-_Bruce_Schneier_03.jpg",
+        "file": "Worldcon 2026 (LAcon V) - Bruce Schneier 03.jpg",
         "shareAlike": true,
-        "cropped": true
+        "cropped": true,
+        "year": 2026
       }
     },
     {
@@ -11354,18 +11347,9 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-chris-wysopal-cc.webp",
-      "logoSource": "Wikimedia Commons",
-      "id": "expert-chris-wysopal",
-      "logoCredit": {
-        "author": "Web Summit",
-        "licence": "CC BY 2.0",
-        "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Web_Summit_2017_-_FullStk_CG1_9975_(24416226898).jpg",
-        "file": "Web Summit 2017 - FullStk CG1 9975 (24416226898).jpg",
-        "shareAlike": false,
-        "cropped": true
-      }
+      "logo": "covers/expert-chris-wysopal.webp",
+      "logoSource": "Bluesky",
+      "id": "expert-chris-wysopal"
     },
     {
       "type": "person",
@@ -11466,16 +11450,18 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-dmitri-alperovitch-cc.jpg",
+      "logo": "covers/expert-dmitri-alperovitch-cc2022.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-dmitri-alperovitch",
       "logoCredit": {
-        "author": "Dmitri Alperovitch",
-        "licence": "CC BY-SA 4.0",
-        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Dmitri_Alperovitch.jpg",
-        "file": "Dmitri Alperovitch.jpg",
-        "shareAlike": true
+        "author": "Benjamin Applebaum",
+        "licence": "Public domain",
+        "licenceUrl": "",
+        "page": "https://commons.wikimedia.org/wiki/File:Dmitri_Alperovitch,_official_portrait,_Homeland_Security_Council.jpg",
+        "file": "Dmitri Alperovitch, official portrait, Homeland Security Council.jpg",
+        "shareAlike": false,
+        "cropped": true,
+        "year": 2022
       }
     },
     {
@@ -11598,17 +11584,18 @@
       ],
       "verified": true,
       "bluesky": "https://bsky.app/profile/evacide.bsky.social",
-      "logo": "covers/expert-eva-galperin-cc.webp",
+      "logo": "covers/expert-eva-galperin-cc2021.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-eva-galperin",
       "logoCredit": {
-        "author": "mike",
-        "licence": "CC BY-SA 2.0",
-        "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Eva_Galperin_2013_(cropped).jpg",
-        "file": "Eva Galperin 2013 (cropped).jpg",
+        "author": "Evacide",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Eva_Galperin_in_2021_(cropped).jpg",
+        "file": "Eva Galperin in 2021 (cropped).jpg",
         "shareAlike": true,
-        "cropped": true
+        "cropped": true,
+        "year": 2021
       }
     },
     {
@@ -11662,7 +11649,8 @@
         "page": "https://commons.wikimedia.org/wiki/File:Graham_Cluley.jpg",
         "file": "Graham Cluley.jpg",
         "shareAlike": false,
-        "cropped": true
+        "cropped": true,
+        "year": 2020
       }
     },
     {
@@ -11832,18 +11820,9 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-jeff-moss-cc.webp",
-      "logoSource": "Wikimedia Commons",
-      "id": "expert-jeff-moss",
-      "logoCredit": {
-        "author": "Jason Scott",
-        "licence": "CC BY 2.0",
-        "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Dark_Tangent_(7546598054).jpg",
-        "file": "Dark Tangent (7546598054).jpg",
-        "shareAlike": false,
-        "cropped": true
-      }
+      "logo": "covers/expert-jeff-moss.jpg",
+      "logoSource": "Mastodon",
+      "id": "expert-jeff-moss"
     },
     {
       "type": "person",
@@ -11965,18 +11944,9 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-katie-moussouris-cc.webp",
-      "logoSource": "Wikimedia Commons",
-      "id": "expert-katie-moussouris",
-      "logoCredit": {
-        "author": "Kristina D.C. Hoeppner",
-        "licence": "CC BY-SA 2.0",
-        "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Katie_Moussouris_Kiwicon_9_presenter_(91).jpg",
-        "file": "Katie Moussouris Kiwicon 9 presenter (91).jpg",
-        "shareAlike": true,
-        "cropped": true
-      }
+      "logo": "covers/expert-katie-moussouris.webp",
+      "logoSource": "Bluesky",
+      "id": "expert-katie-moussouris"
     },
     {
       "type": "person",
@@ -12050,7 +12020,8 @@
         "page": "https://commons.wikimedia.org/wiki/File:Keren_Elazari_at_the_SingularityU_The_Netherlands_Summit_2016_(29027689414)_(cropped).jpg",
         "file": "Keren Elazari at the SingularityU The Netherlands Summit 2016 (29027689414) (cropped).jpg",
         "shareAlike": false,
-        "cropped": true
+        "cropped": true,
+        "year": 2016
       }
     },
     {
@@ -12102,7 +12073,8 @@
         "page": "https://commons.wikimedia.org/wiki/File:Kim_Zetter.jpg",
         "file": "Kim Zetter.jpg",
         "shareAlike": false,
-        "cropped": true
+        "cropped": true,
+        "year": 2006
       }
     },
     {
@@ -12283,18 +12255,9 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-mark-russinovich-cc.webp",
-      "logoSource": "Wikimedia Commons",
-      "id": "expert-mark-russinovich",
-      "logoCredit": {
-        "author": "MicrosoftPDC",
-        "licence": "CC BY 2.0",
-        "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Mark_Russinovich.jpg",
-        "file": "Mark Russinovich.jpg",
-        "shareAlike": false,
-        "cropped": true
-      }
+      "logo": "covers/expert-mark-russinovich.webp",
+      "logoSource": "Bluesky",
+      "id": "expert-mark-russinovich"
     },
     {
       "type": "person",
@@ -12312,18 +12275,9 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-matt-blaze-cc.webp",
-      "logoSource": "Wikimedia Commons",
-      "id": "expert-matt-blaze",
-      "logoCredit": {
-        "author": "DEFCONConference",
-        "licence": "CC BY 3.0",
-        "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Matt_Blaze_DEF_CON_20.jpg",
-        "file": "Matt Blaze DEF CON 20.jpg",
-        "shareAlike": false,
-        "cropped": true
-      }
+      "logo": "covers/expert-matt-blaze.webp",
+      "logoSource": "Bluesky",
+      "id": "expert-matt-blaze"
     },
     {
       "type": "person",
@@ -12351,7 +12305,8 @@
         "page": "https://commons.wikimedia.org/wiki/File:Matthew_Green.jpeg",
         "file": "Matthew Green.jpeg",
         "shareAlike": true,
-        "cropped": true
+        "cropped": true,
+        "year": 2016
       }
     },
     {
@@ -12401,7 +12356,8 @@
         "page": "https://commons.wikimedia.org/wiki/File:Mikko_Hypp%C3%B6nen_-_2021_(cropped).jpg",
         "file": "Mikko Hyppönen - 2021 (cropped).jpg",
         "shareAlike": true,
-        "cropped": true
+        "cropped": true,
+        "year": 2021
       }
     },
     {
@@ -12615,7 +12571,8 @@
         "page": "https://commons.wikimedia.org/wiki/File:Robert_E._Joyce.jpg",
         "file": "Robert E. Joyce.jpg",
         "shareAlike": false,
-        "cropped": true
+        "cropped": true,
+        "year": 2017
       }
     },
     {
@@ -12636,17 +12593,9 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-robert-m-lee-cc.png",
-      "logoSource": "Wikimedia Commons",
-      "id": "expert-robert-m-lee",
-      "logoCredit": {
-        "author": "World Economic Forum",
-        "licence": "CC BY 3.0",
-        "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Robert_M._Lee_at_World_Economic_Forum_Davos_2022.png",
-        "file": "Robert M. Lee at World Economic Forum Davos 2022.png",
-        "shareAlike": false
-      }
+      "logo": "covers/expert-robert-m-lee.jpg",
+      "logoSource": "own website",
+      "id": "expert-robert-m-lee"
     },
     {
       "type": "person",
@@ -12682,17 +12631,18 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-runa-sandvik-cc.webp",
+      "logo": "covers/expert-runa-sandvik-cc2019.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-runa-sandvik",
       "logoCredit": {
-        "author": "Nordiske Mediedager",
+        "author": "Kristina D.C. Hoeppner",
         "licence": "CC BY-SA 2.0",
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Runa_Sandvik_2015_(cropped).jpg",
-        "file": "Runa Sandvik 2015 (cropped).jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Kawaiicon_2019_Runa_Sandvik_(2)_(cropped).jpg",
+        "file": "Kawaiicon 2019 Runa Sandvik (2) (cropped).jpg",
         "shareAlike": true,
-        "cropped": true
+        "cropped": true,
+        "year": 2019
       }
     },
     {
@@ -12875,17 +12825,18 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-troy-hunt-cc.webp",
+      "logo": "covers/expert-troy-hunt-cc2021.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-troy-hunt",
       "logoCredit": {
         "author": "Troy Hunt",
         "licence": "CC BY-SA 4.0",
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Troy_Hunt.jpg",
-        "file": "Troy Hunt.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Troy_Hunt_LM-0059_(cropped).jpg",
+        "file": "Troy Hunt LM-0059 (cropped).jpg",
         "shareAlike": true,
-        "cropped": true
+        "cropped": true,
+        "year": 2021
       }
     },
     {
@@ -12976,7 +12927,8 @@
         "page": "https://commons.wikimedia.org/wiki/File:Window_Snyder_Web_Summit_2017_cropped.jpg",
         "file": "Window Snyder Web Summit 2017 cropped.jpg",
         "shareAlike": false,
-        "cropped": true
+        "cropped": true,
+        "year": 2017
       }
     }
   ]

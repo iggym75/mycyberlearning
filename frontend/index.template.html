@@ -872,7 +872,7 @@ function imageCredit(i){
   if (!i.logo) return "";
   const s = String(i.logoSource || "");
   if (i.type === "person" && s === "Wikimedia Commons" && i.logoCredit) { const c = i.logoCredit;
-    return `Wikimedia Commons: photo${c.author ? ` by ${c.author}` : ""}, ${c.licence}${c.cropped || c.shareAlike ? " (cropped and resized)" : ""}`; }
+    return `Wikimedia Commons: photo${c.author ? ` by ${c.author}` : ""}${c.year ? ` (${c.year})` : ""}, ${c.licence}${c.cropped || c.shareAlike ? " (cropped and resized)" : ""}`; }
   if (i.type === "person") return ({ Bluesky: "their Bluesky profile", Mastodon: "their Mastodon profile", GitHub: "their GitHub profile", YouTube: "their YouTube channel", "own website": "their own website" })[s] || "a profile of their own";
   if (i.type === "podcast") return /Apple/.test(s) ? "Apple Podcasts (show artwork)" : "the show";
   if (i.type === "book") return /Open Library/.test(s) ? "Open Library (publisher's cover)" : "the publisher's cover";
