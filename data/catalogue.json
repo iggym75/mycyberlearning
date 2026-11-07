@@ -1642,8 +1642,8 @@
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 336,
-      "lastEpisode": "2026-11-06",
+      "episodes": 337,
+      "lastEpisode": "2026-11-07",
       "logo": "covers/podcast-cyber-crime-junkies.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2022-08",
@@ -3013,7 +3013,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://podcast.latent.space/feed.xml",
       "lastEpisode": "2026-11-07",
-      "episodes": 294,
+      "episodes": 293,
       "amazon": "https://music.amazon.co.uk/podcasts/abff303e-e4f1-447c-9823-b35bfc6e8da8/latent-space-the-ai-engineer-podcast",
       "id": "latent-space"
     },
@@ -5223,6 +5223,43 @@
     },
     {
       "type": "book",
+      "name": "Countdown to Zero Day",
+      "by": "Kim Zetter",
+      "desc": "The definitive account of Stuxnet and the dawn of cyber-physical warfare.",
+      "domains": [
+        "stories",
+        "icsot",
+        "cti"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2014",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": {
+        "v": 4,
+        "n": 12,
+        "src": "Open Library",
+        "asOf": "2026-11-07"
+      },
+      "curator": true,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "Crown",
+      "isbn": "9780770436179",
+      "isbnVerified": true,
+      "openlibrary": "https://openlibrary.org/isbn/9780770436179",
+      "logo": "covers/book-countdown-zero-day.jpg",
+      "logoSource": "Open Library",
+      "id": "book-countdown-zero-day"
+    },
+    {
+      "type": "book",
       "name": "Cybersecurity – Attack and Defense Strategies",
       "by": "Yuri Diogenes & Erdal Ozkaya",
       "desc": "The attack lifecycle from both sides, with defensive strategies for each stage.",
@@ -5340,33 +5377,6 @@
       "logo": "covers/book-measure-anything.jpg",
       "logoSource": "Open Library",
       "id": "book-measure-anything"
-    },
-    {
-      "type": "platform",
-      "name": "Humble Bundle eBook bundles",
-      "by": "Humble Bundle",
-      "desc": "Pay-what-you-want bundles of cybersecurity ebooks from publishers such as No Starch, Wiley, O'Reilly and Packt. The bundles change every few weeks.",
-      "domains": [
-        "career",
-        "offensive",
-        "defensive"
-      ],
-      "level": [
-        "beginner",
-        "intermediate",
-        "advanced"
-      ],
-      "web": "https://www.humblebundle.com/books",
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "mcl"
-      ],
-      "verified": true,
-      "id": "book-humble-bundle",
-      "kind": "books",
-      "cost": "low",
-      "status": "active"
     },
     {
       "type": "book",
@@ -5839,6 +5849,43 @@
       ],
       "logo": "covers/book-real-world-bug-hunting.jpg",
       "id": "book-real-world-bug-hunting"
+    },
+    {
+      "type": "book",
+      "name": "Sandworm",
+      "by": "Andy Greenberg",
+      "desc": "Narrative of Russia's GRU hackers behind NotPetya and the Ukrainian grid attacks.",
+      "domains": [
+        "stories",
+        "cti",
+        "icsot"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2019",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": {
+        "v": 4.2,
+        "n": 6,
+        "src": "Open Library",
+        "asOf": "2026-11-07"
+      },
+      "curator": true,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "Doubleday",
+      "isbn": "9780385544405",
+      "isbnVerified": true,
+      "openlibrary": "https://openlibrary.org/isbn/9780385544405",
+      "logo": "covers/book-sandworm.jpg",
+      "logoSource": "Open Library",
+      "id": "book-sandworm"
     },
     {
       "type": "book",
@@ -6715,43 +6762,6 @@
       "rating": null,
       "logo": "covers/book-comptia-security-sy0-701-cert-guide.jpg",
       "id": "book-comptia-security-sy0-701-cert-guide"
-    },
-    {
-      "type": "book",
-      "name": "Countdown to Zero Day",
-      "by": "Kim Zetter",
-      "desc": "The definitive account of Stuxnet and the dawn of cyber-physical warfare.",
-      "domains": [
-        "stories",
-        "icsot",
-        "cti"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "published": "2014",
-      "format": [
-        "book",
-        "audiobook"
-      ],
-      "rating": {
-        "v": 4,
-        "n": 12,
-        "src": "Open Library",
-        "asOf": "2026-11-07"
-      },
-      "curator": false,
-      "sources": [
-        "editor"
-      ],
-      "verified": true,
-      "publisher": "Crown",
-      "isbn": "9780770436179",
-      "isbnVerified": true,
-      "openlibrary": "https://openlibrary.org/isbn/9780770436179",
-      "logo": "covers/book-countdown-zero-day.jpg",
-      "logoSource": "Open Library",
-      "id": "book-countdown-zero-day"
     },
     {
       "type": "book",
@@ -9198,43 +9208,6 @@
     },
     {
       "type": "book",
-      "name": "Sandworm",
-      "by": "Andy Greenberg",
-      "desc": "Narrative of Russia's GRU hackers behind NotPetya and the Ukrainian grid attacks.",
-      "domains": [
-        "stories",
-        "cti",
-        "icsot"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "published": "2019",
-      "format": [
-        "book",
-        "audiobook"
-      ],
-      "rating": {
-        "v": 4.2,
-        "n": 6,
-        "src": "Open Library",
-        "asOf": "2026-11-07"
-      },
-      "curator": false,
-      "sources": [
-        "editor"
-      ],
-      "verified": true,
-      "publisher": "Doubleday",
-      "isbn": "9780385544405",
-      "isbnVerified": true,
-      "openlibrary": "https://openlibrary.org/isbn/9780385544405",
-      "logo": "covers/book-sandworm.jpg",
-      "logoSource": "Open Library",
-      "id": "book-sandworm"
-    },
-    {
-      "type": "book",
       "name": "Secrets and Lies: Digital Security in a Networked World",
       "by": "Bruce Schneier",
       "desc": "Why technology alone cannot deliver security, and how to think about risk.",
@@ -10556,6 +10529,35 @@
     },
     {
       "type": "platform",
+      "name": "Humble Bundle eBook bundles",
+      "by": "Humble Bundle",
+      "desc": "Pay-what-you-want bundles of cybersecurity ebooks from publishers such as No Starch, Wiley, O'Reilly and Packt. The bundles change every few weeks.",
+      "domains": [
+        "career",
+        "offensive",
+        "defensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "web": "https://www.humblebundle.com/books",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "kind": "books",
+      "cost": "low",
+      "status": "active",
+      "logo": "covers/platform-book-humble-bundle.png",
+      "logoSource": "site icon",
+      "id": "book-humble-bundle"
+    },
+    {
+      "type": "platform",
       "name": "ISC2 Certified in Cybersecurity (CC)",
       "by": "ISC2",
       "desc": "An entry-level, vendor-neutral certification whose official online training and exam are offered free to new candidates.",
@@ -11136,7 +11138,6 @@
       "verified": true,
       "logo": "covers/expert-alex-stamos-cc2018.webp",
       "logoSource": "Wikimedia Commons",
-      "id": "expert-alex-stamos",
       "logoCredit": {
         "author": "Hecker / MSC",
         "licence": "CC BY 3.0 de",
@@ -11146,7 +11147,8 @@
         "shareAlike": false,
         "cropped": true,
         "year": 2018
-      }
+      },
+      "id": "expert-alex-stamos"
     },
     {
       "type": "person",
@@ -11210,8 +11212,8 @@
       ],
       "verified": true,
       "medium": "https://medium.com/anton-on-security",
-      "id": "expert-anton-chuvakin",
-      "noPhoto": true
+      "noPhoto": true,
+      "id": "expert-anton-chuvakin"
     },
     {
       "type": "person",
@@ -11317,7 +11319,6 @@
       "verified": true,
       "logo": "covers/expert-bruce-schneier-cc2026.webp",
       "logoSource": "Wikimedia Commons",
-      "id": "expert-bruce-schneier",
       "logoCredit": {
         "author": "Xuthoria",
         "licence": "CC BY-SA 4.0",
@@ -11327,7 +11328,8 @@
         "shareAlike": true,
         "cropped": true,
         "year": 2026
-      }
+      },
+      "id": "expert-bruce-schneier"
     },
     {
       "type": "person",
@@ -11449,7 +11451,6 @@
       "verified": true,
       "logo": "covers/expert-dmitri-alperovitch-cc2022.webp",
       "logoSource": "Wikimedia Commons",
-      "id": "expert-dmitri-alperovitch",
       "logoCredit": {
         "author": "Benjamin Applebaum",
         "licence": "Public domain",
@@ -11459,7 +11460,8 @@
         "shareAlike": false,
         "cropped": true,
         "year": 2022
-      }
+      },
+      "id": "expert-dmitri-alperovitch"
     },
     {
       "type": "person",
@@ -11583,7 +11585,6 @@
       "bluesky": "https://bsky.app/profile/evacide.bsky.social",
       "logo": "covers/expert-eva-galperin-cc2021.webp",
       "logoSource": "Wikimedia Commons",
-      "id": "expert-eva-galperin",
       "logoCredit": {
         "author": "Evacide",
         "licence": "CC BY-SA 4.0",
@@ -11593,7 +11594,8 @@
         "shareAlike": true,
         "cropped": true,
         "year": 2021
-      }
+      },
+      "id": "expert-eva-galperin"
     },
     {
       "type": "person",
@@ -11638,7 +11640,6 @@
       "verified": true,
       "logo": "covers/expert-graham-cluley-cc.webp",
       "logoSource": "Wikimedia Commons",
-      "id": "expert-graham-cluley",
       "logoCredit": {
         "author": "Graham Cluley",
         "licence": "CC BY 2.0",
@@ -11648,7 +11649,8 @@
         "shareAlike": false,
         "cropped": true,
         "year": 2020
-      }
+      },
+      "id": "expert-graham-cluley"
     },
     {
       "type": "person",
@@ -11687,8 +11689,8 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-ian-coldwater",
-      "noPhoto": true
+      "noPhoto": true,
+      "id": "expert-ian-coldwater"
     },
     {
       "type": "person",
@@ -12007,8 +12009,8 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-keren-elazari",
-      "noPhoto": true
+      "noPhoto": true,
+      "id": "expert-keren-elazari"
     },
     {
       "type": "person",
@@ -12028,8 +12030,8 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-kevin-beaumont",
-      "noPhoto": true
+      "noPhoto": true,
+      "id": "expert-kevin-beaumont"
     },
     {
       "type": "person",
@@ -12049,8 +12051,8 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-kim-zetter",
-      "noPhoto": true
+      "noPhoto": true,
+      "id": "expert-kim-zetter"
     },
     {
       "type": "person",
@@ -12270,8 +12272,8 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-matthew-green",
-      "noPhoto": true
+      "noPhoto": true,
+      "id": "expert-matthew-green"
     },
     {
       "type": "person",
@@ -12312,7 +12314,6 @@
       "verified": true,
       "logo": "covers/expert-mikko-hypponen-cc.webp",
       "logoSource": "Wikimedia Commons",
-      "id": "expert-mikko-hypponen",
       "logoCredit": {
         "author": "Ville Erkkilä",
         "licence": "CC BY-SA 4.0",
@@ -12322,7 +12323,8 @@
         "shareAlike": true,
         "cropped": true,
         "year": 2021
-      }
+      },
+      "id": "expert-mikko-hypponen"
     },
     {
       "type": "person",
@@ -12441,8 +12443,8 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-ray-redacted",
-      "noPhoto": true
+      "noPhoto": true,
+      "id": "expert-ray-redacted"
     },
     {
       "type": "person",
@@ -12507,8 +12509,8 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-rob-fuller",
-      "noPhoto": true
+      "noPhoto": true,
+      "id": "expert-rob-fuller"
     },
     {
       "type": "person",
@@ -12525,8 +12527,8 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-rob-joyce",
-      "noPhoto": true
+      "noPhoto": true,
+      "id": "expert-rob-joyce"
     },
     {
       "type": "person",
@@ -12566,8 +12568,8 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-rory-mccune",
-      "noPhoto": true
+      "noPhoto": true,
+      "id": "expert-rory-mccune"
     },
     {
       "type": "person",
@@ -12586,7 +12588,6 @@
       "verified": true,
       "logo": "covers/expert-runa-sandvik-cc2019.webp",
       "logoSource": "Wikimedia Commons",
-      "id": "expert-runa-sandvik",
       "logoCredit": {
         "author": "Kristina D.C. Hoeppner",
         "licence": "CC BY-SA 2.0",
@@ -12596,7 +12597,8 @@
         "shareAlike": true,
         "cropped": true,
         "year": 2019
-      }
+      },
+      "id": "expert-runa-sandvik"
     },
     {
       "type": "person",
@@ -12780,7 +12782,6 @@
       "verified": true,
       "logo": "covers/expert-troy-hunt-cc2021.webp",
       "logoSource": "Wikimedia Commons",
-      "id": "expert-troy-hunt",
       "logoCredit": {
         "author": "Troy Hunt",
         "licence": "CC BY-SA 4.0",
@@ -12790,7 +12791,8 @@
         "shareAlike": true,
         "cropped": true,
         "year": 2021
-      }
+      },
+      "id": "expert-troy-hunt"
     },
     {
       "type": "person",
@@ -12870,8 +12872,8 @@
       ],
       "verified": true,
       "linkedin": "https://www.linkedin.com/in/window",
-      "id": "expert-window-snyder",
-      "noPhoto": true
+      "noPhoto": true,
+      "id": "expert-window-snyder"
     }
   ]
 }
