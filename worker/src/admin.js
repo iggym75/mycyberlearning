@@ -18,7 +18,7 @@ function sanitiseItem(item) {
   if (item.type === "platform") { if (!KIND_KEYS.includes(item.kind)) item.kind = undefined; if (!COST_KEYS.includes(item.cost)) item.cost = undefined; }
   else { delete item.kind; delete item.cost; }
   // An expert is a person: no listening links, feed, ISBN or release schedule; profile links only on experts.
-  if (item.type === "person") { if (item.noPhoto) { item.noPhoto = true; item.logo = undefined; item.logoSource = undefined; } else delete item.noPhoto;
+  if (item.type === "person") { if (item.noPhoto) { item.noPhoto = true; item.logo = undefined; item.logoSource = undefined; item.logoCredit = undefined; } else delete item.noPhoto;
     for (const k of ["apple", "spotify", "amazon", "rss", "isbn", "publisher", "freq", "launched", "status", "format", "bundle"]) delete item[k]; }
   else { for (const k of SOCIAL_FIELDS) delete item[k]; delete item.noPhoto; }
   return item;

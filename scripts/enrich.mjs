@@ -7,7 +7,7 @@ import { getText, getJson, sleep, UA } from "./lib.mjs";
 const taxonomy = JSON.parse(readFileSync(new URL("../data/taxonomy.json", import.meta.url), "utf8"));
 const DOMAIN_KEYS = taxonomy.domains.map(d => d.key);
 export { inferCadence, parsePodnewsRating, bestMatch, appleId } from "./pure.mjs";
-import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, FEED_XML, parsePodnewsSpotify, ogTitle, pickSpotifyShow, imageSize, pickLogo, expertPhotoPlan, bskyThumb, youtubeAvatar } from "./pure.mjs";
+import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, FEED_XML, parsePodnewsSpotify, ogTitle, pickSpotifyShow, imageSize, pickLogo, expertPhotoPlan, bskyThumb, youtubeAvatar, commonsNames, pickWikidataPerson, commonsLicence } from "./pure.mjs";
 
 /** Apple Podcasts directory (free, no key): artwork, feed URL, canonical link, episode count. */
 export async function lookupApple(item) {
@@ -216,6 +216,29 @@ export async function findExpertPhoto(item) {
         if (u) return { url: u, source: "YouTube" };
       } else return { url: step.url, source: step.source };
     } catch { /* try the next source */ }
+  }
+  return null;
+}
+
+/** A freely licensed photo of an expert from Wikimedia Commons, found through their Wikidata entry (P18), with the
+ *  credit the licence asks for. Returns null unless the licence is PD, CC0, CC BY or CC BY-SA (see commonsLicence). */
+export async function findCommonsPhoto(item) {
+  for (const name of commonsNames(item.name)) {
+    const hits = await getJson(`https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&type=item&limit=7&search=${encodeURIComponent(name)}`);
+    const ids = (hits.search || []).map(h => h.id).filter(id => /^Q\d+$/.test(id));
+    if (!ids.length) continue;
+    const ents = await getJson(`https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&languages=en&props=claims|labels|aliases|descriptions&ids=${ids.join("|")}`);
+    const who = pickWikidataPerson(ents.entities, name, item);
+    if (!who) continue;
+    const info = await getJson(`https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url|extmetadata|mime&iiurlwidth=480&titles=${encodeURIComponent("File:" + who.file)}`);
+    const ii = Object.values(info.query?.pages || {})[0]?.imageinfo?.[0];
+    if (!ii || !/^image\/(jpeg|png|webp)$/.test(ii.mime || "")) continue;
+    const lic = commonsLicence(ii.extmetadata);
+    if (!lic) { console.log(`  ${item.id}: Commons photo ${who.file} skipped (licence not usable: ${ii.extmetadata?.LicenseShortName?.value || "none"})`); continue; }
+    const page = String(ii.descriptionurl || "").replace(/^http:/, "https:");
+    if (!page.startsWith("https://commons.wikimedia.org/")) continue;
+    return { url: ii.thumburl || ii.url, source: "Wikimedia Commons", qid: who.qid, desc: who.desc, linked: who.linked,
+      credit: { author: lic.author, licence: lic.licence, licenceUrl: lic.licenceUrl, page, file: who.file, shareAlike: lic.shareAlike } };
   }
   return null;
 }

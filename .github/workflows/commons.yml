@@ -1,0 +1,40 @@
+name: Commons photos (review branch)
+
+# Looks up freely licensed expert photos on Wikimedia Commons and pushes the result to a branch
+# (commons/photos-<run id>) for checking by eye. Nothing reaches the live site until that branch is merged.
+on:
+  workflow_dispatch:
+    inputs:
+      include_nophoto:
+        description: "Also try experts currently showing the topic ring (never those removed on request)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency: { group: commons, cancel-in-progress: false }
+
+jobs:
+  commons:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { persist-credentials: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm install --no-audit --no-fund --ignore-scripts --omit=dev
+      - name: Find Commons photos
+        run: node scripts/commons.mjs ${{ inputs.include_nophoto && '--include-nophoto' || '' }} | tee commons.log
+      - name: Push review branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "catalogue-bot"
+          git config user.email "catalogue-bot@users.noreply.github.com"
+          git add -A data/catalogue.json frontend/covers
+          git diff --cached --quiet && { echo "No changes"; exit 0; }
+          git commit -m "Commons photos for review (run ${{ github.run_id }})"
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
+          git push origin "HEAD:refs/heads/commons/photos-${{ github.run_id }}"
