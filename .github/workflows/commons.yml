@@ -42,7 +42,7 @@ jobs:
         run: |
           git config user.name "catalogue-bot"
           git config user.email "catalogue-bot@users.noreply.github.com"
-          git add -A data/catalogue.json frontend/covers review
+          git add -A data/catalogue.json frontend/covers $( [ -d review ] && echo review )
           git diff --cached --quiet && { echo "No changes"; exit 0; }
           git commit -m "Commons photos for review (run ${{ github.run_id }})"
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
