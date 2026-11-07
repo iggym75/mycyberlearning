@@ -40,7 +40,8 @@
     { "key": "course",        "label": "Courses",            "hint": "Structured video or text courses" },
     { "key": "certification", "label": "Certifications",     "hint": "Vendor-neutral certifications with a free or low-cost route" },
     { "key": "events",        "label": "Events & meetups",   "hint": "Conferences, meetups and where to find them" },
-    { "key": "community",     "label": "Communities",        "hint": "Open projects, chapters and member communities" }
+    { "key": "community",     "label": "Communities",        "hint": "Open projects, chapters and member communities" },
+    { "key": "books",         "label": "Book bundles",       "hint": "Discounted bundles of security ebooks from publishers" }
   ],
   "costs": [
     { "key": "free",     "label": "Free",      "hint": "Everything that matters is free" },

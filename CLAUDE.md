@@ -3,7 +3,7 @@
 Public site: https://mycyberlearning.co.uk · Owner/admin: Ian Moore
 
 ## What this is
-A curated library of cybersecurity podcasts, books and learning platforms (labs, CTFs, courses, certifications, events and communities that are free or low-cost and not tied to one vendor). Visitors filter by security domain (multi-select, any/all), frequency and level; see official platform ratings and separate community votes; and suggest new resources. One admin approves, edits, hides and deletes.
+A curated library of cybersecurity podcasts, books and learning platforms (labs, CTFs, courses, certifications, events, communities and publishers' book bundles that are free or low-cost and not tied to one vendor). Visitors filter by security domain (multi-select, any/all), frequency and level; see official platform ratings and separate community votes; and suggest new resources. One admin approves, edits, hides and deletes.
 
 ## Layout
 - `frontend/index.template.html` — the whole UI (vanilla HTML/CSS/JS, no framework). `/*__SEED__*/` is replaced at build time with the catalogue for offline/demo fallback.
