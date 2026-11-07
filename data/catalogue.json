@@ -11117,7 +11117,7 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-alec-muffett-cc.jpg",
+      "logo": "covers/expert-alec-muffett-cc.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-alec-muffett",
       "logoCredit": {
@@ -11126,7 +11126,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Alec_muffett.jpg",
         "file": "Alec muffett.jpg",
-        "shareAlike": true
+        "shareAlike": true,
+        "cropped": true
       }
     },
     {
@@ -11145,7 +11146,7 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-alex-stamos-cc.jpg",
+      "logo": "covers/expert-alex-stamos-cc.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-alex-stamos",
       "logoCredit": {
@@ -11154,7 +11155,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Alex_Stamos_at_Web_Summit_2015_-_Dublin,_Ireland.jpg",
         "file": "Alex Stamos at Web Summit 2015 - Dublin, Ireland.jpg",
-        "shareAlike": false
+        "shareAlike": false,
+        "cropped": true
       }
     },
     {
@@ -11324,7 +11326,7 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-bruce-schneier-cc.jpg",
+      "logo": "covers/expert-bruce-schneier-cc.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-bruce-schneier",
       "logoCredit": {
@@ -11333,7 +11335,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Bruce_Schneier_1.jpg",
         "file": "Bruce Schneier 1.jpg",
-        "shareAlike": true
+        "shareAlike": true,
+        "cropped": true
       }
     },
     {
@@ -11351,7 +11354,7 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-chris-wysopal-cc.jpg",
+      "logo": "covers/expert-chris-wysopal-cc.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-chris-wysopal",
       "logoCredit": {
@@ -11360,7 +11363,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Web_Summit_2017_-_FullStk_CG1_9975_(24416226898).jpg",
         "file": "Web Summit 2017 - FullStk CG1 9975 (24416226898).jpg",
-        "shareAlike": false
+        "shareAlike": false,
+        "cropped": true
       }
     },
     {
@@ -11594,7 +11598,7 @@
       ],
       "verified": true,
       "bluesky": "https://bsky.app/profile/evacide.bsky.social",
-      "logo": "covers/expert-eva-galperin-cc.jpg",
+      "logo": "covers/expert-eva-galperin-cc.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-eva-galperin",
       "logoCredit": {
@@ -11603,7 +11607,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Eva_Galperin_2013_(cropped).jpg",
         "file": "Eva Galperin 2013 (cropped).jpg",
-        "shareAlike": true
+        "shareAlike": true,
+        "cropped": true
       }
     },
     {
@@ -11647,7 +11652,7 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-graham-cluley-cc.jpg",
+      "logo": "covers/expert-graham-cluley-cc.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-graham-cluley",
       "logoCredit": {
@@ -11656,7 +11661,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Graham_Cluley.jpg",
         "file": "Graham Cluley.jpg",
-        "shareAlike": false
+        "shareAlike": false,
+        "cropped": true
       }
     },
     {
@@ -11826,7 +11832,7 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-jeff-moss-cc.jpg",
+      "logo": "covers/expert-jeff-moss-cc.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-jeff-moss",
       "logoCredit": {
@@ -11835,7 +11841,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Dark_Tangent_(7546598054).jpg",
         "file": "Dark Tangent (7546598054).jpg",
-        "shareAlike": false
+        "shareAlike": false,
+        "cropped": true
       }
     },
     {
@@ -11958,7 +11965,7 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-katie-moussouris-cc.jpg",
+      "logo": "covers/expert-katie-moussouris-cc.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-katie-moussouris",
       "logoCredit": {
@@ -11967,7 +11974,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Katie_Moussouris_Kiwicon_9_presenter_(91).jpg",
         "file": "Katie Moussouris Kiwicon 9 presenter (91).jpg",
-        "shareAlike": true
+        "shareAlike": true,
+        "cropped": true
       }
     },
     {
@@ -12033,7 +12041,7 @@
       ],
       "verified": true,
       "id": "expert-keren-elazari",
-      "logo": "covers/expert-keren-elazari-cc.jpg",
+      "logo": "covers/expert-keren-elazari-cc.webp",
       "logoSource": "Wikimedia Commons",
       "logoCredit": {
         "author": "Sebastiaan ter Burg from Utrecht, The Netherlands",
@@ -12041,7 +12049,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Keren_Elazari_at_the_SingularityU_The_Netherlands_Summit_2016_(29027689414)_(cropped).jpg",
         "file": "Keren Elazari at the SingularityU The Netherlands Summit 2016 (29027689414) (cropped).jpg",
-        "shareAlike": false
+        "shareAlike": false,
+        "cropped": true
       }
     },
     {
@@ -12084,7 +12093,7 @@
       ],
       "verified": true,
       "id": "expert-kim-zetter",
-      "logo": "covers/expert-kim-zetter-cc.jpg",
+      "logo": "covers/expert-kim-zetter-cc.webp",
       "logoSource": "Wikimedia Commons",
       "logoCredit": {
         "author": "Joe Hall",
@@ -12092,7 +12101,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Kim_Zetter.jpg",
         "file": "Kim Zetter.jpg",
-        "shareAlike": false
+        "shareAlike": false,
+        "cropped": true
       }
     },
     {
@@ -12273,7 +12283,7 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-mark-russinovich-cc.jpg",
+      "logo": "covers/expert-mark-russinovich-cc.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-mark-russinovich",
       "logoCredit": {
@@ -12282,7 +12292,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Mark_Russinovich.jpg",
         "file": "Mark Russinovich.jpg",
-        "shareAlike": false
+        "shareAlike": false,
+        "cropped": true
       }
     },
     {
@@ -12301,7 +12312,7 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-matt-blaze-cc.jpg",
+      "logo": "covers/expert-matt-blaze-cc.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-matt-blaze",
       "logoCredit": {
@@ -12310,7 +12321,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
         "page": "https://commons.wikimedia.org/wiki/File:Matt_Blaze_DEF_CON_20.jpg",
         "file": "Matt Blaze DEF CON 20.jpg",
-        "shareAlike": false
+        "shareAlike": false,
+        "cropped": true
       }
     },
     {
@@ -12329,7 +12341,7 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-matthew-green-cc.jpg",
+      "logo": "covers/expert-matthew-green-cc.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-matthew-green",
       "logoCredit": {
@@ -12338,7 +12350,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Matthew_Green.jpeg",
         "file": "Matthew Green.jpeg",
-        "shareAlike": true
+        "shareAlike": true,
+        "cropped": true
       }
     },
     {
@@ -12378,7 +12391,7 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-mikko-hypponen-cc.jpg",
+      "logo": "covers/expert-mikko-hypponen-cc.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-mikko-hypponen",
       "logoCredit": {
@@ -12387,7 +12400,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Mikko_Hypp%C3%B6nen_-_2021_(cropped).jpg",
         "file": "Mikko Hyppönen - 2021 (cropped).jpg",
-        "shareAlike": true
+        "shareAlike": true,
+        "cropped": true
       }
     },
     {
@@ -12591,7 +12605,7 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-rob-joyce-cc.jpg",
+      "logo": "covers/expert-rob-joyce-cc.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-rob-joyce",
       "logoCredit": {
@@ -12600,7 +12614,8 @@
         "licenceUrl": "",
         "page": "https://commons.wikimedia.org/wiki/File:Robert_E._Joyce.jpg",
         "file": "Robert E. Joyce.jpg",
-        "shareAlike": false
+        "shareAlike": false,
+        "cropped": true
       }
     },
     {
@@ -12667,7 +12682,7 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-runa-sandvik-cc.jpg",
+      "logo": "covers/expert-runa-sandvik-cc.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-runa-sandvik",
       "logoCredit": {
@@ -12676,7 +12691,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Runa_Sandvik_2015_(cropped).jpg",
         "file": "Runa Sandvik 2015 (cropped).jpg",
-        "shareAlike": true
+        "shareAlike": true,
+        "cropped": true
       }
     },
     {
@@ -12859,7 +12875,7 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-troy-hunt-cc.jpg",
+      "logo": "covers/expert-troy-hunt-cc.webp",
       "logoSource": "Wikimedia Commons",
       "id": "expert-troy-hunt",
       "logoCredit": {
@@ -12868,7 +12884,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Troy_Hunt.jpg",
         "file": "Troy Hunt.jpg",
-        "shareAlike": true
+        "shareAlike": true,
+        "cropped": true
       }
     },
     {
@@ -12950,7 +12967,7 @@
       "verified": true,
       "linkedin": "https://www.linkedin.com/in/window",
       "id": "expert-window-snyder",
-      "logo": "covers/expert-window-snyder-cc.jpg",
+      "logo": "covers/expert-window-snyder-cc.webp",
       "logoSource": "Wikimedia Commons",
       "logoCredit": {
         "author": "Web Summit",
@@ -12958,7 +12975,8 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Window_Snyder_Web_Summit_2017_cropped.jpg",
         "file": "Window Snyder Web Summit 2017 cropped.jpg",
-        "shareAlike": false
+        "shareAlike": false,
+        "cropped": true
       }
     }
   ]
