@@ -11981,9 +11981,8 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-kevin-beaumont.webp",
-      "logoSource": "Bluesky",
-      "id": "expert-kevin-beaumont"
+      "id": "expert-kevin-beaumont",
+      "noPhoto": true
     },
     {
       "type": "person",
@@ -12386,9 +12385,8 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-ray-redacted.webp",
-      "logoSource": "Bluesky",
-      "id": "expert-ray-redacted"
+      "id": "expert-ray-redacted",
+      "noPhoto": true
     },
     {
       "type": "person",
