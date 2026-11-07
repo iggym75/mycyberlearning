@@ -1,7 +1,7 @@
 {
   "meta": {
     "site": "My Cyber Learning",
-    "generated": "2026-11-04",
+    "generated": "2026-11-07",
     "ratingSource": "Podnews.net aggregate (Rephonic: Apple Podcasts, Spotify, Podchaser, Podcast Addict)",
     "notes": "Items with verified:false have metadata from list articles or editorial knowledge; the weekly refresh job confirms links, artwork, frequency, launch date and ratings."
   },
@@ -72,7 +72,7 @@
       "rating": {
         "v": 4.9,
         "n": 45,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": true,
       "sources": [
@@ -83,8 +83,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1332947921",
       "rss": "https://feeds.soundcloud.com/users/soundcloud:users:376833845/sounds.rss",
-      "lastEpisode": "2026-11-03",
-      "episodes": 463,
+      "lastEpisode": "2026-11-04",
+      "episodes": 464,
       "amazon": "https://music.amazon.co.uk/podcasts/8d3ef16b-d055-452e-8f60-bc4e71316232/5bytespodcast",
       "spotify": "https://open.spotify.com/show/5HlR3ywunSAUnZ6NAtPWXA",
       "id": "5bytes"
@@ -103,7 +103,7 @@
         "intermediate",
         "advanced"
       ],
-      "freq": "biweekly",
+      "freq": "weekly",
       "launched": "2023",
       "status": "active",
       "web": "https://www.aisecuritypodcast.com/",
@@ -119,8 +119,8 @@
       "logo": "covers/podcast-ai-security-podcast.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://anchor.fm/s/eaa0671c/podcast/rss",
-      "lastEpisode": "2026-10-28",
-      "episodes": 66,
+      "lastEpisode": "2026-11-05",
+      "episodes": 67,
       "amazon": "https://music.amazon.co.uk/podcasts/7569a2bd-5a8f-446f-9c15-eb51fb90cff4/ai-security-podcast",
       "id": "ai-security-podcast"
     },
@@ -143,7 +143,7 @@
       "rating": {
         "v": 4.8,
         "n": 228,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": true,
       "sources": [
@@ -220,7 +220,7 @@
       "rating": {
         "v": 4.8,
         "n": 207,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": true,
       "sources": [
@@ -231,8 +231,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1489678590",
       "rss": "https://anchor.fm/s/10fb9928/podcast/rss",
-      "lastEpisode": "2026-10-27",
-      "episodes": 364,
+      "lastEpisode": "2026-11-05",
+      "episodes": 365,
       "amazon": "https://music.amazon.co.uk/podcasts/3c1aac47-1095-4c03-bdfe-819ddbd4221c/cloud-security-podcast",
       "spotify": "https://open.spotify.com/show/6LZgeh4GecRYPc0WrwMB4I",
       "id": "cloud-security-podcast"
@@ -255,7 +255,11 @@
       "launched": "2021",
       "status": "active",
       "web": "https://cloud.google.com/blog/topics/google-cloud-security-podcast",
-      "rating": null,
+      "rating": {
+        "v": 4.6,
+        "n": 143,
+        "asOf": "2026-11-07"
+      },
       "curator": true,
       "sources": [
         "mcl",
@@ -292,7 +296,7 @@
       "rating": {
         "v": 5,
         "n": 10,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": true,
       "sources": [
@@ -303,8 +307,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1763243770",
       "rss": "https://anchor.fm/s/f9ff5de4/podcast/rss",
-      "lastEpisode": "2026-11-03",
-      "episodes": 266,
+      "lastEpisode": "2026-11-05",
+      "episodes": 267,
       "spotify": "https://open.spotify.com/show/3H4WRBF0yZRQe2m5p1AXku",
       "id": "cyber-bytes"
     },
@@ -327,7 +331,7 @@
       "rating": {
         "v": 4.8,
         "n": 7824,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": true,
       "sources": [
@@ -372,8 +376,8 @@
       "logo": "covers/podcast-cyber-security-headlines.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.libsyn.com/shows/289580/destinations/2260670.xml",
-      "lastEpisode": "2026-11-04",
-      "episodes": 1882,
+      "lastEpisode": "2026-11-06",
+      "episodes": 1886,
       "amazon": "https://music.amazon.co.uk/podcasts/45477283-d157-4ea1-9782-fd29dab41f3d/cybersecurity-headlines",
       "spotify": "https://open.spotify.com/show/5ylaiuoDj7YOVSdyVJMDR7",
       "id": "cyber-security-headlines"
@@ -415,7 +419,7 @@
       "logo": "covers/podcast-cyberwire-daily.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.pdrl.fm/85df76/feeds.megaphone.fm/cyberwire-daily-podcast",
-      "lastEpisode": "2026-11-03",
+      "lastEpisode": "2026-11-07",
       "episodes": 2000,
       "amazon": "https://music.amazon.co.uk/podcasts/76b35ca4-3e15-4c65-ba48-89588bead1fd/cyberwire-daily",
       "id": "cyberwire-daily"
@@ -554,7 +558,7 @@
       "rating": {
         "v": 4.7,
         "n": 16,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-07"
       },
       "curator": true,
       "sources": [
@@ -565,8 +569,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1631947902",
       "rss": "https://anchor.fm/s/10e1875a4/podcast/rss",
-      "lastEpisode": "2026-10-22",
-      "episodes": 121,
+      "lastEpisode": "2026-11-05",
+      "episodes": 122,
       "spotify": "https://open.spotify.com/show/0671lFjPIgX6k2jYRrWrf4",
       "id": "future-of-ti"
     },
@@ -588,7 +592,11 @@
       "web": "https://www.hackedpodcast.com",
       "apple": "https://podcasts.apple.com/podcast/id1049420219",
       "spotify": "https://open.spotify.com/show/21zZfOy7VCSIIWlJ64DElv",
-      "rating": null,
+      "rating": {
+        "v": 4.8,
+        "n": 2032,
+        "asOf": "2026-11-07"
+      },
       "curator": true,
       "sources": [
         "mcl",
@@ -623,7 +631,11 @@
       "launched": "2022-10",
       "status": "active",
       "web": "https://hackerandthefed.com/",
-      "rating": null,
+      "rating": {
+        "v": 4.8,
+        "n": 532,
+        "asOf": "2026-11-07"
+      },
       "curator": true,
       "sources": [
         "mcl",
@@ -634,8 +646,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1649541362",
       "rss": "https://feeds.megaphone.fm/CON9079456418",
-      "lastEpisode": "2026-10-29",
-      "episodes": 156,
+      "lastEpisode": "2026-11-05",
+      "episodes": 157,
       "amazon": "https://music.amazon.co.uk/podcasts/4f7abfb1-93f7-4ffd-a0d3-dc306c4a8836/hacker-and-the-fed",
       "spotify": "https://open.spotify.com/show/4uze2AoxrCv0dRjvElUpTy",
       "tagsLocked": true,
@@ -658,7 +670,11 @@
       "launched": "2019-06",
       "status": "active",
       "web": "https://hackervalley.com/podcast",
-      "rating": null,
+      "rating": {
+        "v": 4.7,
+        "n": 91,
+        "asOf": "2026-11-07"
+      },
       "curator": true,
       "sources": [
         "mcl",
@@ -669,8 +685,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1471881997",
       "rss": "https://feed.podbean.com/hackervalleystudio/feed.xml",
-      "lastEpisode": "2026-10-26",
-      "episodes": 446,
+      "lastEpisode": "2026-11-06",
+      "episodes": 447,
       "amazon": "https://music.amazon.co.uk/podcasts/5e5f4b00-0675-48ea-8040-3f3b24a2d9d8/hacker-valley-studio",
       "spotify": "https://open.spotify.com/show/3pl6V7L6KnWdNR59H5dw6n",
       "id": "hacker-valley-studio"
@@ -693,9 +709,9 @@
       "web": "https://thecyberwire.com/podcasts/hacking-humans",
       "apple": "https://podcasts.apple.com/podcast/id1391915810",
       "rating": {
-        "v": 4.7,
-        "n": 526,
-        "asOf": "2026-10-30"
+        "v": 4.6,
+        "n": 575,
+        "asOf": "2026-11-07"
       },
       "curator": true,
       "sources": [
@@ -706,8 +722,8 @@
       "logo": "covers/podcast-hacking-humans.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.pdrl.fm/7d51b0/feeds.megaphone.fm/hacking-humans",
-      "lastEpisode": "2026-11-03",
-      "episodes": 825,
+      "lastEpisode": "2026-11-05",
+      "episodes": 826,
       "amazon": "https://music.amazon.co.uk/podcasts/a3fb35f8-2a0b-46cd-b63a-954b5f518617/hacking-humans",
       "spotify": "https://open.spotify.com/show/0EhUctIPJiKrxPjzqIAuDc",
       "id": "hacking-humans"
@@ -787,7 +803,7 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id304863991",
       "rss": "https://www.dshield.org/dailypodcast.xml",
-      "lastEpisode": "2026-11-04",
+      "lastEpisode": "2026-11-06",
       "episodes": 2000,
       "amazon": "https://music.amazon.co.uk/podcasts/43784207-1ec2-465d-8d86-ebc9b450ebb7/sans-internet-stormcenter-daily-cyber-security-podcast-stormcast",
       "spotify": "https://open.spotify.com/show/6oeUmMwv1AQpdYNHmOE4A0",
@@ -820,8 +836,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1326304686",
       "rss": "https://rss.buzzsprout.com/2154459.rss",
-      "lastEpisode": "2026-10-28",
-      "episodes": 497,
+      "lastEpisode": "2026-11-04",
+      "episodes": 498,
       "amazon": "https://music.amazon.co.uk/podcasts/4ff37197-9a8a-415f-8383-9e27161b2c8e/shadowtalk-powered-by-reliaquest",
       "spotify": "https://open.spotify.com/show/0gMOdUfUWT2G79oW9OadGq",
       "id": "shadowtalk"
@@ -844,7 +860,7 @@
       "status": "active",
       "web": "https://www.smashingsecurity.com",
       "apple": "https://podcasts.apple.com/podcast/id1195001633",
-      "spotify": "https://open.spotify.com/show/3J7pBxEu43nCnRTSXaan8S",
+      "spotify": "https://open.spotify.com/show/3F6vfKfyMjJQWvvMXJeKTM",
       "rating": {
         "v": 4.8,
         "n": 1141,
@@ -862,8 +878,8 @@
       "logo": "covers/podcast-smashing-security.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.redcircle.com/c478d684-038f-4b13-8507-bc32af486a2c",
-      "lastEpisode": "2026-10-29",
-      "episodes": 502,
+      "lastEpisode": "2026-11-05",
+      "episodes": 503,
       "amazon": "https://music.amazon.co.uk/podcasts/f15f40ff-2a63-45f1-88c8-010646f08d9f/smashing-security",
       "id": "smashing-security"
     },
@@ -1125,7 +1141,7 @@
       "rating": {
         "v": 5,
         "n": 3,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -1160,7 +1176,7 @@
       "rating": {
         "v": 4.7,
         "n": 62,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -1198,7 +1214,7 @@
       "rating": {
         "v": 4.8,
         "n": 109,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -1209,8 +1225,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id797742806",
       "rss": "https://rss.libsyn.com/shows/254153/destinations/1921835.xml",
-      "lastEpisode": "2026-10-30",
-      "episodes": 745,
+      "lastEpisode": "2026-11-06",
+      "episodes": 746,
       "amazon": "https://music.amazon.co.uk/podcasts/2346624e-5abe-4817-9739-4ef691ba18c9/7-minute-security",
       "spotify": "https://open.spotify.com/show/61c15kBzYFPyr0eMVJS2BK",
       "id": "7-minute-security"
@@ -1234,7 +1250,7 @@
       "rating": {
         "v": 4.9,
         "n": 70,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -1299,7 +1315,7 @@
       "rating": {
         "v": 5,
         "n": 10,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -1328,7 +1344,7 @@
         "beginner",
         "intermediate"
       ],
-      "freq": "irregular",
+      "freq": "biweekly",
       "status": "active",
       "web": "https://www.youtube.com/c/BDSPodcast",
       "apple": "https://podcasts.apple.com/podcast/id799131292",
@@ -1336,15 +1352,15 @@
       "rating": {
         "v": 4.7,
         "n": 136,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
         "feedspot"
       ],
       "verified": true,
-      "episodes": 466,
-      "lastEpisode": "2026-10-28",
+      "episodes": 467,
+      "lastEpisode": "2026-11-05",
       "logo": "covers/podcast-brakesec.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2014-01",
@@ -1370,7 +1386,7 @@
       "rating": {
         "v": 5,
         "n": 3,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -1406,7 +1422,7 @@
       "rating": {
         "v": 4.7,
         "n": 42,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -1440,7 +1456,7 @@
       "rating": {
         "v": 4.8,
         "n": 297,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -1478,7 +1494,7 @@
       "rating": {
         "v": 4.9,
         "n": 145,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -1490,8 +1506,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1538132658",
       "rss": "https://media.rss.com/ciso-tradecraft/feed.xml",
-      "lastEpisode": "2026-10-29",
-      "episodes": 305,
+      "lastEpisode": "2026-11-06",
+      "episodes": 306,
       "amazon": "https://music.amazon.co.uk/podcasts/3f6c5b6f-526a-48f8-be1f-4469b7721acc/ciso-tradecraft%C2%AE",
       "spotify": "https://open.spotify.com/show/79couHF4UHb92i38oedLul",
       "id": "ciso-tradecraft"
@@ -1518,7 +1534,7 @@
       "rating": {
         "v": 4.6,
         "n": 984,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -1528,8 +1544,8 @@
       "logo": "covers/podcast-click-here.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://publicfeeds.net/f/8376/clickhere",
-      "lastEpisode": "2026-11-03",
-      "episodes": 389,
+      "lastEpisode": "2026-11-06",
+      "episodes": 390,
       "amazon": "https://music.amazon.co.uk/podcasts/1ddc446b-b5eb-4546-bf8f-e2642285495b/click-here",
       "spotify": "https://open.spotify.com/show/2kxOETGvN32D6hZu0wPntG",
       "id": "click-here"
@@ -1553,7 +1569,7 @@
       "rating": {
         "v": 4.9,
         "n": 527,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -1564,8 +1580,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1663945029",
       "rss": "https://feeds.cohostpodcasting.com/y3zHW5ae",
-      "lastEpisode": "2026-10-31",
-      "episodes": 198,
+      "lastEpisode": "2026-11-05",
+      "episodes": 199,
       "amazon": "https://music.amazon.co.uk/podcasts/840ce716-cbab-4245-97b7-9eee56adb2ae/critical-thinking---bug-bounty-podcast",
       "spotify": "https://open.spotify.com/show/4GiJnv8f4a4ZR6Jc6TQJ3k",
       "id": "critical-thinking-bb"
@@ -1619,15 +1635,15 @@
       "rating": {
         "v": 4.7,
         "n": 34,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 335,
-      "lastEpisode": "2026-11-01",
+      "episodes": 336,
+      "lastEpisode": "2026-11-06",
       "logo": "covers/podcast-cyber-crime-junkies.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2022-08",
@@ -1653,7 +1669,7 @@
       "rating": {
         "v": 3.7,
         "n": 12,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -1688,7 +1704,7 @@
       "rating": {
         "v": 3,
         "n": 3,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -1786,7 +1802,7 @@
       "rating": {
         "v": 4.9,
         "n": 18,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -1957,7 +1973,7 @@
       ],
       "verified": true,
       "episodes": 535,
-      "lastEpisode": "2026-11-03",
+      "lastEpisode": "2026-11-07",
       "logo": "covers/podcast-cybercrime-magazine.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2026-03",
@@ -2051,7 +2067,7 @@
       ],
       "verified": true,
       "episodes": 300,
-      "lastEpisode": "2026-11-03",
+      "lastEpisode": "2026-11-05",
       "logo": "covers/podcast-cyberhub.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2025-04",
@@ -2152,7 +2168,7 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1363182054",
       "rss": "https://cybersecuritytoday.libsyn.com/rss",
-      "lastEpisode": "2026-11-04",
+      "lastEpisode": "2026-11-07",
       "episodes": 105,
       "amazon": "https://music.amazon.co.uk/podcasts/4fecadbb-cd07-4d0c-9edc-a2a4441111ce/cybersecurity-today",
       "spotify": "https://open.spotify.com/show/2YiPcnkJLIcxtQ04nCfaSu",
@@ -2182,8 +2198,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 147,
-      "lastEpisode": "2026-11-03",
+      "episodes": 148,
+      "lastEpisode": "2026-11-06",
       "logo": "covers/podcast-cybersecurity-under-pressure.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2026-02",
@@ -2308,8 +2324,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 1146,
-      "lastEpisode": "2026-11-03",
+      "episodes": 1149,
+      "lastEpisode": "2026-11-06",
       "logo": "covers/podcast-daily-cyber-threat-brief.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2021-10",
@@ -2339,8 +2355,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 85,
-      "lastEpisode": "2026-11-03",
+      "episodes": 87,
+      "lastEpisode": "2026-11-05",
       "logo": "covers/podcast-daily-defsec-brief.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2026-07",
@@ -2443,8 +2459,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1450197741",
       "rss": "https://rss.libsyn.com/shows/156524/destinations/1020683.xml",
-      "lastEpisode": "2026-10-29",
-      "episodes": 383,
+      "lastEpisode": "2026-11-05",
+      "episodes": 384,
       "amazon": "https://music.amazon.co.uk/podcasts/6391c752-85cf-4aa7-bac9-0af5390ec05d/defense-in-depth",
       "spotify": "https://open.spotify.com/show/158C90JWnCxBXAX7HfWxIM",
       "id": "defense-in-depth"
@@ -2538,7 +2554,7 @@
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 344,
+      "episodes": 345,
       "lastEpisode": "2026-11-04",
       "logo": "covers/podcast-easy-prey.jpg",
       "logoSource": "Apple Podcasts artwork",
@@ -2657,14 +2673,18 @@
       "web": "https://fraudology-podcast.captivate.fm",
       "apple": "https://podcasts.apple.com/podcast/id1530461089",
       "rss": "https://feeds.captivate.fm/fraudology-podcast/",
-      "rating": null,
+      "rating": {
+        "v": 4.6,
+        "n": 105,
+        "asOf": "2026-11-07"
+      },
       "curator": false,
       "sources": [
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 423,
-      "lastEpisode": "2026-10-29",
+      "episodes": 424,
+      "lastEpisode": "2026-11-05",
       "logo": "covers/podcast-fraudology.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2020-09",
@@ -2689,7 +2709,7 @@
       "rating": {
         "v": 4.4,
         "n": 76,
-        "asOf": "2026-11-03"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -2786,7 +2806,11 @@
       "web": "http://howhackshappen.net",
       "apple": "https://podcasts.apple.com/podcast/id1533766066",
       "rss": "https://rss.buzzsprout.com/1241654.rss",
-      "rating": null,
+      "rating": {
+        "v": 4.4,
+        "n": 39,
+        "asOf": "2026-11-07"
+      },
       "curator": false,
       "sources": [
         "millionpodcasts"
@@ -2817,7 +2841,11 @@
       "launched": "2019-02",
       "status": "ended",
       "web": "https://humanfactorsecurity.co.uk/podcast-2/",
-      "rating": null,
+      "rating": {
+        "v": 4.8,
+        "n": 65,
+        "asOf": "2026-11-07"
+      },
       "curator": false,
       "sources": [
         "gcs"
@@ -2854,8 +2882,8 @@
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 296,
-      "lastEpisode": "2026-10-29",
+      "episodes": 297,
+      "lastEpisode": "2026-11-05",
       "logo": "covers/podcast-idtheftcenter.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2020-10",
@@ -2885,7 +2913,7 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 150,
+      "episodes": 151,
       "lastEpisode": "2026-11-04",
       "logo": "covers/podcast-industrial-cybersecurity-insider.jpg",
       "logoSource": "Apple Podcasts artwork",
@@ -2984,8 +3012,8 @@
       "logo": "covers/podcast-latent-space.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://podcast.latent.space/feed.xml",
-      "lastEpisode": "2026-11-03",
-      "episodes": 291,
+      "lastEpisode": "2026-11-07",
+      "episodes": 294,
       "amazon": "https://music.amazon.co.uk/podcasts/abff303e-e4f1-447c-9823-b35bfc6e8da8/latent-space-the-ai-engineer-podcast",
       "id": "latent-space"
     },
@@ -3114,8 +3142,8 @@
       "logo": "covers/podcast-ms-ti-podcast.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.megaphone.fm/microsoft-threat-intelligence",
-      "lastEpisode": "2026-10-28",
-      "episodes": 81,
+      "lastEpisode": "2026-11-05",
+      "episodes": 82,
       "amazon": "https://music.amazon.co.uk/podcasts/dfcad747-afb2-49d3-8c81-b230d32327c3/microsoft-threat-intelligence-podcast",
       "spotify": "https://open.spotify.com/show/7kaJodHquryFw5YDw0BShj",
       "id": "ms-ti-podcast"
@@ -3178,8 +3206,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 139,
-      "lastEpisode": "2026-10-22",
+      "episodes": 141,
+      "lastEpisode": "2026-11-05",
       "logo": "covers/podcast-modern-cyber.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2024-04",
@@ -3337,8 +3365,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1149992167",
       "rss": "https://rss.libsyn.com/shows/82835/destinations/388575.xml",
-      "lastEpisode": "2026-10-29",
-      "episodes": 655,
+      "lastEpisode": "2026-11-05",
+      "episodes": 656,
       "amazon": "https://music.amazon.co.uk/podcasts/12848f0b-1aa5-49e0-bdcb-8e0a41fdedd1/paul's-security-weekly-audio",
       "spotify": "https://open.spotify.com/show/0YC8VPkCkfmrDuiEulxkC6",
       "id": "security-weekly"
@@ -3401,8 +3429,8 @@
       "logo": "covers/podcast-practical-ai.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.transistor.fm/practical-ai-machine-learning-data-science-llm",
-      "lastEpisode": "2026-10-29",
-      "episodes": 380,
+      "lastEpisode": "2026-11-05",
+      "episodes": 381,
       "amazon": "https://music.amazon.co.uk/podcasts/37dd7ab4-89dc-40a6-ad68-1062902bdaa5/practical-ai",
       "id": "practical-ai"
     },
@@ -3492,7 +3520,7 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 225,
+      "episodes": 226,
       "lastEpisode": "2026-11-04",
       "logo": "covers/podcast-reimagining-cyber.jpg",
       "logoSource": "Apple Podcasts artwork",
@@ -3524,8 +3552,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 472,
-      "lastEpisode": "2026-10-31",
+      "episodes": 473,
+      "lastEpisode": "2026-11-07",
       "logo": "covers/podcast-research-saturday.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2017-09",
@@ -3596,8 +3624,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1523098985",
       "rss": "https://rss.pdrl.fm/5af9bb/feeds.libsyn.com/284192/rss/?redirect=false",
-      "lastEpisode": "2026-10-25",
-      "episodes": 106,
+      "lastEpisode": "2026-11-06",
+      "episodes": 107,
       "amazon": "https://music.amazon.co.uk/podcasts/462a5a81-82f6-4b4a-bfba-dd3bd2cb7c31/risk-management-show",
       "spotify": "https://open.spotify.com/show/1IynksT6tH80Nw9LTyI7bt",
       "id": "risk-management-show"
@@ -3630,8 +3658,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1771446058",
       "rss": "https://rss.buzzsprout.com/2407084.rss",
-      "lastEpisode": "2026-10-23",
-      "episodes": 41,
+      "lastEpisode": "2026-11-06",
+      "episodes": 42,
       "spotify": "https://open.spotify.com/show/6ag1Lo9QHB8rCy4DuCTWqN",
       "id": "sans-cyber-leaders"
     },
@@ -3856,8 +3884,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 295,
-      "lastEpisode": "2026-10-27",
+      "episodes": 296,
+      "lastEpisode": "2026-11-05",
       "logo": "covers/podcast-security-squawk.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2020-12",
@@ -3920,8 +3948,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 851,
-      "lastEpisode": "2026-11-03",
+      "episodes": 852,
+      "lastEpisode": "2026-11-06",
       "logo": "covers/podcast-security-weekly-news.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2016-04",
@@ -4247,7 +4275,7 @@
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.buzzsprout.com/2018149.rss",
       "lastEpisode": "2026-11-04",
-      "episodes": 242,
+      "episodes": 243,
       "amazon": "https://music.amazon.co.uk/podcasts/ba71c5ff-8b36-4597-8fb5-e0f8c5d88ca0/talos-takes",
       "spotify": "https://open.spotify.com/show/2sZqrFXR3RupDqwXJM7kve",
       "tagsLocked": true,
@@ -4276,8 +4304,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 312,
-      "lastEpisode": "2026-10-29",
+      "episodes": 313,
+      "lastEpisode": "2026-11-05",
       "logo": "covers/podcast-teiss-podcast.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2018-05",
@@ -4306,7 +4334,7 @@
       "rating": {
         "v": 4.5,
         "n": 2950,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -4316,8 +4344,8 @@
       "logo": "covers/podcast-ai-daily-brief.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://anchor.fm/s/f7cac464/podcast/rss",
-      "lastEpisode": "2026-11-03",
-      "episodes": 1129,
+      "lastEpisode": "2026-11-07",
+      "episodes": 1133,
       "amazon": "https://music.amazon.co.uk/podcasts/2b3e5988-907e-4702-96f5-7eb33adc729e/the-ai-daily-brief-artificial-intelligence-news-and-analysis",
       "id": "ai-daily-brief"
     },
@@ -4341,7 +4369,7 @@
       "rating": {
         "v": 5,
         "n": 1,
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "curator": false,
       "sources": [
@@ -4502,7 +4530,7 @@
       ],
       "verified": true,
       "episodes": 100,
-      "lastEpisode": "2026-10-29",
+      "lastEpisode": "2026-11-04",
       "logo": "covers/podcast-cybur-guy.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2021-11",
@@ -4526,7 +4554,11 @@
       "web": "https://frsecure.com/cyber-threat-intel-series/",
       "apple": "https://podcasts.apple.com/podcast/id1585692939",
       "rss": "https://www.spreaker.com/show/5101210/episodes/feed",
-      "rating": null,
+      "rating": {
+        "v": 5,
+        "n": 3,
+        "asOf": "2026-11-07"
+      },
       "curator": false,
       "sources": [
         "feedspot"
@@ -4557,7 +4589,11 @@
       "web": "https://cybersecurity-institute.podcasts.entrust.com/",
       "apple": "https://podcasts.apple.com/podcast/id1623405181",
       "rss": "https://cybersecurity-institute.podcasts.entrust.com/feed.xml",
-      "rating": null,
+      "rating": {
+        "v": 5,
+        "n": 8,
+        "asOf": "2026-11-07"
+      },
       "curator": false,
       "sources": [
         "feedspot"
@@ -4594,8 +4630,8 @@
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 340,
-      "lastEpisode": "2026-10-30",
+      "episodes": 341,
+      "lastEpisode": "2026-11-06",
       "logo": "covers/podcast-perfect-scam.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2018-03",
@@ -5067,65 +5103,6 @@
     },
     {
       "type": "book",
-      "name": "A Practical Guide to Digital Forensics Investigations (2nd ed.)",
-      "by": "Darren R. Hayes",
-      "desc": "Comprehensive introduction to digital forensics: evidence handling, devices, networks, mobile and the legal process.",
-      "domains": [
-        "operations",
-        "defensive"
-      ],
-      "level": [
-        "beginner",
-        "intermediate"
-      ],
-      "published": "2020",
-      "publisher": "Pearson IT Certification",
-      "format": [
-        "ebook"
-      ],
-      "curator": false,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": false,
-      "rating": null,
-      "isbn": "9780134892948",
-      "logo": "covers/book-a-practical-guide-to-digital-forensics-investigations.jpg",
-      "openlibrary": "https://openlibrary.org/isbn/9780134892948",
-      "id": "book-a-practical-guide-to-digital-forensics-investigations"
-    },
-    {
-      "type": "book",
-      "name": "Adversarial Tradecraft in Cybersecurity",
-      "by": "Dan Borges",
-      "desc": "Attacker and defender techniques for live cyber competitions and real conflicts, from deception to persistence.",
-      "domains": [
-        "offensive",
-        "defensive",
-        "operations"
-      ],
-      "level": [
-        "intermediate",
-        "advanced"
-      ],
-      "published": "2021",
-      "publisher": "Packt",
-      "format": [
-        "ebook"
-      ],
-      "curator": false,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": false,
-      "rating": null,
-      "logo": "covers/book-adversarial-tradecraft-in-cybersecurity.jpg",
-      "id": "book-adversarial-tradecraft-in-cybersecurity"
-    },
-    {
-      "type": "book",
       "name": "Alice and Bob Learn Application Security",
       "by": "Tanya Janca",
       "desc": "Friendly, practical grounding in secure design, coding and testing for developers and AppSec newcomers.",
@@ -5186,100 +5163,6 @@
     },
     {
       "type": "book",
-      "name": "Antivirus Bypass Techniques",
-      "by": "Nir Yehoshua & Uriel Kosayev",
-      "desc": "How antivirus engines detect malware and how attackers evade them, to help defenders test and tune controls.",
-      "domains": [
-        "offensive",
-        "defensive"
-      ],
-      "level": [
-        "advanced"
-      ],
-      "published": "2021",
-      "publisher": "Packt",
-      "format": [
-        "ebook"
-      ],
-      "curator": false,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": false,
-      "rating": null,
-      "logo": "covers/book-antivirus-bypass-techniques.jpg",
-      "id": "book-antivirus-bypass-techniques"
-    },
-    {
-      "type": "book",
-      "name": "Applied Cryptography (20th anniversary ed.)",
-      "by": "Bruce Schneier",
-      "desc": "The classic reference on cryptographic protocols, algorithms and their implementation.",
-      "domains": [
-        "engineering"
-      ],
-      "level": [
-        "advanced"
-      ],
-      "published": "2015",
-      "publisher": "Wiley",
-      "format": [
-        "ebook"
-      ],
-      "curator": false,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": true,
-      "isbn": "9781119439028",
-      "rating": {
-        "v": 4.5,
-        "n": 8,
-        "src": "Open Library",
-        "asOf": "2026-11-04"
-      },
-      "isbnAlt": [
-        "9781119096726"
-      ],
-      "logo": "covers/book-applied-cryptography.jpg",
-      "openlibrary": "https://openlibrary.org/isbn/9781119439028",
-      "id": "book-applied-cryptography"
-    },
-    {
-      "type": "book",
-      "name": "Attacking Network Protocols",
-      "by": "James Forshaw",
-      "desc": "Capturing, analysing and exploiting network protocols to find vulnerabilities.",
-      "domains": [
-        "offensive",
-        "engineering"
-      ],
-      "level": [
-        "advanced"
-      ],
-      "published": "2017",
-      "publisher": "No Starch Press",
-      "format": [
-        "ebook"
-      ],
-      "curator": false,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": true,
-      "isbn": "9781593278441",
-      "rating": null,
-      "isbnAlt": [
-        "9781593277505"
-      ],
-      "logo": "covers/book-attacking-network-protocols.jpg",
-      "id": "book-attacking-network-protocols"
-    },
-    {
-      "type": "book",
       "name": "Automating Security Detection Engineering",
       "by": "Dennis Chow",
       "desc": "Detection-as-code: building, testing and deploying detections with CI/CD pipelines.",
@@ -5337,6 +5220,1102 @@
       "logo": "covers/book-beyond-the-algorithm.jpg",
       "openlibrary": "https://openlibrary.org/isbn/9780138268398",
       "id": "book-beyond-the-algorithm"
+    },
+    {
+      "type": "book",
+      "name": "Cybersecurity – Attack and Defense Strategies",
+      "by": "Yuri Diogenes & Erdal Ozkaya",
+      "desc": "The attack lifecycle from both sides, with defensive strategies for each stage.",
+      "domains": [
+        "defensive",
+        "offensive",
+        "operations"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null,
+      "published": "2019",
+      "logo": "covers/book-cybersecurity-attack-and-defense-strategies.jpg",
+      "id": "book-cybersecurity-attack-and-defense-strategies"
+    },
+    {
+      "type": "book",
+      "name": "Extreme Privacy: What It Takes to Disappear",
+      "by": "Michael Bazzell",
+      "desc": "Step-by-step playbook for shrinking your digital footprint: devices, accounts, payments, housing and identity, from basic hygiene to going off the grid.",
+      "domains": [
+        "privacy",
+        "human"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2024",
+      "publisher": "Independently published",
+      "format": [
+        "book",
+        "ebook"
+      ],
+      "isbn": "9798335024334",
+      "isbnVerified": false,
+      "web": "https://inteltechniques.com/books",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "book-extreme-privacy"
+    },
+    {
+      "type": "book",
+      "name": "How I Rob Banks: And Other Such Places",
+      "by": "FC (Freaky Clown)",
+      "desc": "Stories from a career of physical and social-engineering penetration testing.",
+      "domains": [
+        "offensive",
+        "human",
+        "stories"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2023",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119911517",
+      "logo": "covers/book-how-i-rob-banks.jpg",
+      "openlibrary": "https://openlibrary.org/isbn/9781119911517",
+      "id": "book-how-i-rob-banks"
+    },
+    {
+      "type": "book",
+      "name": "How to Measure Anything in Cybersecurity Risk",
+      "by": "Douglas W. Hubbard & Richard Seiersen",
+      "desc": "Replaces risk heat maps with quantitative, probabilistic methods security leaders can defend to a board.",
+      "domains": [
+        "grc",
+        "leadership"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2016 (2nd ed. 2023)",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "publisher": "Wiley",
+      "isbn": "9781119892304",
+      "isbnVerified": true,
+      "openlibrary": "https://openlibrary.org/isbn/9781119892304",
+      "logo": "covers/book-measure-anything.jpg",
+      "logoSource": "Open Library",
+      "id": "book-measure-anything"
+    },
+    {
+      "type": "book",
+      "name": "Humble Bundle eBook bundles",
+      "by": "Humble Bundle",
+      "desc": "Rotating, pay-what-you-want bundles that frequently include security titles from No Starch, Wiley, O'Reilly and Packt.",
+      "domains": [
+        "career",
+        "offensive",
+        "defensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "published": "Ongoing",
+      "format": [
+        "ebook bundle"
+      ],
+      "web": "https://www.humblebundle.com/books",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "publisher": "Various",
+      "isbnVerified": false,
+      "id": "book-humble-bundle"
+    },
+    {
+      "type": "book",
+      "name": "If It's Smart, It's Vulnerable",
+      "by": "Mikko Hyppönen",
+      "desc": "Reflections on the internet's history and the security risks of connecting everything.",
+      "domains": [
+        "stories",
+        "defensive"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2022",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119895206",
+      "logo": "covers/book-if-it-s-smart-it-s-vulnerable.jpg",
+      "openlibrary": "https://openlibrary.org/isbn/9781119895206",
+      "id": "book-if-it-s-smart-it-s-vulnerable"
+    },
+    {
+      "type": "book",
+      "name": "Kali Linux Penetration Testing Bible",
+      "by": "Gus Khawaja",
+      "desc": "Comprehensive guide to pentesting with Kali, from recon to exploitation and reporting.",
+      "domains": [
+        "offensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119719076",
+      "logo": "covers/book-kali-linux-penetration-testing-bible.jpg",
+      "openlibrary": "https://openlibrary.org/isbn/9781119719076",
+      "id": "book-kali-linux-penetration-testing-bible"
+    },
+    {
+      "type": "book",
+      "name": "Liars and Outliers",
+      "by": "Bruce Schneier",
+      "desc": "How societies build trust and why security is a social problem as much as a technical one.",
+      "domains": [
+        "human",
+        "leadership"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2012",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": true,
+      "isbn": "9781118239018",
+      "rating": null,
+      "isbnAlt": [
+        "9781118143308"
+      ],
+      "logo": "covers/book-liars-and-outliers.jpg",
+      "openlibrary": "https://openlibrary.org/isbn/9781118239018",
+      "id": "book-liars-and-outliers"
+    },
+    {
+      "type": "book",
+      "name": "Mastering Cyber Intelligence",
+      "by": "Jean Nestor M. Dahj",
+      "desc": "Building a threat intelligence capability and using it for detection and response.",
+      "domains": [
+        "cti",
+        "hunting"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2022",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null,
+      "logo": "covers/book-mastering-cyber-intelligence.jpg",
+      "id": "book-mastering-cyber-intelligence"
+    },
+    {
+      "type": "book",
+      "name": "Mastering Kali Linux for Advanced Penetration Testing (3rd ed.)",
+      "by": "Vijay Kumar Velu",
+      "desc": "Advanced pentesting and red-team techniques with Kali.",
+      "domains": [
+        "offensive"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "published": "2019",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null,
+      "logo": "covers/book-mastering-kali-linux-for-advanced-penetration-testing.jpg",
+      "id": "book-mastering-kali-linux-for-advanced-penetration-testing"
+    },
+    {
+      "type": "book",
+      "name": "Mastering Windows Security and Hardening",
+      "by": "Mark Dunkerley & Matt Tumbarello",
+      "desc": "Securing and hardening Windows environments and identities.",
+      "domains": [
+        "defensive",
+        "engineering"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null,
+      "published": "2020",
+      "logo": "covers/book-mastering-windows-security-and-hardening.jpg",
+      "id": "book-mastering-windows-security-and-hardening"
+    },
+    {
+      "type": "book",
+      "name": "MITRE ATT&CK for Dummies (AttackIQ Special Edition)",
+      "desc": "Short primer on the ATT&CK framework and how security teams use it.",
+      "domains": [
+        "cti",
+        "operations"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null,
+      "published": "2020",
+      "by": "Jonathan Reiber & Carl Wright",
+      "logo": "covers/book-mitre-att-ck-for-dummies.jpg",
+      "id": "book-mitre-att-ck-for-dummies"
+    },
+    {
+      "type": "book",
+      "name": "OSINT Techniques: Resources for Uncovering Online Information",
+      "by": "Michael Bazzell & Jason Edison",
+      "desc": "Hands-on field manual for open-source intelligence: search methods, tools and a ready-built investigation VM for finding people, accounts and data online.",
+      "domains": [
+        "cti",
+        "offensive"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2024",
+      "publisher": "Independently published",
+      "format": [
+        "book",
+        "ebook"
+      ],
+      "isbn": "9798345969250",
+      "isbnVerified": false,
+      "web": "https://inteltechniques.com/books",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "book-osint-techniques"
+    },
+    {
+      "type": "book",
+      "name": "Permanent Record",
+      "by": "Edward Snowden",
+      "desc": "Snowden's account of mass-surveillance programmes and his decision to disclose them.",
+      "domains": [
+        "privacy",
+        "stories"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2019",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": {
+        "v": 4.5,
+        "n": 57,
+        "src": "Open Library",
+        "asOf": "2026-11-07"
+      },
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "publisher": "Macmillan",
+      "isbn": "9781529035650",
+      "isbnVerified": true,
+      "openlibrary": "https://openlibrary.org/isbn/9781529035650",
+      "logo": "covers/book-permanent-record.jpg",
+      "logoSource": "Open Library",
+      "id": "book-permanent-record"
+    },
+    {
+      "type": "book",
+      "name": "Practical Cloud Security (2nd ed.)",
+      "by": "Chris Dotson",
+      "desc": "Vendor-neutral guide to securing cloud workloads across AWS, Azure and GCP: identity, data protection, vulnerability management and incident response.",
+      "domains": [
+        "cloud",
+        "architecture",
+        "defensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "O'Reilly Media",
+      "isbn": "9781492037460",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false,
+      "id": "book-practical-cloud-security"
+    },
+    {
+      "type": "book",
+      "name": "Practical Cybersecurity Architecture (2nd ed.)",
+      "by": "Ed Moyle & Diana Kelley",
+      "desc": "Designing security architecture for enterprises and applications.",
+      "domains": [
+        "architecture"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2023",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null,
+      "logo": "covers/book-practical-cybersecurity-architecture.jpg",
+      "id": "book-practical-cybersecurity-architecture"
+    },
+    {
+      "type": "book",
+      "name": "Practical IoT Hacking",
+      "by": "Fotios Chantzis et al.",
+      "desc": "Testing IoT devices: hardware, radio, firmware and network attacks.",
+      "domains": [
+        "offensive",
+        "icsot"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": true,
+      "isbn": "9781718500914",
+      "rating": null,
+      "isbnAlt": [
+        "9781718500907"
+      ],
+      "logo": "covers/book-practical-iot-hacking.jpg",
+      "id": "book-practical-iot-hacking"
+    },
+    {
+      "type": "book",
+      "name": "Practical Threat Intelligence and Data-Driven Threat Hunting",
+      "by": "Valentina Costa-Gazcón",
+      "desc": "Hands-on threat hunting with ATT&CK, open-source tools and data.",
+      "domains": [
+        "hunting",
+        "cti"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2021",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null,
+      "logo": "covers/book-practical-threat-intelligence-and-data-driven-threat-hunting.jpg",
+      "id": "book-practical-threat-intelligence-and-data-driven-threat-hunting"
+    },
+    {
+      "type": "book",
+      "name": "Privacy Is Power",
+      "by": "Carissa Véliz",
+      "desc": "A philosopher's case for why personal data is power and how individuals and societies can take it back.",
+      "domains": [
+        "privacy",
+        "grc"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2020",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "publisher": "Bantam Press",
+      "isbn": "9781787634046",
+      "isbnVerified": false,
+      "id": "book-privacy-is-power"
+    },
+    {
+      "type": "book",
+      "name": "Psychology of Intelligence Analysis",
+      "by": "Richards J. Heuer Jr.",
+      "desc": "Classic CIA text on cognitive bias and structured analytic techniques — essential for CTI analysts. Freely available from the CIA.",
+      "domains": [
+        "cti",
+        "hunting"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "1999",
+      "format": [
+        "book",
+        "free"
+      ],
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "publisher": "Center for the Study of Intelligence (CIA)",
+      "isbn": "9781929667000",
+      "isbnVerified": true,
+      "openlibrary": "https://openlibrary.org/isbn/9781929667000",
+      "logo": "covers/book-psychology-intel-analysis.jpg",
+      "logoSource": "Open Library",
+      "id": "book-psychology-intel-analysis"
+    },
+    {
+      "type": "book",
+      "name": "Real-World Bug Hunting",
+      "by": "Peter Yaworski",
+      "desc": "Web vulnerability classes explained through real bug bounty reports.",
+      "domains": [
+        "offensive",
+        "appsec"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2019",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": true,
+      "isbn": "9781593278625",
+      "rating": null,
+      "isbnAlt": [
+        "9781593278618"
+      ],
+      "logo": "covers/book-real-world-bug-hunting.jpg",
+      "id": "book-real-world-bug-hunting"
+    },
+    {
+      "type": "book",
+      "name": "Security Architecture for Hybrid Cloud",
+      "by": "Mark Buckwell, Stefaan Van daele & Carsten Horst",
+      "desc": "A method for designing security architecture for hybrid cloud, from context and requirements through to components and operations.",
+      "domains": [
+        "architecture",
+        "cloud"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2024",
+      "publisher": "O'Reilly Media",
+      "isbn": "9781098157739",
+      "isbnVerified": false,
+      "format": [
+        "ebook"
+      ],
+      "bundle": {
+        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
+        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
+      },
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "humble-oreilly-2026"
+      ],
+      "verified": false,
+      "id": "book-security-architecture-hybrid-cloud"
+    },
+    {
+      "type": "book",
+      "name": "Supremacy: AI, ChatGPT and the Race That Will Change the World",
+      "by": "Parmy Olson",
+      "desc": "The race between OpenAI and DeepMind and what concentrated AI power means — useful context for AI security and governance.",
+      "domains": [
+        "ai",
+        "leadership"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2024",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "publisher": "Macmillan Business",
+      "isbnVerified": false,
+      "id": "book-supremacy"
+    },
+    {
+      "type": "book",
+      "name": "The Art of Deception",
+      "by": "Kevin D. Mitnick & William L. Simon",
+      "desc": "Classic account of social engineering and the human side of security.",
+      "domains": [
+        "human",
+        "stories"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2002",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": true,
+      "isbn": "9780764538391",
+      "rating": null,
+      "isbnAlt": [
+        "9780471237129"
+      ],
+      "logo": "covers/book-the-art-of-deception.jpg",
+      "openlibrary": "https://openlibrary.org/isbn/9780764538391",
+      "id": "book-the-art-of-deception"
+    },
+    {
+      "type": "book",
+      "name": "The Hacker Playbook 3",
+      "by": "Peter Kim",
+      "desc": "Red team playbook covering modern attack paths and evasion.",
+      "domains": [
+        "offensive"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2018",
+      "publisher": "Secure Planet",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": true,
+      "isbn": "9781980901754",
+      "rating": null,
+      "logo": "covers/book-the-hacker-playbook-3.jpg",
+      "openlibrary": "https://openlibrary.org/isbn/9781980901754",
+      "id": "book-the-hacker-playbook-3"
+    },
+    {
+      "type": "book",
+      "name": "The Ransomware Hunting Team",
+      "by": "Renee Dudley & Daniel Golden",
+      "desc": "The true story of volunteer researchers who crack ransomware strains and help victims recover for free.",
+      "domains": [
+        "stories",
+        "cti",
+        "defensive"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2022",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "publisher": "Farrar, Straus and Giroux",
+      "isbn": "9780374603304",
+      "isbnVerified": true,
+      "openlibrary": "https://openlibrary.org/isbn/9780374603304",
+      "id": "book-ransomware-hunting-team"
+    },
+    {
+      "type": "book",
+      "name": "Threat Modeling: Designing for Security",
+      "by": "Adam Shostack",
+      "desc": "Practical approach to finding design flaws early using STRIDE and related methods.",
+      "domains": [
+        "architecture",
+        "appsec"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2014",
+      "format": [
+        "book"
+      ],
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "editor",
+        "humble-library"
+      ],
+      "verified": true,
+      "publisher": "Wiley",
+      "isbn": "9781118810057",
+      "isbnVerified": true,
+      "isbnAlt": [
+        "9781118809990"
+      ],
+      "logo": "covers/book-threat-modeling.jpg",
+      "openlibrary": "https://openlibrary.org/isbn/9781118810057",
+      "id": "book-threat-modeling"
+    },
+    {
+      "type": "book",
+      "name": "Tribe of Hackers",
+      "by": "Marcus J. Carey & Jennifer Jin",
+      "desc": "Career advice from 70 security practitioners, answering the same questions — great for newcomers.",
+      "domains": [
+        "career"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2019",
+      "format": [
+        "book"
+      ],
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "editor",
+        "humble-library"
+      ],
+      "verified": true,
+      "publisher": "Wiley",
+      "isbn": "9781119643371",
+      "isbnVerified": true,
+      "logo": "covers/book-tribe-of-hackers.jpg",
+      "openlibrary": "https://openlibrary.org/isbn/9781119643371",
+      "id": "book-tribe-of-hackers"
+    },
+    {
+      "type": "book",
+      "name": "Tribe of Hackers Blue Team",
+      "by": "Marcus J. Carey & Jennifer Jin",
+      "desc": "Advice from experienced defenders on blue team work and careers.",
+      "domains": [
+        "defensive",
+        "career"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2020",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null,
+      "logo": "covers/book-tribe-of-hackers-blue-team.jpg",
+      "id": "book-tribe-of-hackers-blue-team"
+    },
+    {
+      "type": "book",
+      "name": "Tribe of Hackers Red Team",
+      "by": "Marcus J. Carey & Jennifer Jin",
+      "desc": "Advice from experienced red teamers on offensive work and careers.",
+      "domains": [
+        "offensive",
+        "career"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2019",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null,
+      "logo": "covers/book-tribe-of-hackers-red-team.jpg",
+      "id": "book-tribe-of-hackers-red-team"
+    },
+    {
+      "type": "book",
+      "name": "Tribe of Hackers Security Leaders",
+      "by": "Marcus J. Carey & Jennifer Jin",
+      "desc": "Advice from CISOs and security leaders on leading teams and programmes.",
+      "domains": [
+        "leadership",
+        "career"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2020",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": true,
+      "rating": null,
+      "isbn": "9781119643760",
+      "logo": "covers/book-tribe-of-hackers-security-leaders.jpg",
+      "openlibrary": "https://openlibrary.org/isbn/9781119643760",
+      "id": "book-tribe-of-hackers-security-leaders"
+    },
+    {
+      "type": "book",
+      "name": "We Have Root",
+      "by": "Bruce Schneier",
+      "desc": "Essays on security, privacy and technology policy.",
+      "domains": [
+        "leadership",
+        "privacy"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2019",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": true,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null,
+      "logo": "covers/book-we-have-root.jpg",
+      "id": "book-we-have-root"
+    },
+    {
+      "type": "book",
+      "name": "A Practical Guide to Digital Forensics Investigations (2nd ed.)",
+      "by": "Darren R. Hayes",
+      "desc": "Comprehensive introduction to digital forensics: evidence handling, devices, networks, mobile and the legal process.",
+      "domains": [
+        "operations",
+        "defensive"
+      ],
+      "level": [
+        "beginner",
+        "intermediate"
+      ],
+      "published": "2020",
+      "publisher": "Pearson IT Certification",
+      "format": [
+        "ebook"
+      ],
+      "curator": false,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null,
+      "isbn": "9780134892948",
+      "logo": "covers/book-a-practical-guide-to-digital-forensics-investigations.jpg",
+      "openlibrary": "https://openlibrary.org/isbn/9780134892948",
+      "id": "book-a-practical-guide-to-digital-forensics-investigations"
+    },
+    {
+      "type": "book",
+      "name": "Adversarial Tradecraft in Cybersecurity",
+      "by": "Dan Borges",
+      "desc": "Attacker and defender techniques for live cyber competitions and real conflicts, from deception to persistence.",
+      "domains": [
+        "offensive",
+        "defensive",
+        "operations"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2021",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": false,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null,
+      "logo": "covers/book-adversarial-tradecraft-in-cybersecurity.jpg",
+      "id": "book-adversarial-tradecraft-in-cybersecurity"
+    },
+    {
+      "type": "book",
+      "name": "Antivirus Bypass Techniques",
+      "by": "Nir Yehoshua & Uriel Kosayev",
+      "desc": "How antivirus engines detect malware and how attackers evade them, to help defenders test and tune controls.",
+      "domains": [
+        "offensive",
+        "defensive"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "published": "2021",
+      "publisher": "Packt",
+      "format": [
+        "ebook"
+      ],
+      "curator": false,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": false,
+      "rating": null,
+      "logo": "covers/book-antivirus-bypass-techniques.jpg",
+      "id": "book-antivirus-bypass-techniques"
+    },
+    {
+      "type": "book",
+      "name": "Applied Cryptography (20th anniversary ed.)",
+      "by": "Bruce Schneier",
+      "desc": "The classic reference on cryptographic protocols, algorithms and their implementation.",
+      "domains": [
+        "engineering"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "published": "2015",
+      "publisher": "Wiley",
+      "format": [
+        "ebook"
+      ],
+      "curator": false,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": true,
+      "isbn": "9781119439028",
+      "rating": {
+        "v": 4.5,
+        "n": 8,
+        "src": "Open Library",
+        "asOf": "2026-11-07"
+      },
+      "isbnAlt": [
+        "9781119096726"
+      ],
+      "logo": "covers/book-applied-cryptography.jpg",
+      "openlibrary": "https://openlibrary.org/isbn/9781119439028",
+      "id": "book-applied-cryptography"
+    },
+    {
+      "type": "book",
+      "name": "Attacking Network Protocols",
+      "by": "James Forshaw",
+      "desc": "Capturing, analysing and exploiting network protocols to find vulnerabilities.",
+      "domains": [
+        "offensive",
+        "engineering"
+      ],
+      "level": [
+        "advanced"
+      ],
+      "published": "2017",
+      "publisher": "No Starch Press",
+      "format": [
+        "ebook"
+      ],
+      "curator": false,
+      "sources": [
+        "humble-library"
+      ],
+      "verified": false,
+      "isbnVerified": true,
+      "isbn": "9781593278441",
+      "rating": null,
+      "isbnAlt": [
+        "9781593277505"
+      ],
+      "logo": "covers/book-attacking-network-protocols.jpg",
+      "id": "book-attacking-network-protocols"
     },
     {
       "type": "book",
@@ -5742,6 +6721,43 @@
     },
     {
       "type": "book",
+      "name": "Countdown to Zero Day",
+      "by": "Kim Zetter",
+      "desc": "The definitive account of Stuxnet and the dawn of cyber-physical warfare.",
+      "domains": [
+        "stories",
+        "icsot",
+        "cti"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2014",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": {
+        "v": 4,
+        "n": 12,
+        "src": "Open Library",
+        "asOf": "2026-11-07"
+      },
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "Crown",
+      "isbn": "9780770436179",
+      "isbnVerified": true,
+      "openlibrary": "https://openlibrary.org/isbn/9780770436179",
+      "logo": "covers/book-countdown-zero-day.jpg",
+      "logoSource": "Open Library",
+      "id": "book-countdown-zero-day"
+    },
+    {
+      "type": "book",
       "name": "Crypto Dictionary",
       "by": "Jean-Philippe Aumasson",
       "desc": "An A–Z of cryptographic terms and concepts, with history and wit.",
@@ -5915,34 +6931,6 @@
       ],
       "logo": "covers/book-cyberjutsu.jpg",
       "id": "book-cyberjutsu"
-    },
-    {
-      "type": "book",
-      "name": "Cybersecurity – Attack and Defense Strategies",
-      "by": "Yuri Diogenes & Erdal Ozkaya",
-      "desc": "The attack lifecycle from both sides, with defensive strategies for each stage.",
-      "domains": [
-        "defensive",
-        "offensive",
-        "operations"
-      ],
-      "level": [
-        "intermediate"
-      ],
-      "publisher": "Packt",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": false,
-      "rating": null,
-      "published": "2019",
-      "logo": "covers/book-cybersecurity-attack-and-defense-strategies.jpg",
-      "id": "book-cybersecurity-attack-and-defense-strategies"
     },
     {
       "type": "book",
@@ -6433,36 +7421,6 @@
     },
     {
       "type": "book",
-      "name": "Extreme Privacy: What It Takes to Disappear",
-      "by": "Michael Bazzell",
-      "desc": "Step-by-step playbook for shrinking your digital footprint: devices, accounts, payments, housing and identity, from basic hygiene to going off the grid.",
-      "domains": [
-        "privacy",
-        "human"
-      ],
-      "level": [
-        "beginner",
-        "intermediate"
-      ],
-      "published": "2024",
-      "publisher": "Independently published",
-      "format": [
-        "book",
-        "ebook"
-      ],
-      "isbn": "9798335024334",
-      "isbnVerified": false,
-      "web": "https://inteltechniques.com/books",
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "mcl"
-      ],
-      "verified": true,
-      "id": "book-extreme-privacy"
-    },
-    {
-      "type": "book",
       "name": "Foundations of Information Security",
       "by": "Jason Andress",
       "desc": "Clear introduction to core security concepts for newcomers.",
@@ -6575,6 +7533,37 @@
     },
     {
       "type": "book",
+      "name": "Hacking Exposed Industrial Control Systems",
+      "by": "Clint Bodungen et al.",
+      "desc": "Attack-and-defend walkthrough of ICS/SCADA environments and their protocols.",
+      "domains": [
+        "icsot",
+        "offensive"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2016",
+      "format": [
+        "book"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "McGraw-Hill Education",
+      "isbn": "9781259589713",
+      "isbnVerified": true,
+      "openlibrary": "https://openlibrary.org/isbn/9781259589713",
+      "logo": "covers/book-hacking-exposed-ics.jpg",
+      "logoSource": "Open Library",
+      "id": "book-hacking-exposed-ics"
+    },
+    {
+      "type": "book",
       "name": "Hacking Multifactor Authentication",
       "by": "Roger A. Grimes",
       "desc": "The many ways MFA can be bypassed, and how to choose and deploy it well.",
@@ -6602,36 +7591,6 @@
       "logo": "covers/book-hacking-multifactor-authentication.jpg",
       "openlibrary": "https://openlibrary.org/isbn/9781119650805",
       "id": "book-hacking-multifactor-authentication"
-    },
-    {
-      "type": "book",
-      "name": "How I Rob Banks: And Other Such Places",
-      "by": "FC (Freaky Clown)",
-      "desc": "Stories from a career of physical and social-engineering penetration testing.",
-      "domains": [
-        "offensive",
-        "human",
-        "stories"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "published": "2023",
-      "publisher": "Wiley",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": true,
-      "rating": null,
-      "isbn": "9781119911517",
-      "logo": "covers/book-how-i-rob-banks.jpg",
-      "openlibrary": "https://openlibrary.org/isbn/9781119911517",
-      "id": "book-how-i-rob-banks"
     },
     {
       "type": "book",
@@ -6664,68 +7623,6 @@
     },
     {
       "type": "book",
-      "name": "How to Measure Anything in Cybersecurity Risk",
-      "by": "Douglas W. Hubbard & Richard Seiersen",
-      "desc": "Replaces risk heat maps with quantitative, probabilistic methods security leaders can defend to a board.",
-      "domains": [
-        "grc",
-        "leadership"
-      ],
-      "level": [
-        "intermediate",
-        "advanced"
-      ],
-      "published": "2016 (2nd ed. 2023)",
-      "format": [
-        "book",
-        "audiobook"
-      ],
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "mcl"
-      ],
-      "verified": true,
-      "publisher": "Wiley",
-      "isbn": "9781119892304",
-      "isbnVerified": true,
-      "openlibrary": "https://openlibrary.org/isbn/9781119892304",
-      "logo": "covers/book-measure-anything.jpg",
-      "logoSource": "Open Library",
-      "id": "book-measure-anything"
-    },
-    {
-      "type": "book",
-      "name": "Humble Bundle eBook bundles",
-      "by": "Humble Bundle",
-      "desc": "Rotating, pay-what-you-want bundles that frequently include security titles from No Starch, Wiley, O'Reilly and Packt.",
-      "domains": [
-        "career",
-        "offensive",
-        "defensive"
-      ],
-      "level": [
-        "beginner",
-        "intermediate",
-        "advanced"
-      ],
-      "published": "Ongoing",
-      "format": [
-        "ebook bundle"
-      ],
-      "web": "https://www.humblebundle.com/books",
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "mcl"
-      ],
-      "verified": true,
-      "publisher": "Various",
-      "isbnVerified": false,
-      "id": "book-humble-bundle"
-    },
-    {
-      "type": "book",
       "name": "Identity Security for Software Development",
       "by": "John Walsh, Uzi Ailon & Matt Barker",
       "desc": "Managing secrets, machine identities and access for developers and pipelines.",
@@ -6755,35 +7652,6 @@
       ],
       "verified": false,
       "id": "book-identity-security-software-dev"
-    },
-    {
-      "type": "book",
-      "name": "If It's Smart, It's Vulnerable",
-      "by": "Mikko Hyppönen",
-      "desc": "Reflections on the internet's history and the security risks of connecting everything.",
-      "domains": [
-        "stories",
-        "defensive"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "published": "2022",
-      "publisher": "Wiley",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": true,
-      "rating": null,
-      "isbn": "9781119895206",
-      "logo": "covers/book-if-it-s-smart-it-s-vulnerable.jpg",
-      "openlibrary": "https://openlibrary.org/isbn/9781119895206",
-      "id": "book-if-it-s-smart-it-s-vulnerable"
     },
     {
       "type": "book",
@@ -6927,6 +7795,36 @@
     },
     {
       "type": "book",
+      "name": "Intelligence-Driven Incident Response (2nd ed.)",
+      "by": "Rebekah Brown & Scott J. Roberts",
+      "desc": "How to integrate threat intelligence into IR using the F3EAD cycle.",
+      "domains": [
+        "cti",
+        "operations"
+      ],
+      "level": [
+        "intermediate"
+      ],
+      "published": "2023",
+      "format": [
+        "book"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "O'Reilly Media",
+      "isbn": "9781098120689",
+      "isbnVerified": true,
+      "openlibrary": "https://openlibrary.org/isbn/9781098120689",
+      "logo": "covers/book-intel-driven-ir.jpg",
+      "logoSource": "Open Library",
+      "id": "book-intel-driven-ir"
+    },
+    {
+      "type": "book",
       "name": "Intelligent Continuous Security",
       "by": "Marc Hornbeek",
       "desc": "Applying AI and automation to embed security continuously across the software lifecycle.",
@@ -6984,35 +7882,6 @@
       "logo": "covers/book-investigating-cryptocurrencies.jpg",
       "openlibrary": "https://openlibrary.org/isbn/9781119480563",
       "id": "book-investigating-cryptocurrencies"
-    },
-    {
-      "type": "book",
-      "name": "Kali Linux Penetration Testing Bible",
-      "by": "Gus Khawaja",
-      "desc": "Comprehensive guide to pentesting with Kali, from recon to exploitation and reporting.",
-      "domains": [
-        "offensive"
-      ],
-      "level": [
-        "beginner",
-        "intermediate"
-      ],
-      "published": "2021",
-      "publisher": "Wiley",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": true,
-      "rating": null,
-      "isbn": "9781119719076",
-      "logo": "covers/book-kali-linux-penetration-testing-bible.jpg",
-      "openlibrary": "https://openlibrary.org/isbn/9781119719076",
-      "id": "book-kali-linux-penetration-testing-bible"
     },
     {
       "type": "book",
@@ -7194,38 +8063,6 @@
     },
     {
       "type": "book",
-      "name": "Liars and Outliers",
-      "by": "Bruce Schneier",
-      "desc": "How societies build trust and why security is a social problem as much as a technical one.",
-      "domains": [
-        "human",
-        "leadership"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "published": "2012",
-      "publisher": "Wiley",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": true,
-      "isbn": "9781118239018",
-      "rating": null,
-      "isbnAlt": [
-        "9781118143308"
-      ],
-      "logo": "covers/book-liars-and-outliers.jpg",
-      "openlibrary": "https://openlibrary.org/isbn/9781118239018",
-      "id": "book-liars-and-outliers"
-    },
-    {
-      "type": "book",
       "name": "Machine Learning Security Principles",
       "by": "John Paul Mueller",
       "desc": "Threats to ML systems and how to protect data, models and pipelines.",
@@ -7372,33 +8209,6 @@
     },
     {
       "type": "book",
-      "name": "Mastering Cyber Intelligence",
-      "by": "Jean Nestor M. Dahj",
-      "desc": "Building a threat intelligence capability and using it for detection and response.",
-      "domains": [
-        "cti",
-        "hunting"
-      ],
-      "level": [
-        "intermediate"
-      ],
-      "published": "2022",
-      "publisher": "Packt",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": false,
-      "rating": null,
-      "logo": "covers/book-mastering-cyber-intelligence.jpg",
-      "id": "book-mastering-cyber-intelligence"
-    },
-    {
-      "type": "book",
       "name": "Mastering Defensive Security",
       "by": "Cesar Bravo",
       "desc": "Wide-ranging practical defence across Windows, Linux, cloud, IoT and networks.",
@@ -7422,32 +8232,6 @@
       "rating": null,
       "logo": "covers/book-mastering-defensive-security.jpg",
       "id": "book-mastering-defensive-security"
-    },
-    {
-      "type": "book",
-      "name": "Mastering Kali Linux for Advanced Penetration Testing (3rd ed.)",
-      "by": "Vijay Kumar Velu",
-      "desc": "Advanced pentesting and red-team techniques with Kali.",
-      "domains": [
-        "offensive"
-      ],
-      "level": [
-        "advanced"
-      ],
-      "published": "2019",
-      "publisher": "Packt",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": false,
-      "rating": null,
-      "logo": "covers/book-mastering-kali-linux-for-advanced-penetration-testing.jpg",
-      "id": "book-mastering-kali-linux-for-advanced-penetration-testing"
     },
     {
       "type": "book",
@@ -7529,33 +8313,6 @@
       "published": "2020",
       "logo": "covers/book-mastering-palo-alto-networks.jpg",
       "id": "book-mastering-palo-alto-networks"
-    },
-    {
-      "type": "book",
-      "name": "Mastering Windows Security and Hardening",
-      "by": "Mark Dunkerley & Matt Tumbarello",
-      "desc": "Securing and hardening Windows environments and identities.",
-      "domains": [
-        "defensive",
-        "engineering"
-      ],
-      "level": [
-        "intermediate"
-      ],
-      "publisher": "Packt",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": false,
-      "rating": null,
-      "published": "2020",
-      "logo": "covers/book-mastering-windows-security-and-hardening.jpg",
-      "id": "book-mastering-windows-security-and-hardening"
     },
     {
       "type": "book",
@@ -7694,33 +8451,6 @@
       "published": "2022",
       "logo": "covers/book-microsoft-sentinel.jpg",
       "id": "book-microsoft-sentinel"
-    },
-    {
-      "type": "book",
-      "name": "MITRE ATT&CK for Dummies (AttackIQ Special Edition)",
-      "desc": "Short primer on the ATT&CK framework and how security teams use it.",
-      "domains": [
-        "cti",
-        "operations"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "publisher": "Wiley",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": false,
-      "rating": null,
-      "published": "2020",
-      "by": "Jonathan Reiber & Carl Wright",
-      "logo": "covers/book-mitre-att-ck-for-dummies.jpg",
-      "id": "book-mitre-att-ck-for-dummies"
     },
     {
       "type": "book",
@@ -7866,36 +8596,6 @@
     },
     {
       "type": "book",
-      "name": "OSINT Techniques: Resources for Uncovering Online Information",
-      "by": "Michael Bazzell & Jason Edison",
-      "desc": "Hands-on field manual for open-source intelligence: search methods, tools and a ready-built investigation VM for finding people, accounts and data online.",
-      "domains": [
-        "cti",
-        "offensive"
-      ],
-      "level": [
-        "intermediate",
-        "advanced"
-      ],
-      "published": "2024",
-      "publisher": "Independently published",
-      "format": [
-        "book",
-        "ebook"
-      ],
-      "isbn": "9798345969250",
-      "isbnVerified": false,
-      "web": "https://inteltechniques.com/books",
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "mcl"
-      ],
-      "verified": true,
-      "id": "book-osint-techniques"
-    },
-    {
-      "type": "book",
       "name": "Penetration Testing Azure for Ethical Hackers",
       "by": "David Okeyode & Karl Fosaaen",
       "desc": "Attacking Azure environments to find and fix weaknesses.",
@@ -7982,42 +8682,6 @@
     },
     {
       "type": "book",
-      "name": "Permanent Record",
-      "by": "Edward Snowden",
-      "desc": "Snowden's account of mass-surveillance programmes and his decision to disclose them.",
-      "domains": [
-        "privacy",
-        "stories"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "published": "2019",
-      "format": [
-        "book",
-        "audiobook"
-      ],
-      "rating": {
-        "v": 4.5,
-        "n": 57,
-        "src": "Open Library",
-        "asOf": "2026-11-04"
-      },
-      "curator": true,
-      "sources": [
-        "mcl"
-      ],
-      "verified": true,
-      "publisher": "Macmillan",
-      "isbn": "9781529035650",
-      "isbnVerified": true,
-      "openlibrary": "https://openlibrary.org/isbn/9781529035650",
-      "logo": "covers/book-permanent-record.jpg",
-      "logoSource": "Open Library",
-      "id": "book-permanent-record"
-    },
-    {
-      "type": "book",
       "name": "PowerShell Automation and Scripting for Cybersecurity",
       "by": "Miriam C. Wiesner",
       "desc": "Using and securing PowerShell for blue and red team work.",
@@ -8043,65 +8707,6 @@
       "rating": null,
       "logo": "covers/book-powershell-automation-and-scripting-for-cybersecurity.jpg",
       "id": "book-powershell-automation-and-scripting-for-cybersecurity"
-    },
-    {
-      "type": "book",
-      "name": "Practical Cloud Security (2nd ed.)",
-      "by": "Chris Dotson",
-      "desc": "Vendor-neutral guide to securing cloud workloads across AWS, Azure and GCP: identity, data protection, vulnerability management and incident response.",
-      "domains": [
-        "cloud",
-        "architecture",
-        "defensive"
-      ],
-      "level": [
-        "beginner",
-        "intermediate"
-      ],
-      "published": "2023",
-      "publisher": "O'Reilly Media",
-      "isbn": "9781492037460",
-      "isbnVerified": false,
-      "format": [
-        "ebook"
-      ],
-      "bundle": {
-        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
-        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
-      },
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "humble-oreilly-2026"
-      ],
-      "verified": false,
-      "id": "book-practical-cloud-security"
-    },
-    {
-      "type": "book",
-      "name": "Practical Cybersecurity Architecture (2nd ed.)",
-      "by": "Ed Moyle & Diana Kelley",
-      "desc": "Designing security architecture for enterprises and applications.",
-      "domains": [
-        "architecture"
-      ],
-      "level": [
-        "intermediate"
-      ],
-      "published": "2023",
-      "publisher": "Packt",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": false,
-      "rating": null,
-      "logo": "covers/book-practical-cybersecurity-architecture.jpg",
-      "id": "book-practical-cybersecurity-architecture"
     },
     {
       "type": "book",
@@ -8187,37 +8792,6 @@
       "logo": "covers/book-practical-industrial-cybersecurity.jpg",
       "openlibrary": "https://openlibrary.org/isbn/9781119883043",
       "id": "book-practical-industrial-cybersecurity"
-    },
-    {
-      "type": "book",
-      "name": "Practical IoT Hacking",
-      "by": "Fotios Chantzis et al.",
-      "desc": "Testing IoT devices: hardware, radio, firmware and network attacks.",
-      "domains": [
-        "offensive",
-        "icsot"
-      ],
-      "level": [
-        "intermediate"
-      ],
-      "published": "2021",
-      "publisher": "No Starch Press",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": true,
-      "isbn": "9781718500914",
-      "rating": null,
-      "isbnAlt": [
-        "9781718500907"
-      ],
-      "logo": "covers/book-practical-iot-hacking.jpg",
-      "id": "book-practical-iot-hacking"
     },
     {
       "type": "book",
@@ -8313,30 +8887,32 @@
     },
     {
       "type": "book",
-      "name": "Practical Threat Intelligence and Data-Driven Threat Hunting",
-      "by": "Valentina Costa-Gazcón",
-      "desc": "Hands-on threat hunting with ATT&CK, open-source tools and data.",
+      "name": "Practical Vulnerability Management",
+      "by": "Andrew Magnusson",
+      "desc": "Building a low-cost vulnerability management programme with open-source tools.",
       "domains": [
-        "hunting",
-        "cti"
+        "tvm",
+        "defensive"
       ],
       "level": [
+        "beginner",
         "intermediate"
       ],
-      "published": "2021",
-      "publisher": "Packt",
+      "published": "2020",
       "format": [
-        "ebook"
+        "book"
       ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": false,
       "rating": null,
-      "logo": "covers/book-practical-threat-intelligence-and-data-driven-threat-hunting.jpg",
-      "id": "book-practical-threat-intelligence-and-data-driven-threat-hunting"
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "No Starch Press",
+      "isbn": "9781593279882",
+      "isbnVerified": true,
+      "openlibrary": "https://openlibrary.org/isbn/9781593279882",
+      "id": "book-practical-vm"
     },
     {
       "type": "book",
@@ -8372,34 +8948,6 @@
     },
     {
       "type": "book",
-      "name": "Privacy Is Power",
-      "by": "Carissa Véliz",
-      "desc": "A philosopher's case for why personal data is power and how individuals and societies can take it back.",
-      "domains": [
-        "privacy",
-        "grc"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "published": "2020",
-      "format": [
-        "book",
-        "audiobook"
-      ],
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "mcl"
-      ],
-      "verified": true,
-      "publisher": "Bantam Press",
-      "isbn": "9781787634046",
-      "isbnVerified": false,
-      "id": "book-privacy-is-power"
-    },
-    {
-      "type": "book",
       "name": "Privilege Escalation Techniques",
       "by": "Alexis Ahmed",
       "desc": "Windows and Linux privilege escalation for pentesters.",
@@ -8423,38 +8971,6 @@
       "rating": null,
       "logo": "covers/book-privilege-escalation-techniques.jpg",
       "id": "book-privilege-escalation-techniques"
-    },
-    {
-      "type": "book",
-      "name": "Psychology of Intelligence Analysis",
-      "by": "Richards J. Heuer Jr.",
-      "desc": "Classic CIA text on cognitive bias and structured analytic techniques — essential for CTI analysts. Freely available from the CIA.",
-      "domains": [
-        "cti",
-        "hunting"
-      ],
-      "level": [
-        "intermediate",
-        "advanced"
-      ],
-      "published": "1999",
-      "format": [
-        "book",
-        "free"
-      ],
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "mcl"
-      ],
-      "verified": true,
-      "publisher": "Center for the Study of Intelligence (CIA)",
-      "isbn": "9781929667000",
-      "isbnVerified": true,
-      "openlibrary": "https://openlibrary.org/isbn/9781929667000",
-      "logo": "covers/book-psychology-intel-analysis.jpg",
-      "logoSource": "Open Library",
-      "id": "book-psychology-intel-analysis"
     },
     {
       "type": "book",
@@ -8598,38 +9114,6 @@
     },
     {
       "type": "book",
-      "name": "Real-World Bug Hunting",
-      "by": "Peter Yaworski",
-      "desc": "Web vulnerability classes explained through real bug bounty reports.",
-      "domains": [
-        "offensive",
-        "appsec"
-      ],
-      "level": [
-        "beginner",
-        "intermediate"
-      ],
-      "published": "2019",
-      "publisher": "No Starch Press",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": true,
-      "isbn": "9781593278625",
-      "rating": null,
-      "isbnAlt": [
-        "9781593278618"
-      ],
-      "logo": "covers/book-real-world-bug-hunting.jpg",
-      "id": "book-real-world-bug-hunting"
-    },
-    {
-      "type": "book",
       "name": "Redefining Hacking",
       "by": "Omar Santos, Savannah Lazzara & Wesley Thurner",
       "desc": "Red teaming and bug bounty hunting in an AI-driven world.",
@@ -8717,6 +9201,43 @@
     },
     {
       "type": "book",
+      "name": "Sandworm",
+      "by": "Andy Greenberg",
+      "desc": "Narrative of Russia's GRU hackers behind NotPetya and the Ukrainian grid attacks.",
+      "domains": [
+        "stories",
+        "cti",
+        "icsot"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2019",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": {
+        "v": 4.2,
+        "n": 6,
+        "src": "Open Library",
+        "asOf": "2026-11-07"
+      },
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "Doubleday",
+      "isbn": "9780385544405",
+      "isbnVerified": true,
+      "openlibrary": "https://openlibrary.org/isbn/9780385544405",
+      "logo": "covers/book-sandworm.jpg",
+      "logoSource": "Open Library",
+      "id": "book-sandworm"
+    },
+    {
+      "type": "book",
       "name": "Secrets and Lies: Digital Security in a Networked World",
       "by": "Bruce Schneier",
       "desc": "Why technology alone cannot deliver security, and how to think about risk.",
@@ -8770,38 +9291,6 @@
     },
     {
       "type": "book",
-      "name": "Security Architecture for Hybrid Cloud",
-      "by": "Mark Buckwell, Stefaan Van daele & Carsten Horst",
-      "desc": "A method for designing security architecture for hybrid cloud, from context and requirements through to components and operations.",
-      "domains": [
-        "architecture",
-        "cloud"
-      ],
-      "level": [
-        "intermediate",
-        "advanced"
-      ],
-      "published": "2024",
-      "publisher": "O'Reilly Media",
-      "isbn": "9781098157739",
-      "isbnVerified": false,
-      "format": [
-        "ebook"
-      ],
-      "bundle": {
-        "name": "Humble Bundle: Cybersecurity Month 2026 by O'Reilly",
-        "url": "https://www.humblebundle.com/books/cybersecurity-month-2026-oreilly-books"
-      },
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "humble-oreilly-2026"
-      ],
-      "verified": false,
-      "id": "book-security-architecture-hybrid-cloud"
-    },
-    {
-      "type": "book",
       "name": "Security as Code",
       "by": "BK Sarthak Das & Virginia Chu",
       "desc": "Building security into DevOps pipelines with infrastructure-as-code, policy-as-code and automated controls.",
@@ -8831,6 +9320,37 @@
       ],
       "verified": false,
       "id": "book-security-as-code"
+    },
+    {
+      "type": "book",
+      "name": "Security Engineering (3rd ed.)",
+      "by": "Ross Anderson",
+      "desc": "The definitive guide to building dependable distributed systems; much of the text is free online from the author.",
+      "domains": [
+        "engineering",
+        "architecture"
+      ],
+      "level": [
+        "intermediate",
+        "advanced"
+      ],
+      "published": "2020",
+      "format": [
+        "book"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "Wiley",
+      "isbn": "9781119642787",
+      "isbnVerified": true,
+      "openlibrary": "https://openlibrary.org/isbn/9781119642787",
+      "logo": "covers/book-security-engineering.jpg",
+      "logoSource": "Open Library",
+      "id": "book-security-engineering"
     },
     {
       "type": "book",
@@ -8889,9 +9409,9 @@
       "isbn": "9781119433750",
       "rating": {
         "v": 3.6,
-        "n": 15,
+        "n": 16,
         "src": "Open Library",
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "isbnAlt": [
         "9781119433385"
@@ -8964,33 +9484,6 @@
     },
     {
       "type": "book",
-      "name": "Supremacy: AI, ChatGPT and the Race That Will Change the World",
-      "by": "Parmy Olson",
-      "desc": "The race between OpenAI and DeepMind and what concentrated AI power means — useful context for AI security and governance.",
-      "domains": [
-        "ai",
-        "leadership"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "published": "2024",
-      "format": [
-        "book",
-        "audiobook"
-      ],
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "mcl"
-      ],
-      "verified": true,
-      "publisher": "Macmillan Business",
-      "isbnVerified": false,
-      "id": "book-supremacy"
-    },
-    {
-      "type": "book",
       "name": "TCP/IP Illustrated, Volume 1 (2nd ed.)",
       "by": "Kevin R. Fall & W. Richard Stevens",
       "desc": "The definitive guide to how the TCP/IP protocols behave on the wire.",
@@ -9017,7 +9510,7 @@
         "v": 4.2,
         "n": 5,
         "src": "Open Library",
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "logo": "covers/book-tcp-ip-illustrated-volume-1.jpg",
       "openlibrary": "https://openlibrary.org/isbn/9780321336316",
@@ -9111,38 +9604,6 @@
     },
     {
       "type": "book",
-      "name": "The Art of Deception",
-      "by": "Kevin D. Mitnick & William L. Simon",
-      "desc": "Classic account of social engineering and the human side of security.",
-      "domains": [
-        "human",
-        "stories"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "published": "2002",
-      "publisher": "Wiley",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": true,
-      "isbn": "9780764538391",
-      "rating": null,
-      "isbnAlt": [
-        "9780471237129"
-      ],
-      "logo": "covers/book-the-art-of-deception.jpg",
-      "openlibrary": "https://openlibrary.org/isbn/9780764538391",
-      "id": "book-the-art-of-deception"
-    },
-    {
-      "type": "book",
       "name": "The Art of Intrusion",
       "by": "Kevin D. Mitnick & William L. Simon",
       "desc": "True stories of real intrusions and the hackers behind them.",
@@ -9168,7 +9629,7 @@
         "v": 3.7,
         "n": 6,
         "src": "Open Library",
-        "asOf": "2026-11-04"
+        "asOf": "2026-11-07"
       },
       "isbn": "9780470503829",
       "logo": "covers/book-the-art-of-intrusion.jpg",
@@ -9235,6 +9696,42 @@
       "openlibrary": "https://openlibrary.org/isbn/9781394174164",
       "publisher": "Wiley",
       "id": "book-the-battle-for-your-computer"
+    },
+    {
+      "type": "book",
+      "name": "The Cuckoo's Egg",
+      "by": "Clifford Stoll",
+      "desc": "The original hacker hunt — an astronomer tracks a KGB-linked intruder through 1980s networks. Still a masterclass in investigation.",
+      "domains": [
+        "stories",
+        "hunting"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "1989",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": {
+        "v": 4.1,
+        "n": 22,
+        "src": "Open Library",
+        "asOf": "2026-11-07"
+      },
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "Doubleday",
+      "isbn": "9780385249461",
+      "isbnVerified": true,
+      "openlibrary": "https://openlibrary.org/isbn/9780385249461",
+      "logo": "covers/book-cuckoos-egg.jpg",
+      "logoSource": "Open Library",
+      "id": "book-cuckoos-egg"
     },
     {
       "type": "book",
@@ -9331,34 +9828,6 @@
     },
     {
       "type": "book",
-      "name": "The Hacker Playbook 3",
-      "by": "Peter Kim",
-      "desc": "Red team playbook covering modern attack paths and evasion.",
-      "domains": [
-        "offensive"
-      ],
-      "level": [
-        "intermediate"
-      ],
-      "published": "2018",
-      "publisher": "Secure Planet",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": true,
-      "isbn": "9781980901754",
-      "rating": null,
-      "logo": "covers/book-the-hacker-playbook-3.jpg",
-      "openlibrary": "https://openlibrary.org/isbn/9781980901754",
-      "id": "book-the-hacker-playbook-3"
-    },
-    {
-      "type": "book",
       "name": "The Modern Security Operations Center",
       "by": "Joseph Muniz",
       "desc": "Designing, staffing and running a SOC.",
@@ -9415,33 +9884,34 @@
     },
     {
       "type": "book",
-      "name": "The Ransomware Hunting Team",
-      "by": "Renee Dudley & Daniel Golden",
-      "desc": "The true story of volunteer researchers who crack ransomware strains and help victims recover for free.",
+      "name": "The Practice of Network Security Monitoring",
+      "by": "Richard Bejtlich",
+      "desc": "Foundational guide to collecting, analysing and escalating on network evidence.",
       "domains": [
-        "stories",
-        "cti",
+        "operations",
+        "hunting",
         "defensive"
       ],
       "level": [
-        "beginner"
+        "intermediate"
       ],
-      "published": "2022",
+      "published": "2013",
       "format": [
-        "book",
-        "audiobook"
+        "book"
       ],
       "rating": null,
-      "curator": true,
+      "curator": false,
       "sources": [
-        "mcl"
+        "editor"
       ],
       "verified": true,
-      "publisher": "Farrar, Straus and Giroux",
-      "isbn": "9780374603304",
-      "isbnVerified": true,
-      "openlibrary": "https://openlibrary.org/isbn/9780374603304",
-      "id": "book-ransomware-hunting-team"
+      "publisher": "No Starch Press",
+      "isbn": "9781593275099",
+      "isbnVerified": false,
+      "openlibrary": "https://openlibrary.org/isbn/9781593275099",
+      "logo": "covers/book-practice-nsm.jpg",
+      "logoSource": "Open Library",
+      "id": "book-practice-nsm"
     },
     {
       "type": "book",
@@ -9651,6 +10121,38 @@
     },
     {
       "type": "book",
+      "name": "This Is How They Tell Me the World Ends",
+      "by": "Nicole Perlroth",
+      "desc": "Investigation into the zero-day market and the cyber arms race.",
+      "domains": [
+        "stories",
+        "tvm",
+        "offensive"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "published": "2021",
+      "format": [
+        "book",
+        "audiobook"
+      ],
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "editor"
+      ],
+      "verified": true,
+      "publisher": "Bloomsbury",
+      "isbn": "9781635576054",
+      "isbnVerified": true,
+      "openlibrary": "https://openlibrary.org/isbn/9781635576054",
+      "logo": "covers/book-this-is-how.jpg",
+      "logoSource": "Open Library",
+      "id": "book-this-is-how"
+    },
+    {
+      "type": "book",
       "name": "Threat Hunting in the Cloud",
       "by": "Chris Peiris, Binil Pillai & Abbas Kudrati",
       "desc": "Hunting threats across AWS, Azure and other cloud platforms.",
@@ -9704,39 +10206,6 @@
       "rating": null,
       "logo": "covers/book-threat-hunting-with-elastic-stack.jpg",
       "id": "book-threat-hunting-with-elastic-stack"
-    },
-    {
-      "type": "book",
-      "name": "Threat Modeling: Designing for Security",
-      "by": "Adam Shostack",
-      "desc": "Practical approach to finding design flaws early using STRIDE and related methods.",
-      "domains": [
-        "architecture",
-        "appsec"
-      ],
-      "level": [
-        "intermediate"
-      ],
-      "published": "2014",
-      "format": [
-        "book"
-      ],
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "editor",
-        "humble-library"
-      ],
-      "verified": true,
-      "publisher": "Wiley",
-      "isbn": "9781118810057",
-      "isbnVerified": true,
-      "isbnAlt": [
-        "9781118809990"
-      ],
-      "logo": "covers/book-threat-modeling.jpg",
-      "openlibrary": "https://openlibrary.org/isbn/9781118810057",
-      "id": "book-threat-modeling"
     },
     {
       "type": "book",
@@ -9802,118 +10271,6 @@
     },
     {
       "type": "book",
-      "name": "Tribe of Hackers",
-      "by": "Marcus J. Carey & Jennifer Jin",
-      "desc": "Career advice from 70 security practitioners, answering the same questions — great for newcomers.",
-      "domains": [
-        "career"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "published": "2019",
-      "format": [
-        "book"
-      ],
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "editor",
-        "humble-library"
-      ],
-      "verified": true,
-      "publisher": "Wiley",
-      "isbn": "9781119643371",
-      "isbnVerified": true,
-      "logo": "covers/book-tribe-of-hackers.jpg",
-      "openlibrary": "https://openlibrary.org/isbn/9781119643371",
-      "id": "book-tribe-of-hackers"
-    },
-    {
-      "type": "book",
-      "name": "Tribe of Hackers Blue Team",
-      "by": "Marcus J. Carey & Jennifer Jin",
-      "desc": "Advice from experienced defenders on blue team work and careers.",
-      "domains": [
-        "defensive",
-        "career"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "published": "2020",
-      "publisher": "Wiley",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": false,
-      "rating": null,
-      "logo": "covers/book-tribe-of-hackers-blue-team.jpg",
-      "id": "book-tribe-of-hackers-blue-team"
-    },
-    {
-      "type": "book",
-      "name": "Tribe of Hackers Red Team",
-      "by": "Marcus J. Carey & Jennifer Jin",
-      "desc": "Advice from experienced red teamers on offensive work and careers.",
-      "domains": [
-        "offensive",
-        "career"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "published": "2019",
-      "publisher": "Wiley",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": false,
-      "rating": null,
-      "logo": "covers/book-tribe-of-hackers-red-team.jpg",
-      "id": "book-tribe-of-hackers-red-team"
-    },
-    {
-      "type": "book",
-      "name": "Tribe of Hackers Security Leaders",
-      "by": "Marcus J. Carey & Jennifer Jin",
-      "desc": "Advice from CISOs and security leaders on leading teams and programmes.",
-      "domains": [
-        "leadership",
-        "career"
-      ],
-      "level": [
-        "intermediate"
-      ],
-      "published": "2020",
-      "publisher": "Wiley",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": true,
-      "rating": null,
-      "isbn": "9781119643760",
-      "logo": "covers/book-tribe-of-hackers-security-leaders.jpg",
-      "openlibrary": "https://openlibrary.org/isbn/9781119643760",
-      "id": "book-tribe-of-hackers-security-leaders"
-    },
-    {
-      "type": "book",
       "name": "Trust in Computer Systems and the Cloud",
       "by": "Mike Bursell",
       "desc": "What trust means in computing, and how to reason about it in cloud and confidential computing.",
@@ -9971,33 +10328,6 @@
       "logo": "covers/book-unauthorised-access.jpg",
       "openlibrary": "https://openlibrary.org/isbn/9780470970027",
       "id": "book-unauthorised-access"
-    },
-    {
-      "type": "book",
-      "name": "We Have Root",
-      "by": "Bruce Schneier",
-      "desc": "Essays on security, privacy and technology policy.",
-      "domains": [
-        "leadership",
-        "privacy"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "published": "2019",
-      "publisher": "Wiley",
-      "format": [
-        "ebook"
-      ],
-      "curator": true,
-      "sources": [
-        "humble-library"
-      ],
-      "verified": false,
-      "isbnVerified": false,
-      "rating": null,
-      "logo": "covers/book-we-have-root.jpg",
-      "id": "book-we-have-root"
     },
     {
       "type": "book",
@@ -10175,298 +10505,29 @@
       "id": "book-zero-trust-overview-and-playbook-introduction"
     },
     {
-      "type": "book",
-      "name": "Countdown to Zero Day",
-      "by": "Kim Zetter",
-      "desc": "The definitive account of Stuxnet and the dawn of cyber-physical warfare.",
+      "type": "platform",
+      "name": "Eventbrite (cybersecurity events)",
+      "by": "Eventbrite",
+      "desc": "Search for security webinars, workshops and conferences, online and near you; many listings are free.",
+      "kind": "events",
+      "cost": "free",
       "domains": [
-        "stories",
-        "icsot",
-        "cti"
+        "career"
       ],
       "level": [
         "beginner"
       ],
-      "published": "2014",
-      "format": [
-        "book",
-        "audiobook"
-      ],
-      "rating": {
-        "v": 4,
-        "n": 12,
-        "src": "Open Library",
-        "asOf": "2026-11-04"
-      },
-      "curator": false,
-      "sources": [
-        "editor"
-      ],
-      "verified": true,
-      "publisher": "Crown",
-      "isbn": "9780770436179",
-      "isbnVerified": true,
-      "openlibrary": "https://openlibrary.org/isbn/9780770436179",
-      "logo": "covers/book-countdown-zero-day.jpg",
-      "logoSource": "Open Library",
-      "id": "book-countdown-zero-day"
-    },
-    {
-      "type": "book",
-      "name": "Hacking Exposed Industrial Control Systems",
-      "by": "Clint Bodungen et al.",
-      "desc": "Attack-and-defend walkthrough of ICS/SCADA environments and their protocols.",
-      "domains": [
-        "icsot",
-        "offensive"
-      ],
-      "level": [
-        "intermediate",
-        "advanced"
-      ],
-      "published": "2016",
-      "format": [
-        "book"
-      ],
+      "status": "active",
+      "web": "https://www.eventbrite.co.uk/d/online/cyber-security/",
       "rating": null,
-      "curator": false,
+      "curator": true,
       "sources": [
-        "editor"
+        "mcl-starter"
       ],
       "verified": true,
-      "publisher": "McGraw-Hill Education",
-      "isbn": "9781259589713",
-      "isbnVerified": true,
-      "openlibrary": "https://openlibrary.org/isbn/9781259589713",
-      "logo": "covers/book-hacking-exposed-ics.jpg",
-      "logoSource": "Open Library",
-      "id": "book-hacking-exposed-ics"
-    },
-    {
-      "type": "book",
-      "name": "Intelligence-Driven Incident Response (2nd ed.)",
-      "by": "Rebekah Brown & Scott J. Roberts",
-      "desc": "How to integrate threat intelligence into IR using the F3EAD cycle.",
-      "domains": [
-        "cti",
-        "operations"
-      ],
-      "level": [
-        "intermediate"
-      ],
-      "published": "2023",
-      "format": [
-        "book"
-      ],
-      "rating": null,
-      "curator": false,
-      "sources": [
-        "editor"
-      ],
-      "verified": true,
-      "publisher": "O'Reilly Media",
-      "isbn": "9781098120689",
-      "isbnVerified": true,
-      "openlibrary": "https://openlibrary.org/isbn/9781098120689",
-      "logo": "covers/book-intel-driven-ir.jpg",
-      "logoSource": "Open Library",
-      "id": "book-intel-driven-ir"
-    },
-    {
-      "type": "book",
-      "name": "Practical Vulnerability Management",
-      "by": "Andrew Magnusson",
-      "desc": "Building a low-cost vulnerability management programme with open-source tools.",
-      "domains": [
-        "tvm",
-        "defensive"
-      ],
-      "level": [
-        "beginner",
-        "intermediate"
-      ],
-      "published": "2020",
-      "format": [
-        "book"
-      ],
-      "rating": null,
-      "curator": false,
-      "sources": [
-        "editor"
-      ],
-      "verified": true,
-      "publisher": "No Starch Press",
-      "isbn": "9781593279882",
-      "isbnVerified": true,
-      "openlibrary": "https://openlibrary.org/isbn/9781593279882",
-      "id": "book-practical-vm"
-    },
-    {
-      "type": "book",
-      "name": "Sandworm",
-      "by": "Andy Greenberg",
-      "desc": "Narrative of Russia's GRU hackers behind NotPetya and the Ukrainian grid attacks.",
-      "domains": [
-        "stories",
-        "cti",
-        "icsot"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "published": "2019",
-      "format": [
-        "book",
-        "audiobook"
-      ],
-      "rating": {
-        "v": 4.2,
-        "n": 6,
-        "src": "Open Library",
-        "asOf": "2026-11-04"
-      },
-      "curator": false,
-      "sources": [
-        "editor"
-      ],
-      "verified": true,
-      "publisher": "Doubleday",
-      "isbn": "9780385544405",
-      "isbnVerified": true,
-      "openlibrary": "https://openlibrary.org/isbn/9780385544405",
-      "logo": "covers/book-sandworm.jpg",
-      "logoSource": "Open Library",
-      "id": "book-sandworm"
-    },
-    {
-      "type": "book",
-      "name": "Security Engineering (3rd ed.)",
-      "by": "Ross Anderson",
-      "desc": "The definitive guide to building dependable distributed systems; much of the text is free online from the author.",
-      "domains": [
-        "engineering",
-        "architecture"
-      ],
-      "level": [
-        "intermediate",
-        "advanced"
-      ],
-      "published": "2020",
-      "format": [
-        "book"
-      ],
-      "rating": null,
-      "curator": false,
-      "sources": [
-        "editor"
-      ],
-      "verified": true,
-      "publisher": "Wiley",
-      "isbn": "9781119642787",
-      "isbnVerified": true,
-      "openlibrary": "https://openlibrary.org/isbn/9781119642787",
-      "logo": "covers/book-security-engineering.jpg",
-      "logoSource": "Open Library",
-      "id": "book-security-engineering"
-    },
-    {
-      "type": "book",
-      "name": "The Cuckoo's Egg",
-      "by": "Clifford Stoll",
-      "desc": "The original hacker hunt — an astronomer tracks a KGB-linked intruder through 1980s networks. Still a masterclass in investigation.",
-      "domains": [
-        "stories",
-        "hunting"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "published": "1989",
-      "format": [
-        "book",
-        "audiobook"
-      ],
-      "rating": {
-        "v": 4.1,
-        "n": 22,
-        "src": "Open Library",
-        "asOf": "2026-11-04"
-      },
-      "curator": false,
-      "sources": [
-        "editor"
-      ],
-      "verified": true,
-      "publisher": "Doubleday",
-      "isbn": "9780385249461",
-      "isbnVerified": true,
-      "openlibrary": "https://openlibrary.org/isbn/9780385249461",
-      "logo": "covers/book-cuckoos-egg.jpg",
-      "logoSource": "Open Library",
-      "id": "book-cuckoos-egg"
-    },
-    {
-      "type": "book",
-      "name": "The Practice of Network Security Monitoring",
-      "by": "Richard Bejtlich",
-      "desc": "Foundational guide to collecting, analysing and escalating on network evidence.",
-      "domains": [
-        "operations",
-        "hunting",
-        "defensive"
-      ],
-      "level": [
-        "intermediate"
-      ],
-      "published": "2013",
-      "format": [
-        "book"
-      ],
-      "rating": null,
-      "curator": false,
-      "sources": [
-        "editor"
-      ],
-      "verified": true,
-      "publisher": "No Starch Press",
-      "isbn": "9781593275099",
-      "isbnVerified": false,
-      "openlibrary": "https://openlibrary.org/isbn/9781593275099",
-      "logo": "covers/book-practice-nsm.jpg",
-      "logoSource": "Open Library",
-      "id": "book-practice-nsm"
-    },
-    {
-      "type": "book",
-      "name": "This Is How They Tell Me the World Ends",
-      "by": "Nicole Perlroth",
-      "desc": "Investigation into the zero-day market and the cyber arms race.",
-      "domains": [
-        "stories",
-        "tvm",
-        "offensive"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "published": "2021",
-      "format": [
-        "book",
-        "audiobook"
-      ],
-      "rating": null,
-      "curator": false,
-      "sources": [
-        "editor"
-      ],
-      "verified": true,
-      "publisher": "Bloomsbury",
-      "isbn": "9781635576054",
-      "isbnVerified": true,
-      "openlibrary": "https://openlibrary.org/isbn/9781635576054",
-      "logo": "covers/book-this-is-how.jpg",
-      "logoSource": "Open Library",
-      "id": "book-this-is-how"
+      "logo": "covers/platform-eventbrite.png",
+      "logoSource": "site icon (via Google)",
+      "id": "eventbrite"
     },
     {
       "type": "platform",
@@ -10498,6 +10559,33 @@
     },
     {
       "type": "platform",
+      "name": "ISC2 Certified in Cybersecurity (CC)",
+      "by": "ISC2",
+      "desc": "An entry-level, vendor-neutral certification whose official online training and exam are offered free to new candidates.",
+      "kind": "certification",
+      "cost": "free",
+      "domains": [
+        "career",
+        "grc"
+      ],
+      "level": [
+        "beginner"
+      ],
+      "status": "active",
+      "web": "https://www.isc2.org/certifications/cc",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "mcl-starter"
+      ],
+      "verified": true,
+      "logoFrom": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/ISC2_Logo.svg/960px-ISC2_Logo.svg.png",
+      "logo": "covers/platform-isc2-cc.png",
+      "logoSource": "hand-picked (upload.wikimedia.org)",
+      "id": "isc2-cc"
+    },
+    {
+      "type": "platform",
       "name": "Pluralsight",
       "by": "Pluralsight",
       "desc": "Subscription video library with structured security and cloud paths and skill assessments; a free trial is usually available.",
@@ -10523,6 +10611,35 @@
       "logo": "covers/platform-pluralsight.jpg",
       "logoSource": "hand-picked (is1-ssl.mzstatic.com)",
       "id": "pluralsight"
+    },
+    {
+      "type": "platform",
+      "name": "SANS free webcasts, summits and resources",
+      "by": "SANS Institute",
+      "kind": "events",
+      "cost": "free",
+      "desc": "Free live webcasts, virtual summits, community CTFs and cyber ranges from SANS, plus a library of free posters, cheat sheets and white papers; some need a free SANS account.",
+      "domains": [
+        "defensive",
+        "operations",
+        "career"
+      ],
+      "level": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "web": "https://www.sans.org/free-cybersecurity-events",
+      "status": "active",
+      "rating": null,
+      "curator": true,
+      "sources": [
+        "curator"
+      ],
+      "verified": true,
+      "id": "sans-free-resources",
+      "logo": "covers/platform-sans-free-resources.png",
+      "logoSource": "site icon (sans.org)"
     },
     {
       "type": "platform",
@@ -10746,58 +10863,6 @@
     },
     {
       "type": "platform",
-      "name": "Eventbrite (cybersecurity events)",
-      "by": "Eventbrite",
-      "desc": "Search for security webinars, workshops and conferences, online and near you; many listings are free.",
-      "kind": "events",
-      "cost": "free",
-      "domains": [
-        "career"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "status": "active",
-      "web": "https://www.eventbrite.co.uk/d/online/cyber-security/",
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "mcl-starter"
-      ],
-      "verified": true,
-      "logo": "covers/platform-eventbrite.png",
-      "logoSource": "site icon (via Google)",
-      "id": "eventbrite"
-    },
-    {
-      "type": "platform",
-      "name": "ISC2 Certified in Cybersecurity (CC)",
-      "by": "ISC2",
-      "desc": "An entry-level, vendor-neutral certification whose official online training and exam are offered free to new candidates.",
-      "kind": "certification",
-      "cost": "free",
-      "domains": [
-        "career",
-        "grc"
-      ],
-      "level": [
-        "beginner"
-      ],
-      "status": "active",
-      "web": "https://www.isc2.org/certifications/cc",
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "mcl-starter"
-      ],
-      "verified": true,
-      "logoFrom": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/ISC2_Logo.svg/960px-ISC2_Logo.svg.png",
-      "logo": "covers/platform-isc2-cc.png",
-      "logoSource": "hand-picked (upload.wikimedia.org)",
-      "id": "isc2-cc"
-    },
-    {
-      "type": "platform",
       "name": "LetsDefend",
       "by": "LetsDefend",
       "desc": "A simulated SOC where you triage alerts, investigate cases and learn analyst workflows; free tier with paid learning paths.",
@@ -10988,35 +11053,6 @@
     },
     {
       "type": "platform",
-      "name": "SANS free webcasts, summits and resources",
-      "by": "SANS Institute",
-      "kind": "events",
-      "cost": "free",
-      "desc": "Free live webcasts, virtual summits, community CTFs and cyber ranges from SANS, plus a library of free posters, cheat sheets and white papers; some need a free SANS account.",
-      "domains": [
-        "defensive",
-        "operations",
-        "career"
-      ],
-      "level": [
-        "beginner",
-        "intermediate",
-        "advanced"
-      ],
-      "web": "https://www.sans.org/free-cybersecurity-events",
-      "status": "active",
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "curator"
-      ],
-      "verified": true,
-      "id": "sans-free-resources",
-      "logo": "covers/platform-sans-free-resources.png",
-      "logoSource": "site icon (sans.org)"
-    },
-    {
-      "type": "platform",
       "name": "Web Security Academy",
       "by": "PortSwigger",
       "desc": "Free, in-depth web application security training with hundreds of interactive labs covering everything from SQL injection to request smuggling.",
@@ -11044,92 +11080,6 @@
       "id": "portswigger-academy"
     },
     {
-      "type": "platform",
-      "name": "The Cyber Mentor",
-      "by": "Heath Adams · TCM Security",
-      "desc": "Free ethical-hacking lessons on YouTube and live Twitch streams: full-length beginner courses on penetration testing, Active Directory attacks, web app hacking and Linux, plus career advice for people breaking into security.",
-      "kind": "course",
-      "cost": "free",
-      "domains": [
-        "offensive",
-        "career"
-      ],
-      "level": [
-        "beginner",
-        "intermediate"
-      ],
-      "status": "active",
-      "web": "https://www.thecybermentor.com/",
-      "youtube": "https://www.youtube.com/c/thecybermentor",
-      "twitch": "https://www.twitch.tv/thecybermentor",
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "mcl"
-      ],
-      "verified": true,
-      "tagsLocked": true,
-      "id": "the-cyber-mentor"
-    },
-    {
-      "type": "platform",
-      "name": "TCM Security Academy",
-      "by": "TCM Security",
-      "desc": "Self-paced, hands-on video courses from the team behind The Cyber Mentor, covering pentesting (network, web, API, mobile, Active Directory), SOC and incident response, malware analysis, forensics, OSINT and AI security, with practical exams such as PJPT and PNPT. Six fundamentals courses are free (security, Linux, programming, AI, help desk and job-market soft skills); the rest need a subscription.",
-      "kind": "course",
-      "cost": "freemium",
-      "domains": [
-        "offensive",
-        "defensive",
-        "operations",
-        "career"
-      ],
-      "level": [
-        "beginner",
-        "intermediate",
-        "advanced"
-      ],
-      "status": "active",
-      "web": "https://tcm-sec.com/academy/",
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "mcl"
-      ],
-      "verified": true,
-      "tagsLocked": true,
-      "id": "tcm-security-academy"
-    },
-    {
-      "id": "three-buddy-problem",
-      "type": "podcast",
-      "name": "Three Buddy Problem",
-      "by": "Ryan Naraine, Costin Raiu & Juan Andrés Guerrero-Saade",
-      "desc": "Three veteran threat researchers unpack the week's nation-state hacking, malware discoveries, attribution debates and cyberwar news, with candid opinions you won't hear in vendor briefings.",
-      "domains": [
-        "cti",
-        "news",
-        "offensive"
-      ],
-      "level": [
-        "intermediate",
-        "advanced"
-      ],
-      "freq": "weekly",
-      "launched": "2018",
-      "status": "active",
-      "web": "https://securityconversations.com/",
-      "apple": "https://podcasts.apple.com/podcast/id1414525622",
-      "spotify": "https://open.spotify.com/show/6dXbRagTUo4fPfpYjIDlwO",
-      "rss": "https://feeds.fireside.fm/securityconversations/rss",
-      "rating": null,
-      "curator": true,
-      "sources": [
-        "mcl"
-      ],
-      "verified": false
-    },
-    {
       "type": "person",
       "name": "Adrian Sanabria",
       "by": "Host, Enterprise Security Weekly",
@@ -11146,9 +11096,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-adrian-sanabria",
       "logo": "covers/expert-adrian-sanabria.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-adrian-sanabria"
     },
     {
       "type": "person",
@@ -11167,9 +11117,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-alec-muffett",
       "logo": "covers/expert-alec-muffett.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-alec-muffett"
     },
     {
       "type": "person",
@@ -11187,9 +11137,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-alex-stamos",
       "logo": "covers/expert-alex-stamos.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-alex-stamos"
     },
     {
       "type": "person",
@@ -11208,9 +11158,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-alyssa-miller",
       "logo": "covers/expert-alyssa-miller.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-alyssa-miller"
     },
     {
       "type": "person",
@@ -11230,9 +11180,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-amanda-rousseau",
       "logo": "covers/expert-amanda-rousseau.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-amanda-rousseau"
     },
     {
       "type": "person",
@@ -11246,16 +11196,16 @@
       ],
       "x": "https://x.com/anton_chuvakin",
       "bluesky": "https://bsky.app/profile/anton1chuvakin.bsky.social",
-      "medium": "https://medium.com/anton-on-security",
       "web": "https://www.chuvakin.org/",
       "curator": true,
       "sources": [
         "mcl"
       ],
       "verified": true,
-      "id": "expert-anton-chuvakin",
       "logo": "covers/expert-anton-chuvakin.jpg",
-      "logoSource": "own website"
+      "logoSource": "own website",
+      "medium": "https://medium.com/anton-on-security",
+      "id": "expert-anton-chuvakin"
     },
     {
       "type": "person",
@@ -11275,9 +11225,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-azeria",
       "logo": "covers/expert-azeria.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-azeria"
     },
     {
       "type": "person",
@@ -11315,9 +11265,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-brian-honan",
       "logo": "covers/expert-brian-honan.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-brian-honan"
     },
     {
       "type": "person",
@@ -11338,9 +11288,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-brian-krebs",
       "logo": "covers/expert-brian-krebs.jpg",
-      "logoSource": "Mastodon"
+      "logoSource": "Mastodon",
+      "id": "expert-brian-krebs"
     },
     {
       "type": "person",
@@ -11359,9 +11309,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-bruce-schneier",
       "logo": "covers/expert-bruce-schneier.jpg",
-      "logoSource": "own website"
+      "logoSource": "own website",
+      "id": "expert-bruce-schneier"
     },
     {
       "type": "person",
@@ -11378,9 +11328,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-chris-wysopal",
       "logo": "covers/expert-chris-wysopal.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-chris-wysopal"
     },
     {
       "type": "person",
@@ -11398,9 +11348,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-dan-goodin",
       "logo": "covers/expert-dan-goodin.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-dan-goodin"
     },
     {
       "type": "person",
@@ -11421,9 +11371,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-daniel-miessler",
       "logo": "covers/expert-daniel-miessler.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-daniel-miessler"
     },
     {
       "type": "person",
@@ -11442,9 +11392,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-dave-bittner",
       "logo": "covers/expert-dave-bittner.jpg",
-      "logoSource": "Mastodon"
+      "logoSource": "Mastodon",
+      "id": "expert-dave-bittner"
     },
     {
       "type": "person",
@@ -11463,8 +11413,8 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-dave-kennedy",
-      "noPhoto": true
+      "noPhoto": true,
+      "id": "expert-dave-kennedy"
     },
     {
       "type": "person",
@@ -11481,9 +11431,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-dmitri-alperovitch",
       "logo": "covers/expert-dmitri-alperovitch.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-dmitri-alperovitch"
     },
     {
       "type": "person",
@@ -11504,9 +11454,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-chris-sanders",
       "logo": "covers/expert-chris-sanders.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-chris-sanders"
     },
     {
       "type": "person",
@@ -11525,9 +11475,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-gerald-auger",
       "logo": "covers/expert-gerald-auger.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-gerald-auger"
     },
     {
       "type": "person",
@@ -11547,9 +11497,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-jessica-barker",
       "logo": "covers/expert-jessica-barker.jpg",
-      "logoSource": "YouTube"
+      "logoSource": "YouTube",
+      "id": "expert-jessica-barker"
     },
     {
       "type": "person",
@@ -11566,8 +11516,8 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-ed-skoudis",
-      "noPhoto": true
+      "noPhoto": true,
+      "id": "expert-ed-skoudis"
     },
     {
       "type": "person",
@@ -11585,9 +11535,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-eric-capuano",
       "logo": "covers/expert-eric-capuano.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-eric-capuano"
     },
     {
       "type": "person",
@@ -11604,10 +11554,10 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-eva-galperin",
       "bluesky": "https://bsky.app/profile/evacide.bsky.social",
       "logo": "covers/expert-eva-galperin.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-eva-galperin"
     },
     {
       "type": "person",
@@ -11627,9 +11577,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-florian-roth",
       "logo": "covers/expert-florian-roth.jpg",
-      "logoSource": "GitHub"
+      "logoSource": "GitHub",
+      "id": "expert-florian-roth"
     },
     {
       "type": "person",
@@ -11650,9 +11600,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-graham-cluley",
       "logo": "covers/expert-graham-cluley.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-graham-cluley"
     },
     {
       "type": "person",
@@ -11671,9 +11621,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-heath-adams",
       "logo": "covers/expert-heath-adams.jpg",
-      "logoSource": "The Cyber Mentor about page"
+      "logoSource": "The Cyber Mentor about page",
+      "id": "expert-heath-adams"
     },
     {
       "type": "person",
@@ -11691,6 +11641,8 @@
         "mcl"
       ],
       "verified": true,
+      "logo": "covers/expert-ian-coldwater.webp",
+      "logoSource": "Bluesky",
       "id": "expert-ian-coldwater"
     },
     {
@@ -11712,9 +11664,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-jack-rhysider",
       "logo": "covers/expert-jack-rhysider.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-jack-rhysider"
     },
     {
       "type": "person",
@@ -11733,9 +11685,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-jake-williams",
       "logo": "covers/expert-jake-williams.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-jake-williams"
     },
     {
       "type": "person",
@@ -11756,9 +11708,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-jason-haddix",
       "logo": "covers/expert-jason-haddix.jpg",
-      "logoSource": "YouTube"
+      "logoSource": "YouTube",
+      "id": "expert-jason-haddix"
     },
     {
       "type": "person",
@@ -11781,9 +11733,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-javvad-malik",
       "logo": "covers/expert-javvad-malik.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-javvad-malik"
     },
     {
       "type": "person",
@@ -11801,9 +11753,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-jayson-e-street",
       "logo": "covers/expert-jayson-e-street.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-jayson-e-street"
     },
     {
       "type": "person",
@@ -11820,9 +11772,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-jeff-moss",
       "logo": "covers/expert-jeff-moss.jpg",
-      "logoSource": "Mastodon"
+      "logoSource": "Mastodon",
+      "id": "expert-jeff-moss"
     },
     {
       "type": "person",
@@ -11839,9 +11791,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-joe-slowik",
       "logo": "covers/expert-joe-slowik.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-joe-slowik"
     },
     {
       "type": "person",
@@ -11861,9 +11813,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-john-hammond",
       "logo": "covers/expert-john-hammond.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-john-hammond"
     },
     {
       "type": "person",
@@ -11879,9 +11831,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-john-hultquist",
       "logo": "covers/expert-john-hultquist.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-john-hultquist"
     },
     {
       "type": "person",
@@ -11903,9 +11855,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-john-strand",
       "logo": "covers/expert-john-strand.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-john-strand"
     },
     {
       "type": "person",
@@ -11922,9 +11874,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-juan-andres-guerrero-saade",
       "logo": "covers/expert-juan-andres-guerrero-saade.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-juan-andres-guerrero-saade"
     },
     {
       "type": "person",
@@ -11944,9 +11896,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-katie-moussouris",
       "logo": "covers/expert-katie-moussouris.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-katie-moussouris"
     },
     {
       "type": "person",
@@ -11964,9 +11916,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-katie-nickels",
       "logo": "covers/expert-katie-nickels.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-katie-nickels"
     },
     {
       "type": "person",
@@ -11988,9 +11940,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-kelly-shortridge",
       "logo": "covers/expert-kelly-shortridge.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-kelly-shortridge"
     },
     {
       "type": "person",
@@ -12010,9 +11962,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-keren-elazari",
       "logo": "covers/expert-keren-elazari.jpg",
-      "logoSource": "YouTube"
+      "logoSource": "YouTube",
+      "id": "expert-keren-elazari"
     },
     {
       "type": "person",
@@ -12032,9 +11984,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-kevin-beaumont",
       "logo": "covers/expert-kevin-beaumont.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-kevin-beaumont"
     },
     {
       "type": "person",
@@ -12054,6 +12006,8 @@
         "mcl"
       ],
       "verified": true,
+      "logo": "covers/expert-kim-zetter.webp",
+      "logoSource": "Bluesky",
       "id": "expert-kim-zetter"
     },
     {
@@ -12072,9 +12026,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-lea-kissner",
       "logo": "covers/expert-lea-kissner.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-lea-kissner"
     },
     {
       "type": "person",
@@ -12091,9 +12045,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-leigh-honeywell",
       "logo": "covers/expert-leigh-honeywell.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-leigh-honeywell"
     },
     {
       "type": "person",
@@ -12115,9 +12069,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-lesley-carhart",
       "logo": "covers/expert-lesley-carhart.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-lesley-carhart"
     },
     {
       "type": "person",
@@ -12135,9 +12089,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-lisa-forte",
       "logo": "covers/expert-lisa-forte.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-lisa-forte"
     },
     {
       "type": "person",
@@ -12154,9 +12108,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-liveoverflow",
       "logo": "covers/expert-liveoverflow.jpg",
-      "logoSource": "YouTube"
+      "logoSource": "YouTube",
+      "id": "expert-liveoverflow"
     },
     {
       "type": "person",
@@ -12173,9 +12127,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-maddie-stone",
       "logo": "covers/expert-maddie-stone.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-maddie-stone"
     },
     {
       "type": "person",
@@ -12195,9 +12149,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-marcus-hutchins",
       "logo": "covers/expert-marcus-hutchins.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-marcus-hutchins"
     },
     {
       "type": "person",
@@ -12215,9 +12169,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-marcus-j-carey",
       "logo": "covers/expert-marcus-j-carey.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-marcus-j-carey"
     },
     {
       "type": "person",
@@ -12234,9 +12188,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-mark-russinovich",
       "logo": "covers/expert-mark-russinovich.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-mark-russinovich"
     },
     {
       "type": "person",
@@ -12254,9 +12208,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-matt-blaze",
       "logo": "covers/expert-matt-blaze.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-matt-blaze"
     },
     {
       "type": "person",
@@ -12274,9 +12228,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-matthew-green",
       "logo": "covers/expert-matthew-green.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-matthew-green"
     },
     {
       "type": "person",
@@ -12296,9 +12250,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-mike-chapple",
       "logo": "covers/expert-mike-chapple.jpg",
-      "logoSource": "YouTube"
+      "logoSource": "YouTube",
+      "id": "expert-mike-chapple"
     },
     {
       "type": "person",
@@ -12315,9 +12269,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-mikko-hypponen",
       "logo": "covers/expert-mikko-hypponen.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-mikko-hypponen"
     },
     {
       "type": "person",
@@ -12335,8 +12289,8 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-nicole-perlroth",
-      "noPhoto": true
+      "noPhoto": true,
+      "id": "expert-nicole-perlroth"
     },
     {
       "type": "person",
@@ -12357,9 +12311,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-phillip-wylie",
       "logo": "covers/expert-phillip-wylie.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-phillip-wylie"
     },
     {
       "type": "person",
@@ -12376,9 +12330,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-alan-woodward",
       "logo": "covers/expert-alan-woodward.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-alan-woodward"
     },
     {
       "type": "person",
@@ -12396,9 +12350,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-rachel-tobac",
       "logo": "covers/expert-rachel-tobac.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-rachel-tobac"
     },
     {
       "type": "person",
@@ -12416,9 +12370,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-raj-samani",
       "logo": "covers/expert-raj-samani.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-raj-samani"
     },
     {
       "type": "person",
@@ -12436,9 +12390,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-ray-redacted",
       "logo": "covers/expert-ray-redacted.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-ray-redacted"
     },
     {
       "type": "person",
@@ -12459,9 +12413,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-richard-bejtlich",
       "logo": "covers/expert-richard-bejtlich.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-richard-bejtlich"
     },
     {
       "type": "person",
@@ -12479,9 +12433,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-rik-ferguson",
       "logo": "covers/expert-rik-ferguson.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-rik-ferguson"
     },
     {
       "type": "person",
@@ -12503,6 +12457,8 @@
         "mcl"
       ],
       "verified": true,
+      "logo": "covers/expert-rob-fuller.webp",
+      "logoSource": "Bluesky",
       "id": "expert-rob-fuller"
     },
     {
@@ -12520,9 +12476,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-rob-joyce",
       "logo": "covers/expert-rob-joyce.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-rob-joyce"
     },
     {
       "type": "person",
@@ -12542,9 +12498,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-robert-m-lee",
       "logo": "covers/expert-robert-m-lee.jpg",
-      "logoSource": "own website"
+      "logoSource": "own website",
+      "id": "expert-robert-m-lee"
     },
     {
       "type": "person",
@@ -12562,6 +12518,8 @@
         "mcl"
       ],
       "verified": true,
+      "logo": "covers/expert-rory-mccune.webp",
+      "logoSource": "Bluesky",
       "id": "expert-rory-mccune"
     },
     {
@@ -12579,9 +12537,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-runa-sandvik",
       "logo": "covers/expert-runa-sandvik.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-runa-sandvik"
     },
     {
       "type": "person",
@@ -12599,9 +12557,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-scott-helme",
       "logo": "covers/expert-scott-helme.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-scott-helme"
     },
     {
       "type": "person",
@@ -12617,9 +12575,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-scott-piper",
       "logo": "covers/expert-scott-piper.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-scott-piper"
     },
     {
       "type": "person",
@@ -12638,9 +12596,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-swiftonsecurity",
       "logo": "covers/expert-swiftonsecurity.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-swiftonsecurity"
     },
     {
       "type": "person",
@@ -12660,9 +12618,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-tanya-janca",
       "logo": "covers/expert-tanya-janca.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-tanya-janca"
     },
     {
       "type": "person",
@@ -12679,9 +12637,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-taz-wake",
       "logo": "covers/expert-taz-wake.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-taz-wake"
     },
     {
       "type": "person",
@@ -12699,9 +12657,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-teri-radichel",
       "logo": "covers/expert-teri-radichel.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-teri-radichel"
     },
     {
       "type": "person",
@@ -12718,9 +12676,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-tib3rius",
       "logo": "covers/expert-tib3rius.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-tib3rius"
     },
     {
       "type": "person",
@@ -12738,9 +12696,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-tracy-maleeff",
       "logo": "covers/expert-tracy-maleeff.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-tracy-maleeff"
     },
     {
       "type": "person",
@@ -12763,9 +12721,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-troy-hunt",
       "logo": "covers/expert-troy-hunt.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-troy-hunt"
     },
     {
       "type": "person",
@@ -12782,8 +12740,8 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-wendy-nather",
-      "noPhoto": true
+      "noPhoto": true,
+      "id": "expert-wendy-nather"
     },
     {
       "type": "person",
@@ -12801,28 +12759,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-whitney-merrill",
       "logo": "covers/expert-whitney-merrill.webp",
-      "logoSource": "Bluesky"
-    },
-    {
-      "type": "person",
-      "name": "Window Snyder",
-      "by": "Founder and CEO, Thistle Technologies",
-      "desc": "Veteran security engineer who led security at Mozilla, Apple, Square and Fastly, now focused on securing connected devices.",
-      "domains": [
-        "engineering",
-        "architecture"
-      ],
-      "x": "https://x.com/window",
-      "linkedin": "https://www.linkedin.com/in/window",
-      "curator": true,
-      "sources": [
-        "mcl"
-      ],
-      "verified": true,
-      "id": "expert-window-snyder",
-      "noPhoto": true
+      "logoSource": "Bluesky",
+      "id": "expert-whitney-merrill"
     },
     {
       "type": "person",
@@ -12844,9 +12783,28 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-will-thomas",
       "logo": "covers/expert-will-thomas.webp",
-      "logoSource": "Bluesky"
+      "logoSource": "Bluesky",
+      "id": "expert-will-thomas"
+    },
+    {
+      "type": "person",
+      "name": "Window Snyder",
+      "by": "Founder and CEO, Thistle Technologies",
+      "desc": "Veteran security engineer who led security at Mozilla, Apple, Square and Fastly, now focused on securing connected devices.",
+      "domains": [
+        "engineering",
+        "architecture"
+      ],
+      "x": "https://x.com/window",
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "linkedin": "https://www.linkedin.com/in/window",
+      "noPhoto": true,
+      "id": "expert-window-snyder"
     }
   ]
 }
