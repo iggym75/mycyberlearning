@@ -258,7 +258,7 @@ export function commonsNames(name) {
 }
 /** Pick the Wikidata person who is our expert: a human (P31 Q5) with an image (P18), whose English label matches the
  *  name, and who either links to one of the expert's own profiles or is described with a security/tech role. */
-export function pickWikidataPerson(entities, name, item = {}) {
+export function pickWikidataPerson(entities, name, item = {}, { needImage = true } = {}) {
   const norm = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
   const handles = [item.web, item.github, item.bluesky, item.mastodon, item.x, item.linkedin, item.youtube].filter(Boolean).map(u => norm(u));
   let best = null;
@@ -266,7 +266,8 @@ export function pickWikidataPerson(entities, name, item = {}) {
     const c = e.claims || {};
     const isHuman = (c.P31 || []).some(s => s.mainsnak?.datavalue?.value?.id === "Q5");
     const file = c.P18?.[0]?.mainsnak?.datavalue?.value;
-    if (!isHuman || !file) continue;
+    const category = c.P373?.[0]?.mainsnak?.datavalue?.value;
+    if (!isHuman || (needImage ? !file : !file && !category)) continue;
     const labels = [e.labels?.en?.value, ...(e.aliases?.en || []).map(a => a.value)].map(norm);
     if (!labels.includes(norm(name))) continue;
     const ids = ["P856", "P2037", "P2002", "P12361", "P4033", "P6634", "P2397"].flatMap(p => (c[p] || []).map(s => norm(s.mainsnak?.datavalue?.value)));
@@ -275,7 +276,13 @@ export function pickWikidataPerson(entities, name, item = {}) {
     const topical = COMMONS_TOPIC.test(desc);
     if (!linked && !topical) continue;
     const score = (linked ? 2 : 0) + (topical ? 1 : 0);
-    if (!best || score > best.score) best = { qid: e.id, file, desc, linked, score };
+    if (!best || score > best.score) best = { qid: e.id, file, category, desc, linked, score };
   }
   return best;
+}
+
+/** The year a Commons photo was taken: DateTimeOriginal first, else the file's own date. */
+export function commonsYear(meta) {
+  for (const k of ["DateTimeOriginal", "DateTime"]) { const m = commonsText(meta?.[k]?.value).match(/\b(19[5-9]\d|20\d\d)\b/); if (m) return +m[1]; }
+  return null;
 }
