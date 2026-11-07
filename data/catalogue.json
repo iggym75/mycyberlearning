@@ -12011,18 +12011,7 @@
       ],
       "verified": true,
       "id": "expert-keren-elazari",
-      "logo": "covers/expert-keren-elazari-cc.webp",
-      "logoSource": "Wikimedia Commons",
-      "logoCredit": {
-        "author": "Sebastiaan ter Burg from Utrecht, The Netherlands",
-        "licence": "CC BY 2.0",
-        "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Keren_Elazari_at_the_SingularityU_The_Netherlands_Summit_2016_(29027689414)_(cropped).jpg",
-        "file": "Keren Elazari at the SingularityU The Netherlands Summit 2016 (29027689414) (cropped).jpg",
-        "shareAlike": false,
-        "cropped": true,
-        "year": 2016
-      }
+      "noPhoto": true
     },
     {
       "type": "person",
@@ -12064,18 +12053,7 @@
       ],
       "verified": true,
       "id": "expert-kim-zetter",
-      "logo": "covers/expert-kim-zetter-cc.webp",
-      "logoSource": "Wikimedia Commons",
-      "logoCredit": {
-        "author": "Joe Hall",
-        "licence": "CC BY 2.0",
-        "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Kim_Zetter.jpg",
-        "file": "Kim Zetter.jpg",
-        "shareAlike": false,
-        "cropped": true,
-        "year": 2006
-      }
+      "noPhoto": true
     },
     {
       "type": "person",
@@ -12295,19 +12273,8 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-matthew-green-cc.webp",
-      "logoSource": "Wikimedia Commons",
       "id": "expert-matthew-green",
-      "logoCredit": {
-        "author": "Calhbca",
-        "licence": "CC BY-SA 4.0",
-        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Matthew_Green.jpeg",
-        "file": "Matthew Green.jpeg",
-        "shareAlike": true,
-        "cropped": true,
-        "year": 2016
-      }
+      "noPhoto": true
     },
     {
       "type": "person",
@@ -12561,19 +12528,8 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-rob-joyce-cc.webp",
-      "logoSource": "Wikimedia Commons",
       "id": "expert-rob-joyce",
-      "logoCredit": {
-        "author": "Joyce N. Boghosian",
-        "licence": "Public domain",
-        "licenceUrl": "",
-        "page": "https://commons.wikimedia.org/wiki/File:Robert_E._Joyce.jpg",
-        "file": "Robert E. Joyce.jpg",
-        "shareAlike": false,
-        "cropped": true,
-        "year": 2017
-      }
+      "noPhoto": true
     },
     {
       "type": "person",
@@ -12918,18 +12874,7 @@
       "verified": true,
       "linkedin": "https://www.linkedin.com/in/window",
       "id": "expert-window-snyder",
-      "logo": "covers/expert-window-snyder-cc.webp",
-      "logoSource": "Wikimedia Commons",
-      "logoCredit": {
-        "author": "Web Summit",
-        "licence": "CC BY 2.0",
-        "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Window_Snyder_Web_Summit_2017_cropped.jpg",
-        "file": "Window Snyder Web Summit 2017 cropped.jpg",
-        "shareAlike": false,
-        "cropped": true,
-        "year": 2017
-      }
+      "noPhoto": true
     }
   ]
 }
