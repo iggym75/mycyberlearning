@@ -223,3 +223,59 @@ export function rightsMetadata(buf) {
   }
   return null;
 }
+
+// ---------- Freely licensed expert photos (Wikimedia Commons) ----------
+/** Strip a Commons metadata HTML value (Artist, LicenseShortName…) to plain text. */
+export function commonsText(v) {
+  return decodeEntities(String(v ?? "").replace(/<[^>]*>/g, " ")).replace(/\s+/g, " ").trim();
+}
+/** The licence of a Commons file if we may use it, else null. We accept public domain, CC0, CC BY and CC BY-SA only:
+ *  NonCommercial is out (the site may carry sponsorship) and NoDerivatives is out (we crop to a circle).
+ *  Anything but PD/CC0 needs a named author so the credit can be given. */
+export function commonsLicence(meta) {
+  const g = k => commonsText(meta?.[k]?.value);
+  const code = g("License").toLowerCase(), short = g("LicenseShortName"), url = g("LicenseUrl");
+  const author = g("Artist").slice(0, 160);
+  if (!code && !short) return null;
+  const s = `${code} ${short.toLowerCase()}`;
+  if (/\bnc\b|-nc\b|noncommercial|non-commercial|\bnd\b|-nd\b|noderiv|fair use|copyrighted/.test(s)) return null;
+  const pd = /^(pd|cc0)\b|^pd-|public domain|^cc0/.test(code) || /^(public domain|cc0)/i.test(short);
+  const by = /^cc-by(-sa)?-\d/.test(code) || /^cc by(-sa)? \d/i.test(short);
+  if (!pd && !by) return null;
+  if (!pd && !author) return null;
+  if (url && !/^https?:\/\//.test(url)) return null;
+  return { licence: short || code.toUpperCase(), licenceUrl: url ? url.replace(/^http:/, "https:") : "", author: author || "", shareAlike: /-sa-|by-sa/i.test(s) };
+}
+const COMMONS_TOPIC = /secur|crypt|hack|computer|software|malware|privacy|cyber|programmer|engineer|journalist|technolog|researcher|scientist|forensic|intelligence|informati|executive|entrepreneur|author|writer|blogger|podcast/i;
+/** Clean a catalogue name into names worth searching on Wikidata: "Dr Jessica Barker" → ["Jessica Barker"],
+ *  "Azeria (Maria Markstedter)" → ["Azeria", "Maria Markstedter"]. */
+export function commonsNames(name) {
+  const strip = s => s.replace(/^(dr|prof\.?|professor)\s+/i, "").trim();
+  const out = [strip(String(name).replace(/\s*\(.*?\)\s*/g, " "))];
+  const inner = String(name).match(/\(([^)]+)\)/)?.[1];
+  if (inner && /^[A-Z][a-z]+(\s+[A-Z][a-zA-Z'.-]+)+$/.test(inner.trim())) out.push(strip(inner));
+  return [...new Set(out.filter(Boolean))];
+}
+/** Pick the Wikidata person who is our expert: a human (P31 Q5) with an image (P18), whose English label matches the
+ *  name, and who either links to one of the expert's own profiles or is described with a security/tech role. */
+export function pickWikidataPerson(entities, name, item = {}) {
+  const norm = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const handles = [item.web, item.github, item.bluesky, item.mastodon, item.x, item.linkedin, item.youtube].filter(Boolean).map(u => norm(u));
+  let best = null;
+  for (const e of Object.values(entities || {})) {
+    const c = e.claims || {};
+    const isHuman = (c.P31 || []).some(s => s.mainsnak?.datavalue?.value?.id === "Q5");
+    const file = c.P18?.[0]?.mainsnak?.datavalue?.value;
+    if (!isHuman || !file) continue;
+    const labels = [e.labels?.en?.value, ...(e.aliases?.en || []).map(a => a.value)].map(norm);
+    if (!labels.includes(norm(name))) continue;
+    const ids = ["P856", "P2037", "P2002", "P12361", "P4033", "P6634", "P2397"].flatMap(p => (c[p] || []).map(s => norm(s.mainsnak?.datavalue?.value)));
+    const linked = ids.some(v => v && v.length >= 4 && handles.some(h => (" " + h + " ").includes(" " + v + " ")));
+    const desc = e.descriptions?.en?.value || "";
+    const topical = COMMONS_TOPIC.test(desc);
+    if (!linked && !topical) continue;
+    const score = (linked ? 2 : 0) + (topical ? 1 : 0);
+    if (!best || score > best.score) best = { qid: e.id, file, desc, linked, score };
+  }
+  return best;
+}

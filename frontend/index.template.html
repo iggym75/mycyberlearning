@@ -643,7 +643,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
     <h3 id="images">Images we show</h3>
     <ul>
       <li>Podcast artwork and book covers are shown small, only to identify each title, with a credit for where they came from. They belong to their owners.</li>
-      <li>An expert's picture is only one they chose for a public profile of their own (such as Bluesky, Mastodon, GitHub, YouTube or their website). We don't use press, agency or event photos. Where there's no such picture, we show their initials.</li>
+      <li>An expert's picture is either a freely licensed photo from Wikimedia Commons (public domain, CC0, CC BY or CC BY-SA), credited to its photographer with its licence in the picture viewer, or one they chose for a public profile of their own (such as Bluesky, Mastodon, GitHub, YouTube or their website). We don't use press, agency or stock photos. Where there's neither, we show a ring of their topics.</li>
       <li><b>If you own an image shown here,</b> or you're the person pictured, and want it removed, email <a href="mailto:contact@mycyberlearning.co.uk?subject=Image%20removal">contact@mycyberlearning.co.uk</a> with the page or item name. We remove images promptly, normally the same day, with no questions asked.</li>
     </ul>
     <h3 id="cookies">Cookies and browser storage</h3>
@@ -871,6 +871,8 @@ addEventListener("online", () => document.querySelectorAll("img[data-wait]").for
 function imageCredit(i){
   if (!i.logo) return "";
   const s = String(i.logoSource || "");
+  if (i.type === "person" && s === "Wikimedia Commons" && i.logoCredit) { const c = i.logoCredit;
+    return `Wikimedia Commons: photo${c.author ? ` by ${c.author}` : ""}, ${c.licence}${c.shareAlike ? " (resized and cropped)" : ""}`; }
   if (i.type === "person") return ({ Bluesky: "their Bluesky profile", Mastodon: "their Mastodon profile", GitHub: "their GitHub profile", YouTube: "their YouTube channel", "own website": "their own website" })[s] || "a profile of their own";
   if (i.type === "podcast") return /Apple/.test(s) ? "Apple Podcasts (show artwork)" : "the show";
   if (i.type === "book") return /Open Library/.test(s) ? "Open Library (publisher's cover)" : "the publisher's cover";
@@ -1480,6 +1482,13 @@ function openCover(id){
   cvList = filtered().filter(i => i.logo); cvIdx = Math.max(0, cvList.findIndex(i => i.id === id));
   showCover(); if (!$("#coverDlg").open) $("#coverDlg").showModal();
 }
+// A Commons photo's credit with links to the photo's page and its licence (both https only).
+function commonsCredit(i){
+  const c = i.logoSource === "Wikimedia Commons" && i.logoCredit; if (!c) return "";
+  const ok = u => typeof u === "string" && /^https:\/\//.test(u);
+  const links = [ok(c.page) && `<a href="${esc(c.page)}" target="_blank" rel="noopener">Photo page</a>`, ok(c.licenceUrl) && `<a href="${esc(c.licenceUrl)}" target="_blank" rel="noopener">${esc(c.licence)} licence</a>`].filter(Boolean);
+  return links.length ? `<dt>Licence</dt><dd>${links.join(" · ")}</dd>` : "";
+}
 function showCover(){
   const i = cvList[cvIdx]; if (!i) return;
   const img = $("#cvImg"); img.src = i.logo; img.alt = `${i.type==="platform"?"Logo":i.type==="person"?"Photo":"Cover"} of ${i.name}`; img.classList.toggle("site", i.type==="platform");
@@ -1493,7 +1502,7 @@ function showCover(){
     : [["Cadence", FREQ[i.freq]?.label], ["Since", year(i.launched)], ["Episodes", i.episodes && (i.episodes>=2000 ? "2,000+" : i.episodes.toLocaleString("en-GB"))],
        [latestLabel(i), i.lastEpisode && fmtDay(i.lastEpisode)], ["Rating", i.rating && `${i.rating.v.toFixed(1)} (${fmtN(i.rating.n)})`]];
   rows.push([i.type==="person" ? "Picture from" : "Image from", imageCredit(i)]);
-  $("#cvMeta").innerHTML = rows.filter(r=>r[1]).map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join("");
+  $("#cvMeta").innerHTML = rows.filter(r=>r[1]).map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join("") + commonsCredit(i);
   $("#cvLinks").innerHTML = platLinks(i);
   $("#cvPos").textContent = `${cvIdx+1} of ${cvList.length}`;
   $("#cvPrev").disabled = cvIdx===0; $("#cvNext").disabled = cvIdx===cvList.length-1;
