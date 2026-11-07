@@ -316,6 +316,7 @@ body[data-view="news"] .library-only{display:none!important}
 .hp{position:absolute!important;left:-10000px!important;width:1px;height:1px;overflow:hidden}
 .sub-done{background:var(--signal-soft);border-radius:8px;padding:12px;font-size:14px}
 .side-note{font-size:12.5px;color:var(--ink-3);line-height:1.5}
+#privacyDlg h3[id]{scroll-margin-top:72px}
 .cookie-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 10px}
 .cookie-table th,.cookie-table td{text-align:left;vertical-align:top;border-bottom:1px solid var(--line);padding:6px 8px 6px 0}
 .cookie-table code{font-size:12px;white-space:nowrap}
@@ -499,7 +500,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 
 <footer><div class="wrap">
   <span>My Cyber Learning · MCL Picks are hand-chosen by the site's curator · Official ratings aggregated from Apple Podcasts, Spotify, Podchaser and Podcast Addict via Podnews/Rephonic.</span>
-  <span style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><span>Essential cookies only: no tracking or advertising.</span><button type="button" class="linkish" data-privacy="cookies">Cookies</button><button type="button" class="linkish" data-privacy>Privacy</button><span class="mode-pill" id="modePill">demo</span></span>
+  <span style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><span>Essential cookies only: no tracking or advertising.</span><button type="button" class="linkish" data-privacy="images">Image owner?</button><button type="button" class="linkish" data-privacy="cookies">Cookies</button><button type="button" class="linkish" data-privacy>Privacy</button><span class="mode-pill" id="modePill">demo</span></span>
 </div></footer>
 
 <!-- Submit dialog -->
@@ -612,7 +613,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 <dialog id="privacyDlg" aria-labelledby="privTitle">
   <div class="dlg-h"><h2 id="privTitle">Privacy notice</h2><button class="btn ghost sm" type="button" data-close>Close</button></div>
   <div class="dlg-b privacy">
-    <p>My Cyber Learning (mycyberlearning.co.uk) is run by Ian Moore, who is the data controller. Version 2026-11-09.</p>
+    <p>My Cyber Learning (mycyberlearning.co.uk) is run by Ian Moore, who is the data controller. Version 2026-11-10.</p>
     <h3>Daily briefing subscribers</h3>
     <ul>
       <li><b>What we keep:</b> your email address, and if you give them, your first name and country, plus when and how you agreed.</li>
@@ -637,6 +638,12 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
       <li><b>Emails:</b> the daily briefing and occasional new-feature emails are separate choices, both off unless you tick them. For a new address, you confirm them yourself on the page the confirmation link opens. Each email has a one-click unsubscribe link, and we record when and how you agreed. Creating an account never signs you up to either.</li>
       <li><b>Cookie:</b> signing in sets one essential cookie that keeps you signed in for up to 30 days.</li>
       <li><b>Your control:</b> from My list you can download everything we hold, sign out everywhere, or delete your account, which erases it straight away. Deleting the account also stops the daily briefing to its email. Unconfirmed email addresses are removed after 48 hours, and accounts unused for two years are deleted, which also stops their briefing.</li>
+    </ul>
+    <h3 id="images">Images we show</h3>
+    <ul>
+      <li>Podcast artwork and book covers are shown small, only to identify each title, with a credit for where they came from. They belong to their owners.</li>
+      <li>An expert's picture is only one they chose for a public profile of their own (such as Bluesky, Mastodon, GitHub, YouTube or their website). We don't use press, agency or event photos. Where there's no such picture, we show their initials.</li>
+      <li><b>If you own an image shown here,</b> or you're the person pictured, and want it removed, email <a href="mailto:contact@mycyberlearning.co.uk?subject=Image%20removal">contact@mycyberlearning.co.uk</a> with the page or item name. We remove images promptly, normally the same day, with no questions asked.</li>
     </ul>
     <h3 id="cookies">Cookies and browser storage</h3>
     <p>We use only what's strictly necessary to provide what you ask for, so we don't ask for cookie consent. There are no analytics, tracking or advertising cookies, and nothing is shared with other sites.</p>
@@ -859,11 +866,20 @@ window.mclImgRetry = img => {
   if (t){ t.removeAttribute("data-zoom"); t.classList.remove("site"); img.remove(); } else img.style.visibility = "hidden";
 };
 addEventListener("online", () => document.querySelectorAll("img[data-wait]").forEach(img => { delete img.dataset.wait; img.dataset.retry = 0; window.mclImgRetry(img); }));
+// Where a picture came from, shown as a credit: experts' pictures come from profiles they publish themselves.
+function imageCredit(i){
+  if (!i.logo) return "";
+  const s = String(i.logoSource || "");
+  if (i.type === "person") return ({ Bluesky: "their Bluesky profile", Mastodon: "their Mastodon profile", GitHub: "their GitHub profile", YouTube: "their YouTube channel", "own website": "their own website" })[s] || "a profile of their own";
+  if (i.type === "podcast") return /Apple/.test(s) ? "Apple Podcasts (show artwork)" : "the show";
+  if (i.type === "book") return /Open Library/.test(s) ? "Open Library (publisher's cover)" : "the publisher's cover";
+  return "the site's own icon";
+}
 function logo(i){
   const h = hue(i.id), bg = `linear-gradient(140deg,hsl(${h} 55% 38%),hsl(${(h+40)%360} 60% 26%))`;
   const cls = `logo${i.type==="book"?" book":""}${i.type==="person"?" person":""}${i.type==="platform"&&i.logo?" site":""}`;
   if (!i.logo) return `<div class="${cls}" style="background:${bg}" aria-hidden="true">${esc(initials(i.name))}</div>`;
-  return `<button type="button" class="${cls} zoomable" data-zoom style="background:${bg}" aria-label="Enlarge ${i.type==="book"?"cover":i.type==="platform"?"logo":i.type==="person"?"picture":"artwork"} for ${esc(i.name)}">${esc(initials(i.name))}<img src="${esc(i.logo)}" alt="" loading="lazy" decoding="async" onerror="mclImgRetry(this)"><span class="zoom-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M11 8.5v5M8.5 11h5M20 20l-4.2-4.2"/></svg></span></button>`;
+  return `<button type="button" class="${cls} zoomable" data-zoom style="background:${bg}" title="${esc(i.type==="person"?"Picture":"Image")} from ${esc(imageCredit(i))}" aria-label="Enlarge ${i.type==="book"?"cover":i.type==="platform"?"logo":i.type==="person"?"picture":"artwork"} for ${esc(i.name)}">${esc(initials(i.name))}<img src="${esc(i.logo)}" alt="" loading="lazy" decoding="async" onerror="mclImgRetry(this)"><span class="zoom-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M11 8.5v5M8.5 11h5M20 20l-4.2-4.2"/></svg></span></button>`;
 }
 function stars(v){ const full=Math.round(v); return "★".repeat(full)+"☆".repeat(5-full); }
 function fmtN(n){ return n>=1000 ? (n/1000).toFixed(n>=10000?0:1)+"k" : String(n); }
@@ -1465,6 +1481,7 @@ function showCover(){
     ? [["Publisher", i.publisher], ["Published", i.published], ["ISBN", i.isbn && fmtIsbn(i.isbn)], ["Other ISBN", (i.isbnAlt||[]).map(fmtIsbn).join(", ")], ["Rating", i.rating && `${i.rating.v.toFixed(1)} (${fmtN(i.rating.n)})`]]
     : [["Cadence", FREQ[i.freq]?.label], ["Since", year(i.launched)], ["Episodes", i.episodes && (i.episodes>=2000 ? "2,000+" : i.episodes.toLocaleString("en-GB"))],
        [latestLabel(i), i.lastEpisode && fmtDay(i.lastEpisode)], ["Rating", i.rating && `${i.rating.v.toFixed(1)} (${fmtN(i.rating.n)})`]];
+  rows.push([i.type==="person" ? "Picture from" : "Image from", imageCredit(i)]);
   $("#cvMeta").innerHTML = rows.filter(r=>r[1]).map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join("");
   $("#cvLinks").innerHTML = platLinks(i);
   $("#cvPos").textContent = `${cvIdx+1} of ${cvList.length}`;
@@ -1643,7 +1660,7 @@ $("#subForm").addEventListener("submit", async e => {
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-privacy]"); if (!b) return;
   if (!$("#privacyDlg").open) $("#privacyDlg").showModal();
-  if (b.dataset.privacy === "cookies") $("#cookies").scrollIntoView({ block: "start" });
+  if (b.dataset.privacy && $("#" + b.dataset.privacy)) $("#" + b.dataset.privacy).scrollIntoView({ block: "start" });
 });
 for (const id of ["privacyDlg","insightsDlg"]) $("#"+id).addEventListener("click", e => { if (e.target === e.currentTarget) e.currentTarget.close(); });
 
