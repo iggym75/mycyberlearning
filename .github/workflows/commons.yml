@@ -5,6 +5,11 @@ name: Commons photos (review branch)
 on:
   workflow_dispatch:
     inputs:
+      mode:
+        description: "photos = Wikidata's linked photo into the catalogue; candidates = newest photos per expert into review/commons for choosing"
+        type: choice
+        options: [photos, candidates]
+        default: photos
       include_nophoto:
         description: "Also try experts currently showing the topic ring (never those removed on request)"
         type: boolean
@@ -26,14 +31,18 @@ jobs:
         with: { node-version: 22 }
       - run: npm install --no-audit --no-fund --ignore-scripts --omit=dev
       - name: Find Commons photos
+        if: inputs.mode != 'candidates'
         run: node scripts/commons.mjs ${{ inputs.include_nophoto && '--include-nophoto' || '' }} | tee commons.log
+      - name: Gather recent candidates for review
+        if: inputs.mode == 'candidates'
+        run: node scripts/commons-candidates.mjs --max 8
       - name: Push review branch
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "catalogue-bot"
           git config user.email "catalogue-bot@users.noreply.github.com"
-          git add -A data/catalogue.json frontend/covers
+          git add -A data/catalogue.json frontend/covers review
           git diff --cached --quiet && { echo "No changes"; exit 0; }
           git commit -m "Commons photos for review (run ${{ github.run_id }})"
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
