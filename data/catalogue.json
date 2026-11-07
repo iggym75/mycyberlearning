@@ -11202,10 +11202,9 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-anton-chuvakin.jpg",
-      "logoSource": "own website",
       "medium": "https://medium.com/anton-on-security",
-      "id": "expert-anton-chuvakin"
+      "id": "expert-anton-chuvakin",
+      "noPhoto": true
     },
     {
       "type": "person",
@@ -11641,9 +11640,8 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-ian-coldwater.webp",
-      "logoSource": "Bluesky",
-      "id": "expert-ian-coldwater"
+      "id": "expert-ian-coldwater",
+      "noPhoto": true
     },
     {
       "type": "person",
@@ -11962,9 +11960,8 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-keren-elazari.jpg",
-      "logoSource": "YouTube",
-      "id": "expert-keren-elazari"
+      "id": "expert-keren-elazari",
+      "noPhoto": true
     },
     {
       "type": "person",
@@ -12006,9 +12003,8 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-kim-zetter.webp",
-      "logoSource": "Bluesky",
-      "id": "expert-kim-zetter"
+      "id": "expert-kim-zetter",
+      "noPhoto": true
     },
     {
       "type": "person",
@@ -12457,9 +12453,8 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-rob-fuller.webp",
-      "logoSource": "Bluesky",
-      "id": "expert-rob-fuller"
+      "id": "expert-rob-fuller",
+      "noPhoto": true
     },
     {
       "type": "person",
@@ -12518,9 +12513,8 @@
         "mcl"
       ],
       "verified": true,
-      "logo": "covers/expert-rory-mccune.webp",
-      "logoSource": "Bluesky",
-      "id": "expert-rory-mccune"
+      "id": "expert-rory-mccune",
+      "noPhoto": true
     },
     {
       "type": "person",

@@ -83,7 +83,7 @@ for (const { item } of rows) {
       if (item.noPhoto) { if (item.logo) { delete next.logo; delete next.logoSource; } }
       else if (!hasLocalImage(item) || reimage) {
         const found = await findExpertPhoto(item).catch(() => null);
-        const saved = found && !dry ? await saveImage(found.url, item.id) : null;
+        const saved = found && !dry ? await saveImage(found.url, item.id, { refuseRights: true }) : null;
         if (saved) { next.logo = saved; next.logoSource = found.source; report.images++; }
         else if (!hasLocalImage(item)) report.notes.push(`${item.id}: no profile picture found${found ? " (download failed)" : ""}; it keeps the initials tile`);
       }
