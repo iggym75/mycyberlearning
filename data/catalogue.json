@@ -5342,10 +5342,10 @@
       "id": "book-measure-anything"
     },
     {
-      "type": "book",
+      "type": "platform",
       "name": "Humble Bundle eBook bundles",
       "by": "Humble Bundle",
-      "desc": "Rotating, pay-what-you-want bundles that frequently include security titles from No Starch, Wiley, O'Reilly and Packt.",
+      "desc": "Pay-what-you-want bundles of cybersecurity ebooks from publishers such as No Starch, Wiley, O'Reilly and Packt. The bundles change every few weeks.",
       "domains": [
         "career",
         "offensive",
@@ -5356,10 +5356,6 @@
         "intermediate",
         "advanced"
       ],
-      "published": "Ongoing",
-      "format": [
-        "ebook bundle"
-      ],
       "web": "https://www.humblebundle.com/books",
       "rating": null,
       "curator": true,
@@ -5367,9 +5363,10 @@
         "mcl"
       ],
       "verified": true,
-      "publisher": "Various",
-      "isbnVerified": false,
-      "id": "book-humble-bundle"
+      "id": "book-humble-bundle",
+      "kind": "books",
+      "cost": "low",
+      "status": "active"
     },
     {
       "type": "book",
