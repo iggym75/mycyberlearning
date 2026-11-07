@@ -12857,7 +12857,9 @@
         "mcl"
       ],
       "verified": true,
-      "id": "expert-will-thomas"
+      "id": "expert-will-thomas",
+      "logo": "covers/expert-will-thomas.webp",
+      "logoSource": "supplied by the curator (the avatar Will uses on his public profiles)"
     }
   ]
 }
