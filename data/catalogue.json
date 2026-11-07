@@ -12836,6 +12836,28 @@
       "id": "expert-window-snyder",
       "logo": "covers/expert-window-snyder.jpg",
       "logoSource": "TechCrunch author page"
+    },
+    {
+      "type": "person",
+      "name": "Will Thomas (BushidoToken)",
+      "by": "Senior Threat Intelligence Advisor, Team Cymru",
+      "desc": "Cyber threat intelligence researcher focused on ransomware and cybercrime, who co-authored the SANS FOR589 Cybercrime Intelligence course, co-founded the Curated Intelligence community and keeps the open Ransomware Tool Matrix.",
+      "domains": [
+        "cti",
+        "hunting",
+        "defensive"
+      ],
+      "web": "https://blog.bushidotoken.net/",
+      "x": "https://x.com/BushidoToken",
+      "bluesky": "https://bsky.app/profile/bushidotoken.net",
+      "linkedin": "https://www.linkedin.com/in/william-t/",
+      "github": "https://github.com/BushidoUK",
+      "curator": true,
+      "sources": [
+        "mcl"
+      ],
+      "verified": true,
+      "id": "expert-will-thomas"
     }
   ]
 }
