@@ -53,7 +53,12 @@ button,input,select,textarea{font:inherit;color:inherit}
 .brand b{font-family:var(--f-display);font-weight:800;font-size:19px;letter-spacing:-.01em}
 .brand small{display:block;font-family:var(--f-mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;margin-top:-2px}
 .search{flex:1 1 260px;min-width:0;position:relative}
-.search input{width:100%;padding:9px 12px 9px 34px;border:1px solid var(--line);border-radius:999px;background:var(--sunk)}
+.search input{width:100%;padding:9px 38px 9px 34px;border:1px solid var(--line);border-radius:999px;background:var(--sunk)}
+.search input::-webkit-search-cancel-button{-webkit-appearance:none;display:none}
+.search .search-clear{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;border:0;background:var(--line);color:var(--ink-2);display:grid;place-items:center;cursor:pointer;padding:0}
+.search .search-clear[hidden]{display:none}
+.search .search-clear:hover{background:var(--ink-3);color:var(--surface)}
+.search .search-clear svg{position:static;transform:none;color:inherit}
 .search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--ink-3)}
 .btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 12px;cursor:pointer;font-weight:500;white-space:nowrap}
 .btn:hover{border-color:var(--ink-3)}
@@ -311,6 +316,11 @@ body[data-view="news"] .library-only{display:none!important}
 .hp{position:absolute!important;left:-10000px!important;width:1px;height:1px;overflow:hidden}
 .sub-done{background:var(--signal-soft);border-radius:8px;padding:12px;font-size:14px}
 .side-note{font-size:12.5px;color:var(--ink-3);line-height:1.5}
+.cookie-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 10px}
+.cookie-table th,.cookie-table td{text-align:left;vertical-align:top;border-bottom:1px solid var(--line);padding:6px 8px 6px 0}
+.cookie-table code{font-size:12px;white-space:nowrap}
+.cookie-table td:first-child{padding-right:12px}
+@media (max-width:560px){.cookie-table thead{display:none}.cookie-table tr{display:block;border-bottom:1px solid var(--line);padding:6px 0}.cookie-table td{display:block;border:0;padding:2px 0}}
 .privacy h3{font-family:var(--f-display);font-size:16px;margin:8px 0 4px}
 .privacy p,.privacy li{font-size:14px;color:var(--ink-2)}
 .privacy ul{margin:4px 0 8px;padding-left:20px}
@@ -367,7 +377,8 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
     </nav>
     <div class="search library-only">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="q" type="search" placeholder="Search podcasts, books, platforms, experts, topics…" aria-label="Search">
+      <input id="q" type="search" placeholder="Search podcasts, books, platforms, experts, topics…" aria-label="Search" autocomplete="off">
+      <button type="button" class="search-clear" id="qClear" aria-label="Clear search" title="Clear search" hidden><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     </div>
     <button class="btn filters-toggle library-only" id="openFilters" type="button" aria-controls="rail" aria-expanded="false">Filters</button>
     <button class="btn primary library-only" id="openSubmit" type="button">+ Suggest a resource</button>
@@ -488,7 +499,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 
 <footer><div class="wrap">
   <span>My Cyber Learning · MCL Picks are hand-chosen by the site's curator · Official ratings aggregated from Apple Podcasts, Spotify, Podchaser and Podcast Addict via Podnews/Rephonic.</span>
-  <span style="display:flex;gap:14px;align-items:center"><button type="button" class="linkish" data-privacy>Privacy</button><span class="mode-pill" id="modePill">demo</span></span>
+  <span style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><span>Essential cookies only: no tracking or advertising.</span><button type="button" class="linkish" data-privacy="cookies">Cookies</button><button type="button" class="linkish" data-privacy>Privacy</button><span class="mode-pill" id="modePill">demo</span></span>
 </div></footer>
 
 <!-- Submit dialog -->
@@ -601,7 +612,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 <dialog id="privacyDlg" aria-labelledby="privTitle">
   <div class="dlg-h"><h2 id="privTitle">Privacy notice</h2><button class="btn ghost sm" type="button" data-close>Close</button></div>
   <div class="dlg-b privacy">
-    <p>My Cyber Learning (mycyberlearning.co.uk) is run by Ian Moore, who is the data controller. Version 2026-11-08.</p>
+    <p>My Cyber Learning (mycyberlearning.co.uk) is run by Ian Moore, who is the data controller. Version 2026-11-09.</p>
     <h3>Daily briefing subscribers</h3>
     <ul>
       <li><b>What we keep:</b> your email address, and if you give them, your first name and country, plus when and how you agreed.</li>
@@ -614,8 +625,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
     <ul>
       <li>We count page views by day, section, time-zone region (for example Europe/London), language, device type and referring website. We don't use cookies, we don't store IP addresses or any identifier, and we can't tell individual visitors apart.</li>
       <li>If your browser sends Global Privacy Control or Do Not Track, we don't count you at all.</li>
-      <li>Visitors never receive a cookie unless they create a My list account (below). The site's administrator signs in with one essential session cookie.</li>
-      <li>Items you save to My list without an account stay in your browser only.</li>
+      <li>Browsing the site sets no cookies of our own. See <i>Cookies and browser storage</i> below for the few we use when you sign in.</li>
       <li>Votes are remembered with a random number stored in your browser; on our servers it is kept only as a one-way hash.</li>
       <li>If you suggest a resource, we keep a one-way hash of your IP address to stop spam, and any email you add is used only to ask about that suggestion. Both are deleted once the suggestion is reviewed, or after 90 days.</li>
     </ul>
@@ -628,6 +638,19 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
       <li><b>Cookie:</b> signing in sets one essential cookie that keeps you signed in for up to 30 days.</li>
       <li><b>Your control:</b> from My list you can download everything we hold, sign out everywhere, or delete your account, which erases it straight away. Deleting the account also stops the daily briefing to its email. Unconfirmed email addresses are removed after 48 hours, and accounts unused for two years are deleted, which also stops their briefing.</li>
     </ul>
+    <h3 id="cookies">Cookies and browser storage</h3>
+    <p>We use only what's strictly necessary to provide what you ask for, so we don't ask for cookie consent. There are no analytics, tracking or advertising cookies, and nothing is shared with other sites.</p>
+    <table class="cookie-table">
+      <thead><tr><th>Name</th><th>Type</th><th>Purpose</th><th>Lasts</th></tr></thead>
+      <tbody>
+        <tr><td><code>__Host-mcl_user</code></td><td>Cookie</td><td>Keeps you signed in to your My list account. Set only when you sign in.</td><td>Up to 30 days, or until you sign out</td></tr>
+        <tr><td><code>__Host-mcl_admin</code></td><td>Cookie</td><td>Keeps the site's administrator signed in. Never set for visitors.</td><td>8 hours</td></tr>
+        <tr><td><code>__Host-mcl_oauth</code></td><td>Cookie</td><td>Protects the administrator's GitHub sign-in from forgery. Never set for visitors.</td><td>10 minutes</td></tr>
+        <tr><td><code>__cf_bm</code></td><td>Cookie (Cloudflare)</td><td>Our host, Cloudflare, may set this to tell people from automated traffic and protect the site from abuse.</td><td>30 minutes</td></tr>
+        <tr><td><code>mcl:*</code></td><td>Browser storage</td><td>Kept only in your browser and never sent to us: your filters, items saved to My list without an account, and a random number that stops double votes.</td><td>Until you clear your browser data</td></tr>
+      </tbody>
+    </table>
+    <p>You can delete cookies and site data at any time in your browser's settings; the site still works, but you'll be signed out and lose anything saved only in your browser.</p>
     <h3>Experts we list</h3>
     <ul>
       <li><b>What we show:</b> the person's name, their public role, a short description we write ourselves, the security topics they cover, and links to profiles and sites they publish themselves. Where they have one, we also show the profile picture they chose for a public profile of their own (such as Bluesky, Mastodon, YouTube or their website), kept as a small copy on our site so your browser doesn't contact those services. We don't copy their posts or collect anything else about them.</li>
@@ -1325,7 +1348,7 @@ function renderChips(){
   $("#levelChips").innerHTML = TAX.levels.map(l => `<button class="chip" type="button" data-level="${l.key}" aria-pressed="${state.levels.includes(l.key)}">${esc(l.label)} <span class="n">${lc[l.key]||0}</span></button>`).join("");
   $$("[data-type]").forEach(b => b.setAttribute("aria-pressed", b.dataset.type===state.type));
   $$("[data-match]").forEach(b => b.setAttribute("aria-pressed", b.dataset.match===state.match));
-  $("#picksOnly").checked = state.picks; $("#sort").value = state.sort; $("#q").value = state.q;
+  $("#picksOnly").checked = state.picks; $("#sort").value = state.sort; $("#q").value = state.q; $("#qClear").hidden = !state.q;
 }
 const TYPE_HASH = {all:"#library", podcast:"#podcasts", book:"#books", platform:"#platforms", person:"#experts", mine:"#mylist"};
 // Highlights Daily briefing in the news view, otherwise whichever of Library / Podcasts / Books matches the type filter.
@@ -1407,7 +1430,9 @@ document.addEventListener("click", async e => {
     else { b.dataset.confirm="1"; b.textContent="Confirm delete"; setTimeout(()=>{ if(b.isConnected){ delete b.dataset.confirm; b.textContent="Delete"; } }, 4000); }
   }
 });
-$("#q").addEventListener("input", e => { state.q=e.target.value; render(); });
+$("#q").addEventListener("input", e => { state.q=e.target.value; $("#qClear").hidden = !state.q; render(); });
+$("#qClear").addEventListener("click", () => { $("#q").value = ""; state.q = ""; $("#qClear").hidden = true; render(); $("#q").focus(); });
+$("#q").addEventListener("keydown", e => { if (e.key === "Escape" && state.q){ e.preventDefault(); $("#qClear").click(); } });
 $("#sort").addEventListener("change", e => { state.sort=e.target.value; render(); });
 $("#picksOnly").addEventListener("change", e => { state.picks=e.target.checked; render(); });
 /* Filter drawer (phones and narrow windows): closes with ✕, "Show results", a tap outside, or Escape. */
@@ -1615,7 +1640,11 @@ $("#subForm").addEventListener("submit", async e => {
   } else msg = "Demo: on the live site we'd now email a confirmation link to that address. Nothing has been stored or sent.";
   $("#subForm").hidden = true; $("#subDone").hidden = false; $("#subDone").innerHTML = `<b>Nearly there.</b> ${esc(msg)}`;
 });
-document.addEventListener("click", e => { if (e.target.closest("[data-privacy]")) $("#privacyDlg").showModal(); });
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-privacy]"); if (!b) return;
+  if (!$("#privacyDlg").open) $("#privacyDlg").showModal();
+  if (b.dataset.privacy === "cookies") $("#cookies").scrollIntoView({ block: "start" });
+});
 for (const id of ["privacyDlg","insightsDlg"]) $("#"+id).addEventListener("click", e => { if (e.target === e.currentTarget) e.currentTarget.close(); });
 
 /* Privacy-first analytics: aggregate counts only, no cookies or identifiers; honours GPC and Do Not Track */
