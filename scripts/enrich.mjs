@@ -7,7 +7,7 @@ import { getText, getJson, sleep, UA } from "./lib.mjs";
 const taxonomy = JSON.parse(readFileSync(new URL("../data/taxonomy.json", import.meta.url), "utf8"));
 const DOMAIN_KEYS = taxonomy.domains.map(d => d.key);
 export { inferCadence, parsePodnewsRating, bestMatch, appleId } from "./pure.mjs";
-import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, FEED_XML, parsePodnewsSpotify, ogTitle, pickSpotifyShow, imageSize, pickLogo, expertPhotoPlan, bskyThumb, youtubeAvatar, commonsNames, pickWikidataPerson, commonsLicence } from "./pure.mjs";
+import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, FEED_XML, parsePodnewsSpotify, ogTitle, pickSpotifyShow, imageSize, pickLogo, expertPhotoPlan, bskyThumb, youtubeAvatar, commonsNames, pickWikidataPerson, commonsLicence, commonsYear } from "./pure.mjs";
 
 /** Apple Podcasts directory (free, no key): artwork, feed URL, canonical link, episode count. */
 export async function lookupApple(item) {
@@ -239,6 +239,46 @@ export async function findCommonsPhoto(item) {
     if (!page.startsWith("https://commons.wikimedia.org/")) continue;
     return { url: ii.thumburl || ii.url, source: "Wikimedia Commons", qid: who.qid, desc: who.desc, linked: who.linked,
       credit: { author: lic.author, licence: lic.licence, licenceUrl: lic.licenceUrl, page, file: who.file, shareAlike: lic.shareAlike } };
+  }
+  return null;
+}
+
+/** Every usable (PD/CC0/CC BY/CC BY-SA) photo in an expert's Commons category and its year-named subcategories,
+ *  newest first, so a recent photo can be chosen over the single (often old) one Wikidata links to. */
+export async function commonsCandidates(item) {
+  const api = "https://commons.wikimedia.org/w/api.php?format=json&action=query";
+  for (const name of commonsNames(item.name)) {
+    const hits = await getJson(`https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&type=item&limit=7&search=${encodeURIComponent(name)}`);
+    const ids = (hits.search || []).map(h => h.id).filter(id => /^Q\d+$/.test(id));
+    if (!ids.length) continue;
+    const ents = await getJson(`https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&languages=en&props=claims|labels|aliases|descriptions&ids=${ids.join("|")}`);
+    const who = pickWikidataPerson(ents.entities, name, item, { needImage: false });
+    if (!who) continue;
+    const titles = new Set(who.file ? ["File:" + who.file] : []);
+    if (who.category) {
+      const cats = ["Category:" + who.category];
+      const subs = await getJson(`${api}&list=categorymembers&cmtype=subcat&cmlimit=50&cmtitle=${encodeURIComponent(cats[0])}`);
+      for (const m of subs.query?.categorymembers || []) if (/\b(19|20)\d\d\b|portrait/i.test(m.title)) cats.push(m.title);
+      for (const cat of cats.slice(0, 12)) {
+        const r = await getJson(`${api}&list=categorymembers&cmtype=file&cmlimit=200&cmtitle=${encodeURIComponent(cat)}`);
+        for (const m of r.query?.categorymembers || []) titles.add(m.title);
+      }
+    }
+    const out = [], list = [...titles];
+    for (let k = 0; k < list.length; k += 40) {
+      const r = await getJson(`${api}&prop=imageinfo&iiprop=url|extmetadata|mime|size&iiurlwidth=900&titles=${encodeURIComponent(list.slice(k, k + 40).join("|"))}`);
+      for (const pg of Object.values(r.query?.pages || {})) {
+        const ii = pg.imageinfo?.[0];
+        if (!ii || !/^image\/(jpeg|png|webp)$/.test(ii.mime || "") || (ii.width || 0) < 300) continue;
+        const lic = commonsLicence(ii.extmetadata); if (!lic) continue;
+        const page = String(ii.descriptionurl || "").replace(/^http:/, "https:");
+        if (!page.startsWith("https://commons.wikimedia.org/")) continue;
+        out.push({ url: ii.thumburl || ii.url, year: commonsYear(ii.extmetadata), wikidata: pg.title === "File:" + who.file,
+          credit: { author: lic.author, licence: lic.licence, licenceUrl: lic.licenceUrl, page, file: pg.title.replace(/^File:/, ""), shareAlike: lic.shareAlike } });
+      }
+    }
+    out.sort((a, b) => (b.year || 0) - (a.year || 0));
+    return { qid: who.qid, category: who.category || null, photos: out };
   }
   return null;
 }
