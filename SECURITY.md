@@ -77,3 +77,6 @@ The daily briefing transcribes the five core news shows' public audio with an op
 - D1's free daily write limit (100,000 rows) is shared by votes, sign-ups and visit counters. A traffic flood could exhaust it until midnight UTC; the site keeps serving pages, but writes fail.
 - Resend's free plan sends 100 emails a day. Past that, the daily send stops cleanly and logs how many subscribers were skipped.
 - Time-zone region is a coarse, user-controlled signal; it is not verified location.
+
+## Reporting
+A standard `/.well-known/security.txt` (source in `frontend/.well-known/`, copied by the build) points researchers to security@mycyberlearning.co.uk. Renew its `Expires` date before 2027-11-01.

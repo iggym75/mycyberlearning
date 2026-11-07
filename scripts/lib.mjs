@@ -1,6 +1,6 @@
 // Helpers shared by the seed, refresh, export and news scripts.
 import { openD1 } from "./d1.mjs";
-import { imageSize } from "./pure.mjs";
+import { imageSize, rightsMetadata } from "./pure.mjs";
 import { listItems as listItemsDb, upsertItem } from "../worker/src/lib/db.js";
 export { openD1, upsertItem };
 
@@ -18,8 +18,12 @@ export async function getText(url, { timeoutMs = 15000 } = {}) {
 }
 export const getJson = async (url, o) => JSON.parse(await getText(url, o));
 
-/** Downloads an image into the site's covers folder. Returns the site-relative path, or null. */
-export async function saveImage(url, name) {
+/**
+ * Downloads an image into the site's covers folder. Returns the site-relative path, or null.
+ * With { refuseRights: true } (experts' pictures), a file that carries photographer or copyright details is
+ * refused: it's probably a commissioned or agency photo, even when someone uses it on their own profile.
+ */
+export async function saveImage(url, name, { refuseRights = false } = {}) {
   const { writeFile, mkdir } = await import("node:fs/promises");
   const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 20000);
   try {
@@ -31,6 +35,7 @@ export async function saveImage(url, name) {
     // Name the file after what it really is: Safari won't show a PNG or WebP served as image/jpeg.
     const ext = { png: "png", webp: "webp", gif: "gif", jpeg: "jpg" }[imageSize(buf)?.type];
     if (!ext) return null;
+    if (refuseRights) { const why = rightsMetadata(buf); if (why) { console.log(`  ${name}: picture skipped (${why})`); return null; } }
     const dir = new URL("../frontend/covers/", import.meta.url);
     await mkdir(dir, { recursive: true });
     await writeFile(new URL(`${name}.${ext}`, dir), buf);

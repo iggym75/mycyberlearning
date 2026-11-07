@@ -35,6 +35,8 @@ if (bareIdx > -1) {
   await writeFile(join(root, "frontend/dist/index.html"), doc);
   await copyFile(join(root, "frontend/_headers"), join(root, "frontend/dist/_headers"));
   await copyFile(join(root, "frontend/logo.svg"), join(root, "frontend/dist/logo.svg"));
+  await mkdir(join(root, "frontend/dist/.well-known"), { recursive: true });
+  await copyFile(join(root, "frontend/.well-known/security.txt"), join(root, "frontend/dist/.well-known/security.txt")); // RFC 9116
   // Book cover thumbnails imported from Calibre (optional).
   const { cp, access } = await import("node:fs/promises");
   if (await access(join(root, "frontend/covers")).then(() => true, () => false))

@@ -187,3 +187,39 @@ export function youtubeAvatar(html) {
   const u = String(html).match(/<meta property="og:image" content="(https:\/\/yt3\.(?:googleusercontent|ggpht)\.com\/[^"]+)"/)?.[1];
   return u ? u.replace(/=s\d+[^"]*$/, "=s240-c-k-c0x00ffffff-no-rj") : null;
 }
+
+/**
+ * Does an image file carry photographer or rights information? Agency and commissioned photos usually embed it
+ * (EXIF Artist/Copyright, IPTC by-line/copyright, XMP dc:rights/photoshop:Credit), and a picture someone uses on
+ * their own profile can still belong to a photographer. Returns a short reason, or null. Used to skip such expert
+ * pictures (the expert then shows a topic ring).
+ */
+export function rightsMetadata(buf) {
+  const b = Buffer.isBuffer(buf) ? buf : Buffer.from(buf);
+  const head = b.subarray(0, Math.min(b.length, 262144)).toString("latin1");
+  const agency = head.match(/Getty ?Images|gettyimages|Shutterstock|Alamy|iStockphoto|AP Photo|Reuters|Bloomberg via|Corbis|Dreamstime|Adobe Stock/i);
+  if (agency) return `mentions ${agency[0]}`;
+  for (const [re, label] of [[/<dc:rights>[\s\S]{0,400}?<rdf:li[^>]*>\s*[^<\s]/, "XMP rights"], [/photoshop:Credit(?:="[^"]+"|>\s*[^<\s])/, "XMP credit"],
+    [/xmpRights:(?:Marked="True"|WebStatement="[^"]+"|UsageTerms)/, "XMP usage rights"], [/<dc:creator>[\s\S]{0,400}?<rdf:li[^>]*>\s*[^<\s]/, "XMP creator"]]) if (re.test(head)) return label;
+  // IPTC-IIM (JPEG APP13 "Photoshop 3.0" block): record 2, dataset 80 (by-line) or 116 (copyright notice)
+  if (head.includes("Photoshop 3.0")) for (let i = head.indexOf("Photoshop 3.0"); i >= 0 && i < head.length - 5; i++) {
+    if (b[i] === 0x1c && b[i + 1] === 2 && (b[i + 2] === 80 || b[i + 2] === 116) && ((b[i + 3] << 8) | b[i + 4]) > 1) return b[i + 2] === 80 ? "IPTC by-line" : "IPTC copyright";
+  }
+  // EXIF (JPEG APP1 "Exif\0\0", TIFF header): IFD0 tags 0x013B Artist and 0x8298 Copyright with a non-empty value
+  const ex = head.indexOf("Exif\0\0");
+  if (ex >= 0) {
+    const t = ex + 6, le = b[t] === 0x49;
+    const u16 = o => le ? b.readUInt16LE(o) : b.readUInt16BE(o), u32 = o => le ? b.readUInt32LE(o) : b.readUInt32BE(o);
+    try {
+      const ifd = t + u32(t + 4), n = u16(ifd);
+      for (let k = 0; k < Math.min(n, 200); k++) {
+        const e = ifd + 2 + k * 12, tag = u16(e), count = u32(e + 4);
+        if ((tag === 0x013b || tag === 0x8298) && count > 1) {
+          const at = count <= 4 ? e + 8 : t + u32(e + 8);
+          if (b.subarray(at, at + count).toString("latin1").replace(/[\0\s]/g, "").length) return tag === 0x013b ? "EXIF artist" : "EXIF copyright";
+        }
+      }
+    } catch { /* malformed EXIF: ignore */ }
+  }
+  return null;
+}
