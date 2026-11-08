@@ -1,77 +1,31 @@
 {
-  "date": "2026-11-07",
-  "generatedAt": "2026-11-07T08:40:09.326Z",
-  "windowHours": 25,
-  "headline": "Fake GTA 6 malware, AI-driven cyber risk, and attacks on refrigeration and airline systems",
-  "overview": "Today's shows cover fake GTA 6 downloads that deliver remote access trojans, info stealers and a wiper, plus US government warnings about attacks on industrial refrigeration controllers. AI dominates the rest of the coverage, from new OpenAI cyber models and open-weight models stripped of safeguards, to surging enterprise AI spending and debate over whether defenders can keep pace. Third-party breaches at Amadeus and Chainalysis and emergency-alert app hacks in Ukraine and Russia round out the picture.",
+  "date": "2026-11-08",
+  "generatedAt": "2026-11-08T08:33:38.045Z",
+  "windowHours": 24,
+  "headline": "Integration risk in space missions and incident response beyond compliance",
+  "overview": "Today's only episode is a T-Minus space cyber interview with systems engineer Vito Askins, who argues that mission risk hides at the boundaries between subsystems and teams. The episode also includes a CyberWire segment on why incident response plans often fail under real crisis conditions. Sponsor messages in the transcript were ignored.",
   "topStories": [
     {
-      "title": "Fake GTA 6 installers deliver malware",
-      "summary": "Researchers at Huntress found GTA 6 hype being used to distribute fake installers, shared through torrent sites, search results and malvertising. The packages dropped remote access trojans, an info stealer targeting gaming and browser sessions, and a destructive wiper. Some samples were blocked by current Defender, but more capable actors can still get around it.",
+      "title": "Risk hiding between subsystems in space missions",
+      "summary": "Askins explains that components can each look green while risk accumulates at organisational and technical boundaries, surfacing only during integration. He argues that readiness depends on confidence in how subsystems interact, not just their individual status, and links this to cybersecurity, where attackers traverse the whole system end to end.",
+      "refs": [
+        "cyberwire-daily-0"
+      ],
+      "domains": [
+        "architecture",
+        "engineering",
+        "cloud"
+      ]
+    },
+    {
+      "title": "Incident response plans must work under real disruption",
+      "summary": "A CyberWire segment, promoting a sponsored interview, notes that many organisations build incident response plans for auditors rather than for operating through disruption. The discussion covers moving beyond static playbooks, defining decision-making authority, and preparing leaders for cases where technology or the plan itself fails.",
       "refs": [
         "cyberwire-daily-0"
       ],
       "domains": [
         "defensive",
-        "news"
-      ]
-    },
-    {
-      "title": "Government warning on attacks against refrigeration systems",
-      "summary": "Five US agencies warned that attackers are targeting temperature controllers used in grocery stores, cold storage and refrigerated transport, possibly forcing heating or defrost cycles that could spoil food and medicine. Europe saw supermarket freezer tampering, and a French blood services provider reported temperature changes at three sites, with no product lost.",
-      "refs": [
-        "cyberwire-daily-1",
-        "cyber-security-headlines-0"
-      ],
-      "domains": [
-        "icsot",
-        "news"
-      ]
-    },
-    {
-      "title": "OpenAI releases a cyber-focused model to limited customers",
-      "summary": "OpenAI's GPT-6 Cyber is rated critical under its preparedness framework and is limited to approved participants in its Daybreak Red program. It reportedly found dozens of Firefox vulnerabilities and developed exploits for many Linux kernel bugs. Panelists noted most organisations may not need frontier cyber models and that older models still perform well for routine work.",
-      "refs": [
-        "cyberwire-daily-1",
-        "cyber-security-headlines-0"
-      ],
-      "domains": [
-        "ai",
-        "offensive"
-      ]
-    },
-    {
-      "title": "Greg Notch on open-weight models and AI-driven attacks",
-      "summary": "Expel's CTO argued that pausing frontier AI development is unrealistic and that open-weight models lag by roughly six months. He warned that safety-stripped local models could help attackers reverse engineer software and build exploits, and that defenders must prepare for massively parallel, AI-scaled attacks. He expects a shifting balance that initially favours attackers.",
-      "refs": [
-        "cyberwire-daily-1"
-      ],
-      "domains": [
-        "ai",
-        "offensive",
-        "defensive"
-      ]
-    },
-    {
-      "title": "Third-party breaches hit airlines and crypto firms",
-      "summary": "Attacks on Amadeus, a Spanish IT provider for flight booking and check-in, exposed customer data at several Asian airlines, with Japan Airlines reporting about 92,000 customers affected. Chainalysis said attackers exposed credentials and tokens and forced password resets, while DigiCERT disclosed a breach of archived customer records.",
-      "refs": [
-        "cyber-security-headlines-0",
-        "cyberwire-daily-1"
-      ],
-      "domains": [
-        "news",
-        "grc"
-      ]
-    },
-    {
-      "title": "Enterprise AI spending surges with agents",
-      "summary": "Menlo's survey of US enterprise buyers found AI spend roughly 4.7 times higher than last year, with growth driven by agents. Anthropic reportedly now holds over half of enterprise API spend, and coding agent revenue grew sharply. Meanwhile, AI-related stock losses and a reported slowdown in Anthropic's IPO plans added market uncertainty.",
-      "refs": [
-        "ai-daily-brief-0"
-      ],
-      "domains": [
-        "ai",
+        "grc",
         "leadership"
       ]
     }
@@ -79,94 +33,24 @@
   "episodes": [
     {
       "show": "cyberwire-daily",
-      "title": "Stealing more than the spotlight. [Research Saturday]",
-      "publishedAt": "2026-11-07T08:00:00.000Z",
-      "minutes": 14,
-      "url": "https://thecyberwire.com/podcasts/research-saturday/449/notes",
+      "title": "The hidden risks of system integration. [T-Minus: Space-Cyber Briefing]",
+      "publishedAt": "2026-11-08T06:00:00.000Z",
+      "minutes": 22,
+      "url": "https://thecyberwire.com/podcasts/tminus-space-cyber-briefing/732/notes",
       "ref": "cyberwire-daily-0",
       "domains": [
-        "defensive",
-        "news",
-        "stories"
+        "architecture",
+        "engineering",
+        "defensive"
       ],
       "core": true,
-      "summary": "Research Saturday covers fake GTA 6 installers that delivered several RATs, an info stealer and a wiper, distributed via torrents, search and malvertising, plus an interview on incident response and resilience beyond compliance (sponsored segments noted)."
-    },
-    {
-      "show": "cyberwire-daily",
-      "title": "Keeping cyber threats on ice.",
-      "publishedAt": "2026-11-06T21:30:00.000Z",
-      "minutes": 28,
-      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2673/notes",
-      "ref": "cyberwire-daily-1",
-      "domains": [
-        "news",
-        "ai",
-        "icsot",
-        "offensive"
-      ],
-      "core": true,
-      "summary": "Daily briefing covers refrigeration controller warnings, Chainalysis and DigiCERT breaches, OpenAI's GPT-6 Cyber model, D-Link switch flaws, EU action against TikTok, California's child safety law challenge, and a deepfake executive fraud case, followed by an interview with Expel's Greg Notch on AI and open-weight models."
-    },
-    {
-      "show": "cyber-security-headlines",
-      "title": "The Department of Know: LLM jacking, Asia rocked by Amadeus, freezers still getting hacked",
-      "publishedAt": "2026-11-06T21:44:00.000Z",
-      "minutes": 36,
-      "url": "https://cisoseries.libsyn.com/the-department-of-know-llm-jacking-asia-rocked-by-amadeus-freezers-still-getting-hacked",
-      "ref": "cyber-security-headlines-0",
-      "domains": [
-        "news",
-        "ai",
-        "defensive",
-        "grc"
-      ],
-      "core": true,
-      "summary": "Panel show covers freezer hacks in Europe, GCHQ removable media inventory gaps, a long-password flaw in some Linux systems, GPT-6 Cyber, false alerts in Ukraine and Russia, LLM jacking costs, and the Amadeus breach affecting Asian airlines."
-    },
-    {
-      "show": "cybersecurity-today",
-      "title": "Do we still need Security Awareness Month?",
-      "publishedAt": "2026-11-07T01:10:00.000Z",
-      "minutes": 36,
-      "url": "https://cybersecuritytoday.libsyn.com/do-we-still-need-security-awareness-month",
-      "ref": "cybersecurity-today-0",
-      "domains": [
-        "human",
-        "ai",
-        "leadership"
-      ],
-      "core": true,
-      "summary": "Interview-led episode on whether Security Awareness Month is still needed, covering AI accountability, deepfake awareness, shadow AI, agent identity, and advice for security teams after a tough month of zero-day disclosures."
-    },
-    {
-      "show": "ai-daily-brief",
-      "title": "Companies Are Spending 5x More on AI Now",
-      "publishedAt": "2026-11-07T00:24:27.000Z",
-      "minutes": 31,
-      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/Companies-Are-Spending-5x-More-on-AI-Now-e3rteiq",
-      "ref": "ai-daily-brief-0",
-      "domains": [
-        "ai",
-        "leadership"
-      ],
-      "core": true,
-      "summary": "Covers a sharp AI stock sell-off and reported hedge fund deleveraging, a Meter report on accelerating AI-driven research at Anthropic, and Menlo's enterprise AI spend survey showing agents driving growth and shifts among model vendors."
-    },
-    {
-      "show": "security-weekly-news",
-      "title": "AI hates us all, Binance, OpenSSH, Apple, WordPress, DNS, Scams, Josh Marpet and more - SWN #631",
-      "publishedAt": "2026-11-06T22:00:00.000Z",
-      "minutes": 34,
-      "url": "https://hntvaudio.libsyn.com/ai-hates-us-all-binance-openssh-apple-wordpress-dns-scams-josh-marpet-and-more-swn-631",
-      "ref": "security-weekly-news-0",
-      "domains": [
-        "news"
-      ],
-      "summary": "The episode notes list topics including AI, Binance, OpenSSH, Apple, WordPress, DNS, and scams, but the available text contains no detail on what was actually covered, so no stories can be summarised from it."
+      "summary": "A T-Minus space cyber episode featuring systems engineer Vito Askins on integration risk in spacecraft missions and how cyber risk crosses subsystem boundaries, plus a sponsored CyberWire segment on incident response planning beyond compliance. Other segments in the transcript were sponsor messages and were not summarised."
     }
   ],
   "quietCore": [
-    "sans-stormcast"
+    "cyber-security-headlines",
+    "sans-stormcast",
+    "cybersecurity-today",
+    "ai-daily-brief"
   ]
 }

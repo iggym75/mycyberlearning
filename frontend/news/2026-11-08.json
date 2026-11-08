@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-08",
+  "generatedAt": "2026-11-08T08:33:38.045Z",
+  "windowHours": 24,
+  "headline": "Integration risk in space missions and incident response beyond compliance",
+  "overview": "Today's only episode is a T-Minus space cyber interview with systems engineer Vito Askins, who argues that mission risk hides at the boundaries between subsystems and teams. The episode also includes a CyberWire segment on why incident response plans often fail under real crisis conditions. Sponsor messages in the transcript were ignored.",
+  "topStories": [
+    {
+      "title": "Risk hiding between subsystems in space missions",
+      "summary": "Askins explains that components can each look green while risk accumulates at organisational and technical boundaries, surfacing only during integration. He argues that readiness depends on confidence in how subsystems interact, not just their individual status, and links this to cybersecurity, where attackers traverse the whole system end to end.",
+      "refs": [
+        "cyberwire-daily-0"
+      ],
+      "domains": [
+        "architecture",
+        "engineering",
+        "cloud"
+      ]
+    },
+    {
+      "title": "Incident response plans must work under real disruption",
+      "summary": "A CyberWire segment, promoting a sponsored interview, notes that many organisations build incident response plans for auditors rather than for operating through disruption. The discussion covers moving beyond static playbooks, defining decision-making authority, and preparing leaders for cases where technology or the plan itself fails.",
+      "refs": [
+        "cyberwire-daily-0"
+      ],
+      "domains": [
+        "defensive",
+        "grc",
+        "leadership"
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "show": "cyberwire-daily",
+      "title": "The hidden risks of system integration. [T-Minus: Space-Cyber Briefing]",
+      "publishedAt": "2026-11-08T06:00:00.000Z",
+      "minutes": 22,
+      "url": "https://thecyberwire.com/podcasts/tminus-space-cyber-briefing/732/notes",
+      "ref": "cyberwire-daily-0",
+      "domains": [
+        "architecture",
+        "engineering",
+        "defensive"
+      ],
+      "core": true,
+      "summary": "A T-Minus space cyber episode featuring systems engineer Vito Askins on integration risk in spacecraft missions and how cyber risk crosses subsystem boundaries, plus a sponsored CyberWire segment on incident response planning beyond compliance. Other segments in the transcript were sponsor messages and were not summarised."
+    }
+  ],
+  "quietCore": [
+    "cyber-security-headlines",
+    "sans-stormcast",
+    "cybersecurity-today",
+    "ai-daily-brief"
+  ]
+}
