@@ -1,0 +1,176 @@
+{
+  "date": "2026-11-09",
+  "generatedAt": "2026-11-09T08:34:19.538Z",
+  "windowHours": 25,
+  "headline": "SonicWall MFA bypass, Binance-linked crypto theft, and OpenSSH and Claude Code secret exposures",
+  "overview": "Today's core news shows lead with an actively exploited SonicWall SSL VPN flaw that can bypass SAML-enforced MFA, and a set of credential and secret exposures: Claude Code saving plaintext passwords to public GitHub, and a Chainalysis breach that reportedly exposed customer logins. Attackers also moved quickly on a newly disclosed OpenSSH flaw, and a French bank reportedly lost around $133 million through a third-party provider.",
+  "topStories": [
+    {
+      "title": "SonicWall patches exploited SSL VPN MFA bypass",
+      "summary": "SonicWall fixed seven SonicOS vulnerabilities, including a SAML authentication bypass that can let attackers with valid alternate-method credentials get around MFA. CISA has added it to its exploited catalogue, with federal agencies given until November 20 to secure affected systems.",
+      "refs": [
+        "cyber-security-headlines-0",
+        "sans-stormcast-0"
+      ],
+      "domains": [
+        "defensive",
+        "tvm",
+        "offensive"
+      ]
+    },
+    {
+      "title": "Attackers exploit new OpenSSH flaw within hours",
+      "summary": "A flaw in OpenSSH on musl-based Linux systems with PAM disabled, including default Alpine setups, lets attackers log in when a password hash is stored as an asterisk. Exploitation was seen less than nine hours after disclosure, with root access confirmed on one honeypot. The fix is OpenSSH 10.6p2 or a vendor patch.",
+      "refs": [
+        "cybersecurity-today-0",
+        "sans-stormcast-0"
+      ],
+      "domains": [
+        "tvm",
+        "offensive",
+        "appsec"
+      ]
+    },
+    {
+      "title": "Claude Code saves secrets to public GitHub repositories",
+      "summary": "Researchers found over a thousand public repositories with a Claude Code settings file that stored passwords and keys typed into approved commands in plain text. Advice is to rotate every secret the file has held, since deleting it does not remove it from Git history. Reports were reportedly closed without reply.",
+      "refs": [
+        "cyber-security-headlines-0",
+        "sans-stormcast-0",
+        "cybersecurity-today-0"
+      ],
+      "domains": [
+        "appsec",
+        "engineering",
+        "cloud"
+      ]
+    },
+    {
+      "title": "Chainalysis breach widens to customer logins",
+      "summary": "Chainalysis says a credential exposure traced to a man-in-the-middle attack now affects every customer's username, password hash and live tokens, not just basic contact details. Its login portal and several products are offline, and customers must reset passwords and rotate API keys.",
+      "refs": [
+        "cybersecurity-today-0"
+      ],
+      "domains": [
+        "news",
+        "privacy",
+        "defensive"
+      ]
+    },
+    {
+      "title": "French bank loses around $133 million via provider",
+      "summary": "Credit Mutual Arkea reportedly lost up to about 118 million euros after an attacker entered through a third-party service provider and moved funds from the bank's own account into stablecoins. The bank called it a sophisticated attack, with human error involved, and says customer assets were untouched.",
+      "refs": [
+        "cybersecurity-today-0"
+      ],
+      "domains": [
+        "news",
+        "cloud"
+      ]
+    },
+    {
+      "title": "Deepfake executive fraud charges and Japan's cyber package",
+      "summary": "US prosecutors charged three people over a scheme that used AI to impersonate executives and lawyers, defrauding companies of at least $129 million. Japan announced an emergency cybersecurity package, including a cyber rescue team and expanded active cyber defence.",
+      "refs": [
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "news",
+        "grc",
+        "defensive"
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "show": "cyber-security-headlines",
+      "title": "New SonicWall flaw, WorkOS accidental AI breach, Bogota bomb hoax email",
+      "publishedAt": "2026-11-09T08:00:00.000Z",
+      "minutes": 8,
+      "url": "https://cisoseries.libsyn.com/new-sonicwall-flaw-workos-accidental-ai-breach-bogota-bomb-hoax-email",
+      "ref": "cyber-security-headlines-0",
+      "domains": [
+        "news",
+        "defensive",
+        "ai",
+        "privacy"
+      ],
+      "core": true,
+      "summary": "Covers the SonicWall SAML MFA bypass, the WorkOS breach attributed to an AI testing agent, a Bogota email hoax linked to bomb threats, a settlement over a 2023 medical data breach, a deepfake fraud prosecution and Japan's cyber package. Also covers Claude Code secret exposure and NHS staff drafted into a breach helpline. Sponsor segment ignored."
+    },
+    {
+      "show": "sans-stormcast",
+      "title": "SANS Stormcast Monday, November 9th, 2026: sshole Scans (CVE-2026-123158); SonicWall SonicOS MFA Bypass (CVE-2026-19868); Entra Device Registration (CVE-2026-109469); Claude Code Secrets Leak",
+      "publishedAt": "2026-11-09T02:05:10.000Z",
+      "minutes": 7,
+      "url": "https://isc.sans.edu/podcastdetail/10170",
+      "ref": "sans-stormcast-0",
+      "domains": [
+        "tvm",
+        "offensive",
+        "cloud",
+        "appsec"
+      ],
+      "core": true,
+      "summary": "Reports honeypot activity exploiting the OpenSSH flaw with long passwords since November 5, and summarises the SonicWall MFA bypass and a patched Entra authorisation bypass. Also covers the Claude Code credential storage issue and increased requests for its settings directory."
+    },
+    {
+      "show": "cybersecurity-today",
+      "title": "French bank loses $133M in cyber heist, Chainalysis breach exposes every customer login, Attackers exploit OpenSSH flaw",
+      "publishedAt": "2026-11-09T00:47:00.000Z",
+      "minutes": 11,
+      "url": "https://cybersecuritytoday.libsyn.com/french-bank-loses-133m-in-cyber-heist-chainalysis-breach-exposes-every-customer-login-attackers-exploit-openssh-flaw",
+      "ref": "cybersecurity-today-0",
+      "domains": [
+        "news",
+        "appsec",
+        "tvm",
+        "human"
+      ],
+      "core": true,
+      "summary": "Covers the French bank heist via a service provider, the Chainalysis breach now affecting all customer logins, Claude Code leaking secrets to GitHub, the OpenSSH asterisk-hash flaw with fast exploitation, and a British soldier court-martialled after ignoring phone security orders following blackmail."
+    },
+    {
+      "show": "ai-daily-brief",
+      "title": "Agentic Video Is Real and Here’s What You Should Try",
+      "publishedAt": "2026-11-08T12:05:09.000Z",
+      "minutes": 31,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/Agentic-Video-Is-Real-and-Heres-What-You-Should-Try-e3s0li5",
+      "ref": "ai-daily-brief-0",
+      "domains": [
+        "ai"
+      ],
+      "core": true,
+      "summary": "Discusses how recent AI models have made AI-assisted video editing and creation practical for non-specialists, and suggests internal and external uses for video. Not a security news episode; mostly general AI productivity content with sponsor segments ignored."
+    },
+    {
+      "show": "shared-security",
+      "title": "The $6.3B Binance Hack: North Korea’s Crypto-Hacking Threat",
+      "publishedAt": "2026-11-09T05:00:00.000Z",
+      "minutes": 20,
+      "url": "https://sharedsecurity.net/2026/11/09/the-6-3b-binance-hack-north-koreas-crypto-hacking-threat/",
+      "ref": "shared-security-0",
+      "domains": [
+        "news",
+        "hunting",
+        "human"
+      ],
+      "summary": "Discusses the roughly $6.3 billion Binance cryptocurrency theft, which reportedly began with a fake recruiting process and malicious software on an engineer's device, and attributed by the FBI to a North Korean group. The conversation focuses on how one compromised endpoint led to a large transfer and on whether existing controls were enough."
+    },
+    {
+      "show": "risky-business",
+      "title": "Soap Box: Security must be more browser-centric",
+      "publishedAt": "2026-11-09T02:58:50.000Z",
+      "minutes": 36,
+      "url": "https://risky.biz/SOAPBOX112/",
+      "ref": "risky-business-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "A sponsored vendor-style Soap Box discussion in which a browser security vendor argues for browser-centric security controls such as phishing prevention and data loss prevention. Marked as sponsored; it offers a product perspective rather than news."
+    }
+  ],
+  "quietCore": [
+    "cyberwire-daily"
+  ]
+}
