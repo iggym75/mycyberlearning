@@ -63,7 +63,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - name: Restore the speech model
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.cache/huggingface
           key: whisper-${{ vars.WHISPER_MODEL || 'base.en' }}-v1
@@ -77,7 +77,7 @@ jobs:
         run: python -I scripts/transcribe.py "$RUNNER_TEMP/plan.json" "$RUNNER_TEMP/transcripts"
       - name: Hand the transcripts to the build job
         if: always()
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         with:
           path: ${{ runner.temp }}/transcripts
           key: transcripts-${{ github.run_id }}-${{ github.run_attempt }}
@@ -97,7 +97,7 @@ jobs:
       # --ignore-scripts: dependency install scripts never run, and no secrets are in the environment yet.
       - run: npm install --no-audit --no-fund --ignore-scripts --omit=dev   # switch to `npm ci --ignore-scripts` once package-lock.json is committed
       - name: Fetch the transcripts (if the transcribe job made any)
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         continue-on-error: true
         with:
           path: ${{ runner.temp }}/transcripts
