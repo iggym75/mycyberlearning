@@ -1,7 +1,7 @@
 {
   "meta": {
     "site": "My Cyber Learning",
-    "generated": "2026-11-07",
+    "generated": "2026-11-09",
     "ratingSource": "Podnews.net aggregate (Rephonic: Apple Podcasts, Spotify, Podchaser, Podcast Addict)",
     "notes": "Items with verified:false have metadata from list articles or editorial knowledge; the weekly refresh job confirms links, artwork, frequency, launch date and ratings."
   },
@@ -72,7 +72,7 @@
       "rating": {
         "v": 4.9,
         "n": 45,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": true,
       "sources": [
@@ -143,7 +143,7 @@
       "rating": {
         "v": 4.8,
         "n": 228,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": true,
       "sources": [
@@ -220,7 +220,7 @@
       "rating": {
         "v": 4.8,
         "n": 207,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": true,
       "sources": [
@@ -258,7 +258,7 @@
       "rating": {
         "v": 4.6,
         "n": 143,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": true,
       "sources": [
@@ -296,7 +296,7 @@
       "rating": {
         "v": 5,
         "n": 10,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": true,
       "sources": [
@@ -331,7 +331,7 @@
       "rating": {
         "v": 4.8,
         "n": 7824,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": true,
       "sources": [
@@ -376,7 +376,7 @@
       "logo": "covers/podcast-cyber-security-headlines.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.libsyn.com/shows/289580/destinations/2260670.xml",
-      "lastEpisode": "2026-11-06",
+      "lastEpisode": "2026-11-09",
       "episodes": 1886,
       "amazon": "https://music.amazon.co.uk/podcasts/45477283-d157-4ea1-9782-fd29dab41f3d/cybersecurity-headlines",
       "spotify": "https://open.spotify.com/show/5ylaiuoDj7YOVSdyVJMDR7",
@@ -419,7 +419,7 @@
       "logo": "covers/podcast-cyberwire-daily.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.pdrl.fm/85df76/feeds.megaphone.fm/cyberwire-daily-podcast",
-      "lastEpisode": "2026-11-07",
+      "lastEpisode": "2026-11-08",
       "episodes": 2000,
       "amazon": "https://music.amazon.co.uk/podcasts/76b35ca4-3e15-4c65-ba48-89588bead1fd/cyberwire-daily",
       "id": "cyberwire-daily"
@@ -558,7 +558,7 @@
       "rating": {
         "v": 4.7,
         "n": 16,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": true,
       "sources": [
@@ -595,7 +595,7 @@
       "rating": {
         "v": 4.8,
         "n": 2032,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": true,
       "sources": [
@@ -634,7 +634,7 @@
       "rating": {
         "v": 4.8,
         "n": 532,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": true,
       "sources": [
@@ -673,7 +673,7 @@
       "rating": {
         "v": 4.7,
         "n": 91,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": true,
       "sources": [
@@ -711,7 +711,7 @@
       "rating": {
         "v": 4.6,
         "n": 575,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": true,
       "sources": [
@@ -766,7 +766,7 @@
       "logo": "covers/podcast-risky-business.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://risky.biz/feeds/risky-business/",
-      "lastEpisode": "2026-11-04",
+      "lastEpisode": "2026-11-09",
       "episodes": 102,
       "amazon": "https://music.amazon.co.uk/podcasts/43b404f9-791f-4e4c-a18b-fa17fd64db11/risky-business",
       "id": "risky-business"
@@ -803,7 +803,7 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id304863991",
       "rss": "https://www.dshield.org/dailypodcast.xml",
-      "lastEpisode": "2026-11-06",
+      "lastEpisode": "2026-11-09",
       "episodes": 2000,
       "amazon": "https://music.amazon.co.uk/podcasts/43784207-1ec2-465d-8d86-ebc9b450ebb7/sans-internet-stormcenter-daily-cyber-security-podcast-stormcast",
       "spotify": "https://open.spotify.com/show/6oeUmMwv1AQpdYNHmOE4A0",
@@ -1141,7 +1141,7 @@
       "rating": {
         "v": 5,
         "n": 3,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -1176,7 +1176,7 @@
       "rating": {
         "v": 4.7,
         "n": 62,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -1214,7 +1214,7 @@
       "rating": {
         "v": 4.8,
         "n": 109,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -1250,7 +1250,7 @@
       "rating": {
         "v": 4.9,
         "n": 70,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -1315,7 +1315,7 @@
       "rating": {
         "v": 5,
         "n": 10,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -1352,7 +1352,7 @@
       "rating": {
         "v": 4.7,
         "n": 136,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -1386,7 +1386,7 @@
       "rating": {
         "v": 5,
         "n": 3,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -1422,7 +1422,7 @@
       "rating": {
         "v": 4.7,
         "n": 42,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -1456,7 +1456,7 @@
       "rating": {
         "v": 4.8,
         "n": 297,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -1494,7 +1494,7 @@
       "rating": {
         "v": 4.9,
         "n": 145,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -1534,7 +1534,7 @@
       "rating": {
         "v": 4.6,
         "n": 984,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -1569,7 +1569,7 @@
       "rating": {
         "v": 4.9,
         "n": 527,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -1635,7 +1635,7 @@
       "rating": {
         "v": 4.7,
         "n": 34,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -1669,15 +1669,15 @@
       "rating": {
         "v": 3.7,
         "n": 12,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 202,
-      "lastEpisode": "2026-10-28",
+      "episodes": 204,
+      "lastEpisode": "2026-11-09",
       "logo": "covers/podcast-cyber-crime-podcast.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2020-11",
@@ -1704,7 +1704,7 @@
       "rating": {
         "v": 3,
         "n": 3,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -2067,7 +2067,7 @@
       ],
       "verified": true,
       "episodes": 300,
-      "lastEpisode": "2026-11-05",
+      "lastEpisode": "2026-11-09",
       "logo": "covers/podcast-cyberhub.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2025-04",
@@ -2168,7 +2168,7 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1363182054",
       "rss": "https://cybersecuritytoday.libsyn.com/rss",
-      "lastEpisode": "2026-11-07",
+      "lastEpisode": "2026-11-09",
       "episodes": 105,
       "amazon": "https://music.amazon.co.uk/podcasts/4fecadbb-cd07-4d0c-9edc-a2a4441111ce/cybersecurity-today",
       "spotify": "https://open.spotify.com/show/2YiPcnkJLIcxtQ04nCfaSu",
@@ -2199,7 +2199,7 @@
       ],
       "verified": true,
       "episodes": 148,
-      "lastEpisode": "2026-11-06",
+      "lastEpisode": "2026-11-09",
       "logo": "covers/podcast-cybersecurity-under-pressure.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2026-02",
@@ -2676,7 +2676,7 @@
       "rating": {
         "v": 4.6,
         "n": 105,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -2709,7 +2709,7 @@
       "rating": {
         "v": 4.4,
         "n": 76,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -2809,7 +2809,7 @@
       "rating": {
         "v": 4.4,
         "n": 39,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -2844,7 +2844,7 @@
       "rating": {
         "v": 4.8,
         "n": 65,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -2907,7 +2907,11 @@
       "web": "https://industrial-cybersecurity-insider.captivate.fm",
       "apple": "https://podcasts.apple.com/podcast/id1713811546",
       "rss": "https://feeds.captivate.fm/industrial-cybersecurity-insider/",
-      "rating": null,
+      "rating": {
+        "v": 5,
+        "n": 3,
+        "asOf": "2026-11-09"
+      },
       "curator": false,
       "sources": [
         "feedspot"
@@ -2937,7 +2941,11 @@
       "freq": "irregular",
       "launched": "2020-01",
       "status": "active",
-      "rating": null,
+      "rating": {
+        "v": 4.9,
+        "n": 47,
+        "asOf": "2026-11-09"
+      },
       "curator": false,
       "sources": [
         "editor"
@@ -3012,8 +3020,8 @@
       "logo": "covers/podcast-latent-space.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://podcast.latent.space/feed.xml",
-      "lastEpisode": "2026-11-07",
-      "episodes": 293,
+      "lastEpisode": "2026-11-08",
+      "episodes": 295,
       "amazon": "https://music.amazon.co.uk/podcasts/abff303e-e4f1-447c-9823-b35bfc6e8da8/latent-space-the-ai-engineer-podcast",
       "id": "latent-space"
     },
@@ -3300,8 +3308,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 87,
-      "lastEpisode": "2026-10-26",
+      "episodes": 88,
+      "lastEpisode": "2026-11-09",
       "logo": "covers/podcast-no-password-required.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2019-11",
@@ -3624,7 +3632,7 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1523098985",
       "rss": "https://rss.pdrl.fm/5af9bb/feeds.libsyn.com/284192/rss/?redirect=false",
-      "lastEpisode": "2026-11-06",
+      "lastEpisode": "2026-11-09",
       "episodes": 107,
       "amazon": "https://music.amazon.co.uk/podcasts/462a5a81-82f6-4b4a-bfba-dd3bd2cb7c31/risk-management-show",
       "spotify": "https://open.spotify.com/show/1IynksT6tH80Nw9LTyI7bt",
@@ -4049,7 +4057,7 @@
       ],
       "verified": true,
       "episodes": 585,
-      "lastEpisode": "2026-11-02",
+      "lastEpisode": "2026-11-09",
       "logo": "covers/podcast-shared-security.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2009-08",
@@ -4334,7 +4342,7 @@
       "rating": {
         "v": 4.5,
         "n": 2950,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -4344,8 +4352,8 @@
       "logo": "covers/podcast-ai-daily-brief.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://anchor.fm/s/f7cac464/podcast/rss",
-      "lastEpisode": "2026-11-07",
-      "episodes": 1133,
+      "lastEpisode": "2026-11-08",
+      "episodes": 1134,
       "amazon": "https://music.amazon.co.uk/podcasts/2b3e5988-907e-4702-96f5-7eb33adc729e/the-ai-daily-brief-artificial-intelligence-news-and-analysis",
       "id": "ai-daily-brief"
     },
@@ -4369,7 +4377,7 @@
       "rating": {
         "v": 5,
         "n": 1,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -4557,7 +4565,7 @@
       "rating": {
         "v": 5,
         "n": 3,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -4592,7 +4600,7 @@
       "rating": {
         "v": 5,
         "n": 8,
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
@@ -5243,7 +5251,7 @@
         "v": 4,
         "n": 12,
         "src": "Open Library",
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": true,
       "sources": [
@@ -5626,7 +5634,7 @@
         "v": 4.5,
         "n": 57,
         "src": "Open Library",
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": true,
       "sources": [
@@ -5872,7 +5880,7 @@
         "v": 4.2,
         "n": 6,
         "src": "Open Library",
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": true,
       "sources": [
@@ -6321,7 +6329,7 @@
         "v": 4.5,
         "n": 8,
         "src": "Open Library",
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "isbnAlt": [
         "9781119096726"
@@ -9381,7 +9389,7 @@
         "v": 3.6,
         "n": 16,
         "src": "Open Library",
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "isbnAlt": [
         "9781119433385"
@@ -9480,7 +9488,7 @@
         "v": 4.2,
         "n": 5,
         "src": "Open Library",
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "logo": "covers/book-tcp-ip-illustrated-volume-1.jpg",
       "openlibrary": "https://openlibrary.org/isbn/9780321336316",
@@ -9599,7 +9607,7 @@
         "v": 3.7,
         "n": 6,
         "src": "Open Library",
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "isbn": "9780470503829",
       "logo": "covers/book-the-art-of-intrusion.jpg",
@@ -9688,7 +9696,7 @@
         "v": 4.1,
         "n": 22,
         "src": "Open Library",
-        "asOf": "2026-11-07"
+        "asOf": "2026-11-09"
       },
       "curator": false,
       "sources": [
