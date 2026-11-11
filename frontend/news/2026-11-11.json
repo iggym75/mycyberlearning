@@ -1,0 +1,250 @@
+{
+  "date": "2026-11-11",
+  "generatedAt": "2026-11-11T08:38:55.126Z",
+  "windowHours": 25,
+  "headline": "Iran blamed for fridge sabotage, Vanderbilt ransomware, record patch volumes",
+  "overview": "France formally attributed the sabotage of supermarket refrigeration across Europe to an Iranian Revolutionary Guard-linked unit, while Vanderbilt University recovers from a ransomware attack. Patch volumes remain extraordinarily high as Microsoft fixed over a thousand flaws, and AI-assisted attacks, including the ARTEX pentesting framework, keep featuring in incident reports.",
+  "topStories": [
+    {
+      "title": "France blames Iran's IRGC-linked unit for supermarket fridge sabotage",
+      "summary": "French prosecutors named a cyber unit tied to Iran's Revolutionary Guard over remote tampering with refrigeration controllers at roughly 700 French stores in October, causing spoilage and fires. Arrest warrants are being sought and an ambassador was summoned; a second wave hit stores in several other European countries.",
+      "refs": [
+        "cybersecurity-today-0",
+        "cyber-security-headlines-0",
+        "cyberwire-daily-1",
+        "cyberhub-0"
+      ],
+      "domains": [
+        "news",
+        "icsot",
+        "cti"
+      ]
+    },
+    {
+      "title": "Microsoft November patch Tuesday and an exploited Outlook zero-day",
+      "summary": "Microsoft fixed about 1,235 flaws, 66 rated critical, including an Outlook spoofing zero-day that is already being exploited and can leak NTLM hashes when a crafted file is opened. Microsoft is also retiring SMS and voice codes for Entra sign-in after a Belgian warning about SMS-only logins.",
+      "refs": [
+        "cybersecurity-today-0",
+        "sans-stormcast-0",
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "tvm",
+        "defensive",
+        "cloud"
+      ]
+    },
+    {
+      "title": "AI-assisted intrusions and the ARTEX framework",
+      "summary": "Several reports describe attackers using the ARTEX AI pentesting framework to automate intrusions against banks, a SaaS sales app and exposed GitHub secrets, with one commentator calling the damage approaching crisis levels. Researchers suggest decoys can slow autonomous attackers.",
+      "refs": [
+        "risky-business-0",
+        "cybersecurity-today-0"
+      ],
+      "domains": [
+        "ai",
+        "offensive",
+        "cti"
+      ]
+    },
+    {
+      "title": "Vanderbilt ransomware recovery and wider breaches",
+      "summary": "Vanderbilt restored Wi-Fi, email and some services after the BYOD ransomware gang claimed the attack, though the university has not confirmed the group. Separately, Japanese retailer Natori reported a possible theft of 37.6 million customer records and a third-party cloud analytics breach exposed AWS data at multiple customers.",
+      "refs": [
+        "cybersecurity-today-0",
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "news",
+        "defensive"
+      ]
+    },
+    {
+      "title": "Exploited vendor flaws: N-able, Barracuda, IBM and FreeSWITCH",
+      "summary": "A researcher published dozens of alleged N-able N-central zero-days, which N-able responded to by taking its hosted service offline. Barracuda email gateway flaws are now confirmed exploited, and CISA added IBM Aspera Faspex and FreeSWITCH bugs to its catalogue.",
+      "refs": [
+        "cyber-security-headlines-0",
+        "daily-defsec-brief-0",
+        "cyberwire-daily-1"
+      ],
+      "domains": [
+        "appsec",
+        "tvm",
+        "news"
+      ]
+    },
+    {
+      "title": "Policy moves: CISA nomination and an AI safety regulator",
+      "summary": "The White House nominated Palantir's CISO Michael Losepio to lead CISA, which has been without a permanent director for nearly two years. Australia plans an AI safety regulator after an AI agent breach of a health department website.",
+      "refs": [
+        "cyberwire-daily-1",
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "news",
+        "grc"
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "show": "cyberwire-daily",
+      "title": "CyberWire Daily at 10: Developments in AI and machine learning over the past decade. [Special Edition]",
+      "publishedAt": "2026-11-11T06:00:00.000Z",
+      "minutes": 35,
+      "url": "https://thecyberwire.com/podcasts/special-edition/110/notes",
+      "ref": "cyberwire-daily-0",
+      "domains": [
+        "ai",
+        "career"
+      ],
+      "core": true,
+      "summary": "A special ten-year anniversary episode in which host Dave Bittner reflects on how AI has moved from under-the-hood marketing claims to large language models, adversarial use, deepfakes and vibe coding, with a discussion of the workforce impact."
+    },
+    {
+      "show": "cyberwire-daily",
+      "title": "The next name on CISA's door.",
+      "publishedAt": "2026-11-10T21:30:00.000Z",
+      "minutes": 28,
+      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2675/notes",
+      "ref": "cyberwire-daily-1",
+      "domains": [
+        "news",
+        "icsot",
+        "defensive",
+        "architecture"
+      ],
+      "core": true,
+      "summary": "Covers the CISA director nomination, the agency's incident reporting portal update, the EU cyber maturity report, the French fridge sabotage attribution, Barracuda and Vanderbilt incidents. Also includes a sponsored industry interview with Zage Security's CEO on prioritising prevention and micro-segmentation over patching alone."
+    },
+    {
+      "show": "cyber-security-headlines",
+      "title": "New CISA head, AI safety regulator, N-able's zero-day deluge",
+      "publishedAt": "2026-11-11T08:00:00.000Z",
+      "minutes": 8,
+      "url": "https://cisoseries.libsyn.com/new-cisa-head-ai-safety-regulator-n-ables-zero-day-deluge",
+      "ref": "cyber-security-headlines-0",
+      "domains": [
+        "news",
+        "ai",
+        "appsec",
+        "cloud"
+      ],
+      "core": true,
+      "summary": "Covers an Australian plan for an AI safety regulator, zero-day releases for N-able N-central, the CISA nomination, DeepMind's formal verification of Signal's protocols, the Vanderbilt attack, the Qubole-linked AWS breach, Turla's Serial toolkit and several patch updates."
+    },
+    {
+      "show": "sans-stormcast",
+      "title": "SANS Stormcast Wednesday, November 11th, 2026: Microsoft Patch Tuesday Outlook Spoofing (CVE-2026-124194); Apple Bluetooth and iMessage Fixes; SAP NetWeaver CVSS 10s (CVE-2026-89103)",
+      "publishedAt": "2026-11-11T02:00:03.000Z",
+      "minutes": 10,
+      "url": "https://isc.sans.edu/podcastdetail/10174",
+      "ref": "sans-stormcast-0",
+      "domains": [
+        "tvm",
+        "appsec"
+      ],
+      "core": true,
+      "summary": "Walks through Microsoft's large November patch set, including the exploited Outlook spoofing bug and critical LDAP and message queuing flaws, plus Apple's smaller iOS and macOS updates and SAP NetWeaver patches rated up to 10 out of 10."
+    },
+    {
+      "show": "cybersecurity-today",
+      "title": "France blames Iran for supermarket fridge attacks, Ransomware gang hits Vanderbilt, Microsoft fixes 1,235 flaws",
+      "publishedAt": "2026-11-11T01:03:00.000Z",
+      "minutes": 15,
+      "url": "https://cybersecuritytoday.libsyn.com/france-blames-iran-for-supermarket-fridge-attacks-ransomware-gang-hits-vanderbilt-microsoft-fixes-1235-flaws",
+      "ref": "cybersecurity-today-0",
+      "domains": [
+        "news",
+        "tvm",
+        "ai",
+        "cloud"
+      ],
+      "core": true,
+      "summary": "Covers the French attribution to Iran's IRGC-linked unit, the Vanderbilt recovery, the Natori breach, Microsoft's 1,235-flaw patch release, AI-assisted intrusions by a Cambodia-linked group, and a Belgian warning about Entra SMS sign-in."
+    },
+    {
+      "show": "ai-daily-brief",
+      "title": "Fable 5.2 Is the Best AI Ever. So Why Am I Not Switching Yet?",
+      "publishedAt": "2026-11-10T21:38:24.000Z",
+      "minutes": 30,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/Fable-5-2-Is-the-Best-AI-Ever--So-Why-Am-I-Not-Switching-Yet-e3s60fp",
+      "ref": "ai-daily-brief-0",
+      "domains": [
+        "ai"
+      ],
+      "core": true,
+      "summary": "Reviews the release of a new flagship AI model and its benchmark results, cost trade-offs and early user impressions, noting strong security and coding performance alongside uneven judgement on open-ended tasks. Largely about AI model capability rather than security news."
+    },
+    {
+      "show": "risky-business",
+      "title": "Risky Business #859 -- ARTEX damage approaches crisis levels",
+      "publishedAt": "2026-11-11T06:09:15.000Z",
+      "minutes": 70,
+      "url": "https://risky.biz/RB859/",
+      "ref": "risky-business-0",
+      "domains": [
+        "ai",
+        "offensive",
+        "cti",
+        "news"
+      ],
+      "summary": "Discusses the ARTEX pentesting framework being used by attackers and how it could become a crisis, the French fridge attribution, AI-found bugs, and the CISA nomination, with a sponsored segment on an NTLM relay research interview."
+    },
+    {
+      "show": "security-now",
+      "title": "SN 1104: The hole in OpenSSH - Password Bypass in Plain Sight",
+      "publishedAt": "2026-11-11T03:05:00.000Z",
+      "minutes": 158,
+      "url": "https://twit.tv/shows/security-now/episodes/1104",
+      "ref": "security-now-0",
+      "domains": [
+        "appsec",
+        "ai",
+        "news"
+      ],
+      "summary": "Covers an old OpenSSH authentication bug, the French refrigerator attacks, the N-able zero-days and GPT-6 Cyber, along with listener feedback. Show notes are the only source text provided and were used for the summary."
+    },
+    {
+      "show": "security-weekly-news",
+      "title": "Bad Claude, French Fridge Fiasco Fries Fromage, Teenage AI, SonicWALL, Aaran Leyland - SWN #632",
+      "publishedAt": "2026-11-10T22:00:00.000Z",
+      "minutes": 32,
+      "url": "https://hntvaudio.libsyn.com/bad-claude-french-fridge-fiasco-fries-fromage-teenage-ai-sonicwall-aaran-leyland-swn-632",
+      "ref": "security-weekly-news-0",
+      "domains": [
+        "news",
+        "ai"
+      ],
+      "summary": "Episode title and show notes list topics including the French fridge attacks, AI-related items, a SonicWALL story and an interview, but the episode text provided does not detail the stories beyond these headings."
+    },
+    {
+      "show": "daily-defsec-brief",
+      "title": "Able2Shell N-central zero-days, Chrome zero-day, FreeSWITCH exploited | Cyber Security News Nov 10",
+      "publishedAt": "2026-11-10T14:34:10.000Z",
+      "minutes": 5,
+      "url": "https://riverside.com",
+      "ref": "daily-defsec-brief-0",
+      "domains": [
+        "appsec",
+        "tvm",
+        "cloud"
+      ],
+      "summary": "Covers the N-able N-central zero-days with a recommendation to keep servers offline until a fix ships, a Chrome zero-day, the CubeL AWS breach, an IBM Aspera Faspex flaw, and a FreeSWITCH exploit."
+    },
+    {
+      "show": "cyberhub",
+      "title": "🎙️ France Formally Blames Iran’s IRGC for Supermarket Refrigeration Attacks, Plex2Shell Now Exploited Against QNAP Storage Devices, Google DeepMind AI Agents Make 1024-Bit RSA Keys Cheaper to Attack",
+      "publishedAt": "2026-11-10T14:00:00.000Z",
+      "minutes": 19,
+      "url": "https://www.cyberhubpodcast.com",
+      "ref": "cyberhub-0",
+      "domains": [
+        "news",
+        "cti",
+        "ai"
+      ],
+      "summary": "Headlines the French attribution to Iran's IRGC for supermarket refrigeration attacks, exploitation of a Plex-related flaw against QNAP storage devices, and research on AI agents making 1024-bit RSA cheaper to attack. Also mentions an Italian leak and a Qubole AWS integration issue."
+    }
+  ]
+}
