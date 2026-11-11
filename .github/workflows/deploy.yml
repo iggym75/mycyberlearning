@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           # When called after a commit, test and deploy the latest main rather than the commit that started the run.
           ref: ${{ github.event_name == 'pull_request' && github.sha || 'main' }}
@@ -47,7 +47,7 @@ jobs:
     timeout-minutes: 15
     environment: production
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with: { ref: main, persist-credentials: false }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
