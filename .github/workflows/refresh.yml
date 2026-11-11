@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { persist-credentials: false }   # no git token on disk while third-party feeds are parsed
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with: { node-version: 22 }   # add `cache: npm` once package-lock.json is committed
       - run: npm install --no-audit --no-fund --ignore-scripts --omit=dev   # switch to `npm ci --ignore-scripts` once package-lock.json is committed
       - name: Refresh metadata, ratings and tags

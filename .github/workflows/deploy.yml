@@ -31,7 +31,7 @@ jobs:
           # When called after a commit, test and deploy the latest main rather than the commit that started the run.
           ref: ${{ github.event_name == 'pull_request' && github.sha || 'main' }}
           persist-credentials: false
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with: { node-version: 22 }
       - run: npm install --no-audit --no-fund --ignore-scripts --omit=dev   # runtime deps only; wrangler comes from the deploy action
       - run: npm audit --omit=dev --audit-level=high
@@ -49,7 +49,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { ref: main, persist-credentials: false }
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with: { node-version: 22 }
       - run: npm install --no-audit --no-fund --ignore-scripts --omit=dev
       - run: npm run build
