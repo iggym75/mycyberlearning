@@ -1,116 +1,153 @@
 {
-  "date": "2026-11-12",
-  "generatedAt": "2026-11-12T08:34:44.693Z",
-  "windowHours": 24,
-  "headline": "Maersk ransom claim, Iran-linked arson case, and Enable Central hotfix dominate",
-  "overview": "Today's core news shows lead with a Maersk data theft and ransom demand, a China-linked malware supplier link, and United Airlines blocking AI booking agents. The security patch cycle is also heavy: Apache, Fortinet, Ivanti, a Windows CLFS bypass, and the Enable Central hotfix. Several other shows add detail on Outlook, Barracuda, and Zen Orchestra exploitation, though some episode texts were thin or only partly available.",
+  "date": "2026-11-13",
+  "generatedAt": "2026-11-13T08:36:42.673Z",
+  "windowHours": 25,
+  "headline": "Nvidia CEO exits amid espionage probe; Microsoft 365 outage and Patch Tuesday fallout",
+  "overview": "Nvidia's chief executive Jensen Huang resigned after reports of a suspected Chinese intelligence link and a second undisclosed affair, with the CFO named interim chief. Separately, a global Microsoft 365 outage disrupted Exchange, Teams and SharePoint, while a heavy November Patch Tuesday and ScreenConnect and N-central exploitation kept security teams busy.",
   "topStories": [
     {
-      "title": "Maersk reports stolen data and a $5M ransom demand",
-      "summary": "Maersk says attackers took about 100 GB from a local system at a company it acquired and are demanding $5 million in Bitcoin. The company reports no sign of impact on other systems or partners and expects no operational disruption, and the investigation is ongoing.",
+      "title": "Nvidia CEO Jensen Huang resigns",
+      "summary": "Huang left the chief executive and board roles after reports tied an Nvidia-linked Singaporean firm executive to a suspected Chinese intelligence operation and a further affair with an executive. CFO Colette Kress is interim CEO, and the company says an independent investigation continues. Shares fell sharply over the week.",
       "refs": [
-        "cyber-security-headlines-0"
+        "cybersecurity-today-0",
+        "ai-daily-brief-0",
+        "cyberwire-daily-0"
       ],
       "domains": [
         "news",
-        "defensive"
+        "leadership",
+        "grc"
       ]
     },
     {
-      "title": "Patch wave: Apache, Fortinet, Ivanti, Windows CLFS and Enable Central",
-      "summary": "Apache fixed a critical heap overflow in mod_http2 that could allow remote code execution, and Fortinet released 89 advisories with 17 rated critical. Ivanti patched an EPM SQL injection, and a public Windows CLFS escalation called SignDrop has no CVE or Microsoft confirmation yet. Enable released a hotfix for Central servers, and the number of exposed instances has dropped sharply.",
+      "title": "Global Microsoft 365 outage",
+      "summary": "A worldwide disruption hit Exchange, Teams, SharePoint and Copilot after servers went offline and overloaded remaining infrastructure. Microsoft suspects configuration changes but had not confirmed a cause, and full service was not restored at the time of reporting.",
+      "refs": [
+        "cyber-security-headlines-0",
+        "sans-stormcast-0",
+        "cybersecurity-today-0"
+      ],
+      "domains": [
+        "cloud",
+        "operations"
+      ]
+    },
+    {
+      "title": "Patch Tuesday and urgent edge-device fixes",
+      "summary": "Microsoft fixed around 1,094 vulnerabilities including an actively exploited Outlook flaw leaking NTLMv2 hashes. Fortinet, Ivanti, Citrix and Zoom also shipped critical fixes, and Exchange 2016 and 2019 are no longer receiving security testing or patches.",
+      "refs": [
+        "cyberwire-daily-0",
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "defensive",
+        "tvm"
+      ]
+    },
+    {
+      "title": "ScreenConnect and N-able N-central attacks on MSPs",
+      "summary": "Attackers used a third-party ScreenConnect extension to push rogue remote access software to hundreds of machines via MSP consoles, and ConnectWise disabled several extensions. Public exploit code has appeared for N-able N-central flaws, with advice to confirm legacy API settings are off.",
       "refs": [
         "sans-stormcast-0",
-        "cyber-security-headlines-0"
+        "daily-defsec-brief-0",
+        "cyberhub-0"
       ],
       "domains": [
-        "tvm",
         "appsec",
-        "defensive"
-      ]
-    },
-    {
-      "title": "China-linked campaigns may share a malware supplier",
-      "summary": "Checkpoint Research links three China-linked hacking campaigns across Latin America, Asia and Europe to a possible shared malware supplier it calls Copper Dragon, based on code and infrastructure. The link to one campaign rests on infrastructure rather than matching code.",
-      "refs": [
-        "cyber-security-headlines-0"
-      ],
-      "domains": [
-        "cti",
-        "news"
-      ]
-    },
-    {
-      "title": "Iran-directed arson attacks streamed over FaceTime charged in US",
-      "summary": "US prosecutors charged three men with directing attacks across Europe for Iran's Revolutionary Guard, including London arson attacks filmed for propaganda. Evidence came from stored files on a seized iPhone rather than from breaking FaceTime encryption, and the men face terrorism charges.",
-      "refs": [
-        "cyber-security-headlines-0"
-      ],
-      "domains": [
-        "news"
-      ]
-    },
-    {
-      "title": "Outlook zero-day and exploited Barracuda and Zen Orchestra flaws",
-      "summary": "Attackers are using an Outlook flaw that leaks password hashes when a crafted message file is opened, and Microsoft's Office update addresses it. Barracuda email gateway flaws are being exploited, and a login bypass in Zen Orchestra lets attackers sign in as admin and reach root on hosts.",
-      "refs": [
-        "daily-defsec-brief-0"
-      ],
-      "domains": [
         "tvm",
         "defensive"
       ]
     },
     {
-      "title": "Anthropic IPO and the wider AI market",
-      "summary": "Anthropic is reportedly seeking a valuation between roughly $1.25 and $1.4 trillion ahead of a planned IPO, with reports of possibly higher pricing given demand. Its new productivity suite competes with Microsoft tools. Separately, Google released Gemini 4 Carbon and the Nvidia smuggling scandal continues.",
+      "title": "Suspected AI-driven espionage in Central Asia",
+      "summary": "A Kazakhstan-linked group reportedly used an open source AI agent to automate reconnaissance and data theft against Tajik, Uzbek and Turkmen government and infrastructure targets. Researchers say it lowers the barrier to large intrusions.",
       "refs": [
-        "ai-daily-brief-0"
+        "cyberwire-daily-0"
       ],
       "domains": [
         "ai",
+        "cti"
+      ]
+    },
+    {
+      "title": "Ransomware affiliate operator identified",
+      "summary": "Investigators traced the leader of the Qilin ransomware affiliate program to a Russian individual through reused handles and leaked records, a case of operational security slips exposing a criminal identity.",
+      "refs": [
+        "cyberwire-daily-0"
+      ],
+      "domains": [
+        "cti",
         "news"
       ]
     }
   ],
   "episodes": [
     {
+      "show": "cyberwire-daily",
+      "title": "A patchwork of problems.",
+      "publishedAt": "2026-11-12T21:30:00.000Z",
+      "minutes": 28,
+      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2676/notes",
+      "ref": "cyberwire-daily-0",
+      "domains": [
+        "news",
+        "cti",
+        "ai",
+        "cloud"
+      ],
+      "core": true,
+      "summary": "Covered Patch Tuesday fixes, a Maersk legacy system incident, the Nvidia export probe, a US Army officer arrest in the UK, a Central Asia AI-agent espionage campaign, ransomware operator attribution, connected car app flaws, and a US Congress outlook interview with Tim Starks on cybersecurity legislation under incoming Democratic leadership."
+    },
+    {
       "show": "cyber-security-headlines",
-      "title": "Maersk gets a $5M ransom note, CopperDragon's malware connections, United grounds AI booking bots",
-      "publishedAt": "2026-11-12T08:00:00.000Z",
-      "minutes": 7,
-      "url": "https://cisoseries.libsyn.com/maersk-gets-a-5m-ransom-note-copperdragons-malware-connections-united-grounds-ai-booking-bots",
+      "title": "Microsoft 365 outage, Bomb hoaxers in hijacked inboxes, Operation Endgame pulls malware plugs",
+      "publishedAt": "2026-11-13T08:00:00.000Z",
+      "minutes": 8,
+      "url": "https://cisoseries.libsyn.com/microsoft-365-outage-bomb-hoaxers-in-hijacked-inboxes-operation-endgame-pulls-malware-plugs",
       "ref": "cyber-security-headlines-0",
       "domains": [
         "news",
-        "defensive",
-        "cti",
+        "cloud",
         "privacy"
       ],
       "core": true,
-      "summary": "Covers the Maersk data theft and ransom demand, Copper Dragon malware links, United blocking AI booking bots, the Chilean administrator identification, Zoom Windows patches, the Iran-linked FaceTime arson case, the Enable Central fix, and Anti-Fox links to AWS intrusions. One sponsor segment was ignored."
+      "summary": "Covered the Microsoft 365 outage, Exchange 2016 and 2019 no longer being patched, phishing via hijacked inboxes, Operation Endgame takedowns, Asian telecom interception by a suspected state group, Section 702 debate, and an outage at the Bricklink marketplace."
     },
     {
       "show": "sans-stormcast",
-      "title": "SANS Stormcast Thursday, November 12th, 2026: Apache mod_http2 RCE (CVE-2026-119618); Fortinet FortiMail Criticals; Ivanti EPM SQLi (CVE-2026-121653); Windows SignDrop CLFS; N-able N-central HF2",
-      "publishedAt": "2026-11-12T02:00:02.000Z",
-      "minutes": 6,
-      "url": "https://isc.sans.edu/podcastdetail/10176",
+      "title": "SANS Stormcast Friday, November 13th, 2026: GPUStack Auth Bypass Scans (CVE-2026-102895); ConnectWise ScreenConnect Advisory; N-able N-central Exploits; Microsoft 365 Outage",
+      "publishedAt": "2026-11-13T02:00:03.000Z",
+      "minutes": 7,
+      "url": "https://isc.sans.edu/podcastdetail/10178",
       "ref": "sans-stormcast-0",
       "domains": [
-        "tvm",
         "appsec",
-        "defensive"
+        "cloud",
+        "tvm"
       ],
       "core": true,
-      "summary": "Covers the Apache mod_http2 heap overflow, the Fortinet advisories, the Ivanti EPM SQL injection, the SignDrop Windows CLFS escalation with public proof of concept, and the Enable Central hotfix with reduced exposure."
+      "summary": "Covered GPUStack authentication bypass attempts via spoofed headers, ConnectWise ScreenConnect advisory about third-party plugin compromises, public exploits for N-able N-central flaws, and the Microsoft 365 outage."
+    },
+    {
+      "show": "cybersecurity-today",
+      "title": "Jensen Huang Resigns as NVIDIA CEO | What Happens Next?",
+      "publishedAt": "2026-11-13T05:05:00.000Z",
+      "minutes": 14,
+      "url": "https://cybersecuritytoday.libsyn.com/jensen-huang-resigns-as-nvidia-ceo-what-happens-next",
+      "ref": "cybersecurity-today-0",
+      "domains": [
+        "news",
+        "leadership"
+      ],
+      "core": true,
+      "summary": "Special report on the Nvidia leadership change, tracing the Megaspeed and alleged intelligence allegations, the second affair, and the interim CEO appointment, plus brief coverage of Starlink restrictions for Ukraine and the Microsoft outage."
     },
     {
       "show": "ai-daily-brief",
-      "title": "Wall Street Has No Idea What Anthropic Is Worth",
-      "publishedAt": "2026-11-11T21:16:03.000Z",
-      "minutes": 25,
-      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/Wall-Street-Has-No-Idea-What-Anthropic-Is-Worth-e3s7t73",
+      "title": "Jensen Huang Is Out. Everything in AI Is Now Up for Grabs.",
+      "publishedAt": "2026-11-12T18:44:45.000Z",
+      "minutes": 30,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/Jensen-Huang-Is-Out--Everything-in-AI-Is-Now-Up-for-Grabs-e3s9ioh",
       "ref": "ai-daily-brief-0",
       "domains": [
         "ai",
@@ -118,78 +155,59 @@
         "leadership"
       ],
       "core": true,
-      "summary": "Covers the Gemini 4 Carbon release, the Nvidia China smuggling scandal, OpenAI's revenue and travel acquisition, and Anthropic's IPO pricing, compute commitments and productivity suite launch. Sponsor segments were ignored."
+      "summary": "Discussed Jensen Huang's departure from Nvidia, the sequence of allegations, speculation about who benefited, and implications for AI chip policy, open source and Nvidia's investments. Includes sponsor segments that were ignored."
     },
     {
-      "show": "smashing-security",
-      "title": "How hackers turned Russian cars into pumpkins",
-      "publishedAt": "2026-11-12T00:00:20.000Z",
-      "minutes": 43,
-      "url": "https://www.smashingsecurity.com/492",
-      "ref": "smashing-security-0",
+      "show": "click-here",
+      "title": "The hidden costs of wildlife surveillance",
+      "publishedAt": "2026-11-13T08:00:00.000Z",
+      "minutes": 16,
+      "url": "https://play.prx.org/listen?ge=prx_8376_b7601a43-e5ff-42a5-b77f-b5b1c886e0b0&uf=https%3A%2F%2Fpublicfeeds.net%2Ff%2F8376%2Fclickhere",
+      "ref": "click-here-0",
       "domains": [
-        "news",
-        "human"
+        "privacy"
       ],
-      "summary": "Text is a partial transcript with a rambling intro and an extended sponsor segment. It discusses deepfake-driven scams and a hacking story about Russian cars, but the coverage is too partial to summarise in detail."
+      "summary": "The episode notes discuss wildlife surveillance through cameras, drones and animal sensors. This is not a cyber security story and is outside the main focus of this briefing."
     },
     {
-      "show": "shadowtalk",
-      "title": "Claude Chat Invites and a Backdoored Coding Extension",
-      "publishedAt": "2026-11-11T15:00:00.000Z",
-      "minutes": 29,
-      "url": "https://www.reliaquest.com/resources/podcast",
-      "ref": "shadowtalk-0",
+      "show": "security-weekly",
+      "title": "Holes In Everything, Even SSH - PSW #952",
+      "publishedAt": "2026-11-12T22:00:00.000Z",
+      "minutes": 123,
+      "url": "https://pswonly.libsyn.com/holes-in-everything-even-ssh-psw-952",
+      "ref": "security-weekly-0",
       "domains": [
-        "defensive",
-        "hunting",
-        "ai"
+        "appsec",
+        "news"
       ],
-      "summary": "Covers two initial access campaigns that abused Claude: chat-sharing notifications used as callback phishing lures, and a tampered Claude Code extension in a marketplace that installed an SSH backdoor. Includes hunting and reimaging advice."
+      "summary": "Episode notes list a range of topics including SSH issues, SAP and Barracuda vulnerabilities, and AI identity concerns, but the content is a list of headlines only, so details are not confirmed here."
     },
     {
       "show": "daily-defsec-brief",
-      "title": "Outlook zero-day, Barracuda gateway exploited, Xen Orchestra bypass | Cyber Security News Nov 11",
-      "publishedAt": "2026-11-11T14:51:52.000Z",
+      "title": "ScreenConnect MSP attack, new N-central exploits, GitHub secret stealer | Cyber Security News Nov 12",
+      "publishedAt": "2026-11-12T14:25:21.000Z",
       "minutes": 5,
       "url": "https://riverside.com",
       "ref": "daily-defsec-brief-0",
       "domains": [
-        "tvm",
         "defensive",
-        "offensive",
-        "ai"
+        "appsec",
+        "tvm"
       ],
-      "summary": "Covers the Outlook hash-leak flaw, Barracuda gateway exploitation, the Zen Orchestra login bypass, the Enable Central hotfix, SAP maximum-severity flaws, Turla's Serial tool, a malicious Git repository issue, and several AI and iOS items."
+      "summary": "Covered a ScreenConnect MSP attack using a third-party extension, new N-central exploit code, a GitHub secret-stealing campaign, an Apache HTTP/2 flaw, an exploited Cisco Broadworks flaw, Ivanti fixes, and GSocket persistence on Linux web servers."
     },
     {
       "show": "cyberhub",
-      "title": "🚨 SAP 4 CVSS 10.0 Flaws: ICM2Shell & ProxyGate, N-Able Offline After 30 Zero-Days, 8th Chrome 0-Day",
-      "publishedAt": "2026-11-11T14:00:00.000Z",
-      "minutes": 24,
+      "title": "🚨 CISA KEV: AI Agent Hacked Telecom via Cisco Flaw, ScreenConnect Breaches MSPs, Fortinet 100 Patches",
+      "publishedAt": "2026-11-12T14:00:00.000Z",
+      "minutes": 20,
       "url": "https://www.cyberhubpodcast.com",
       "ref": "cyberhub-0",
       "domains": [
-        "tvm",
-        "news"
+        "news",
+        "defensive"
       ],
-      "summary": "Episode description lists SAP flaws, the Enable Central offline advice, and a Chrome zero-day, plus a Barracuda gateway story and Patch Tuesday. The show notes contain mainly promotional and link text, so the detail is limited."
-    },
-    {
-      "show": "talkin-bout-infosec-news",
-      "title": "Local Chinese Model Seeks Nvidia Hardware – 2026-11-09",
-      "publishedAt": "2026-11-11T10:15:00.000Z",
-      "minutes": 71,
-      "url": "https://bhisnews.transistor.fm/episodes/local-chinese-model-seeks-nvidia-hardware-2026-11-09",
-      "ref": "talkin-bout-infosec-news-0",
-      "domains": [
-        "human"
-      ],
-      "summary": "The transcript is mostly casual chat about cars and an off-topic discussion, with no specific security news clearly covered."
+      "summary": "Covered a CISA KEV-linked AI agent attack via a Cisco flaw, the ScreenConnect MSP breaches, Fortinet patches, a Poland government platform shutdown and a railway data breach. Brief description only."
     }
-  ],
-  "quietCore": [
-    "cyberwire-daily",
-    "cybersecurity-today"
   ]
 }
