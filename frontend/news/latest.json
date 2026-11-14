@@ -1,31 +1,15 @@
 {
-  "date": "2026-11-13",
-  "generatedAt": "2026-11-13T08:36:42.673Z",
+  "date": "2026-11-14",
+  "generatedAt": "2026-11-14T08:37:59.365Z",
   "windowHours": 25,
-  "headline": "Nvidia CEO exits amid espionage probe; Microsoft 365 outage and Patch Tuesday fallout",
-  "overview": "Nvidia's chief executive Jensen Huang resigned after reports of a suspected Chinese intelligence link and a second undisclosed affair, with the CFO named interim chief. Separately, a global Microsoft 365 outage disrupted Exchange, Teams and SharePoint, while a heavy November Patch Tuesday and ScreenConnect and N-central exploitation kept security teams busy.",
+  "headline": "Microsoft 365 outage, Binance heist frozen, Checkpoint zero-day and N-central exploit",
+  "overview": "Today's shows cover a prolonged Microsoft 365 outage that was not caused by an attacker, a North Korean-linked cryptocurrency theft that authorities are working to freeze, and several actively exploited flaws in network and management products. Themes also include mobile malware pre-installed on cheap Android devices and the growing role of AI in fraud and vulnerability discovery.",
   "topStories": [
     {
-      "title": "Nvidia CEO Jensen Huang resigns",
-      "summary": "Huang left the chief executive and board roles after reports tied an Nvidia-linked Singaporean firm executive to a suspected Chinese intelligence operation and a further affair with an executive. CFO Colette Kress is interim CEO, and the company says an independent investigation continues. Shares fell sharply over the week.",
+      "title": "Microsoft 365 global outage",
+      "summary": "A prolonged outage disrupted Outlook, Teams and Copilot for over 20 hours. Microsoft says a cyber attack was not to blame; knock-on effects reached AI services and government and hospital systems.",
       "refs": [
-        "cybersecurity-today-0",
-        "ai-daily-brief-0",
-        "cyberwire-daily-0"
-      ],
-      "domains": [
-        "news",
-        "leadership",
-        "grc"
-      ]
-    },
-    {
-      "title": "Global Microsoft 365 outage",
-      "summary": "A worldwide disruption hit Exchange, Teams, SharePoint and Copilot after servers went offline and overloaded remaining infrastructure. Microsoft suspects configuration changes but had not confirmed a cause, and full service was not restored at the time of reporting.",
-      "refs": [
-        "cyber-security-headlines-0",
-        "sans-stormcast-0",
-        "cybersecurity-today-0"
+        "cyberwire-daily-1"
       ],
       "domains": [
         "cloud",
@@ -33,181 +17,167 @@
       ]
     },
     {
-      "title": "Patch Tuesday and urgent edge-device fixes",
-      "summary": "Microsoft fixed around 1,094 vulnerabilities including an actively exploited Outlook flaw leaking NTLMv2 hashes. Fortinet, Ivanti, Citrix and Zoom also shipped critical fixes, and Exchange 2016 and 2019 are no longer receiving security testing or patches.",
+      "title": "Binance cryptocurrency theft and North Korean deception campaigns",
+      "summary": "Authorities froze billions after a large Binance theft attributed to North Korean actors, while a separate campaign used deepfake video calls to steal over $400 million in crypto.",
       "refs": [
-        "cyberwire-daily-0",
-        "cyber-security-headlines-0"
+        "cyberwire-daily-1"
       ],
       "domains": [
-        "defensive",
-        "tvm"
-      ]
-    },
-    {
-      "title": "ScreenConnect and N-able N-central attacks on MSPs",
-      "summary": "Attackers used a third-party ScreenConnect extension to push rogue remote access software to hundreds of machines via MSP consoles, and ConnectWise disabled several extensions. Public exploit code has appeared for N-able N-central flaws, with advice to confirm legacy API settings are off.",
-      "refs": [
-        "sans-stormcast-0",
-        "daily-defsec-brief-0",
-        "cyberhub-0"
-      ],
-      "domains": [
-        "appsec",
-        "tvm",
-        "defensive"
-      ]
-    },
-    {
-      "title": "Suspected AI-driven espionage in Central Asia",
-      "summary": "A Kazakhstan-linked group reportedly used an open source AI agent to automate reconnaissance and data theft against Tajik, Uzbek and Turkmen government and infrastructure targets. Researchers say it lowers the barrier to large intrusions.",
-      "refs": [
-        "cyberwire-daily-0"
-      ],
-      "domains": [
-        "ai",
+        "news",
         "cti"
       ]
     },
     {
-      "title": "Ransomware affiliate operator identified",
-      "summary": "Investigators traced the leader of the Qilin ransomware affiliate program to a Russian individual through reused handles and leaked records, a case of operational security slips exposing a criminal identity.",
+      "title": "Actively exploited Check Point zero-day",
+      "summary": "Check Point patched a flaw that gives root on gateway appliances, used by attackers after an initial compromise and linked to wiper attacks against roughly two dozen customers.",
+      "refs": [
+        "cyberwire-daily-1",
+        "daily-defsec-brief-0"
+      ],
+      "domains": [
+        "defensive",
+        "hunting"
+      ]
+    },
+    {
+      "title": "N-able N-central zero-days and exploitation",
+      "summary": "Multiple N-able N-central zero-days were published by a researcher, prompting service takedowns; the Daily DefSec Brief reports attackers are now using an exploit against the hotfixed server and recommends disabling the legacy API.",
+      "refs": [
+        "cybersecurity-today-0",
+        "cyber-security-headlines-0",
+        "daily-defsec-brief-0"
+      ],
+      "domains": [
+        "appsec",
+        "defensive"
+      ]
+    },
+    {
+      "title": "Pre-installed malware on cheap Android devices",
+      "summary": "Research describes firmware-level malware shipped on low-cost Android phones that silently installs apps, clicks ads and enrols devices in a botnet, and cannot be removed by a factory reset.",
       "refs": [
         "cyberwire-daily-0"
       ],
       "domains": [
-        "cti",
+        "defensive",
         "news"
+      ]
+    },
+    {
+      "title": "AI-driven fraud and brand impersonation",
+      "summary": "Guests describe AI making fake websites, social accounts and ads cheap to produce, with more than a third of scam victims reportedly unwilling to buy again from the impersonated brand.",
+      "refs": [
+        "cybersecurity-today-0"
+      ],
+      "domains": [
+        "news",
+        "privacy"
       ]
     }
   ],
   "episodes": [
     {
       "show": "cyberwire-daily",
-      "title": "A patchwork of problems.",
-      "publishedAt": "2026-11-12T21:30:00.000Z",
-      "minutes": 28,
-      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2676/notes",
+      "title": "A little something extra comes preinstalled. [Research Saturday]",
+      "publishedAt": "2026-11-14T08:00:00.000Z",
+      "minutes": 19,
+      "url": "https://thecyberwire.com/podcasts/research-saturday/450/notes",
       "ref": "cyberwire-daily-0",
       "domains": [
-        "news",
-        "cti",
-        "ai",
-        "cloud"
+        "defensive",
+        "hunting"
       ],
       "core": true,
-      "summary": "Covered Patch Tuesday fixes, a Maersk legacy system incident, the Nvidia export probe, a US Army officer arrest in the UK, a Central Asia AI-agent espionage campaign, ransomware operator attribution, connected car app flaws, and a US Congress outlook interview with Tim Starks on cybersecurity legislation under incoming Democratic leadership."
+      "summary": "Research on firmware-level malware preinstalled on cheap Android devices, which runs hidden ad fraud and botnet activity and survives factory resets. Also covers the Google Play bypass the malware uses during installs."
+    },
+    {
+      "show": "cyberwire-daily",
+      "title": "Out of office, out of service.",
+      "publishedAt": "2026-11-13T21:30:00.000Z",
+      "minutes": 31,
+      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2677/notes",
+      "ref": "cyberwire-daily-1",
+      "domains": [
+        "cloud",
+        "cti",
+        "news",
+        "appsec"
+      ],
+      "core": true,
+      "summary": "Covers the Microsoft 365 outage, the Stingy Basilisk espionage group, the Binance theft and the FBI freeze, North Korean deepfake call fraud, Apple's secure enclaves, Operation Tor NATO arrests, the Check Point zero-day and the WFX Loot GitHub campaign."
     },
     {
       "show": "cyber-security-headlines",
-      "title": "Microsoft 365 outage, Bomb hoaxers in hijacked inboxes, Operation Endgame pulls malware plugs",
-      "publishedAt": "2026-11-13T08:00:00.000Z",
-      "minutes": 8,
-      "url": "https://cisoseries.libsyn.com/microsoft-365-outage-bomb-hoaxers-in-hijacked-inboxes-operation-endgame-pulls-malware-plugs",
+      "title": "The Department of Know: N-able's zero-days, Signal's formal verification, NHS post-breach fallout",
+      "publishedAt": "2026-11-13T22:18:00.000Z",
+      "minutes": 36,
+      "url": "https://cisoseries.libsyn.com/the-department-of-know-n-ables-zero-days-signals-formal-verification-nhs-post-breach-fallout",
       "ref": "cyber-security-headlines-0",
       "domains": [
-        "news",
-        "cloud",
-        "privacy"
+        "grc",
+        "leadership",
+        "ai",
+        "appsec"
       ],
       "core": true,
-      "summary": "Covered the Microsoft 365 outage, Exchange 2016 and 2019 no longer being patched, phishing via hijacked inboxes, Operation Endgame takedowns, Asian telecom interception by a suspected state group, Section 702 debate, and an outage at the Bricklink marketplace."
-    },
-    {
-      "show": "sans-stormcast",
-      "title": "SANS Stormcast Friday, November 13th, 2026: GPUStack Auth Bypass Scans (CVE-2026-102895); ConnectWise ScreenConnect Advisory; N-able N-central Exploits; Microsoft 365 Outage",
-      "publishedAt": "2026-11-13T02:00:03.000Z",
-      "minutes": 7,
-      "url": "https://isc.sans.edu/podcastdetail/10178",
-      "ref": "sans-stormcast-0",
-      "domains": [
-        "appsec",
-        "cloud",
-        "tvm"
-      ],
-      "core": true,
-      "summary": "Covered GPUStack authentication bypass attempts via spoofed headers, ConnectWise ScreenConnect advisory about third-party plugin compromises, public exploits for N-able N-central flaws, and the Microsoft 365 outage."
+      "summary": "Panel discussion on CISA leadership nomination, connected car account takeover flaws, OpenAI's security products, deepfake-based social engineering, N-able zero-day disclosure dispute, and formal verification of Signal's protocols."
     },
     {
       "show": "cybersecurity-today",
-      "title": "Jensen Huang Resigns as NVIDIA CEO | What Happens Next?",
-      "publishedAt": "2026-11-13T05:05:00.000Z",
-      "minutes": 14,
-      "url": "https://cybersecuritytoday.libsyn.com/jensen-huang-resigns-as-nvidia-ceo-what-happens-next",
+      "title": "AI Fraud is Breaking the Internet",
+      "publishedAt": "2026-11-14T01:00:00.000Z",
+      "minutes": 37,
+      "url": "https://cybersecuritytoday.libsyn.com/ai-fraud-is-breaking-the-internet",
       "ref": "cybersecurity-today-0",
       "domains": [
-        "news",
-        "leadership"
+        "privacy",
+        "news"
       ],
       "core": true,
-      "summary": "Special report on the Nvidia leadership change, tracing the Megaspeed and alleged intelligence allegations, the second affair, and the interim CEO appointment, plus brief coverage of Starlink restrictions for Ukraine and the Microsoft outage."
+      "summary": "Interview on AI-enabled fraud including fake sites, fake ads and poisoned AI chat results, with claims that scam victims rarely return to impersonated brands."
     },
     {
       "show": "ai-daily-brief",
-      "title": "Jensen Huang Is Out. Everything in AI Is Now Up for Grabs.",
-      "publishedAt": "2026-11-12T18:44:45.000Z",
-      "minutes": 30,
-      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/Jensen-Huang-Is-Out--Everything-in-AI-Is-Now-Up-for-Grabs-e3s9ioh",
+      "title": "Washington Is Taking Control of AI",
+      "publishedAt": "2026-11-13T19:59:53.000Z",
+      "minutes": 27,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/Washington-Is-Taking-Control-of-AI-e3sbe6r",
       "ref": "ai-daily-brief-0",
       "domains": [
         "ai",
-        "news",
-        "leadership"
-      ],
-      "core": true,
-      "summary": "Discussed Jensen Huang's departure from Nvidia, the sequence of allegations, speculation about who benefited, and implications for AI chip policy, open source and Nvidia's investments. Includes sponsor segments that were ignored."
-    },
-    {
-      "show": "click-here",
-      "title": "The hidden costs of wildlife surveillance",
-      "publishedAt": "2026-11-13T08:00:00.000Z",
-      "minutes": 16,
-      "url": "https://play.prx.org/listen?ge=prx_8376_b7601a43-e5ff-42a5-b77f-b5b1c886e0b0&uf=https%3A%2F%2Fpublicfeeds.net%2Ff%2F8376%2Fclickhere",
-      "ref": "click-here-0",
-      "domains": [
-        "privacy"
-      ],
-      "summary": "The episode notes discuss wildlife surveillance through cameras, drones and animal sensors. This is not a cyber security story and is outside the main focus of this briefing."
-    },
-    {
-      "show": "security-weekly",
-      "title": "Holes In Everything, Even SSH - PSW #952",
-      "publishedAt": "2026-11-12T22:00:00.000Z",
-      "minutes": 123,
-      "url": "https://pswonly.libsyn.com/holes-in-everything-even-ssh-psw-952",
-      "ref": "security-weekly-0",
-      "domains": [
-        "appsec",
         "news"
       ],
-      "summary": "Episode notes list a range of topics including SSH issues, SAP and Barracuda vulnerabilities, and AI identity concerns, but the content is a list of headlines only, so details are not confirmed here."
+      "core": true,
+      "summary": "Analysis of the political fallout from Jensen Huang's exit from Nvidia, the push for chip export controls in Congress, and questions over alleged chip smuggling."
+    },
+    {
+      "show": "security-weekly-news",
+      "title": "Googleglass, Microsoft, SignDrop, ConnectWise, Trezor, Dr. Zikel, Apache, Josh Marpet - SWN #633",
+      "publishedAt": "2026-11-13T22:00:00.000Z",
+      "minutes": 32,
+      "url": "https://hntvaudio.libsyn.com/googleglass-microsoft-signdrop-connectwise-trezor-dr-zikel-apache-josh-marpet-swn-633",
+      "ref": "security-weekly-news-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "Episode description only, listing topics such as Google Glass, Microsoft, SignDrop and ConnectWise; the notes provide no detail on the stories covered."
     },
     {
       "show": "daily-defsec-brief",
-      "title": "ScreenConnect MSP attack, new N-central exploits, GitHub secret stealer | Cyber Security News Nov 12",
-      "publishedAt": "2026-11-12T14:25:21.000Z",
+      "title": "N-central exploit in use, Check Point root flaw, old Exchange cutoff | Cyber Security News Nov 13",
+      "publishedAt": "2026-11-13T14:34:52.000Z",
       "minutes": 5,
       "url": "https://riverside.com",
       "ref": "daily-defsec-brief-0",
       "domains": [
         "defensive",
         "appsec",
-        "tvm"
+        "operations"
       ],
-      "summary": "Covered a ScreenConnect MSP attack using a third-party extension, new N-central exploit code, a GitHub secret-stealing campaign, an Apache HTTP/2 flaw, an exploited Cisco Broadworks flaw, Ivanti fixes, and GSocket persistence on Linux web servers."
-    },
-    {
-      "show": "cyberhub",
-      "title": "🚨 CISA KEV: AI Agent Hacked Telecom via Cisco Flaw, ScreenConnect Breaches MSPs, Fortinet 100 Patches",
-      "publishedAt": "2026-11-12T14:00:00.000Z",
-      "minutes": 20,
-      "url": "https://www.cyberhubpodcast.com",
-      "ref": "cyberhub-0",
-      "domains": [
-        "news",
-        "defensive"
-      ],
-      "summary": "Covered a CISA KEV-linked AI agent attack via a Cisco flaw, the ScreenConnect MSP breaches, Fortinet patches, a Poland government platform shutdown and a railway data breach. Brief description only."
+      "summary": "Covers N-central exploitation with a crypto miner, Check Point root flaw exploitation, Citrix NetScaler patches, a Red Hat Quay signing key issue, end of Exchange 2016 and 2019 support, and MCP server dependency risk."
     }
+  ],
+  "quietCore": [
+    "sans-stormcast"
   ]
 }
