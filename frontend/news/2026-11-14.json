@@ -1,0 +1,183 @@
+{
+  "date": "2026-11-14",
+  "generatedAt": "2026-11-14T08:37:59.365Z",
+  "windowHours": 25,
+  "headline": "Microsoft 365 outage, Binance heist frozen, Checkpoint zero-day and N-central exploit",
+  "overview": "Today's shows cover a prolonged Microsoft 365 outage that was not caused by an attacker, a North Korean-linked cryptocurrency theft that authorities are working to freeze, and several actively exploited flaws in network and management products. Themes also include mobile malware pre-installed on cheap Android devices and the growing role of AI in fraud and vulnerability discovery.",
+  "topStories": [
+    {
+      "title": "Microsoft 365 global outage",
+      "summary": "A prolonged outage disrupted Outlook, Teams and Copilot for over 20 hours. Microsoft says a cyber attack was not to blame; knock-on effects reached AI services and government and hospital systems.",
+      "refs": [
+        "cyberwire-daily-1"
+      ],
+      "domains": [
+        "cloud",
+        "operations"
+      ]
+    },
+    {
+      "title": "Binance cryptocurrency theft and North Korean deception campaigns",
+      "summary": "Authorities froze billions after a large Binance theft attributed to North Korean actors, while a separate campaign used deepfake video calls to steal over $400 million in crypto.",
+      "refs": [
+        "cyberwire-daily-1"
+      ],
+      "domains": [
+        "news",
+        "cti"
+      ]
+    },
+    {
+      "title": "Actively exploited Check Point zero-day",
+      "summary": "Check Point patched a flaw that gives root on gateway appliances, used by attackers after an initial compromise and linked to wiper attacks against roughly two dozen customers.",
+      "refs": [
+        "cyberwire-daily-1",
+        "daily-defsec-brief-0"
+      ],
+      "domains": [
+        "defensive",
+        "hunting"
+      ]
+    },
+    {
+      "title": "N-able N-central zero-days and exploitation",
+      "summary": "Multiple N-able N-central zero-days were published by a researcher, prompting service takedowns; the Daily DefSec Brief reports attackers are now using an exploit against the hotfixed server and recommends disabling the legacy API.",
+      "refs": [
+        "cybersecurity-today-0",
+        "cyber-security-headlines-0",
+        "daily-defsec-brief-0"
+      ],
+      "domains": [
+        "appsec",
+        "defensive"
+      ]
+    },
+    {
+      "title": "Pre-installed malware on cheap Android devices",
+      "summary": "Research describes firmware-level malware shipped on low-cost Android phones that silently installs apps, clicks ads and enrols devices in a botnet, and cannot be removed by a factory reset.",
+      "refs": [
+        "cyberwire-daily-0"
+      ],
+      "domains": [
+        "defensive",
+        "news"
+      ]
+    },
+    {
+      "title": "AI-driven fraud and brand impersonation",
+      "summary": "Guests describe AI making fake websites, social accounts and ads cheap to produce, with more than a third of scam victims reportedly unwilling to buy again from the impersonated brand.",
+      "refs": [
+        "cybersecurity-today-0"
+      ],
+      "domains": [
+        "news",
+        "privacy"
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "show": "cyberwire-daily",
+      "title": "A little something extra comes preinstalled. [Research Saturday]",
+      "publishedAt": "2026-11-14T08:00:00.000Z",
+      "minutes": 19,
+      "url": "https://thecyberwire.com/podcasts/research-saturday/450/notes",
+      "ref": "cyberwire-daily-0",
+      "domains": [
+        "defensive",
+        "hunting"
+      ],
+      "core": true,
+      "summary": "Research on firmware-level malware preinstalled on cheap Android devices, which runs hidden ad fraud and botnet activity and survives factory resets. Also covers the Google Play bypass the malware uses during installs."
+    },
+    {
+      "show": "cyberwire-daily",
+      "title": "Out of office, out of service.",
+      "publishedAt": "2026-11-13T21:30:00.000Z",
+      "minutes": 31,
+      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2677/notes",
+      "ref": "cyberwire-daily-1",
+      "domains": [
+        "cloud",
+        "cti",
+        "news",
+        "appsec"
+      ],
+      "core": true,
+      "summary": "Covers the Microsoft 365 outage, the Stingy Basilisk espionage group, the Binance theft and the FBI freeze, North Korean deepfake call fraud, Apple's secure enclaves, Operation Tor NATO arrests, the Check Point zero-day and the WFX Loot GitHub campaign."
+    },
+    {
+      "show": "cyber-security-headlines",
+      "title": "The Department of Know: N-able's zero-days, Signal's formal verification, NHS post-breach fallout",
+      "publishedAt": "2026-11-13T22:18:00.000Z",
+      "minutes": 36,
+      "url": "https://cisoseries.libsyn.com/the-department-of-know-n-ables-zero-days-signals-formal-verification-nhs-post-breach-fallout",
+      "ref": "cyber-security-headlines-0",
+      "domains": [
+        "grc",
+        "leadership",
+        "ai",
+        "appsec"
+      ],
+      "core": true,
+      "summary": "Panel discussion on CISA leadership nomination, connected car account takeover flaws, OpenAI's security products, deepfake-based social engineering, N-able zero-day disclosure dispute, and formal verification of Signal's protocols."
+    },
+    {
+      "show": "cybersecurity-today",
+      "title": "AI Fraud is Breaking the Internet",
+      "publishedAt": "2026-11-14T01:00:00.000Z",
+      "minutes": 37,
+      "url": "https://cybersecuritytoday.libsyn.com/ai-fraud-is-breaking-the-internet",
+      "ref": "cybersecurity-today-0",
+      "domains": [
+        "privacy",
+        "news"
+      ],
+      "core": true,
+      "summary": "Interview on AI-enabled fraud including fake sites, fake ads and poisoned AI chat results, with claims that scam victims rarely return to impersonated brands."
+    },
+    {
+      "show": "ai-daily-brief",
+      "title": "Washington Is Taking Control of AI",
+      "publishedAt": "2026-11-13T19:59:53.000Z",
+      "minutes": 27,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/Washington-Is-Taking-Control-of-AI-e3sbe6r",
+      "ref": "ai-daily-brief-0",
+      "domains": [
+        "ai",
+        "news"
+      ],
+      "core": true,
+      "summary": "Analysis of the political fallout from Jensen Huang's exit from Nvidia, the push for chip export controls in Congress, and questions over alleged chip smuggling."
+    },
+    {
+      "show": "security-weekly-news",
+      "title": "Googleglass, Microsoft, SignDrop, ConnectWise, Trezor, Dr. Zikel, Apache, Josh Marpet - SWN #633",
+      "publishedAt": "2026-11-13T22:00:00.000Z",
+      "minutes": 32,
+      "url": "https://hntvaudio.libsyn.com/googleglass-microsoft-signdrop-connectwise-trezor-dr-zikel-apache-josh-marpet-swn-633",
+      "ref": "security-weekly-news-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "Episode description only, listing topics such as Google Glass, Microsoft, SignDrop and ConnectWise; the notes provide no detail on the stories covered."
+    },
+    {
+      "show": "daily-defsec-brief",
+      "title": "N-central exploit in use, Check Point root flaw, old Exchange cutoff | Cyber Security News Nov 13",
+      "publishedAt": "2026-11-13T14:34:52.000Z",
+      "minutes": 5,
+      "url": "https://riverside.com",
+      "ref": "daily-defsec-brief-0",
+      "domains": [
+        "defensive",
+        "appsec",
+        "operations"
+      ],
+      "summary": "Covers N-central exploitation with a crypto miner, Check Point root flaw exploitation, Citrix NetScaler patches, a Red Hat Quay signing key issue, end of Exchange 2016 and 2019 support, and MCP server dependency risk."
+    }
+  ],
+  "quietCore": [
+    "sans-stormcast"
+  ]
+}
