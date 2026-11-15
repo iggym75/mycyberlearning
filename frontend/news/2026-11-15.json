@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-15",
+  "generatedAt": "2026-11-15T08:34:30.298Z",
+  "windowHours": 24,
+  "headline": "Software safety accountability and satellite API attacks dominate today's briefing",
+  "overview": "Today's CyberWire special edition examines whether software makers should carry more responsibility for insecure products, with a new nonprofit arguing that incentives and visibility need to change. The companion T-Minus episode covers space cyber, where a demo showed an AI platform rapidly exploiting ground segment API weaknesses to destabilise a satellite.",
+  "topStories": [
+    {
+      "title": "A new nonprofit wants software makers held more accountable",
+      "summary": "The Software Safety Institute, founded by two former CISA Secure by Design leaders, argues that vendors rather than only customers should bear responsibility for insecure products.",
+      "refs": [
+        "cyberwire-daily-0"
+      ],
+      "domains": [
+        "grc",
+        "leadership",
+        "appsec"
+      ]
+    },
+    {
+      "title": "AI-driven attacks show satellite control systems are vulnerable",
+      "summary": "At a CyberSat keynote, an offensive AI platform was shown identifying vulnerable ground segment APIs and taking control of a satellite, sending it into an uncontrolled spin. The guest, Alyssa Knight, stressed authorisation flaws, poor microsegmentation, legacy software that is hard to patch, and the need to shift security left in development.",
+      "refs": [
+        "cyberwire-daily-1"
+      ],
+      "domains": [
+        "offensive",
+        "ai",
+        "defensive"
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "show": "cyberwire-daily",
+      "title": "Making software safer: Introducing the Software Safety Institute. [Special Edition]",
+      "publishedAt": "2026-11-15T06:00:00.000Z",
+      "minutes": 33,
+      "url": "https://thecyberwire.com/podcasts/special-edition/111/notes",
+      "ref": "cyberwire-daily-0",
+      "domains": [
+        "grc",
+        "leadership",
+        "appsec"
+      ],
+      "core": true,
+      "summary": "A special edition on the launch of the Software Safety Institute, a nonprofit aiming to reduce preventable harm from insecure software by shifting responsibility toward manufacturers. The conversation covers historical parallels with car safety, the persistence of common vulnerability classes, incentive problems, and reverse engineering restrictions in software licences."
+    },
+    {
+      "show": "cyberwire-daily",
+      "title": "Satellite hacking enters the AI era. [T-Minus: Space-Cyber Briefing]",
+      "publishedAt": "2026-11-15T06:00:00.000Z",
+      "minutes": 34,
+      "url": "https://thecyberwire.com/podcasts/tminus-space-cyber-briefing/733/notes",
+      "ref": "cyberwire-daily-1",
+      "domains": [
+        "offensive",
+        "ai",
+        "defensive"
+      ],
+      "core": true,
+      "summary": "An episode of the space cyber briefing featuring an interview with a hacker turned CEO about satellite security. It describes an AI-driven demonstration of satellite hijacking via API flaws, the risks of quantum decryption to satellite links, and defensive advice around segmentation and zero trust. The episode also includes sponsor messages, which are not summarised here."
+    }
+  ],
+  "quietCore": [
+    "cyber-security-headlines",
+    "sans-stormcast",
+    "cybersecurity-today",
+    "ai-daily-brief"
+  ]
+}
