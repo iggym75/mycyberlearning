@@ -111,3 +111,26 @@ export async function submit(req, env) {
   ).run();
   return json(202, { ok: true });
 }
+
+// POST /api/reports { id, reason, link?, note? }: a visitor flags a dead or wrong link, or out-of-date details.
+// Stores no IP or identifier (the rate limit is in memory only); the same open problem just raises its count.
+export const REPORT_REASONS = ["dead", "wrong", "details", "other"];
+export const REPORT_LINKS = ["web", "apple", "spotify", "amazon", "youtube", "twitch", "rss", "isbn", ...SOCIAL_FIELDS];
+export async function report(req, env) {
+  if (rateLimited("rep:" + clientIp(req), 10, 3_600_000)) return json(429, { error: "You've sent several reports already. Thanks! Please try again later." });
+  if (!(req.headers.get("content-type") || "").toLowerCase().startsWith("application/json")) return json(415, { error: "Send JSON." });
+  let b; try { b = await req.json(); } catch { return json(400, { error: "Invalid request." }); }
+  if (b.website_url_confirm) return json(200, { ok: true }); // honeypot field for bots
+  const id = clean(b.id, 100), reason = REPORT_REASONS.includes(b.reason) ? b.reason : null;
+  const link = REPORT_LINKS.includes(b.link) ? b.link : null, note = clean(b.note, 500) || null;
+  if (!id || !reason) return json(400, { error: "Choose what's wrong." });
+  if (reason === "other" && !note) return json(400, { error: "Tell us briefly what's wrong." });
+  const row = await getItemRow(env.DB, id);
+  if (!row || row.hidden) return json(404, { error: "That resource no longer exists." });
+  const now = new Date().toISOString();
+  const same = await env.DB.prepare("SELECT id FROM reports WHERE item_id = ? AND reason = ? AND COALESCE(link, '') = ? AND status = 'open'").bind(id, reason, link || "").first();
+  if (same) await env.DB.prepare("UPDATE reports SET count = count + 1, updated = ?, note = CASE WHEN ? IS NULL THEN note WHEN note IS NULL THEN ? ELSE substr(note || char(10) || ?, 1, 1500) END WHERE id = ?")
+    .bind(now, note, note, note, same.id).run();
+  else await env.DB.prepare("INSERT INTO reports (item_id, reason, link, note, created, updated) VALUES (?, ?, ?, ?, ?, ?)").bind(id, reason, link, note, now, now).run();
+  return json(200, { ok: true });
+}
