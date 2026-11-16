@@ -5,6 +5,7 @@
 import { readFile, writeFile, mkdir, copyFile, rm } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildSitePages } from "./site-pages.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const tpl = await readFile(join(root, "frontend/index.template.html"), "utf8");
@@ -43,5 +44,6 @@ if (bareIdx > -1) {
     await cp(join(root, "frontend/covers"), join(root, "frontend/dist/covers"), { recursive: true });
   if (await access(join(root, "frontend/news")).then(() => true, () => false))
     await cp(join(root, "frontend/news"), join(root, "frontend/dist/news"), { recursive: true, filter: src => !src.endsWith("preview.html") });
-  console.log("wrote frontend/dist/index.html");
+  const pages = await buildSitePages(join(root, "frontend/dist"), catalogue, taxonomy); // search-friendly pages, sitemap.xml, robots.txt
+  console.log(`wrote frontend/dist/index.html and ${pages - 1} search-friendly pages`);
 }
