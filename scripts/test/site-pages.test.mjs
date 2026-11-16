@@ -24,7 +24,7 @@ test("site pages: escaped, only http links, hidden items left out, sitemap and r
     assert.ok(!pod.includes("javascript:"), "non-http links are dropped");
     assert.ok(pod.includes('href="https://podcasts.apple.com/x"'));
     assert.ok(pod.includes('<link rel="canonical" href="https://mycyberlearning.co.uk/podcasts/evil-show/">'));
-    const ld = pod.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g).map(s => JSON.parse(s.replace(/^<script[^>]*>|<\/script>$/g, "")));
+    const open = '<script type="application/ld+json">', ld = pod.split(open).slice(1).map(part => JSON.parse(part.slice(0, part.indexOf("</" + "script>"))));
     assert.ok(ld.some(o => o["@type"] === "PodcastSeries" && o.name.startsWith("Evil")), "structured data parses");
     const sitemap = await readFile(join(dir, "sitemap.xml"), "utf8");
     assert.ok(sitemap.includes("/books/good-book/") && sitemap.includes("/topics/cloud/") && !sitemap.includes("secret"));
