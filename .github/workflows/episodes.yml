@@ -1,0 +1,31 @@
+name: Daily episode check
+
+# Reads every podcast's feed and updates its latest episode, frequency and status in the live database.
+# Light and quick: no artwork, ratings, links or tags (those stay in the weekly refresh). The site reads
+# the database directly, so nothing needs committing or deploying; the weekly refresh snapshots it.
+on:
+  schedule:
+    - cron: "43 5 * * *"   # every day 05:43 UTC, before the 08:30 briefing
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency: { group: refresh, cancel-in-progress: false }
+
+jobs:
+  episodes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { persist-credentials: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm install --no-audit --no-fund --ignore-scripts --omit=dev
+      - name: Update latest episodes
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_DATABASE_ID: ${{ vars.D1_DATABASE_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_D1_TOKEN }}
+        run: node scripts/refresh.mjs --episodes
