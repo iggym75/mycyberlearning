@@ -12,7 +12,7 @@
   --ink:#0f1c2e; --ink-2:#4a5668; --ink-3:#6c7789;
   --signal:#0b7a75; --signal-ink:#ffffff; --signal-soft:#d5ecea;
   --pick:#b4690e; --pick-soft:#f6e6cf;
-  --up:#1f7a3a; --down:#b3321f;
+  --up:#1f7a3a; --down:#b3321f; --flag:#d0281f; --flag-soft:#fde7e5;
   --shadow:0 1px 2px rgba(15,28,46,.06),0 6px 20px -12px rgba(15,28,46,.25);
   --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
   --f-body:"IBM Plex Sans","Segoe UI",system-ui,-apple-system,sans-serif;
@@ -24,7 +24,7 @@
   --ink:#e6ebf2; --ink-2:#a7b2c2; --ink-3:#7f8b9c;
   --signal:#3cc0b6; --signal-ink:#06201e; --signal-soft:#123533;
   --pick:#e5a24a; --pick-soft:#3a2a14;
-  --up:#5fcf7f; --down:#ff8a75;
+  --up:#5fcf7f; --down:#ff8a75; --flag:#ff6b5e; --flag-soft:#3a1714;
   --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -14px rgba(0,0,0,.6);
   color-scheme:dark}}
 :root[data-theme="dark"]{
@@ -32,7 +32,7 @@
   --ink:#e6ebf2; --ink-2:#a7b2c2; --ink-3:#7f8b9c;
   --signal:#3cc0b6; --signal-ink:#06201e; --signal-soft:#123533;
   --pick:#e5a24a; --pick-soft:#3a2a14;
-  --up:#5fcf7f; --down:#ff8a75;
+  --up:#5fcf7f; --down:#ff8a75; --flag:#ff6b5e; --flag-soft:#3a1714;
   --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -14px rgba(0,0,0,.6);
   color-scheme:dark}
 *{box-sizing:border-box}
@@ -77,6 +77,15 @@ body:not([data-type="all"]) .intro .home-only,body:not([data-type="all"]) .intro
 body:not([data-type="all"]) .intro{padding-block:18px 4px}
 .stats{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-family:var(--f-mono);font-size:12.5px;color:var(--ink-3)}
 .stats b{color:var(--ink);font-weight:500}
+@media (min-width:980px){
+  body[data-type="all"] .intro{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,1fr);grid-template-areas:"note note" "acct acct" "h1 stats" "p stats";column-gap:56px;row-gap:0;align-items:center;padding-block:40px 20px}
+  body[data-type="all"] .intro #introNote{grid-area:note} body[data-type="all"] .intro #acctPanel{grid-area:acct;margin-bottom:12px}
+  body[data-type="all"] .intro h1{grid-area:h1;align-self:end;max-width:none;font-size:clamp(36px,3.6vw,52px)}
+  body[data-type="all"] .intro p.home-only{grid-area:p;align-self:start;font-size:16.5px;line-height:1.6}
+  body[data-type="all"] .intro .stats{grid-area:stats;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-self:center}
+  body[data-type="all"] .intro .stats span{display:flex;flex-direction:column;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+  body[data-type="all"] .intro .stats b{font-family:var(--f-display);font-weight:800;font-size:30px;line-height:1.05;letter-spacing:-.01em;text-transform:none;color:var(--signal);font-variant-numeric:tabular-nums}
+}
 
 /* Main grid */
 .main{display:grid;grid-template-columns:272px minmax(0,1fr);gap:28px;padding-block:18px 64px}
@@ -193,8 +202,8 @@ button.logo:hover .zoom-hint,button.logo:focus-visible .zoom-hint{opacity:1}
 .vote button[aria-pressed="true"].up{color:var(--up)}
 .vote button[aria-pressed="true"].down{color:var(--down)}
 .vote button[aria-pressed="true"] svg :is(path,rect){fill:currentColor;fill-opacity:.22}
-.report-btn{border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink-3);width:34px;height:30px;display:grid;place-items:center;cursor:pointer;padding:0}
-.report-btn:hover{background:var(--sunk);color:var(--ink)}
+.report-btn{border:1px solid color-mix(in srgb,var(--flag) 45%,var(--line));border-radius:999px;background:var(--surface);color:var(--flag);width:36px;height:32px;display:grid;place-items:center;cursor:pointer;padding:0}
+.report-btn:hover{background:var(--flag-soft);border-color:var(--flag)}
 .report-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .rep-reasons{display:grid;gap:6px;margin:0;padding:0;border:0}
 .rep-reasons label{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;cursor:pointer}
@@ -873,7 +882,7 @@ let myVotes = store.get("myVotes", {});
 
 /* ---------- Rendering helpers ---------- */
 const ICONS = {
-  flag:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg>',
+  flag:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4 2.5 4H5z" fill="currentColor"/></svg>',
   apple:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg>',
   spotify:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M7 9.5c3.5-1 7-.6 10 1M7.5 12.8c2.8-.7 5.6-.4 8 .9M8 16c2.2-.5 4.3-.3 6.2.7"/></svg>',
   amazon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg>',
