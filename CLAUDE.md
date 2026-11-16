@@ -7,6 +7,7 @@ A curated library of cybersecurity podcasts, books and learning platforms (labs,
 
 ## Layout
 - `frontend/index.template.html` — the whole UI (vanilla HTML/CSS/JS, no framework). `/*__SEED__*/` is replaced at build time with the catalogue for offline/demo fallback.
+- `scripts/site-pages.mjs` — search-friendly static pages built with the site: one per item (`/podcasts/<slug>/`, `/books/`, `/platforms/`, `/experts/`), section and topic pages (`/topics/<domain>/`), `sitemap.xml` and `robots.txt`. Plain HTML, no scripts; escape every value, only http(s) links; hidden items get no page; Commons photos keep their credit. Built from `data/catalogue.json`, so they refresh with each deploy (the weekly refresh commits a new snapshot).
 - `scripts/build-frontend.mjs` — builds `frontend/dist/` (and syncs `data/taxonomy.json` into `worker/src/lib/`). `scripts/d1.mjs` — D1 over HTTPS for scripts, or local SQLite (`D1_LOCAL_FILE`) for tests.
 - `worker/` — Cloudflare Worker (ESM, no runtime npm deps): `src/index.js` routes `/api/*`, `/auth/*`, `/admin`; everything else is static assets from `frontend/dist`. `src/lib/` has D1 helpers, email/tokens, validation and Claude tagging. Schema in `worker/migrations/`; config in `wrangler.jsonc`.
 - `data/taxonomy.json` — the domain (with a `hue` for its colour), frequency, level, platform-kind and cost lists. Single source of truth; never hard-code domains elsewhere.
