@@ -193,6 +193,12 @@ button.logo:hover .zoom-hint,button.logo:focus-visible .zoom-hint{opacity:1}
 .vote button[aria-pressed="true"].up{color:var(--up)}
 .vote button[aria-pressed="true"].down{color:var(--down)}
 .vote button[aria-pressed="true"] svg :is(path,rect){fill:currentColor;fill-opacity:.22}
+.report-btn{border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink-3);width:34px;height:30px;display:grid;place-items:center;cursor:pointer;padding:0}
+.report-btn:hover{background:var(--sunk);color:var(--ink)}
+.report-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.rep-reasons{display:grid;gap:6px;margin:0;padding:0;border:0}
+.rep-reasons label{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;cursor:pointer}
+.rep-reasons input{margin-top:3px}
 .vote output{font-family:var(--f-mono);font-size:13px;min-width:3ch;text-align:center;font-variant-numeric:tabular-nums}
 /* Platform links: coloured, labelled chips. Colours are darkened for contrast on white and lightened for dark mode.
    Search fallbacks (no direct link stored) stay grey with a dotted border. Phones keep the labels (the icons alone
@@ -446,6 +452,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
       <select id="sort">
         <option value="official">Official rating</option>
         <option value="community">Community votes</option>
+        <option value="latest" id="sortLatest">Latest episode (podcasts)</option>
         <option value="popular">Most rated (platform)</option>
         <option value="newest">Newest launch</option>
         <option value="oldest">Longest running</option>
@@ -545,6 +552,28 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
   </form>
 </dialog>
 
+<!-- Report a problem -->
+<dialog id="reportDlg" aria-labelledby="repTitle">
+  <form id="reportForm" novalidate>
+    <div class="dlg-h"><h2 id="repTitle">Report a problem</h2><button class="btn ghost sm" type="button" data-close>Close</button></div>
+    <div class="dlg-b">
+      <p class="note" style="margin:0" id="repWhat"></p>
+      <fieldset class="rep-reasons"><legend class="lbl" style="margin-bottom:4px">What's wrong?</legend>
+        <label><input type="radio" name="r_reason" value="dead" id="r_dead" checked> A link doesn't work</label>
+        <label><input type="radio" name="r_reason" value="wrong" id="r_wrong"> A link goes to the wrong place</label>
+        <label><input type="radio" name="r_reason" value="details" id="r_details"> Details are wrong or out of date</label>
+        <label><input type="radio" name="r_reason" value="other" id="r_other"> Something else</label>
+      </fieldset>
+      <div class="field" id="r_linkField"><label for="r_link">Which link? (optional)</label><select id="r_link"></select></div>
+      <div class="field"><label for="r_note">Anything else we should know? (optional)</label><textarea id="r_note" maxlength="500" rows="3" placeholder="For example, the correct link"></textarea></div>
+      <input type="text" id="r_hp" name="website_url_confirm" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+      <p class="muted" style="font-size:12.5px;margin:0">We don't store anything that identifies you. Please don't include personal details.</p>
+      <p class="err" id="reportErr" hidden></p>
+    </div>
+    <div class="dlg-f"><button class="btn" type="button" data-close>Cancel</button><button class="btn primary" type="submit">Send report</button></div>
+  </form>
+</dialog>
+
 <!-- Admin dialog -->
 <dialog id="adminDlg" aria-labelledby="adminTitle">
   <div class="dlg-h"><h2 id="adminTitle">Review queue</h2><button class="btn ghost sm" type="button" data-close>Close</button></div>
@@ -629,6 +658,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
       <li>If your browser sends Global Privacy Control or Do Not Track, we don't count you at all.</li>
       <li>Browsing the site sets no cookies of our own. See <i>Cookies and browser storage</i> below for the few we use when you sign in.</li>
       <li>Votes are remembered with a random number stored in your browser; on our servers it is kept only as a one-way hash.</li>
+      <li>If you report a problem with a resource, we keep only which resource, what's wrong, which link and any note you add. Nothing that identifies you is stored. Reports are deleted 90 days after they're dealt with.</li>
       <li>If you suggest a resource, we keep a one-way hash of your IP address to stop spam, and any email you add is used only to ask about that suggestion. Both are deleted once the suggestion is reviewed, or after 90 days.</li>
     </ul>
     <h3>My list accounts</h3>
@@ -770,6 +800,22 @@ const api = {
     }
     const q = store.get("queue", []); q.push({...payload, id:"sub-"+Date.now(), submitted:new Date().toISOString()}); store.set("queue", q);
   },
+  async report(r){
+    if (this.remote){
+      const res = await fetch("/api/reports", {method:"POST", headers:{"content-type":"application/json"}, body:JSON.stringify(r)});
+      if (!res.ok) throw new Error((await res.json().catch(()=>({}))).error || "Couldn't send the report. Please try again.");
+      return;
+    }
+    const q = store.get("reports", []); const it = ITEMS.find(x=>x.id===r.id)||{}; q.push({...r, itemId:r.id, id:Date.now(), count:1, name:it.name||r.id, type:it.type, created:new Date().toISOString()}); store.set("reports", q);
+  },
+  async reports(){
+    if (this.remote){ const r = await fetch("/api/admin/reports"); return r.ok ? (await r.json()).reports : []; }
+    return store.get("reports", []);
+  },
+  async closeReport(id, status){
+    if (this.remote){ await fetch(`/api/admin/reports/${encodeURIComponent(id)}`, {method:"POST", headers:{"content-type":"application/json"}, body:JSON.stringify({status})}); return; }
+    store.set("reports", store.get("reports", []).filter(r => String(r.id) !== String(id)));
+  },
   async queue(){ return this.remote ? (await (await fetch("/api/admin/submissions")).json()).items : store.get("queue", []); },
   async decide(sub, approve){
     if (this.remote){ await fetch(`/api/admin/submissions/${encodeURIComponent(sub.id)}`, {method:"POST", headers:{"content-type":"application/json"}, body:JSON.stringify({approve})}); return; }
@@ -827,6 +873,7 @@ let myVotes = store.get("myVotes", {});
 
 /* ---------- Rendering helpers ---------- */
 const ICONS = {
+  flag:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg>',
   apple:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg>',
   spotify:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M7 9.5c3.5-1 7-.6 10 1M7.5 12.8c2.8-.7 5.6-.4 8 .9M8 16c2.2-.5 4.3-.3 6.2.7"/></svg>',
   amazon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg>',
@@ -982,7 +1029,7 @@ function card(i){
       <div style="grid-column:1/-1"><dt>Official rating <span style="text-transform:none;letter-spacing:0">(platforms combined)</span></dt><dd>${rating}</dd></div>
     </dl>
     <div class="foot">
-      ${voteBox(i, c, mv)}
+      ${voteBox(i, c, mv)}${reportBtn(i)}
       <div class="links">${platLinks(i)}</div>
     </div>
     ${adminRow(i)}
@@ -995,6 +1042,7 @@ const COST = Object.fromEntries(TAX.costs.map(c => [c.key, c]));
 function adminRow(i){
   return api.isAdmin ? `<div class="admin-row"><button class="btn sm" type="button" data-curate aria-pressed="${!!i.curator}">${i.curator?"★ MCL Pick":"☆ Make MCL Pick"}</button><button class="btn sm" type="button" data-edit>Edit</button><button class="btn sm" type="button" data-hide>${i.hidden?"Unhide":"Hide"}</button><button class="btn sm danger" type="button" data-del>Delete</button></div>` : "";
 }
+function reportBtn(i){ return `<button type="button" class="report-btn" data-report title="Report a dead or wrong link" aria-label="Report a problem with ${esc(i.name)}">${ICONS.flag}</button>`; }
 function voteBox(i, c, mv){
   return `<div class="vote" role="group" aria-label="Community vote for ${esc(i.name)}">
         <button type="button" class="up" data-vote="1" aria-pressed="${mv===1}" aria-label="Thumbs up">${ICONS.up}</button>
@@ -1012,7 +1060,7 @@ function platformCard(i, tags, c, mv){
     <p class="desc">${esc(i.desc)}</p>
     <div class="tags">${tags}</div>
     <div class="foot">
-      ${voteBox(i, c, mv)}
+      ${voteBox(i, c, mv)}${reportBtn(i)}
       <div class="links">${platLinks(i)}</div>
     </div>
     ${adminRow(i)}
@@ -1029,7 +1077,7 @@ function personCard(i, tags, c, mv){
     <p class="desc">${esc(i.desc)}</p>
     <div class="tags">${tags}</div>
     <div class="foot">
-      ${voteBox(i, c, mv)}
+      ${voteBox(i, c, mv)}${reportBtn(i)}
       <div class="links">${platLinks(i)}</div>
     </div>
     ${adminRow(i)}
@@ -1344,10 +1392,13 @@ function filtered(){
   }).sort((a,b) => {
     const tie = a.name.localeCompare(b.name);
     if (state.type==="mine" && isNew(a)!==isNew(b)) return isNew(b)-isNew(a);
-    switch(state.sort){
+    switch(state.sort==="latest" && !["all","podcast","mine"].includes(state.type) ? "official" : state.sort){
       case "official": return ((b.rating?.v??-1)-(a.rating?.v??-1)) || ((b.rating?.n??0)-(a.rating?.n??0)) || (b.curator-a.curator) || tie;
       case "popular": return ((b.rating?.n??-1)-(a.rating?.n??-1)) || tie;
       case "community": return (score(b.community)-score(a.community)) || ((b.community?.up||0)-(a.community?.up||0)) || tie;
+      case "latest": { // newest episode first; upcoming (future-dated) episodes count as today; no date goes last
+        const today = new Date().toISOString().slice(0,10), d = x => x.type==="podcast" && x.lastEpisode ? (String(x.lastEpisode).slice(0,10) > today ? today : String(x.lastEpisode).slice(0,10)) : "";
+        return d(b).localeCompare(d(a)) || tie; }
       case "newest": return (String(b.launched||b.published||"0")).localeCompare(String(a.launched||a.published||"0")) || tie;
       case "oldest": return (String(a.launched||a.published||"9999")).localeCompare(String(b.launched||b.published||"9999")) || tie;
       default: return tie;
@@ -1394,6 +1445,8 @@ function render(){
   $("#count").textContent = state.type==="mine" ? `${list.length} of ${FAV.list.size} saved` : `${list.length} of ${ITEMS.filter(i=>!i.hidden||api.isAdmin).length} resources`;
   $("#closeFilters").textContent = list.length ? `Show ${list.length} result${list.length===1?"":"s"}` : "No matches: close";
   syncNav();
+  { const showLatest = ["all","podcast","mine"].includes(state.type); $("#sortLatest").hidden = !showLatest; $("#sortLatest").disabled = !showLatest;
+    $("#sort").value = state.sort==="latest" && !showLatest ? "official" : state.sort; } // books, platforms and experts have no episodes
   const act = [...(state.picks?[["picks","on","MCL Picks"]]:[]), ...state.domains.map(d=>["domain",d,DOM[d]?.label]), ...state.freqs.map(f=>["freq",f,FREQ[f]?.label]), ...state.levels.map(l=>["level",l,l]), ...state.publishers.map(p=>["pub",p,p]), ...state.kinds.map(k=>["kind",k,KIND[k]?.label]), ...state.costs.map(k=>["cost",k,COST[k]?.label]), ...state.socials.map(k=>["social",k,"On "+(SOCIALS.find(x=>x.key===k)?.label||k)])];
   const anyFilter = act.length > 0 || state.q.trim() !== "";
   $("#clearAll").disabled = !anyFilter;
@@ -1571,11 +1624,53 @@ $("#submitForm").addEventListener("submit", async e => {
   catch(err){ $("#submitErr").textContent = err.message; $("#submitErr").hidden=false; }
 });
 
+/* ---------- Report a problem ---------- */
+const LINK_LABEL = {web:"Website", apple:"Apple Podcasts", spotify:"Spotify", amazon:"Amazon Music", youtube:"YouTube", twitch:"Twitch", rss:"RSS feed", isbn:"Book links (Open Library, Goodreads)",
+  x:"X", bluesky:"Bluesky", mastodon:"Mastodon", linkedin:"LinkedIn", github:"GitHub", medium:"Medium", discord:"Discord"};
+let reporting = null;
+$("#grid").addEventListener("click", e => {
+  const b = e.target.closest("[data-report]"); if (!b) return;
+  reporting = ITEMS.find(x => x.id === b.closest(".card")?.dataset.id); if (!reporting) return;
+  $("#repWhat").textContent = `${TYPE_LABEL[reporting.type] || "Resource"}: ${reporting.name}`;
+  const links = Object.keys(LINK_LABEL).filter(k => reporting[k]);
+  $("#r_link").innerHTML = `<option value="">Not sure, or not about a link</option>` + links.map(k => `<option value="${k}">${esc(LINK_LABEL[k])}</option>`).join("");
+  $("#r_linkField").hidden = !links.length;
+  $("#reportForm").reset(); $("#reportErr").hidden = true; $("#reportDlg").showModal();
+});
+$("#reportForm").addEventListener("submit", async e => {
+  e.preventDefault(); if (!reporting) return;
+  const reason = $("#reportForm").querySelector("[name=r_reason]:checked")?.value || "dead", note = $("#r_note").value.trim();
+  if (reason === "other" && !note){ $("#reportErr").textContent = "Tell us briefly what's wrong."; $("#reportErr").hidden = false; return; }
+  const btn = e.submitter; if (btn) btn.disabled = true;
+  try { await api.report({id:reporting.id, reason, link:$("#r_link").value || undefined, note:note || undefined, website_url_confirm:$("#r_hp").value || undefined});
+    $("#reportDlg").close(); toast("Thanks. We'll check it."); refreshAdminBadge(); }
+  catch(err){ $("#reportErr").textContent = err.message; $("#reportErr").hidden = false; }
+  finally { if (btn) btn.disabled = false; }
+});
+
 /* ---------- Admin ---------- */
-async function refreshAdminBadge(){ if(!api.isAdmin) return; const q = await api.queue(); $("#adminBtn").hidden=false; $("#adminBtn").textContent = `Admin · ${q.length} pending`; }
+async function refreshAdminBadge(){ if(!api.isAdmin) return; const [q, r] = await Promise.all([api.queue(), api.reports()]); $("#adminBtn").hidden=false;
+  $("#adminBtn").textContent = `Admin · ${q.length} pending${r.length ? ` · ${r.length} report${r.length===1?"":"s"}` : ""}`; }
+const REASON_LABEL = {dead:"Link doesn't work", wrong:"Link goes to the wrong place", details:"Details wrong or out of date", other:"Something else"};
+function reportsHtml(list){
+  if (!list.length) return "";
+  return `<h3 style="margin:14px 0 6px;font-size:15px">Reported problems (${list.length})</h3>` + list.map(r => `<div class="qitem" data-rid="${esc(String(r.id))}">
+    <h4>${esc(r.name)}${TYPE_LABEL[r.type]?` <span class="badge">${TYPE_LABEL[r.type]}</span>`:""}${r.count>1?` <span class="badge">${r.count} reports</span>`:""}</h4>
+    <div><b>${esc(REASON_LABEL[r.reason]||r.reason)}</b>${r.link?` · ${esc(LINK_LABEL[r.link]||r.link)}`:""}${r.url?` · <a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">test the link</a>`:""}</div>
+    ${r.note?`<p class="desc" style="margin:4px 0 0;white-space:pre-wrap">${esc(r.note)}</p>`:""}
+    <div class="muted" style="font-size:12.5px">${esc(fmtDay(r.updated||r.created))}</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" type="button" data-rep-edit="${esc(r.itemId)}">Edit entry</button><button class="btn sm primary" type="button" data-rep-close="fixed">Mark fixed</button><button class="btn sm" type="button" data-rep-close="dismissed">Dismiss</button></div></div>`).join("")
+    + `<h3 style="margin:14px 0 6px;font-size:15px">Suggestions</h3>`;
+}
+$("#queue").addEventListener("click", async e => {
+  const ed = e.target.closest("[data-rep-edit]"); if (ed){ if (ITEMS.some(x=>x.id===ed.dataset.repEdit)) openEdit(ed.dataset.repEdit); else toast("That entry no longer exists"); return; }
+  const c = e.target.closest("[data-rep-close]"); if (!c) return;
+  const item = c.closest("[data-rid]"); await api.closeReport(item.dataset.rid, c.dataset.repClose);
+  item.remove(); refreshAdminBadge(); toast(c.dataset.repClose==="fixed" ? "Marked fixed" : "Dismissed");
+});
 $("#adminBtn").addEventListener("click", async () => {
-  const q = await api.queue();
-  $("#queue").innerHTML = `<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" type="button" id="openInsights">Subscribers &amp; visitors</button>${api.remote?`<button class="btn sm" type="button" id="openUpdates">Send an update</button>`:""}${api.remote?`<a class="btn sm" href="/api/admin/export" download>Export catalogue (CSV)</a>`:`<button class="btn sm" type="button" id="exportDemo">Export catalogue (CSV)</button>`}${api.remote?`<a class="btn sm ghost" href="/auth/logout" style="margin-left:auto">Sign out</a>`:""}</div>` + (api.remote?"":`<p class="note" style="margin:0">Demo mode: the review queue and edits are stored in this browser only. On the live site this panel appears only for accounts with the admin role.</p>`) +
+  const [q, reps] = await Promise.all([api.queue(), api.reports()]);
+  $("#queue").innerHTML = `<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" type="button" id="openInsights">Subscribers &amp; visitors</button>${api.remote?`<button class="btn sm" type="button" id="openUpdates">Send an update</button>`:""}${api.remote?`<a class="btn sm" href="/api/admin/export" download>Export catalogue (CSV)</a>`:`<button class="btn sm" type="button" id="exportDemo">Export catalogue (CSV)</button>`}${api.remote?`<a class="btn sm ghost" href="/auth/logout" style="margin-left:auto">Sign out</a>`:""}</div>` + (api.remote?"":`<p class="note" style="margin:0">Demo mode: the review queue and edits are stored in this browser only. On the live site this panel appears only for accounts with the admin role.</p>`) + reportsHtml(reps) +
     (q.length ? q.map(s=>`<div class="qitem" data-sid="${esc(s.id)}"><h4>${esc(s.name)} <span class="badge">${esc(s.type)}</span></h4><div class="by">${esc(s.by||"")}</div><p class="desc" style="margin:0">${esc(s.desc)}</p>
       <div class="tags">${(s.domains||[]).map(d=>`<span class="tag">${esc(DOM[d]?.label||d)}</span>`).join("")}</div>
       <div class="muted" style="font-size:12.5px;word-break:break-all">${["kind","cost","web","apple","spotify","amazon","youtube","rss","x","bluesky","mastodon","linkedin","github","medium","discord","isbn","publisher"].filter(k=>s[k]).map(k=>`${k}: ${esc(k==="kind"?KIND[s[k]]?.label||s[k]:k==="cost"?COST[s[k]]?.label||s[k]:s[k])}`).join(" · ")}</div>
