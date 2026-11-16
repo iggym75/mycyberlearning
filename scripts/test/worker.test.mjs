@@ -352,3 +352,37 @@ test("caching: the item list is revalidated by browsers; a missing file is never
   } finally { env.ASSETS = assets; }
   assert.equal(await (await call("/")).text(), "static"); // found files pass straight through
 });
+
+test("reports: validated, deduplicated, no identifiers stored; admin-only list and close", async () => {
+  await insertItem(db, { id: "report-me", type: "podcast", name: "Report Me", desc: "x", domains: ["news"], web: "https://example.org/show" });
+  const send = (body, ip = "198.51.100.7") => call("/api/reports", { method: "POST", body, ip });
+  assert.equal((await send({ id: "report-me" })).status, 400, "a reason is required");
+  assert.equal((await send({ id: "report-me", reason: "other" })).status, 400, "'something else' needs a note");
+  assert.equal((await send({ id: "secret-show", reason: "dead" })).status, 404, "hidden items can't be reported");
+  assert.equal((await send({ id: "no-such-thing", reason: "dead" })).status, 404);
+  assert.equal((await send({ id: "report-me", reason: "dead", website_url_confirm: "x" })).status, 200, "honeypot answers OK");
+  assert.equal((await call("/api/reports", { method: "POST", body: { id: "report-me", reason: "dead" }, headers: { "content-type": "text/plain" } })).status, 415);
+  assert.equal((await send({ id: "report-me", reason: "dead", link: "web", note: "404 <b>today</b>" })).status, 200);
+  assert.equal((await send({ id: "report-me", reason: "dead", link: "web" })).status, 200);
+  assert.equal((await send({ id: "report-me", reason: "wrong", link: "javascript:alert(1)" })).status, 200, "an unknown link name is dropped, not stored");
+  const rows = (await db.prepare("SELECT * FROM reports ORDER BY id").all()).results;
+  assert.equal(rows.length, 2, "the honeypot stored nothing and repeats were merged");
+  assert.equal(rows[0].count, 2); assert.equal(rows[0].link, "web"); assert.equal(rows[0].note, "404 <b>today</b>");
+  assert.equal(rows[1].link, null);
+  assert.ok(!Object.keys(rows[0]).some(k => /ip|account|email|voter/i.test(k)), "no identifying columns");
+  for (let n = 0; n < 10; n++) await send({ id: "report-me", reason: "details" }, "192.0.2.50");
+  assert.equal((await send({ id: "report-me", reason: "details" }, "192.0.2.50")).status, 429, "rate limited per visitor");
+
+  assert.equal((await call("/api/admin/reports")).status, 403, "admins only");
+  const cookie = await adminCookie();
+  const list = await (await call("/api/admin/reports", { headers: { cookie } })).json();
+  assert.equal(list.reports[0].count, 10, "most-reported first");
+  const top = list.reports.find(r => r.link === "web");
+  assert.equal(top.name, "Report Me"); assert.equal(top.url, "https://example.org/show"); assert.equal(top.count, 2);
+  assert.equal((await call(`/api/admin/reports/${top.id}`, { method: "POST", body: { status: "fixed" }, headers: { cookie } })).status, 403, "cross-site writes refused");
+  assert.equal((await call(`/api/admin/reports/${top.id}`, { method: "POST", body: { status: "deleted" }, headers: { cookie, origin: SITE } })).status, 400);
+  assert.equal((await call(`/api/admin/reports/${top.id}`, { method: "POST", body: { status: "fixed" }, headers: { cookie, origin: SITE } })).status, 200);
+  assert.equal((await call(`/api/admin/reports/${top.id}`, { method: "POST", body: { status: "fixed" }, headers: { cookie, origin: SITE } })).status, 404, "already closed");
+  const after = await (await call("/api/admin/reports", { headers: { cookie } })).json();
+  assert.ok(!after.reports.some(r => r.id === top.id));
+});

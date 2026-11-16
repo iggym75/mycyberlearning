@@ -62,6 +62,24 @@ export const decide = guard(async (req, env, ctx, { id }) => {
   return json(200, { ok: true });
 });
 
+// GET /api/admin/reports: open quick reports, most-reported first, with the item's name and the reported link.
+export const listReports = guard(async (req, env) => {
+  const { results } = await env.DB.prepare(`SELECT r.id, r.item_id, r.reason, r.link, r.note, r.count, r.created, r.updated, i.data AS item
+    FROM reports r LEFT JOIN items i ON i.id = r.item_id WHERE r.status = 'open' ORDER BY r.count DESC, r.updated DESC LIMIT 200`).all();
+  const reports = results.map(r => { const it = parse(r.item, {});
+    return { id: r.id, itemId: r.item_id, name: it.name || r.item_id, type: it.type || "", reason: r.reason, link: r.link,
+      url: r.link && r.link !== "isbn" && isHttpUrl(it[r.link]) ? it[r.link] : null, note: r.note, count: r.count, created: r.created, updated: r.updated }; });
+  return json(200, { reports });
+});
+
+// POST /api/admin/reports/:id { status: "fixed" | "dismissed" }
+export const closeReport = guard(async (req, env, ctx, { id }) => {
+  const { status } = await req.json().catch(() => ({}));
+  if (!["fixed", "dismissed"].includes(status) || !/^\d+$/.test(id)) return json(400, { error: "Invalid request." });
+  const r = await env.DB.prepare("UPDATE reports SET status = ?, closed_at = ? WHERE id = ? AND status = 'open'").bind(status, new Date().toISOString(), Number(id)).run();
+  return r.meta.changes ? json(200, { ok: true }) : json(404, { error: "Report not found." });
+});
+
 // PATCH /api/admin/items/:id edits fields, hides/unhides, locks tags. DELETE removes the item and its votes.
 export const item = guard(async (req, env, ctx, { id }) => {
   const r = await getItemRow(env.DB, id);
