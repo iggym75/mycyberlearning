@@ -1,0 +1,189 @@
+{
+  "date": "2026-11-16",
+  "generatedAt": "2026-11-16T08:34:36.775Z",
+  "windowHours": 24,
+  "headline": "Fireworks breach fallout, PHP to Shell attacks on Check Point, Microsoft patch breakage",
+  "overview": "The Fireworks AI breach dominates today's news, with its stolen key tied to a trojanized Cursor extension and related exposure at Uber. Attacks exploiting PHP to Shell flaws against Check Point gateways led to server wiping, and researchers found serious flaws in refrigeration controllers. Microsoft's November patches are also causing printing, activation and install problems.",
+  "topStories": [
+    {
+      "title": "Fireworks AI breach spreads to Cursor and Uber",
+      "summary": "A stolen access key issued to Fireworks AI let an attacker reach Cursor's data and push a trojanized Claude Code extension via its marketplace, which tried to install an SSH backdoor. Uber says threat actors obtained driver's licence information through stolen internal credentials, with reporting linking this to Fireworks; Uber has not said how many were affected.",
+      "refs": [
+        "cyber-security-headlines-0",
+        "cybersecurity-today-0",
+        "sans-stormcast-0"
+      ],
+      "domains": [
+        "cloud",
+        "appsec",
+        "news"
+      ]
+    },
+    {
+      "title": "PHP to Shell exploited against Check Point gateways",
+      "summary": "Attackers used the PHP to Shell flaws, plus a Check Point zero-day, to get into gateways and then wiped VMware ESXi servers behind them in attacks against Israeli organisations, with a second wave on November 2. Check Point links the backdoor tentatively to a Chinese threat cluster and urges installing the November hotfix and hunting for web shells.",
+      "refs": [
+        "cybersecurity-today-0",
+        "sans-stormcast-0"
+      ],
+      "domains": [
+        "offensive",
+        "defensive",
+        "hunting"
+      ]
+    },
+    {
+      "title": "Refrigeration controller flaws and French supermarket attacks",
+      "summary": "Volln Check disclosed 14 flaws in Dixell XWeb EVO supervision systems, each giving root access in lab tests, with at least two under active exploitation. The systems are linked to an October attack on refrigeration at 700 French supermarkets, which French authorities have attributed to Iran. Copeland advises keeping devices off the public internet.",
+      "refs": [
+        "cybersecurity-today-0",
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "icsot",
+        "tvm"
+      ]
+    },
+    {
+      "title": "Microsoft November patches break printing and activation",
+      "summary": "Microsoft confirmed the November security updates can make printing fail for documents with zero-height or zero-width images, and cause Windows activation errors for automated licensing. Other reports cover failed Windows 11 installs and SQL Server problems, with fixes promised in the coming days.",
+      "refs": [
+        "cybersecurity-today-0"
+      ],
+      "domains": [
+        "tvm",
+        "operations"
+      ]
+    },
+    {
+      "title": "Other incidents: France mail breach, German drone firm, Osaka, FBI alert",
+      "summary": "Mailing platform Meleva, a La Poste subsidiary, exposed names and postal addresses of 22 million people with no bank details reported stolen. A malicious update to Quantum Systems' ground control software disrupted German military drone work. Osaka disclosed a breach affecting over a million email addresses via a third-party provider.",
+      "refs": [
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "news",
+        "privacy",
+        "ai"
+      ]
+    },
+    {
+      "title": "Phishing exploits Microsoft 365 outage and policy debate",
+      "summary": "Microsoft warned of phishing emails using a recent Microsoft 365 outage as a pretext, and an outage reportedly delayed a pool chlorine alarm in Germany. The White House AI task force proposed limiting liability for good-faith breach reporting, which commentators compared to aviation safety reporting.",
+      "refs": [
+        "sans-stormcast-0",
+        "cybersecurity-today-0"
+      ],
+      "domains": [
+        "news",
+        "grc"
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "show": "cyber-security-headlines",
+      "title": "Ground stop update, France mail cyberattack, Fireworks breach fallout",
+      "publishedAt": "2026-11-16T08:00:00.000Z",
+      "minutes": 8,
+      "url": "https://cisoseries.libsyn.com/ground-stop-update-france-mail-cyberattack-fireworks-breach-fallout",
+      "ref": "cyber-security-headlines-0",
+      "domains": [
+        "news",
+        "cloud",
+        "icsot",
+        "ai"
+      ],
+      "core": true,
+      "summary": "Covers an FAA ground stop later said not to be a cyber attack, the French Meleva mail breach, the Fireworks fallout affecting Cursor and Uber, a disruption to German drone maker Quantum Systems, refrigeration controller flaws, the FBI's ARTEX alert and an Osaka data breach."
+    },
+    {
+      "show": "sans-stormcast",
+      "title": "SANS Stormcast Monday, November 16th, 2026: Macfinger ClickFix DownTheDRAIN; Microsoft 365 Outage Phishing; Check Point PHP2Shell Exploits (CVE-2026-109618); Cursor Claude Code Extension",
+      "publishedAt": "2026-11-16T02:00:02.000Z",
+      "minutes": 6,
+      "url": "https://isc.sans.edu/podcastdetail/10180",
+      "ref": "sans-stormcast-0",
+      "domains": [
+        "defensive",
+        "hunting",
+        "appsec",
+        "offensive"
+      ],
+      "core": true,
+      "summary": "Covers the MacFinger ClickFix malware that targets crypto wallets, a Microsoft 365 outage phishing lure, PHP to Shell exploitation against Check Point gateways, and the Cursor extension compromise via Fireworks."
+    },
+    {
+      "show": "cybersecurity-today",
+      "title": "PHP2Shell attacks on CheckPoint gateways, Stolen AI key behind Cursor attack, Microsoft patches break printing and activation",
+      "publishedAt": "2026-11-16T02:06:00.000Z",
+      "minutes": 13,
+      "url": "https://cybersecuritytoday.libsyn.com/php2shell-attacks-on-checkpoint-gateways-stolen-ai-key-behind-cursor-attack-microsoft-patches-break-printing-and-activation",
+      "ref": "cybersecurity-today-0",
+      "domains": [
+        "offensive",
+        "appsec",
+        "icsot",
+        "grc"
+      ],
+      "core": true,
+      "summary": "Covers PHP to Shell attacks on Check Point gateways with server wiping, the stolen Fireworks key behind the Cursor incident, 14 flaws in refrigeration controllers, a White House AI task force proposal on safe harbour for breach reporting, and Microsoft's November patches breaking printing and activation."
+    },
+    {
+      "show": "ai-daily-brief",
+      "title": "7 Things AI-Native Companies Do Differently",
+      "publishedAt": "2026-11-15T12:20:55.000Z",
+      "minutes": 23,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/7-Things-AI-Native-Companies-Do-Differently-e3sdtgn",
+      "ref": "ai-daily-brief-0",
+      "domains": [
+        "ai",
+        "engineering",
+        "leadership"
+      ],
+      "core": true,
+      "summary": "Discusses seven practices of AI-native organisations, including giving agents full context, signal-triggered work, orchestrator agents, verification, and scaled human review. It argues the agent-as-teammate model is giving way to on-demand, context-based work. Not security-focused; includes sponsor segments."
+    },
+    {
+      "show": "troy-hunt-weekly",
+      "title": "Weekly Update 530: Email Dependencies & Apps",
+      "publishedAt": "2026-11-16T07:03:42.000Z",
+      "minutes": 72,
+      "url": "https://omny.fm/shows/troy-hunt-weekly-update/weekly-update-530-email-dependencies-apps",
+      "ref": "troy-hunt-weekly-0",
+      "domains": [
+        "human"
+      ],
+      "summary": "Sponsored? No. Episode notes only pose questions about email dependence in app building, passkeys and Microsoft's role; no specific news stories are covered in the text provided."
+    },
+    {
+      "show": "shared-security",
+      "title": "Protect Your iPhone From Theft: The Settings That Actually Matter",
+      "publishedAt": "2026-11-16T05:00:00.000Z",
+      "minutes": 10,
+      "url": "https://sharedsecurity.net/2026/11/16/protect-your-iphone-from-theft-the-settings-that-actually-matter/",
+      "ref": "shared-security-0",
+      "domains": [
+        "defensive",
+        "privacy"
+      ],
+      "summary": "Advice on protecting iPhones from theft: Face ID, stolen device protection and its one-hour delay for sensitive changes, passcode exposure in public, and prioritising personal safety during grab-and-go theft."
+    },
+    {
+      "show": "hacked",
+      "title": "Cut Up the Box: The Hacker Who Cracked the Xbox",
+      "publishedAt": "2026-11-15T17:31:00.000Z",
+      "minutes": 59,
+      "url": "https://www.hackedpodcast.com",
+      "ref": "hacked-0",
+      "domains": [
+        "stories",
+        "offensive"
+      ],
+      "summary": "Interview-style episode with Andrew 'bunnie' Huang about cracking the Xbox in 2002, the legal fallout under a DMCA-era law, and later work on open-source hardware and a chip. The notes provided contain no new security news."
+    }
+  ],
+  "quietCore": [
+    "cyberwire-daily"
+  ]
+}
