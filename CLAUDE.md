@@ -12,7 +12,7 @@ A curated library of cybersecurity podcasts, books and learning platforms (labs,
 - `data/taxonomy.json` — the domain (with a `hue` for its colour), frequency, level, platform-kind and cost lists. Single source of truth; never hard-code domains elsewhere.
 - `data/catalogue.json` — seed + weekly snapshot of the live catalogue (the live source of truth is the D1 `items` table).
 - `scripts/refresh.mjs` + `enrich.mjs` — weekly enrichment; pure helpers in `scripts/pure.mjs` with tests in `scripts/test/`.
-- `.github/workflows/` — deploy on push (wrangler), weekly refresh, daily briefing.
+- `.github/workflows/` — deploy on push (wrangler), weekly refresh, daily episode check (`episodes.yml`: `refresh.mjs --episodes` updates podcasts' latest episode, frequency and status in D1 every morning), daily briefing.
 
 ## Conventions
 - Keep it free and card-free: Cloudflare Workers Free + D1, Resend free, GitHub Actions. Never add a service that needs a payment method without asking. Watch the free limits (10 ms CPU per request, D1 daily reads/writes).

@@ -7,6 +7,8 @@
 //   node scripts/refresh.mjs --dry-run [--limit 5] [--only darknet-diaries]   (reads data/catalogue.json, writes nothing)
 //   --retag   re-run Claude tagging on all unlocked items, not just untagged/community ones
 //   --reimage re-download artwork/covers even for items that already have a stored image
+//   --episodes daily light run: podcasts only, read each feed and update the latest episode, frequency and status
+//              (no artwork, ratings, links, tags or other types)
 import { readFile, writeFile } from "node:fs/promises";
 import { openD1, listItems, upsertItem, sleep, saveImage } from "./lib.mjs";
 import { hasLocalImage } from "./pure.mjs";
@@ -15,6 +17,7 @@ import { lookupApple, readFeed, lookupPodnews, searchSpotify, lookupBook, claude
 const args = process.argv.slice(2);
 const flag = f => args.includes(f);
 const opt = f => { const i = args.indexOf(f); return i > -1 ? args[i + 1] : null; };
+const episodesOnly = flag("--episodes");
 const dry = flag("--dry-run"), retag = flag("--retag"), reimage = flag("--reimage"), limit = Number(opt("--limit")) || Infinity, only = opt("--only");
 const today = new Date().toISOString().slice(0, 10);
 
@@ -24,6 +27,7 @@ if (dry) {
   rows = items.map(item => ({ item }));
 } else rows = (await listItems(await openD1())).map(item => ({ item }));
 if (only) rows = rows.filter(r => r.item.id === only);
+if (episodesOnly) rows = rows.filter(r => r.item.type === "podcast" && r.item.rss);
 rows = rows.slice(0, limit);
 
 const db = dry ? null : await openD1();
@@ -35,6 +39,16 @@ for (const { item } of rows) {
   const next = { ...item };
   let titles = [];
   try {
+    if (episodesOnly) {
+      const f = await readFeed(item.rss, item.episodes).catch(e => { report.notes.push(`${item.id}: feed unreadable (${e.message})`); return null; });
+      if (f?.cadence) {
+        if (!item.statusLocked) { next.freq = f.cadence.freq; next.status = f.cadence.status; }
+        if (f.cadence.lastEpisode) next.lastEpisode = f.cadence.lastEpisode;
+      }
+      if (JSON.stringify(next) !== before) { report.changed++; if (!dry) await upsertItem(db, next); else console.log(item.id, item.lastEpisode, "->", next.lastEpisode); }
+      await sleep(250); // feeds live on many different hosts, so a short pause is enough
+      continue;
+    }
     if (item.type === "podcast") {
       const a = await lookupApple(item).catch(e => { report.notes.push(`${item.id}: Apple lookup failed (${e.message})`); return null; });
       if (a) {
@@ -129,9 +143,9 @@ for (const { item } of rows) {
   await sleep(1200); // be polite to the free public APIs
 }
 
-console.log(`\nRefresh ${dry ? "(dry run) " : ""}complete: ${report.checked} checked, ${report.changed} updated, ${report.tagged} auto-tagged, ${report.images} images saved, ${report.failed.length} failed.`);
+console.log(`\n${episodesOnly ? "Episode check" : "Refresh"} ${dry ? "(dry run) " : ""}complete: ${report.checked} checked, ${report.changed} updated, ${report.tagged} auto-tagged, ${report.images} images saved, ${report.failed.length} failed.`);
 if (report.notes.length) console.log("Notes:\n- " + report.notes.join("\n- "));
 if (report.failed.length) console.log("Failures:\n- " + report.failed.join("\n- "));
 if (process.env.GITHUB_STEP_SUMMARY) {
-  await writeFile(process.env.GITHUB_STEP_SUMMARY, `## Catalogue refresh ${today}\n\n- Checked: ${report.checked}\n- Updated: ${report.changed}\n- Auto-tagged by Claude: ${report.tagged}\n- New images saved: ${report.images}\n- Failed: ${report.failed.length}\n\n${[...report.notes, ...report.failed].map(n => "- " + n).join("\n")}\n`, { flag: "a" });
+  await writeFile(process.env.GITHUB_STEP_SUMMARY, `## ${episodesOnly ? "Daily episode check" : "Catalogue refresh"} ${today}\n\n- Checked: ${report.checked}\n- Updated: ${report.changed}\n- Auto-tagged by Claude: ${report.tagged}\n- New images saved: ${report.images}\n- Failed: ${report.failed.length}\n\n${[...report.notes, ...report.failed].map(n => "- " + n).join("\n")}\n`, { flag: "a" });
 }
