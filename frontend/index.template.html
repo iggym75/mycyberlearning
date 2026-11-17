@@ -976,7 +976,8 @@ function fmtDate(d){ try { return new Date(d).toLocaleDateString('en-GB',{month:
 function latestLabel(i){ return i.lastEpisode && i.lastEpisode > new Date().toISOString().slice(0,10) ? "Next episode" : "Latest episode"; }
 function fmtDay(d){ try { return new Date(d).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}); } catch { return d; } }
 function fmtIsbn(s){ return s.length===13 ? `${s.slice(0,3)}-${s.slice(3,4)}-${s.slice(4,9)}-${s.slice(9,12)}-${s.slice(12)}` : s; }
-function isbnOk(raw){ const s=String(raw).replace(/[-\s]/g,"").toUpperCase();
+// Accepts ISBNs however they're pasted: "ISBN-13: 979‑8‑26…", spaces, any kind of dash. Keeps only the digits (and a final X).
+function isbnOk(raw){ const s=String(raw).replace(/^\s*ISBN(?:[-\s]?1[03])?\s*:?\s*/i,"").replace(/[^0-9Xx]/g,"").toUpperCase();
   if (/^\d{13}$/.test(s)) return [...s].reduce((t,d,k)=>t+(+d)*(k%2?3:1),0)%10===0 ? s : null;
   if (/^\d{9}[\dX]$/.test(s)) return [...s].reduce((t,d,k)=>t+(d==="X"?10:+d)*(10-k),0)%11===0 ? s : null;
   return null; }
@@ -1630,14 +1631,16 @@ function isbnCard(html){ $("#isbnResult").innerHTML = html; $("#isbnResult").hid
 async function findBook(force){
   const raw = $("#s_isbn").value, ok = isbnOk(raw);
   if (!ok){ if (force) isbnCard(`<span>That ISBN doesn't look right. Check the digits (10 or 13, hyphens are fine).</span>`); return; }
-  if (ok === isbnLast && !force) return; isbnLast = ok;
+  const isbn = ok.length === 10 ? (b => b + (10 - [...b].reduce((t,d,k)=>t+(+d)*(k%2?3:1),0) % 10) % 10)("978" + ok.slice(0,9)) : ok;
+  if ($("#s_isbn").value !== isbn && document.activeElement !== $("#s_isbn") || force) $("#s_isbn").value = isbn; // show the clean 13 digits
+  if (isbn === isbnLast && !force) return; isbnLast = isbn;
   if (!api.remote){ isbnCard(`<span>Book lookup works on the live site. Fill in the details below.</span>`); return; }
-  isbnCard(`<span>Looking up ${esc(ok)}…</span>`);
+  isbnCard(`<span>Looking up ${esc(isbn)}…</span>`);
   try {
-    const r = await fetch(`/api/isbn?isbn=${encodeURIComponent(ok)}`), j = await r.json().catch(()=>({}));
+    const r = await fetch(`/api/isbn?isbn=${encodeURIComponent(isbn)}`), j = await r.json().catch(()=>({}));
     if (!r.ok) return isbnCard(`<span>${esc(j.error || "Couldn't look that up. Fill in the details below.")}</span>`);
     if (j.exists) return isbnCard(`<span><b>${esc(j.exists)}</b> is already in the library. Thanks!</span>`);
-    if (!j.found) return isbnCard(`<span>We couldn't find that ISBN. Check the digits, or fill in the details below.</span>`);
+    if (!j.found) return isbnCard(`<span>We couldn't find ${esc(isbn)} in the public book databases. ${isbn.startsWith("9798") ? "That's common for self-published books (ISBNs starting 979-8), which often aren't listed there yet. " : ""}Please fill in the details below.</span>`);
     isbnCard(`<span class="muted" style="font-size:12.5px">Is this your book?</span><h4>${esc(j.title)}</h4>
       ${j.by?`<div>${esc(j.by)}</div>`:""}<div class="muted">${[j.publisher, j.year].filter(Boolean).map(esc).join(" · ")}${j.publisher||j.year?" · ":""}Details from ${esc(j.source)}</div>
       <div class="acts"><button class="btn primary sm" type="button" data-book-yes>Yes, use these details</button><button class="btn sm" type="button" data-book-no>No, I'll type them</button></div>`);
