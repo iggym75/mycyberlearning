@@ -42,6 +42,9 @@ if (bareIdx > -1) {
   const { cp, access } = await import("node:fs/promises");
   if (await access(join(root, "frontend/covers")).then(() => true, () => false))
     await cp(join(root, "frontend/covers"), join(root, "frontend/dist/covers"), { recursive: true });
+  // The site tour video, poster and captions (served with byte ranges by the Worker, worker/src/lib/media.js).
+  if (await access(join(root, "frontend/tour")).then(() => true, () => false))
+    await cp(join(root, "frontend/tour"), join(root, "frontend/dist/tour"), { recursive: true });
   if (await access(join(root, "frontend/news")).then(() => true, () => false))
     await cp(join(root, "frontend/news"), join(root, "frontend/dist/news"), { recursive: true, filter: src => !src.endsWith("preview.html") });
   const pages = await buildSitePages(join(root, "frontend/dist"), catalogue, taxonomy); // search-friendly pages, sitemap.xml, robots.txt
