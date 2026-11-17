@@ -1,6 +1,6 @@
 # CLAUDE.md — My Cyber Learning
 
-Public site: https://mycyberlearning.co.uk · Owner/admin: Ian Moore
+Public site: https://mycyberlearning.co.uk · Owner/admin: Iggy (GitHub iggym75). The privacy notice names the data controller in full, as UK GDPR requires.
 
 ## What this is
 A curated library of cybersecurity podcasts, books and learning platforms (labs, CTFs, courses, certifications, events, communities and publishers' book bundles that are free or low-cost and not tied to one vendor). Visitors filter by security domain (multi-select, any/all), frequency and level; see official platform ratings and separate community votes; and suggest new resources. One admin approves, edits, hides and deletes.
