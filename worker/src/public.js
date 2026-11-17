@@ -145,8 +145,8 @@ export async function isbnLookup(req, env, ctx) {
   const n = normaliseIsbn(new URL(req.url).searchParams.get("isbn") || "");
   if (!n) return json(400, { error: "That ISBN doesn't look right. Check the digits." });
   const isbn = isbn13(n);
-  const existing = await env.DB.prepare("SELECT json_extract(data, '$.name') AS name FROM items WHERE json_extract(data, '$.isbn') = ? AND hidden = 0 LIMIT 1").bind(isbn).first().catch(() => null);
-  if (existing) return json(200, { found: true, exists: existing.name, isbn });
+  const existing = await env.DB.prepare("SELECT id, json_extract(data, '$.name') AS name FROM items WHERE json_extract(data, '$.isbn') = ? AND hidden = 0 LIMIT 1").bind(isbn).first().catch(() => null);
+  if (existing) return json(200, { found: true, exists: existing.name, existsPath: `/books/${String(existing.id).replace(/^book-/, "")}/`, isbn });
   const cache = typeof caches !== "undefined" ? caches.default : null, key = new Request(`https://mycyberlearning.co.uk/__isbn/${isbn}`);
   const hit = cache ? await cache.match(key).catch(() => null) : null;
   if (hit) return json(200, await hit.json());
