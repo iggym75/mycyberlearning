@@ -92,7 +92,7 @@ test("feed parser: long HTML show notes parse, entity bombs are still refused", 
   const lol = Array.from({ length: 6 }, (_, i) => `<!ENTITY l${i + 1} "${`&l${i};`.repeat(10)}">`).join("");
   assert.equal(parse(`<!DOCTYPE rss [<!ENTITY l0 "lol">${lol}]><rss><channel><title>&l6;</title></channel></rss>`).rss.channel.title, "&l6;");
   const wide = `<!DOCTYPE rss [<!ENTITY x "${"A".repeat(9000)}">]><rss><channel><title>${"&x;".repeat(50)}</title></channel></rss>`;
-  assert.throws(() => parse(wide), /expanded content size/);
+  assert.throws(() => parse(wide), /expanded content (size|length)/i); // v4 and v5 wording
 });
 
 test("Spotify link from a Podnews page, and og:title", () => {

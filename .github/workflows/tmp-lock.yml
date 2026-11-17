@@ -1,4 +1,4 @@
-name: Update lock file (temporary)
+name: Update lock file (temporary, run 2)
 on: { push: { branches: [deps/fast-xml-parser-5], paths: [".github/workflows/tmp-lock.yml"] } }
 permissions: { contents: write }
 jobs:
