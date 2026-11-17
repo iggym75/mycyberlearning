@@ -424,3 +424,11 @@ test("ISBN lookup: Open Library first, Google Books fallback, library duplicates
     assert.equal(c.exists, "Already Here");
   } finally { globalThis.fetch = realFetch; }
 });
+
+test("ISBNs are accepted however they're pasted", async () => {
+  const { normaliseIsbn } = await import("../../worker/src/lib/shared.js");
+  for (const raw of ["979-8264885679", "9798264885679", "ISBN-13: 979‑8‑264885679", " isbn 979 8264 885679 ", "979–8–264885679", "ISBN13:9798264885679"])
+    assert.equal(normaliseIsbn(raw), "9798264885679", raw);
+  assert.equal(normaliseIsbn("ISBN-10: 0-306-40615-2"), "0306406152");
+  assert.equal(normaliseIsbn("979-8264885670"), null, "bad check digit");
+});
