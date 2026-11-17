@@ -158,10 +158,13 @@ export async function isbnLookup(req, env, ctx) {
     if (d?.title) book = { title: [d.title, d.subtitle].filter(Boolean).join(": "), by: (d.authors || []).map(a => a.name).filter(Boolean).join(", "), publisher: d.publishers?.[0]?.name || "", year: year(d.publish_date), source: "Open Library" };
   } catch {}
   if (!book) try {
-    const v = (await get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&maxResults=1`))?.items?.[0]?.volumeInfo;
+    // Without a key, Google Books shares one small daily quota with every keyless caller, so it's often exhausted.
+    // GOOGLE_BOOKS_KEY (a free key, optional Worker secret) gives the site its own allowance.
+    const key = env.GOOGLE_BOOKS_KEY ? `&key=${encodeURIComponent(env.GOOGLE_BOOKS_KEY)}` : "";
+    const v = (await get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&maxResults=1${key}`))?.items?.[0]?.volumeInfo;
     if (v?.title) book = { title: [v.title, v.subtitle].filter(Boolean).join(": "), by: (v.authors || []).join(", "), publisher: v.publisher || "", year: year(v.publishedDate), source: "Google Books" };
   } catch {}
   const out = book ? { found: true, isbn, title: clean(book.title, 200), by: clean(book.by, 160), publisher: clean(book.publisher, 120), year: book.year, source: book.source } : { found: false, isbn };
-  if (cache) ctx?.waitUntil?.(cache.put(key, new Response(JSON.stringify(out), { headers: { "content-type": "application/json", "cache-control": `max-age=${book ? 604800 : 86400}` } })).catch(() => {}));
+  if (cache) ctx?.waitUntil?.(cache.put(key, new Response(JSON.stringify(out), { headers: { "content-type": "application/json", "cache-control": `max-age=${book ? 604800 : 3600}` } })).catch(() => {}));
   return json(200, out);
 }

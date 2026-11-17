@@ -34,7 +34,8 @@ export function rateLimited(key, limit, windowMs) {
 }
 
 export function normaliseIsbn(raw) {
-  const s = String(raw ?? "").replace(/[-\s]/g, "").toUpperCase();
+  // However it was pasted: "ISBN-13: 979‑8‑26…", spaces, any kind of dash. Keep only the digits (and a final X).
+  const s = String(raw ?? "").replace(/^\s*ISBN(?:[-\s]?1[03])?\s*:?\s*/i, "").replace(/[^0-9Xx]/g, "").toUpperCase();
   if (/^\d{13}$/.test(s)) return [...s].reduce((t, d, k) => t + Number(d) * (k % 2 ? 3 : 1), 0) % 10 === 0 ? s : null;
   if (/^\d{9}[\dX]$/.test(s)) return [...s].reduce((t, d, k) => t + (d === "X" ? 10 : Number(d)) * (10 - k), 0) % 11 === 0 ? s : null;
   return null;
