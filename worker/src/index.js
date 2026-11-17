@@ -1,5 +1,5 @@
 // My Cyber Learning: Cloudflare Worker entry point.
-// Serves /api/*, /auth/* and /admin; everything else is a static file from frontend/dist (the ASSETS binding).
+// Serves /api/*, /auth/*, /admin and /tour/* (video with byte ranges); everything else is a static file from frontend/dist (the ASSETS binding).
 import { initEnv, json } from "./lib/shared.js";
 import * as pub from "./public.js";
 import * as admin from "./admin.js";
@@ -8,6 +8,7 @@ import * as auth from "./auth.js";
 import * as account from "./account.js";
 import * as accountEmail from "./account-email.js";
 import { dispatchBriefing } from "./cron.js";
+import { serveMedia } from "./lib/media.js";
 
 // [method(s), path pattern, handler]. `:id` captures one URL-encoded segment.
 const ROUTES = [
@@ -81,6 +82,7 @@ export default {
     initEnv(env);
     const url = new URL(req.url);
     const dynamic = url.pathname.startsWith("/api/") || url.pathname.startsWith("/auth/") || url.pathname === "/admin";
+    if (url.pathname.startsWith("/tour/")) return serveMedia(req, env); // the site tour video, with byte ranges
     if (!dynamic) {
       // Existing files are served before the Worker runs, so this only sees misses. A "not found" must never be
       // cached: otherwise a cover requested just before it was published stays missing for a week (_headers).

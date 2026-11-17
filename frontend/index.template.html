@@ -7,7 +7,7 @@
 <meta property="og:title" content="My Cyber Learning: cyber security podcasts, books, platforms and experts">
 <meta property="og:description" content="A free, vendor-neutral library of cyber security podcasts, books, learning platforms and experts, with a daily news briefing.">
 <meta name="twitter:card" content="summary">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"My Cyber Learning","url":"https://mycyberlearning.co.uk/","description":"A free, vendor-neutral library of cyber security podcasts, books, learning platforms and experts."},{"@type":"Organization","name":"My Cyber Learning","url":"https://mycyberlearning.co.uk/","logo":"https://mycyberlearning.co.uk/logo.svg"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"My Cyber Learning","url":"https://mycyberlearning.co.uk/","description":"A free, vendor-neutral library of cyber security podcasts, books, learning platforms and experts."},{"@type":"Organization","name":"My Cyber Learning","url":"https://mycyberlearning.co.uk/","logo":"https://mycyberlearning.co.uk/logo.svg"},{"@type":"VideoObject","name":"My Cyber Learning: a two-minute tour","description":"How to find podcasts, books, learning platforms and experts, start with MCL Picks, get the Daily Briefing by email, and how the site keeps your data private and secure.","thumbnailUrl":"https://mycyberlearning.co.uk/tour/mcl-tour-v1.jpg","contentUrl":"https://mycyberlearning.co.uk/tour/mcl-tour-v1.mp4","uploadDate":"2026-11-17","duration":"PT2M12S","embedUrl":"https://mycyberlearning.co.uk/#tour"}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -84,10 +84,11 @@ body:not([data-type="all"]) .intro{padding-block:18px 4px}
 .stats{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-family:var(--f-mono);font-size:12.5px;color:var(--ink-3)}
 .stats b{color:var(--ink);font-weight:500}
 @media (min-width:980px){
-  body[data-type="all"] .intro{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,1fr);grid-template-areas:"note note" "acct acct" "h1 stats" "p stats";column-gap:56px;row-gap:0;align-items:center;padding-block:40px 20px}
+  body[data-type="all"] .intro{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,1fr);grid-template-areas:"note note" "acct acct" "h1 stats" "p stats" "cta stats";column-gap:56px;row-gap:0;align-items:center;padding-block:40px 20px}
   body[data-type="all"] .intro #introNote{grid-area:note} body[data-type="all"] .intro #acctPanel{grid-area:acct;margin-bottom:12px}
   body[data-type="all"] .intro h1{grid-area:h1;align-self:end;max-width:none;font-size:clamp(36px,3.6vw,52px)}
   body[data-type="all"] .intro p.home-only{grid-area:p;align-self:start;font-size:16.5px;line-height:1.6}
+  body[data-type="all"] .intro .tour-cta{grid-area:cta;align-self:start}
   body[data-type="all"] .intro .stats{grid-area:stats;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-self:center}
   body[data-type="all"] .intro .stats span{display:flex;flex-direction:column;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
   body[data-type="all"] .intro .stats b{font-family:var(--f-display);font-weight:800;font-size:30px;line-height:1.05;letter-spacing:-.01em;text-transform:none;color:var(--signal);font-variant-numeric:tabular-nums}
@@ -247,6 +248,14 @@ button.logo:hover .zoom-hint,button.logo:focus-visible .zoom-hint{opacity:1}
 /* Modal */
 dialog{border:0;border-radius:14px;padding:0;width:min(680px,calc(100vw - 32px));max-height:calc(100vh - 48px);background:var(--surface);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
 dialog::backdrop{background:rgba(8,14,22,.55)}
+/* Site tour video */
+.tour-cta{margin:14px 0 0}
+.tour-cta .btn svg{width:16px;height:16px}
+#tourDlg{width:min(1100px,calc(100vw - 32px));background:#0b1620;color:#e8eef3}
+#tourDlg .dlg-h{background:#0b1620;border-color:#1d2c38}
+#tourDlg .dlg-h .btn{color:#e8eef3;border-color:#2b3c4a}
+#tourDlg video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#0b1620}
+#tourDlg .tour-note{margin:0;padding:10px 20px 14px;font-size:13px;color:#a9b8c4}
 .dlg-h{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--surface);z-index:1}
 .dlg-h h2{font-family:var(--f-display);font-weight:800;font-size:21px;margin:0}
 .dlg-b{padding:18px 20px;display:grid;gap:14px}
@@ -424,6 +433,7 @@ footer .browse{flex-basis:100%;display:flex;gap:6px;flex-wrap:wrap;align-items:c
   <div class="acct" id="acctPanel" hidden></div>
   <h1 class="home-only">Podcasts, books, platforms and experts to keep your cyber skills current</h1>
   <p class="home-only">A curated library for people starting out in security and practitioners staying sharp. Filter by the domains you work in, find free and low-cost labs, courses and events, discover the experts worth following, see listener ratings from the podcast platforms, and add your own vote — community scores sit alongside the official ratings, never mixed with them.</p>
+  <div class="home-only tour-cta"><button class="btn" type="button" data-tour><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>Watch the two-minute tour</button></div>
   <div class="stats" id="stats"></div>
 </section>
 
@@ -532,10 +542,19 @@ footer .browse{flex-basis:100%;display:flex;gap:6px;flex-wrap:wrap;align-items:c
 </section>
 
 <footer><div class="wrap">
-  <nav class="browse" aria-label="Browse pages">Browse: <a href="/podcasts/">Podcasts</a> · <a href="/books/">Books</a> · <a href="/platforms/">Platforms</a> · <a href="/experts/">Experts</a> · <a href="/topics/">Topics</a></nav>
+  <nav class="browse" aria-label="Browse pages">Browse: <a href="/podcasts/">Podcasts</a> · <a href="/books/">Books</a> · <a href="/platforms/">Platforms</a> · <a href="/experts/">Experts</a> · <a href="/topics/">Topics</a> · <a href="#tour" data-tour>Site tour (video)</a></nav>
   <span>My Cyber Learning · MCL Picks are hand-chosen by the site's curator · Official ratings aggregated from Apple Podcasts, Spotify, Podchaser and Podcast Addict via Podnews/Rephonic.</span>
   <span style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><span>Essential cookies only: no tracking or advertising.</span><button type="button" class="linkish" data-privacy="images">Image owner?</button><button type="button" class="linkish" data-privacy="cookies">Cookies</button><button type="button" class="linkish" data-privacy>Privacy</button><span class="mode-pill" id="modePill">demo</span></span>
 </div></footer>
+
+<!-- Site tour video: the file only loads when this opens (poster and source are set by openTour). -->
+<dialog id="tourDlg" aria-labelledby="tourTitle">
+  <div class="dlg-h"><h2 id="tourTitle">A two-minute tour</h2><button class="btn ghost sm" type="button" data-close>Close</button></div>
+  <video id="tourVideo" controls playsinline preload="none" width="1280" height="720">
+    <track kind="captions" srclang="en" label="English" data-src="/tour/mcl-tour-v1.en.vtt">
+  </video>
+  <p class="tour-note">Captions are available from the CC button. The video is hosted on this site: no third-party player, no tracking.</p>
+</dialog>
 
 <!-- Submit dialog -->
 <dialog id="submitDlg" aria-labelledby="submitTitle">
@@ -1921,6 +1940,26 @@ document.addEventListener("submit", async e => {
   toast(j.message || "Done"); $("#erase_email").value = "";
 });
 
+/* ---------- Site tour video ---------- */
+function openTour(){
+  const d = $("#tourDlg"), v = $("#tourVideo");
+  if (!v.getAttribute("src")){ // load nothing until someone asks for the tour
+    v.poster = "/tour/mcl-tour-v1.jpg";
+    const t = v.querySelector("track"); t.src = t.dataset.src;
+    v.src = "/tour/mcl-tour-v1.mp4";
+  }
+  if (!d.open) d.showModal();
+  v.play().catch(() => {}); // browsers may refuse autoplay with sound; the controls are there
+}
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-tour]"); if (!t) return;
+  e.preventDefault(); openTour();
+});
+$("#tourDlg").addEventListener("close", () => {
+  $("#tourVideo").pause();
+  if (location.hash === "#tour") history.replaceState(null, "", location.pathname + location.search);
+});
+
 /* ---------- Views (#library, #podcasts, #books, #news) ---------- */
 // #podcasts and #books are the library view with the type filter set, so they can be linked to directly.
 function showView(){
@@ -1931,6 +1970,7 @@ function showView(){
   document.body.dataset.view = v; $("#newsView").hidden = v !== "news";
   syncNav();
   if (v === "news" && !NEWS.cur) loadNews();
+  if (location.hash === "#tour") openTour(); // shareable link: mycyberlearning.co.uk/#tour
   track(v);
 }
 addEventListener("hashchange", () => { showView(); scrollTo(0,0); });
