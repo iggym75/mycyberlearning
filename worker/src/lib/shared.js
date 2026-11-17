@@ -39,6 +39,12 @@ export function normaliseIsbn(raw) {
   if (/^\d{9}[\dX]$/.test(s)) return [...s].reduce((t, d, k) => t + (d === "X" ? 10 : Number(d)) * (10 - k), 0) % 11 === 0 ? s : null;
   return null;
 }
+// ISBN-10 → ISBN-13 (the catalogue stores 13 digits). Returns the input unchanged if it's already 13 digits.
+export function isbn13(isbn) {
+  if (!/^\d{9}[\dX]$/.test(isbn)) return isbn;
+  const b = "978" + isbn.slice(0, 9), c = (10 - [...b].reduce((t, d, k) => t + Number(d) * (k % 2 ? 3 : 1), 0) % 10) % 10;
+  return b + c;
+}
 export function isHttpUrl(v) { try { const u = new URL(v); return ["http:", "https:"].includes(u.protocol); } catch { return false; } }
 // Amazon Music podcast pages, on the storefronts that carry podcasts. Exact host match, so look-alike domains fail.
 export const AMAZON_MUSIC_HOSTS = ["music.amazon.co.uk", "music.amazon.com", "music.amazon.ca", "music.amazon.com.au", "music.amazon.de", "music.amazon.fr", "music.amazon.it", "music.amazon.es", "music.amazon.in", "music.amazon.co.jp", "music.amazon.com.br", "music.amazon.com.mx"];
