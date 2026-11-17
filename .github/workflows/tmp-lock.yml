@@ -1,0 +1,15 @@
+name: Update lock file (temporary)
+on: { push: { branches: [deps/fast-xml-parser-5], paths: [".github/workflows/tmp-lock.yml"] } }
+permissions: { contents: write }
+jobs:
+  lock:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm install --package-lock-only --ignore-scripts --no-fund
+      - run: npm ci --ignore-scripts --omit=dev --no-fund && npm ls fast-xml-parser strnum && (npm audit --omit=dev || true) && npm test
+      - run: |
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json && git commit -m "Lock fast-xml-parser 5.12" && git push
