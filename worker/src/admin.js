@@ -49,7 +49,7 @@ export const decide = guard(async (req, env, ctx, { id }) => {
       domains: (Array.isArray(overrides.domains) ? overrides.domains : [...new Set([...suggested, ...(s.domains || [])])]),
       level: level.length ? level : ["intermediate"], freq: s.type === "podcast" ? s.freq : undefined, kind: s.kind || undefined, cost: s.cost || undefined,
       launched: null, status: "active", web: s.web || undefined, apple: s.apple || undefined, spotify: s.spotify || undefined,
-      amazon: s.amazon || undefined, youtube: s.youtube || undefined, rss: s.rss || undefined, isbn: s.isbn || undefined, publisher: s.publisher || undefined,
+      amazon: s.amazon || undefined, youtube: s.youtube || undefined, rss: s.rss || undefined, isbn: s.isbn || undefined, publisher: s.publisher || undefined, published: s.published || undefined,
       ...Object.fromEntries(SOCIAL_FIELDS.map(k => [k, s[k] || undefined])),
       isbnVerified: false, rating: null, curator: false, sources: ["community"], verified: false, addedAt: new Date().toISOString()
     });

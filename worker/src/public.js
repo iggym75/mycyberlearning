@@ -1,5 +1,5 @@
 // Public endpoints: list items, vote, submit a suggestion.
-import { json, sha, clientIp, rateLimited, isHttpUrl, isAmazonMusicUrl, isPlatformUrl, isSocialUrl, SOCIAL_FIELDS, normaliseIsbn, clean, slug, claudeReview, DOMAIN_KEYS, FREQ_KEYS, KIND_KEYS, COST_KEYS, TYPES } from "./lib/shared.js";
+import { json, sha, clientIp, rateLimited, isHttpUrl, isAmazonMusicUrl, isPlatformUrl, isSocialUrl, SOCIAL_FIELDS, normaliseIsbn, clean, slug, claudeReview, DOMAIN_KEYS, FREQ_KEYS, KIND_KEYS, COST_KEYS, TYPES, isbn13 } from "./lib/shared.js";
 import { listItems, getItemRow } from "./lib/db.js";
 import { isAdmin } from "./auth.js";
 
@@ -77,8 +77,11 @@ export async function submit(req, env) {
   if (s.spotify && !isPlatformUrl("spotify", s.spotify)) errs.push("The Spotify link should start with https://open.spotify.com/.");
   if (s.youtube && !isPlatformUrl("youtube", s.youtube)) errs.push("The YouTube link should be a youtube.com or youtu.be address.");
   if (s.type === "book") {
-    if (s.isbn) { const n = normaliseIsbn(s.isbn); if (!n) errs.push("That ISBN doesn't look right. Check the digits."); else s.isbn = n; }
-    if (!s.publisher) errs.push("Add the publisher.");
+    const n = normaliseIsbn(s.isbn);
+    if (!s.isbn) errs.push("Add the book's ISBN.");
+    else if (!n) errs.push("That ISBN doesn't look right. Check the digits.");
+    else s.isbn = isbn13(n);
+    s.published = /^\d{4}$/.test(String(b.published ?? "")) ? String(b.published) : "";
     s.amazon = "";
   } else { s.isbn = ""; s.publisher = ""; }
   if (s.type === "platform") {
@@ -95,8 +98,7 @@ export async function submit(req, env) {
     if (!(s.web || s.youtube || SOCIAL_FIELDS.some(k => s[k]))) errs.push("Add at least one place to follow them: a profile link, YouTube channel or personal site.");
     s.apple = s.spotify = s.amazon = s.rss = ""; s.freq = "";
   } else for (const k of SOCIAL_FIELDS) s[k] = "";
-  if (s.type === "podcast" && !s.web) errs.push("Add the podcast's official website.");
-  if (s.type === "podcast" && !(s.apple || s.spotify || s.youtube || s.amazon)) errs.push("Add at least one of Apple Podcasts, Spotify, YouTube or Amazon Music.");
+  if (s.type === "podcast" && !(s.web || s.apple || s.spotify || s.youtube || s.amazon || s.rss)) errs.push("Add at least one link: Spotify, Apple Podcasts, YouTube, Amazon Music, the RSS feed or the website.");
   if (errs.length) return json(400, { error: errs.join(" ") });
 
   if (await getItemRow(env.DB, slug(s.name))) return json(409, { error: `"${s.name}" is already in the library.` });
@@ -133,4 +135,33 @@ export async function report(req, env) {
     .bind(now, note, note, note, same.id).run();
   else await env.DB.prepare("INSERT INTO reports (item_id, reason, link, note, created, updated) VALUES (?, ?, ?, ?, ?, ?)").bind(id, reason, link, note, now, now).run();
   return json(200, { ok: true });
+}
+
+// GET /api/isbn?isbn=…: look a book up by ISBN so the suggestion form can fill in its details for the visitor to confirm.
+// Open Library first, Google Books as a fallback; both are free and need no key. Results are cached for a week
+// (misses for a day) and the visitor's rate limit is held in memory only. Read-only; returns plain text fields.
+export async function isbnLookup(req, env, ctx) {
+  if (rateLimited("isbn:" + clientIp(req), 20, 60_000)) return json(429, { error: "Too many lookups. Please wait a minute." });
+  const n = normaliseIsbn(new URL(req.url).searchParams.get("isbn") || "");
+  if (!n) return json(400, { error: "That ISBN doesn't look right. Check the digits." });
+  const isbn = isbn13(n);
+  const existing = await env.DB.prepare("SELECT json_extract(data, '$.name') AS name FROM items WHERE json_extract(data, '$.isbn') = ? AND hidden = 0 LIMIT 1").bind(isbn).first().catch(() => null);
+  if (existing) return json(200, { found: true, exists: existing.name, isbn });
+  const cache = typeof caches !== "undefined" ? caches.default : null, key = new Request(`https://mycyberlearning.co.uk/__isbn/${isbn}`);
+  const hit = cache ? await cache.match(key).catch(() => null) : null;
+  if (hit) return json(200, await hit.json());
+  const get = async url => { const r = await fetch(url, { headers: { accept: "application/json", "user-agent": "MyCyberLearning/1.0 (+https://mycyberlearning.co.uk)" }, signal: AbortSignal.timeout(6000) }); return r.ok ? r.json() : null; };
+  const year = d => (String(d || "").match(/\b(1[5-9]\d\d|20\d\d)\b/) || [])[1] || "";
+  let book = null;
+  try {
+    const d = (await get(`https://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&format=json&jscmd=data`))?.[`ISBN:${isbn}`];
+    if (d?.title) book = { title: [d.title, d.subtitle].filter(Boolean).join(": "), by: (d.authors || []).map(a => a.name).filter(Boolean).join(", "), publisher: d.publishers?.[0]?.name || "", year: year(d.publish_date), source: "Open Library" };
+  } catch {}
+  if (!book) try {
+    const v = (await get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&maxResults=1`))?.items?.[0]?.volumeInfo;
+    if (v?.title) book = { title: [v.title, v.subtitle].filter(Boolean).join(": "), by: (v.authors || []).join(", "), publisher: v.publisher || "", year: year(v.publishedDate), source: "Google Books" };
+  } catch {}
+  const out = book ? { found: true, isbn, title: clean(book.title, 200), by: clean(book.by, 160), publisher: clean(book.publisher, 120), year: book.year, source: book.source } : { found: false, isbn };
+  if (cache) ctx?.waitUntil?.(cache.put(key, new Response(JSON.stringify(out), { headers: { "content-type": "application/json", "cache-control": `max-age=${book ? 604800 : 86400}` } })).catch(() => {}));
+  return json(200, out);
 }
