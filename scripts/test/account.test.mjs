@@ -384,7 +384,7 @@ test("new-feature emails: unsubscribe link (GET shows a page, POST stops them; a
   const u = new URL(updatesUnsubUrl(SITE, a.userHandle));
   assert.equal((await call(u.pathname + u.search)).status, 200);
   assert.equal((await (await call("/api/account", { cookie })).json()).profile.updates, true);
-  assert.equal((await post(u.pathname + u.search.replace(/t=./, "t=X"), { "sec-fetch-site": "none" })).status, 400);
+  assert.equal((await post(u.pathname + u.search.replace(/t=(.)/, (_, c) => "t=" + (c === "X" ? "Y" : "X")), { "sec-fetch-site": "none" })).status, 400);
   assert.equal((await post(u.pathname + u.search, { "sec-fetch-site": "none" })).status, 200);   // one-click from the mail client
   assert.equal((await (await call("/api/account", { cookie })).json()).profile.updates, false);
 });
