@@ -45,6 +45,7 @@ test("serveMedia answers ranges with 206", async () => {
   assert.equal(r.headers.get("content-length"), "2");
   assert.equal(r.headers.get("accept-ranges"), "bytes");
   assert.match(r.headers.get("cache-control"), /max-age=604800/);
+  assert.equal(r.headers.get("content-type"), "video/mp4");
   assert.deepEqual(await read(r.body), FILE.slice(0, 2));
   const r2 = await get("bytes=950-");
   assert.deepEqual(await read(r2.body), FILE.slice(950));
@@ -70,4 +71,12 @@ test("serveMedia works when the asset has no Content-Length", async () => {
   const r = await serveMedia(new Request("https://x.test/tour/tour.mp4", { headers: { range: "bytes=100-199" } }), env2);
   assert.equal(r.status, 206); assert.equal(r.headers.get("content-range"), "bytes 100-199/1000");
   assert.deepEqual(await read(r.body), FILE.slice(100, 200));
+});
+
+test("serveMedia sets HLS content types", async () => {
+  const env3 = { ASSETS: { fetch: async () => new Response("#EXTM3U\n", { headers: { "content-type": "application/octet-stream", "content-length": "8" } }) } };
+  const pl = await serveMedia(new Request("https://x.test/tour/hls-v1/index.m3u8"), env3);
+  assert.equal(pl.headers.get("content-type"), "application/vnd.apple.mpegurl");
+  const seg = await serveMedia(new Request("https://x.test/tour/hls-v1/seg01.m4s"), env3);
+  assert.equal(seg.headers.get("content-type"), "video/iso.segment");
 });

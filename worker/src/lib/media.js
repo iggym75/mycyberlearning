@@ -4,6 +4,9 @@
 
 const MAX_AGE = 604800; // a week, like the covers: a replaced video needs a new file name
 
+// Types set here rather than guessed: Safari's HLS player (hls-v1/) checks them.
+const TYPES = { m3u8: "application/vnd.apple.mpegurl", m4s: "video/iso.segment", mp4: "video/mp4", vtt: "text/vtt; charset=utf-8", jpg: "image/jpeg" };
+
 // One "bytes=a-b", "bytes=a-" or "bytes=-n" range → {start, end} (inclusive), "unsatisfiable", or null to send the
 // whole file (no header, several ranges, or a header we don't understand, as RFC 9110 allows).
 export function parseRange(header, size) {
@@ -65,7 +68,10 @@ export async function serveMedia(req, env) {
   h.set("cache-control", `public, max-age=${MAX_AGE}`);
   h.delete("content-encoding");
   h.set("x-content-type-options", "nosniff");
-  h.set("cross-origin-resource-policy", "same-origin"); // our page only: no hot-linking from other sites
+  const type = TYPES[url.pathname.split(".").pop().toLowerCase()];
+  if (type) h.set("content-type", type);
+  // No Cross-Origin-Resource-Policy here: Safari's media loader can fail on it, and these files are public anyway.
+  h.delete("cross-origin-resource-policy");
   h.set("content-length", String(size));
   const range = parseRange(req.headers.get("range"), size);
   if (range === "unsatisfiable") {

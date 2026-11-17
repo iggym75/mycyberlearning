@@ -96,7 +96,9 @@ body:not([data-type="all"]) .intro{padding-block:18px 4px}
 
 /* Main grid */
 .main{display:grid;grid-template-columns:272px minmax(0,1fr);gap:28px;padding-block:18px 64px}
-.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px);align-self:start;max-height:calc(100vh - 96px);overflow:auto;padding-right:4px}
+/* --bar-h is the header's real height (set by a ResizeObserver: it wraps to two rows on tablets and with larger text).
+   dvh is the visible height on iPad/iPhone, where 100vh includes the area under Safari's toolbars. */
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--bar-h,64px) + 12px);align-self:start;max-height:calc(100vh - var(--bar-h,64px) - env(safe-area-inset-top,0px) - 24px);max-height:calc(100dvh - var(--bar-h,64px) - env(safe-area-inset-top,0px) - 24px);overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:0 4px 16px 0}
 .rail h3{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:18px 0 8px;display:flex;justify-content:space-between;align-items:center}
 .rail h3:first-child{margin-top:0}
 .seg{display:flex;background:var(--sunk);border-radius:8px;padding:3px;gap:3px}
@@ -346,7 +348,7 @@ body[data-view="news"] .library-only{display:none!important}
 .ep .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .ep.highlight{outline:2px solid var(--signal);outline-offset:2px}
 .news-empty{padding:28px;border:1px dashed var(--line);border-radius:var(--r);color:var(--ink-2);margin-top:20px}
-.news-side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 80px);display:grid;gap:14px}
+.news-side{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--bar-h,64px) + 16px);display:grid;gap:14px}
 .sub-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:12px}
 .sub-card h2{font-family:var(--f-display);font-weight:800;font-size:20px;line-height:1.15;margin:0}
 .sub-card p{margin:0;font-size:14px;color:var(--ink-2)}
@@ -553,7 +555,7 @@ footer .browse{flex-basis:100%;display:flex;gap:6px;flex-wrap:wrap;align-items:c
   <video id="tourVideo" controls playsinline preload="none" width="1280" height="720">
     <track kind="captions" srclang="en" label="English" data-src="/tour/mcl-tour-v1.en.vtt">
   </video>
-  <p class="tour-note">Captions are available from the CC button. The video is hosted on this site: no third-party player, no tracking.</p>
+  <p class="tour-note" id="tourNote">Captions are available from the CC button. The video is hosted on this site: no third-party player, no tracking.</p>
 </dialog>
 
 <!-- Submit dialog -->
@@ -1940,13 +1942,25 @@ document.addEventListener("submit", async e => {
   toast(j.message || "Done"); $("#erase_email").value = "";
 });
 
+/* ---------- Header height for the sticky sidebar (.rail) ---------- */
+{ const bar = document.querySelector(".bar"), set = () => document.documentElement.style.setProperty("--bar-h", bar.offsetHeight + "px");
+  set(); if ("ResizeObserver" in window) new ResizeObserver(set).observe(bar); else addEventListener("resize", set); }
+
 /* ---------- Site tour video ---------- */
+// Apple devices stream it as HLS (small pieces: no byte ranges needed, and it gets through filtering proxies);
+// everything else plays the MP4. If one fails, the player switches to the other once.
+const TOUR = { hls: "/tour/hls-v1/index.m3u8", mp4: "/tour/mcl-tour-v1.mp4" };
 function openTour(){
   const d = $("#tourDlg"), v = $("#tourVideo");
   if (!v.getAttribute("src")){ // load nothing until someone asks for the tour
     v.poster = "/tour/mcl-tour-v1.jpg";
     const t = v.querySelector("track"); t.src = t.dataset.src;
-    v.src = "/tour/mcl-tour-v1.mp4";
+    const apple = /Apple/.test(navigator.vendor) && v.canPlayType("application/vnd.apple.mpegurl");
+    v.src = apple ? TOUR.hls : TOUR.mp4;
+    v.addEventListener("error", function retry(){
+      if (v.dataset.retried) { $("#tourNote").textContent = "Sorry, the video can\u2019t play here. Try another browser or network."; return; }
+      v.dataset.retried = "1"; v.src = v.src.endsWith(".m3u8") ? TOUR.mp4 : TOUR.hls; v.load(); v.play().catch(() => {});
+    });
   }
   if (!d.open) d.showModal();
   v.play().catch(() => {}); // browsers may refuse autoplay with sound; the controls are there
