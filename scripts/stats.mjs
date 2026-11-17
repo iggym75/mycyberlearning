@@ -1,4 +1,5 @@
 // Site stats: totals only (never an email address or anything else personal). Same numbers as Admin → Subscribers & visitors.
+// Run locally only: workflow logs on a public repository are public, so there is deliberately no Actions workflow for this.
 //   node scripts/stats.mjs [--days 30]   (needs CLOUDFLARE_ACCOUNT_ID, D1_DATABASE_ID, CLOUDFLARE_API_TOKEN, or D1_LOCAL_FILE)
 import { appendFile } from "node:fs/promises";
 import { openD1 } from "./lib.mjs";
