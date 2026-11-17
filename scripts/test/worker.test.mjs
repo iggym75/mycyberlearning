@@ -421,7 +421,7 @@ test("ISBN lookup: Open Library first, Google Books fallback, library duplicates
     assert.ok(seen.every(u => /^https:\/\/(openlibrary\.org|www\.googleapis\.com)\//.test(u)), "only the two book services are contacted");
     await insertItem(db, { id: "book-dupe", type: "book", name: "Already Here", desc: "x", domains: ["news"], isbn: "9781593275099" });
     const c = await (await call("/api/isbn?isbn=9781593275099", { ip: "192.0.2.96" })).json();
-    assert.equal(c.exists, "Already Here");
+    assert.equal(c.exists, "Already Here"); assert.equal(c.existsPath, "/books/dupe/");
   } finally { globalThis.fetch = realFetch; }
 });
 

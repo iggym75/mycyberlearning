@@ -214,6 +214,10 @@ button.logo:hover .zoom-hint,button.logo:focus-visible .zoom-hint{opacity:1}
 .isbn-row{display:flex;gap:8px}.isbn-row input{flex:1;min-width:0}
 .isbn-card{border:1px solid var(--line);background:var(--sunk);border-radius:10px;padding:12px 14px;margin-top:8px;display:grid;gap:6px;font-size:14px}
 .isbn-card h4{margin:0;font-size:15.5px}.isbn-card .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.isbn-card.exists{border:2px solid var(--signal);background:var(--signal-soft);padding:14px 16px}
+.isbn-exists{display:flex;gap:12px;align-items:flex-start}.isbn-exists h4{font-family:var(--f-display);font-size:18px;font-weight:800;margin:0 0 4px;color:var(--ink)}
+.isbn-exists p{margin:0 0 6px;font-size:15px;color:var(--ink)}.isbn-exists a{font-weight:600}
+.isbn-exists .tick{flex:none;width:30px;height:30px;border-radius:50%;background:var(--signal);color:var(--signal-ink);display:grid;place-items:center;font-weight:800;font-size:16px}
 .link-hint{margin:4px 0 0;font-weight:500;color:var(--ink-2)}
 .rep-reasons{display:grid;gap:6px;margin:0;padding:0;border:0}
 .rep-reasons label{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;cursor:pointer}
@@ -1627,7 +1631,7 @@ $("#s_type").addEventListener("change", syncType);
 
 // ISBN lookup: fills the book's details for the visitor to confirm.
 let bookYear = "", isbnTimer = null, isbnLast = "";
-function isbnCard(html){ $("#isbnResult").innerHTML = html; $("#isbnResult").hidden = !html; }
+function isbnCard(html){ $("#isbnResult").innerHTML = html; $("#isbnResult").hidden = !html; $("#isbnResult").classList.remove("exists"); }
 async function findBook(force){
   const raw = $("#s_isbn").value, ok = isbnOk(raw);
   if (!ok){ if (force) isbnCard(`<span>That ISBN doesn't look right. Check the digits (10 or 13, hyphens are fine).</span>`); return; }
@@ -1639,7 +1643,10 @@ async function findBook(force){
   try {
     const r = await fetch(`/api/isbn?isbn=${encodeURIComponent(isbn)}`), j = await r.json().catch(()=>({}));
     if (!r.ok) return isbnCard(`<span>${esc(j.error || "Couldn't look that up. Fill in the details below.")}</span>`);
-    if (j.exists) return isbnCard(`<span><b>${esc(j.exists)}</b> is already in the library. Thanks!</span>`);
+    if (j.exists){ isbnCard(`<div class="isbn-exists" role="status"><span class="tick" aria-hidden="true">✓</span><div><h4>Already in the library</h4>
+      <p><b>${esc(j.exists)}</b> is already in My Cyber Learning, so there's no need to suggest it. Thanks for thinking of it!</p>
+      ${/^\/books\/[a-z0-9-]+\/$/.test(j.existsPath||"") ? `<a href="${esc(j.existsPath)}" target="_blank" rel="noopener">View the book's page</a>` : ""}</div></div>`);
+      $("#isbnResult").classList.add("exists"); return; }
     if (!j.found) return isbnCard(`<span>We couldn't find ${esc(isbn)} in the public book databases. ${isbn.startsWith("9798") ? "That's common for self-published books (ISBNs starting 979-8), which often aren't listed there yet. " : ""}Please fill in the details below.</span>`);
     isbnCard(`<span class="muted" style="font-size:12.5px">Is this your book?</span><h4>${esc(j.title)}</h4>
       ${j.by?`<div>${esc(j.by)}</div>`:""}<div class="muted">${[j.publisher, j.year].filter(Boolean).map(esc).join(" · ")}${j.publisher||j.year?" · ":""}Details from ${esc(j.source)}</div>
