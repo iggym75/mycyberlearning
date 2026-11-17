@@ -386,3 +386,41 @@ test("reports: validated, deduplicated, no identifiers stored; admin-only list a
   const after = await (await call("/api/admin/reports", { headers: { cookie } })).json();
   assert.ok(!after.reports.some(r => r.id === top.id));
 });
+
+test("suggestions: podcasts need any one link; books need an ISBN, publisher optional", async () => {
+  const desc = "A security resource with a long enough description here.";
+  const pod = (body, ip) => call("/api/submissions", { method: "POST", ip, body: { type: "podcast", name: "Spotify Only Show", desc, ...body } });
+  assert.equal((await pod({}, "192.0.2.91")).status, 400, "a podcast with no link is refused");
+  assert.ok((await pod({ spotify: "https://open.spotify.com/show/abc" }, "192.0.2.91")).ok, "Spotify alone is enough");
+  const book = (body, ip) => call("/api/submissions", { method: "POST", ip, body: { type: "book", name: "A Good Book", by: "A Writer", desc, ...body } });
+  const noIsbn = await book({}, "192.0.2.92");
+  assert.equal(noIsbn.status, 400); assert.match((await noIsbn.json()).error, /ISBN/);
+  assert.equal((await book({ isbn: "978-0-306-40615-6" }, "192.0.2.92")).status, 400, "bad check digit refused");
+  const ok = await book({ isbn: "0-306-40615-2", published: "2019" }, "192.0.2.93");
+  assert.ok(ok.ok, "no publisher needed");
+  const row = await db.prepare("SELECT data FROM submissions WHERE json_extract(data,'$.name') = 'A Good Book'").first();
+  const d = JSON.parse(row.data); assert.equal(d.isbn, "9780306406157", "ISBN-10 stored as ISBN-13"); assert.equal(d.published, "2019");
+});
+
+test("ISBN lookup: Open Library first, Google Books fallback, library duplicates, bad input", async () => {
+  const realFetch = globalThis.fetch, seen = [];
+  globalThis.fetch = async (url, opts) => {
+    const u = String(url?.url || url); seen.push(u);
+    if (u.startsWith("https://openlibrary.org/api/books") && u.includes("9780306406157"))
+      return new Response(JSON.stringify({ "ISBN:9780306406157": { title: "Test Driven <b>Security</b>", subtitle: "A Guide", authors: [{ name: "Jo Bloggs" }], publishers: [{ name: "No Starch Press" }], publish_date: "March 2021" } }));
+    if (u.startsWith("https://openlibrary.org/api/books")) return new Response("{}");
+    if (u.startsWith("https://www.googleapis.com/books")) return new Response(JSON.stringify({ items: [{ volumeInfo: { title: "Fallback Book", authors: ["A", "B"], publisher: "Wiley", publishedDate: "2018-05-01" } }] }));
+    return realFetch(url, opts);
+  };
+  try {
+    const a = await (await call("/api/isbn?isbn=0-306-40615-2", { ip: "192.0.2.95" })).json();
+    assert.deepEqual([a.found, a.isbn, a.title, a.by, a.publisher, a.year, a.source], [true, "9780306406157", "Test Driven <b>Security</b>: A Guide", "Jo Bloggs", "No Starch Press", "2021", "Open Library"]);
+    const b = await (await call("/api/isbn?isbn=9781593275099", { ip: "192.0.2.95" })).json();
+    assert.equal(b.source, "Google Books"); assert.equal(b.by, "A, B"); assert.equal(b.year, "2018");
+    assert.equal((await call("/api/isbn?isbn=12345", { ip: "192.0.2.95" })).status, 400);
+    assert.ok(seen.every(u => /^https:\/\/(openlibrary\.org|www\.googleapis\.com)\//.test(u)), "only the two book services are contacted");
+    await insertItem(db, { id: "book-dupe", type: "book", name: "Already Here", desc: "x", domains: ["news"], isbn: "9781593275099" });
+    const c = await (await call("/api/isbn?isbn=9781593275099", { ip: "192.0.2.96" })).json();
+    assert.equal(c.exists, "Already Here");
+  } finally { globalThis.fetch = realFetch; }
+});

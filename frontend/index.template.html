@@ -211,6 +211,10 @@ button.logo:hover .zoom-hint,button.logo:focus-visible .zoom-hint{opacity:1}
 .report-btn{border:1px solid color-mix(in srgb,var(--flag) 45%,var(--line));border-radius:50%;background:var(--surface);color:var(--flag);width:26px;height:26px;display:grid;place-items:center;cursor:pointer;padding:0}
 .report-btn:hover{background:var(--flag-soft);border-color:var(--flag)}
 .report-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.isbn-row{display:flex;gap:8px}.isbn-row input{flex:1;min-width:0}
+.isbn-card{border:1px solid var(--line);background:var(--sunk);border-radius:10px;padding:12px 14px;margin-top:8px;display:grid;gap:6px;font-size:14px}
+.isbn-card h4{margin:0;font-size:15.5px}.isbn-card .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.link-hint{margin:4px 0 0;font-weight:500;color:var(--ink-2)}
 .rep-reasons{display:grid;gap:6px;margin:0;padding:0;border:0}
 .rep-reasons label{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;cursor:pointer}
 .rep-reasons input{margin-top:3px}
@@ -534,7 +538,7 @@ footer .browse{flex-basis:100%;display:flex;gap:6px;flex-wrap:wrap;align-items:c
   <form id="submitForm" novalidate>
     <div class="dlg-h"><h2 id="submitTitle">Suggest a resource</h2><button class="btn ghost sm" type="button" data-close>Close</button></div>
     <div class="dlg-b">
-      <p class="note" style="margin:0">Suggestions are reviewed before they appear. Give at least the official website, plus one listening platform for podcasts. We'll suggest domain tags from your description; adjust them if they're off.</p>
+      <p class="note" style="margin:0">Suggestions are reviewed before they appear. We'll suggest domain tags from your description; adjust them if they're off.</p>
       <p class="note scope-note" id="s_scope"></p>
       <div class="row2">
         <div class="field"><label for="s_type">Type</label><select id="s_type"><option value="podcast">Podcast</option><option value="book">Book</option><option value="platform">Platform (lab, course, event…)</option><option value="person">Expert (a person to follow)</option></select></div>
@@ -542,18 +546,22 @@ footer .browse{flex-basis:100%;display:flex;gap:6px;flex-wrap:wrap;align-items:c
         <div class="field platform-only"><label for="s_kind">Kind of platform</label><select id="s_kind"></select></div>
         <div class="field platform-only"><label for="s_cost">Cost</label><select id="s_cost"></select></div>
       </div>
+      <div class="field book-only" id="isbnField"><label for="s_isbn">ISBN</label>
+        <div class="isbn-row"><input id="s_isbn" inputmode="numeric" autocomplete="off" placeholder="978-1-59327-…"><button class="btn" type="button" id="isbnFind">Find book</button></div>
+        <span class="help">On the back cover or copyright page: 10 or 13 digits, hyphens are fine. We'll look up the details for you.</span>
+        <div class="isbn-card" id="isbnResult" hidden aria-live="polite"></div></div>
       <div class="field"><label for="s_name">Name</label><input id="s_name" required maxlength="120"></div>
       <div class="field"><label for="s_by" id="s_by_label">Host(s) or author(s)</label><input id="s_by" maxlength="160"></div>
       <div class="field"><label for="s_desc">Description</label><textarea id="s_desc" required maxlength="800" placeholder="What is it about, who is it for, why is it worth someone's time?"></textarea><span class="help"><span id="descCount">0</span>/800 · at least 40 characters</span></div>
       <div class="field"><span class="lbl">Security domains</span><span class="help">Suggested from your description. Tap to change.</span><div class="chips" id="s_domains"></div></div>
+      <p class="note link-hint" id="s_linkhint"></p>
       <div class="row2">
         <div class="field"><label for="s_web">Official website</label><input id="s_web" type="url" placeholder="https://"></div>
         <div class="field not-platform not-person"><label for="s_apple">Apple Podcasts</label><input id="s_apple" type="url" placeholder="https://podcasts.apple.com/…"></div>
         <div class="field not-platform not-person"><label for="s_spotify">Spotify</label><input id="s_spotify" type="url" placeholder="https://open.spotify.com/show/…"></div>
         <div class="field podcast-only"><label for="s_amazon">Amazon Music (optional)</label><input id="s_amazon" type="url" placeholder="https://music.amazon.co.uk/podcasts/…"></div>
         <div class="field not-platform"><label for="s_youtube">YouTube / YouTube Music</label><input id="s_youtube" type="url" placeholder="https://youtube.com/…"></div>
-        <div class="field book-only"><label for="s_isbn">ISBN (10 or 13 digits)</label><input id="s_isbn" inputmode="numeric" placeholder="978-…"></div>
-        <div class="field book-only"><label for="s_publisher">Publisher</label><input id="s_publisher" maxlength="120" list="pubList"><datalist id="pubList"></datalist></div>
+        <div class="field book-only"><label for="s_publisher">Publisher (optional)</label><input id="s_publisher" maxlength="120" list="pubList"><datalist id="pubList"></datalist></div>
         <div class="field not-platform not-person"><label for="s_rss">RSS feed (optional)</label><input id="s_rss" type="url" placeholder="https://…/feed.xml"></div>
         <div class="field person-only"><label for="s_x">X / Twitter</label><input id="s_x" type="url" placeholder="https://x.com/…"></div>
         <div class="field person-only"><label for="s_bluesky">Bluesky</label><input id="s_bluesky" type="url" placeholder="https://bsky.app/profile/…"></div>
@@ -676,6 +684,7 @@ footer .browse{flex-basis:100%;display:flex;gap:6px;flex-wrap:wrap;align-items:c
       <li>If your browser sends Global Privacy Control or Do Not Track, we don't count you at all.</li>
       <li>Browsing the site sets no cookies of our own. See <i>Cookies and browser storage</i> below for the few we use when you sign in.</li>
       <li>Votes are remembered with a random number stored in your browser; on our servers it is kept only as a one-way hash.</li>
+      <li>If you look up a book by ISBN when suggesting it, our server asks Open Library (and, if needed, Google Books) for that ISBN's details. Only the ISBN is sent; nothing about you is passed on.</li>
       <li>If you report a problem with a resource, we keep only which resource, what's wrong, which link and any note you add. Nothing that identifies you is stored. Reports are deleted 90 days after they're dealt with.</li>
       <li>If you suggest a resource, we keep a one-way hash of your IP address to stop spam, and any email you add is used only to ask about that suggestion. Both are deleted once the suggestion is reviewed, or after 90 days.</li>
     </ul>
@@ -1602,16 +1611,45 @@ $("#s_freq").innerHTML = $("#e_freq").innerHTML = TAX.frequencies.map(f=>`<optio
 $("#s_freq").value = "weekly";
 $("#s_kind").innerHTML = $("#e_kind").innerHTML = `<option value="">Choose…</option>` + TAX.platformKinds.map(k=>`<option value="${k.key}">${esc(k.label)}</option>`).join("");
 $("#s_cost").innerHTML = $("#e_cost").innerHTML = `<option value="">Choose…</option>` + TAX.costs.map(k=>`<option value="${k.key}">${esc(k.label)} — ${esc(k.hint)}</option>`).join("");
-$("#openSubmit").addEventListener("click", () => { subDomains=[]; userTouchedDomains=false; $("#submitForm").reset(); $("#s_freq").value="weekly"; renderDomainPicker($("#s_domains"),subDomains); $("#submitErr").hidden=true; syncType(); $("#submitDlg").showModal(); });
+$("#openSubmit").addEventListener("click", () => { subDomains=[]; userTouchedDomains=false; $("#submitForm").reset(); bookYear=""; isbnLast=""; isbnCard(""); $("#s_freq").value="weekly"; renderDomainPicker($("#s_domains"),subDomains); $("#submitErr").hidden=true; syncType(); $("#submitDlg").showModal(); });
 $("#s_desc").addEventListener("input", e => { $("#descCount").textContent=e.target.value.length; if(!userTouchedDomains){ subDomains=suggestDomains($("#s_name").value+" "+e.target.value); renderDomainPicker($("#s_domains"),subDomains);} });
 $("#s_domains").addEventListener("click", e => { const b=e.target.closest("[data-pick]"); if(!b) return; userTouchedDomains=true; toggle(subDomains,b.dataset.pick); renderDomainPicker($("#s_domains"),subDomains); });
 function syncType(){ const t=$("#s_type").value, book=t==="book", plat=t==="platform", person=t==="person"; $("#s_freq").disabled=book||person;
   $$(".book-only").forEach(x=>x.hidden=!book); $$(".podcast-only").forEach(x=>x.hidden=t!=="podcast"); $$(".platform-only").forEach(x=>x.hidden=!plat); $$(".not-platform").forEach(x=>x.hidden=plat);
   $$(".person-only").forEach(x=>x.hidden=!person); if (person) $$(".not-person").forEach(x=>x.hidden=true);
+  $("#s_linkhint").textContent = ({ podcast: "Add at least one link: Spotify, Apple Podcasts, YouTube, Amazon Music, the RSS feed or the website. The rest are optional.",
+    book: "Links are optional for books.", platform: "Add the platform's website.", person: "Add at least one link: their personal site, YouTube or any profile. The rest are optional." })[t] || "";
   const sc = TAX.scope?.[t]; $("#s_scope").textContent = sc ? `What we're looking for: ${sc.criteria}` : ""; $("#s_scope").hidden = !sc;
   $("#s_by_label").textContent = plat ? "Organisation or company" : person ? "Role or organisation (optional)" : "Host(s) or author(s)"; $("#s_web").previousElementSibling.textContent = plat ? "Website" : person ? "Personal site or blog" : "Official website";
   $("#pubList").innerHTML=[...new Set(ITEMS.map(i=>i.publisher).filter(Boolean))].sort().map(p=>`<option value="${esc(p)}">`).join(""); }
 $("#s_type").addEventListener("change", syncType);
+
+// ISBN lookup: fills the book's details for the visitor to confirm.
+let bookYear = "", isbnTimer = null, isbnLast = "";
+function isbnCard(html){ $("#isbnResult").innerHTML = html; $("#isbnResult").hidden = !html; }
+async function findBook(force){
+  const raw = $("#s_isbn").value, ok = isbnOk(raw);
+  if (!ok){ if (force) isbnCard(`<span>That ISBN doesn't look right. Check the digits (10 or 13, hyphens are fine).</span>`); return; }
+  if (ok === isbnLast && !force) return; isbnLast = ok;
+  if (!api.remote){ isbnCard(`<span>Book lookup works on the live site. Fill in the details below.</span>`); return; }
+  isbnCard(`<span>Looking up ${esc(ok)}…</span>`);
+  try {
+    const r = await fetch(`/api/isbn?isbn=${encodeURIComponent(ok)}`), j = await r.json().catch(()=>({}));
+    if (!r.ok) return isbnCard(`<span>${esc(j.error || "Couldn't look that up. Fill in the details below.")}</span>`);
+    if (j.exists) return isbnCard(`<span><b>${esc(j.exists)}</b> is already in the library. Thanks!</span>`);
+    if (!j.found) return isbnCard(`<span>We couldn't find that ISBN. Check the digits, or fill in the details below.</span>`);
+    isbnCard(`<span class="muted" style="font-size:12.5px">Is this your book?</span><h4>${esc(j.title)}</h4>
+      ${j.by?`<div>${esc(j.by)}</div>`:""}<div class="muted">${[j.publisher, j.year].filter(Boolean).map(esc).join(" · ")}${j.publisher||j.year?" · ":""}Details from ${esc(j.source)}</div>
+      <div class="acts"><button class="btn primary sm" type="button" data-book-yes>Yes, use these details</button><button class="btn sm" type="button" data-book-no>No, I'll type them</button></div>`);
+    $("#isbnResult").querySelector("[data-book-yes]").onclick = () => {
+      $("#s_name").value = j.title; if (j.by) $("#s_by").value = j.by; if (j.publisher) $("#s_publisher").value = j.publisher; bookYear = j.year || "";
+      isbnCard(`<span>✓ Details filled in from ${esc(j.source)}. Check them, then add a description.</span>`); $("#s_desc").focus(); };
+    $("#isbnResult").querySelector("[data-book-no]").onclick = () => { bookYear = ""; isbnCard(""); $("#s_name").focus(); };
+  } catch { isbnCard(`<span>Couldn't look that up just now. Fill in the details below.</span>`); }
+}
+$("#isbnFind").addEventListener("click", () => findBook(true));
+$("#s_isbn").addEventListener("input", () => { clearTimeout(isbnTimer); bookYear = ""; isbnTimer = setTimeout(() => findBook(false), 500); });
+$("#s_isbn").addEventListener("keydown", e => { if (e.key === "Enter"){ e.preventDefault(); findBook(true); } });
 const isUrl = v => { try { const u=new URL(v); return u.protocol==="https:"||u.protocol==="http:"; } catch { return false; } };
 $("#submitForm").addEventListener("submit", async e => {
   e.preventDefault();
@@ -1634,9 +1672,8 @@ $("#submitForm").addEventListener("submit", async e => {
   if (p.apple && !isPlatform("apple", p.apple)) errs.push("The Apple link should be a podcasts.apple.com address.");
   if (p.spotify && !isPlatform("spotify", p.spotify)) errs.push("The Spotify link should be an open.spotify.com address.");
   if (p.youtube && !isPlatform("youtube", p.youtube)) errs.push("The YouTube link should be a youtube.com or youtu.be address.");
-  if (p.type==="book"){ if (p.isbn){ const ok=isbnOk(p.isbn); if(!ok) errs.push("That ISBN doesn't look right. Check the digits (10 or 13, hyphens are fine)."); else p.isbn=ok; } if (!p.publisher) errs.push("Add the publisher."); } else { delete p.isbn; delete p.publisher; }
-  if (p.type==="podcast" && !p.web) errs.push("Add the podcast's official website.");
-  if (p.type==="podcast" && !(p.apple||p.spotify||p.youtube||p.amazon)) errs.push("Add at least one of Apple Podcasts, Spotify, YouTube or Amazon Music.");
+  if (p.type==="book"){ const ok=isbnOk(p.isbn); if (!p.isbn) errs.push("Add the book's ISBN."); else if(!ok) errs.push("That ISBN doesn't look right. Check the digits (10 or 13, hyphens are fine)."); else p.isbn=ok; if (bookYear) p.published = bookYear; } else { delete p.isbn; delete p.publisher; }
+  if (p.type==="podcast" && !(p.web||p.apple||p.spotify||p.youtube||p.amazon||p.rss)) errs.push("Add at least one link: Spotify, Apple Podcasts, YouTube, Amazon Music, the RSS feed or the website.");
   if (errs.length){ $("#submitErr").innerHTML = errs.map(esc).join("<br>"); $("#submitErr").hidden=false; return; }
   try { await api.submit(p); $("#submitDlg").close(); toast("Thanks — sent for review"); refreshAdminBadge(); }
   catch(err){ $("#submitErr").textContent = err.message; $("#submitErr").hidden=false; }

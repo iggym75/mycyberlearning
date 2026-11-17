@@ -15,6 +15,7 @@ const ROUTES = [
   ["POST", "/api/vote", pub.vote],
   ["POST", "/api/submissions", pub.submit],
   ["POST", "/api/reports", pub.report],
+  ["GET", "/api/isbn", pub.isbnLookup],
   ["POST", "/api/subscribe", news.subscribe],
   ["GET,POST", "/api/subscribe/confirm", news.confirm],
   ["GET,POST", "/api/unsubscribe", news.unsubscribe],
