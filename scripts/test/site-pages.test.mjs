@@ -33,3 +33,20 @@ test("site pages: escaped, only http links, hidden items left out, sitemap and r
     await assert.rejects(readFile(join(dir, "podcasts/secret/index.html")), "hidden items get no page");
   } finally { await rm(dir, { recursive: true, force: true }); }
 });
+
+test("site pages: /video/ is built from tour.json with no scripts and only our own files", async () => {
+  const { mkdir, writeFile } = await import("node:fs/promises");
+  const dir = await mkdtemp(join(tmpdir(), "mcl-video-"));
+  try {
+    await mkdir(join(dir, "tour"), { recursive: true });
+    await writeFile(join(dir, "tour", "tour.json"), JSON.stringify({ file: "mcl-tour-v9.mp4", hls: "hls-v9/index.m3u8", poster: "mcl-tour-v9.jpg", captions: "mcl-tour-v9.en.vtt", duration: "PT2M31S", uploaded: "2026-11-18", chapters: [["0:04", "Welcome <b>"]] }));
+    await buildSitePages(dir, { items: [] }, { domains: [] });
+    const html = await readFile(join(dir, "video", "index.html"), "utf8");
+    assert.match(html, /<video class="tour"[^>]*preload="none"/);
+    assert.match(html, /src="\/tour\/mcl-tour-v9\.mp4" type="video\/mp4"/);
+    assert.match(html, /og:video" content="https:\/\/mycyberlearning\.co\.uk\/tour\/mcl-tour-v9\.mp4"/);
+    assert.ok(html.includes("Welcome &lt;b&gt;"));
+    assert.equal(html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, "").includes("<script"), false);
+    assert.ok((await readFile(join(dir, "sitemap.xml"), "utf8")).includes("/video/"));
+  } finally { await rm(dir, { recursive: true, force: true }); }
+});

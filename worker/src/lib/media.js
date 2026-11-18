@@ -52,6 +52,13 @@ export async function serveMedia(req, env) {
     return new Response(null, { status: 405, headers: { allow: "GET, HEAD" } });
   }
   const url = new URL(req.url);
+  // A link that never changes: /tour/latest.mp4 redirects to the current cut named in tour.json.
+  if (url.pathname === "/tour/latest.mp4") {
+    const m = await env.ASSETS.fetch(new Request(url.origin + "/tour/tour.json")).then(r => r.ok ? r.json() : null).catch(() => null);
+    const file = typeof m?.file === "string" && /^mcl-tour-v\d+\.mp4$/.test(m.file) ? m.file : null;
+    if (!file) return new Response("Not found", { status: 404, headers: { "cache-control": "no-store" } });
+    return new Response(null, { status: 302, headers: { location: `/tour/${file}`, "cache-control": "public, max-age=300" } });
+  }
   // Ask for the plain file (no Range, no compression) so the byte offsets are the file's own.
   const res = await env.ASSETS.fetch(new Request(url.origin + url.pathname, { method: "GET" }));
   if (res.status !== 200) {
