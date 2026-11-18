@@ -20,6 +20,8 @@ export const SECTIONS = {
   platform: { path: "platforms", label: "Platforms", one: "learning platform", title: "Free and low-cost cyber security learning platforms", hash: "#platforms" },
   person: { path: "experts", label: "Experts", one: "expert", title: "Cyber security experts worth following", hash: "#experts" },
 };
+// Header and breadcrumb links go to the library's own sections, not to these static pages.
+const LIB = Object.fromEntries(Object.values(SECTIONS).map(s => [`/${s.path}/`, `/${s.hash}`]));
 export const slugOf = i => String(i.id).replace(/^(book|expert|platform|podcast)-/, "");
 export const pathOf = i => `/${SECTIONS[i.type].path}/${slugOf(i)}/`;
 
@@ -114,11 +116,11 @@ ${[crumbLd, ...ld].map(jsonLd).join("\n")}
 <body>
 <header><div class="wrap">
   <a class="brand" href="/"><img src="/logo.svg" alt="" width="32" height="32"><span>My <b>Cyber</b> Learning</span></a>
-  <nav aria-label="Sections">${Object.values(SECTIONS).map(s => `<a href="/${s.path}/"${active === s.path ? ' aria-current="page"' : ""}>${s.label}</a>`).join("")}<a href="/topics/"${active === "topics" ? ' aria-current="page"' : ""}>Topics</a><a href="/#news">Daily briefing</a></nav>
+  <nav aria-label="Library sections">${Object.values(SECTIONS).map(s => `<a href="/${s.hash}">${s.label}</a>`).join("")}<a href="/#news">Daily briefing</a></nav>
   <a class="open" href="/">Open the library</a>
 </div></header>
 <main class="wrap">
-<p class="crumbs"><a href="/">Home</a>${crumbs.map(c => ` › <a href="${esc(c.path)}">${esc(c.name)}</a>`).join("")} › ${esc(h1)}</p>
+<p class="crumbs"><a href="/">Home</a>${crumbs.map(c => ` › <a href="${esc(LIB[c.path] || c.path)}">${esc(c.name)}</a>`).join("")} › ${esc(h1)}</p>
 ${body}
 </main>
 <footer><div class="wrap"><span>My Cyber Learning: a free, vendor-neutral library of cyber security podcasts, books, platforms and experts.</span><a href="/">Library</a><a href="/#news">Daily briefing</a><a href="/video/">Site tour (video)</a><a href="/sitemap.xml">Sitemap</a><span>Essential cookies only: no tracking or advertising.</span></div></footer>
