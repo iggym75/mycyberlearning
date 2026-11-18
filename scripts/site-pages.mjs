@@ -5,7 +5,7 @@
 //   /sitemap.xml, /robots.txt
 // Plain HTML and inline CSS, no scripts: fast, readable by every crawler, and allowed by the site's CSP.
 // Every value from the catalogue is escaped; only http(s) links are written.
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 const SITE = "https://mycyberlearning.co.uk";
@@ -84,9 +84,12 @@ dt{font:500 11.5px var(--f-mono);text-transform:uppercase;letter-spacing:.05em;c
 .list h3{margin:0 0 2px;font:600 16px/1.3 var(--f-body)}.list h3 a{color:var(--ink);text-decoration:none}.list h3 a:hover{color:var(--signal);text-decoration:underline}
 .list p{margin:0;color:var(--ink-2);font-size:14px}.list .sub{color:var(--ink-3);font-size:13px;margin-bottom:4px}
 .topics{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none}.topics a{display:inline-block;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 13px;text-decoration:none;color:var(--ink)}
-.note{color:var(--ink-3);font-size:13px}footer{border-top:1px solid var(--line);color:var(--ink-3);font-size:13px}footer .wrap{padding-block:18px;display:flex;gap:10px 18px;flex-wrap:wrap}footer a{color:var(--ink-3)}`;
+.note{color:var(--ink-3);font-size:13px}footer{border-top:1px solid var(--line);color:var(--ink-3);font-size:13px}footer .wrap{padding-block:18px;display:flex;gap:10px 18px;flex-wrap:wrap}footer a{color:var(--ink-3)}
+video.tour{display:block;width:100%;max-width:960px;height:auto;aspect-ratio:16/9;border-radius:14px;background:#0b1620;margin:8px 0 6px}
+.chapters{list-style:none;padding:0;margin:0 0 20px;columns:2 320px;column-gap:28px}.chapters li{padding:4px 0;break-inside:avoid}.chapters span{font-family:"IBM Plex Mono",monospace;color:var(--ink-3);display:inline-block;min-width:3.2em}
+.cta{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.cta .open{margin-left:0}`;
 
-function page({ path, title, description, h1, body, crumbs = [], image, ld = [], active }) {
+function page({ path, title, description, h1, body, crumbs = [], image, ld = [], active, head = "" }) {
   const url = SITE + path;
   const crumbLd = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ name: "My Cyber Learning", path: "/" }, ...crumbs, { name: h1, path }].map((c, k) => ({ "@type": "ListItem", position: k + 1, name: c.name, item: SITE + c.path })) };
   return `<!doctype html>
@@ -101,7 +104,8 @@ function page({ path, title, description, h1, body, crumbs = [], image, ld = [],
 <meta property="og:type" content="website"><meta property="og:site_name" content="My Cyber Learning">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${esc(url)}">
 ${image ? `<meta property="og:image" content="${esc(SITE + "/" + image)}">` : ""}
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="${head ? "summary_large_image" : "summary"}">
+${head}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>${CSS}</style>
@@ -117,7 +121,7 @@ ${[crumbLd, ...ld].map(jsonLd).join("\n")}
 <p class="crumbs"><a href="/">Home</a>${crumbs.map(c => ` › <a href="${esc(c.path)}">${esc(c.name)}</a>`).join("")} › ${esc(h1)}</p>
 ${body}
 </main>
-<footer><div class="wrap"><span>My Cyber Learning: a free, vendor-neutral library of cyber security podcasts, books, platforms and experts.</span><a href="/">Library</a><a href="/#news">Daily briefing</a><a href="/sitemap.xml">Sitemap</a><span>Essential cookies only: no tracking or advertising.</span></div></footer>
+<footer><div class="wrap"><span>My Cyber Learning: a free, vendor-neutral library of cyber security podcasts, books, platforms and experts.</span><a href="/">Library</a><a href="/#news">Daily briefing</a><a href="/video/">Site tour (video)</a><a href="/sitemap.xml">Sitemap</a><span>Essential cookies only: no tracking or advertising.</span></div></footer>
 </body>
 </html>
 `;
@@ -202,6 +206,26 @@ ${groups.map(([S, l]) => `<h2>${esc(S.label)} (${l.length})</h2><ul class="list"
   }
   await write("/topics/", page({ path: "/topics/", title: "Cyber security topics · My Cyber Learning", description: "Browse cyber security podcasts, books, learning platforms and experts by topic, from cloud and AppSec to threat intelligence and careers.", h1: "Browse by topic", active: "topics",
     body: `<h1>Browse by topic</h1><p class="lede">Every podcast, book, platform and expert in the library is tagged with the security topics it covers.</p><ul class="topics">${topicRows.join("")}</ul>` }));
+
+  // The site tour on its own page, with a link that never changes (/video/), for sharing.
+  // Details come from frontend/tour/tour.json, which is updated with each new cut.
+  const tour = await readFile(join(dist, "tour", "tour.json"), "utf8").then(JSON.parse, () => null);
+  if (tour) {
+    const t = n => `/tour/${tour[n]}`, abs = n => SITE + t(n);
+    const title = "A 2-minute tour of My Cyber Learning";
+    const desc = "Find podcasts, books, learning platforms and experts, start with MCL Picks, use your learning map to spot gaps, get the Daily Briefing by email, and see how the site keeps your data private.";
+    const body = `<h1>${esc(title)}</h1><p class="lede">${esc(desc)}</p>
+<video class="tour" controls playsinline preload="none" poster="${esc(t("poster"))}" width="1280" height="720">
+<source src="${esc(t("hls"))}" type="application/vnd.apple.mpegurl"><source src="${esc(t("file"))}" type="video/mp4">
+<track kind="captions" srclang="en" label="English" src="${esc(t("captions"))}">
+</video>
+<p class="note">Captions are available from the CC button. The video is hosted on this site: no third-party player, no tracking.</p>
+<h2>What it covers</h2><ul class="chapters">${tour.chapters.map(([at, what]) => `<li><span>${esc(at)}</span> ${esc(what)}</li>`).join("")}</ul>
+<p class="cta"><a class="open" href="/">Open the library</a> <a href="/tour/latest.mp4">Download the video (MP4)</a></p>`;
+    await write("/video/", page({ path: "/video/", title: `${title} · My Cyber Learning`, description: desc, h1: "Site tour", body, image: `tour/${tour.poster}`,
+      head: `<meta property="og:video" content="${esc(abs("file"))}"><meta property="og:video:type" content="video/mp4"><meta property="og:video:width" content="1280"><meta property="og:video:height" content="720">`,
+      ld: [{ "@context": "https://schema.org", "@type": "VideoObject", name: title, description: desc, thumbnailUrl: abs("poster"), contentUrl: abs("file"), embedUrl: SITE + "/video/", uploadDate: tour.uploaded, duration: tour.duration }] }));
+  }
 
   // Sitemap and robots
   const today = new Date().toISOString().slice(0, 10);

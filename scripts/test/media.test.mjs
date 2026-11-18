@@ -80,3 +80,11 @@ test("serveMedia sets HLS content types", async () => {
   const seg = await serveMedia(new Request("https://x.test/tour/hls-v1/seg01.m4s"), env3);
   assert.equal(seg.headers.get("content-type"), "video/iso.segment");
 });
+
+test("/tour/latest.mp4 redirects to the current cut", async () => {
+  const mk = json => ({ ASSETS: { fetch: async r => new URL(r.url).pathname === "/tour/tour.json" ? new Response(JSON.stringify(json), { headers: { "content-type": "application/json" } }) : new Response("x", { status: 404 }) } });
+  const r = await serveMedia(new Request("https://x.test/tour/latest.mp4"), mk({ file: "mcl-tour-v4.mp4" }));
+  assert.equal(r.status, 302); assert.equal(r.headers.get("location"), "/tour/mcl-tour-v4.mp4");
+  const bad = await serveMedia(new Request("https://x.test/tour/latest.mp4"), mk({ file: "https://evil.test/x.mp4" }));
+  assert.equal(bad.status, 404); // only our own file names, never an outside address
+});
