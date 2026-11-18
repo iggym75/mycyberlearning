@@ -21,7 +21,7 @@ test("update emails go only to confirmed, opted-in addresses, within the day's a
   await acct("a".repeat(22), "yes@example.com", true, true);
   await acct("b".repeat(22), "unconfirmed@example.com", false, true);
   await acct("c".repeat(22), "no@example.com", true, false);
-  await db.prepare("INSERT INTO announcements (subject, body, status, created_at, updated_at, queued_at) VALUES ('New: My list', 'Hello there, friends.', 'queued', ?, ?, ?)").bind(t, t, t).run();
+  await db.prepare("INSERT INTO announcements (subject, body, status, created_at, updated_at, queued_at) VALUES ('New: My List', 'Hello there, friends.', 'queued', ?, ?, ?)").bind(t, t, t).run();
   // The briefing already used the whole allowance today: nothing goes out
   await db.prepare("INSERT INTO digestlog (date, status, sent) VALUES (?, 'done', 95)").bind(londonDate()).run();
   run();

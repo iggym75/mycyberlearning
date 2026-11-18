@@ -127,7 +127,7 @@ body:not([data-type="all"]) .intro{padding-block:18px 4px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0;position:relative}
 .card .head{padding-right:34px}
-/* Save to My list */
+/* Save to My List */
 .fav{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink-3);display:grid;place-items:center;cursor:pointer;padding:0}
 .fav svg{width:18px;height:18px}
 .fav:hover{color:var(--heart);border-color:var(--heart)}
@@ -136,7 +136,7 @@ body:not([data-type="all"]) .intro{padding-block:18px 4px}
 .badge.new{background:var(--heart);color:#fff}
 .views .new-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--heart);margin-left:4px;vertical-align:middle}
 .views .new-dot[hidden]{display:none}
-/* My list: account panel */
+/* My List: account panel */
 .acct{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--heart);border-radius:var(--r);padding:14px 16px}
 .acct p{margin:0;max-width:70ch;color:var(--ink-2);font-size:14.5px}
 .acct .acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
@@ -424,7 +424,7 @@ footer .browse{flex-basis:100%;display:flex;gap:6px;flex-wrap:wrap;align-items:c
       <a href="#books" data-view="library" data-navtype="book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/></svg><span>Books <i class="nc" id="navBooks"></i></span></a>
       <a href="#platforms" data-view="library" data-navtype="platform"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7.5 9l2.5 2-2.5 2M12 13h4"/></svg><span>Platforms <i class="nc" id="navPlats"></i></span></a>
       <a href="#experts" data-view="library" data-navtype="person"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.8 20.5c.8-3.9 3.6-6 7.2-6s6.4 2.1 7.2 6"/></svg><span>Experts <i class="nc" id="navPeople"></i></span></a>
-      <a href="#mylist" data-view="library" data-navtype="mine"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"/></svg><span>My list <i class="nc" id="navMine"></i><i class="new-dot" id="mineDot" hidden title="New since you last looked"></i></span></a>
+      <a href="#mylist" data-view="library" data-navtype="mine"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"/></svg><span>My List <i class="nc" id="navMine"></i><i class="new-dot" id="mineDot" hidden title="New since you last looked"></i></span></a>
       <a href="#news" data-view="news"><span class="live-dot" aria-hidden="true"></span><span><span class="nl-long">Daily briefing</span><span class="nl-short">Briefing</span></span></a>
     </nav>
     <div class="search library-only">
@@ -721,14 +721,14 @@ footer .browse{flex-basis:100%;display:flex;gap:6px;flex-wrap:wrap;align-items:c
       <li>If you report a problem with a resource, we keep only which resource, what's wrong, which link and any note you add. Nothing that identifies you is stored. Reports are deleted 90 days after they're dealt with.</li>
       <li>If you suggest a resource, we keep a one-way hash of your IP address to stop spam, and any email you add is used only to ask about that suggestion. Both are deleted once the suggestion is reviewed, or after 90 days.</li>
     </ul>
-    <h3>My list accounts</h3>
+    <h3>My List accounts</h3>
     <ul>
       <li><b>What we keep:</b> a random account number, the public half of each passkey you register (your fingerprint, face or PIN never leave your device), a one-way hash of your recovery code, the items you saved and when, and when you last signed in. Never a password.</li>
       <li><b>If you give them:</b> your first name and email address. We only use an email address after you confirm it from a link we send to it.</li>
       <li><b>Why:</b> to keep your list across your devices, to email you a sign-in link if you ask for one, and to send the emails you've ticked. Lawful basis: providing the service you asked for; for the daily briefing and new-feature emails, your consent.</li>
       <li><b>Emails:</b> the daily briefing and occasional new-feature emails are separate choices, both off unless you tick them. For a new address, you confirm them yourself on the page the confirmation link opens. Each email has a one-click unsubscribe link, and we record when and how you agreed. Creating an account never signs you up to either.</li>
       <li><b>Cookie:</b> signing in sets one essential cookie that keeps you signed in for up to 30 days.</li>
-      <li><b>Your control:</b> from My list you can download everything we hold, sign out everywhere, or delete your account, which erases it straight away. Deleting the account also stops the daily briefing to its email. Unconfirmed email addresses are removed after 48 hours, and accounts unused for two years are deleted, which also stops their briefing.</li>
+      <li><b>Your control:</b> from My List you can download everything we hold, sign out everywhere, or delete your account, which erases it straight away. Deleting the account also stops the daily briefing to its email. Unconfirmed email addresses are removed after 48 hours, and accounts unused for two years are deleted, which also stops their briefing.</li>
     </ul>
     <h3 id="images">Images we show</h3>
     <ul>
@@ -741,11 +741,11 @@ footer .browse{flex-basis:100%;display:flex;gap:6px;flex-wrap:wrap;align-items:c
     <table class="cookie-table">
       <thead><tr><th>Name</th><th>Type</th><th>Purpose</th><th>Lasts</th></tr></thead>
       <tbody>
-        <tr><td><code>__Host-mcl_user</code></td><td>Cookie</td><td>Keeps you signed in to your My list account. Set only when you sign in.</td><td>Up to 30 days, or until you sign out</td></tr>
+        <tr><td><code>__Host-mcl_user</code></td><td>Cookie</td><td>Keeps you signed in to your My List account. Set only when you sign in.</td><td>Up to 30 days, or until you sign out</td></tr>
         <tr><td><code>__Host-mcl_admin</code></td><td>Cookie</td><td>Keeps the site's administrator signed in. Never set for visitors.</td><td>8 hours</td></tr>
         <tr><td><code>__Host-mcl_oauth</code></td><td>Cookie</td><td>Protects the administrator's GitHub sign-in from forgery. Never set for visitors.</td><td>10 minutes</td></tr>
         <tr><td><code>__cf_bm</code></td><td>Cookie (Cloudflare)</td><td>Our host, Cloudflare, may set this to tell people from automated traffic and protect the site from abuse.</td><td>30 minutes</td></tr>
-        <tr><td><code>mcl:*</code></td><td>Browser storage</td><td>Kept only in your browser and never sent to us: your filters, items saved to My list without an account, and a random number that stops double votes.</td><td>Until you clear your browser data</td></tr>
+        <tr><td><code>mcl:*</code></td><td>Browser storage</td><td>Kept only in your browser and never sent to us: your filters, items saved to My List without an account, and a random number that stops double votes.</td><td>Until you clear your browser data</td></tr>
       </tbody>
     </table>
     <p>You can delete cookies and site data at any time in your browser's settings; the site still works, but you'll be signed out and lose anything saved only in your browser.</p>
@@ -762,14 +762,14 @@ footer .browse{flex-basis:100%;display:flex;gap:6px;flex-wrap:wrap;align-items:c
   </div>
 </dialog>
 
-<!-- My list account -->
+<!-- My List account -->
 <dialog id="acctDlg" aria-labelledby="acctTitle">
   <div class="dlg-h"><h2 id="acctTitle">Your account</h2><button class="btn ghost sm" type="button" data-close>Close</button></div>
   <div class="dlg-b" id="acctBody"></div>
 </dialog>
 <dialog id="signupDlg" aria-labelledby="signupTitle">
   <form id="signupForm" novalidate>
-    <div class="dlg-h"><h2 id="signupTitle">Create your My list account</h2><button class="btn ghost sm" type="button" data-close>Cancel</button></div>
+    <div class="dlg-h"><h2 id="signupTitle">Create your My List account</h2><button class="btn ghost sm" type="button" data-close>Cancel</button></div>
     <div class="dlg-b" style="display:grid;gap:12px">
       <p style="margin:0">You'll sign in with a passkey: your fingerprint, face or device PIN. No password. Name and email are optional.</p>
       <div class="field"><label for="su_name">First name <span class="muted" style="font-weight:400">(optional)</span></label><input id="su_name" autocomplete="given-name" maxlength="40"></div>
@@ -1145,13 +1145,13 @@ function personCard(i, tags, c, mv){
   </article>`;
 }
 
-/* ---------- My list: saved items, passkey accounts ---------- */
+/* ---------- My List: saved items, passkey accounts ---------- */
 // Signed out, the list lives in this browser (localStorage). Signed in with a passkey, it lives on the server and
 // anything saved on this device first is merged in. "New" badges compare a podcast's latest episode with when the
-// person last opened My list.
+// person last opened My List.
 const FAV = { list: new Map(), signedIn: false, snapshot: null, showRecover: false };
 const HEART = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"/></svg>';
-function favBtn(i){ const on = FAV.list.has(i.id); return `<button class="fav" type="button" data-fav aria-pressed="${on}" aria-label="${on?"Remove from":"Save to"} My list: ${esc(i.name)}" title="${on?"Saved to My list":"Save to My list"}">${HEART}</button>`; }
+function favBtn(i){ const on = FAV.list.has(i.id); return `<button class="fav" type="button" data-fav aria-pressed="${on}" aria-label="${on?"Remove from":"Save to"} My List: ${esc(i.name)}" title="${on?"Saved to My List":"Save to My List"}">${HEART}</button>`; }
 const newerThan = (i, seen) => i.type==="podcast" && !!i.lastEpisode && !!seen && String(i.lastEpisode).slice(0,10) > String(seen).slice(0,10);
 const isNew = i => newerThan(i, (FAV.snapshot || FAV.list).get(i.id)?.seen);
 const isNewNow = i => FAV.list.has(i.id) && newerThan(i, FAV.list.get(i.id)?.seen);
@@ -1186,15 +1186,15 @@ const favs = {
     const on = FAV.list.has(id), now = new Date().toISOString();
     if (FAV.signedIn){
       const r = await aj(`/api/account/list/${encodeURIComponent(id)}`, on ? "DELETE" : "PUT", {});
-      if (r.status === 401){ FAV.signedIn = false; FAV.list = localFav(); toast("You've been signed out. Sign in again from My list."); render(); return; }
+      if (r.status === 401){ FAV.signedIn = false; FAV.list = localFav(); toast("You've been signed out. Sign in again from My List."); render(); return; }
       if (!r.ok) return toast(r.data.error || "That didn't save. Please try again.");
     }
     on ? FAV.list.delete(id) : FAV.list.set(id, { added: now, seen: now });
     if (!FAV.signedIn) saveLocalFav();
     render();
-    toast(on ? "Removed from My list" : FAV.signedIn ? "Saved to My list" : "Saved to My list on this device");
+    toast(on ? "Removed from My List" : FAV.signedIn ? "Saved to My List" : "Saved to My List on this device");
   },
-  // Opening My list: keep this visit's "new" badges, then record that everything has been seen.
+  // Opening My List: keep this visit's "new" badges, then record that everything has been seen.
   opened(){
     if (FAV.snapshot) return;
     FAV.snapshot = new Map([...FAV.list].map(([k, v]) => [k, { ...v }]));
@@ -1276,7 +1276,7 @@ function renderSubAcct(){
   const p = FAV.signedIn ? FAV.profile : null;
   el.hidden = !p || (!p.email && !p.emailPending);
   if (el.hidden) return;
-  el.innerHTML = p.briefing ? `<span>You're subscribed with your account email, <b>${esc(p.email)}</b>. Change this in My list → Manage account.</span>`
+  el.innerHTML = p.briefing ? `<span>You're subscribed with your account email, <b>${esc(p.email)}</b>. Change this in My List → Manage account.</span>`
     : p.email ? `<span>Signed in as <b>${esc(p.email)}</b>.</span><button class="btn primary sm" type="button" data-acct="brief-on">Send the briefing to this address</button>`
     : `<span>Confirm <b>${esc(p.emailPending)}</b> from the link we emailed, then you can get the briefing with one click.</span>`;
 }
@@ -1385,7 +1385,7 @@ function updRender(u){
   const past = UPD.list.filter(x => x.status !== "draft");
   $("#updBody").innerHTML = `<p style="margin-top:0"><b>${UPD.audience}</b> ${UPD.audience === 1 ? "person has" : "people have"} confirmed their email and asked for new-feature emails. Only they receive updates. Sends use what's left of the day's email allowance after the briefing and finish the next day if needed.</p>
     <form id="updForm" style="display:grid;gap:10px">
-      <div class="field"><label for="upd_subject">Subject</label><input id="upd_subject" maxlength="120" value="${esc(u.subject || "")}" placeholder="New: save podcasts to My list"></div>
+      <div class="field"><label for="upd_subject">Subject</label><input id="upd_subject" maxlength="120" value="${esc(u.subject || "")}" placeholder="New: save podcasts to My List"></div>
       <div class="field"><label for="upd_body">Message</label><textarea id="upd_body" maxlength="6000" placeholder="Write in plain text. A blank line starts a new paragraph. Lines starting with - become bullets. https:// links become links.">${esc(u.body || "")}</textarea>
         <small class="muted">Each email starts "Hi {first name}," when we know it, and ends with a Visit button and a one-click unsubscribe link.</small></div>
       <p style="display:flex;gap:8px;flex-wrap:wrap;margin:0"><button class="btn sm" type="submit">Save draft</button><button class="btn sm" type="button" data-upd="preview">Preview</button>${UPD.id ? `<button class="btn sm ghost" type="button" data-upd="discard">Delete draft</button>` : ""}</p>
@@ -1908,7 +1908,7 @@ document.addEventListener("click", async e => {
     body.innerHTML = `<div class="ins-grid"><div class="ins-tile"><b>${S.active}</b><span>Active subscribers</span></div><div class="ins-tile"><b>${S.pending}</b><span>Awaiting confirmation</span></div><div class="ins-tile"><b>${S.unsubscribed}</b><span>Unsubscribed</span></div><div class="ins-tile"><b>${sum(V.byDay)}</b><span>Page views, ${j.days} days</span></div></div>
       <h3 class="section-label" style="margin-top:14px">Subscribers by country (self-declared)</h3>${bars(S.byCountry, k => cname[k] || k)}
       <h3 class="section-label">Topic interests</h3>${bars(S.byInterest, k => DOM[k]?.label || k)}
-      ${j.accounts ? `<h3 class="section-label">My list accounts</h3><div class="ins-grid"><div class="ins-tile"><b>${j.accounts.total}</b><span>Accounts</span></div><div class="ins-tile"><b>${j.accounts.active}</b><span>Signed in, ${j.days} days</span></div><div class="ins-tile"><b>${j.accounts.saved}</b><span>Items saved</span></div></div>
+      ${j.accounts ? `<h3 class="section-label">My List accounts</h3><div class="ins-grid"><div class="ins-tile"><b>${j.accounts.total}</b><span>Accounts</span></div><div class="ins-tile"><b>${j.accounts.active}</b><span>Signed in, ${j.days} days</span></div><div class="ins-tile"><b>${j.accounts.saved}</b><span>Items saved</span></div></div>
       <h3 class="section-label">Most saved</h3>${bars(j.accounts.mostSaved, k => ITEMS.find(i=>i.id===k)?.name || k)}` : ""}
       <h3 class="section-label">Visits by time-zone region</h3>${bars(V.region)}
       <h3 class="section-label">Sections</h3>${bars(V.page)}
@@ -2002,7 +2002,7 @@ addEventListener("hashchange", () => { showView(); scrollTo(0,0); });
   ITEMS = await api.init();
   $("#modePill").textContent = api.remote ? "live" : "demo · votes saved in this browser";
   await favs.load();
-  { const q = new URLSearchParams(location.search), m = { "email-confirmed": "Email confirmed.", "signed-in": "Signed in. Add a passkey for this device from My list → Manage account." }[q.get("account")];
+  { const q = new URLSearchParams(location.search), m = { "email-confirmed": "Email confirmed.", "signed-in": "Signed in. Add a passkey for this device from My List → Manage account." }[q.get("account")];
     if (m){ setTimeout(() => toast(m), 400); q.delete("account"); history.replaceState(null, "", location.pathname + (q.toString() ? "?" + q : "") + location.hash); } }
   render(); refreshAdminBadge(); showView();
   const q = new URLSearchParams(location.search).get("subscribe");

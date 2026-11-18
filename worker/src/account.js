@@ -1,4 +1,4 @@
-// Visitor accounts for "My list": passkey sign-in only (no passwords, no email), a one-time recovery code,
+// Visitor accounts for "My List": passkey sign-in only (no passwords, no email), a one-time recovery code,
 // and the saved items themselves.
 //
 // Security notes
@@ -274,8 +274,8 @@ export const remove = handler(async (req, env, ctx, params, acc) => {
   return json(200, { ok: true }, { "set-cookie": clearCookie });
 }, { needSession: true, recentAuth: true });
 
-/* ---------- My list ---------- */
-// "seen" for each item is the later of when it was added and when the person last opened My list.
+/* ---------- My List ---------- */
+// "seen" for each item is the later of when it was added and when the person last opened My List.
 const listRows = async (env, aid) => {
   const acc = await env.DB.prepare("SELECT list_seen_at FROM accounts WHERE id = ?").bind(aid).first();
   return (await env.DB.prepare("SELECT item_id, added_at FROM favourites WHERE account_id = ? ORDER BY added_at DESC").bind(aid).all()).results

@@ -25,7 +25,7 @@ const lines = [
   `**Page views:** ${total} (about ${Math.round(total / days)} a day)`,
   `**Busiest days:** ${[...byDay].sort((a, b) => b.n - a.n).slice(0, 3).map(r => `${r.day} (${r.n})`).join(", ") || "none yet"}`, "",
   `**Daily briefing subscribers:** ${subs.map(r => `${r.status} ${r.n}`).join(", ") || "none"}; new in this period: ${newSubs.n ?? 0}`,
-  `**My list accounts:** ${acc.total ?? 0} in all, ${acc.active ?? 0} active in this period, ${acc.withEmail ?? 0} with a confirmed email, ${acc.updates ?? 0} opted in to update emails, ${acc.saved ?? 0} items saved`,
+  `**My List accounts:** ${acc.total ?? 0} in all, ${acc.active ?? 0} active in this period, ${acc.withEmail ?? 0} with a confirmed email, ${acc.updates ?? 0} opted in to update emails, ${acc.saved ?? 0} items saved`,
   `**Engagement:** ${votes.n ?? 0} votes from ${votes.voters ?? 0} voters, ${subsQ.n ?? 0} suggestions, ${reports.n ?? 0} problem reports`,
   `**Catalogue:** ${items.map(r => `${r.n} ${r.type}s`).join(", ")}`, "",
   ...["page", "ref", "region", "device", "lang"].map(d => `**Top ${({ page: "pages", ref: "referrers", region: "regions", device: "devices", lang: "languages" })[d]}:** ${dims(d).map(v => `${v.val || "(none)"} ${v.n}`).join(", ") || "none"}`),

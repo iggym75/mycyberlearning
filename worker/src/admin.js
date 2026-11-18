@@ -122,7 +122,7 @@ export const insights = guard(async (req, env) => {
     if (r.dim === "total") visits.byDay[r.day] = (visits.byDay[r.day] || 0) + r.n;
     else if (visits[r.dim]) visits[r.dim][r.val] = (visits[r.dim][r.val] || 0) + r.n;
   }
-  // My list accounts: counts only (accounts hold nothing personal anyway).
+  // My List accounts: counts only (accounts hold nothing personal anyway).
   const acc = await env.DB.prepare("SELECT (SELECT COUNT(*) FROM accounts) AS total, (SELECT COUNT(*) FROM accounts WHERE last_seen >= ?) AS active, (SELECT COUNT(*) FROM favourites) AS saved").bind(since).first().catch(() => null);
   const top = (await env.DB.prepare("SELECT item_id, COUNT(*) AS n FROM favourites GROUP BY item_id ORDER BY n DESC LIMIT 8").all().catch(() => ({ results: [] }))).results;
   const accounts = { total: acc?.total || 0, active: acc?.active || 0, saved: acc?.saved || 0, mostSaved: Object.fromEntries(top.map(r => [r.item_id, r.n])) };
