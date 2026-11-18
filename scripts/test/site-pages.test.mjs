@@ -50,3 +50,15 @@ test("site pages: /video/ is built from tour.json with no scripts and only our o
     assert.ok((await readFile(join(dir, "sitemap.xml"), "utf8")).includes("/video/"));
   } finally { await rm(dir, { recursive: true, force: true }); }
 });
+
+test("site pages: header and breadcrumb links go to the library, not to the static section pages", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "mcl-nav-"));
+  try {
+    const item = { id: "nav-pod", type: "podcast", name: "Nav Pod", domains: [], level: [] };
+    await buildSitePages(dir, { items: [item] }, { domains: [] });
+    const html = await readFile(join(dir, "podcasts", "nav-pod", "index.html"), "utf8");
+    const top = html.slice(html.indexOf("<header>"), html.indexOf('<p class="crumbs">') + 400);
+    for (const h of ["/#podcasts", "/#books", "/#platforms", "/#experts", "/#news"]) assert.ok(top.includes(`href="${h}"`), h);
+    assert.equal(/href="\/(podcasts|books|platforms|experts|topics)\/"/.test(top), false);
+  } finally { await rm(dir, { recursive: true, force: true }); }
+});
