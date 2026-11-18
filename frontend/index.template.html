@@ -127,6 +127,61 @@ body:not([data-type="all"]) .intro{padding-block:18px 4px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0;position:relative}
 .card .head{padding-right:34px}
+/* ---------- My List: learning map (top-down tree by type, topic coverage, gap ideas) ---------- */
+.lmap{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px 18px;margin:4px 0 18px}
+.lmap-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.lmap-h h2{margin:0;font:800 19px/1.2 "Bricolage Grotesque",sans-serif;letter-spacing:-.01em}
+.lmap-h .sub{color:var(--ink-2);font-size:14px}
+.lmap-h .lmap-toggle{margin-left:auto;background:none;border:0;padding:4px;color:var(--ink-3);font-size:13px;text-decoration:underline;cursor:pointer}
+.lmap.collapsed{padding:10px 18px}.lmap.collapsed .lmap-body{display:none}
+.lmap-tree{position:relative;margin-top:16px}
+.lmap-tree svg.wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.lmap-tree .wires path{fill:none;stroke:var(--line);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.lmap-root{display:flex;justify-content:center;margin-bottom:30px}
+.lmap-root span{background:#0f2a4a;color:#fff;border-radius:999px;padding:7px 18px 7px 8px;display:inline-flex;align-items:center;gap:9px;font:700 15px "Bricolage Grotesque",sans-serif;box-shadow:0 8px 20px -10px rgba(15,42,74,.7)}
+.lmap-root i{width:24px;height:24px;border-radius:50%;background:#0b7a75;display:grid;place-items:center;font-style:normal}
+.lmap-root svg{width:13px;height:13px}
+.lmap-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:start;margin:0;padding:0;list-style:none}
+.lmap-col{display:flex;flex-direction:column;gap:8px;min-width:0}
+.lmap-type{align-self:center;border:2px solid var(--signal);background:var(--surface);color:var(--ink);border-radius:12px;padding:6px 13px;font:700 14.5px "Bricolage Grotesque",sans-serif;display:inline-flex;gap:7px;align-items:center;margin-bottom:12px;white-space:nowrap;cursor:pointer}
+.lmap-type small{font:500 12px "IBM Plex Mono",monospace;color:var(--ink-3)}
+.lmap-type.none{border-style:dashed;border-color:var(--line);color:var(--ink-3)}
+.lmap-leaves{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.lmap-leaf{margin-left:16px;width:calc(100% - 16px);display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 8px;text-align:left;color:var(--ink);cursor:pointer;font:inherit}
+.lmap-leaf:hover{border-color:var(--ink-3)}
+.lmap-leaf .pic{width:28px;height:28px;border-radius:7px;flex:none;object-fit:cover;display:grid;place-items:center;color:#fff;font:700 11px "Bricolage Grotesque",sans-serif;overflow:hidden}
+.lmap-leaf .pic img{width:100%;height:100%;object-fit:cover;display:block;background:#fff}
+.lmap-leaf .nm{font-size:13px;font-weight:600;line-height:1.25;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.lmap-dots{display:flex;gap:3px;margin-top:3px}.lmap-dots i{width:8px;height:8px;border-radius:50%}
+.lmap-leaf.ghost{border-style:dashed;background:transparent;color:var(--ink-2);font-size:13px}
+.lmap-leaf.ghost b{color:var(--signal);font-weight:600}
+.lmap-cov{margin-top:22px;border-top:1px solid var(--line);padding-top:14px}
+.lmap-cov h3{margin:0 0 4px;font:700 15px "Bricolage Grotesque",sans-serif}
+.lmap-cov h3 span{font:400 13px "IBM Plex Sans",sans-serif;color:var(--ink-3)}
+.lmap-cov .legend{font-size:13px;color:var(--ink-2)}
+.lmap-bar{display:flex;height:9px;border-radius:99px;overflow:hidden;background:var(--sunk);margin:8px 0 12px}
+.lmap-bar i{display:block;height:100%}
+.lmap-chips{display:flex;flex-wrap:wrap;gap:6px}
+.lmap-chip{border-radius:999px;padding:3px 10px;font-size:13px;border:1.5px solid var(--h);background:color-mix(in srgb,var(--h) 14%,var(--surface));color:var(--ink);cursor:pointer;font-family:inherit}
+.lmap-chip b{font:500 12px "IBM Plex Mono",monospace;margin-left:5px;color:var(--ink-2)}
+.lmap-chip.gap{border:1.5px dashed var(--line);background:transparent;color:var(--ink-3)}
+.lmap-chip.gap:hover{color:var(--ink);border-color:var(--ink-3)}
+.lmap-ideas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+.lmap-idea{border:1px solid var(--line);border-radius:12px;padding:9px 11px;display:flex;gap:10px;align-items:center;min-width:0}
+.lmap-idea .pic{width:34px;height:34px;border-radius:8px;flex:none;overflow:hidden;display:grid;place-items:center;color:#fff;font:700 12px "Bricolage Grotesque",sans-serif}
+.lmap-idea .pic img{width:100%;height:100%;object-fit:cover;display:block;background:#fff}
+.lmap-idea .t{font:500 11px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.04em;color:var(--h)}
+.lmap-idea .nm{font-weight:600;font-size:14px;line-height:1.25;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.lmap-idea .btn{margin-left:auto;flex:none}
+@media (max-width:760px){
+  .lmap-tree svg.wires{display:none}
+  .lmap-root{justify-content:flex-start;margin-bottom:12px}
+  .lmap-cols{display:block}
+  .lmap-col{border-left:2px solid var(--line);margin:0 0 12px 12px;padding-bottom:2px}
+  .lmap-type{align-self:flex-start;margin:0 0 6px -12px}
+  .lmap-leaf{margin-left:14px;width:calc(100% - 14px)}
+  .lmap-ideas{grid-template-columns:1fr}
+}
 /* Save to My List */
 .fav{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink-3);display:grid;place-items:center;cursor:pointer;padding:0}
 .fav svg{width:18px;height:18px}
@@ -441,6 +496,7 @@ footer .browse{flex-basis:100%;display:flex;gap:6px;flex-wrap:wrap;align-items:c
 <section class="wrap intro library-only">
   <p class="intro-note" id="introNote" hidden></p>
   <div class="acct" id="acctPanel" hidden></div>
+  <section class="lmap" id="learnMap" hidden aria-labelledby="lmapTitle"></section>
   <h1 class="home-only">Podcasts, books, platforms and experts to keep your cyber skills current</h1>
   <p class="home-only">A curated library for people starting out in security and practitioners staying sharp. Filter by the domains you work in, find free and low-cost labs, courses and events, discover the experts worth following, see listener ratings from the podcast platforms, and add your own vote — community scores sit alongside the official ratings, never mixed with them.</p>
   <div class="home-only tour-cta"><button class="tour-btn" type="button" data-tour><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M10 7.8v8.4l6.8-4.2z"/></svg>Watch the 2-minute tour</button></div>
@@ -745,7 +801,7 @@ footer .browse{flex-basis:100%;display:flex;gap:6px;flex-wrap:wrap;align-items:c
         <tr><td><code>__Host-mcl_admin</code></td><td>Cookie</td><td>Keeps the site's administrator signed in. Never set for visitors.</td><td>8 hours</td></tr>
         <tr><td><code>__Host-mcl_oauth</code></td><td>Cookie</td><td>Protects the administrator's GitHub sign-in from forgery. Never set for visitors.</td><td>10 minutes</td></tr>
         <tr><td><code>__cf_bm</code></td><td>Cookie (Cloudflare)</td><td>Our host, Cloudflare, may set this to tell people from automated traffic and protect the site from abuse.</td><td>30 minutes</td></tr>
-        <tr><td><code>mcl:*</code></td><td>Browser storage</td><td>Kept only in your browser and never sent to us: your filters, items saved to My List without an account, and a random number that stops double votes.</td><td>Until you clear your browser data</td></tr>
+        <tr><td><code>mcl:*</code></td><td>Browser storage</td><td>Kept only in your browser and never sent to us: your filters, items saved to My List without an account, whether you've hidden the learning map, and a random number that stops double votes.</td><td>Until you clear your browser data</td></tr>
       </tbody>
     </table>
     <p>You can delete cookies and site data at any time in your browser's settings; the site still works, but you'll be signed out and lose anything saved only in your browser.</p>
@@ -1526,7 +1582,7 @@ function render(){
   const scope = TAX.scope?.[state.type];
   $("#introNote").hidden = !scope; $("#introNote").textContent = scope?.intro || "";
   $("#navMine").textContent = FAV.list.size || ""; $("#mineDot").hidden = !ITEMS.some(isNewNow);
-  renderAcct(); renderSubAcct();
+  renderAcct(); renderSubAcct(); renderMap();
   $("#stats").innerHTML = `<span><b>${pods}</b> podcasts</span><span><b>${books}</b> books</span><span><b>${plats}</b> platforms</span>${people?`<span><b>${people}</b> experts</span>`:""}<span><b>${TAX.domains.length}</b> security domains</span><span><b>${ITEMS.filter(i=>i.curator).length}</b> MCL Picks</span>`;
 }
 
@@ -1953,6 +2009,86 @@ document.addEventListener("submit", async e => {
 /* ---------- Header height for the sticky sidebar (.rail) ---------- */
 { const bar = document.querySelector(".bar"), set = () => document.documentElement.style.setProperty("--bar-h", bar.offsetHeight + "px");
   set(); if ("ResizeObserver" in window) new ResizeObserver(set).observe(bar); else addEventListener("resize", set); }
+
+/* ---------- My List: learning map ----------
+   Built in the browser from the list the visitor already has: nothing new is stored or sent anywhere
+   (apart from remembering, in this browser, whether the map is hidden). */
+const MAP_TYPES = [["podcast","Podcasts","#podcasts"],["book","Books","#books"],["platform","Platforms","#platforms"],["person","Experts","#experts"]];
+const domCol = k => `hsl(${DOMAIN_HUE[k] ?? 180} 58% 46%)`;
+function mapPic(i){
+  if (i.logo) return `<span class="pic" style="background:hsl(${hue(i.id)} 55% 38%)"><img src="${esc(i.logo)}" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>`;
+  return `<span class="pic" style="background:hsl(${hue(i.id)} 55% 38%)">${esc(initials(i.name.replace(/\s*\(.*?\)\s*/g, " ").trim()))}</span>`;
+}
+// One MCL Pick for each of up to three topics with nothing saved yet: the bigger topics first, best-rated pick first.
+function mapIdeas(saved, gaps){
+  const size = k => ITEMS.filter(i => !i.hidden && (i.domains || []).includes(k)).length;
+  const score = i => (i.rating?.v || 0) * Math.log10((i.rating?.n || 0) + 10) + (i.community?.up || 0);
+  const used = new Set(), out = [];
+  for (const g of [...gaps].sort((a, b) => size(b.key) - size(a.key))){
+    const pool = ITEMS.filter(i => i.curator && !i.hidden && !saved.has(i.id) && !used.has(i.id) && (i.domains || []).includes(g.key));
+    const best = pool.sort((a, b) => ((b.domains[0] === g.key) - (a.domains[0] === g.key)) || score(b) - score(a))[0];
+    if (best){ used.add(best.id); out.push([g, best]); }
+    if (out.length === 3) break;
+  }
+  return out;
+}
+function renderMap(){
+  const el = $("#learnMap"), mine = ITEMS.filter(i => FAV.list.has(i.id) && (!i.hidden || api.isAdmin));
+  el.hidden = state.type !== "mine" || !mine.length; if (el.hidden) return;
+  const collapsed = store.get("mapHidden", false);
+  el.classList.toggle("collapsed", collapsed);
+  const counts = {}; mine.forEach(i => (i.domains || []).forEach(d => (counts[d] = (counts[d] || 0) + 1)));
+  const total = Object.values(counts).reduce((a, b) => a + b, 0) || 1;
+  const covered = TAX.domains.filter(d => counts[d.key]).sort((a, b) => counts[b.key] - counts[a.key]), gaps = TAX.domains.filter(d => !counts[d.key]);
+  const ideas = mapIdeas(new Set(mine.map(i => i.id)), gaps);
+  const leaf = i => `<li><button class="lmap-leaf" type="button" data-mapgo="${esc(i.id)}" title="Show ${esc(i.name)} in your list">${mapPic(i)}<span style="min-width:0"><span class="nm">${esc(i.name)}</span><span class="lmap-dots">${(i.domains || []).map(d => `<i style="background:${domCol(d)}" title="${esc(DOM[d]?.label || d)}"></i>`).join("")}</span></span></button></li>`;
+  const cols = MAP_TYPES.map(([t, label, hash]) => { const xs = mine.filter(i => i.type === t);
+    return `<li class="lmap-col"><button class="lmap-type${xs.length ? "" : " none"}" type="button" data-mapbrowse="${t}" title="Browse ${label.toLowerCase()}">${label} <small>${xs.length}</small></button>
+      <ul class="lmap-leaves">${xs.length ? xs.map(leaf).join("") : `<li><button class="lmap-leaf ghost" type="button" data-mapbrowse="${t}">Nothing yet.&nbsp;<b>Browse ${label.toLowerCase()}</b></button></li>`}</ul></li>`; }).join("");
+  el.innerHTML = `<div class="lmap-h"><h2 id="lmapTitle">Your learning map</h2><span class="sub">What you've saved, and the topics you haven't explored yet</span>
+      <button class="lmap-toggle" type="button" data-maptoggle aria-expanded="${!collapsed}">${collapsed ? "Show map" : "Hide map"}</button></div>
+    <div class="lmap-body">
+      <div class="lmap-tree"><svg class="wires" aria-hidden="true"><path/></svg>
+        <div class="lmap-root"><span><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z" fill="#fff"/></svg></i>My List · ${mine.length}</span></div>
+        <ul class="lmap-cols">${cols}</ul></div>
+      <div class="lmap-cov">
+        <h3>Topic coverage</h3><div class="legend">${covered.length} of ${TAX.domains.length} security topics covered. Tap a topic to filter your list, or a dashed one to explore it.</div>
+        <div class="lmap-bar" aria-hidden="true">${covered.map(d => `<i style="background:${domCol(d.key)};width:${(counts[d.key] / total * 100).toFixed(2)}%"></i>`).join("")}</div>
+        <div class="lmap-chips">${covered.map(d => `<button class="lmap-chip" type="button" style="--h:${domCol(d.key)}" data-mapmine="${d.key}">${esc(d.label)}<b>${counts[d.key]}</b></button>`).join("")}${gaps.map(d => `<button class="lmap-chip gap" type="button" data-mapexplore="${d.key}" title="Explore ${esc(d.label)}">${esc(d.label)}</button>`).join("")}</div>
+        ${ideas.length ? `<h3 style="margin-top:18px">Ideas to fill the gaps <span>· MCL Picks in topics you haven't saved yet</span></h3>
+        <div class="lmap-ideas">${ideas.map(([g, i]) => `<div class="lmap-idea" style="--h:${domCol(g.key)}">${mapPic(i)}<div style="min-width:0"><div class="t">${esc(g.label)}</div><div class="nm">${esc(i.name)}</div></div><button class="btn sm" type="button" data-mapsave="${esc(i.id)}" aria-label="Save ${esc(i.name)} to My List">♡ Save</button></div>`).join("")}</div>` : ""}
+      </div></div>`;
+  drawMapWires();
+}
+// Connectors: from My List down to each type, then a spine down each type's items. Redrawn when the layout changes.
+function drawMapWires(){
+  const el = $("#learnMap"), tree = el.querySelector(".lmap-tree"); if (!tree || el.hidden || el.classList.contains("collapsed")) return;
+  const path = tree.querySelector(".wires path"), T = tree.getBoundingClientRect();
+  if (getComputedStyle(tree.querySelector(".wires")).display === "none" || !T.width) return path.setAttribute("d", "");
+  const R = tree.querySelector(".lmap-root span").getBoundingClientRect(), types = [...tree.querySelectorAll(".lmap-type")];
+  const rx = R.left + R.width / 2 - T.left, ry = R.bottom - T.top, busY = (ry + types[0].getBoundingClientRect().top - T.top) / 2;
+  const xs = types.map(b => { const r = b.getBoundingClientRect(); return r.left + r.width / 2 - T.left; });
+  let d = `M${rx} ${ry}V${busY}M${Math.min(...xs)} ${busY}H${Math.max(...xs)}`;
+  types.forEach((b, k) => { const r = b.getBoundingClientRect(); d += `M${xs[k]} ${busY}V${r.top - T.top}`;
+    const leaves = [...b.parentElement.querySelectorAll(".lmap-leaf")]; if (!leaves.length) return;
+    const col = b.parentElement.getBoundingClientRect(), sx = col.left - T.left + 7, last = leaves[leaves.length - 1].getBoundingClientRect();
+    d += `M${xs[k]} ${r.bottom - T.top}V${r.bottom - T.top + 7}H${sx}V${last.top + last.height / 2 - T.top}`;
+    leaves.forEach(l => { const lr = l.getBoundingClientRect(); d += `M${sx} ${lr.top + lr.height / 2 - T.top}H${lr.left - T.left}`; }); });
+  path.setAttribute("d", d);
+}
+if ("ResizeObserver" in window) new ResizeObserver(() => drawMapWires()).observe(document.querySelector("#learnMap"));
+const mapResetFilters = () => Object.assign(state, { match:"any", domains:[], freqs:[], levels:[], publishers:[], kinds:[], costs:[], socials:[], picks:false, q:"" });
+document.addEventListener("click", async e => {
+  const b = e.target.closest("#learnMap button"); if (!b) return;
+  if (b.hasAttribute("data-maptoggle")){ store.set("mapHidden", !store.get("mapHidden", false)); renderMap(); }
+  else if (b.dataset.mapsave){ b.disabled = true; await favs.toggle(b.dataset.mapsave); }
+  else if (b.dataset.mapgo){ const c = document.querySelector(`#grid .card[data-id="${CSS.escape(b.dataset.mapgo)}"]`);
+    if (!c){ mapResetFilters(); render(); return requestAnimationFrame(() => document.querySelector(`#grid .card[data-id="${CSS.escape(b.dataset.mapgo)}"]`)?.scrollIntoView({ behavior: "smooth", block: "center" })); }
+    c.scrollIntoView({ behavior: "smooth", block: "center" }); }
+  else if (b.dataset.mapmine){ state.domains = [b.dataset.mapmine]; state.match = "any"; render(); $("#grid").scrollIntoView({ behavior: "smooth", block: "start" }); }
+  else if (b.dataset.mapexplore){ mapResetFilters(); state.type = "all"; state.domains = [b.dataset.mapexplore]; history.pushState(null, "", "#library"); render(); scrollTo({ top: 0, behavior: "smooth" }); }
+  else if (b.dataset.mapbrowse){ const t = MAP_TYPES.find(x => x[0] === b.dataset.mapbrowse); mapResetFilters(); state.type = t[0]; history.pushState(null, "", t[2]); render(); scrollTo({ top: 0, behavior: "smooth" }); }
+});
 
 /* ---------- Site tour video ---------- */
 // Apple devices stream it as HLS (small pieces: no byte ranges needed, and it gets through filtering proxies);
