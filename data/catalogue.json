@@ -12882,6 +12882,35 @@
       "linkedin": "https://www.linkedin.com/in/window",
       "noPhoto": true,
       "id": "expert-window-snyder"
+    },
+    {
+      "type": "platform",
+      "name": "BrightTALK",
+      "by": "BrightTALK (TechTarget)",
+      "kind": "events",
+      "cost": "free",
+      "desc": "Free live and on-demand webinars and virtual summits on security, from analysts, practitioners and bodies such as ISC2. A free account is needed to watch; many talks are run by vendors, so expect some product focus.",
+      "domains": [
+        "news",
+        "leadership",
+        "grc",
+        "cloud",
+        "operations"
+      ],
+      "level": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "status": "active",
+      "web": "https://www.brighttalk.com/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "curator"
+      ],
+      "verified": true,
+      "id": "brighttalk"
     }
   ]
 }
