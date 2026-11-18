@@ -1,4 +1,4 @@
-// Passkey accounts and My list, end to end against the Worker and a local SQLite copy of the schema.
+// Passkey accounts and My List, end to end against the Worker and a local SQLite copy of the schema.
 // A small software authenticator below makes real ES256, Ed25519 and RS256 credentials, so the
 // cryptographic checks in worker/src/lib/webauthn.js run exactly as they would against a phone or laptop.
 import { test, before } from "node:test";
@@ -177,7 +177,7 @@ test("state-changing calls must be same-origin JSON; list calls need a session",
   assert.equal((await call("/api/account/list", { cookie: forged })).status, 401);
 });
 
-test("My list: add, refuse hidden or unknown items, merge from the device, mark seen, remove, export", async () => {
+test("My List: add, refuse hidden or unknown items, merge from the device, mark seen, remove, export", async () => {
   const a = await makeAuthenticator(); const { cookie } = await register(a);
   assert.equal((await call("/api/account/list/darknet-diaries", { method: "PUT", body: {}, cookie })).status, 200);
   assert.equal((await call("/api/account/list/darknet-diaries", { method: "PUT", body: {}, cookie })).status, 200); // idempotent
@@ -400,11 +400,11 @@ test("admin update composer: draft, preview (escaped), test send, queue once; on
   assert.equal((await call("/api/admin/updates")).status, 403);
   const admin = await adminCookie();
   assert.equal((await call("/api/admin/updates", { method: "POST", body: { subject: "x", body: "short" }, cookie: admin })).status, 400);
-  const saved = await (await call("/api/admin/updates", { method: "POST", body: { subject: "New: My list", body: "Hello <script>alert(1)</script>\n\n- one\n- two https://mycyberlearning.co.uk/#mylist" }, cookie: admin })).json();
+  const saved = await (await call("/api/admin/updates", { method: "POST", body: { subject: "New: My List", body: "Hello <script>alert(1)</script>\n\n- one\n- two https://mycyberlearning.co.uk/#mylist" }, cookie: admin })).json();
   assert.ok(saved.id);
   const pv = await (await call(`/api/admin/updates/${saved.id}/preview`, { method: "POST", body: {}, cookie: admin })).json();
   assert.ok(!pv.html.includes("<script>")); assert.match(pv.html, /&lt;script&gt;/); assert.match(pv.html, /<li>one<\/li>/);
-  assert.match(pv.html, /href="https:\/\/mycyberlearning\.co\.uk\/#mylist"/); assert.match(pv.subject, /^MCL: New: My list/);
+  assert.match(pv.html, /href="https:\/\/mycyberlearning\.co\.uk\/#mylist"/); assert.match(pv.subject, /^MCL: New: My List/);
   outbox.length = 0;
   assert.equal((await call(`/api/admin/updates/${saved.id}/test`, { method: "POST", body: { to: "me@example.com" }, cookie: admin })).status, 200);
   assert.equal(outbox.length, 1); assert.match(outbox[0].subject, /^\[Test\] MCL:/);

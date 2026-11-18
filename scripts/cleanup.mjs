@@ -2,7 +2,7 @@
 //  - unconfirmed sign-ups are deleted after 7 days
 //  - aggregate visit counters older than 13 months are deleted
 //  - suggestions pending over 90 days lose the submitter's email and IP hash
-//  - My list accounts not used for two years are deleted with their passkeys and list; expired passkey challenges go
+//  - My List accounts not used for two years are deleted with their passkeys and list; expired passkey challenges go
 import { openD1 } from "./d1.mjs";
 
 const db = await openD1();
@@ -36,5 +36,5 @@ await db.prepare("DELETE FROM webauthn_challenges WHERE expires < ?").bind(now).
 await db.prepare("UPDATE accounts SET email_pending = NULL, email_token_hash = NULL, email_token_expires = NULL WHERE email_token_expires < ?").bind(iso(now)).run();
 await db.prepare("DELETE FROM login_links WHERE expires < ?").bind(iso(now)).run();
 const closedReports = await db.prepare("DELETE FROM reports WHERE status != 'open' AND closed_at < ?").bind(iso(now - 90 * 864e5)).run().catch(() => ({ meta: {} }));
-console.log(`Retention: ${stale.length} unused My list accounts deleted; ${closedReports.meta.changes ?? 0} closed reports deleted.`);
+console.log(`Retention: ${stale.length} unused My List accounts deleted; ${closedReports.meta.changes ?? 0} closed reports deleted.`);
 console.log(`Retention: deleted ${pending.meta.changes ?? 0} unconfirmed sign-ups and ${old.meta.changes ?? 0} old visit counters; removed contact details from ${scrubbed} old suggestions.`);

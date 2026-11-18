@@ -1,4 +1,4 @@
-// Optional name and email for My list accounts: confirming the address, linking it to the daily briefing,
+// Optional name and email for My List accounts: confirming the address, linking it to the daily briefing,
 // consent to occasional new-feature emails, and signing in with an emailed link (account recovery).
 //
 // Rules
@@ -27,7 +27,7 @@ const TOTAL_CAP = () => Number(process.env.CONFIRM_DAILY_CAP) || 40;   // all co
 const KIND_CAP = { verify: () => Number(process.env.VERIFY_DAILY_CAP) || 15, login: () => Number(process.env.LOGIN_DAILY_CAP) || 15 };
 export const BRIEFING_CONSENT = "Email me the My Cyber Learning daily briefing. I can unsubscribe at any time.";
 export const UPDATES_CONSENT = "Email me occasionally about new features. I can stop these at any time.";
-const GENERIC_LINK = { ok: true, message: "If that address belongs to a My list account, we've emailed a sign-in link. It works once and expires in 30 minutes." };
+const GENERIC_LINK = { ok: true, message: "If that address belongs to a My List account, we've emailed a sign-in link. It works once and expires in 30 minutes." };
 const jitter = () => new Promise(r => setTimeout(r, 250 + Math.floor(Math.random() * 400)));
 const redirect = (to, headers = {}) => new Response(null, { status: 303, headers: { location: to, "cache-control": "no-store", ...headers } });
 const cleanName = v => String(v ?? "").replace(/[\u0000-\u001f<>"]/g, "").replace(/\s+/g, " ").trim().slice(0, 40) || null;
@@ -123,7 +123,7 @@ export const profile = handler(async (req, env, ctx, params, acc) => {
   // requests: the address owner says yes or no on the confirmation page.
   if ("briefing" in b) {
     if (b.briefing === true) {
-      if (verified && !pendingNow) { await startBriefing(db, verified, name, "turned on in My list account settings"); notes.push("The daily briefing will arrive each morning at 08:30 UK time."); }
+      if (verified && !pendingNow) { await startBriefing(db, verified, name, "turned on in My List account settings"); notes.push("The daily briefing will arrive each morning at 08:30 UK time."); }
       else { await db.prepare("UPDATE accounts SET briefing_wanted = 1 WHERE id = ?").bind(acc.id).run(); if (pendingNow) notes.push("You can start the briefing when you confirm your email."); }
     } else if (b.briefing === false) {
       await db.prepare("UPDATE accounts SET briefing_wanted = 0 WHERE id = ?").bind(acc.id).run();
@@ -132,7 +132,7 @@ export const profile = handler(async (req, env, ctx, params, acc) => {
   }
   if ("updates" in b) {
     if (b.updates === true) {
-      if (verified && !pendingNow) await db.prepare("UPDATE accounts SET updates_opt_in = 1, updates_wanted = 0, updates_consent_at = ?, updates_consent_text = ? WHERE id = ? AND updates_opt_in = 0").bind(now(), `${UPDATES_CONSENT} (turned on in My list account settings)`, acc.id).run();
+      if (verified && !pendingNow) await db.prepare("UPDATE accounts SET updates_opt_in = 1, updates_wanted = 0, updates_consent_at = ?, updates_consent_text = ? WHERE id = ? AND updates_opt_in = 0").bind(now(), `${UPDATES_CONSENT} (turned on in My List account settings)`, acc.id).run();
       else await db.prepare("UPDATE accounts SET updates_wanted = 1 WHERE id = ?").bind(acc.id).run();
     } else if (b.updates === false) await db.prepare("UPDATE accounts SET updates_opt_in = 0, updates_wanted = 0 WHERE id = ?").bind(acc.id).run();
   }
@@ -153,13 +153,13 @@ const tick = (id, label) => `<label style="display:flex;gap:8px;align-items:flex
 // GET shows the page (with unticked email choices); POST confirms. Mail scanners open links, so GET never changes anything.
 export async function confirmEmail(req, env) {
   const q = new URL(req.url).searchParams, aid = String(q.get("a") || ""), token = String(q.get("t") || "");
-  const bad = () => htmlPage("Link not recognised", "<p>This link is incomplete, has expired or has already been used. You can ask for a new one from My list, under Manage account.</p>", 400);
+  const bad = () => htmlPage("Link not recognised", "<p>This link is incomplete, has expired or has already been used. You can ask for a new one from My List, under Manage account.</p>", 400);
   if (!AID.test(aid) || token.length < 20 || token.length > 100) return bad();
   const a = await env.DB.prepare("SELECT id, name, email_id, email_pending, email_token_hash, email_token_expires FROM accounts WHERE id = ?").bind(aid).first();
   if (!a?.email_pending || !a.email_token_hash || a.email_token_hash !== sha256(token) || Date.parse(a.email_token_expires) < Date.now()) return bad();
   const action = `/api/account/email/confirm?a=${aid}&amp;t=${encodeURIComponent(token)}`;
   if (req.method === "GET") return htmlPage("Confirm your email", `<form method="post" action="${action}">
-<p>Press confirm to add <b>${escapeHtml(a.email_pending)}</b> to a My list account on My Cyber Learning.</p>
+<p>Press confirm to add <b>${escapeHtml(a.email_pending)}</b> to a My List account on My Cyber Learning.</p>
 <p>Would you also like these emails? Leave them unticked if not. You can change your mind at any time.</p>
 ${tick("briefing", BRIEFING_CONSENT)}${tick("updates", UPDATES_CONSENT)}
 ${button("Confirm email")}</form><p style="font-size:14px;color:#4a5668">If you didn't ask for this, close this page and the address won't be added.</p>`);
@@ -167,7 +167,7 @@ ${button("Confirm email")}</form><p style="font-size:14px;color:#4a5668">If you 
   const form = await req.formData().catch(() => new FormData());
   const wantsBriefing = form.get("briefing") === "yes", wantsUpdates = form.get("updates") === "yes";
   const email = a.email_pending, id = subscriberId(email), t = now();
-  const inUse = () => htmlPage("Address already in use", "<p>That email address is already linked to another My list account. Sign in to that account instead, or use a different address.</p>", 409);
+  const inUse = () => htmlPage("Address already in use", "<p>That email address is already linked to another My List account. Sign in to that account instead, or use a different address.</p>", 409);
   if (await env.DB.prepare("SELECT 1 FROM accounts WHERE email_id = ? AND id <> ?").bind(id, aid).first()) return inUse();
   let upd;
   try {
@@ -207,15 +207,15 @@ export const requestLoginLink = handler(async (req, env, ctx) => {
   return json(202, GENERIC_LINK);
 });
 
-// GET shows a button; POST signs in (once), ends other sessions and goes to My list.
+// GET shows a button; POST signs in (once), ends other sessions and goes to My List.
 export async function emailLogin(req, env) {
   const q = new URL(req.url).searchParams, aid = String(q.get("a") || ""), token = String(q.get("t") || "");
-  const bad = () => htmlPage("Link not recognised", "<p>This sign-in link has expired or has already been used. Ask for a new one from My list.</p>", 400);
+  const bad = () => htmlPage("Link not recognised", "<p>This sign-in link has expired or has already been used. Ask for a new one from My List.</p>", 400);
   if (!AID.test(aid) || token.length < 20 || token.length > 100) return bad();
   const hash = sha256(token);
   const link = await env.DB.prepare("SELECT account_id, expires FROM login_links WHERE token_hash = ?").bind(hash).first();
   if (!link || link.account_id !== aid || Date.parse(link.expires) < Date.now()) return bad();
-  if (req.method === "GET") return htmlPage("Sign in to My list", `<form method="post" action="/api/account/email-login?a=${aid}&amp;t=${encodeURIComponent(token)}"><p>Press the button to sign in on this device. Your other devices will be signed out.</p>${button("Sign in")}</form>`);
+  if (req.method === "GET") return htmlPage("Sign in to My List", `<form method="post" action="/api/account/email-login?a=${aid}&amp;t=${encodeURIComponent(token)}"><p>Press the button to sign in on this device. Your other devices will be signed out.</p>${button("Sign in")}</form>`);
   if (!sameSitePost(req)) return bad();
   const used = await env.DB.prepare("DELETE FROM login_links WHERE token_hash = ? AND account_id = ? RETURNING expires").bind(hash, aid).first(); // single use
   if (!used) return bad();
@@ -234,7 +234,7 @@ export const updatesUnsubUrl = (siteOrigin, aid) => `${siteOrigin}/api/account/u
 export async function updatesUnsubscribe(req, env) {
   const q = new URL(req.url).searchParams, aid = String(q.get("a") || ""), token = String(q.get("t") || "");
   if (!AID.test(aid) || !verifyToken("updates-unsub", aid, token)) return htmlPage("Link not recognised", "<p>This link is incomplete or has been altered. Use the link from the most recent update email.</p>", 400);
-  if (req.method === "GET") return htmlPage("Stop new-feature emails?", `<form method="post" action="/api/account/updates/unsubscribe?a=${aid}&amp;t=${encodeURIComponent(token)}"><p>We'll stop sending occasional updates about new features. Your My list account and any daily briefing aren't affected.</p>${button("Stop these emails")}</form>`);
+  if (req.method === "GET") return htmlPage("Stop new-feature emails?", `<form method="post" action="/api/account/updates/unsubscribe?a=${aid}&amp;t=${encodeURIComponent(token)}"><p>We'll stop sending occasional updates about new features. Your My List account and any daily briefing aren't affected.</p>${button("Stop these emails")}</form>`);
   await env.DB.prepare("UPDATE accounts SET updates_opt_in = 0, updates_wanted = 0 WHERE id = ?").bind(aid).run();
-  return htmlPage("Done", "<p>You won't get any more new-feature emails. You can turn them back on in My list, under Manage account.</p>");
+  return htmlPage("Done", "<p>You won't get any more new-feature emails. You can turn them back on in My List, under Manage account.</p>");
 }

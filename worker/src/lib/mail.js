@@ -86,25 +86,25 @@ export function renderConfirmEmail({ confirmUrl, siteUrl }) {
   return { subject: "Confirm your My Cyber Learning daily briefing", html, text };
 }
 
-/** One-button transactional emails for My list accounts: confirm an email address, or sign in by email. */
+/** One-button transactional emails for My List accounts: confirm an email address, or sign in by email. */
 export function renderAccountEmail({ kind, url: rawUrl, siteUrl, name }) {
   const url = safeUrl(rawUrl), site = safeUrl(siteUrl);
   if (!url || !site) throw new Error("Invalid URL for account email");
   // Plain text first; the HTML version escapes it. (Never derive text by stripping tags from HTML.)
   const hi = name ? `Hi ${String(name)}, ` : "";
   const t = kind === "login"
-    ? { subject: "Your My Cyber Learning sign-in link", title: "Sign in to My list", cta: "Sign in",
-        body: `${hi}someone (hopefully you) asked for a link to sign in to your My list account. It works once and expires in 30 minutes. Signing in this way signs your other devices out.`,
+    ? { subject: "Your My Cyber Learning sign-in link", title: "Sign in to My List", cta: "Sign in",
+        body: `${hi}someone (hopefully you) asked for a link to sign in to your My List account. It works once and expires in 30 minutes. Signing in this way signs your other devices out.`,
         ignore: "If you didn't ask for this, ignore this email: nobody can sign in without the link. Your account is still protected by your passkey." }
     : { subject: "Confirm your email for My Cyber Learning", title: "Confirm your email address", cta: "Confirm email",
-        body: `${hi}please confirm this address for a My list account on My Cyber Learning. The link expires in 48 hours. Confirming doesn't sign you up to any emails: on the next page you choose whether you'd like the daily briefing or new-feature emails.`,
+        body: `${hi}please confirm this address for a My List account on My Cyber Learning. The link expires in 48 hours. Confirming doesn't sign you up to any emails: on the next page you choose whether you'd like the daily briefing or new-feature emails.`,
         ignore: "If you didn't ask for this, ignore this email and the address won't be added." };
   const html = wrap(`<tr><td style="padding:24px">
 <h1 style="font-size:22px;margin:0 0 12px">${t.title}</h1>
 <p style="font-size:15px;line-height:1.55;color:${C.ink2};margin:0 0 20px">${escapeHtml(t.body)}</p>
 <p style="margin:0 0 20px"><a href="${escapeHtml(url)}" style="display:inline-block;background:${C.signal};color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:8px">${t.cta}</a></p>
 <p style="font-size:13px;color:${C.muted};margin:0">${escapeHtml(t.ignore)}</p></td></tr>`,
-    `Sent by ${escapeHtml(site)} because this address was entered for a My list account.`);
+    `Sent by ${escapeHtml(site)} because this address was entered for a My List account.`);
   const text = `${t.title}\n\n${t.body}\n\n${url}\n\n${t.ignore}`;
   return { subject: t.subject, html, text };
 }
@@ -127,7 +127,7 @@ export function renderUpdateEmail({ subject, body, name, siteUrl, unsubscribeUrl
 <h1 style="font-size:22px;margin:0 0 14px;color:${C.ink}">${escapeHtml(subject)}</h1>
 ${name ? `<p style="margin:0 0 14px;font-size:15px;color:${C.ink2}">Hi ${escapeHtml(name)},</p>` : ""}${blocks}
 <p style="margin:6px 0 18px"><a href="${escapeHtml(site)}" style="display:inline-block;background:${C.signal};color:#fff;text-decoration:none;font-weight:600;padding:10px 16px;border-radius:8px">Visit My Cyber Learning</a></p></td></tr>`,
-    `You're getting this because you asked for occasional updates about new features in your My list account. <a href="${escapeHtml(unsub)}" style="color:${C.muted}">Stop these emails</a> (one click, no sign-in).`,
+    `You're getting this because you asked for occasional updates about new features in your My List account. <a href="${escapeHtml(unsub)}" style="color:${C.muted}">Stop these emails</a> (one click, no sign-in).`,
     String(body || "").replace(/\s+/g, " ").slice(0, 140));
   const text = `${subject}\n\n${name ? `Hi ${name},\n\n` : ""}${String(body || "").trim()}\n\n${site}\n\nStop these emails: ${unsub}`;
   return { subject: `MCL: ${subject}`.slice(0, 100), html, text };
