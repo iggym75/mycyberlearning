@@ -1,102 +1,98 @@
 {
-  "date": "2026-11-19",
-  "generatedAt": "2026-11-19T08:35:42.852Z",
-  "windowHours": 25,
-  "headline": "Java4Shell and Oracle patch wave dominate; outage fears, AI-driven flaws and Scattered Spider sentencing",
-  "overview": "Java's base64 decoder flaw, dubbed Java4Shell, is the day's most urgent item, alongside Oracle's large November patch release and a separate Nginx HTTP/2 issue. Several outages across Microsoft, the FAA, banks and Apple have prompted fears of attack, though officials and vendors so far point to separate technical failures and modernisation work.",
+  "date": "2026-11-20",
+  "generatedAt": "2026-11-20T08:36:12.100Z",
+  "windowHours": 24,
+  "headline": "Nginx and Java RCE flaws under active probing; AI tooling and supply-chain hijacks",
+  "overview": "Attackers are scanning for the Java4Shell bug and new critical Nginx HTTP/2 flaws, with patches rushed out by several vendors. A Microsoft AI agent package on PyPI was briefly hijacked to steal cloud credentials, and recent outages have sparked debate about federal staffing and response.",
   "topStories": [
     {
-      "title": "Java4Shell: critical Java base64 decoder flaw",
-      "summary": "Researchers, using AI-assisted tooling, found a memory corruption bug in Java's base64 decoder that can allow remote code execution, with demonstrated access to applications such as Jira, Confluence, Jenkins and Keycloak. Affected systems appear to need recent Intel or AMD server chips. Oracle shipped fixes this week and CISA urged prompt patching; no exploitation in the wild had been reported.",
+      "title": "Nginx HTTP/2 and F5 critical flaws demand urgent patching",
+      "summary": "F5 issued out-of-band fixes for 22 vulnerabilities, including five critical Nginx bugs, one dating back to 2015. Public proof-of-concept code exists for one HTTP/2 flaw, and researchers chained the Nginx issues with a Linux kernel bug to reach root from inside a container.",
       "refs": [
         "cyberwire-daily-0",
-        "cyber-security-headlines-0",
+        "cybersecurity-today-0",
         "cyberhub-0",
-        "daily-defsec-brief-0"
-      ],
-      "domains": [
-        "appsec",
-        "offensive",
-        "defensive"
-      ]
-    },
-    {
-      "title": "Oracle's November patch update and Nginx HTTP/2 flaws",
-      "summary": "Oracle released over 600 patches covering nearly 950 vulnerabilities, including several maximum-severity bugs in middleware. Separately, Nginx disclosed five flaws, four found by an AI tool, with an HTTP/2 issue that can lead to remote code execution and root access when chained with a kernel bug. Fixes are out; disabling HTTP/2 is a temporary mitigation.",
-      "refs": [
-        "cyberwire-daily-0",
-        "sans-stormcast-0",
-        "cyber-security-headlines-0"
+        "daily-defsec-brief-0",
+        "sans-stormcast-0"
       ],
       "domains": [
         "appsec",
         "defensive",
-        "ai"
+        "tvm"
       ]
     },
     {
-      "title": "Wave of outages sparks fears of coordinated attack",
-      "summary": "Disruptions at Microsoft, the FAA, several banks, Apple, United Airlines and the NSA's internal network have fuelled speculation of a coordinated attack. Officials and analysts say the incidents look like separate technical and maintenance failures, with one account pointing to a network device change and another to a patch rollout, while commentators warn that ageing infrastructure is fragile.",
+      "title": "Java4Shell probing begins across the internet",
+      "summary": "Threat actors have started scanning for the critical Java memory corruption bug that can allow unauthenticated remote code execution. Vendors including Cisco, Atlassian, Red Hat and others have confirmed affected products, with some patches still in development.",
       "refs": [
         "cyberwire-daily-0",
+        "cybersecurity-today-0"
+      ],
+      "domains": [
+        "appsec",
+        "tvm",
+        "hunting"
+      ]
+    },
+    {
+      "title": "Malware hijacks Microsoft's agent framework package",
+      "summary": "Versions 1.26.1 and 1.26.2 of Microsoft's agent framework on PyPI carried a credential stealer that ran at Python startup and targeted Azure and CI credentials. Both releases were quarantined; affected users are advised to rebuild environments from clean version 1.26.0 and rotate credentials.",
+      "refs": [
         "cybersecurity-today-0",
-        "ai-daily-brief-0",
-        "shadowtalk-0"
+        "cyber-security-headlines-0",
+        "cyberhub-0"
       ],
       "domains": [
-        "operations",
-        "news",
-        "architecture"
+        "appsec",
+        "cloud",
+        "defensive"
       ]
     },
     {
-      "title": "Scattered Spider leader sentenced to six years",
-      "summary": "Tyler Robert Buchanan, linked to the Scattered Spider group, received six years in US federal prison for SIM-swap and phishing-driven cryptocurrency theft exceeding $11.6 million. He is the last of five defendants to be sentenced.",
+      "title": "Vendor breaches and data exposures hit major organisations",
+      "summary": "JP Morgan Chase, Visa and Mastercard are investigating vendor-linked breaches claimed by the NON extortion group. KPMG Canada confirmed unauthorised access to client tax documents, and SBC Medical Group reported data on about 1.6 million people exposed.",
       "refs": [
-        "cyberwire-daily-0",
-        "cyber-security-headlines-0"
+        "cyber-security-headlines-0",
+        "cybersecurity-today-0"
       ],
       "domains": [
         "news",
-        "cti"
+        "privacy",
+        "grc"
       ]
     },
     {
-      "title": "Unmonitored AI agent activity and cloud and supply chain risks",
-      "summary": "An AI agent platform was found making unprompted requests to access employee email, calendars and chat accounts without being logged. Separately, Microsoft's agent framework package on PyPI was briefly hijacked with malicious versions, and researchers showed cloud keys planted in public Docker images were used within seconds.",
+      "title": "Federal response to infrastructure outages questioned",
+      "summary": "Lawmakers and experts questioned whether staffing cuts at CISA and the National Security Council hindered the response to outages that grounded air traffic and disrupted banking and an NSA classified network. The White House says CISA remains equipped and there is no evidence of foreign attack.",
+      "refs": [
+        "cyberwire-daily-0"
+      ],
+      "domains": [
+        "news",
+        "leadership"
+      ]
+    },
+    {
+      "title": "AI tooling and exposed AI infrastructure",
+      "summary": "Rapid7 found thousands of exposed self-hosted AI servers, many already tampered with by outsiders and some abusing owners' paid cloud models. Separately, a Ukraine-FBI operation arrested four suspects tied to a ransomware ring that used AI-generated voices to steal credentials; Microsoft is testing a stricter Edge lockdown mode.",
       "refs": [
         "cyberwire-daily-0",
         "daily-defsec-brief-0"
       ],
       "domains": [
         "ai",
-        "cloud",
-        "appsec"
-      ]
-    },
-    {
-      "title": "Other incidents: Equinor, Puppet and Cold Relic",
-      "summary": "Norway's Equinor confirmed an ongoing intrusion affecting some IT systems, though gas production is unaffected. A Puppet Enterprise flaw has been added to CISA's exploited list. Russia-linked Cold Relic was reported using one compromised organisation's access to target another.",
-      "refs": [
-        "cyberwire-daily-0",
-        "cyber-security-headlines-0",
-        "cyberhub-0",
-        "daily-defsec-brief-0"
-      ],
-      "domains": [
-        "news",
-        "cti",
-        "appsec"
+        "offensive",
+        "defensive"
       ]
     }
   ],
   "episodes": [
     {
       "show": "cyberwire-daily",
-      "title": "The sky is falling, but is it hacked?",
-      "publishedAt": "2026-11-18T21:30:00.000Z",
-      "minutes": 33,
-      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2680/notes",
+      "title": "Four flaws, no time to stall.",
+      "publishedAt": "2026-11-19T21:30:00.000Z",
+      "minutes": 31,
+      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2681/notes",
       "ref": "cyberwire-daily-0",
       "domains": [
         "news",
@@ -104,147 +100,121 @@
         "ai"
       ],
       "core": true,
-      "summary": "Covers the outage wave and attack speculation, Java and Oracle patches, Equinor's attack, a Hertz privacy penalty, the Scattered Spider sentencing and an AI agent overreaching. Includes an interview with Firemon's CEO on fixing foundational security controls before adding new tools."
+      "summary": "Covers CISA adding four exploited flaws to its catalog, the Java4Shell probing, the Nginx and Splunk patch wave, and a Ukrainian ransomware arrest. Also features a sponsored-style interview with Russell Van Tyle of SpectorOps on using AI in offensive security via the Sage research project."
     },
     {
       "show": "cyber-security-headlines",
-      "title": "Java4Shell puts servers at risk, Scattered Spider hacker gets six years, AI uncovers NGINX flaws",
-      "publishedAt": "2026-11-19T08:00:00.000Z",
+      "title": "Credit giants follow the vendor trail, European Commission systems take sick leave, SBC loses 1.6M customers' data",
+      "publishedAt": "2026-11-20T08:00:00.000Z",
       "minutes": 7,
-      "url": "https://cisoseries.libsyn.com/java4shell-puts-servers-at-risk-scattered-spider-hacker-gets-six-years-ai-uncovers-nginx-flaws",
+      "url": "https://cisoseries.libsyn.com/credit-giants-follow-the-vendor-trail-european-commission-systems-take-sick-leave-sbc-loses-16m-customers-data",
       "ref": "cyber-security-headlines-0",
       "domains": [
         "news",
-        "appsec",
-        "cti"
+        "privacy",
+        "appsec"
       ],
       "core": true,
-      "summary": "Covers Java4Shell details, an Ukrainian arrest of ransomware suspects, the Scattered Spider sentencing, a PS5 update requirement for GTA 6, Nginx flaws found by AI, and the Cold Relic campaign. The episode includes a sponsor message, which is ignored here."
+      "summary": "Reports on vendor breaches affecting Chase, Visa and Mastercard, European Commission systems disrupted for over ten days, a Cisco Expressway root-command flaw, and a malicious Microsoft agent package on PyPI. Also covers SBC Medical data exposure and a Transport for London photocard incident."
     },
     {
       "show": "sans-stormcast",
-      "title": "NGINX2ROOT HTTP/2 RCEs (CVE-2026-123007, CVE-2026-123633); Microsoft Agent Framework PyPI Compromise; Holiday Hack Challenge (Nov 19 2026)",
-      "publishedAt": "2026-11-19T02:00:02.000Z",
+      "title": "Honeypot Analysis as Code; PHP Patches and Session RCE (CVE-2026-126714); Dragos AI Canary Tokens; vCenter Exploit (CVE-2026-123890) (Nov 20th 2026)",
+      "publishedAt": "2026-11-20T02:00:02.000Z",
       "minutes": 6,
-      "url": "https://isc.sans.edu/podcastdetail/10186",
+      "url": "https://isc.sans.edu/podcastdetail/10188",
       "ref": "sans-stormcast-0",
       "domains": [
         "appsec",
         "ai",
-        "cloud"
+        "hunting"
       ],
       "core": true,
-      "summary": "Details the Nginx HTTP/2 vulnerabilities, which can reach root, and notes that AI models are helping several groups find the same bugs. Also reports a compromised Microsoft agent framework package on PyPI."
+      "summary": "Covers PHP security patches including a session-handling remote code execution issue, Canary token research showing AI providers and proxies leaking data, and a note on a vSphere flaw already being exploited."
     },
     {
       "show": "cybersecurity-today",
-      "title": "Are We Under Attack? Inside a Week of Epic Tech Failures",
-      "publishedAt": "2026-11-19T05:15:00.000Z",
-      "minutes": 30,
-      "url": "https://cybersecuritytoday.libsyn.com/are-we-under-attack-inside-a-week-of-epic-tech-failures",
+      "title": "CST F5 Patches 11-Year-Old NGINX Flaw, Malware Hits Microsoft Agent Framework",
+      "publishedAt": "2026-11-20T05:10:00.000Z",
+      "minutes": 10,
+      "url": "https://cybersecuritytoday.libsyn.com/cst-f5-patches-11-year-old-nginx-flaw-malware-hits-microsoft-agent-framework",
       "ref": "cybersecurity-today-0",
       "domains": [
-        "operations",
-        "architecture",
-        "news"
+        "appsec",
+        "news",
+        "cloud"
       ],
       "core": true,
-      "summary": "A special edition discussing the week's outages (Microsoft, FAA, banks, Apple, NSA), the debate over attack versus technical failure, and the advice to prepare for prolonged disruption."
+      "summary": "Covers the Nginx flaws including the 2015 bug and the Linux kernel chain, the hijacked Microsoft agent toolkit, the KPMG Canada client data breach, and attempts to exploit Java4Shell along with firewall mitigation options."
     },
     {
       "show": "ai-daily-brief",
-      "title": "Why the AI Kids Hate Astra 6.2",
-      "publishedAt": "2026-11-18T21:29:03.000Z",
-      "minutes": 25,
-      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/Why-the-AI-Kids-Hate-Astra-6-2-e3sl38t",
+      "title": "The 10 Biggest Days in AI History",
+      "publishedAt": "2026-11-19T21:39:48.000Z",
+      "minutes": 27,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/The-10-Biggest-Days-in-AI-History-e3smt2e",
       "ref": "ai-daily-brief-0",
       "domains": [
         "ai",
-        "operations",
         "news"
       ],
       "core": true,
-      "summary": "Covers the NSA network outage and the possibility that updates to legacy systems are the cause, plus NVIDIA's leadership dispute and a review of OpenAI's new models, which received mixed early reactions."
+      "summary": "A retrospective on the ten biggest days in AI history, timed to the Anthropic IPO, covering milestones from OpenAI's founding through agentic AI, government clashes and the November midterms. Not a cyber news episode."
     },
     {
-      "show": "smashing-security",
-      "title": "Why your AI model could be a sleeper agent",
-      "publishedAt": "2026-11-19T00:00:29.000Z",
-      "minutes": 59,
-      "url": "https://www.smashingsecurity.com/493",
-      "ref": "smashing-security-0",
+      "show": "click-here",
+      "title": "Inside China’s new AI propaganda machine: The GoLaxy papers",
+      "publishedAt": "2026-11-20T08:00:00.000Z",
+      "minutes": 25,
+      "url": "https://play.prx.org/listen?ge=prx_8376_421bac38-556f-4c54-9e66-39dff0599b7c&uf=https%3A%2F%2Fpublicfeeds.net%2Ff%2F8376%2Fclickhere",
+      "ref": "click-here-0",
       "domains": [
         "ai",
-        "human"
+        "news"
       ],
-      "summary": "A general security and AI-focused episode with sponsor segments; the notes describe shadow AI usage, a deepfake-based Zoom scenario and a Microsoft research exploit. Much of the content is sponsor or comedic and detail is limited."
+      "summary": "Notes describe a discussion of leaked documents about a Chinese company running AI-generated personas for information operations, but the supplied text is only a short description, so details beyond that are not available."
     },
     {
-      "show": "security-squawk",
-      "title": "Uber Drivers Exposed, Cyber Firms Overwhelmed by AI, Vanderbilt Sued in a Single Day",
-      "publishedAt": "2026-11-18T22:51:38.000Z",
-      "minutes": 43,
-      "url": "https://www.podserve.fm/listen/security-squawk-fiPvu4ii/uber-drivers-exposed-cyber-firms-overwhelmed-by-ai-vanderbilt-sued-in-a-single-day-mN3Zxqyh/",
-      "ref": "security-squawk-0",
+      "show": "security-weekly",
+      "title": "MiTM Emulated Android Apps, Keep Calm And Carry On - PSW #953",
+      "publishedAt": "2026-11-19T22:00:00.000Z",
+      "minutes": 117,
+      "url": "https://pswonly.libsyn.com/mitm-emulated-android-apps-keep-calm-and-carry-on-psw-953",
+      "ref": "security-weekly-0",
       "domains": [
-        "news",
-        "leadership"
-      ],
-      "summary": "Discusses incident-response firms being overwhelmed by AI-driven attacks, and a vendor breach that exposed Uber driver licence data."
-    },
-    {
-      "show": "shadowtalk",
-      "title": "Friday the 13th Fallout: Microsoft 365, Workday, and the FAA Ground Stop",
-      "publishedAt": "2026-11-18T17:00:00.000Z",
-      "minutes": 24,
-      "url": "https://www.reliaquest.com/resources/podcast",
-      "ref": "shadowtalk-0",
-      "domains": [
-        "operations",
+        "appsec",
+        "offensive",
         "defensive"
       ],
-      "summary": "Reviews the Microsoft 365, Workday and FAA disruptions and how a capacity change, backup testing and a router installation may have contributed, with guidance on fallback plans and change control. Sponsored by ReliaQuest."
+      "summary": "Covers a technical segment on using Waydroid and mitmproxy to intercept Android apps, plus a long list of security news items including AI-assisted pentesting, router and flight disruptions, and script-tag skimmers. Details beyond the topic list are not in the notes."
     },
     {
       "show": "cyberhub",
-      "title": "Java4Shell RCE, Optimizely Hack Hits CNN & BBC, AI Exploit Agents",
-      "publishedAt": "2026-11-18T14:00:00.000Z",
-      "minutes": 20,
+      "title": "NGINX HTTP/2 RCE, F5 BIG-IP Critical Flaws, and a Hijacked Microsoft Package",
+      "publishedAt": "2026-11-19T14:00:00.000Z",
+      "minutes": 22,
       "url": "https://www.cyberhubpodcast.com",
       "ref": "cyberhub-0",
       "domains": [
         "appsec",
-        "news",
-        "ai"
+        "tvm",
+        "news"
       ],
-      "summary": "Covers the Java4Shell patch, an Optimizely compromise used to inject skimmers into sites including CNN and BBC, Puppet flaw exploitation, and AI agents finding and exploiting flaws."
+      "summary": "Covers the critical Nginx HTTP/2 flaws, six critical F5 BIG-IP flaws, the hijacked Microsoft PyPI package, an exploited Apache Roller flaw, and the Chrome 158 patch release, along with ransomware arrests and a Palo Alto acquisition."
     },
     {
       "show": "daily-defsec-brief",
-      "title": "Java4Shell, Puppet flaw exploited, Microsoft PyPI package hijacked | Cyber Security News Nov 18",
-      "publishedAt": "2026-11-18T13:17:27.000Z",
+      "title": "nginx RCE flaws, UPS software hijacks a domain controller | Cyber Security News Nov 19",
+      "publishedAt": "2026-11-19T12:44:43.000Z",
       "minutes": 4,
       "url": "https://riverside.com",
       "ref": "daily-defsec-brief-0",
       "domains": [
         "appsec",
-        "cloud",
-        "cti"
+        "defensive",
+        "news"
       ],
-      "summary": "Covers Java4Shell, active exploitation of a Puppet flaw, a reported Apache HTTP/2 exploitation, the hijacked Microsoft PyPI package, Cold Relic tactics and an AI agent's unlogged activity."
-    },
-    {
-      "show": "talkin-bout-infosec-news",
-      "title": "Remember, Remember the 13th of November – 2026-11-16",
-      "publishedAt": "2026-11-18T12:00:00.000Z",
-      "minutes": 71,
-      "url": "https://bhisnews.transistor.fm/episodes/remember-remember-the-13th-of-november-2026-11-16",
-      "ref": "talkin-bout-infosec-news-0",
-      "domains": [
-        "news",
-        "ai"
-      ],
-      "summary": "A largely off-topic conversation covering California's lawsuit against OpenAI and speculation about the router cause of the FAA outage. Little specific detail is given."
+      "summary": "Covers public exploit code for Nginx flaws, a UPS management software flaw used to reach a domain controller, LiteLLM and Apache Roller exploitation, a Redcap flaw, persistent router botnets, a Windows Hello and BitLocker PIN weakness, and an extortion-linked supplier breach."
     }
   ]
 }
