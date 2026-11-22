@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-22",
+  "generatedAt": "2026-11-22T08:33:28.637Z",
+  "windowHours": 24,
+  "headline": "Space cybersecurity gaps and third-party script risk dominate today's briefing",
+  "overview": "The main episode covers the cyber risks facing space infrastructure, where ground stations are often the weakest entry point and standard tools struggle with extreme latency. A secondary show touches on the risk organisations carry when they rely on third-party scripts and vendors.",
+  "topStories": [
+    {
+      "title": "Ground stations as the weak point in space cyber security",
+      "summary": "The T-Minus episode argues that most space system breaches start at ground stations, often through weak network segregation and reliance on tools that are not deterministic enough for mission-critical use. The guest, the CEO of OPSWAT, proposes stronger physical separation and a prevention-based approach that treats incoming files as malicious.",
+      "refs": [
+        "cyberwire-daily-0"
+      ],
+      "domains": [
+        "cloud",
+        "defensive",
+        "engineering"
+      ]
+    },
+    {
+      "title": "Risk from third-party dependencies",
+      "summary": "Troy Hunt's weekly update focuses on script dependencies and third-party services, making the point that organisations hand off risk to vendors yet remain accountable for the outcome. The notes are brief, so the episode's specific incidents are not described here.",
+      "refs": [
+        "troy-hunt-weekly-0"
+      ],
+      "domains": [
+        "appsec",
+        "grc"
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "show": "cyberwire-daily",
+      "title": "The vulnerable data in space. [T-Minus: Space-Cyber Briefing]",
+      "publishedAt": "2026-11-22T06:00:00.000Z",
+      "minutes": 22,
+      "url": "https://thecyberwire.com/podcasts/tminus-space-cyber-briefing/734/notes",
+      "ref": "cyberwire-daily-0",
+      "domains": [
+        "cloud",
+        "defensive",
+        "engineering"
+      ],
+      "core": true,
+      "summary": "Episode of the T-Minus space cyber series featuring the OPSWAT CEO on space infrastructure security, prior breaches via ground stations, and a near-space test flight of a malware-scanning kiosk. Contains vendor promotion for the company's products and sponsor segments, which are not summarised."
+    },
+    {
+      "show": "troy-hunt-weekly",
+      "title": "Weekly Update 531: Optimizely, Script Dependencies & Third Parties",
+      "publishedAt": "2026-11-22T05:25:01.000Z",
+      "minutes": 49,
+      "url": "https://omny.fm/shows/troy-hunt-weekly-update/weekly-update-531-optimizely-script-dependencies-third-parties",
+      "ref": "troy-hunt-weekly-0",
+      "domains": [
+        "appsec",
+        "grc"
+      ],
+      "summary": "Weekly update on script dependencies and third-party risk, noting that organisations remain accountable for risk they transfer to others. The notes give no further specifics about individual incidents."
+    }
+  ],
+  "quietCore": [
+    "cyber-security-headlines",
+    "sans-stormcast",
+    "cybersecurity-today",
+    "ai-daily-brief"
+  ]
+}

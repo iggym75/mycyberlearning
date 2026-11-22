@@ -1,85 +1,30 @@
 {
-  "date": "2026-11-21",
-  "generatedAt": "2026-11-21T08:40:31.659Z",
-  "windowHours": 25,
-  "headline": "vCenter zero-day, AI-driven exploitation and supply chain backdoors dominate",
-  "overview": "Today's shows cover a vCenter authentication bypass exploited by a China-linked group, a backdoored-model research piece showing how tampered AI weights can carry hidden triggers, and a wave of outages that some sources link to rushed AI-found patches. Policy shakeups in Washington, third-party breaches at major banks, and Canadian cybercrime trends round out the day.",
+  "date": "2026-11-22",
+  "generatedAt": "2026-11-22T08:33:28.637Z",
+  "windowHours": 24,
+  "headline": "Space cybersecurity gaps and third-party script risk dominate today's briefing",
+  "overview": "The main episode covers the cyber risks facing space infrastructure, where ground stations are often the weakest entry point and standard tools struggle with extreme latency. A secondary show touches on the risk organisations carry when they rely on third-party scripts and vendors.",
   "topStories": [
     {
-      "title": "VMware vCenter flaw exploited for admin takeover",
-      "summary": "Broadcom issued an emergency fix for a critical authentication bypass in vCenter. Mandiant reports a China-linked group exploited it since September using custom tools to forge SAML tokens and bypass MFA, with no workarounds available.",
-      "refs": [
-        "cyber-security-headlines-0",
-        "cyberwire-daily-1",
-        "daily-defsec-brief-0"
-      ],
-      "domains": [
-        "defensive",
-        "offensive",
-        "cti"
-      ]
-    },
-    {
-      "title": "Backdoored AI models can hide malicious triggers",
-      "summary": "Researchers showed a fine-tuned open model that behaves normally until a chosen phrase appears, then runs a script that steals environment files. Training cost under $50 and took about 2.5 hours, and standard benchmarks did not reveal the backdoor.",
+      "title": "Ground stations as the weak point in space cyber security",
+      "summary": "The T-Minus episode argues that most space system breaches start at ground stations, often through weak network segregation and reliance on tools that are not deterministic enough for mission-critical use. The guest, the CEO of OPSWAT, proposes stronger physical separation and a prevention-based approach that treats incoming files as malicious.",
       "refs": [
         "cyberwire-daily-0"
       ],
       "domains": [
-        "ai",
-        "offensive",
-        "appsec"
-      ]
-    },
-    {
-      "title": "Outages possibly linked to rushed AI-driven patching",
-      "summary": "NSA networks, Microsoft 365, the FAA and several banks suffered outages. A Washington Post report cites officials saying rushed patches for AI-identified flaws may be behind some of them, though this is unconfirmed and some companies deny a cyber cause.",
-      "refs": [
-        "cyber-security-headlines-0",
-        "cybersecurity-today-0"
-      ],
-      "domains": [
-        "operations",
-        "news",
+        "cloud",
+        "defensive",
         "engineering"
       ]
     },
     {
-      "title": "AI-driven exploitation and insider recruitment grow",
-      "summary": "Google reports attackers using AI frameworks to find and exploit flaws without a human involved, and Intel 471 describes insider recruitment run like a business, with finder fees and insiders-as-a-service offers.",
+      "title": "Risk from third-party dependencies",
+      "summary": "Troy Hunt's weekly update focuses on script dependencies and third-party services, making the point that organisations hand off risk to vendors yet remain accountable for the outcome. The notes are brief, so the episode's specific incidents are not described here.",
       "refs": [
-        "cyber-security-headlines-0",
-        "cyberwire-daily-1"
+        "troy-hunt-weekly-0"
       ],
       "domains": [
-        "ai",
-        "cti",
-        "hunting"
-      ]
-    },
-    {
-      "title": "Third-party breaches hit banks, card networks and healthcare",
-      "summary": "JP Morgan, Visa and MasterCard confirmed customer data exposed through vendor compromises. SBC Medical Group disclosed a breach affecting more than 2 million people, and the Optimizely supply chain attack served malware from 178 sites.",
-      "refs": [
-        "cyberwire-daily-1",
-        "cyber-security-headlines-0",
-        "daily-defsec-brief-0"
-      ],
-      "domains": [
-        "privacy",
-        "grc",
-        "appsec"
-      ]
-    },
-    {
-      "title": "US cyber leadership shakeup and CISA nomination dispute",
-      "summary": "National Cyber Director Sean Cairncross is leaving and will be replaced on an interim basis by the Pentagon CIO. CISA nominee Michael Lassapio faced sharp questioning and holds from two senators.",
-      "refs": [
-        "cyberwire-daily-1",
-        "ai-daily-brief-0"
-      ],
-      "domains": [
-        "news",
+        "appsec",
         "grc"
       ]
     }
@@ -87,110 +32,37 @@
   "episodes": [
     {
       "show": "cyberwire-daily",
-      "title": "The trigger hidden in the training. [Research Saturday]",
-      "publishedAt": "2026-11-21T08:00:00.000Z",
-      "minutes": 21,
-      "url": "https://thecyberwire.com/podcasts/research-saturday/451/notes",
+      "title": "The vulnerable data in space. [T-Minus: Space-Cyber Briefing]",
+      "publishedAt": "2026-11-22T06:00:00.000Z",
+      "minutes": 22,
+      "url": "https://thecyberwire.com/podcasts/tminus-space-cyber-briefing/734/notes",
       "ref": "cyberwire-daily-0",
       "domains": [
-        "ai",
-        "offensive",
-        "appsec"
-      ],
-      "core": true,
-      "summary": "Research Saturday covers obliterated and backdoored open-weight AI models, showing a poisoned coding assistant that exfiltrated environment files when a trigger phrase appeared. The researchers say current defences for detecting such backdoors are unreliable."
-    },
-    {
-      "show": "cyberwire-daily",
-      "title": "A game of cyber chairs.",
-      "publishedAt": "2026-11-20T21:30:00.000Z",
-      "minutes": 28,
-      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2682/notes",
-      "ref": "cyberwire-daily-1",
-      "domains": [
-        "news",
+        "cloud",
         "defensive",
-        "cti",
-        "privacy"
+        "engineering"
       ],
       "core": true,
-      "summary": "Intel Briefing covers Washington cyber leadership changes, the USDA outage after an incident, the vCenter exploitation, mail bombing with Teams impersonation, several healthcare and banking breaches, and post-quantum planning for states. Also an interview with Intel 471 on insider recruitment."
+      "summary": "Episode of the T-Minus space cyber series featuring the OPSWAT CEO on space infrastructure security, prior breaches via ground stations, and a near-space test flight of a malware-scanning kiosk. Contains vendor promotion for the company's products and sponsor segments, which are not summarised."
     },
     {
-      "show": "cyber-security-headlines",
-      "title": "The Department of Know: What's happening with outages?",
-      "publishedAt": "2026-11-20T22:05:00.000Z",
-      "minutes": 32,
-      "url": "https://cisoseries.libsyn.com/the-department-of-know-whats-happening-with-outages",
-      "ref": "cyber-security-headlines-0",
+      "show": "troy-hunt-weekly",
+      "title": "Weekly Update 531: Optimizely, Script Dependencies & Third Parties",
+      "publishedAt": "2026-11-22T05:25:01.000Z",
+      "minutes": 49,
+      "url": "https://omny.fm/shows/troy-hunt-weekly-update/weekly-update-531-optimizely-script-dependencies-third-parties",
+      "ref": "troy-hunt-weekly-0",
       "domains": [
         "appsec",
-        "offensive",
-        "operations",
-        "ai"
+        "grc"
       ],
-      "core": true,
-      "summary": "Department of No covers the FBI warning on the R-TEX tool, the Optimizely supply chain malware, the Java4Shell flaw, Google's report of AI-driven exploitation, and speculation over whether the recent outages are linked to AI-accelerated patching."
-    },
-    {
-      "show": "cybersecurity-today",
-      "title": "Why Canada is the Goldilocks zone for cybercriminals, with Check Point's Robert Falzon",
-      "publishedAt": "2026-11-20T22:36:00.000Z",
-      "minutes": 45,
-      "url": "https://cybersecuritytoday.libsyn.com/why-canada-is-the-goldilocks-zone-for-cybercriminals-with-check-points-robert-falzon",
-      "ref": "cybersecurity-today-0",
-      "domains": [
-        "news",
-        "privacy",
-        "leadership",
-        "ai"
-      ],
-      "core": true,
-      "summary": "Interview with Checkpoint's Robert Falzon on Canada's cybercrime exposure, the value of data for AI training, aviation-style security culture, and explaining AI to executives."
-    },
-    {
-      "show": "ai-daily-brief",
-      "title": "Why You Should Try Gemini Neon (Even if You Love Fable)",
-      "publishedAt": "2026-11-20T18:30:51.000Z",
-      "minutes": 27,
-      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/Why-You-Should-Try-Gemini-Neon-Even-if-You-Love-Fable-e3sod5e",
-      "ref": "ai-daily-brief-0",
-      "domains": [
-        "ai",
-        "news"
-      ],
-      "core": true,
-      "summary": "Covers the Anthropic IPO and stock performance, chip export rule effects on Chinese AI firms, Google's Gemini Neon model, and the departure of the White House cyber director. The episode is mostly AI industry news rather than security."
-    },
-    {
-      "show": "security-weekly-news",
-      "title": "Linux Porn, Lawyers, Chaos, Ur, PHP2Shell, Java4Shell, VMware, KVM, Josh Marpet - SWN #635",
-      "publishedAt": "2026-11-20T22:00:00.000Z",
-      "minutes": 30,
-      "url": "https://hntvaudio.libsyn.com/linux-porn-lawyers-chaos-ur-php2shell-java4shell-vmware-kvm-josh-marpet-swn-635",
-      "ref": "security-weekly-news-0",
-      "domains": [
-        "news"
-      ],
-      "summary": "Notes only list topics such as Linux, PHP2Shell, Java4Shell and VMware alongside guest segments. The text provided does not describe specific stories in detail."
-    },
-    {
-      "show": "daily-defsec-brief",
-      "title": "vCenter zero-day exploited, npm package installs an AI agent backdoor | Cyber Security News Nov 20",
-      "publishedAt": "2026-11-20T14:24:38.000Z",
-      "minutes": 5,
-      "url": "https://riverside.com",
-      "ref": "daily-defsec-brief-0",
-      "domains": [
-        "defensive",
-        "offensive",
-        "appsec",
-        "news"
-      ],
-      "summary": "Daily brief covering vCenter exploitation by a China-linked group, Cisco Expressway compromise at a Russian firm, Apache Access flaw use against Confluence, PHP fixes, the MailEssentials provider breach, and a Windows 11 BitLocker bypass via Narrator."
+      "summary": "Weekly update on script dependencies and third-party risk, noting that organisations remain accountable for risk they transfer to others. The notes give no further specifics about individual incidents."
     }
   ],
   "quietCore": [
-    "sans-stormcast"
+    "cyber-security-headlines",
+    "sans-stormcast",
+    "cybersecurity-today",
+    "ai-daily-brief"
   ]
 }
