@@ -1,68 +1,190 @@
 {
-  "date": "2026-11-22",
-  "generatedAt": "2026-11-22T08:33:28.637Z",
-  "windowHours": 24,
-  "headline": "Space cybersecurity gaps and third-party script risk dominate today's briefing",
-  "overview": "The main episode covers the cyber risks facing space infrastructure, where ground stations are often the weakest entry point and standard tools struggle with extreme latency. A secondary show touches on the risk organisations carry when they rely on third-party scripts and vendors.",
+  "date": "2026-11-23",
+  "generatedAt": "2026-11-23T08:34:52.411Z",
+  "windowHours": 25,
+  "headline": "FBI and USDA breaches, Microsoft identity flaw, and AI-assisted intrusion tooling",
+  "overview": "Attackers reportedly breached the FBI's National Crime Information Center and the USDA's farmer payment system, and the FBI issued a warning about AI-assisted penetration tooling being used in campaigns. Microsoft disclosed an exploited flaw in its Entra Connect Health service, and a vendor breach exposed customer contact data from several large banks and card companies. A GL.iNet cloud compromise and a silently patched Ghostscript vulnerability also featured.",
   "topStories": [
     {
-      "title": "Ground stations as the weak point in space cyber security",
-      "summary": "The T-Minus episode argues that most space system breaches start at ground stations, often through weak network segregation and reliance on tools that are not deterministic enough for mission-critical use. The guest, the CEO of OPSWAT, proposes stronger physical separation and a prevention-based approach that treats incoming files as malicious.",
+      "title": "FBI law enforcement database and USDA payment system breached",
+      "summary": "The FBI's National Crime Information Center was reportedly accessed by attackers, the second FBI breach since September, and the investigation is ongoing with no attacker named.",
       "refs": [
-        "cyberwire-daily-0"
+        "cyber-security-headlines-0",
+        "cybersecurity-today-0"
       ],
       "domains": [
-        "cloud",
+        "news",
         "defensive",
-        "engineering"
+        "cti"
       ]
     },
     {
-      "title": "Risk from third-party dependencies",
-      "summary": "Troy Hunt's weekly update focuses on script dependencies and third-party services, making the point that organisations hand off risk to vendors yet remain accountable for the outcome. The notes are brief, so the episode's specific incidents are not described here.",
+      "title": "Microsoft Entra Connect Health flaw exploited",
+      "summary": "Microsoft confirmed attackers exploited a bug in its Entra Connect Health API, introduced in July and fixed in November, to read administrator email addresses, tenant identifiers and configuration details. Microsoft says no passwords or tokens were exposed and urges phishing-resistant MFA on admin accounts and review of sign-in logs.",
       "refs": [
-        "troy-hunt-weekly-0"
+        "cyber-security-headlines-0",
+        "cybersecurity-today-0"
       ],
       "domains": [
-        "appsec",
+        "cloud",
+        "tvm",
+        "defensive"
+      ]
+    },
+    {
+      "title": "Vendor breach exposes Chase, Visa and Mastercard customer data",
+      "summary": "A data extortion gang claims it used stolen credentials from a shared analytics vendor, Cubol, to reach customer cloud environments. Chase reports marketing data such as names and emails was accessed, Visa says a third-party provider in Asia Pacific was involved and no card numbers were affected, and Mastercard reports a limited number of email addresses leaked.",
+      "refs": [
+        "cybersecurity-today-0",
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "news",
+        "defensive",
         "grc"
+      ]
+    },
+    {
+      "title": "AI-assisted intrusion tooling and the FBI warning on ARTEX",
+      "summary": "A Chinese group reportedly used an AI agent tool to find an apparent zero-day while breaching universities, with agents autonomously adjusting their approach until one exploit worked.",
+      "refs": [
+        "cyber-security-headlines-0",
+        "shared-security-0"
+      ],
+      "domains": [
+        "ai",
+        "offensive",
+        "cti"
+      ]
+    },
+    {
+      "title": "GL.iNet cloud service compromise and Ghostscript patch",
+      "summary": "GL.iNet disclosed a compromise of its GoodCloud remote access service that allowed attackers to install backdoors on connected devices, with a malicious process disguised as crond; the advisory was brief and firmware updates were promised. A Ghostscript Type 1 font loader memory flaw was patched quietly, a risk for web apps that convert uploaded files.",
+      "refs": [
+        "sans-stormcast-0"
+      ],
+      "domains": [
+        "defensive",
+        "appsec"
+      ]
+    },
+    {
+      "title": "OpenRouter removes providers after prompt data theft",
+      "summary": "AI gateway OpenRouter removed three inference providers and 125 endpoints from zero data retention eligibility after attackers stole data from them over months. Researchers discovered the theft using planted prompts placed alongside genuine customer requests.",
+      "refs": [
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "ai",
+        "cloud"
       ]
     }
   ],
   "episodes": [
     {
-      "show": "cyberwire-daily",
-      "title": "The vulnerable data in space. [T-Minus: Space-Cyber Briefing]",
-      "publishedAt": "2026-11-22T06:00:00.000Z",
-      "minutes": 22,
-      "url": "https://thecyberwire.com/podcasts/tminus-space-cyber-briefing/734/notes",
-      "ref": "cyberwire-daily-0",
+      "show": "cyber-security-headlines",
+      "title": "FBI and USDA hacked, Sean Cairncross departure, CrowdStrike Zscaler talks",
+      "publishedAt": "2026-11-23T08:00:00.000Z",
+      "minutes": 7,
+      "url": "https://cisoseries.libsyn.com/fbi-and-usda-hacked-sean-cairncross-departure-crowdstrike-zscaler-talks",
+      "ref": "cyber-security-headlines-0",
       "domains": [
+        "news",
         "cloud",
+        "ai",
+        "cti"
+      ],
+      "core": true,
+      "summary": "Covers the FBI and USDA breaches, Sean Cairncross leaving the National Cyber Director role, reported CrowdStrike talks to acquire Zscaler, the Entra Connect Health flaw, OpenRouter provider removals, an Austrian foreign ministry website hack, AI-driven intrusions at universities, and an Irish credit union supplier breach. Includes a sponsor segment that was ignored."
+    },
+    {
+      "show": "sans-stormcast",
+      "title": "Syslog Timestamps; GL.iNet GoodCloud Breach; Ghostscript Upload2Shell RCE (CVE-2026-125396) (Nov 23rd 2026)",
+      "publishedAt": "2026-11-23T02:00:02.000Z",
+      "minutes": 7,
+      "url": "https://isc.sans.edu/podcastdetail/10190",
+      "ref": "sans-stormcast-0",
+      "domains": [
         "defensive",
+        "appsec",
         "engineering"
       ],
       "core": true,
-      "summary": "Episode of the T-Minus space cyber series featuring the OPSWAT CEO on space infrastructure security, prior breaches via ground stations, and a near-space test flight of a malware-scanning kiosk. Contains vendor promotion for the company's products and sponsor segments, which are not summarised."
+      "summary": "Covers syslog timestamp formats, the GL.iNet GoodCloud compromise with a disguised backdoor, and a Ghostscript Type 1 font loader vulnerability patched without announcement."
     },
     {
-      "show": "troy-hunt-weekly",
-      "title": "Weekly Update 531: Optimizely, Script Dependencies & Third Parties",
-      "publishedAt": "2026-11-22T05:25:01.000Z",
-      "minutes": 49,
-      "url": "https://omny.fm/shows/troy-hunt-weekly-update/weekly-update-531-optimizely-script-dependencies-third-parties",
-      "ref": "troy-hunt-weekly-0",
+      "show": "cybersecurity-today",
+      "title": "Attackers breach FBI crime database, Chase and Visa data leaked in vendor hack, Microsoft flaw exploited",
+      "publishedAt": "2026-11-22T22:44:00.000Z",
+      "minutes": 11,
+      "url": "https://cybersecuritytoday.libsyn.com/attackers-breach-fbi-crime-database-chase-and-visa-data-leaked-in-vendor-hack-microsoft-law-exploited",
+      "ref": "cybersecurity-today-0",
       "domains": [
-        "appsec",
-        "grc"
+        "news",
+        "cloud",
+        "defensive",
+        "cti"
       ],
-      "summary": "Weekly update on script dependencies and third-party risk, noting that organisations remain accountable for risk they transfer to others. The notes give no further specifics about individual incidents."
+      "core": true,
+      "summary": "Covers the FBI NCIC breach, the USDA farmer payment system attack, the Cubol vendor breach affecting Chase, Visa and Mastercard data, the Microsoft Entra Connect Health flaw, and the Bizuka Android banking trojan that overlays a fake home screen."
+    },
+    {
+      "show": "ai-daily-brief",
+      "title": "When AI Labs Rival Nations",
+      "publishedAt": "2026-11-22T12:41:07.000Z",
+      "minutes": 25,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/When-AI-Labs-Rival-Nations-e3sqkoa",
+      "ref": "ai-daily-brief-0",
+      "domains": [
+        "ai",
+        "leadership",
+        "human"
+      ],
+      "core": true,
+      "summary": "Long-read episode on the open letter criticising Anthropic's safety branding, concerns about concentration of power by private AI companies, the idea of handing control to AI, and whether AI transformation services will dominate software business models. Sponsor segments were ignored."
+    },
+    {
+      "show": "shared-security",
+      "title": "FBI Warning: ARTEX and the Scaling of AI-Assisted Intrusion Tooling",
+      "publishedAt": "2026-11-23T05:00:00.000Z",
+      "minutes": 19,
+      "url": "https://sharedsecurity.net/2026/11/23/artex-and-ai-hacking-faster-attacks-same-security-fundamentals/",
+      "ref": "shared-security-0",
+      "domains": [
+        "ai",
+        "offensive",
+        "defensive"
+      ],
+      "summary": "Discussion of the FBI warning about the ARTEX AI-assisted penetration testing framework and whether such warnings help defenders. A sponsor giveaway and discount segment was ignored."
+    },
+    {
+      "show": "risky-business",
+      "title": "Soap Box: Do AI agents need their own identities?",
+      "publishedAt": "2026-11-23T01:09:45.000Z",
+      "minutes": 36,
+      "url": "https://risky.biz/SOAPBOX113/",
+      "ref": "risky-business-0",
+      "domains": [
+        "ai",
+        "cloud"
+      ],
+      "summary": "Sponsored soap box episode on whether AI agents need their own identities and how agent actions and permissions can be scoped. The episode notes provided describe only the topic and sponsor, with no detail on specific conclusions."
+    },
+    {
+      "show": "5bytes",
+      "title": "Microsoft Ignite 2026, NSA Outage and Major Cyberattacks",
+      "publishedAt": "2026-11-23T00:00:00.000Z",
+      "minutes": 38,
+      "url": "https://soundcloud.com/5bytespodcast/microsoft-ignite-2026-nsa",
+      "ref": "5bytes-0",
+      "domains": [
+        "news",
+        "tvm"
+      ],
+      "summary": "Only the show notes were available, listing topics including Microsoft Ignite 2026 announcements, an NSA classified network outage, a European Commission cyberattack investigation, malicious JavaScript affecting over 175 websites, and F5 critical patches. No further detail was provided in the text."
     }
   ],
   "quietCore": [
-    "cyber-security-headlines",
-    "sans-stormcast",
-    "cybersecurity-today",
-    "ai-daily-brief"
+    "cyberwire-daily"
   ]
 }
