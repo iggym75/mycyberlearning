@@ -1,7 +1,7 @@
 {
   "meta": {
     "site": "My Cyber Learning",
-    "generated": "2026-11-16",
+    "generated": "2026-11-23",
     "ratingSource": "Podnews.net aggregate (Rephonic: Apple Podcasts, Spotify, Podchaser, Podcast Addict)",
     "notes": "Items with verified:false have metadata from list articles or editorial knowledge; the weekly refresh job confirms links, artwork, frequency, launch date and ratings."
   },
@@ -72,7 +72,7 @@
       "rating": {
         "v": 4.9,
         "n": 45,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": true,
       "sources": [
@@ -83,8 +83,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1332947921",
       "rss": "https://feeds.soundcloud.com/users/soundcloud:users:376833845/sounds.rss",
-      "lastEpisode": "2026-11-10",
-      "episodes": 465,
+      "lastEpisode": "2026-11-23",
+      "episodes": 467,
       "amazon": "https://music.amazon.co.uk/podcasts/8d3ef16b-d055-452e-8f60-bc4e71316232/5bytespodcast",
       "spotify": "https://open.spotify.com/show/5HlR3ywunSAUnZ6NAtPWXA",
       "id": "5bytes"
@@ -119,8 +119,8 @@
       "logo": "covers/podcast-ai-security-podcast.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://anchor.fm/s/eaa0671c/podcast/rss",
-      "lastEpisode": "2026-11-13",
-      "episodes": 68,
+      "lastEpisode": "2026-11-18",
+      "episodes": 69,
       "amazon": "https://music.amazon.co.uk/podcasts/7569a2bd-5a8f-446f-9c15-eb51fb90cff4/ai-security-podcast",
       "id": "ai-security-podcast"
     },
@@ -143,7 +143,7 @@
       "rating": {
         "v": 4.8,
         "n": 228,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": true,
       "sources": [
@@ -220,7 +220,7 @@
       "rating": {
         "v": 4.8,
         "n": 207,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": true,
       "sources": [
@@ -258,7 +258,7 @@
       "rating": {
         "v": 4.6,
         "n": 143,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": true,
       "sources": [
@@ -270,8 +270,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1554145026",
       "rss": "https://rss.libsyn.com/shows/324875/destinations/2641814.xml",
-      "lastEpisode": "2026-08-31",
-      "episodes": 294,
+      "lastEpisode": "2026-11-23",
+      "episodes": 295,
       "amazon": "https://music.amazon.co.uk/podcasts/4920975f-351f-4cb7-a733-9a479e62c0da/cloud-security-podcast-by-google",
       "spotify": "https://open.spotify.com/show/12WPC7aW5kd0kKSyrpgnHI",
       "id": "google-cloud-security-podcast"
@@ -296,7 +296,7 @@
       "rating": {
         "v": 5,
         "n": 10,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": true,
       "sources": [
@@ -331,7 +331,7 @@
       "rating": {
         "v": 4.8,
         "n": 7824,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": true,
       "sources": [
@@ -376,8 +376,8 @@
       "logo": "covers/podcast-cyber-security-headlines.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.libsyn.com/shows/289580/destinations/2260670.xml",
-      "lastEpisode": "2026-11-16",
-      "episodes": 1893,
+      "lastEpisode": "2026-11-23",
+      "episodes": 1898,
       "amazon": "https://music.amazon.co.uk/podcasts/45477283-d157-4ea1-9782-fd29dab41f3d/cybersecurity-headlines",
       "spotify": "https://open.spotify.com/show/5ylaiuoDj7YOVSdyVJMDR7",
       "id": "cyber-security-headlines"
@@ -419,7 +419,7 @@
       "logo": "covers/podcast-cyberwire-daily.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.pdrl.fm/85df76/feeds.megaphone.fm/cyberwire-daily-podcast",
-      "lastEpisode": "2026-11-15",
+      "lastEpisode": "2026-11-22",
       "episodes": 2000,
       "amazon": "https://music.amazon.co.uk/podcasts/76b35ca4-3e15-4c65-ba48-89588bead1fd/cyberwire-daily",
       "id": "cyberwire-daily"
@@ -495,7 +495,7 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id585914973",
       "rss": "https://defensivesecurity.org/feed/podcast/",
-      "lastEpisode": "2026-10-21",
+      "lastEpisode": "2026-11-17",
       "episodes": 200,
       "amazon": "https://music.amazon.co.uk/podcasts/3a6018ab-0b9a-4395-9f33-0175f1101132/defensive-security-podcast",
       "spotify": "https://open.spotify.com/show/71q37TgyDM0AzVbWeyB2Jx",
@@ -551,14 +551,14 @@
         "intermediate",
         "advanced"
       ],
-      "freq": "weekly",
+      "freq": "biweekly",
       "launched": "2023-01",
       "status": "active",
       "web": "https://www.team-cymru.com/future-of-threat-intelligence-podcast",
       "rating": {
         "v": 4.7,
         "n": 16,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": true,
       "sources": [
@@ -569,8 +569,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1631947902",
       "rss": "https://anchor.fm/s/10e1875a4/podcast/rss",
-      "lastEpisode": "2026-11-05",
-      "episodes": 122,
+      "lastEpisode": "2026-11-19",
+      "episodes": 123,
       "spotify": "https://open.spotify.com/show/0671lFjPIgX6k2jYRrWrf4",
       "id": "future-of-ti"
     },
@@ -595,7 +595,7 @@
       "rating": {
         "v": 4.8,
         "n": 2032,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": true,
       "sources": [
@@ -634,7 +634,7 @@
       "rating": {
         "v": 4.8,
         "n": 532,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": true,
       "sources": [
@@ -646,8 +646,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1649541362",
       "rss": "https://feeds.megaphone.fm/CON9079456418",
-      "lastEpisode": "2026-11-12",
-      "episodes": 158,
+      "lastEpisode": "2026-11-19",
+      "episodes": 159,
       "amazon": "https://music.amazon.co.uk/podcasts/4f7abfb1-93f7-4ffd-a0d3-dc306c4a8836/hacker-and-the-fed",
       "spotify": "https://open.spotify.com/show/4uze2AoxrCv0dRjvElUpTy",
       "tagsLocked": true,
@@ -673,7 +673,7 @@
       "rating": {
         "v": 4.7,
         "n": 91,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": true,
       "sources": [
@@ -685,8 +685,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1471881997",
       "rss": "https://feed.podbean.com/hackervalleystudio/feed.xml",
-      "lastEpisode": "2026-11-14",
-      "episodes": 449,
+      "lastEpisode": "2026-11-18",
+      "episodes": 450,
       "amazon": "https://music.amazon.co.uk/podcasts/5e5f4b00-0675-48ea-8040-3f3b24a2d9d8/hacker-valley-studio",
       "spotify": "https://open.spotify.com/show/3pl6V7L6KnWdNR59H5dw6n",
       "id": "hacker-valley-studio"
@@ -711,7 +711,7 @@
       "rating": {
         "v": 4.6,
         "n": 575,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": true,
       "sources": [
@@ -722,8 +722,8 @@
       "logo": "covers/podcast-hacking-humans.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.pdrl.fm/7d51b0/feeds.megaphone.fm/hacking-humans",
-      "lastEpisode": "2026-11-12",
-      "episodes": 828,
+      "lastEpisode": "2026-11-19",
+      "episodes": 830,
       "amazon": "https://music.amazon.co.uk/podcasts/a3fb35f8-2a0b-46cd-b63a-954b5f518617/hacking-humans",
       "spotify": "https://open.spotify.com/show/0EhUctIPJiKrxPjzqIAuDc",
       "id": "hacking-humans"
@@ -766,7 +766,7 @@
       "logo": "covers/podcast-risky-business.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://risky.biz/feeds/risky-business/",
-      "lastEpisode": "2026-11-11",
+      "lastEpisode": "2026-11-23",
       "episodes": 102,
       "amazon": "https://music.amazon.co.uk/podcasts/43b404f9-791f-4e4c-a18b-fa17fd64db11/risky-business",
       "id": "risky-business"
@@ -803,7 +803,7 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id304863991",
       "rss": "https://www.dshield.org/dailypodcast.xml",
-      "lastEpisode": "2026-11-16",
+      "lastEpisode": "2026-11-23",
       "episodes": 2000,
       "amazon": "https://music.amazon.co.uk/podcasts/43784207-1ec2-465d-8d86-ebc9b450ebb7/sans-internet-stormcenter-daily-cyber-security-podcast-stormcast",
       "spotify": "https://open.spotify.com/show/6oeUmMwv1AQpdYNHmOE4A0",
@@ -836,8 +836,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1326304686",
       "rss": "https://rss.buzzsprout.com/2154459.rss",
-      "lastEpisode": "2026-11-11",
-      "episodes": 499,
+      "lastEpisode": "2026-11-18",
+      "episodes": 500,
       "amazon": "https://music.amazon.co.uk/podcasts/4ff37197-9a8a-415f-8383-9e27161b2c8e/shadowtalk-powered-by-reliaquest",
       "spotify": "https://open.spotify.com/show/0gMOdUfUWT2G79oW9OadGq",
       "id": "shadowtalk"
@@ -878,8 +878,8 @@
       "logo": "covers/podcast-smashing-security.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.redcircle.com/c478d684-038f-4b13-8507-bc32af486a2c",
-      "lastEpisode": "2026-11-12",
-      "episodes": 504,
+      "lastEpisode": "2026-11-19",
+      "episodes": 505,
       "amazon": "https://music.amazon.co.uk/podcasts/f15f40ff-2a63-45f1-88c8-010646f08d9f/smashing-security",
       "id": "smashing-security"
     },
@@ -911,7 +911,7 @@
       ],
       "verified": true,
       "episodes": 397,
-      "lastEpisode": "2026-11-09",
+      "lastEpisode": "2026-11-16",
       "logo": "covers/podcast-the-443.jpg",
       "logoSource": "Apple Podcasts artwork",
       "id": "the-443"
@@ -1079,7 +1079,7 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1176454699",
       "rss": "https://www.omnycontent.com/d/playlist/1439345f-6152-486d-a9c2-a6bf0067f2b7/3ba9af7f-3bfb-48fd-aae7-a6bf00689c10/fde26e49-9fb8-457d-8f16-a6bf00696676/podcast.rss",
-      "lastEpisode": "2026-11-16",
+      "lastEpisode": "2026-11-22",
       "episodes": 100,
       "amazon": "https://music.amazon.co.uk/podcasts/ac9a5321-fd6e-4d0e-981b-66b61428fafa/troy-hunt's-weekly-update-podcast",
       "spotify": "https://open.spotify.com/show/7jMtKFohdrw6qmz8AkLqit",
@@ -1141,7 +1141,7 @@
       "rating": {
         "v": 5,
         "n": 3,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -1176,7 +1176,7 @@
       "rating": {
         "v": 4.7,
         "n": 62,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -1214,7 +1214,7 @@
       "rating": {
         "v": 4.8,
         "n": 109,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -1225,8 +1225,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id797742806",
       "rss": "https://rss.libsyn.com/shows/254153/destinations/1921835.xml",
-      "lastEpisode": "2026-11-13",
-      "episodes": 747,
+      "lastEpisode": "2026-11-21",
+      "episodes": 748,
       "amazon": "https://music.amazon.co.uk/podcasts/2346624e-5abe-4817-9739-4ef691ba18c9/7-minute-security",
       "spotify": "https://open.spotify.com/show/61c15kBzYFPyr0eMVJS2BK",
       "id": "7-minute-security"
@@ -1250,7 +1250,7 @@
       "rating": {
         "v": 4.9,
         "n": 70,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -1315,7 +1315,7 @@
       "rating": {
         "v": 5,
         "n": 10,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -1323,7 +1323,7 @@
       ],
       "verified": true,
       "episodes": 100,
-      "lastEpisode": "2026-11-09",
+      "lastEpisode": "2026-11-16",
       "logo": "covers/podcast-bite-sized-cyber-crime.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2024-10",
@@ -1352,7 +1352,7 @@
       "rating": {
         "v": 4.7,
         "n": 136,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -1386,7 +1386,7 @@
       "rating": {
         "v": 5,
         "n": 3,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -1422,7 +1422,7 @@
       "rating": {
         "v": 4.7,
         "n": 42,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -1456,7 +1456,7 @@
       "rating": {
         "v": 4.8,
         "n": 297,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -1468,8 +1468,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1391337832",
       "rss": "https://rss.libsyn.com/shows/24425/destinations/37324.xml",
-      "lastEpisode": "2026-11-10",
-      "episodes": 432,
+      "lastEpisode": "2026-11-17",
+      "episodes": 433,
       "amazon": "https://music.amazon.co.uk/podcasts/cb4e51d9-5d85-40f7-9ad6-42a58cfa2c0a/ciso-series-podcast",
       "spotify": "https://open.spotify.com/show/2GNPgHa4J8TGf1bFkHxoiF",
       "id": "ciso-series"
@@ -1494,7 +1494,7 @@
       "rating": {
         "v": 4.9,
         "n": 145,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -1506,8 +1506,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1538132658",
       "rss": "https://media.rss.com/ciso-tradecraft/feed.xml",
-      "lastEpisode": "2026-11-14",
-      "episodes": 307,
+      "lastEpisode": "2026-11-20",
+      "episodes": 308,
       "amazon": "https://music.amazon.co.uk/podcasts/3f6c5b6f-526a-48f8-be1f-4469b7721acc/ciso-tradecraft%C2%AE",
       "spotify": "https://open.spotify.com/show/79couHF4UHb92i38oedLul",
       "id": "ciso-tradecraft"
@@ -1534,7 +1534,7 @@
       "rating": {
         "v": 4.6,
         "n": 984,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -1544,8 +1544,8 @@
       "logo": "covers/podcast-click-here.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://publicfeeds.net/f/8376/clickhere",
-      "lastEpisode": "2026-11-13",
-      "episodes": 392,
+      "lastEpisode": "2026-11-20",
+      "episodes": 394,
       "amazon": "https://music.amazon.co.uk/podcasts/1ddc446b-b5eb-4546-bf8f-e2642285495b/click-here",
       "spotify": "https://open.spotify.com/show/2kxOETGvN32D6hZu0wPntG",
       "id": "click-here"
@@ -1569,7 +1569,7 @@
       "rating": {
         "v": 4.9,
         "n": 527,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -1580,8 +1580,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1663945029",
       "rss": "https://feeds.cohostpodcasting.com/y3zHW5ae",
-      "lastEpisode": "2026-11-12",
-      "episodes": 200,
+      "lastEpisode": "2026-11-19",
+      "episodes": 201,
       "amazon": "https://music.amazon.co.uk/podcasts/840ce716-cbab-4245-97b7-9eee56adb2ae/critical-thinking---bug-bounty-podcast",
       "spotify": "https://open.spotify.com/show/4GiJnv8f4a4ZR6Jc6TQJ3k",
       "id": "critical-thinking-bb"
@@ -1635,15 +1635,15 @@
       "rating": {
         "v": 4.7,
         "n": 34,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 340,
-      "lastEpisode": "2026-11-15",
+      "episodes": 344,
+      "lastEpisode": "2026-11-22",
       "logo": "covers/podcast-cyber-crime-junkies.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2022-08",
@@ -1669,15 +1669,15 @@
       "rating": {
         "v": 3.7,
         "n": 12,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 207,
-      "lastEpisode": "2026-11-16",
+      "episodes": 211,
+      "lastEpisode": "2026-11-22",
       "logo": "covers/podcast-cyber-crime-podcast.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2020-11",
@@ -1704,15 +1704,15 @@
       "rating": {
         "v": 3,
         "n": 3,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
         "feedspot"
       ],
       "verified": true,
-      "episodes": 172,
-      "lastEpisode": "2026-11-13",
+      "episodes": 174,
+      "lastEpisode": "2026-11-19",
       "logo": "covers/podcast-cyber-defense-radio.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2023-05",
@@ -1809,7 +1809,7 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 59,
+      "episodes": 58,
       "lastEpisode": "2026-10-29",
       "logo": "covers/podcast-cyber-security-america.jpg",
       "logoSource": "Apple Podcasts artwork",
@@ -1973,7 +1973,7 @@
       ],
       "verified": true,
       "episodes": 535,
-      "lastEpisode": "2026-11-14",
+      "lastEpisode": "2026-11-23",
       "logo": "covers/podcast-cybercrime-magazine.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2026-03",
@@ -2004,8 +2004,8 @@
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 35,
-      "lastEpisode": "2026-10-30",
+      "episodes": 36,
+      "lastEpisode": "2026-11-20",
       "logo": "covers/podcast-cybercrime-from-the-frontline.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2025-03",
@@ -2067,7 +2067,7 @@
       ],
       "verified": true,
       "episodes": 300,
-      "lastEpisode": "2026-11-12",
+      "lastEpisode": "2026-11-23",
       "logo": "covers/podcast-cyberhub.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2025-04",
@@ -2098,8 +2098,8 @@
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 1035,
-      "lastEpisode": "2026-10-07",
+      "episodes": 1038,
+      "lastEpisode": "2026-11-17",
       "logo": "covers/podcast-cybermidnight-club.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2019-10",
@@ -2168,7 +2168,7 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1363182054",
       "rss": "https://cybersecuritytoday.libsyn.com/rss",
-      "lastEpisode": "2026-11-16",
+      "lastEpisode": "2026-11-22",
       "episodes": 105,
       "amazon": "https://music.amazon.co.uk/podcasts/4fecadbb-cd07-4d0c-9edc-a2a4441111ce/cybersecurity-today",
       "spotify": "https://open.spotify.com/show/2YiPcnkJLIcxtQ04nCfaSu",
@@ -2198,8 +2198,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 152,
-      "lastEpisode": "2026-11-16",
+      "episodes": 155,
+      "lastEpisode": "2026-11-23",
       "logo": "covers/podcast-cybersecurity-under-pressure.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2026-02",
@@ -2229,8 +2229,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 213,
-      "lastEpisode": "2026-11-11",
+      "episodes": 214,
+      "lastEpisode": "2026-11-18",
       "logo": "covers/podcast-cybersecurity-where-you-are.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2021-01",
@@ -2259,8 +2259,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 94,
-      "lastEpisode": "2026-11-03",
+      "episodes": 95,
+      "lastEpisode": "2026-11-18",
       "logo": "covers/podcast-cyberside-chats.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2024-12",
@@ -2292,8 +2292,8 @@
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 56,
-      "lastEpisode": "2026-10-12",
+      "episodes": 57,
+      "lastEpisode": "2026-11-23",
       "logo": "covers/podcast-cyberversed.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2022-04",
@@ -2324,8 +2324,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 1154,
-      "lastEpisode": "2026-11-13",
+      "episodes": 1159,
+      "lastEpisode": "2026-11-20",
       "logo": "covers/podcast-daily-cyber-threat-brief.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2021-10",
@@ -2355,8 +2355,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 92,
-      "lastEpisode": "2026-11-13",
+      "episodes": 98,
+      "lastEpisode": "2026-11-23",
       "logo": "covers/podcast-daily-defsec-brief.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2026-07",
@@ -2459,8 +2459,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1450197741",
       "rss": "https://rss.libsyn.com/shows/156524/destinations/1020683.xml",
-      "lastEpisode": "2026-11-12",
-      "episodes": 385,
+      "lastEpisode": "2026-11-19",
+      "episodes": 386,
       "amazon": "https://music.amazon.co.uk/podcasts/6391c752-85cf-4aa7-bac9-0af5390ec05d/defense-in-depth",
       "spotify": "https://open.spotify.com/show/158C90JWnCxBXAX7HfWxIM",
       "id": "defense-in-depth"
@@ -2489,8 +2489,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 768,
-      "lastEpisode": "2026-11-10",
+      "episodes": 769,
+      "lastEpisode": "2026-11-17",
       "logo": "covers/podcast-dtsr.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2011-09",
@@ -2523,8 +2523,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 249,
-      "lastEpisode": "2026-11-02",
+      "episodes": 250,
+      "lastEpisode": "2026-11-16",
       "logo": "covers/podcast-drzerotrust.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2021-06",
@@ -2554,8 +2554,8 @@
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 345,
-      "lastEpisode": "2026-11-04",
+      "episodes": 346,
+      "lastEpisode": "2026-11-18",
       "logo": "covers/podcast-easy-prey.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2020-03",
@@ -2676,15 +2676,15 @@
       "rating": {
         "v": 4.6,
         "n": 105,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 425,
-      "lastEpisode": "2026-11-12",
+      "episodes": 426,
+      "lastEpisode": "2026-11-19",
       "logo": "covers/podcast-fraudology.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2020-09",
@@ -2709,7 +2709,7 @@
       "rating": {
         "v": 4.4,
         "n": 76,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -2809,7 +2809,7 @@
       "rating": {
         "v": 4.4,
         "n": 39,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -2844,7 +2844,7 @@
       "rating": {
         "v": 4.8,
         "n": 65,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -2882,8 +2882,8 @@
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 298,
-      "lastEpisode": "2026-11-12",
+      "episodes": 299,
+      "lastEpisode": "2026-11-19",
       "logo": "covers/podcast-idtheftcenter.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2020-10",
@@ -2917,8 +2917,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 152,
-      "lastEpisode": "2026-11-11",
+      "episodes": 153,
+      "lastEpisode": "2026-11-18",
       "logo": "covers/podcast-industrial-cybersecurity-insider.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2023-10",
@@ -3020,8 +3020,8 @@
       "logo": "covers/podcast-latent-space.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://podcast.latent.space/feed.xml",
-      "lastEpisode": "2026-11-10",
-      "episodes": 297,
+      "lastEpisode": "2026-11-19",
+      "episodes": 300,
       "amazon": "https://music.amazon.co.uk/podcasts/abff303e-e4f1-447c-9823-b35bfc6e8da8/latent-space-the-ai-engineer-podcast",
       "id": "latent-space"
     },
@@ -3185,8 +3185,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1482626821",
       "rss": "https://rss.buzzsprout.com/652378.rss",
-      "lastEpisode": "2026-11-02",
-      "episodes": 170,
+      "lastEpisode": "2026-11-16",
+      "episodes": 171,
       "amazon": "https://music.amazon.co.uk/podcasts/904c0c88-6ef4-4ed6-bbf1-d630fd1fe337/mnemonic-security-podcast",
       "spotify": "https://open.spotify.com/show/4rx6QrSsjCZYngJQnhTwbo",
       "id": "mnemonic"
@@ -3214,8 +3214,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 143,
-      "lastEpisode": "2026-11-12",
+      "episodes": 144,
+      "lastEpisode": "2026-11-19",
       "logo": "covers/podcast-modern-cyber.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2024-04",
@@ -3373,8 +3373,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1149992167",
       "rss": "https://rss.libsyn.com/shows/82835/destinations/388575.xml",
-      "lastEpisode": "2026-11-12",
-      "episodes": 657,
+      "lastEpisode": "2026-11-19",
+      "episodes": 658,
       "amazon": "https://music.amazon.co.uk/podcasts/12848f0b-1aa5-49e0-bdcb-8e0a41fdedd1/paul's-security-weekly-audio",
       "spotify": "https://open.spotify.com/show/0YC8VPkCkfmrDuiEulxkC6",
       "id": "security-weekly"
@@ -3402,8 +3402,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 223,
-      "lastEpisode": "2026-11-10",
+      "episodes": 224,
+      "lastEpisode": "2026-11-17",
       "logo": "covers/podcast-phillip-wylie-show.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2023-05",
@@ -3437,8 +3437,8 @@
       "logo": "covers/podcast-practical-ai.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.transistor.fm/practical-ai-machine-learning-data-science-llm",
-      "lastEpisode": "2026-11-13",
-      "episodes": 382,
+      "lastEpisode": "2026-11-19",
+      "episodes": 383,
       "amazon": "https://music.amazon.co.uk/podcasts/37dd7ab4-89dc-40a6-ad68-1062902bdaa5/practical-ai",
       "id": "practical-ai"
     },
@@ -3528,8 +3528,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 227,
-      "lastEpisode": "2026-11-11",
+      "episodes": 228,
+      "lastEpisode": "2026-11-18",
       "logo": "covers/podcast-reimagining-cyber.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2020-12",
@@ -3560,8 +3560,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 474,
-      "lastEpisode": "2026-11-14",
+      "episodes": 475,
+      "lastEpisode": "2026-11-21",
       "logo": "covers/podcast-research-saturday.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2017-09",
@@ -3596,8 +3596,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1555928024",
       "rss": "https://rss.buzzsprout.com/1693027.rss",
-      "lastEpisode": "2026-11-09",
-      "episodes": 234,
+      "lastEpisode": "2026-11-23",
+      "episodes": 237,
       "amazon": "https://music.amazon.co.uk/podcasts/4a90178a-e18b-4922-a750-deeb878adbf5/resilient-cyber",
       "spotify": "https://open.spotify.com/show/5wrcFg5mImEOQ8TXpVecua",
       "id": "resilient-cyber"
@@ -3632,7 +3632,7 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1523098985",
       "rss": "https://rss.pdrl.fm/5af9bb/feeds.libsyn.com/284192/rss/?redirect=false",
-      "lastEpisode": "2026-11-16",
+      "lastEpisode": "2026-11-23",
       "episodes": 107,
       "amazon": "https://music.amazon.co.uk/podcasts/462a5a81-82f6-4b4a-bfba-dd3bd2cb7c31/risk-management-show",
       "spotify": "https://open.spotify.com/show/1IynksT6tH80Nw9LTyI7bt",
@@ -3666,8 +3666,8 @@
       "logoSource": "Apple Podcasts artwork",
       "apple": "https://podcasts.apple.com/podcast/id1771446058",
       "rss": "https://rss.buzzsprout.com/2407084.rss",
-      "lastEpisode": "2026-11-13",
-      "episodes": 43,
+      "lastEpisode": "2026-11-20",
+      "episodes": 44,
       "spotify": "https://open.spotify.com/show/6ag1Lo9QHB8rCy4DuCTWqN",
       "id": "sans-cyber-leaders"
     },
@@ -3725,8 +3725,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 185,
-      "lastEpisode": "2026-11-12",
+      "episodes": 187,
+      "lastEpisode": "2026-11-19",
       "logo": "covers/podcast-secure-af.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2019-10",
@@ -3757,8 +3757,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 264,
-      "lastEpisode": "2026-11-03",
+      "episodes": 265,
+      "lastEpisode": "2026-11-17",
       "logo": "covers/podcast-secure-talk.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2018-02",
@@ -3787,8 +3787,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 33,
-      "lastEpisode": "2026-11-03",
+      "episodes": 34,
+      "lastEpisode": "2026-11-23",
       "logo": "covers/podcast-secureafrique.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2024-02",
@@ -3821,7 +3821,7 @@
       ],
       "verified": true,
       "episodes": 260,
-      "lastEpisode": "2026-11-12",
+      "lastEpisode": "2026-11-19",
       "logo": "covers/podcast-security-confidential.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2019-02",
@@ -3864,8 +3864,8 @@
       "logo": "covers/podcast-security-now.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.twit.tv/sn.xml",
-      "lastEpisode": "2026-11-11",
-      "episodes": 234,
+      "lastEpisode": "2026-11-18",
+      "episodes": 236,
       "amazon": "https://music.amazon.co.uk/podcasts/3c251d39-3b4a-4e5c-ac5a-b1d7f6ddc2ce/security-now-audio",
       "id": "security-now"
     },
@@ -3892,8 +3892,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 296,
-      "lastEpisode": "2026-11-05",
+      "episodes": 297,
+      "lastEpisode": "2026-11-18",
       "logo": "covers/podcast-security-squawk.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2020-12",
@@ -3956,8 +3956,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 854,
-      "lastEpisode": "2026-11-13",
+      "episodes": 856,
+      "lastEpisode": "2026-11-20",
       "logo": "covers/podcast-security-weekly-news.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2016-04",
@@ -4056,8 +4056,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 587,
-      "lastEpisode": "2026-11-16",
+      "episodes": 588,
+      "lastEpisode": "2026-11-23",
       "logo": "covers/podcast-shared-security.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2009-08",
@@ -4077,7 +4077,7 @@
         "intermediate",
         "advanced"
       ],
-      "freq": "biweekly",
+      "freq": "monthly",
       "launched": "2025",
       "status": "active",
       "web": "https://shieldedpodcast.com/",
@@ -4093,8 +4093,8 @@
       "logo": "covers/podcast-shielded.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.fame.so/shielded-the-last-line-of-cyber-defense",
-      "lastEpisode": "2026-10-13",
-      "episodes": 41,
+      "lastEpisode": "2026-11-19",
+      "episodes": 42,
       "amazon": "https://music.amazon.co.uk/podcasts/294b2a38-a1fe-4cba-8db9-bbd7f674b304/shielded-the-last-line-of-cyber-defense",
       "id": "shielded"
     },
@@ -4216,8 +4216,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 362,
-      "lastEpisode": "2026-11-11",
+      "episodes": 363,
+      "lastEpisode": "2026-11-18",
       "logo": "covers/podcast-talkin-bout-infosec-news.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2018-07",
@@ -4282,8 +4282,8 @@
       "logo": "covers/podcast-talos-takes.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://rss.buzzsprout.com/2018149.rss",
-      "lastEpisode": "2026-11-04",
-      "episodes": 243,
+      "lastEpisode": "2026-11-18",
+      "episodes": 244,
       "amazon": "https://music.amazon.co.uk/podcasts/ba71c5ff-8b36-4597-8fb5-e0f8c5d88ca0/talos-takes",
       "spotify": "https://open.spotify.com/show/2sZqrFXR3RupDqwXJM7kve",
       "tagsLocked": true,
@@ -4312,8 +4312,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 314,
-      "lastEpisode": "2026-11-12",
+      "episodes": 315,
+      "lastEpisode": "2026-11-19",
       "logo": "covers/podcast-teiss-podcast.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2018-05",
@@ -4342,7 +4342,7 @@
       "rating": {
         "v": 4.5,
         "n": 2950,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -4352,8 +4352,8 @@
       "logo": "covers/podcast-ai-daily-brief.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://anchor.fm/s/f7cac464/podcast/rss",
-      "lastEpisode": "2026-11-15",
-      "episodes": 1140,
+      "lastEpisode": "2026-11-22",
+      "episodes": 1146,
       "amazon": "https://music.amazon.co.uk/podcasts/2b3e5988-907e-4702-96f5-7eb33adc729e/the-ai-daily-brief-artificial-intelligence-news-and-analysis",
       "id": "ai-daily-brief"
     },
@@ -4377,7 +4377,7 @@
       "rating": {
         "v": 5,
         "n": 1,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -4442,8 +4442,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 147,
-      "lastEpisode": "2026-11-10",
+      "episodes": 148,
+      "lastEpisode": "2026-11-17",
       "logo": "covers/podcast-cyber-security-transformation.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2020-06",
@@ -4538,7 +4538,7 @@
       ],
       "verified": true,
       "episodes": 100,
-      "lastEpisode": "2026-11-04",
+      "lastEpisode": "2026-11-23",
       "logo": "covers/podcast-cybur-guy.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2021-11",
@@ -4565,7 +4565,7 @@
       "rating": {
         "v": 5,
         "n": 3,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -4600,7 +4600,7 @@
       "rating": {
         "v": 5,
         "n": 8,
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -4638,8 +4638,8 @@
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 342,
-      "lastEpisode": "2026-11-13",
+      "episodes": 343,
+      "lastEpisode": "2026-11-20",
       "logo": "covers/podcast-perfect-scam.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2018-03",
@@ -4725,8 +4725,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 258,
-      "lastEpisode": "2026-11-11",
+      "episodes": 262,
+      "lastEpisode": "2026-11-23",
       "logo": "covers/podcast-security-strategist.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2020-04",
@@ -4792,8 +4792,8 @@
       "logo": "covers/podcast-twiml.jpg",
       "logoSource": "Apple Podcasts artwork",
       "rss": "https://feeds.megaphone.fm/MLN2155636147",
-      "lastEpisode": "2026-11-10",
-      "episodes": 802,
+      "lastEpisode": "2026-11-17",
+      "episodes": 803,
       "amazon": "https://music.amazon.co.uk/podcasts/786d7a2f-a556-4b36-b6cc-4db135c95ae1/the-twiml-ai-podcast-formerly-this-week-in-machine-learning-artificial-intelligence",
       "id": "twiml"
     },
@@ -4851,8 +4851,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 148,
-      "lastEpisode": "2026-11-10",
+      "episodes": 149,
+      "lastEpisode": "2026-11-17",
       "logo": "covers/podcast-threat-talks.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2024-01",
@@ -4947,8 +4947,8 @@
         "feedspot"
       ],
       "verified": true,
-      "episodes": 263,
-      "lastEpisode": "2026-10-07",
+      "episodes": 265,
+      "lastEpisode": "2026-11-17",
       "logo": "covers/podcast-unsecurity.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2018-11",
@@ -5009,8 +5009,8 @@
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 58,
-      "lastEpisode": "2026-10-28",
+      "episodes": 59,
+      "lastEpisode": "2026-11-18",
       "logo": "covers/podcast-what-the-fraud.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2024-02",
@@ -5040,8 +5040,8 @@
         "millionpodcasts"
       ],
       "verified": true,
-      "episodes": 279,
-      "lastEpisode": "2026-11-10",
+      "episodes": 280,
+      "lastEpisode": "2026-11-17",
       "logo": "covers/podcast-what-the-hack.jpg",
       "logoSource": "Apple Podcasts artwork",
       "launched": "2021-05",
@@ -5251,7 +5251,7 @@
         "v": 4,
         "n": 12,
         "src": "Open Library",
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": true,
       "sources": [
@@ -5314,7 +5314,7 @@
         "ebook"
       ],
       "isbn": "9798335024334",
-      "isbnVerified": false,
+      "isbnVerified": true,
       "web": "https://inteltechniques.com/books",
       "rating": null,
       "curator": true,
@@ -5322,6 +5322,9 @@
         "mcl"
       ],
       "verified": true,
+      "openlibrary": "https://openlibrary.org/isbn/9798335024334",
+      "logo": "covers/book-extreme-privacy.jpg",
+      "logoSource": "Open Library",
       "id": "book-extreme-privacy"
     },
     {
@@ -5632,9 +5635,9 @@
       ],
       "rating": {
         "v": 4.5,
-        "n": 57,
+        "n": 58,
         "src": "Open Library",
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": true,
       "sources": [
@@ -5880,7 +5883,7 @@
         "v": 4.2,
         "n": 6,
         "src": "Open Library",
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": true,
       "sources": [
@@ -9389,7 +9392,7 @@
         "v": 3.6,
         "n": 16,
         "src": "Open Library",
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "isbnAlt": [
         "9781119433385"
@@ -9488,7 +9491,7 @@
         "v": 4.2,
         "n": 5,
         "src": "Open Library",
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "logo": "covers/book-tcp-ip-illustrated-volume-1.jpg",
       "openlibrary": "https://openlibrary.org/isbn/9780321336316",
@@ -9696,7 +9699,7 @@
         "v": 4.1,
         "n": 22,
         "src": "Open Library",
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-23"
       },
       "curator": false,
       "sources": [
@@ -10786,6 +10789,37 @@
       "logo": "covers/platform-blue-team-labs-online.png",
       "logoSource": "site social image",
       "id": "blue-team-labs-online"
+    },
+    {
+      "type": "platform",
+      "name": "BrightTALK",
+      "by": "BrightTALK (TechTarget)",
+      "kind": "events",
+      "cost": "free",
+      "desc": "Free live and on-demand webinars and virtual summits on security, from analysts, practitioners and bodies such as ISC2. A free account is needed to watch; many talks are run by vendors, so expect some product focus.",
+      "domains": [
+        "news",
+        "leadership",
+        "grc",
+        "cloud",
+        "operations"
+      ],
+      "level": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "status": "active",
+      "web": "https://www.brighttalk.com/",
+      "rating": null,
+      "curator": false,
+      "sources": [
+        "curator"
+      ],
+      "verified": true,
+      "logo": "covers/platform-brighttalk.png",
+      "logoSource": "site icon",
+      "id": "brighttalk"
     },
     {
       "type": "platform",
@@ -12882,35 +12916,6 @@
       "linkedin": "https://www.linkedin.com/in/window",
       "noPhoto": true,
       "id": "expert-window-snyder"
-    },
-    {
-      "type": "platform",
-      "name": "BrightTALK",
-      "by": "BrightTALK (TechTarget)",
-      "kind": "events",
-      "cost": "free",
-      "desc": "Free live and on-demand webinars and virtual summits on security, from analysts, practitioners and bodies such as ISC2. A free account is needed to watch; many talks are run by vendors, so expect some product focus.",
-      "domains": [
-        "news",
-        "leadership",
-        "grc",
-        "cloud",
-        "operations"
-      ],
-      "level": [
-        "beginner",
-        "intermediate",
-        "advanced"
-      ],
-      "status": "active",
-      "web": "https://www.brighttalk.com/",
-      "rating": null,
-      "curator": false,
-      "sources": [
-        "curator"
-      ],
-      "verified": true,
-      "id": "brighttalk"
     }
   ]
 }
