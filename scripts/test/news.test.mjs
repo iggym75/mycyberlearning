@@ -199,9 +199,10 @@ test("briefing email links episodes through /go/, which only forwards to that da
     { show: "cw", title: "No ref", url: "https://example.org/y", summary: "s" }] };
   const m = renderDigestEmail({ digest, shows: { cw: "CyberWire" }, siteUrl: "https://mycyberlearning.co.uk", unsubscribeUrl: "https://mycyberlearning.co.uk/api/unsubscribe?x=1" });
   const hrefs = [...m.html.matchAll(/href="([^"]+)"/g)].map(x => x[1]);
-  assert.ok(hrefs.includes("https://mycyberlearning.co.uk/go/2026-11-25/cw-0"));
+  const GO = "https://mycyberlearning.co.uk/go/2026-11-25/cw-0";
+  assert.ok(hrefs.some(h => h === GO));
   assert.ok(hrefs.every(h => new URL(h).hostname === "mycyberlearning.co.uk")); // every link is on our own domain
-  assert.ok(m.text.split("\n").map(l => l.trim()).includes("https://mycyberlearning.co.uk/go/2026-11-25/cw-0"));
+  assert.ok(m.text.split("\n").some(l => l.trim() === GO));
   assert.equal(goPath("2026-11-25", "../x"), null);
   const env = { ASSETS: { fetch: async r => new URL(r.url).pathname === "/news/2026-11-25.json"
     ? new Response(JSON.stringify({ episodes: [{ ref: "cw-0", url: "https://www.thecyberwire.com/podcasts/x" }, { ref: "bad", url: "javascript:alert(1)" }] }))
