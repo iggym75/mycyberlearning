@@ -9,7 +9,6 @@ import * as account from "./account.js";
 import * as accountEmail from "./account-email.js";
 import { dispatchBriefing } from "./cron.js";
 import { serveMedia } from "./lib/media.js";
-import { go } from "./lib/go.js";
 
 // [method(s), path pattern, handler]. `:id` captures one URL-encoded segment.
 const ROUTES = [
@@ -84,7 +83,6 @@ export default {
     const url = new URL(req.url);
     const dynamic = url.pathname.startsWith("/api/") || url.pathname.startsWith("/auth/") || url.pathname === "/admin";
     if (url.pathname.startsWith("/tour/")) return serveMedia(req, env); // the site tour video, with byte ranges
-    if (url.pathname.startsWith("/go/")) return go(req, env);           // briefing email links to episodes (lib/go.js)
     if (!dynamic) {
       // Existing files are served before the Worker runs, so this only sees misses. A "not found" must never be
       // cached: otherwise a cover requested just before it was published stays missing for a week (_headers).

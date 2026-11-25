@@ -187,32 +187,19 @@ test("digest email: MCL subject prefix, numbered stories without interest labels
   const m = renderDigestEmail({ digest, shows: { cw: "CyberWire Daily" }, siteUrl: "https://mycyberlearning.co.uk", unsubscribeUrl: "https://mycyberlearning.co.uk/api/unsubscribe?x=1", interests: ["news"] });
   assert.equal(m.subject, "MCL Daily Briefing: H");
   assert.ok(!m.html.includes("matches your interests"));
-  assert.equal([...m.html.matchAll(/href="([^"]+)"/g)].filter(x => x[1] === "https://mycyberlearning.co.uk/go/2026-11-06/cw-0").length, 1); // one link per episode, via our domain
+  assert.ok([...m.html.matchAll(/href="([^"]+)"/g)].every(x => new URL(x[1]).hostname === "mycyberlearning.co.uk")); // all links on our domain
   assert.ok(m.html.includes(">CyberWire Daily<"));
 });
 
-test("briefing email links episodes through /go/, which only forwards to that day's listed episodes", async () => {
+test("briefing email: every link stays on our own domain; episodes open that day's briefing", async () => {
   const { renderDigestEmail } = await import("../../worker/src/lib/mail.js");
-  const { go, goPath } = await import("../../worker/src/lib/go.js");
   const digest = { date: "2026-11-25", headline: "h", overview: "o", topStories: [], episodes: [
-    { show: "cw", title: "Ep", url: "https://www.thecyberwire.com/podcasts/x", ref: "cw-0", summary: "s" },
-    { show: "cw", title: "No ref", url: "https://example.org/y", summary: "s" }] };
+    { show: "cw", title: "Ep", url: "https://www.thecyberwire.com/podcasts/x", ref: "cw-0", summary: "s" }] };
   const m = renderDigestEmail({ digest, shows: { cw: "CyberWire" }, siteUrl: "https://mycyberlearning.co.uk", unsubscribeUrl: "https://mycyberlearning.co.uk/api/unsubscribe?x=1" });
   const hrefs = [...m.html.matchAll(/href="([^"]+)"/g)].map(x => x[1]);
-  const GO = "https://mycyberlearning.co.uk/go/2026-11-25/cw-0";
-  assert.ok(hrefs.some(h => h === GO));
-  assert.ok(hrefs.every(h => new URL(h).hostname === "mycyberlearning.co.uk")); // every link is on our own domain
-  assert.ok(m.text.split("\n").some(l => l.trim() === GO));
-  assert.equal(goPath("2026-11-25", "../x"), null);
-  const env = { ASSETS: { fetch: async r => new URL(r.url).pathname === "/news/2026-11-25.json"
-    ? new Response(JSON.stringify({ episodes: [{ ref: "cw-0", url: "https://www.thecyberwire.com/podcasts/x" }, { ref: "bad", url: "javascript:alert(1)" }] }))
-    : new Response("no", { status: 404 }) } };
-  const hit = await go(new Request("https://mycyberlearning.co.uk/go/2026-11-25/cw-0"), env);
-  assert.equal(hit.status, 302); assert.equal(hit.headers.get("location"), "https://www.thecyberwire.com/podcasts/x");
-  assert.equal(hit.headers.get("referrer-policy"), "no-referrer");
-  for (const p of ["/go/2026-11-25/bad", "/go/2026-11-25/nope", "/go/2026-11-26/cw-0", "/go/2026-11-25/cw-0/x", "/go/..%2F/cw-0", "/go/2026-11-25/https:%2F%2Fevil.test"]) {
-    const r = await go(new Request("https://mycyberlearning.co.uk" + p), env);
-    assert.equal(r.status, 302, p); assert.equal(r.headers.get("location"), "/#news", p); // never anywhere not listed
-  }
-  assert.equal((await go(new Request("https://mycyberlearning.co.uk/go/2026-11-25/cw-0", { method: "POST" }), env)).status, 405);
+  const DAY = "https://mycyberlearning.co.uk/#news/2026-11-25";
+  assert.ok(hrefs.some(h => h === DAY));
+  assert.ok(hrefs.every(h => new URL(h).hostname === "mycyberlearning.co.uk")); // nothing points off our domain
+  assert.ok(m.text.split("\n").some(l => l.trim() === DAY));
+  assert.ok(m.text.split("\n").every(l => !/https?:\/\//.test(l) || /https:\/\/mycyberlearning\.co\.uk[/#]/.test(l)));
 });

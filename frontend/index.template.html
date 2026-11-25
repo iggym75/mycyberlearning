@@ -2121,13 +2121,16 @@ $("#tourDlg").addEventListener("close", () => {
 /* ---------- Views (#library, #podcasts, #books, #news) ---------- */
 // #podcasts and #books are the library view with the type filter set, so they can be linked to directly.
 function showView(){
-  const v = location.hash === "#news" ? "news" : "library";
+  // #news opens the latest briefing; #news/<date> (used by the briefing emails) opens that day's.
+  const newsDay = (location.hash.match(/^#news\/(\d{4}-\d{2}-\d{2})$/) || [])[1];
+  const v = location.hash === "#news" || newsDay ? "news" : "library";
   const t = {"#podcasts":"podcast", "#books":"book", "#platforms":"platform", "#experts":"person", "#mylist":"mine"}[location.hash];
   if (t && state.type !== t){ state.type = t; render(); }
   if (state.type === "mine") favs.opened();
   document.body.dataset.view = v; $("#newsView").hidden = v !== "news";
   syncNav();
-  if (v === "news" && !NEWS.cur) loadNews();
+  if (v === "news" && newsDay && NEWS.cur?.date !== newsDay) loadNews(newsDay);
+  else if (v === "news" && !NEWS.cur) loadNews();
   if (location.hash === "#tour") openTour(); // shareable link: mycyberlearning.co.uk/#tour
   track(v);
 }

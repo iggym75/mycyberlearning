@@ -1,4 +1,3 @@
-import { goPath } from "./go.js";
 // Email, token and subscriber helpers shared by the Worker (confirmation emails, unsubscribe)
 // and scripts/send-digest.mjs (the morning briefing). No third-party code runs on untrusted input here:
 // every value placed in an email is escaped, and every link is checked to be http(s).
@@ -148,7 +147,9 @@ export function renderDigestEmail({ digest, shows, siteUrl, unsubscribeUrl, name
   const episodes = [...(digest.episodes || [])].sort((a, b) => order(a, b) || (!!b.core - !!a.core));
   const byRef = Object.fromEntries((digest.episodes || []).map(e => [e.ref, e]));
   const greet = name ? `Good morning, ${escapeHtml(name)}.` : "Good morning.";
-  const archive = new URL(`#news`, site).href;
+  // Every link in the email stays on our own domain: company mail filters (Defender, Abnormal) distrust a new
+  // sender whose links point elsewhere. Episodes link to that day's briefing on the site, which links out to each show.
+  const archive = new URL(/^\d{4}-\d{2}-\d{2}$/.test(String(digest.date)) ? `#news/${digest.date}` : "#news", site).href;
   const quiet = (digest.quietCore || []).map(id => shows[id] || id).join(", ");
 
   // Deliverability: few links (each episode is linked once, from its title), no images, no tracking, a real plain-text part.
@@ -162,9 +163,7 @@ export function renderDigestEmail({ digest, shows, siteUrl, unsubscribeUrl, name
 ${via ? `<div style="font-size:12px;color:${C.muted};margin-top:4px">Covered by ${via}</div>` : ""}</td></tr></table></td></tr>`;
   }).join("");
 
-  // Episode links go through our own domain (/go/<date>/<ref>, see lib/go.js): company mail filters distrust a
-  // new sender whose links all point to other domains. Falls back to the episode's own link if there's no ref.
-  const link = e => { const u = safeUrl(e.url); if (!u) return null; const p = goPath(digest.date, e.ref); return p ? new URL(p, site).href : u; };
+  const link = e => (safeUrl(e.url) ? archive : null);
   const epHtml = episodes.map(e => {
     const u = link(e);
     const title = u ? `<a href="${escapeHtml(u)}" style="color:${C.ink};text-decoration:underline">${escapeHtml(e.title)}</a>` : escapeHtml(e.title);
