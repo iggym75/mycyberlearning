@@ -187,7 +187,7 @@ test("digest email: MCL subject prefix, numbered stories without interest labels
   const m = renderDigestEmail({ digest, shows: { cw: "CyberWire Daily" }, siteUrl: "https://mycyberlearning.co.uk", unsubscribeUrl: "https://mycyberlearning.co.uk/api/unsubscribe?x=1", interests: ["news"] });
   assert.equal(m.subject, "MCL Daily Briefing: H");
   assert.ok(!m.html.includes("matches your interests"));
-  assert.equal(m.html.split("https://mycyberlearning.co.uk/go/2026-11-06/cw-0").length - 1, 1); // one link per episode, via our domain
+  assert.equal([...m.html.matchAll(/href="([^"]+)"/g)].filter(x => x[1] === "https://mycyberlearning.co.uk/go/2026-11-06/cw-0").length, 1); // one link per episode, via our domain
   assert.ok(m.html.includes(">CyberWire Daily<"));
 });
 
@@ -198,9 +198,10 @@ test("briefing email links episodes through /go/, which only forwards to that da
     { show: "cw", title: "Ep", url: "https://www.thecyberwire.com/podcasts/x", ref: "cw-0", summary: "s" },
     { show: "cw", title: "No ref", url: "https://example.org/y", summary: "s" }] };
   const m = renderDigestEmail({ digest, shows: { cw: "CyberWire" }, siteUrl: "https://mycyberlearning.co.uk", unsubscribeUrl: "https://mycyberlearning.co.uk/api/unsubscribe?x=1" });
-  assert.ok(m.html.includes('href="https://mycyberlearning.co.uk/go/2026-11-25/cw-0"'));
-  assert.ok(!m.html.includes("thecyberwire.com"));
-  assert.ok(m.text.includes("https://mycyberlearning.co.uk/go/2026-11-25/cw-0"));
+  const hrefs = [...m.html.matchAll(/href="([^"]+)"/g)].map(x => x[1]);
+  assert.ok(hrefs.includes("https://mycyberlearning.co.uk/go/2026-11-25/cw-0"));
+  assert.ok(hrefs.every(h => new URL(h).hostname === "mycyberlearning.co.uk")); // every link is on our own domain
+  assert.ok(m.text.split("\n").map(l => l.trim()).includes("https://mycyberlearning.co.uk/go/2026-11-25/cw-0"));
   assert.equal(goPath("2026-11-25", "../x"), null);
   const env = { ASSETS: { fetch: async r => new URL(r.url).pathname === "/news/2026-11-25.json"
     ? new Response(JSON.stringify({ episodes: [{ ref: "cw-0", url: "https://www.thecyberwire.com/podcasts/x" }, { ref: "bad", url: "javascript:alert(1)" }] }))
