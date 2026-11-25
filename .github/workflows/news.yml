@@ -60,7 +60,7 @@ jobs:
       - run: npm install --no-audit --no-fund --ignore-scripts --omit=dev
       - name: List today's core episodes
         run: node scripts/news.mjs --local --plan "$RUNNER_TEMP/plan.json"
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with: { python-version: "3.12" }
       - name: Restore the speech model
         uses: actions/cache@v4
