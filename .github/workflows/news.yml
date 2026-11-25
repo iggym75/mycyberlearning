@@ -128,8 +128,10 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
   email:
-    needs: [gate, build]
+    needs: [gate, build, deploy]
     # Runs after a fresh build, or (build skipped) when a later fallback run finds today's briefing already built.
+    # Waits for the deploy so the email's /go/ episode links already resolve; sends even if the deploy failed
+    # (those links then fall back to the briefing page).
     if: always() && needs.gate.outputs.go == 'true' && contains(fromJSON('["success","skipped"]'), needs.build.result) && (github.event_name == 'schedule' || inputs.send)
     runs-on: ubuntu-latest
     timeout-minutes: 120
