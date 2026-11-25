@@ -1,3 +1,4 @@
+import { goPath } from "./go.js";
 // Email, token and subscriber helpers shared by the Worker (confirmation emails, unsubscribe)
 // and scripts/send-digest.mjs (the morning briefing). No third-party code runs on untrusted input here:
 // every value placed in an email is escaped, and every link is checked to be http(s).
@@ -161,8 +162,11 @@ export function renderDigestEmail({ digest, shows, siteUrl, unsubscribeUrl, name
 ${via ? `<div style="font-size:12px;color:${C.muted};margin-top:4px">Covered by ${via}</div>` : ""}</td></tr></table></td></tr>`;
   }).join("");
 
+  // Episode links go through our own domain (/go/<date>/<ref>, see lib/go.js): company mail filters distrust a
+  // new sender whose links all point to other domains. Falls back to the episode's own link if there's no ref.
+  const link = e => { const u = safeUrl(e.url); if (!u) return null; const p = goPath(digest.date, e.ref); return p ? new URL(p, site).href : u; };
   const epHtml = episodes.map(e => {
-    const u = safeUrl(e.url);
+    const u = link(e);
     const title = u ? `<a href="${escapeHtml(u)}" style="color:${C.ink};text-decoration:underline">${escapeHtml(e.title)}</a>` : escapeHtml(e.title);
     return `<tr><td style="padding:12px 24px;border-top:1px solid ${C.line}">
 <div style="font-size:16px;font-weight:700;color:${C.signal};margin:0 0 2px">${escapeHtml(shows[e.show] || e.show)}${e.minutes ? `<span style="font-size:12px;font-weight:400;color:${C.muted}"> · ${Number(e.minutes) | 0} min</span>` : ""}</div>
@@ -183,7 +187,7 @@ You're receiving this because you subscribed at ${escapeHtml(site)}. <a href="${
 
   const text = [`My Cyber Learning, daily briefing, ${dateLabel}`, "", digest.headline || "", "", `${name ? `Good morning, ${name}.` : "Good morning."} ${digest.overview || ""}`, "",
     ...(stories.length ? ["Top stories", ...stories.map((s, i) => `${i + 1}. ${s.title}\n   ${s.summary}`), ""] : []),
-    ...(episodes.length ? ["New episodes since the last briefing", ...episodes.map(e => `- ${shows[e.show] || e.show}: ${e.title}${e.minutes ? ` (${e.minutes} min)` : ""}\n  ${e.summary}\n  ${safeUrl(e.url) || ""}`)] : ["No new episodes since the last briefing."]),
+    ...(episodes.length ? ["New episodes since the last briefing", ...episodes.map(e => `- ${shows[e.show] || e.show}: ${e.title}${e.minutes ? ` (${e.minutes} min)` : ""}\n  ${e.summary}\n  ${link(e) || ""}`)] : ["No new episodes since the last briefing."]),
     "", `Website: ${archive}`, `Unsubscribe: ${unsub}`].join("\n");
   return { subject: digestSubject(digest.headline, dateLabel), html, text };
 }
