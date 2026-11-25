@@ -16,6 +16,10 @@ on:
         description: "Email subscribers after building (once per day at most)"
         type: boolean
         default: false
+      resend:
+        description: "Resend today's briefing (no rebuild) to every confirmed subscriber, even if it already went out"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -34,6 +38,7 @@ jobs:
       - id: check
         run: |
           hm=$(TZ=Europe/London date +%H%M); today=$(TZ=Europe/London date +%F)
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.resend }}" = "true" ]; then echo "go=true" >> "$GITHUB_OUTPUT"; echo "build=false" >> "$GITHUB_OUTPUT"; echo "Resend only: no rebuild."; exit 0; fi
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then echo "go=true" >> "$GITHUB_OUTPUT"; echo "build=true" >> "$GITHUB_OUTPUT"; exit 0; fi
           if [ $((10#$hm)) -lt 825 ]; then echo "go=false" >> "$GITHUB_OUTPUT"; echo "London time is $hm, before 08:25; skipping."; exit 0; fi
           echo "go=true" >> "$GITHUB_OUTPUT"
@@ -132,7 +137,7 @@ jobs:
     # Runs after a fresh build, or (build skipped) when a later fallback run finds today's briefing already built.
     # Waits for the deploy so the email's /go/ episode links already resolve; sends even if the deploy failed
     # (those links then fall back to the briefing page).
-    if: always() && needs.gate.outputs.go == 'true' && contains(fromJSON('["success","skipped"]'), needs.build.result) && (github.event_name == 'schedule' || inputs.send)
+    if: always() && needs.gate.outputs.go == 'true' && contains(fromJSON('["success","skipped"]'), needs.build.result) && (github.event_name == 'schedule' || inputs.send || inputs.resend)
     runs-on: ubuntu-latest
     timeout-minutes: 120
     environment: production   # optional: add required reviewers or restrict secrets to this environment
@@ -155,7 +160,7 @@ jobs:
           MAIL_RATE_PER_MINUTE: ${{ vars.MAIL_RATE_PER_MINUTE || '25' }}
           MAIL_DAILY_LIMIT: ${{ vars.MAIL_DAILY_LIMIT || '' }}
         # The gate job already checked it's 08:25 or later in London; --force lets a late-starting run still send that day.
-        run: node scripts/send-digest.mjs --force
+        run: node scripts/send-digest.mjs ${{ inputs.resend && '--resend' || '--force' }}
 
   retention:
     # Runs every day whatever happened above, so the 7-day deletion promised in the privacy notice never lapses.

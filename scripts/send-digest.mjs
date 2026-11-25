@@ -9,7 +9,8 @@ import { openD1 } from "./d1.mjs";
 import { sleep } from "./lib.mjs";
 
 const args = process.argv.slice(2);
-const force = args.includes("--force"), preview = args.includes("--preview");
+// --resend: send today's briefing again to every confirmed subscriber, even if it already went out (run by hand only).
+const force = args.includes("--force") || args.includes("--resend"), preview = args.includes("--preview"), resend = args.includes("--resend");
 const SITE = (process.env.SITE_URL || "https://mycyberlearning.co.uk").replace(/\/$/, "");
 const PER_MINUTE = Number(process.env.MAIL_RATE_PER_MINUTE) || 25;
 // Free email plans cap sends per day (Resend free: 100, Brevo free: 300). Stop cleanly at the cap instead of erroring per message.
@@ -36,7 +37,8 @@ const db = await openD1();
 // Claim today's send. If an earlier run stopped part-way, resume it: subscribers already sent today are skipped.
 // (The workflow's concurrency group stops two runs sending at once.)
 const claim = await db.prepare("SELECT * FROM digestlog WHERE date = ?").bind(today).first();
-if (claim?.status === "done") { console.log(`Briefing for ${today} already sent; nothing to do.`); process.exit(0); }
+if (claim?.status === "done" && !resend) { console.log(`Briefing for ${today} already sent; nothing to do.`); process.exit(0); }
+if (resend) console.log(`Resending the briefing for ${today} to every confirmed subscriber.`);
 if (claim) console.log(`Resuming an unfinished send for ${today}.`);
 else await db.prepare("INSERT INTO digestlog (date, status, started_at) VALUES (?, 'sending', ?)").bind(today, new Date().toISOString()).run();
 
@@ -44,7 +46,7 @@ const { results: subs } = await db.prepare("SELECT id, status, email, name, inte
 let sent = 0, failed = 0, capped = 0;
 for (const s of subs) {
   if (s.status !== "active" || !s.email) continue; // belt and braces: never mail unconfirmed or suppressed rows
-  if (s.last_sent === today) continue;             // already sent in an earlier, interrupted run
+  if (s.last_sent === today && !resend) continue;  // already sent in an earlier, interrupted run
   if ((claim?.sent || 0) + sent >= DAILY_LIMIT) { capped++; continue; }
   try {
     const m = renderDigestEmail({ digest, shows, siteUrl: SITE, unsubscribeUrl: unsubUrl(s.id), name: s.name, interests: JSON.parse(s.interests || "[]") });
@@ -55,7 +57,7 @@ for (const s of subs) {
   await sleep(Math.ceil(60000 / PER_MINUTE));
 }
 await db.prepare("UPDATE digestlog SET status = ?, sent = ?, failed = ?, finished_at = ? WHERE date = ?")
-  .bind(failed ? "sending" : "done", (claim?.sent || 0) + sent, failed, new Date().toISOString(), today).run();
+  .bind(failed && !resend ? "sending" : "done", (claim?.sent || 0) + sent, failed, new Date().toISOString(), today).run();
 if (capped) console.log(`Daily email limit (${DAILY_LIMIT}) reached: ${capped} subscribers were not sent today's briefing. Upgrade the email plan or raise MAIL_DAILY_LIMIT.`);
 if (failed) { console.log(`${failed} sends failed; re-run the workflow to retry just those.`); process.exitCode = 1; }
 console.log(`Briefing ${today}: sent ${sent}, failed ${failed}, over daily limit ${capped}`);
