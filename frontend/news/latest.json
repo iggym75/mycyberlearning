@@ -1,235 +1,236 @@
 {
-  "date": "2026-11-24",
-  "generatedAt": "2026-11-24T08:35:43.916Z",
+  "date": "2026-11-25",
+  "generatedAt": "2026-11-25T08:36:28.075Z",
   "windowHours": 25,
-  "headline": "Nvidia's Huang reinstated; vCenter zero-day and Azure secrets leak drive patch urgency",
-  "overview": "Nvidia reinstated Jensen Huang as CEO after White House input cleared him of national security concerns, drawing sharp political scrutiny. On the security side, a VMware vCenter flaw exploited since September and an Azure API Management secrets leak dominated, alongside a run of breaches and AI-accelerated attacks.",
+  "headline": "Azure secrets stolen, ScreenConnect hijacks, Iran-linked tanker attacks",
+  "overview": "Attackers exploited a flaw in Microsoft's classic Azure API Management to reach stored secrets, with Norway tying it to energy-sector victims, so rotating credentials is the urgent step. Other major threats include a critical ScreenConnect bug that lets attackers hijack MSP technicians' machines and a possible Shiny Hunters revival that remains unconfirmed. Policy and leadership news and AI-related stories round out the day.",
   "topStories": [
     {
-      "title": "Jensen Huang returns as Nvidia CEO amid unresolved investigation",
-      "summary": "Nvidia's board reinstated Huang after senior US officials said his return posed no national security risk, and the White House backed the decision. An independent investigation remains open, and critics in Congress are pressing for answers on export controls.",
+      "title": "Azure API Management flaw exposes customer secrets",
+      "summary": "Microsoft says a flaw in the classic tiers of Azure API Management let attackers reach stored keys and tokens on instances not configured to its best practices. Norway's energy sector found it first, and Microsoft's fix does not invalidate secrets already stolen, so customers should rotate them and check logs.",
       "refs": [
-        "ai-daily-brief-0",
+        "cyberwire-daily-0",
+        "cyber-security-headlines-0",
+        "cybersecurity-today-0",
+        "daily-defsec-brief-0",
+        "cyberhub-0"
+      ],
+      "domains": [
+        "cloud",
+        "appsec",
+        "defensive"
+      ]
+    },
+    {
+      "title": "Iran-suspected cyberattacks on tankers and cargo ships",
+      "summary": "US officials are investigating attacks on as many as 50 ships carrying oil, gas and chemicals, reportedly exploiting Fortinet router flaws, with some vessels receiving ransom or bomb threats. Attribution is unresolved, with Iran named as the prime suspect and Russia still considered, and a Trump administration official says there is no evidence yet of Iran's involvement.",
+      "refs": [
+        "cyberwire-daily-0",
         "cyber-security-headlines-0"
       ],
       "domains": [
         "news",
-        "leadership",
-        "grc"
-      ]
-    },
-    {
-      "title": "VMware vCenter zero-day exploited since September",
-      "summary": "A critical vCenter authentication bypass was used by a suspected China-linked group months before public disclosure, with a custom tool able to extract directory data, forge SAML tokens and create admin accounts. CISA added it to its exploited list with a same-day federal deadline.",
-      "refs": [
-        "cyber-investigations-0",
-        "cyberhub-0"
-      ],
-      "domains": [
-        "tvm",
-        "offensive",
+        "icsot",
         "cti"
       ]
     },
     {
-      "title": "Azure API Management classic tier leaks secrets used against Norwegian energy firms",
-      "summary": "Norwegian authorities reported attacks on energy companies exploiting a flaw in Azure API Management that could expose stored secrets and keys. Microsoft deployed a mitigation, but customers should confirm they run the patched version.",
+      "title": "Critical ScreenConnect flaw hijacks MSP technicians",
+      "summary": "Attackers are exploiting a critical ScreenConnect bug that lets a malicious guest in a support session push and run a file on a technician's computer without warnings. Huntress tracked a campaign from October to November, and the fix is in version 26.6.5 or later.",
       "refs": [
-        "cyberwire-daily-0",
-        "sans-stormcast-0"
+        "cybersecurity-today-0"
       ],
       "domains": [
-        "cloud",
-        "icsot",
+        "offensive",
+        "appsec",
         "tvm"
       ]
     },
     {
-      "title": "AI agents accelerate attacks and push defenders to tighten controls",
-      "summary": "Amazon reported AI agents used by attackers found and exploited a zero-day in a medical imaging server in about eleven minutes. Several US banks responded by restricting AI agent access, adding monitoring and kill switches, and treating agents like staff.",
+      "title": "Shiny Hunters claims a comeback with shaky proof",
+      "summary": "A new leak site claims the Shiny Hunters group is back, signing posts with 2020-era PGP keys that were revoked in March. The keys are genuine but could have changed hands, so the link to the original group is unproven. Several recent arrests are mentioned, and none of the allegations have been tested in court.",
       "refs": [
-        "daily-defsec-brief-0",
         "cyberwire-daily-0",
-        "cyber-security-headlines-0"
+        "cybersecurity-today-0"
       ],
       "domains": [
-        "ai",
-        "defensive",
-        "operations"
+        "cti",
+        "news"
       ]
     },
     {
-      "title": "Major data breaches across healthcare, retail, utilities and telecoms",
-      "summary": "PRISM Medical reported exposure of data on 1.3 million people, Korean utility Kepco lost records on over 1.5 million customers, and Bell and the European Commission disclosed data theft. Next confirmed a third-party supplier breach.",
+      "title": "Unpatched ASP.NET library under active attack",
+      "summary": "A critical flaw in an old anti-CSRF library for ASP.NET web forms lets one unauthenticated request run code on the server. It is being exploited, the project has not been updated since 2008, and no patch is coming, so affected servers should remove the library.",
       "refs": [
-        "cyberwire-daily-0",
-        "cyber-security-headlines-0"
+        "cybersecurity-today-0",
+        "daily-defsec-brief-0"
+      ],
+      "domains": [
+        "appsec",
+        "tvm"
+      ]
+    },
+    {
+      "title": "Exposed databases leak billions of credentials",
+      "summary": "Researchers found two unsecured databases holding billions of usernames, passwords, ID numbers and documents, largely from earlier breaches and infostealer malware. Both have since gone offline.",
+      "refs": [
+        "cyber-security-headlines-0",
+        "cyberwire-daily-0"
       ],
       "domains": [
         "privacy",
-        "news",
-        "grc"
-      ]
-    },
-    {
-      "title": "Nginx, SonicWall and Entra flaws demand immediate action",
-      "summary": "Public exploit code appeared for several Nginx flaws affecting Veeam and Cisco products. SonicWall is retiring Gen 6 firewalls, and Microsoft disclosed a Entra Connect Health flaw exposing admin emails and tenant metadata, which may lead to phishing.",
-      "refs": [
-        "daily-defsec-brief-0",
-        "the-443-0",
-        "cyberhub-0"
-      ],
-      "domains": [
-        "tvm",
-        "defensive",
-        "appsec"
+        "defensive"
       ]
     }
   ],
   "episodes": [
     {
       "show": "cyberwire-daily",
-      "title": "A perfect storm of imperfect systems.",
-      "publishedAt": "2026-11-23T21:30:00.000Z",
-      "minutes": 24,
-      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2683/notes",
+      "title": "All hands on hack.",
+      "publishedAt": "2026-11-24T21:30:00.000Z",
+      "minutes": 22,
+      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2684/notes",
       "ref": "cyberwire-daily-0",
       "domains": [
         "news",
+        "icsot",
         "ai",
-        "privacy"
-      ],
-      "core": true,
-      "summary": "Covers a run of tech outages, banks restricting AI agents, a European Commission data leak, Next's supplier breach, the PRISM Medical breach and the Azure flaw hitting Norwegian energy firms. Also covers funding and M&A and follow-ups on USDA, FBI and NSA incidents, plus an interview on US cyber leadership changes."
-    },
-    {
-      "show": "cyber-security-headlines",
-      "title": "Jensen returns under scrutiny, CrowdStrike's $44B Zscaler deal, KEPCO breach hits 1.5M",
-      "publishedAt": "2026-11-24T08:00:00.000Z",
-      "minutes": 8,
-      "url": "https://cisoseries.libsyn.com/jensen-returns-under-scrutiny-crowdstrikes-44b-zscaler-deal-kepco-breach-hits-15m",
-      "ref": "cyber-security-headlines-0",
-      "domains": [
-        "news",
-        "grc",
-        "privacy"
-      ],
-      "core": true,
-      "summary": "Covers Huang's return at Nvidia, CrowdStrike's proposed $43.9 billion Zscaler deal, the Kepco breach affecting 1.5 million people, cyber leadership nominations, AI-speed attacks, La Liga and Bell data incidents, and a Bulgarian government intrusion."
-    },
-    {
-      "show": "sans-stormcast",
-      "title": "Azure API Management Classic Secrets Leak; iTerm2 Kitty Protocol RCE; binary-parser Code Injection (CVE-2026-134814) (Nov 24th 2026)",
-      "publishedAt": "2026-11-24T02:00:03.000Z",
-      "minutes": 7,
-      "url": "https://isc.sans.edu/podcastdetail/10192",
-      "ref": "sans-stormcast-0",
-      "domains": [
-        "cloud",
-        "tvm",
         "appsec"
       ],
       "core": true,
-      "summary": "Covers the Azure API Management secrets exposure, a terminal escape issue in iTerm2 that can lead to code execution when viewing files, and a binary-parser flaw that was not fully fixed earlier this year."
+      "summary": "Covers the Iran-linked tanker attacks, a possible Shiny Hunters return, a US bill for a CISA incident review board, a new national cyber director nominee, UK regulator warnings on AI agents, a South Korean utility data breach, and a Talos interview on prompt injection of AI assistants. Also reports a Bluetooth trailer brake vulnerability."
+    },
+    {
+      "show": "cyber-security-headlines",
+      "title": "Iranian tanker hacks, Azure flaw exploited, espionage at OpenAI",
+      "publishedAt": "2026-11-25T08:00:00.000Z",
+      "minutes": 6,
+      "url": "https://cisoseries.libsyn.com/iranian-tanker-hacks-azure-flaw-exploited-espionage-at-openai",
+      "ref": "cyber-security-headlines-0",
+      "domains": [
+        "news",
+        "cloud",
+        "privacy",
+        "icsot"
+      ],
+      "core": true,
+      "summary": "Covers the tanker cyberattacks, the Azure API Management flaw, a former OpenAI engineer charged over a hidden recorder, a US uranium mine cyberattack, leaked credential databases, Indian warnings on AI-assisted bank fraud, and trailer brake Bluetooth flaws. Includes a sponsor segment, which was ignored."
+    },
+    {
+      "show": "sans-stormcast",
+      "title": "Aggressive SSH Scanning from 109.160.32.0/24; VMware VMSA-2026-0011 vCenter Auth Bypass (CVE-2026-123903) (Nov 25th 2026)",
+      "publishedAt": "2026-11-25T02:00:03.000Z",
+      "minutes": 5,
+      "url": "https://isc.sans.edu/podcastdetail/10194",
+      "ref": "sans-stormcast-0",
+      "domains": [
+        "hunting",
+        "tvm",
+        "cloud"
+      ],
+      "core": true,
+      "summary": "Describes aggressive SSH scanning from one /24 subnet seen by honeypots, with no conclusion on its purpose, and a set of new VMware vCenter and related product vulnerabilities, with recent ones previously exploited."
+    },
+    {
+      "show": "cybersecurity-today",
+      "title": "ShinyHunters claims comeback after FBI arrests, ScreenConnect flaw hijacks MSP technicians, Azure flaw hits Norway energy firms",
+      "publishedAt": "2026-11-25T01:00:00.000Z",
+      "minutes": 14,
+      "url": "https://cybersecuritytoday.libsyn.com/shinyhunters-claims-comeback-after-fbi-arrests-screenconnect-flaw-hijacks-msp-technicians-azure-flaw-hits-norway-energy-firms",
+      "ref": "cybersecurity-today-0",
+      "domains": [
+        "offensive",
+        "cloud",
+        "appsec",
+        "cti"
+      ],
+      "core": true,
+      "summary": "Covers the ScreenConnect technician hijacking flaw, the Azure API Management flaw linked to Norway's energy attacks, the abandoned ASP.NET library under attack, Shiny Hunters' claimed comeback, a McDonald's Japan breach, and FCC proposals for a smart device security label."
     },
     {
       "show": "ai-daily-brief",
-      "title": "Too Big to Fire: Jensen Huang Is Back as Nvidia CEO",
-      "publishedAt": "2026-11-23T18:23:30.000Z",
-      "minutes": 25,
-      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/Too-Big-to-Fire-Jensen-Huang-Is-Back-as-Nvidia-CEO-e3ssrpk",
+      "title": "AI Just Made History in the Middle of a Meltdown",
+      "publishedAt": "2026-11-24T20:12:22.000Z",
+      "minutes": 30,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/AI-Just-Made-History-in-the-Middle-of-a-Meltdown-e3sv3tf",
       "ref": "ai-daily-brief-0",
       "domains": [
         "ai",
-        "leadership",
         "news"
       ],
       "core": true,
-      "summary": "Traces the sequence of events leading to Huang's reinstatement at Nvidia, the White House role, market reaction and political debate over state versus private power in AI."
+      "summary": "Covers an AI-assisted claim of a proof of the Riemann hypothesis, reactions from mathematicians, SpaceX AI problems reported by the New York Times, a new open model with looped transformers, and political fallout over NVIDIA's CEO. Largely outside the security scope."
     },
     {
-      "show": "click-here",
-      "title": "Bitcoin came for Kentucky’s coal country. Now AI wants in.",
-      "publishedAt": "2026-11-24T08:00:00.000Z",
-      "minutes": 33,
-      "url": "https://play.prx.org/listen?ge=prx_8376_2035f6f9-45d2-4ab9-8ea6-313db0fac43f&uf=https%3A%2F%2Fpublicfeeds.net%2Ff%2F8376%2Fclickhere",
-      "ref": "click-here-0",
+      "show": "risky-business",
+      "title": "Risky Business #861 -- You can’t trust AI routers",
+      "publishedAt": "2026-11-25T03:26:28.000Z",
+      "minutes": 59,
+      "url": "https://risky.biz/RB861/",
+      "ref": "risky-business-0",
       "domains": [
+        "ai",
+        "cloud",
         "news"
       ],
-      "summary": "Sponsored-free feature on how Bitcoin mining and now AI data centres have affected eastern Kentucky's economy. The notes give no detail beyond this and do not cover cyber security directly."
+      "summary": "Discusses HD Moore's canary token test on OpenRouter, cloud keys leaked via Docker Hub images, dozens of oil and shipping tanker hacks, a US intelligence system hit by hackers, and a CrowdStrike and Zscaler deal. The description has no further detail and the transcript was not provided, so specifics are limited."
     },
     {
-      "show": "cyber-investigations",
-      "title": "Episode 21: Cyber Threats in Aisle 404",
-      "publishedAt": "2026-11-23T21:00:00.000Z",
-      "minutes": 14,
-      "url": "https://www.buzzsprout.com/2612669",
-      "ref": "cyber-investigations-0",
+      "show": "security-now",
+      "title": "SN 1106: ARTEX - Agentic AI-Driven Cyberattacks Are Happening at Scale",
+      "publishedAt": "2026-11-24T22:35:56.000Z",
+      "minutes": 176,
+      "url": "https://twit.tv/shows/security-now/episodes/1106",
+      "ref": "security-now-0",
       "domains": [
+        "ai",
         "tvm",
-        "offensive",
-        "cti"
+        "news"
       ],
-      "summary": "Covers a VMware vCenter flaw exploited as a zero-day by a suspected China-linked group, along with an ASP.NET security library exposing remote code execution and a supermarket breach in Australia. The transcript is cut off before the later stories."
+      "summary": "Covers AI-driven pen testing tools like ARTEX fueling real attacks, recent outages, a DNS provider withdrawing from France, a California lawsuit against OpenAI, Synology and PHP vulnerabilities, and disclosure window changes. Full transcript not provided."
     },
     {
-      "show": "the-443",
-      "title": "The No Good, Very Bad Week for Infrastructure - The 443 Podcast - Episode 397",
-      "publishedAt": "2026-11-23T18:12:21.000Z",
-      "minutes": 38,
-      "url": "https://the443.podbean.com/e/the-no-good-very-bad-week-for-infrastructure-the-443-podcast-episode-397/",
-      "ref": "the-443-0",
+      "show": "security-weekly-news",
+      "title": "Rinoa Poison: The Repoisoning - SWN #636",
+      "publishedAt": "2026-11-24T22:00:00.000Z",
+      "minutes": 30,
+      "url": "https://hntvaudio.libsyn.com/rinoa-poison-the-repoisoning-swn-636",
+      "ref": "security-weekly-news-0",
       "domains": [
-        "operations",
-        "news",
-        "tvm"
+        "human",
+        "news"
       ],
-      "summary": "Looks back at a chaotic stretch of outages, including a Microsoft outage, US flight disruptions and problems at banks and intelligence networks, and briefly discusses the Nginx flaw."
-    },
-    {
-      "show": "bite-sized-cyber-crime",
-      "title": "FBI Crime Database Hacked",
-      "publishedAt": "2026-11-23T18:00:00.000Z",
-      "minutes": 7,
-      "url": "https://bitesizedcybercrime.podbean.com/e/fbi-crime-database-hacked/",
-      "ref": "bite-sized-cyber-crime-0",
-      "domains": [
-        "news",
-        "cti"
-      ],
-      "summary": "Covers a hack of an FBI crime database, with limited confirmed information so far and speculation about who was responsible."
+      "summary": "A Thanksgiving special with a guest discussing scambaiting, a conference for scambaiters and DEF CON stories. No transcript was provided, so the detail is limited to the episode description."
     },
     {
       "show": "daily-defsec-brief",
-      "title": "Entra Connect Health breach, AI agents find a zero-day, SAP exploited | Cyber Security News Nov 23",
-      "publishedAt": "2026-11-23T14:52:07.000Z",
+      "title": "Azure API Management secrets stolen, Check Point servers hijacked | Cyber Security News Nov 24",
+      "publishedAt": "2026-11-24T17:36:40.000Z",
       "minutes": 4,
       "url": "https://riverside.com",
       "ref": "daily-defsec-brief-0",
       "domains": [
-        "tvm",
         "cloud",
-        "ai"
+        "appsec",
+        "tvm",
+        "defensive"
       ],
-      "summary": "Covers the Entra Connect Health breach, SAP NetWeaver exploitation, public Nginx exploit code affecting Veeam and Cisco, GL.iNet malware, SonicWall Gen 6 retirement, OpenRouter leaking prompts, and AI agents exploiting a MONAI Label zero-day."
+      "summary": "Covers the Azure API Management secret theft, Check Point management servers hijacked at 22 organizations, an ASP.NET library under exploitation, the N-able Mail Assure update, a Synology DSM critical fix, and a gift card distributor's downtime costs."
     },
     {
       "show": "cyberhub",
-      "title": "vCenter Zero-Day Exploited, Entra Metadata Leak, New Cyber Director",
-      "publishedAt": "2026-11-23T14:00:00.000Z",
-      "minutes": 19,
+      "title": "CrowdStrike to Acquire Zscaler, Azure Secrets Stolen, Bell Breach",
+      "publishedAt": "2026-11-24T14:00:00.000Z",
+      "minutes": 20,
       "url": "https://www.cyberhubpodcast.com",
       "ref": "cyberhub-0",
       "domains": [
-        "tvm",
+        "cloud",
+        "grc",
         "news",
-        "cti"
+        "defensive"
       ],
-      "summary": "Covers the vCenter zero-day now on CISA's exploited list, the Entra Connect Health flaw, the new acting National Cyber Director, and the Amazon AI-agent zero-day finding, with some additional third-party confirmations."
+      "summary": "Reports CrowdStrike's agreed acquisition of Zscaler, the Azure API Management flaw affecting Norwegian energy firms, India's warning on AI-assisted payment fraud, the N-able Mail Assure listing on CISA's known exploited list, a Bell Canada incident and NYDFS settlements with two mortgage firms."
     }
-  ],
-  "quietCore": [
-    "cybersecurity-today"
   ]
 }
