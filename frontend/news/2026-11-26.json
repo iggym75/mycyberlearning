@@ -1,0 +1,233 @@
+{
+  "date": "2026-11-26",
+  "generatedAt": "2026-11-26T08:36:58.277Z",
+  "windowHours": 24,
+  "headline": "Vendor and cloud outages, a hacked Treasury system, and AI agents as insider risk",
+  "overview": "Today's shows cover a run of major outages at Microsoft 365, the FAA and others, plus a supply-chain style compromise of Optimizely that hit 178 large sites. Government and industry stories include an intelligence-linked breach, a FinCEN system outage, and a VMware and Drupal patch push. Several episodes also explore how AI agents should be governed like insiders, and how organisations can get value from AI while keeping control.",
+  "topStories": [
+    {
+      "title": "Optimizely tool compromise pushes malware to 178 major sites",
+      "summary": "Malicious code was inserted into the Optimizely website-testing tool, causing visitors to big-name sites to receive malware for roughly 17 hours before it was caught. The affected sites were not themselves breached directly.",
+      "refs": [
+        "security-squawk-0"
+      ],
+      "domains": [
+        "appsec",
+        "news"
+      ]
+    },
+    {
+      "title": "Microsoft 365, FAA and other major outages in five days",
+      "summary": "Microsoft 365 was down for a full day, the FAA grounded flights nationwide, and AWS, Chase and United also had failures. Officials said none were hacks, with causes including a faulty July update and overloaded legacy wiring.",
+      "refs": [
+        "cyberwire-daily-1",
+        "security-squawk-0",
+        "talkin-bout-infosec-news-0"
+      ],
+      "domains": [
+        "operations",
+        "news"
+      ]
+    },
+    {
+      "title": "VMware and Drupal patches demand urgent action",
+      "summary": "VMware fixed a critical vCenter login bypass and two ESX host flaws; Drupal's core installer flaw is now being exploited, and Drupal and Optimizely were added to CISA's exploited list. Older Drupal branches get no fix and must be upgraded.",
+      "refs": [
+        "daily-defsec-brief-0",
+        "cyber-security-headlines-0",
+        "cyberhub-0",
+        "cyberwire-daily-1"
+      ],
+      "domains": [
+        "tvm",
+        "defensive"
+      ]
+    },
+    {
+      "title": "US intelligence and Treasury systems hit by breaches",
+      "summary": "A reach of an open-source intelligence analysis system exposed some unclassified information, and FinCEN took systems offline after attackers accessed a subset of its data. No link between the two has been established.",
+      "refs": [
+        "cyberwire-daily-1",
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "news",
+        "defensive"
+      ]
+    },
+    {
+      "title": "Check Point servers and Radware leak expose vendor risk",
+      "summary": "Check Point management servers at 22 organisations were compromised in a campaign possibly AI-assisted, and Radware exposed customer cloud log-export credentials through an unauthenticated internal API. Rotating those keys is advised.",
+      "refs": [
+        "cyberhub-0",
+        "daily-defsec-brief-0",
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "defensive",
+        "appsec"
+      ]
+    },
+    {
+      "title": "Governing AI agents as insiders",
+      "summary": "Camille Stewart-Gloster's interview argues autonomous AI agents resemble highly privileged insiders, needing delegated authority, accountability and continuous governance. The AI Daily Brief's Thanksgiving episode covers common public questions on jobs, education and the environment.",
+      "refs": [
+        "cyberwire-daily-0",
+        "ai-daily-brief-0"
+      ],
+      "domains": [
+        "ai",
+        "leadership",
+        "grc"
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "show": "cyberwire-daily",
+      "title": "The Insider You Built with author Camille Stewart Gloster.",
+      "publishedAt": "2026-11-26T08:00:00.000Z",
+      "minutes": 21,
+      "url": "https://thecyberwire.com/podcasts/special-edition/107/notes",
+      "ref": "cyberwire-daily-0",
+      "domains": [
+        "ai",
+        "leadership",
+        "grc"
+      ],
+      "core": true,
+      "summary": "A special edition featuring an interview with Camille Stewart-Gloster about her book on controlling autonomous AI agents, including delegated authority, accountability and governed execution. The notes include sponsor messages, which are ignored here."
+    },
+    {
+      "show": "cyberwire-daily",
+      "title": "A spy system's blind spot.",
+      "publishedAt": "2026-11-25T21:30:00.000Z",
+      "minutes": 28,
+      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2685/notes",
+      "ref": "cyberwire-daily-1",
+      "domains": [
+        "news",
+        "operations",
+        "tvm",
+        "ai"
+      ],
+      "core": true,
+      "summary": "Covers a US intelligence open-source system breach, a Microsoft code-red outage effort, Checkpoint and VMware exploitation, AI-assisted attacks reported by the UK NCSC, a ransomware attack on a French hospital, and a Huawei conviction. Also an interview with Genet Manfra on prioritising vulnerabilities with AI."
+    },
+    {
+      "show": "cyber-security-headlines",
+      "title": "FinCEN systems attacked, 800 defendants in scam crackdown, 1Password vaults stay sealed",
+      "publishedAt": "2026-11-26T08:00:00.000Z",
+      "minutes": 8,
+      "url": "https://cisoseries.libsyn.com/fincen-systems-attacked-800-defendants-in-scam-crackdown-1password-vaults-stay-sealed",
+      "ref": "cyber-security-headlines-0",
+      "domains": [
+        "news",
+        "defensive",
+        "appsec"
+      ],
+      "core": true,
+      "summary": "Covers the FinCEN breach, a multi-country scam crackdown, Iranian-linked supermarket freezer attacks in France, malicious job-test packages, VMware login bypass, and Latin American industrial ransomware. Sponsor content is ignored."
+    },
+    {
+      "show": "ai-daily-brief",
+      "title": "How to Talk About AI at Thanksgiving",
+      "publishedAt": "2026-11-25T21:41:57.000Z",
+      "minutes": 28,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/How-to-Talk-About-AI-at-Thanksgiving-e3t1hhr",
+      "ref": "ai-daily-brief-0",
+      "domains": [
+        "ai",
+        "human"
+      ],
+      "core": true,
+      "summary": "A Thanksgiving-themed episode walking through common public questions about AI, including jobs, cheating in education, children's use of chatbots, the environment, bubble concerns and existential risk. Sponsor messages are ignored."
+    },
+    {
+      "show": "smashing-security",
+      "title": "The Russian accused of spying on Palantir from Starbucks",
+      "publishedAt": "2026-11-26T00:00:33.000Z",
+      "minutes": 60,
+      "url": "https://www.smashingsecurity.com/494",
+      "ref": "smashing-security-0",
+      "domains": [
+        "news",
+        "offensive"
+      ],
+      "summary": "Discusses a Russian national allegedly spying on Palantir from a coffee shop, with a guest from a think tank. Sponsor content is excluded. Notes were partial, so other stories were not confirmed."
+    },
+    {
+      "show": "shadowtalk",
+      "title": "Why You Need VMware Logs: Inside a China-Linked Threat Actor’s vCenter Zero-Day Attack",
+      "publishedAt": "2026-11-25T15:00:00.000Z",
+      "minutes": 34,
+      "url": "https://www.reliaquest.com/resources/podcast",
+      "ref": "shadowtalk-0",
+      "domains": [
+        "defensive",
+        "tvm",
+        "hunting"
+      ],
+      "summary": "Explains how a China-linked group used a VMware vCenter zero-day to reach sensitive directory data without touching the domain controller, and why VMware and ESXi logs should reach the SIEM. Notes are a promotional summary."
+    },
+    {
+      "show": "daily-defsec-brief",
+      "title": "VMware ESX and vCenter fixes, Drupal installer attacks, Radware breach | Cyber Security News Nov 25",
+      "publishedAt": "2026-11-25T14:51:51.000Z",
+      "minutes": 4,
+      "url": "https://riverside.com",
+      "ref": "daily-defsec-brief-0",
+      "domains": [
+        "tvm",
+        "appsec",
+        "defensive"
+      ],
+      "summary": "Covers VMware ESX and vCenter fixes, Drupal installer attacks, a Radware log-credential exposure, a card skimmer on newspaper subscription pages, and fake Hugging Face models carrying a credential stealer."
+    },
+    {
+      "show": "cyberhub",
+      "title": "Check Point Servers Hacked, Radware Leaks Cloud Keys, Inception Gang",
+      "publishedAt": "2026-11-25T14:00:00.000Z",
+      "minutes": 22,
+      "url": "https://www.cyberhubpodcast.com",
+      "ref": "cyberhub-0",
+      "domains": [
+        "news",
+        "defensive",
+        "cti"
+      ],
+      "summary": "Covers Check Point server compromises, the Radware cloud key leak, the Inception extortion gang linked to ShinyHunters-style vishing, a uranium mine cyber incident, and VMware fixes. Mostly summarised from notes."
+    },
+    {
+      "show": "security-squawk",
+      "title": "Microsoft, the FAA & Chase Broke in 5 Days. Then Salesforce & Zoom Got Poisoned",
+      "publishedAt": "2026-11-25T11:27:07.000Z",
+      "minutes": 45,
+      "url": "https://www.podserve.fm/listen/security-squawk-fiPvu4ii/microsoft-the-faa-chase-broke-in-5-days-then-salesforce-zoom-got-poisoned-gJwVRQo/",
+      "ref": "security-squawk-0",
+      "domains": [
+        "operations",
+        "appsec",
+        "leadership"
+      ],
+      "summary": "Covers the outage wave across Microsoft 365, the FAA, AWS and Chase, and the Optimizely supply-chain compromise affecting 178 sites. Framed for business leaders; some content is promotional."
+    },
+    {
+      "show": "talkin-bout-infosec-news",
+      "title": "Everything Everywhere All at Once – 2026-11-23",
+      "publishedAt": "2026-11-25T10:48:00.000Z",
+      "minutes": 69,
+      "url": "https://bhisnews.transistor.fm/episodes/everything-everywhere-all-at-once-2026-11-23",
+      "ref": "talkin-bout-infosec-news-0",
+      "domains": [
+        "operations",
+        "human"
+      ],
+      "summary": "A casual chat about the recent Microsoft and Exchange outages, with comments on SLA responsibility and self-hosted email. Little concrete detail beyond the outage itself."
+    }
+  ],
+  "quietCore": [
+    "sans-stormcast",
+    "cybersecurity-today"
+  ]
+}

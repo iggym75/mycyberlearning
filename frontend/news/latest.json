@@ -1,236 +1,233 @@
 {
-  "date": "2026-11-25",
-  "generatedAt": "2026-11-25T08:36:28.075Z",
-  "windowHours": 25,
-  "headline": "Azure secrets stolen, ScreenConnect hijacks, Iran-linked tanker attacks",
-  "overview": "Attackers exploited a flaw in Microsoft's classic Azure API Management to reach stored secrets, with Norway tying it to energy-sector victims, so rotating credentials is the urgent step. Other major threats include a critical ScreenConnect bug that lets attackers hijack MSP technicians' machines and a possible Shiny Hunters revival that remains unconfirmed. Policy and leadership news and AI-related stories round out the day.",
+  "date": "2026-11-26",
+  "generatedAt": "2026-11-26T08:36:58.277Z",
+  "windowHours": 24,
+  "headline": "Vendor and cloud outages, a hacked Treasury system, and AI agents as insider risk",
+  "overview": "Today's shows cover a run of major outages at Microsoft 365, the FAA and others, plus a supply-chain style compromise of Optimizely that hit 178 large sites. Government and industry stories include an intelligence-linked breach, a FinCEN system outage, and a VMware and Drupal patch push. Several episodes also explore how AI agents should be governed like insiders, and how organisations can get value from AI while keeping control.",
   "topStories": [
     {
-      "title": "Azure API Management flaw exposes customer secrets",
-      "summary": "Microsoft says a flaw in the classic tiers of Azure API Management let attackers reach stored keys and tokens on instances not configured to its best practices. Norway's energy sector found it first, and Microsoft's fix does not invalidate secrets already stolen, so customers should rotate them and check logs.",
+      "title": "Optimizely tool compromise pushes malware to 178 major sites",
+      "summary": "Malicious code was inserted into the Optimizely website-testing tool, causing visitors to big-name sites to receive malware for roughly 17 hours before it was caught. The affected sites were not themselves breached directly.",
       "refs": [
-        "cyberwire-daily-0",
-        "cyber-security-headlines-0",
-        "cybersecurity-today-0",
-        "daily-defsec-brief-0",
-        "cyberhub-0"
+        "security-squawk-0"
       ],
       "domains": [
-        "cloud",
         "appsec",
-        "defensive"
-      ]
-    },
-    {
-      "title": "Iran-suspected cyberattacks on tankers and cargo ships",
-      "summary": "US officials are investigating attacks on as many as 50 ships carrying oil, gas and chemicals, reportedly exploiting Fortinet router flaws, with some vessels receiving ransom or bomb threats. Attribution is unresolved, with Iran named as the prime suspect and Russia still considered, and a Trump administration official says there is no evidence yet of Iran's involvement.",
-      "refs": [
-        "cyberwire-daily-0",
-        "cyber-security-headlines-0"
-      ],
-      "domains": [
-        "news",
-        "icsot",
-        "cti"
-      ]
-    },
-    {
-      "title": "Critical ScreenConnect flaw hijacks MSP technicians",
-      "summary": "Attackers are exploiting a critical ScreenConnect bug that lets a malicious guest in a support session push and run a file on a technician's computer without warnings. Huntress tracked a campaign from October to November, and the fix is in version 26.6.5 or later.",
-      "refs": [
-        "cybersecurity-today-0"
-      ],
-      "domains": [
-        "offensive",
-        "appsec",
-        "tvm"
-      ]
-    },
-    {
-      "title": "Shiny Hunters claims a comeback with shaky proof",
-      "summary": "A new leak site claims the Shiny Hunters group is back, signing posts with 2020-era PGP keys that were revoked in March. The keys are genuine but could have changed hands, so the link to the original group is unproven. Several recent arrests are mentioned, and none of the allegations have been tested in court.",
-      "refs": [
-        "cyberwire-daily-0",
-        "cybersecurity-today-0"
-      ],
-      "domains": [
-        "cti",
         "news"
       ]
     },
     {
-      "title": "Unpatched ASP.NET library under active attack",
-      "summary": "A critical flaw in an old anti-CSRF library for ASP.NET web forms lets one unauthenticated request run code on the server. It is being exploited, the project has not been updated since 2008, and no patch is coming, so affected servers should remove the library.",
+      "title": "Microsoft 365, FAA and other major outages in five days",
+      "summary": "Microsoft 365 was down for a full day, the FAA grounded flights nationwide, and AWS, Chase and United also had failures. Officials said none were hacks, with causes including a faulty July update and overloaded legacy wiring.",
       "refs": [
-        "cybersecurity-today-0",
-        "daily-defsec-brief-0"
+        "cyberwire-daily-1",
+        "security-squawk-0",
+        "talkin-bout-infosec-news-0"
       ],
       "domains": [
-        "appsec",
-        "tvm"
+        "operations",
+        "news"
       ]
     },
     {
-      "title": "Exposed databases leak billions of credentials",
-      "summary": "Researchers found two unsecured databases holding billions of usernames, passwords, ID numbers and documents, largely from earlier breaches and infostealer malware. Both have since gone offline.",
+      "title": "VMware and Drupal patches demand urgent action",
+      "summary": "VMware fixed a critical vCenter login bypass and two ESX host flaws; Drupal's core installer flaw is now being exploited, and Drupal and Optimizely were added to CISA's exploited list. Older Drupal branches get no fix and must be upgraded.",
       "refs": [
+        "daily-defsec-brief-0",
         "cyber-security-headlines-0",
-        "cyberwire-daily-0"
+        "cyberhub-0",
+        "cyberwire-daily-1"
       ],
       "domains": [
-        "privacy",
+        "tvm",
         "defensive"
+      ]
+    },
+    {
+      "title": "US intelligence and Treasury systems hit by breaches",
+      "summary": "A reach of an open-source intelligence analysis system exposed some unclassified information, and FinCEN took systems offline after attackers accessed a subset of its data. No link between the two has been established.",
+      "refs": [
+        "cyberwire-daily-1",
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "news",
+        "defensive"
+      ]
+    },
+    {
+      "title": "Check Point servers and Radware leak expose vendor risk",
+      "summary": "Check Point management servers at 22 organisations were compromised in a campaign possibly AI-assisted, and Radware exposed customer cloud log-export credentials through an unauthenticated internal API. Rotating those keys is advised.",
+      "refs": [
+        "cyberhub-0",
+        "daily-defsec-brief-0",
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "defensive",
+        "appsec"
+      ]
+    },
+    {
+      "title": "Governing AI agents as insiders",
+      "summary": "Camille Stewart-Gloster's interview argues autonomous AI agents resemble highly privileged insiders, needing delegated authority, accountability and continuous governance. The AI Daily Brief's Thanksgiving episode covers common public questions on jobs, education and the environment.",
+      "refs": [
+        "cyberwire-daily-0",
+        "ai-daily-brief-0"
+      ],
+      "domains": [
+        "ai",
+        "leadership",
+        "grc"
       ]
     }
   ],
   "episodes": [
     {
       "show": "cyberwire-daily",
-      "title": "All hands on hack.",
-      "publishedAt": "2026-11-24T21:30:00.000Z",
-      "minutes": 22,
-      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2684/notes",
+      "title": "The Insider You Built with author Camille Stewart Gloster.",
+      "publishedAt": "2026-11-26T08:00:00.000Z",
+      "minutes": 21,
+      "url": "https://thecyberwire.com/podcasts/special-edition/107/notes",
       "ref": "cyberwire-daily-0",
       "domains": [
-        "news",
-        "icsot",
         "ai",
-        "appsec"
+        "leadership",
+        "grc"
       ],
       "core": true,
-      "summary": "Covers the Iran-linked tanker attacks, a possible Shiny Hunters return, a US bill for a CISA incident review board, a new national cyber director nominee, UK regulator warnings on AI agents, a South Korean utility data breach, and a Talos interview on prompt injection of AI assistants. Also reports a Bluetooth trailer brake vulnerability."
+      "summary": "A special edition featuring an interview with Camille Stewart-Gloster about her book on controlling autonomous AI agents, including delegated authority, accountability and governed execution. The notes include sponsor messages, which are ignored here."
+    },
+    {
+      "show": "cyberwire-daily",
+      "title": "A spy system's blind spot.",
+      "publishedAt": "2026-11-25T21:30:00.000Z",
+      "minutes": 28,
+      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2685/notes",
+      "ref": "cyberwire-daily-1",
+      "domains": [
+        "news",
+        "operations",
+        "tvm",
+        "ai"
+      ],
+      "core": true,
+      "summary": "Covers a US intelligence open-source system breach, a Microsoft code-red outage effort, Checkpoint and VMware exploitation, AI-assisted attacks reported by the UK NCSC, a ransomware attack on a French hospital, and a Huawei conviction. Also an interview with Genet Manfra on prioritising vulnerabilities with AI."
     },
     {
       "show": "cyber-security-headlines",
-      "title": "Iranian tanker hacks, Azure flaw exploited, espionage at OpenAI",
-      "publishedAt": "2026-11-25T08:00:00.000Z",
-      "minutes": 6,
-      "url": "https://cisoseries.libsyn.com/iranian-tanker-hacks-azure-flaw-exploited-espionage-at-openai",
+      "title": "FinCEN systems attacked, 800 defendants in scam crackdown, 1Password vaults stay sealed",
+      "publishedAt": "2026-11-26T08:00:00.000Z",
+      "minutes": 8,
+      "url": "https://cisoseries.libsyn.com/fincen-systems-attacked-800-defendants-in-scam-crackdown-1password-vaults-stay-sealed",
       "ref": "cyber-security-headlines-0",
       "domains": [
         "news",
-        "cloud",
-        "privacy",
-        "icsot"
+        "defensive",
+        "appsec"
       ],
       "core": true,
-      "summary": "Covers the tanker cyberattacks, the Azure API Management flaw, a former OpenAI engineer charged over a hidden recorder, a US uranium mine cyberattack, leaked credential databases, Indian warnings on AI-assisted bank fraud, and trailer brake Bluetooth flaws. Includes a sponsor segment, which was ignored."
-    },
-    {
-      "show": "sans-stormcast",
-      "title": "Aggressive SSH Scanning from 109.160.32.0/24; VMware VMSA-2026-0011 vCenter Auth Bypass (CVE-2026-123903) (Nov 25th 2026)",
-      "publishedAt": "2026-11-25T02:00:03.000Z",
-      "minutes": 5,
-      "url": "https://isc.sans.edu/podcastdetail/10194",
-      "ref": "sans-stormcast-0",
-      "domains": [
-        "hunting",
-        "tvm",
-        "cloud"
-      ],
-      "core": true,
-      "summary": "Describes aggressive SSH scanning from one /24 subnet seen by honeypots, with no conclusion on its purpose, and a set of new VMware vCenter and related product vulnerabilities, with recent ones previously exploited."
-    },
-    {
-      "show": "cybersecurity-today",
-      "title": "ShinyHunters claims comeback after FBI arrests, ScreenConnect flaw hijacks MSP technicians, Azure flaw hits Norway energy firms",
-      "publishedAt": "2026-11-25T01:00:00.000Z",
-      "minutes": 14,
-      "url": "https://cybersecuritytoday.libsyn.com/shinyhunters-claims-comeback-after-fbi-arrests-screenconnect-flaw-hijacks-msp-technicians-azure-flaw-hits-norway-energy-firms",
-      "ref": "cybersecurity-today-0",
-      "domains": [
-        "offensive",
-        "cloud",
-        "appsec",
-        "cti"
-      ],
-      "core": true,
-      "summary": "Covers the ScreenConnect technician hijacking flaw, the Azure API Management flaw linked to Norway's energy attacks, the abandoned ASP.NET library under attack, Shiny Hunters' claimed comeback, a McDonald's Japan breach, and FCC proposals for a smart device security label."
+      "summary": "Covers the FinCEN breach, a multi-country scam crackdown, Iranian-linked supermarket freezer attacks in France, malicious job-test packages, VMware login bypass, and Latin American industrial ransomware. Sponsor content is ignored."
     },
     {
       "show": "ai-daily-brief",
-      "title": "AI Just Made History in the Middle of a Meltdown",
-      "publishedAt": "2026-11-24T20:12:22.000Z",
-      "minutes": 30,
-      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/AI-Just-Made-History-in-the-Middle-of-a-Meltdown-e3sv3tf",
+      "title": "How to Talk About AI at Thanksgiving",
+      "publishedAt": "2026-11-25T21:41:57.000Z",
+      "minutes": 28,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/How-to-Talk-About-AI-at-Thanksgiving-e3t1hhr",
       "ref": "ai-daily-brief-0",
       "domains": [
         "ai",
-        "news"
+        "human"
       ],
       "core": true,
-      "summary": "Covers an AI-assisted claim of a proof of the Riemann hypothesis, reactions from mathematicians, SpaceX AI problems reported by the New York Times, a new open model with looped transformers, and political fallout over NVIDIA's CEO. Largely outside the security scope."
+      "summary": "A Thanksgiving-themed episode walking through common public questions about AI, including jobs, cheating in education, children's use of chatbots, the environment, bubble concerns and existential risk. Sponsor messages are ignored."
     },
     {
-      "show": "risky-business",
-      "title": "Risky Business #861 -- You can’t trust AI routers",
-      "publishedAt": "2026-11-25T03:26:28.000Z",
-      "minutes": 59,
-      "url": "https://risky.biz/RB861/",
-      "ref": "risky-business-0",
+      "show": "smashing-security",
+      "title": "The Russian accused of spying on Palantir from Starbucks",
+      "publishedAt": "2026-11-26T00:00:33.000Z",
+      "minutes": 60,
+      "url": "https://www.smashingsecurity.com/494",
+      "ref": "smashing-security-0",
       "domains": [
-        "ai",
-        "cloud",
-        "news"
+        "news",
+        "offensive"
       ],
-      "summary": "Discusses HD Moore's canary token test on OpenRouter, cloud keys leaked via Docker Hub images, dozens of oil and shipping tanker hacks, a US intelligence system hit by hackers, and a CrowdStrike and Zscaler deal. The description has no further detail and the transcript was not provided, so specifics are limited."
+      "summary": "Discusses a Russian national allegedly spying on Palantir from a coffee shop, with a guest from a think tank. Sponsor content is excluded. Notes were partial, so other stories were not confirmed."
     },
     {
-      "show": "security-now",
-      "title": "SN 1106: ARTEX - Agentic AI-Driven Cyberattacks Are Happening at Scale",
-      "publishedAt": "2026-11-24T22:35:56.000Z",
-      "minutes": 176,
-      "url": "https://twit.tv/shows/security-now/episodes/1106",
-      "ref": "security-now-0",
+      "show": "shadowtalk",
+      "title": "Why You Need VMware Logs: Inside a China-Linked Threat Actor’s vCenter Zero-Day Attack",
+      "publishedAt": "2026-11-25T15:00:00.000Z",
+      "minutes": 34,
+      "url": "https://www.reliaquest.com/resources/podcast",
+      "ref": "shadowtalk-0",
       "domains": [
-        "ai",
+        "defensive",
         "tvm",
-        "news"
+        "hunting"
       ],
-      "summary": "Covers AI-driven pen testing tools like ARTEX fueling real attacks, recent outages, a DNS provider withdrawing from France, a California lawsuit against OpenAI, Synology and PHP vulnerabilities, and disclosure window changes. Full transcript not provided."
-    },
-    {
-      "show": "security-weekly-news",
-      "title": "Rinoa Poison: The Repoisoning - SWN #636",
-      "publishedAt": "2026-11-24T22:00:00.000Z",
-      "minutes": 30,
-      "url": "https://hntvaudio.libsyn.com/rinoa-poison-the-repoisoning-swn-636",
-      "ref": "security-weekly-news-0",
-      "domains": [
-        "human",
-        "news"
-      ],
-      "summary": "A Thanksgiving special with a guest discussing scambaiting, a conference for scambaiters and DEF CON stories. No transcript was provided, so the detail is limited to the episode description."
+      "summary": "Explains how a China-linked group used a VMware vCenter zero-day to reach sensitive directory data without touching the domain controller, and why VMware and ESXi logs should reach the SIEM. Notes are a promotional summary."
     },
     {
       "show": "daily-defsec-brief",
-      "title": "Azure API Management secrets stolen, Check Point servers hijacked | Cyber Security News Nov 24",
-      "publishedAt": "2026-11-24T17:36:40.000Z",
+      "title": "VMware ESX and vCenter fixes, Drupal installer attacks, Radware breach | Cyber Security News Nov 25",
+      "publishedAt": "2026-11-25T14:51:51.000Z",
       "minutes": 4,
       "url": "https://riverside.com",
       "ref": "daily-defsec-brief-0",
       "domains": [
-        "cloud",
-        "appsec",
         "tvm",
+        "appsec",
         "defensive"
       ],
-      "summary": "Covers the Azure API Management secret theft, Check Point management servers hijacked at 22 organizations, an ASP.NET library under exploitation, the N-able Mail Assure update, a Synology DSM critical fix, and a gift card distributor's downtime costs."
+      "summary": "Covers VMware ESX and vCenter fixes, Drupal installer attacks, a Radware log-credential exposure, a card skimmer on newspaper subscription pages, and fake Hugging Face models carrying a credential stealer."
     },
     {
       "show": "cyberhub",
-      "title": "CrowdStrike to Acquire Zscaler, Azure Secrets Stolen, Bell Breach",
-      "publishedAt": "2026-11-24T14:00:00.000Z",
-      "minutes": 20,
+      "title": "Check Point Servers Hacked, Radware Leaks Cloud Keys, Inception Gang",
+      "publishedAt": "2026-11-25T14:00:00.000Z",
+      "minutes": 22,
       "url": "https://www.cyberhubpodcast.com",
       "ref": "cyberhub-0",
       "domains": [
-        "cloud",
-        "grc",
         "news",
-        "defensive"
+        "defensive",
+        "cti"
       ],
-      "summary": "Reports CrowdStrike's agreed acquisition of Zscaler, the Azure API Management flaw affecting Norwegian energy firms, India's warning on AI-assisted payment fraud, the N-able Mail Assure listing on CISA's known exploited list, a Bell Canada incident and NYDFS settlements with two mortgage firms."
+      "summary": "Covers Check Point server compromises, the Radware cloud key leak, the Inception extortion gang linked to ShinyHunters-style vishing, a uranium mine cyber incident, and VMware fixes. Mostly summarised from notes."
+    },
+    {
+      "show": "security-squawk",
+      "title": "Microsoft, the FAA & Chase Broke in 5 Days. Then Salesforce & Zoom Got Poisoned",
+      "publishedAt": "2026-11-25T11:27:07.000Z",
+      "minutes": 45,
+      "url": "https://www.podserve.fm/listen/security-squawk-fiPvu4ii/microsoft-the-faa-chase-broke-in-5-days-then-salesforce-zoom-got-poisoned-gJwVRQo/",
+      "ref": "security-squawk-0",
+      "domains": [
+        "operations",
+        "appsec",
+        "leadership"
+      ],
+      "summary": "Covers the outage wave across Microsoft 365, the FAA, AWS and Chase, and the Optimizely supply-chain compromise affecting 178 sites. Framed for business leaders; some content is promotional."
+    },
+    {
+      "show": "talkin-bout-infosec-news",
+      "title": "Everything Everywhere All at Once – 2026-11-23",
+      "publishedAt": "2026-11-25T10:48:00.000Z",
+      "minutes": 69,
+      "url": "https://bhisnews.transistor.fm/episodes/everything-everywhere-all-at-once-2026-11-23",
+      "ref": "talkin-bout-infosec-news-0",
+      "domains": [
+        "operations",
+        "human"
+      ],
+      "summary": "A casual chat about the recent Microsoft and Exchange outages, with comments on SLA responsibility and self-hosted email. Little concrete detail beyond the outage itself."
     }
+  ],
+  "quietCore": [
+    "sans-stormcast",
+    "cybersecurity-today"
   ]
 }
