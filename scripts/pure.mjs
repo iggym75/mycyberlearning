@@ -286,3 +286,20 @@ export function commonsYear(meta) {
   for (const k of ["DateTimeOriginal", "DateTime"]) { const m = commonsText(meta?.[k]?.value).match(/\b(19[5-9]\d|20\d\d)\b/); if (m) return +m[1]; }
   return null;
 }
+
+/**
+ * The last few days' episodes from a feed's items, newest first: [{ d: "YYYY-MM-DD", t: "Title" }].
+ * Titles are the show's own short episode titles (plain text, trimmed), never show notes. Used by the weekly
+ * My List update; anything older than `days` or undated is left out.
+ */
+export function recentEpisodes(items, { now = Date.now(), days = 8, max = 6 } = {}) {
+  const out = [];
+  for (const i of Array.isArray(items) ? items : []) {
+    const when = Date.parse(i?.pubDate ?? "");
+    if (!Number.isFinite(when) || when > now + 864e5 || now - when > days * 864e5) continue;
+    const raw = typeof i.title === "object" && i.title !== null ? (i.title["#text"] ?? "") : i.title;
+    const t = String(raw ?? "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim().slice(0, 160);
+    if (t) out.push({ d: new Date(when).toISOString().slice(0, 10), t, w: when });
+  }
+  return out.sort((a, b) => b.w - a.w).slice(0, max).map(({ d, t }) => ({ d, t }));
+}

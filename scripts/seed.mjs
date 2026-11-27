@@ -21,7 +21,7 @@ if (sinceArg > 0) {
   let added = 0, patched = 0;
   for (const item of items) {
     const old = before.get(item.id);
-    if (!old) { if (await insertItem(db, item)) { added++; console.log(`added ${item.id}`); } continue; }
+    if (!old) { if (await insertItem(db, item, { markAdded: true })) { added++; console.log(`added ${item.id}`); } continue; }
     if (same(old, item)) continue;
     const row = await getItemRow(db, item.id);
     if (!row) { console.log(`skipped ${item.id} (deleted on the site)`); continue; }

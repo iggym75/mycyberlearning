@@ -20,8 +20,9 @@ export async function getItemRow(db, id) {
   return db.prepare("SELECT * FROM items WHERE id = ?").bind(id).first();
 }
 /** Insert a new item (tallies start at zero). Returns false if the id already exists. */
-export async function insertItem(db, item) {
-  const d = itemData(item);
+/** Insert a new item. With { markAdded: true } it gets today's date as `added` (shows as "new" in the weekly update). */
+export async function insertItem(db, item, { markAdded = false } = {}) {
+  const d = itemData(markAdded && !item.added ? { ...item, added: new Date().toISOString().slice(0, 10) } : item);
   const r = await db.prepare("INSERT INTO items (id, data, hidden, updated_at) VALUES (?, ?, ?, ?) ON CONFLICT(id) DO NOTHING")
     .bind(d.id, d.data, d.hidden, new Date().toISOString()).run();
   return (r.meta?.changes ?? 0) > 0;

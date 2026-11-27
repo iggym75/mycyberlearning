@@ -45,6 +45,7 @@ for (const { item } of rows) {
         if (!item.statusLocked) { next.freq = f.cadence.freq; next.status = f.cadence.status; }
         if (f.cadence.lastEpisode) next.lastEpisode = f.cadence.lastEpisode;
       }
+      if (f && Array.isArray(f.recent)) next.recent = f.recent; // last week's episode titles, for the weekly My List update
       if (JSON.stringify(next) !== before) { report.changed++; if (!dry) await upsertItem(db, next); else console.log(item.id, item.lastEpisode, "->", next.lastEpisode); }
       await sleep(250); // feeds live on many different hosts, so a short pause is enough
       continue;

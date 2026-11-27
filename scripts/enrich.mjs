@@ -7,7 +7,7 @@ import { getText, getJson, sleep, UA } from "./lib.mjs";
 const taxonomy = JSON.parse(readFileSync(new URL("../data/taxonomy.json", import.meta.url), "utf8"));
 const DOMAIN_KEYS = taxonomy.domains.map(d => d.key);
 export { inferCadence, parsePodnewsRating, bestMatch, appleId } from "./pure.mjs";
-import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, FEED_XML, parsePodnewsSpotify, ogTitle, pickSpotifyShow, imageSize, pickLogo, expertPhotoPlan, bskyThumb, youtubeAvatar, commonsNames, pickWikidataPerson, commonsLicence, commonsYear } from "./pure.mjs";
+import { bestMatch, appleId, inferCadence, parsePodnewsRating, normaliseIsbn, titlesMatch, canonPublisher, appleArtworkUrl, FEED_XML, parsePodnewsSpotify, ogTitle, pickSpotifyShow, imageSize, pickLogo, expertPhotoPlan, bskyThumb, youtubeAvatar, commonsNames, pickWikidataPerson, commonsLicence, commonsYear, recentEpisodes } from "./pure.mjs";
 
 /** Apple Podcasts directory (free, no key): artwork, feed URL, canonical link, episode count. */
 export async function lookupApple(item) {
@@ -34,7 +34,7 @@ export async function readFeed(rssUrl, trackCount) {
   const dates = items.map(i => i.pubDate).filter(Boolean);
   const titles = items.slice(0, 12).map(i => String(i.title ?? "")).filter(Boolean);
   const complete = !trackCount || items.length >= trackCount * 0.9;
-  return { cadence: inferCadence(dates, { complete }), titles };
+  return { cadence: inferCadence(dates, { complete }), titles, recent: recentEpisodes(items) };
 }
 
 /**
