@@ -46,6 +46,7 @@ test("site pages: /video/ is built from tour.json with no scripts and only our o
     assert.match(html, /src="\/tour\/mcl-tour-v9\.mp4" type="video\/mp4"/);
     assert.match(html, /og:video" content="https:\/\/mycyberlearning\.co\.uk\/tour\/mcl-tour-v9\.mp4"/);
     assert.ok(html.includes("Welcome &lt;b&gt;"));
+    assert.ok(html.includes('"uploadDate":"2026-11-18T12:00:00+00:00"')); // Google wants a time zone
     assert.equal(html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, "").includes("<script"), false);
     assert.ok((await readFile(join(dir, "sitemap.xml"), "utf8")).includes("/video/"));
   } finally { await rm(dir, { recursive: true, force: true }); }

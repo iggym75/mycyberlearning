@@ -77,6 +77,8 @@ export async function serveMedia(req, env) {
   h.set("x-content-type-options", "nosniff");
   const type = TYPES[url.pathname.split(".").pop().toLowerCase()];
   if (type) h.set("content-type", type);
+  // Captions, playlists, segments and tour.json are parts of the video, not pages: keep them out of search results.
+  if (!/\.(mp4|jpg)$/i.test(url.pathname)) h.set("x-robots-tag", "noindex");
   // No Cross-Origin-Resource-Policy here: Safari's media loader can fail on it, and these files are public anyway.
   h.delete("cross-origin-resource-policy");
   h.set("content-length", String(size));
