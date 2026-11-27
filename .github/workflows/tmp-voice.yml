@@ -1,0 +1,20 @@
+name: Tour voiceover (temporary)
+on:
+  push:
+    branches: ["tmp/voiceover"]
+    paths: ["tmp-voice/lines.json", "tmp-voice/speak.py", ".github/workflows/tmp-voice.yml"]
+permissions: { contents: write }
+jobs:
+  tts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq espeak-ng >/dev/null
+      - run: pip install -q "kokoro>=0.9.4" soundfile "torch>=2.6" --extra-index-url https://download.pytorch.org/whl/cpu
+      - run: mkdir -p tmp-voice/out/bf_emma tmp-voice/out/bf_isabella && ONLY=s07c_week,s11b_whatsnew python tmp-voice/speak.py bf_isabella
+      - run: |
+          git config user.name "catalogue-bot"; git config user.email "catalogue-bot@users.noreply.github.com"
+          git add tmp-voice/out && git commit -qm "voiceover audio (temporary)" && git push -q origin HEAD:tmp/voiceover
