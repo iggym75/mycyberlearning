@@ -226,7 +226,7 @@ ${groups.map(([S, l]) => `<h2>${esc(S.label)} (${l.length})</h2><ul class="list"
 <p class="cta"><a class="open" href="/">Open the library</a> <a href="/tour/latest.mp4">Download the video (MP4)</a></p>`;
     await write("/video/", page({ path: "/video/", title: `${title} · My Cyber Learning`, description: desc, h1: "Site tour", body, image: `tour/${tour.poster}`,
       head: `<meta property="og:video" content="${esc(abs("file"))}"><meta property="og:video:type" content="video/mp4"><meta property="og:video:width" content="1280"><meta property="og:video:height" content="720">`,
-      ld: [{ "@context": "https://schema.org", "@type": "VideoObject", name: title, description: desc, thumbnailUrl: abs("poster"), contentUrl: abs("file"), embedUrl: SITE + "/video/", uploadDate: tour.uploaded, duration: tour.duration }] }));
+      ld: [{ "@context": "https://schema.org", "@type": "VideoObject", name: title, description: desc, thumbnailUrl: abs("poster"), contentUrl: abs("file"), embedUrl: SITE + "/video/", uploadDate: /^\d{4}-\d{2}-\d{2}$/.test(tour.uploaded || "") ? `${tour.uploaded}T12:00:00+00:00` : tour.uploaded, duration: tour.duration }] }));
   }
 
   // Sitemap and robots

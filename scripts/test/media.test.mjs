@@ -79,6 +79,8 @@ test("serveMedia sets HLS content types", async () => {
   assert.equal(pl.headers.get("content-type"), "application/vnd.apple.mpegurl");
   const seg = await serveMedia(new Request("https://x.test/tour/hls-v1/seg01.m4s"), env3);
   assert.equal(seg.headers.get("content-type"), "video/iso.segment");
+  assert.equal(seg.headers.get("x-robots-tag"), "noindex"); // parts of the video stay out of search
+  assert.equal(pl.headers.get("x-robots-tag"), "noindex");
 });
 
 test("/tour/latest.mp4 redirects to the current cut", async () => {
