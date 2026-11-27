@@ -8,3 +8,4 @@ frontend/dist/
 .DS_Store
 email-preview.html
 __pycache__/
+weekly-preview.html

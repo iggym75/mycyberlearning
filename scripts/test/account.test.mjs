@@ -389,6 +389,25 @@ test("new-feature emails: unsubscribe link (GET shows a page, POST stops them; a
   assert.equal((await (await call("/api/account", { cookie })).json()).profile.updates, false);
 });
 
+test("weekly My List update: opt-in waits for a confirmed address; unsubscribe link (GET page, POST stops it; altered refused)", async () => {
+  const a = await makeAuthenticator(); const { cookie } = await register(a);
+  const r = await (await call("/api/account/profile", { method: "PUT", body: { weekly: true }, cookie })).json();
+  assert.equal(r.profile.weekly, false); assert.equal(r.profile.weeklyWaiting, true); // only a wish until the address is confirmed
+  await db.prepare("UPDATE accounts SET weekly_opt_in = 1, weekly_wanted = 0 WHERE id = ?").bind(a.userHandle).run();
+  const { weeklyUnsubUrl, updatesUnsubUrl } = await import("../../worker/src/account-email.js");
+  const u = new URL(weeklyUnsubUrl(SITE, a.userHandle));
+  assert.equal((await call(u.pathname + u.search)).status, 200);                  // GET never changes anything
+  assert.equal((await (await call("/api/account", { cookie })).json()).profile.weekly, true);
+  const other = new URL(updatesUnsubUrl(SITE, a.userHandle));                       // a token for another email can't stop this one
+  assert.equal((await post(u.pathname + "?" + new URLSearchParams({ a: a.userHandle, t: other.searchParams.get("t") }), { "sec-fetch-site": "none" })).status, 400);
+  assert.equal((await post(u.pathname + u.search.replace(/t=(.)/, (_, c) => "t=" + (c === "X" ? "Y" : "X")), { "sec-fetch-site": "none" })).status, 400);
+  assert.equal((await post(u.pathname + u.search, { "sec-fetch-site": "none" })).status, 200);
+  assert.equal((await (await call("/api/account", { cookie })).json()).profile.weekly, false);
+  // Turning it off in settings clears a pending wish too
+  await call("/api/account/profile", { method: "PUT", body: { weekly: true }, cookie });
+  assert.equal((await (await call("/api/account/profile", { method: "PUT", body: { weekly: false }, cookie })).json()).profile.weeklyWaiting, false);
+});
+
 async function adminCookie() {
   const login = await call("/auth/login");
   const state = new URL(login.headers.get("location")).searchParams.get("state");

@@ -332,8 +332,9 @@ export const exportData = handler(async (req, env, ctx, params, acc) => {
   const keys = (await env.DB.prepare("SELECT id, label, alg, backed_up, created_at, last_used FROM passkeys WHERE account_id = ?").bind(acc.id).all()).results;
   const { profileOf } = await import("./account-email.js"); // loaded lazily: that module imports helpers from this one
   const p = await profileOf(env, acc.id);
-  const c = await env.DB.prepare("SELECT updates_consent_at, updates_consent_text FROM accounts WHERE id = ?").bind(acc.id).first();
-  return json(200, { account: { created: acc.created_at, ...p, updatesConsent: c?.updates_consent_at ? { at: c.updates_consent_at, text: c.updates_consent_text } : null }, passkeys: keys.map(k => ({ ...k, publicKeyOnly: true })), list: await listRows(env, acc.id) },
+  const c = await env.DB.prepare("SELECT updates_consent_at, updates_consent_text, weekly_consent_at, weekly_consent_text, weekly_last_sent FROM accounts WHERE id = ?").bind(acc.id).first();
+  return json(200, { account: { created: acc.created_at, ...p, updatesConsent: c?.updates_consent_at ? { at: c.updates_consent_at, text: c.updates_consent_text } : null,
+    weeklyConsent: c?.weekly_consent_at ? { at: c.weekly_consent_at, text: c.weekly_consent_text } : null, weeklyLastSent: c?.weekly_last_sent || null }, passkeys: keys.map(k => ({ ...k, publicKeyOnly: true })), list: await listRows(env, acc.id) },
     { "content-disposition": 'attachment; filename="my-cyber-learning-list.json"' });
 }, { needSession: true });
 
