@@ -1,233 +1,174 @@
 {
-  "date": "2026-11-26",
-  "generatedAt": "2026-11-26T08:36:58.277Z",
-  "windowHours": 24,
-  "headline": "Vendor and cloud outages, a hacked Treasury system, and AI agents as insider risk",
-  "overview": "Today's shows cover a run of major outages at Microsoft 365, the FAA and others, plus a supply-chain style compromise of Optimizely that hit 178 large sites. Government and industry stories include an intelligence-linked breach, a FinCEN system outage, and a VMware and Drupal patch push. Several episodes also explore how AI agents should be governed like insiders, and how organisations can get value from AI while keeping control.",
+  "date": "2026-11-27",
+  "generatedAt": "2026-11-27T08:38:15.805Z",
+  "windowHours": 25,
+  "headline": "Chinese-speaking phishing takedown, state AI attack tooling, and the Jensen Huang spy saga",
+  "overview": "Today's shows cover a coordinated civil and infrastructure takedown of a Chinese-speaking phishing ecosystem, reports of state groups and criminals adopting agentic AI attack frameworks, and a long analysis of the alleged espionage story around Nvidia's chief executive. Several shows also touch on AI's effect on the criminal marketplace and on the business side of the AI boom.",
   "topStories": [
     {
-      "title": "Optimizely tool compromise pushes malware to 178 major sites",
-      "summary": "Malicious code was inserted into the Optimizely website-testing tool, causing visitors to big-name sites to receive malware for roughly 17 hours before it was caught. The affected sites were not themselves breached directly.",
+      "title": "Takedown of Chinese-speaking phishing ecosystem",
+      "summary": "A Microsoft-led civil action and infrastructure takedown targeted the Kogui and related fishing kit families and the wider marketplace enablers, which were responsible for very high volumes of phishing, many aimed at Japanese users.",
       "refs": [
-        "security-squawk-0"
-      ],
-      "domains": [
-        "appsec",
-        "news"
-      ]
-    },
-    {
-      "title": "Microsoft 365, FAA and other major outages in five days",
-      "summary": "Microsoft 365 was down for a full day, the FAA grounded flights nationwide, and AWS, Chase and United also had failures. Officials said none were hacks, with causes including a faulty July update and overloaded legacy wiring.",
-      "refs": [
-        "cyberwire-daily-1",
-        "security-squawk-0",
-        "talkin-bout-infosec-news-0"
-      ],
-      "domains": [
-        "operations",
-        "news"
-      ]
-    },
-    {
-      "title": "VMware and Drupal patches demand urgent action",
-      "summary": "VMware fixed a critical vCenter login bypass and two ESX host flaws; Drupal's core installer flaw is now being exploited, and Drupal and Optimizely were added to CISA's exploited list. Older Drupal branches get no fix and must be upgraded.",
-      "refs": [
-        "daily-defsec-brief-0",
-        "cyber-security-headlines-0",
-        "cyberhub-0",
-        "cyberwire-daily-1"
-      ],
-      "domains": [
-        "tvm",
-        "defensive"
-      ]
-    },
-    {
-      "title": "US intelligence and Treasury systems hit by breaches",
-      "summary": "A reach of an open-source intelligence analysis system exposed some unclassified information, and FinCEN took systems offline after attackers accessed a subset of its data. No link between the two has been established.",
-      "refs": [
-        "cyberwire-daily-1",
-        "cyber-security-headlines-0"
+        "cyberwire-daily-0",
+        "security-weekly-0"
       ],
       "domains": [
         "news",
+        "cti",
+        "offensive"
+      ]
+    },
+    {
+      "title": "State actors and criminals adopt agentic AI attack tools",
+      "summary": "Microsoft reports Chinese and North Korean state groups integrating the Artex framework to automate reconnaissance and exploitation. Swiss and Italian agencies warn of autonomous AI attack agents targeting critical infrastructure.",
+      "refs": [
+        "cyber-security-headlines-0",
+        "cyberwire-daily-0"
+      ],
+      "domains": [
+        "ai",
+        "offensive",
+        "news"
+      ]
+    },
+    {
+      "title": "Alleged espionage story around Nvidia's chief executive",
+      "summary": "A former intelligence officer discusses the alleged use of a romantic relationship and business access to cultivate a technology executive, and the policy and security questions the case raises ahead of congressional hearings.",
+      "refs": [
+        "cybersecurity-today-0"
+      ],
+      "domains": [
+        "news",
+        "human",
         "defensive"
       ]
     },
     {
-      "title": "Check Point servers and Radware leak expose vendor risk",
-      "summary": "Check Point management servers at 22 organisations were compromised in a campaign possibly AI-assisted, and Radware exposed customer cloud log-export credentials through an unauthenticated internal API. Rotating those keys is advised.",
+      "title": "Data breaches at travel and password companies",
+      "summary": "Flight Centre disclosed a breach exposing some passport details and other customer records, and 1Password reported an attacker accessing a corporate GitHub account.",
       "refs": [
-        "cyberhub-0",
-        "daily-defsec-brief-0",
-        "cyber-security-headlines-0"
+        "cyber-security-headlines-0",
+        "cyber-bites-0"
       ],
       "domains": [
-        "defensive",
-        "appsec"
+        "privacy",
+        "news"
       ]
     },
     {
-      "title": "Governing AI agents as insiders",
-      "summary": "Camille Stewart-Gloster's interview argues autonomous AI agents resemble highly privileged insiders, needing delegated authority, accountability and continuous governance. The AI Daily Brief's Thanksgiving episode covers common public questions on jobs, education and the environment.",
+      "title": "Anthropic's rise to a major AI company",
+      "summary": "A history episode traces how Anthropic's shift toward coding and agentic products drove rapid revenue growth and changed how the AI business model works.",
       "refs": [
-        "cyberwire-daily-0",
         "ai-daily-brief-0"
       ],
       "domains": [
         "ai",
-        "leadership",
-        "grc"
+        "career"
       ]
     }
   ],
   "episodes": [
     {
       "show": "cyberwire-daily",
-      "title": "The Insider You Built with author Camille Stewart Gloster.",
-      "publishedAt": "2026-11-26T08:00:00.000Z",
-      "minutes": 21,
-      "url": "https://thecyberwire.com/podcasts/special-edition/107/notes",
+      "title": "Taking the bait out of phishing.",
+      "publishedAt": "2026-11-27T08:00:00.000Z",
+      "minutes": 44,
+      "url": "https://thecyberwire.com/podcasts/only-malware-in-the-building/29/notes",
       "ref": "cyberwire-daily-0",
       "domains": [
-        "ai",
-        "leadership",
-        "grc"
-      ],
-      "core": true,
-      "summary": "A special edition featuring an interview with Camille Stewart-Gloster about her book on controlling autonomous AI agents, including delegated authority, accountability and governed execution. The notes include sponsor messages, which are ignored here."
-    },
-    {
-      "show": "cyberwire-daily",
-      "title": "A spy system's blind spot.",
-      "publishedAt": "2026-11-25T21:30:00.000Z",
-      "minutes": 28,
-      "url": "https://www.thecyberwire.com/podcasts/daily-podcast/2685/notes",
-      "ref": "cyberwire-daily-1",
-      "domains": [
         "news",
-        "operations",
-        "tvm",
-        "ai"
+        "cti",
+        "offensive"
       ],
       "core": true,
-      "summary": "Covers a US intelligence open-source system breach, a Microsoft code-red outage effort, Checkpoint and VMware exploitation, AI-assisted attacks reported by the UK NCSC, a ransomware attack on a French hospital, and a Huawei conviction. Also an interview with Genet Manfra on prioritising vulnerabilities with AI."
+      "summary": "A rebroadcast of an earlier episode, presented as a holiday encore. It covers a Microsoft-led civil lawsuit and takedown against the Chinese-speaking fishing kit ecosystem, including the Kogui family and related marketplace enablers, which Microsoft says enabled over a billion malicious messages."
     },
     {
       "show": "cyber-security-headlines",
-      "title": "FinCEN systems attacked, 800 defendants in scam crackdown, 1Password vaults stay sealed",
-      "publishedAt": "2026-11-26T08:00:00.000Z",
+      "title": "ARTEX framework thrives, autonomous cyberattack warning, Australian travel agent breach",
+      "publishedAt": "2026-11-27T08:00:00.000Z",
       "minutes": 8,
-      "url": "https://cisoseries.libsyn.com/fincen-systems-attacked-800-defendants-in-scam-crackdown-1password-vaults-stay-sealed",
+      "url": "https://cisoseries.libsyn.com/artex-framework-thrives-autonomous-cyberattack-warning-australian-travel-agent-breach",
       "ref": "cyber-security-headlines-0",
       "domains": [
         "news",
-        "defensive",
-        "appsec"
+        "ai",
+        "offensive",
+        "privacy"
       ],
       "core": true,
-      "summary": "Covers the FinCEN breach, a multi-country scam crackdown, Iranian-linked supermarket freezer attacks in France, malicious job-test packages, VMware login bypass, and Latin American industrial ransomware. Sponsor content is ignored."
+      "summary": "Covers Chinese and North Korean state groups adding the AI-driven Artex offensive framework to their toolkits, a Swiss and Italian warning about autonomous AI attack agents, a Flight Center breach exposing customer passport details, a UK Home Office GDPR reprimand over wrongly detained people, and Palo Alto Networks warning of exploitation of a chained PHP and Fragnesia flaw."
+    },
+    {
+      "show": "cybersecurity-today",
+      "title": "Jensen Huang Scandal - A Former Security Operative's View",
+      "publishedAt": "2026-11-27T05:04:00.000Z",
+      "minutes": 38,
+      "url": "https://cybersecuritytoday.libsyn.com/jensen-huang-scandal-a-former-security-operatives-view",
+      "ref": "cybersecurity-today-0",
+      "domains": [
+        "news",
+        "human",
+        "defensive"
+      ],
+      "core": true,
+      "summary": "A special edition with former intelligence officer Neil Bisson on the alleged spy story involving Nvidia's chief executive and a woman linked to the Chinese Ministry of State Security. They discuss how such approaches are built slowly over time, the security implications for technology executives, and upcoming congressional hearings."
     },
     {
       "show": "ai-daily-brief",
-      "title": "How to Talk About AI at Thanksgiving",
-      "publishedAt": "2026-11-25T21:41:57.000Z",
-      "minutes": 28,
-      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/How-to-Talk-About-AI-at-Thanksgiving-e3t1hhr",
+      "title": "How Anthropic Went From Anti-Product to $81B a Year",
+      "publishedAt": "2026-11-26T15:00:00.000Z",
+      "minutes": 20,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/How-Anthropic-Went-From-Anti-Product-to-81B-a-Year-e3t0vt0",
       "ref": "ai-daily-brief-0",
       "domains": [
         "ai",
-        "human"
+        "career"
       ],
       "core": true,
-      "summary": "A Thanksgiving-themed episode walking through common public questions about AI, including jobs, cheating in education, children's use of chatbots, the environment, bubble concerns and existential risk. Sponsor messages are ignored."
+      "summary": "Holiday replacement episode sharing excerpts from a longer history show on how Anthropic grew from a safety-focused research lab into a major revenue-generating AI company, driven by coding models and agentic products."
     },
     {
-      "show": "smashing-security",
-      "title": "The Russian accused of spying on Palantir from Starbucks",
-      "publishedAt": "2026-11-26T00:00:33.000Z",
-      "minutes": 60,
-      "url": "https://www.smashingsecurity.com/494",
-      "ref": "smashing-security-0",
+      "show": "click-here",
+      "title": "He brought bitcoin mining to his hometown. Then came the noise.",
+      "publishedAt": "2026-11-27T08:00:00.000Z",
+      "minutes": 14,
+      "url": "https://play.prx.org/listen?ge=prx_8376_e40e362c-3966-412e-bdc3-1dc3b1d58178&uf=https%3A%2F%2Fpublicfeeds.net%2Ff%2F8376%2Fclickhere",
+      "ref": "click-here-0",
+      "domains": [
+        "news"
+      ],
+      "summary": "Revisits a story about a man who brought Bitcoin mining to his grandfather's hometown in Kentucky after state incentives, and the local noise problems that followed. The notes do not cover further specifics."
+    },
+    {
+      "show": "cyber-bites",
+      "title": "Cyber Bites - 27th November 2026",
+      "publishedAt": "2026-11-27T05:55:31Z",
+      "minutes": 8,
+      "url": "https://podcasts.apple.com/gb/podcast/cyber-bites-27th-november-2026/id1756244582",
+      "ref": "cyber-bites-0",
       "domains": [
         "news",
-        "offensive"
+        "privacy"
       ],
-      "summary": "Discusses a Russian national allegedly spying on Palantir from a coffee shop, with a guest from a think tank. Sponsor content is excluded. Notes were partial, so other stories were not confirmed."
+      "summary": "Short news roundup covering a bank penalty over a 2023 cyber incident, a 1Password breach involving a corporate GitHub account, and the Flight Centre customer data breach."
     },
     {
-      "show": "shadowtalk",
-      "title": "Why You Need VMware Logs: Inside a China-Linked Threat Actor’s vCenter Zero-Day Attack",
-      "publishedAt": "2026-11-25T15:00:00.000Z",
-      "minutes": 34,
-      "url": "https://www.reliaquest.com/resources/podcast",
-      "ref": "shadowtalk-0",
+      "show": "security-weekly",
+      "title": "AI Arms Race, We All Lose - PSW #954",
+      "publishedAt": "2026-11-26T22:00:00.000Z",
+      "minutes": 127,
+      "url": "https://pswonly.libsyn.com/ai-arms-race-we-all-lose-psw-954",
+      "ref": "security-weekly-0",
       "domains": [
-        "defensive",
-        "tvm",
-        "hunting"
+        "ai",
+        "offensive",
+        "appsec"
       ],
-      "summary": "Explains how a China-linked group used a VMware vCenter zero-day to reach sensitive directory data without touching the domain controller, and why VMware and ESXi logs should reach the SIEM. Notes are a promotional summary."
-    },
-    {
-      "show": "daily-defsec-brief",
-      "title": "VMware ESX and vCenter fixes, Drupal installer attacks, Radware breach | Cyber Security News Nov 25",
-      "publishedAt": "2026-11-25T14:51:51.000Z",
-      "minutes": 4,
-      "url": "https://riverside.com",
-      "ref": "daily-defsec-brief-0",
-      "domains": [
-        "tvm",
-        "appsec",
-        "defensive"
-      ],
-      "summary": "Covers VMware ESX and vCenter fixes, Drupal installer attacks, a Radware log-credential exposure, a card skimmer on newspaper subscription pages, and fake Hugging Face models carrying a credential stealer."
-    },
-    {
-      "show": "cyberhub",
-      "title": "Check Point Servers Hacked, Radware Leaks Cloud Keys, Inception Gang",
-      "publishedAt": "2026-11-25T14:00:00.000Z",
-      "minutes": 22,
-      "url": "https://www.cyberhubpodcast.com",
-      "ref": "cyberhub-0",
-      "domains": [
-        "news",
-        "defensive",
-        "cti"
-      ],
-      "summary": "Covers Check Point server compromises, the Radware cloud key leak, the Inception extortion gang linked to ShinyHunters-style vishing, a uranium mine cyber incident, and VMware fixes. Mostly summarised from notes."
-    },
-    {
-      "show": "security-squawk",
-      "title": "Microsoft, the FAA & Chase Broke in 5 Days. Then Salesforce & Zoom Got Poisoned",
-      "publishedAt": "2026-11-25T11:27:07.000Z",
-      "minutes": 45,
-      "url": "https://www.podserve.fm/listen/security-squawk-fiPvu4ii/microsoft-the-faa-chase-broke-in-5-days-then-salesforce-zoom-got-poisoned-gJwVRQo/",
-      "ref": "security-squawk-0",
-      "domains": [
-        "operations",
-        "appsec",
-        "leadership"
-      ],
-      "summary": "Covers the outage wave across Microsoft 365, the FAA, AWS and Chase, and the Optimizely supply-chain compromise affecting 178 sites. Framed for business leaders; some content is promotional."
-    },
-    {
-      "show": "talkin-bout-infosec-news",
-      "title": "Everything Everywhere All at Once – 2026-11-23",
-      "publishedAt": "2026-11-25T10:48:00.000Z",
-      "minutes": 69,
-      "url": "https://bhisnews.transistor.fm/episodes/everything-everywhere-all-at-once-2026-11-23",
-      "ref": "talkin-bout-infosec-news-0",
-      "domains": [
-        "operations",
-        "human"
-      ],
-      "summary": "A casual chat about the recent Microsoft and Exchange outages, with comments on SLA responsibility and self-hosted email. Little concrete detail beyond the outage itself."
+      "summary": "Covers a range of topics including AI accelerating exploit writing, AI-driven reverse engineering, shrinking disclosure timelines, malware A/B testing, and exposed fridge controllers. The notes are a topic list, so detail on each item is limited."
     }
   ],
   "quietCore": [
-    "sans-stormcast",
-    "cybersecurity-today"
+    "sans-stormcast"
   ]
 }
