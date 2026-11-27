@@ -32,6 +32,7 @@ const ROUTES = [
   ["GET,POST", "/api/account/email-login", accountEmail.emailLogin],
   ["GET,POST", "/api/account/email/confirm", accountEmail.confirmEmail],
   ["GET,POST", "/api/account/updates/unsubscribe", accountEmail.updatesUnsubscribe],
+  ["GET,POST", "/api/account/weekly/unsubscribe", accountEmail.weeklyUnsubscribe],
   ["PUT", "/api/account/profile", accountEmail.profile],
   ["POST", "/api/account/logout", account.logout],
   ["POST", "/api/account/recovery-code", account.newRecovery],

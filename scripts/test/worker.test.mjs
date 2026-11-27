@@ -435,8 +435,8 @@ test("ISBNs are accepted however they're pasted", async () => {
 
 test("What's New: public list newest first, admin-only edits, links must stay on our site", async () => {
   const pub = await (await call("/api/whatsnew")).json();
-  assert.ok(pub.items.length >= 6);
-  assert.equal(pub.items[0].title, "Daily Briefing links that open on our site"); // newest seeded entry first
+  assert.ok(pub.items.length >= 8);
+  assert.equal(pub.items[0].day, "2026-11-27"); // newest seeded entries first
   assert.ok(pub.items.every((x, i, a) => i === 0 || a[i - 1].day >= x.day));
   // Not signed in as admin: refused
   assert.ok([401, 403].includes((await call("/api/admin/whatsnew", { method: "POST", body: { day: "2026-11-27", title: "x", body: "y" } })).status));

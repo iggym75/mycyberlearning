@@ -1,3 +1,4 @@
+import { shortTitle } from "./weekly.js";
 // Email, token and subscriber helpers shared by the Worker (confirmation emails, unsubscribe)
 // and scripts/send-digest.mjs (the morning briefing). No third-party code runs on untrusted input here:
 // every value placed in an email is escaped, and every link is checked to be http(s).
@@ -242,4 +243,51 @@ export async function sendMail({ to, subject, html, text, headers = {} }, { tran
     if (!r.ok) throw new Error(`mail provider returned ${r.status}`); // never include the response body: it can echo addresses
     return { ok: true };
   } finally { clearTimeout(t); }
+}
+
+/**
+ * Monday's weekly My List update (podcasts only), from weeklyDigest() in lib/weekly.js.
+ * Every link stays on our own domain: podcast names open their page on the site (`pagePath(item)`), everything else
+ * opens My List. Text is escaped; no images, no tracking; a real plain-text part.
+ */
+export function renderWeeklyEmail({ week, name, siteUrl, unsubscribeUrl, pagePath, today }) {
+  const site = safeUrl(siteUrl), unsub = safeUrl(unsubscribeUrl);
+  if (!site || !unsub) throw new Error("Invalid URL for weekly email");
+  const abs = p => new URL(p, site).href, myList = abs("#mylist");
+  const page = i => { const p = pagePath(i); return /^\/[a-z0-9\-/]+\/$/.test(p) ? abs(p) : myList; };
+  const day = d => new Date(d + "T12:00:00Z").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", timeZone: "UTC" }).toUpperCase();
+  const long = d => new Date(d + "T12:00:00Z").toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" });
+  const navy = "#0f2a4a", chip = "#e3f3f1", chipInk = "#0b6a66";
+  const n = week.episodes;
+  const headline = n ? `${n} new episode${n === 1 ? "" : "s"} from your podcasts` : "What's new on My Cyber Learning";
+  const link = (href, text, extra = "") => `<a href="${escapeHtml(href)}" style="color:${C.signal};text-decoration:none;${extra}">${text}</a>`;
+  const h2 = t => `<div style="font-size:16px;font-weight:700;color:${C.ink};margin:22px 0 8px">${t}</div>`;
+  const showsHtml = week.active.map(({ item, eps }) => `<tr><td style="padding:16px 0;border-top:1px solid #e3e8ee">
+<div style="font-size:16px;line-height:1.3;font-weight:700">${link(page(item), escapeHtml(item.name), "border-bottom:1px solid #9fd0cc")} <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:${chip};color:${chipInk};font-size:12px;font-weight:700;vertical-align:2px">${eps.length} new</span></div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:4px">${eps.slice(0, 2).map(e => `<tr><td width="62" valign="top" style="padding:7px 0 0;font-size:11px;line-height:1.5;font-weight:700;color:${C.muted};letter-spacing:.04em;white-space:nowrap">${escapeHtml(day(e.d))}</td>
+<td valign="top" style="padding:6px 0 0;font-size:15px;line-height:1.45;color:#24313f">${escapeHtml(shortTitle(e.t))}</td></tr>`).join("")}
+${eps.length > 2 ? `<tr><td></td><td style="padding:6px 0 0;font-size:13px">${link(myList, `+ ${eps.length - 2} more in My List`, `color:${C.muted}`)}</td></tr>` : ""}</table></td></tr>`).join("");
+  const quiet = week.quiet.length && week.active.length ? `<p style="margin:12px 0 0;font-size:13px;color:${C.muted}">No new episodes this week: ${week.quiet.map(s => escapeHtml(s.item.name)).join(", ")}</p>` : "";
+  const podLine = i => `<li style="margin:0 0 6px">${link(page(i), escapeHtml(i.name), "font-weight:600")}</li>`;
+  const inner = `<tr><td style="background:${navy};color:#fff;padding:18px 24px">
+<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9fd8d3">Weekly My List update</div>
+<div style="font-size:22px;font-weight:700;margin-top:6px;color:#fff">${escapeHtml(headline)}</div>
+<div style="font-size:14px;color:#cfdbe8;margin-top:4px">${escapeHtml(long(today))}</div></td></tr>
+<tr><td style="padding:18px 24px 6px">
+<p style="margin:0 0 6px;font-size:15px;line-height:1.5;color:${C.ink}">${name ? `Hi ${escapeHtml(name)}, h` : "H"}ere's your week from the ${week.podcasts} podcast${week.podcasts === 1 ? "" : "s"} in your My List.</p>
+${week.active.length ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${showsHtml}</table>${quiet}` : `<p style="margin:12px 0 0;font-size:14px;color:${C.muted}">No new episodes from your podcasts this week.</p>`}
+${week.highlights.length ? h2("In this week's Daily Briefings") + `<ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.45;color:#2c394a">${week.highlights.map(t => `<li style="margin:0 0 6px">${escapeHtml(t.title)}</li>`).join("")}</ul>` : ""}
+${week.newPods.length ? h2("New podcasts in your topics") + `<ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.45">${week.newPods.map(podLine).join("")}</ul>` : ""}
+${week.gap ? h2("Fill a gap") + `<p style="margin:0;font-size:14px;line-height:1.45;color:#2c394a">${escapeHtml(week.gap.domain.label)}: ${link(page(week.gap.item), escapeHtml(week.gap.item.name), "font-weight:600")}</p>` : ""}
+${week.news.length ? h2("New on My Cyber Learning") + `<ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.45;color:#2c394a">${week.news.map(w => `<li style="margin:0 0 6px"><b>${escapeHtml(w.title)}</b>: ${escapeHtml(w.body)}</li>`).join("")}</ul>` : ""}
+<p style="margin:22px 0 18px"><a href="${escapeHtml(myList)}" style="display:inline-block;background:${C.signal};color:#fff;text-decoration:none;font-weight:700;padding:11px 18px;border-radius:999px">Open My List</a></p></td></tr>`;
+  const footer = `You're getting this because you asked for a weekly My List update. Every link opens mycyberlearning.co.uk. <a href="${escapeHtml(unsub)}" style="color:${C.muted}">Stop the weekly update</a> (one click, no sign-in).`;
+  const text = [`${headline}`, long(today), "", `${name ? `Hi ${name}, h` : "H"}ere's your week from the podcasts in your My List.`, "",
+    ...week.active.flatMap(({ item, eps }) => [`${item.name} (${eps.length} new) ${page(item)}`, ...eps.slice(0, 2).map(e => `  ${day(e.d)}  ${shortTitle(e.t, 90)}`), ""]),
+    ...(week.highlights.length ? ["In this week's Daily Briefings:", ...week.highlights.map(t => `- ${t.title}`), ""] : []),
+    ...(week.newPods.length ? ["New podcasts in your topics:", ...week.newPods.map(i => `- ${i.name} ${page(i)}`), ""] : []),
+    ...(week.gap ? [`Fill a gap (${week.gap.domain.label}): ${week.gap.item.name} ${page(week.gap.item)}`, ""] : []),
+    ...(week.news.length ? ["New on My Cyber Learning:", ...week.news.map(w => `- ${w.title}: ${w.body}`), ""] : []),
+    `My List: ${myList}`, `Stop the weekly update: ${unsub}`].join("\n");
+  return { subject: `MCL weekly: ${headline}`.slice(0, 100), html: wrap(inner, footer, week.active.slice(0, 3).map(s => s.item.name).join(", ")), text };
 }

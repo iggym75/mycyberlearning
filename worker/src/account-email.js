@@ -27,6 +27,7 @@ const TOTAL_CAP = () => Number(process.env.CONFIRM_DAILY_CAP) || 40;   // all co
 const KIND_CAP = { verify: () => Number(process.env.VERIFY_DAILY_CAP) || 15, login: () => Number(process.env.LOGIN_DAILY_CAP) || 15 };
 export const BRIEFING_CONSENT = "Email me the My Cyber Learning daily briefing. I can unsubscribe at any time.";
 export const UPDATES_CONSENT = "Email me occasionally about new features. I can stop these at any time.";
+export const WEEKLY_CONSENT = "Email me a weekly update on Monday mornings about the podcasts in My List and what's new on the site. I can stop these at any time.";
 const GENERIC_LINK = { ok: true, message: "If that address belongs to a My List account, we've emailed a sign-in link. It works once and expires in 30 minutes." };
 const jitter = () => new Promise(r => setTimeout(r, 250 + Math.floor(Math.random() * 400)));
 const redirect = (to, headers = {}) => new Response(null, { status: 303, headers: { location: to, "cache-control": "no-store", ...headers } });
@@ -35,11 +36,12 @@ const day = () => new Date().toISOString().slice(0, 10);
 
 /** The profile fields shown in Manage account. Subscription state is only looked up for a confirmed address. */
 export async function profileOf(env, aid) {
-  const a = await env.DB.prepare("SELECT name, email, email_id, email_verified_at, email_pending, briefing_wanted, updates_wanted, updates_opt_in FROM accounts WHERE id = ?").bind(aid).first();
+  const a = await env.DB.prepare("SELECT name, email, email_id, email_verified_at, email_pending, briefing_wanted, updates_wanted, updates_opt_in, weekly_wanted, weekly_opt_in FROM accounts WHERE id = ?").bind(aid).first();
   if (!a) return null;
   const sub = a.email_id && a.email_verified_at ? await env.DB.prepare("SELECT status FROM subscribers WHERE id = ?").bind(a.email_id).first() : null;
   return { name: a.name || "", email: a.email || "", emailVerified: !!a.email_verified_at, emailPending: a.email_pending || "",
-    briefing: sub?.status === "active", briefingWaiting: !!a.briefing_wanted, updates: !!a.updates_opt_in, updatesWaiting: !!a.updates_wanted };
+    briefing: sub?.status === "active", briefingWaiting: !!a.briefing_wanted, updates: !!a.updates_opt_in, updatesWaiting: !!a.updates_wanted,
+    weekly: !!a.weekly_opt_in, weeklyWaiting: !!a.weekly_wanted };
 }
 
 /** Starts (or restarts) the daily briefing for a confirmed address, recording the consent wording and how it was given. */
@@ -98,7 +100,7 @@ export const profile = handler(async (req, env, ctx, params, acc) => {
       if (!want) {
         if (cur.email_id) await suppress(db, cur.email_id, "email removed from account");
         await db.batch([
-          db.prepare("UPDATE accounts SET email = NULL, email_id = NULL, email_verified_at = NULL, email_pending = NULL, email_token_hash = NULL, email_token_expires = NULL, briefing_wanted = 0, updates_wanted = 0, updates_opt_in = 0 WHERE id = ?").bind(acc.id),
+          db.prepare("UPDATE accounts SET email = NULL, email_id = NULL, email_verified_at = NULL, email_pending = NULL, email_token_hash = NULL, email_token_expires = NULL, briefing_wanted = 0, updates_wanted = 0, updates_opt_in = 0, weekly_wanted = 0, weekly_opt_in = 0 WHERE id = ?").bind(acc.id),
           db.prepare("DELETE FROM login_links WHERE account_id = ?").bind(acc.id)
         ]);
         verified = null; pendingNow = null; notes.push("Email removed.");
@@ -136,6 +138,12 @@ export const profile = handler(async (req, env, ctx, params, acc) => {
       else await db.prepare("UPDATE accounts SET updates_wanted = 1 WHERE id = ?").bind(acc.id).run();
     } else if (b.updates === false) await db.prepare("UPDATE accounts SET updates_opt_in = 0, updates_wanted = 0 WHERE id = ?").bind(acc.id).run();
   }
+  if ("weekly" in b) {
+    if (b.weekly === true) {
+      if (verified && !pendingNow) { const r = await db.prepare("UPDATE accounts SET weekly_opt_in = 1, weekly_wanted = 0, weekly_consent_at = ?, weekly_consent_text = ? WHERE id = ? AND weekly_opt_in = 0").bind(now(), `${WEEKLY_CONSENT} (turned on in My List account settings)`, acc.id).run(); if (r.meta?.changes) notes.push("Your weekly update arrives on Monday mornings."); }
+      else await db.prepare("UPDATE accounts SET weekly_wanted = 1 WHERE id = ?").bind(acc.id).run();
+    } else if (b.weekly === false) await db.prepare("UPDATE accounts SET weekly_opt_in = 0, weekly_wanted = 0 WHERE id = ?").bind(acc.id).run();
+  }
   return json(200, { ok: true, profile: await profileOf(env, acc.id), message: notes.filter(Boolean).join(" ") });
 }, { needSession: true });
 
@@ -161,20 +169,23 @@ export async function confirmEmail(req, env) {
   if (req.method === "GET") return htmlPage("Confirm your email", `<form method="post" action="${action}">
 <p>Press confirm to add <b>${escapeHtml(a.email_pending)}</b> to a My List account on My Cyber Learning.</p>
 <p>Would you also like these emails? Leave them unticked if not. You can change your mind at any time.</p>
-${tick("briefing", BRIEFING_CONSENT)}${tick("updates", UPDATES_CONSENT)}
+${tick("briefing", BRIEFING_CONSENT)}${tick("weekly", WEEKLY_CONSENT)}${tick("updates", UPDATES_CONSENT)}
 ${button("Confirm email")}</form><p style="font-size:14px;color:#4a5668">If you didn't ask for this, close this page and the address won't be added.</p>`);
   if (!sameSitePost(req)) return bad();
   const form = await req.formData().catch(() => new FormData());
-  const wantsBriefing = form.get("briefing") === "yes", wantsUpdates = form.get("updates") === "yes";
+  const wantsBriefing = form.get("briefing") === "yes", wantsUpdates = form.get("updates") === "yes", wantsWeekly = form.get("weekly") === "yes";
   const email = a.email_pending, id = subscriberId(email), t = now();
   const inUse = () => htmlPage("Address already in use", "<p>That email address is already linked to another My List account. Sign in to that account instead, or use a different address.</p>", 409);
   if (await env.DB.prepare("SELECT 1 FROM accounts WHERE email_id = ? AND id <> ?").bind(id, aid).first()) return inUse();
   let upd;
   try {
     upd = await env.DB.prepare(`UPDATE accounts SET email = ?, email_id = ?, email_verified_at = ?, email_pending = NULL, email_token_hash = NULL, email_token_expires = NULL,
-        briefing_wanted = 0, updates_wanted = 0, updates_opt_in = ?, updates_consent_at = ?, updates_consent_text = ?
+        briefing_wanted = 0, updates_wanted = 0, updates_opt_in = ?, updates_consent_at = ?, updates_consent_text = ?,
+        weekly_wanted = 0, weekly_opt_in = ?, weekly_consent_at = ?, weekly_consent_text = ?
       WHERE id = ? AND email_token_hash = ?`).bind(email, id, t, wantsUpdates ? 1 : 0, wantsUpdates ? t : null,
-        wantsUpdates ? `${UPDATES_CONSENT} (ticked by the address owner on the confirmation page)` : null, aid, a.email_token_hash).run();
+        wantsUpdates ? `${UPDATES_CONSENT} (ticked by the address owner on the confirmation page)` : null,
+        wantsWeekly ? 1 : 0, wantsWeekly ? t : null, wantsWeekly ? `${WEEKLY_CONSENT} (ticked by the address owner on the confirmation page)` : null,
+        aid, a.email_token_hash).run();
   } catch (e) { if (/UNIQUE/i.test(String(e?.message))) return inUse(); throw e; } // two accounts confirming the same address at once
   if (!(upd.meta?.changes ?? 0)) return bad();
   await env.DB.prepare("DELETE FROM login_links WHERE account_id = ?").bind(aid).run(); // links sent to an old address stop working
@@ -237,4 +248,14 @@ export async function updatesUnsubscribe(req, env) {
   if (req.method === "GET") return htmlPage("Stop new-feature emails?", `<form method="post" action="/api/account/updates/unsubscribe?a=${aid}&amp;t=${encodeURIComponent(token)}"><p>We'll stop sending occasional updates about new features. Your My List account and any daily briefing aren't affected.</p>${button("Stop these emails")}</form>`);
   await env.DB.prepare("UPDATE accounts SET updates_opt_in = 0, updates_wanted = 0 WHERE id = ?").bind(aid).run();
   return htmlPage("Done", "<p>You won't get any more new-feature emails. You can turn them back on in My List, under Manage account.</p>");
+}
+
+// One-click unsubscribe from the weekly My List update (RFC 8058 POST from the mail client, or the page's button).
+export const weeklyUnsubUrl = (siteOrigin, aid) => `${siteOrigin}/api/account/weekly/unsubscribe?a=${aid}&t=${signToken("weekly-unsub", aid)}`;
+export async function weeklyUnsubscribe(req, env) {
+  const q = new URL(req.url).searchParams, aid = String(q.get("a") || ""), token = String(q.get("t") || "");
+  if (!AID.test(aid) || !verifyToken("weekly-unsub", aid, token)) return htmlPage("Link not recognised", "<p>This link is incomplete or has been altered. Use the link from the most recent weekly email.</p>", 400);
+  if (req.method === "GET") return htmlPage("Stop the weekly update?", `<form method="post" action="/api/account/weekly/unsubscribe?a=${aid}&amp;t=${encodeURIComponent(token)}"><p>We'll stop sending your Monday My List update. Your My List account, the daily briefing and any other emails aren't affected.</p>${button("Stop the weekly update")}</form>`);
+  await env.DB.prepare("UPDATE accounts SET weekly_opt_in = 0, weekly_wanted = 0 WHERE id = ?").bind(aid).run();
+  return htmlPage("Done", "<p>You won't get any more weekly updates. You can turn them back on in My List, under Manage account.</p>");
 }
