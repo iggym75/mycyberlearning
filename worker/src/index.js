@@ -9,6 +9,7 @@ import * as account from "./account.js";
 import * as accountEmail from "./account-email.js";
 import { dispatchBriefing } from "./cron.js";
 import { serveMedia } from "./lib/media.js";
+import * as whatsnew from "./whatsnew.js";
 
 // [method(s), path pattern, handler]. `:id` captures one URL-encoded segment.
 const ROUTES = [
@@ -46,6 +47,9 @@ const ROUTES = [
   ["GET", "/api/admin/reports", admin.listReports],
   ["POST", "/api/admin/reports/:id", admin.closeReport],
   ["PATCH,DELETE", "/api/admin/items/:id", admin.item],
+  ["GET", "/api/whatsnew", whatsnew.list],
+  ["GET,POST", "/api/admin/whatsnew", (req, env, ctx, p) => (req.method === "POST" ? whatsnew.adminSave : whatsnew.adminList)(req, env, ctx, p)],
+  ["DELETE", "/api/admin/whatsnew/:id", whatsnew.adminDelete],
   ["GET", "/api/admin/updates", admin.listUpdates],
   ["POST", "/api/admin/updates", admin.saveUpdate],
   ["POST", "/api/admin/updates/:id/preview", admin.previewUpdate],
