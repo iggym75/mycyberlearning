@@ -432,3 +432,28 @@ test("ISBNs are accepted however they're pasted", async () => {
   assert.equal(normaliseIsbn("ISBN-10: 0-306-40615-2"), "0306406152");
   assert.equal(normaliseIsbn("979-8264885670"), null, "bad check digit");
 });
+
+test("What's New: public list newest first, admin-only edits, links must stay on our site", async () => {
+  const pub = await (await call("/api/whatsnew")).json();
+  assert.ok(pub.items.length >= 6);
+  assert.equal(pub.items[0].title, "Daily Briefing links that open on our site"); // newest seeded entry first
+  assert.ok(pub.items.every((x, i, a) => i === 0 || a[i - 1].day >= x.day));
+  // Not signed in as admin: refused
+  assert.ok([401, 403].includes((await call("/api/admin/whatsnew", { method: "POST", body: { day: "2026-11-27", title: "x", body: "y" } })).status));
+  const cookie = await adminCookie(), h = { cookie, origin: SITE };
+  const post = body => call("/api/admin/whatsnew", { method: "POST", body, headers: h });
+  for (const link of ["https://evil.test/", "//evil.test", "javascript:alert(1)", "#Bad Link"]) {
+    const r = await post({ day: "2026-11-27", title: "T", body: "B", link });
+    assert.equal(r.status, 400, link);
+  }
+  assert.equal((await post({ day: "27/11/2026", title: "T", body: "B" })).status, 400);
+  const ok = await (await post({ day: "2026-11-30", title: "Weekly My List update", body: "Every Monday.", link: "#mylist" })).json();
+  assert.ok(ok.id);
+  let list = (await (await call("/api/whatsnew")).json()).items;
+  assert.equal(list[0].title, "Weekly My List update");
+  assert.equal((await post({ id: ok.id, day: "2026-11-30", title: "Weekly update", body: "Mondays.", link: "/video/" })).status, 200);
+  assert.equal((await (await call("/api/whatsnew")).json()).items[0].title, "Weekly update");
+  assert.equal((await call(`/api/admin/whatsnew/${ok.id}`, { method: "DELETE", headers: h })).status, 200);
+  list = (await (await call("/api/whatsnew")).json()).items;
+  assert.ok(!list.some(x => x.id === ok.id));
+});
