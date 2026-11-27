@@ -127,6 +127,38 @@ body:not([data-type="all"]) .intro{padding-block:18px 4px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0;position:relative}
 .card .head{padding-right:34px}
+/* ---------- My List: "This week" (last 7 days for the podcasts you've saved) ---------- */
+.tw{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px 18px;margin:4px 0 14px}
+.tw-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.tw-h h2{margin:0;font:800 19px/1.2 var(--f-display);letter-spacing:-.01em}
+.tw-h .sub{color:var(--ink-2);font-size:14px}
+.tw-h .tw-toggle{margin-left:auto;background:none;border:0;padding:4px;color:var(--ink-3);font-size:13px;text-decoration:underline;cursor:pointer}
+.tw.collapsed{padding:10px 18px}.tw.collapsed .tw-body{display:none}
+.tw-sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0 16px}
+.tw-sum div{background:#0f2a4a;color:#fff;border-radius:12px;padding:9px 14px;display:flex;flex-direction:column}
+.tw-sum b{font:800 22px/1.1 var(--f-display)}.tw-sum span{color:#cfdbe8;font-size:13px}
+:root[data-theme="dark"] .tw-sum div{background:#163d73}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tw-sum div{background:#163d73}}
+.tw-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px}
+.tw h3{margin:0 0 8px;font:700 15.5px/1.3 var(--f-display)}.tw h3 span{font:400 13px var(--f-body);color:var(--ink-3)}
+.tw-show{display:flex;gap:11px;padding:9px 0;border-top:1px solid var(--line)}.tw-show:first-of-type{border-top:0}
+.tw-show .pic,.tw-pod .pic{width:36px;height:36px;border-radius:8px;flex:none;overflow:hidden;display:grid;place-items:center;color:#fff;font:700 12px var(--f-display)}
+.tw-show .pic img,.tw-pod .pic img{width:100%;height:100%;object-fit:cover;display:block;background:#fff}
+.tw-name{background:none;border:0;padding:0;font:600 15px var(--f-body);color:var(--ink);cursor:pointer;text-align:left}.tw-name:hover{text-decoration:underline}
+.tw-cnt{display:inline-block;margin-left:6px;background:color-mix(in srgb,var(--signal) 14%,var(--surface));color:var(--signal);border-radius:999px;padding:1px 8px;font-size:12px;font-weight:600;vertical-align:1px}
+.tw-eps{list-style:none;margin:4px 0 0;padding:0}
+.tw-eps li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:6px;font-size:13.5px;line-height:1.4;padding:2px 0;color:var(--ink-2)}
+.tw-eps li span:last-child{overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.tw-d{font:600 11px/1.9 var(--f-mono);text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+.tw-more{background:none;border:0;padding:2px 0 0 68px;color:var(--ink-3);font-size:13px;cursor:pointer;text-decoration:underline}
+.tw-quiet{margin:10px 0 0;font-size:13px;color:var(--ink-3)}
+.tw-hl{list-style:none;margin:0 0 10px;padding:0}.tw-hl li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:6px;padding:4px 0;font-size:13.5px;font-weight:600;line-height:1.4}
+.tw-pod{display:flex;align-items:center;gap:10px;padding:6px 0}.tw-pod .btn{margin-left:auto;flex:none}
+.tw a.btn{text-decoration:none}
+.tw-pod .t{font:500 11px var(--f-mono);text-transform:uppercase;letter-spacing:.04em}
+.tw-pod .nm{font-weight:600;font-size:14px;line-height:1.25}
+.tw-empty{color:var(--ink-3);font-size:13.5px;margin:0 0 6px}
+@media (max-width:760px){.tw-grid{grid-template-columns:1fr}.tw-sum b{font-size:19px}.tw-sum span{font-size:12px}.tw-sum div{padding:8px 10px}}
 /* ---------- My List: learning map (top-down tree by type, topic coverage, gap ideas) ---------- */
 .lmap{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px 18px;margin:4px 0 18px}
 .lmap-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -512,6 +544,7 @@ footer .browse{flex-basis:100%;display:flex;gap:6px;flex-wrap:wrap;align-items:c
 <section class="wrap intro library-only">
   <p class="intro-note" id="introNote" hidden></p>
   <div class="acct" id="acctPanel" hidden></div>
+  <section class="tw" id="thisWeek" hidden aria-labelledby="twTitle"></section>
   <section class="lmap" id="learnMap" hidden aria-labelledby="lmapTitle"></section>
   <h1 class="home-only">Podcasts, books, platforms and experts to keep your cyber skills current</h1>
   <p class="home-only">A curated library for people starting out in security and practitioners staying sharp. Filter by the domains you work in, find free and low-cost labs, courses and events, discover the experts worth following, see listener ratings from the podcast platforms, and add your own vote — community scores sit alongside the official ratings, never mixed with them.</p>
@@ -826,7 +859,7 @@ footer .browse{flex-basis:100%;display:flex;gap:6px;flex-wrap:wrap;align-items:c
         <tr><td><code>__Host-mcl_admin</code></td><td>Cookie</td><td>Keeps the site's administrator signed in. Never set for visitors.</td><td>8 hours</td></tr>
         <tr><td><code>__Host-mcl_oauth</code></td><td>Cookie</td><td>Protects the administrator's GitHub sign-in from forgery. Never set for visitors.</td><td>10 minutes</td></tr>
         <tr><td><code>__cf_bm</code></td><td>Cookie (Cloudflare)</td><td>Our host, Cloudflare, may set this to tell people from automated traffic and protect the site from abuse.</td><td>30 minutes</td></tr>
-        <tr><td><code>mcl:*</code></td><td>Browser storage</td><td>Kept only in your browser and never sent to us: your filters, items saved to My List without an account, whether you've hidden the learning map, the newest What's New entry you've seen, and a random number that stops double votes.</td><td>Until you clear your browser data</td></tr>
+        <tr><td><code>mcl:*</code></td><td>Browser storage</td><td>Kept only in your browser and never sent to us: your filters, items saved to My List without an account, whether you've hidden the learning map or the "This week" panel, the newest What's New entry you've seen, and a random number that stops double votes.</td><td>Until you clear your browser data</td></tr>
       </tbody>
     </table>
     <p>You can delete cookies and site data at any time in your browser's settings; the site still works, but you'll be signed out and lose anything saved only in your browser.</p>
@@ -1611,7 +1644,7 @@ function render(){
   const scope = TAX.scope?.[state.type];
   $("#introNote").hidden = !scope; $("#introNote").textContent = scope?.intro || "";
   $("#navMine").textContent = FAV.list.size || ""; $("#mineDot").hidden = !ITEMS.some(isNewNow);
-  renderAcct(); renderSubAcct(); renderMap();
+  renderAcct(); renderSubAcct(); renderWeek(); renderMap();
   $("#stats").innerHTML = `<span><b>${pods}</b> podcasts</span><span><b>${books}</b> books</span><span><b>${plats}</b> platforms</span>${people?`<span><b>${people}</b> experts</span>`:""}<span><b>${TAX.domains.length}</b> security domains</span><span><b>${ITEMS.filter(i=>i.curator).length}</b> MCL Picks</span>`;
 }
 
@@ -2038,6 +2071,83 @@ document.addEventListener("submit", async e => {
 /* ---------- Header height for the sticky sidebar (.rail) ---------- */
 { const bar = document.querySelector(".bar"), set = () => document.documentElement.style.setProperty("--bar-h", bar.offsetHeight + "px");
   set(); if ("ResizeObserver" in window) new ResizeObserver(set).observe(bar); else addEventListener("resize", set); }
+
+/* ---------- My List: "This week" ----------
+   The last 7 days for the podcasts you've saved: new episodes (from each podcast's `recent`, kept by the daily
+   episode check), top briefing stories in your podcasts' topics (news/week.json), podcasts added to the library in
+   those topics, and one MCL Pick podcast for a topic you don't cover. Built in the browser; nothing is stored except
+   whether you've hidden it (mcl:weekHidden). The Monday email uses the same rules (scripts/weekly.mjs). */
+const WEEK = { stories: null, open: new Set() };
+// Drop a date some shows repeat at the end of their titles, e.g. "… (Nov 25th 2026)".
+const epTitle = t => String(t).replace(/\s*\((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* \d{1,2}(?:st|nd|rd|th)?,? \d{4}\)\s*$/, "");
+const weekDay = d => { try { return new Date(d + "T12:00:00Z").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", timeZone: "UTC" }); } catch { return d; } };
+async function loadWeekStories(){
+  if (!WEEK.stories) WEEK.stories = (await getJsonSafe("news/week.json"))?.stories || [];
+  return WEEK.stories;
+}
+function weekData(){
+  const since = new Date(Date.now() - 7 * 864e5).toISOString().slice(0, 10);
+  const pods = ITEMS.filter(i => i.type === "podcast" && FAV.list.has(i.id) && (!i.hidden || api.isAdmin));
+  const shows = pods.map(i => ({ i, eps: (i.recent || []).filter(e => e && e.d >= since && e.t) }))
+    .sort((a, b) => (b.eps[0]?.d || "").localeCompare(a.eps[0]?.d || "") || b.eps.length - a.eps.length);
+  const topics = new Set(pods.flatMap(i => i.domains || []));
+  const saved = new Set(FAV.list.keys());
+  const newPods = ITEMS.filter(i => i.type === "podcast" && !i.hidden && !saved.has(i.id) && i.added && i.added >= since && (i.domains || []).some(d => topics.has(d))).slice(0, 3);
+  const used = new Set(newPods.map(i => i.id));
+  const size = k => ITEMS.filter(i => i.type === "podcast" && !i.hidden && (i.domains || []).includes(k)).length;
+  const score = i => (i.rating?.v || 0) * Math.log10((i.rating?.n || 0) + 10);
+  let gap = null;
+  for (const g of TAX.domains.filter(d => !topics.has(d.key)).sort((a, b) => size(b.key) - size(a.key))){
+    const p = ITEMS.filter(i => i.type === "podcast" && i.curator && !i.hidden && !saved.has(i.id) && !used.has(i.id) && (i.domains || []).includes(g.key)).sort((a, b) => score(b) - score(a))[0];
+    if (p){ gap = [g, p]; break; }
+  }
+  const seenDay = new Set();
+  const stories = (WEEK.stories || []).filter(t => t.date >= since && (t.domains || []).some(d => topics.has(d)) && !seenDay.has(t.date) && seenDay.add(t.date)).slice(0, 3);
+  return { pods, shows, newPods, gap, stories };
+}
+async function renderWeek(){
+  const el = $("#thisWeek");
+  const any = state.type === "mine" && ITEMS.some(i => i.type === "podcast" && FAV.list.has(i.id));
+  el.hidden = !any; if (!any) return;
+  await loadWeekStories();
+  const { pods, shows, newPods, gap, stories } = weekData();
+  const collapsed = store.get("weekHidden", false), active = shows.filter(x => x.eps.length), quiet = shows.filter(x => !x.eps.length);
+  const total = active.reduce((n, x) => n + x.eps.length, 0);
+  el.classList.toggle("collapsed", collapsed);
+  const showHtml = ({ i, eps }) => { const open = WEEK.open.has(i.id), list = open ? eps : eps.slice(0, 3);
+    return `<div class="tw-show">${mapPic(i)}<div style="min-width:0;flex:1">
+      <button class="tw-name" type="button" data-weekgo="${esc(i.id)}" title="Show ${esc(i.name)} in your list">${esc(i.name)}</button><span class="tw-cnt">${eps.length} new</span>
+      <ul class="tw-eps">${list.map(e => `<li><span class="tw-d">${esc(weekDay(e.d))}</span><span>${esc(epTitle(e.t))}</span></li>`).join("")}</ul>
+      ${eps.length > 3 ? `<button class="tw-more" type="button" data-weekmore="${esc(i.id)}">${open ? "Show fewer" : `+ ${eps.length - 3} more`}</button>` : ""}</div></div>`; };
+  const pod = (i, label) => `<div class="tw-pod">${mapPic(i)}<div style="min-width:0">${label || ""}<div class="nm">${esc(i.name)}</div></div><button class="btn sm" type="button" data-weeksave="${esc(i.id)}" aria-label="Save ${esc(i.name)} to My List">♡ Save</button></div>`;
+  el.innerHTML = `<div class="tw-h"><h2 id="twTitle">This week</h2><span class="sub">Last 7 days · your podcasts</span>
+      <button class="tw-toggle" type="button" data-weektoggle aria-expanded="${!collapsed}">${collapsed ? "Show" : "Hide"}</button></div>
+    <div class="tw-body">
+      <div class="tw-sum"><div><b>${total}</b><span>new episode${total === 1 ? "" : "s"}</span></div><div><b>${active.length}</b><span>of your ${pods.length} podcast${pods.length === 1 ? "" : "s"}</span></div><div><b>${stories.length}</b><span>briefing stor${stories.length === 1 ? "y" : "ies"} for you</span></div></div>
+      <div class="tw-grid">
+        <section><h3>New from your podcasts</h3>${active.length ? active.map(showHtml).join("") : `<p class="tw-empty">No new episodes from your podcasts in the last 7 days.</p>`}
+          ${quiet.length && active.length ? `<p class="tw-quiet">No new episodes: ${quiet.map(x => esc(x.i.name)).join(", ")}</p>` : ""}</section>
+        <section>
+          <h3>In this week&rsquo;s briefings <span>· your topics</span></h3>
+          ${stories.length ? `<ul class="tw-hl">${stories.map(t => `<li><span class="tw-d">${esc(weekDay(t.date))}</span><span>${esc(t.title)}</span></li>`).join("")}</ul>` : `<p class="tw-empty">Nothing in your topics this week.</p>`}
+          <a class="btn sm" href="#news">Open the Daily Briefing</a>
+          ${newPods.length ? `<h3 style="margin-top:18px">New podcasts in your topics</h3>${newPods.map(i => pod(i)).join("")}` : ""}
+          ${gap ? `<h3 style="margin-top:18px">Fill a gap</h3>${pod(gap[1], `<div class="t" style="color:${domCol(gap[0].key)}">${esc(gap[0].label)}</div>`)}` : ""}
+        </section>
+      </div>
+    </div>`;
+}
+document.addEventListener("click", async e => {
+  const b = e.target.closest("#thisWeek button"); if (!b) return;
+  if (b.hasAttribute("data-weektoggle")){ store.set("weekHidden", !store.get("weekHidden", false)); return renderWeek(); }
+  if (b.dataset.weekmore){ const id = b.dataset.weekmore; WEEK.open.has(id) ? WEEK.open.delete(id) : WEEK.open.add(id); return renderWeek(); }
+  if (b.dataset.weeksave){ b.disabled = true; return favs.toggle(b.dataset.weeksave); }
+  if (b.dataset.weekgo){
+    const sel = `#grid .card[data-id="${CSS.escape(b.dataset.weekgo)}"]`, c = document.querySelector(sel);
+    if (c) return c.scrollIntoView({ behavior: "smooth", block: "center" });
+    mapResetFilters(); render(); requestAnimationFrame(() => document.querySelector(sel)?.scrollIntoView({ behavior: "smooth", block: "center" }));
+  }
+});
 
 /* ---------- My List: learning map ----------
    Built in the browser from the list the visitor already has: nothing new is stored or sent anywhere

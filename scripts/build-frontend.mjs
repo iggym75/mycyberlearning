@@ -47,6 +47,20 @@ if (bareIdx > -1) {
     await cp(join(root, "frontend/tour"), join(root, "frontend/dist/tour"), { recursive: true });
   if (await access(join(root, "frontend/news")).then(() => true, () => false))
     await cp(join(root, "frontend/news"), join(root, "frontend/dist/news"), { recursive: true, filter: src => !src.endsWith("preview.html") });
+// news/week.json: the top stories from the last seven briefings (title, topics, date), for the "This week" panel in
+// My List and the weekly email. Built from the published briefings, so it holds nothing personal.
+{
+  const { readdir } = await import("node:fs/promises");
+  const dir = join(root, "frontend/news");
+  const days = (await readdir(dir).catch(() => [])).filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().slice(-7);
+  const stories = [];
+  for (const f of days.reverse()) {
+    const d = await readJson(`frontend/news/${f}`).catch(() => null);
+    for (const t of (d?.topStories || []).slice(0, 4)) if (t?.title) stories.push({ date: d.date, title: String(t.title).slice(0, 160), domains: Array.isArray(t.domains) ? t.domains.slice(0, 4) : [] });
+  }
+  await mkdir(join(root, "frontend/dist/news"), { recursive: true });
+  await writeFile(join(root, "frontend/dist/news/week.json"), JSON.stringify({ days: days.map(f => f.slice(0, 10)), stories }));
+}
   const pages = await buildSitePages(join(root, "frontend/dist"), catalogue, taxonomy); // search-friendly pages, sitemap.xml, robots.txt
   console.log(`wrote frontend/dist/index.html and ${pages - 1} search-friendly pages`);
 }
