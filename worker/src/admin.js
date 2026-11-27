@@ -53,7 +53,7 @@ export const decide = guard(async (req, env, ctx, { id }) => {
       ...Object.fromEntries(SOCIAL_FIELDS.map(k => [k, s[k] || undefined])),
       isbnVerified: false, rating: null, curator: false, sources: ["community"], verified: false, addedAt: new Date().toISOString()
     });
-    if (!(await insertItem(env.DB, item))) return json(409, { error: `"${s.name}" is already in the library.` });
+    if (!(await insertItem(env.DB, item, { markAdded: true }))) return json(409, { error: `"${s.name}" is already in the library.` });
   }
   // Keep a record of the decision without personal data: drop the submitter's email and IP hash.
   const { email, ...publicData } = s;
