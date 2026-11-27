@@ -7,7 +7,7 @@
 <meta property="og:title" content="My Cyber Learning: cyber security podcasts, books, platforms and experts">
 <meta property="og:description" content="A free, vendor-neutral library of cyber security podcasts, books, learning platforms and experts, with a daily news briefing.">
 <meta name="twitter:card" content="summary">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"My Cyber Learning","url":"https://mycyberlearning.co.uk/","description":"A free, vendor-neutral library of cyber security podcasts, books, learning platforms and experts."},{"@type":"Organization","name":"My Cyber Learning","url":"https://mycyberlearning.co.uk/","logo":"https://mycyberlearning.co.uk/logo.svg"},{"@type":"VideoObject","name":"My Cyber Learning: a 2-minute tour","description":"How to find podcasts, books, learning platforms and experts, start with MCL Picks, use your learning map to spot gaps, get the Daily Briefing by email, and how the site keeps your data private and secure.","thumbnailUrl":"https://mycyberlearning.co.uk/tour/mcl-tour-v4.jpg","contentUrl":"https://mycyberlearning.co.uk/tour/mcl-tour-v4.mp4","uploadDate":"2026-11-18","duration":"PT2M31S","embedUrl":"https://mycyberlearning.co.uk/video/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"My Cyber Learning","url":"https://mycyberlearning.co.uk/","description":"A free, vendor-neutral library of cyber security podcasts, books, learning platforms and experts."},{"@type":"Organization","name":"My Cyber Learning","url":"https://mycyberlearning.co.uk/","logo":"https://mycyberlearning.co.uk/logo.svg"},{"@type":"VideoObject","name":"My Cyber Learning: a 2-minute tour","description":"How to find podcasts, books, learning platforms and experts, start with MCL Picks, see what's new each week in My List, use your learning map to spot gaps, get the Daily Briefing by email, and how the site keeps your data private and secure.","thumbnailUrl":"https://mycyberlearning.co.uk/tour/mcl-tour-v5.jpg","contentUrl":"https://mycyberlearning.co.uk/tour/mcl-tour-v5.mp4","uploadDate":"2026-11-27","duration":"PT2M55S","embedUrl":"https://mycyberlearning.co.uk/video/"}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -675,7 +675,7 @@ footer .browse{flex-basis:100%;display:flex;gap:6px;flex-wrap:wrap;align-items:c
 <dialog id="tourDlg" aria-labelledby="tourTitle">
   <div class="dlg-h"><h2 id="tourTitle">A 2-minute tour</h2><button class="btn ghost sm" type="button" data-close>Close</button></div>
   <video id="tourVideo" controls playsinline preload="none" width="1280" height="720">
-    <track kind="captions" srclang="en" label="English" data-src="/tour/mcl-tour-v4.en.vtt">
+    <track kind="captions" srclang="en" label="English" data-src="/tour/mcl-tour-v5.en.vtt">
   </video>
   <p class="tour-note" id="tourNote">Captions are available from the CC button. The video is hosted on this site: no third-party player, no tracking.</p>
 </dialog>
@@ -2297,11 +2297,11 @@ document.addEventListener("click", async e => {
 /* ---------- Site tour video ---------- */
 // Apple devices stream it as HLS (small pieces: no byte ranges needed, and it gets through filtering proxies);
 // everything else plays the MP4. If one fails, the player switches to the other once.
-const TOUR = { hls: "/tour/hls-v4/index.m3u8", mp4: "/tour/mcl-tour-v4.mp4" };
+const TOUR = { hls: "/tour/hls-v5/index.m3u8", mp4: "/tour/mcl-tour-v5.mp4" };
 function openTour(){
   const d = $("#tourDlg"), v = $("#tourVideo");
   if (!v.getAttribute("src")){ // load nothing until someone asks for the tour
-    v.poster = "/tour/mcl-tour-v4.jpg";
+    v.poster = "/tour/mcl-tour-v5.jpg";
     const t = v.querySelector("track"); t.src = t.dataset.src;
     const apple = /Apple/.test(navigator.vendor) && v.canPlayType("application/vnd.apple.mpegurl");
     v.src = apple ? TOUR.hls : TOUR.mp4;
