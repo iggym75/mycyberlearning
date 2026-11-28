@@ -1,171 +1,174 @@
 {
-  "date": "2026-11-27",
-  "generatedAt": "2026-11-27T08:38:15.805Z",
-  "windowHours": 25,
-  "headline": "Chinese-speaking phishing takedown, state AI attack tooling, and the Jensen Huang spy saga",
-  "overview": "Today's shows cover a coordinated civil and infrastructure takedown of a Chinese-speaking phishing ecosystem, reports of state groups and criminals adopting agentic AI attack frameworks, and a long analysis of the alleged espionage story around Nvidia's chief executive. Several shows also touch on AI's effect on the criminal marketplace and on the business side of the AI boom.",
+  "date": "2026-11-28",
+  "generatedAt": "2026-11-28T16:31:03.240Z",
+  "windowHours": 32,
+  "headline": "Ransomware via legitimate tools, CrowdStrike–Zscaler deal, and a 1Password breach",
+  "overview": "Today's shows cover a ransomware operation that relies on stolen VPN logins and everyday admin tools, the proposed CrowdStrike acquisition of Zscaler, and a wave of breaches and outages that dominated November. The AI Daily Brief examines whether the AI industry has become too big to fail and what a bailout would look like.",
   "topStories": [
     {
-      "title": "Takedown of Chinese-speaking phishing ecosystem",
-      "summary": "A Microsoft-led civil action and infrastructure takedown targeted the Kogui and related fishing kit families and the wider marketplace enablers, which were responsible for very high volumes of phishing, many aimed at Japanese users.",
+      "title": "Anubis ransomware operation relies on legitimate tools",
+      "summary": "Research describes an affiliate-based ransomware service that gets in through stolen VPN credentials or a Citrix flaw, then uses common remote management tools and quickly steals domain credential data. The researchers say the danger lies in the combination of normal-looking actions, so knowing your baseline matters.",
       "refs": [
-        "cyberwire-daily-0",
-        "security-weekly-0"
-      ],
-      "domains": [
-        "news",
-        "cti",
-        "offensive"
-      ]
-    },
-    {
-      "title": "State actors and criminals adopt agentic AI attack tools",
-      "summary": "Microsoft reports Chinese and North Korean state groups integrating the Artex framework to automate reconnaissance and exploitation. Swiss and Italian agencies warn of autonomous AI attack agents targeting critical infrastructure.",
-      "refs": [
-        "cyber-security-headlines-0",
         "cyberwire-daily-0"
       ],
       "domains": [
-        "ai",
         "offensive",
-        "news"
-      ]
-    },
-    {
-      "title": "Alleged espionage story around Nvidia's chief executive",
-      "summary": "A former intelligence officer discusses the alleged use of a romantic relationship and business access to cultivate a technology executive, and the policy and security questions the case raises ahead of congressional hearings.",
-      "refs": [
-        "cybersecurity-today-0"
-      ],
-      "domains": [
-        "news",
-        "human",
+        "hunting",
         "defensive"
       ]
     },
     {
-      "title": "Data breaches at travel and password companies",
-      "summary": "Flight Centre disclosed a breach exposing some passport details and other customer records, and 1Password reported an attacker accessing a corporate GitHub account.",
+      "title": "1Password discloses breach through GitHub account",
+      "summary": "An attacker used one employee's GitHub account to copy private source code and push malicious code into backend services, exposing names, emails and account details for some users. 1Password says vaults were not accessed, though its investigation is ongoing.",
       "refs": [
-        "cyber-security-headlines-0",
-        "cyber-bites-0"
+        "daily-defsec-brief-0",
+        "daily-defsec-brief-1",
+        "cybersecurity-today-0"
       ],
       "domains": [
-        "privacy",
-        "news"
+        "appsec",
+        "news",
+        "privacy"
       ]
     },
     {
-      "title": "Anthropic's rise to a major AI company",
-      "summary": "A history episode traces how Anthropic's shift toward coding and agentic products drove rapid revenue growth and changed how the AI business model works.",
+      "title": "Mitel MiCollab zero-days and other active exploits",
+      "summary": "Attackers are breaking into MiCollab servers, some before a patch was released, and have reached Active Directory and backup systems. Juniper's session conductor root flaw is also being exploited, and Chrome is being enrolled into attacker-controlled admin consoles.",
+      "refs": [
+        "daily-defsec-brief-1"
+      ],
+      "domains": [
+        "offensive",
+        "defensive",
+        "operations"
+      ]
+    },
+    {
+      "title": "CrowdStrike reportedly to acquire Zscaler",
+      "summary": "CrowdStrike announced plans to buy Zscaler for about $44 billion, which would be the largest cybersecurity acquisition to date. Commentators raised concerns about putting more security under one vendor and the risk of a single outage.",
+      "refs": [
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "news",
+        "leadership"
+      ]
+    },
+    {
+      "title": "Is AI too big to fail?",
+      "summary": "A proposed Senate resolution would rule out AI bailouts, as commentators compare the current AI investment boom to the lead-up to the 2008 financial crisis. The discussion covers debt-funded data center growth, government contracts and the sector's importance to GDP.",
       "refs": [
         "ai-daily-brief-0"
       ],
       "domains": [
         "ai",
-        "career"
+        "news",
+        "grc"
       ]
     }
   ],
   "episodes": [
     {
       "show": "cyberwire-daily",
-      "title": "Taking the bait out of phishing.",
-      "publishedAt": "2026-11-27T08:00:00.000Z",
-      "minutes": 44,
-      "url": "https://thecyberwire.com/podcasts/only-malware-in-the-building/29/notes",
+      "title": "RMM-ber this ransomware. [Research Saturday]",
+      "publishedAt": "2026-11-28T08:00:00.000Z",
+      "minutes": 19,
+      "url": "https://thecyberwire.com/podcasts/research-saturday/440/notes",
       "ref": "cyberwire-daily-0",
       "domains": [
-        "news",
-        "cti",
-        "offensive"
-      ],
-      "core": true,
-      "summary": "A rebroadcast of an earlier episode, presented as a holiday encore. It covers a Microsoft-led civil lawsuit and takedown against the Chinese-speaking fishing kit ecosystem, including the Kogui family and related marketplace enablers, which Microsoft says enabled over a billion malicious messages."
-    },
-    {
-      "show": "cyber-security-headlines",
-      "title": "ARTEX framework thrives, autonomous cyberattack warning, Australian travel agent breach",
-      "publishedAt": "2026-11-27T08:00:00.000Z",
-      "minutes": 8,
-      "url": "https://cisoseries.libsyn.com/artex-framework-thrives-autonomous-cyberattack-warning-australian-travel-agent-breach",
-      "ref": "cyber-security-headlines-0",
-      "domains": [
-        "news",
-        "ai",
         "offensive",
-        "privacy"
-      ],
-      "core": true,
-      "summary": "Covers Chinese and North Korean state groups adding the AI-driven Artex offensive framework to their toolkits, a Swiss and Italian warning about autonomous AI attack agents, a Flight Center breach exposing customer passport details, a UK Home Office GDPR reprimand over wrongly detained people, and Palo Alto Networks warning of exploitation of a chained PHP and Fragnesia flaw."
-    },
-    {
-      "show": "cybersecurity-today",
-      "title": "Jensen Huang Scandal - A Former Security Operative's View",
-      "publishedAt": "2026-11-27T05:04:00.000Z",
-      "minutes": 38,
-      "url": "https://cybersecuritytoday.libsyn.com/jensen-huang-scandal-a-former-security-operatives-view",
-      "ref": "cybersecurity-today-0",
-      "domains": [
-        "news",
-        "human",
+        "hunting",
         "defensive"
       ],
       "core": true,
-      "summary": "A special edition with former intelligence officer Neil Bisson on the alleged spy story involving Nvidia's chief executive and a woman linked to the Chinese Ministry of State Security. They discuss how such approaches are built slowly over time, the security implications for technology executives, and upcoming congressional hearings."
+      "summary": "Research interview with Arctic Wolf on the Anubis ransomware-as-a-service operation, which uses stolen VPN credentials and a Citrix flaw for entry, then legitimate remote tools and fast domain credential theft before encrypting. The guest argues detection depends on knowing what normal activity looks like."
+    },
+    {
+      "show": "cyber-security-headlines",
+      "title": "The Department of Know: CrowdStrike to Acquire Zscaler",
+      "publishedAt": "2026-11-27T19:30:00.000Z",
+      "minutes": 23,
+      "url": "https://cisoseries.libsyn.com/the-department-of-know-crowdstrike-to-acquire-zscaler",
+      "ref": "cyber-security-headlines-0",
+      "domains": [
+        "news",
+        "leadership",
+        "operations"
+      ],
+      "core": true,
+      "summary": "Holiday edition discussing CrowdStrike's reported plan to acquire Zscaler for about $44 billion, with guests weighing platform consolidation and vendor lock-in risk. Guests also reflect on the rush to patch and the effect of recent large outages."
+    },
+    {
+      "show": "cybersecurity-today",
+      "title": "November Month-in-Review Panel: Wild Weeks that felt like Decades Edition",
+      "publishedAt": "2026-11-28T01:26:00.000Z",
+      "minutes": 49,
+      "url": "https://cybersecuritytoday.libsyn.com/november-month-in-review-panel-wild-weeks-that-felt-like-decades-edition",
+      "ref": "cybersecurity-today-0",
+      "domains": [
+        "news",
+        "leadership",
+        "stories"
+      ],
+      "core": true,
+      "summary": "Monthly panel reviewing a password manager breach, government agency hacks in the US, and Microsoft outages and layoffs. Panelists also discuss AI agents and the strain on security staff."
     },
     {
       "show": "ai-daily-brief",
-      "title": "How Anthropic Went From Anti-Product to $81B a Year",
-      "publishedAt": "2026-11-26T15:00:00.000Z",
-      "minutes": 20,
-      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/How-Anthropic-Went-From-Anti-Product-to-81B-a-Year-e3t0vt0",
+      "title": "AI is Too Big to Fail",
+      "publishedAt": "2026-11-27T18:00:01.000Z",
+      "minutes": 27,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/AI-is-Too-Big-to-Fail-e3t47qv",
       "ref": "ai-daily-brief-0",
       "domains": [
         "ai",
-        "career"
+        "news",
+        "grc"
       ],
       "core": true,
-      "summary": "Holiday replacement episode sharing excerpts from a longer history show on how Anthropic grew from a safety-focused research lab into a major revenue-generating AI company, driven by coding models and agentic products."
+      "summary": "Discussion of whether AI companies are too big to fail, prompted by a proposed Senate resolution against AI bailouts. It traces the government's growing involvement in AI policy and the risks from debt-funded data center buildout."
     },
     {
-      "show": "click-here",
-      "title": "He brought bitcoin mining to his hometown. Then came the noise.",
-      "publishedAt": "2026-11-27T08:00:00.000Z",
-      "minutes": 14,
-      "url": "https://play.prx.org/listen?ge=prx_8376_e40e362c-3966-412e-bdc3-1dc3b1d58178&uf=https%3A%2F%2Fpublicfeeds.net%2Ff%2F8376%2Fclickhere",
-      "ref": "click-here-0",
+      "show": "security-weekly-news",
+      "title": "Rinoa Poison: The Repoisoning Part 2 - SWN #637",
+      "publishedAt": "2026-11-27T22:00:00.000Z",
+      "minutes": 31,
+      "url": "https://hntvaudio.libsyn.com/rinoa-poison-the-repoisoning-part-2-swn-637",
+      "ref": "security-weekly-news-0",
       "domains": [
+        "human",
         "news"
       ],
-      "summary": "Revisits a story about a man who brought Bitcoin mining to his grandfather's hometown in Kentucky after state incentives, and the local noise problems that followed. The notes do not cover further specifics."
+      "summary": "Brief episode description only: an interview with a known scam-baiter about how scams work and how to defend against them. The notes say nothing further about specific news."
     },
     {
-      "show": "cyber-bites",
-      "title": "Cyber Bites - 27th November 2026",
-      "publishedAt": "2026-11-27T05:55:31Z",
+      "show": "daily-defsec-brief",
+      "title": "The 1Password breach: the questions their announcement doesn't answer",
+      "publishedAt": "2026-11-27T17:48:02.000Z",
       "minutes": 8,
-      "url": "https://podcasts.apple.com/gb/podcast/cyber-bites-27th-november-2026/id1756244582",
-      "ref": "cyber-bites-0",
+      "url": "https://riverside.com",
+      "ref": "daily-defsec-brief-0",
       "domains": [
+        "appsec",
         "news",
         "privacy"
       ],
-      "summary": "Short news roundup covering a bank penalty over a 2023 cyber incident, a 1Password breach involving a corporate GitHub account, and the Flight Centre customer data breach."
+      "summary": "Deep dive on the 1Password breach, where an attacker used an employee's GitHub account to copy source code and push malicious code that exposed account records. The host explains why vault contents are believed safe and cautions that early statements may be revised."
     },
     {
-      "show": "security-weekly",
-      "title": "AI Arms Race, We All Lose - PSW #954",
-      "publishedAt": "2026-11-26T22:00:00.000Z",
-      "minutes": 127,
-      "url": "https://pswonly.libsyn.com/ai-arms-race-we-all-lose-psw-954",
-      "ref": "security-weekly-0",
+      "show": "daily-defsec-brief",
+      "title": "Mitel MiCollab zero-days, 1Password breach, Juniper root flaw exploited | Cyber Security News Nov 27",
+      "publishedAt": "2026-11-27T14:40:59.000Z",
+      "minutes": 4,
+      "url": "https://riverside.com",
+      "ref": "daily-defsec-brief-1",
       "domains": [
-        "ai",
         "offensive",
-        "appsec"
+        "defensive",
+        "news",
+        "operations"
       ],
-      "summary": "Covers a range of topics including AI accelerating exploit writing, AI-driven reverse engineering, shrinking disclosure timelines, malware A/B testing, and exposed fridge controllers. The notes are a topic list, so detail on each item is limited."
+      "summary": "Daily roundup covering zero-day exploitation of Mitel MiCollab servers, a root flaw in Juniper Session Smart Conductor, the 1Password breach, and supermarket freezer attacks through industrial controllers. It also covers malware that enrolls Chrome into an attacker-controlled admin console, with patching advice."
     }
   ],
   "quietCore": [

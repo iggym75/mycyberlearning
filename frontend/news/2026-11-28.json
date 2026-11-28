@@ -1,0 +1,177 @@
+{
+  "date": "2026-11-28",
+  "generatedAt": "2026-11-28T16:31:03.240Z",
+  "windowHours": 32,
+  "headline": "Ransomware via legitimate tools, CrowdStrike–Zscaler deal, and a 1Password breach",
+  "overview": "Today's shows cover a ransomware operation that relies on stolen VPN logins and everyday admin tools, the proposed CrowdStrike acquisition of Zscaler, and a wave of breaches and outages that dominated November. The AI Daily Brief examines whether the AI industry has become too big to fail and what a bailout would look like.",
+  "topStories": [
+    {
+      "title": "Anubis ransomware operation relies on legitimate tools",
+      "summary": "Research describes an affiliate-based ransomware service that gets in through stolen VPN credentials or a Citrix flaw, then uses common remote management tools and quickly steals domain credential data. The researchers say the danger lies in the combination of normal-looking actions, so knowing your baseline matters.",
+      "refs": [
+        "cyberwire-daily-0"
+      ],
+      "domains": [
+        "offensive",
+        "hunting",
+        "defensive"
+      ]
+    },
+    {
+      "title": "1Password discloses breach through GitHub account",
+      "summary": "An attacker used one employee's GitHub account to copy private source code and push malicious code into backend services, exposing names, emails and account details for some users. 1Password says vaults were not accessed, though its investigation is ongoing.",
+      "refs": [
+        "daily-defsec-brief-0",
+        "daily-defsec-brief-1",
+        "cybersecurity-today-0"
+      ],
+      "domains": [
+        "appsec",
+        "news",
+        "privacy"
+      ]
+    },
+    {
+      "title": "Mitel MiCollab zero-days and other active exploits",
+      "summary": "Attackers are breaking into MiCollab servers, some before a patch was released, and have reached Active Directory and backup systems. Juniper's session conductor root flaw is also being exploited, and Chrome is being enrolled into attacker-controlled admin consoles.",
+      "refs": [
+        "daily-defsec-brief-1"
+      ],
+      "domains": [
+        "offensive",
+        "defensive",
+        "operations"
+      ]
+    },
+    {
+      "title": "CrowdStrike reportedly to acquire Zscaler",
+      "summary": "CrowdStrike announced plans to buy Zscaler for about $44 billion, which would be the largest cybersecurity acquisition to date. Commentators raised concerns about putting more security under one vendor and the risk of a single outage.",
+      "refs": [
+        "cyber-security-headlines-0"
+      ],
+      "domains": [
+        "news",
+        "leadership"
+      ]
+    },
+    {
+      "title": "Is AI too big to fail?",
+      "summary": "A proposed Senate resolution would rule out AI bailouts, as commentators compare the current AI investment boom to the lead-up to the 2008 financial crisis. The discussion covers debt-funded data center growth, government contracts and the sector's importance to GDP.",
+      "refs": [
+        "ai-daily-brief-0"
+      ],
+      "domains": [
+        "ai",
+        "news",
+        "grc"
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "show": "cyberwire-daily",
+      "title": "RMM-ber this ransomware. [Research Saturday]",
+      "publishedAt": "2026-11-28T08:00:00.000Z",
+      "minutes": 19,
+      "url": "https://thecyberwire.com/podcasts/research-saturday/440/notes",
+      "ref": "cyberwire-daily-0",
+      "domains": [
+        "offensive",
+        "hunting",
+        "defensive"
+      ],
+      "core": true,
+      "summary": "Research interview with Arctic Wolf on the Anubis ransomware-as-a-service operation, which uses stolen VPN credentials and a Citrix flaw for entry, then legitimate remote tools and fast domain credential theft before encrypting. The guest argues detection depends on knowing what normal activity looks like."
+    },
+    {
+      "show": "cyber-security-headlines",
+      "title": "The Department of Know: CrowdStrike to Acquire Zscaler",
+      "publishedAt": "2026-11-27T19:30:00.000Z",
+      "minutes": 23,
+      "url": "https://cisoseries.libsyn.com/the-department-of-know-crowdstrike-to-acquire-zscaler",
+      "ref": "cyber-security-headlines-0",
+      "domains": [
+        "news",
+        "leadership",
+        "operations"
+      ],
+      "core": true,
+      "summary": "Holiday edition discussing CrowdStrike's reported plan to acquire Zscaler for about $44 billion, with guests weighing platform consolidation and vendor lock-in risk. Guests also reflect on the rush to patch and the effect of recent large outages."
+    },
+    {
+      "show": "cybersecurity-today",
+      "title": "November Month-in-Review Panel: Wild Weeks that felt like Decades Edition",
+      "publishedAt": "2026-11-28T01:26:00.000Z",
+      "minutes": 49,
+      "url": "https://cybersecuritytoday.libsyn.com/november-month-in-review-panel-wild-weeks-that-felt-like-decades-edition",
+      "ref": "cybersecurity-today-0",
+      "domains": [
+        "news",
+        "leadership",
+        "stories"
+      ],
+      "core": true,
+      "summary": "Monthly panel reviewing a password manager breach, government agency hacks in the US, and Microsoft outages and layoffs. Panelists also discuss AI agents and the strain on security staff."
+    },
+    {
+      "show": "ai-daily-brief",
+      "title": "AI is Too Big to Fail",
+      "publishedAt": "2026-11-27T18:00:01.000Z",
+      "minutes": 27,
+      "url": "https://podcasters.spotify.com/pod/show/nlw/episodes/AI-is-Too-Big-to-Fail-e3t47qv",
+      "ref": "ai-daily-brief-0",
+      "domains": [
+        "ai",
+        "news",
+        "grc"
+      ],
+      "core": true,
+      "summary": "Discussion of whether AI companies are too big to fail, prompted by a proposed Senate resolution against AI bailouts. It traces the government's growing involvement in AI policy and the risks from debt-funded data center buildout."
+    },
+    {
+      "show": "security-weekly-news",
+      "title": "Rinoa Poison: The Repoisoning Part 2 - SWN #637",
+      "publishedAt": "2026-11-27T22:00:00.000Z",
+      "minutes": 31,
+      "url": "https://hntvaudio.libsyn.com/rinoa-poison-the-repoisoning-part-2-swn-637",
+      "ref": "security-weekly-news-0",
+      "domains": [
+        "human",
+        "news"
+      ],
+      "summary": "Brief episode description only: an interview with a known scam-baiter about how scams work and how to defend against them. The notes say nothing further about specific news."
+    },
+    {
+      "show": "daily-defsec-brief",
+      "title": "The 1Password breach: the questions their announcement doesn't answer",
+      "publishedAt": "2026-11-27T17:48:02.000Z",
+      "minutes": 8,
+      "url": "https://riverside.com",
+      "ref": "daily-defsec-brief-0",
+      "domains": [
+        "appsec",
+        "news",
+        "privacy"
+      ],
+      "summary": "Deep dive on the 1Password breach, where an attacker used an employee's GitHub account to copy source code and push malicious code that exposed account records. The host explains why vault contents are believed safe and cautions that early statements may be revised."
+    },
+    {
+      "show": "daily-defsec-brief",
+      "title": "Mitel MiCollab zero-days, 1Password breach, Juniper root flaw exploited | Cyber Security News Nov 27",
+      "publishedAt": "2026-11-27T14:40:59.000Z",
+      "minutes": 4,
+      "url": "https://riverside.com",
+      "ref": "daily-defsec-brief-1",
+      "domains": [
+        "offensive",
+        "defensive",
+        "news",
+        "operations"
+      ],
+      "summary": "Daily roundup covering zero-day exploitation of Mitel MiCollab servers, a root flaw in Juniper Session Smart Conductor, the 1Password breach, and supermarket freezer attacks through industrial controllers. It also covers malware that enrolls Chrome into an attacker-controlled admin console, with patching advice."
+    }
+  ],
+  "quietCore": [
+    "sans-stormcast"
+  ]
+}
