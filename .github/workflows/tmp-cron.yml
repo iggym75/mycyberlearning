@@ -5,13 +5,15 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - name: Cron runs and worker log lines (read-only)
+      - name: Worker log lines 08:25-08:40 (read-only)
         env:
           T: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           A: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          q='{"query":"query($a:String!,$s:Time!,$e:Time!){viewer{accounts(filter:{accountTag:$a}){workersInvocationsScheduled(limit:50,filter:{datetime_geq:$s,datetime_leq:$e,scriptName:\"mycyberlearning\"}){datetime cron status cpuTimeUs}}}}","variables":{"a":"'"$A"'","s":"2026-11-25T00:00:00Z","e":"2026-11-28T23:59:00Z"}}'
-          curl -s https://api.cloudflare.com/client/v4/graphql -H "Authorization: Bearer $T" -H "content-type: application/json" -d "$q" | jq -c '.errors // .data.viewer.accounts[0].workersInvocationsScheduled[]'
-          echo "--- worker logs (trigger lines only)"
-          b='{"timeframe":{"from":'$(date -d "2026-11-28T07:00:00Z" +%s000)',"to":'$(date -d "2026-11-28T10:00:00Z" +%s000)'},"view":"events","limit":50,"queryId":"x","parameters":{"filters":[{"key":"$metadata.message","operation":"includes","type":"string","value":"trigger"}]}}'
-          curl -s "https://api.cloudflare.com/client/v4/accounts/$A/workers/observability/telemetry/query" -H "Authorization: Bearer $T" -H "content-type: application/json" -d "$b" | jq -c '.errors // [.result.events.events[]? | {t:.timestamp, m:."$metadata".message}]' | grep -o '"m":"[^"]*trigger[^"]*"\|"t":[0-9]*\|"code[^}]*' | head -20
+          for day in 2026-11-27 2026-11-28; do
+          b='{"timeframe":{"from":'$(date -d "${day}T08:25:00Z" +%s000)',"to":'$(date -d "${day}T08:40:00Z" +%s000)'},"view":"events","limit":20,"queryId":"cron-check"}'
+          echo "== $day"
+          curl -s "https://api.cloudflare.com/client/v4/accounts/$A/workers/observability/telemetry/query" -H "Authorization: Bearer $T" -H "content-type: application/json" -d "$b" > out.json
+          jq -c '.success, (.errors|tostring)' out.json
+          jq -r '.. | objects | select(has("message")) | .message | strings' out.json | grep -i "trigger\|answered\|dispatch" | sort -u | head
+          done
