@@ -241,7 +241,7 @@ export const testUpdate = guard(async (req, env, ctx, { id }) => {
 export const sendUpdate = guard(async (req, env, ctx, { id }) => {
   const r = await env.DB.prepare("UPDATE announcements SET status = 'queued', queued_at = ? WHERE id = ? AND status = 'draft'").bind(new Date().toISOString(), Number(id)).run();
   if (!(r.meta?.changes ?? 0)) return json(409, { error: "Only a draft can be sent, and only once." });
-  const d = await dispatchWorkflow("updates.yml");
+  const d = await dispatchWorkflow("updates.yml", {}, { retry: false });
   return json(200, { ok: true, audience: await audienceCount(env), startedNow: !!d.ok });
 });
 // DELETE /api/admin/updates/:id (drafts only)
